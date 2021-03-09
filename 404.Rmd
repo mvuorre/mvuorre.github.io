@@ -1,0 +1,5 @@
+---
+title: "Sorry, nothing to see here"
+description: |
+  You've reached the end of the road.
+---

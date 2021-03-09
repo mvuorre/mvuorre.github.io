@@ -1,0 +1,111 @@
+
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap');
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      32px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Roboto", sans-serif;
+  --mono-font:       "Fira Code", monospace;
+  --body-font:       "Roboto", sans-serif;
+  --navbar-font:     "Roboto", sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.85em;
+  --text-color:      rgba(0, 0, 0, 0.6);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      #34A5DA;
+  --bkgd-color:       #222222;
+  border-bottom: 4px solid #34A5DA;
+  webkit-box-shadow: 1px 1px 18px #4d4d4d;
+  moz-box-shadow: 1px 1px 18px #4d4d4d;
+  box-shadow: 1px 1px 18px #4d4d4d;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+
+/* Underline links with accent color */
+d-article a {
+  border-bottom: 1px solid #34A5DA;
+}
+d-article a:hover {
+  border-bottom: 2px solid #34A5DA;
+}
+.d-contents nav a:hover {
+    text-decoration: none;
+}
+.categories li > a:hover {
+    border-bottom: 2px solid #34A5DA;
+}
+
+/* Use accent color for decoration */
+d-article div.sourceCode pre {
+    border-left: 2px solid #34A5DA;
+}
+d-article blockquote {
+    border-left: 2px solid #34A5DA;
+}
+
+/* Adjust fonts */
+d-article h2 {
+  line-height: 1.15em;
+  font-size: 26px;
+}
+code {
+  font-family: var(--mono-font);
+  font-size: 14px;
+}

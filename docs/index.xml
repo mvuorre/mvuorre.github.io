@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Statistics and Data Science Tutorials</title>
+    <link>https://mvuorre.github.io</link>
+    <atom:link href="https://mvuorre.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Statistics and Data Science Tutorials by Matti Vuorre
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>How to calculate contrasts from a fitted brms model</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model</link>
+      <description>Answer more questions with your estimated parameters, without refitting the model.</description>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>brms</category>
+      <guid>https://mvuorre.github.io/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model</guid>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model_files/figure-html5/figure-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>How to analyze visual analog (slider) scale data?</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</link>
+      <description>A reasonable choice might be the zero-one-inflated beta model</description>
+      <category>psychology</category>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>brms</category>
+      <guid>https://mvuorre.github.io/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</guid>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models_files/figure-html5/beta-distributions-1.png" medium="image" type="image/png" width="1248" height="652"/>
+    </item>
+    <item>
+      <title>rpihkal: Combine ggplots with patchwork</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork</link>
+      <description>How to combine arbitrary ggplots</description>
+      <category>data science</category>
+      <category>visualization</category>
+      <category>ggplot2</category>
+      <category>R</category>
+      <category>rpihkal</category>
+      <guid>https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork</guid>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/2018-12-13-rpihkal-combine-ggplots-with-patchwork_files/figure-html5/unnamed-chunk-8-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>rpihkal: Glue your strings together</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing</link>
+      <description>Use the glue R package to join strings.</description>
+      <category>data science</category>
+      <category>R</category>
+      <category>rpihkal</category>
+      <guid>https://mvuorre.github.io/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing</guid>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Bayesian Estimation of Signal Detection Models</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models</link>
+      <description>Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.</description>
+      <category>psychology</category>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>brms</category>
+      <guid>https://mvuorre.github.io/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models</guid>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Bayes Factors with brms</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms</link>
+      <description>How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.</description>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>brms</category>
+      <guid>https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms</guid>
+      <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>How to create within-subject scatter plots in R with ggplot2</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2017-01-04-within-subject-scatter</link>
+      <description>Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots. ratio method.</description>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>visualization</category>
+      <category>ggplot2</category>
+      <guid>https://mvuorre.github.io/posts/2017-01-04-within-subject-scatter</guid>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2017-01-04-within-subject-scatter/2017-01-04-within-subject-scatter_files/figure-html5/scatter-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>How to Compare Two Groups with Robust Bayesian Estimation in R</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms</link>
+      <description>2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups' data.</description>
+      <category>statistics</category>
+      <category>tutorial</category>
+      <category>R</category>
+      <category>brms</category>
+      <guid>https://mvuorre.github.io/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms</guid>
+      <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms_files/figure-html5/dataplot1-1.png" medium="image" type="image/png" width="1248" height="614"/>
+    </item>
+    <item>
+      <title>How to arrange ggplot2 panel plots</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2016-12-06-order-ggplot-panel-plots</link>
+      <description>Arrange your visual display of information to maximize your figures' impact.</description>
+      <category>data science</category>
+      <category>R</category>
+      <category>visualization</category>
+      <guid>https://mvuorre.github.io/posts/2016-12-06-order-ggplot-panel-plots</guid>
+      <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2016-12-06-order-ggplot-panel-plots/2016-12-06-order-ggplot-panel-plots_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>

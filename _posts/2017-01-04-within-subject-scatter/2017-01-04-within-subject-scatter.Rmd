@@ -1,0 +1,168 @@
+---
+title: How to create within-subject scatter plots in R with ggplot2
+description: |
+  Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots. ratio method.
+author:
+  - name: Matti Vuorre
+    url: https://vuorre.netlify.com
+    affiliation: University of Oxford
+    affiliation_url: https://www.oii.ox.ac.uk/people/matti-vuorre/
+    orcid_id: 0000-0001-5052-066X
+date: 2017-01-04
+categories:
+  - statistics
+  - tutorial
+  - R
+  - visualization
+  - ggplot2
+bibliography: bibliography.bib
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r packages, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(scales)
+library(readxl)
+library(ggbeeswarm)
+library(ggstance)
+library(tidyverse)
+```
+
+```{r setup, include = FALSE}
+opts_chunk$set(
+  warning = F,
+  message = F,
+  eval = T,
+  cache = T,
+  echo = T,
+  collapse = T,
+  fig.align = "center"
+)
+options(width = 140)
+theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
+```
+
+Today, we'll take a look at creating a specific type of visualization for data from a within-subjects experiment (also known as repeated measures, but that can sometimes be a misleading label). You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at **within-subjects scatterplots**.
+
+For example, @ganis_new_2015 asked 54 people to observe, on each trial, two 3-D shapes with various rotations and judge whether the two shapes were the same or not.
+
+There were 4 angles (0, 50, 100, and 150 degree rotations), but for simplicity, today we'll only look at items that were not rotated with respect to each other, and items rotated 50 degrees. The data are freely available (thanks!) in Excel format, and the below snippet loads the data and cleans into a useable format:
+
+```{r, echo=T}
+if (!file.exists("data.zip")) {
+  download.file("https://ndownloader.figshare.com/files/1878093", "data.zip")
+}
+unzip("data.zip")
+files <- list.files(
+  "Behavioural_data/",
+  pattern = "sub[0-9]+.xlsx", full.names = T
+)
+dat <- map(
+  files,
+  ~ read_xlsx(.x, range = "A4:G100", col_types = rep("text", 7))
+) %>%
+  bind_rows(.id = "id")
+dat <- dat %>%
+  filter(angle %in% c("0", "50")) %>%
+  transmute(
+    id = factor(id),
+    angle = factor(angle),
+    rt = as.numeric(Time),
+    accuracy = as.numeric(`correct/incorrect`)
+  )
+```
+
+```{r echo = FALSE}
+kable(head(dat), caption = "Example data.") %>% 
+  kable_styling(position = "center")
+```
+
+We'll focus on comparing the reaction times between the 0 degree and 50 degree rotation trials.
+
+## Subject means
+
+We'll be graphing subjects' means and standard errors, so we compute both first
+
+```{r echo = 1}
+dat_sum <- group_by(dat, id, angle) %>%
+  summarize(
+    m = mean(rt, na.rm = T),
+    se = sd(rt, na.rm = TRUE) / sqrt(n())
+  )
+kable(head(dat_sum), caption = "Summary data", digits = 2) %>% 
+  kable_styling(position = "center")
+```
+
+```{r}
+dat_sum %>%
+  ggplot(aes(x = angle, y = m)) +
+  stat_summary(
+    fun.data = mean_cl_normal, size = 1
+  ) +
+  geom_quasirandom(width = .1, shape = 1) +
+  scale_y_continuous("Mean RT")
+```
+
+This figure shows quite clearly that the mean reaction time in the 50 degree angle condition was higher than in the 0 degree angle condition, and the spread across individuals in each condition. However, we often are specifically interested in the *within-subject effect* of condition, which would be difficult to visually display in this image. We could draw lines to connect each point, and the effect would then be visible as a "spaghetti plot", but while useful, these plots may sometimes be a little overwhelming especially if there's too many people (spaghetti is great but nobody likes too much of it!)
+
+## Within-subject scatterplots
+
+To draw within-subjects scatterplots, we'll need a slight reorganization of the data, such that it is in wide format with respect to the conditions. 
+
+```{r echo = 1}
+dat_sum_wide <- dat_sum %>% 
+  pivot_wider(names_from = angle, values_from = c(m, se))
+kable(head(dat_sum_wide), caption = "Summary data in wide format.", digits = 2) %>% 
+  kable_styling(position = "center")
+```
+
+Then we can simply map the per-subject angle-means and standard errors to the X and Y axes. I think it's important for these graphs to usually have a 1:1 aspect ratio, an identity line, and identical axes, which we add below.
+
+```{r scatter, preview = TRUE}
+ggplot(dat_sum_wide, aes(x = m_0, y = m_50)) +
+  # Equalize axes
+  scale_x_continuous("RT (0 degrees)", limits = c(500, 5000)) +
+  scale_y_continuous("RT (50 degrees)", limits = c(500, 5000)) +
+  # Identity line
+  geom_abline(size = .25) +
+  # 1:1 aspect ratio
+  theme(aspect.ratio = 1) +
+  # Points and errorbars
+  geom_point() +
+  geom_linerange(aes(ymin = m_50-se_50, ymax = m_50+se_50), size = .25) +
+  geom_linerange(aes(xmin = m_0-se_0, xmax = m_0+se_0), size = .25)
+```
+
+This plot shows each person (mean) as a point and their SEs as thin lines. The difference between conditions can be directly seen by how far from the diagonal line the points are. Were we to use CIs, we could also see subject-specific significant differences. Points above the diagonal indicate that the person's (mean) RT was greater in the 50 degrees condition. *All* of the points lie below the identity line, indicating that the effect was as we predicted, and robust across individuals.
+
+This is a very useful diagnostic plot that simultaneously shows the population- (or group-) level trend (are the points, on average, below or above the identity line?) and the expectation (mean) for every person (roughly, how far apart the points are from each other?). The points are naturally connected by their location, unlike in a bar graph where they would be connected by lines. Maybe you think it's an informative graph; it's certainly very easy to do in R with ggplot2. Also, I think it is visually very convincing, and doesn't necessarily lead one to focus unjustly just on the group means: I am both convinced and informed by the graph.
+
+## Conclusion
+
+Within-subject scatter plots are pretty common in some fields (psychophysics), but underutilized in many fields where they might have a positive impact on statistical inference. Why not try them out on your own data, especially when they're this easy to do with R and ggplot2?
+
+Recall that for real applications, it's better to transform or model reaction times with a skewed distribution. Here we used normal distributions just for convenience.
+
+Finally, this post was made possible by the @ganis_new_2015 who generously have shared their data online. 
+
+
+<!-- Include at end of document -->
+
+```{r child = here::here("meta.Rmd")}
+# Include 'meta.Rmd' in root
+```
+
+### Software used {.appendix}
+
+```{r cache = FALSE, include = FALSE}
+papaja::r_refs("bibliography.bib")
+```
+
+The following software packages were used: `r papaja::cite_r("bibliography.bib")`.
+
+<!-- Include at end of document -->

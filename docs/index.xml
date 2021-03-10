@@ -139,5 +139,44 @@
       <pubDate>Thu, 29 Sep 2016 00:00:00 +0000</pubDate>
       <media:content url="https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/2016-09-29-bayesian-meta-analysis_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1344" height="960"/>
     </item>
+    <item>
+      <title>GitHub-style waffle plots in R</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2016-03-24-github-waffle-plot</link>
+      <description>Attractive visualization for plotting activity over time in R with ggplot2.</description>
+      <category>R</category>
+      <category>visualization</category>
+      <category>data science</category>
+      <category>tutorial</category>
+      <guid>https://mvuorre.github.io/posts/2016-03-24-github-waffle-plot</guid>
+      <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2016-03-24-github-waffle-plot/2016-03-24-github-waffle-plot_files/figure-html5/viz-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>How to create plots with subplots in R</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2016-03-15-ggplot-plots-subplots</link>
+      <description>Some tips on creating figures with multiple panels in R</description>
+      <category>data science</category>
+      <category>R</category>
+      <category>visualization</category>
+      <category>tutorial</category>
+      <guid>https://mvuorre.github.io/posts/2016-03-15-ggplot-plots-subplots</guid>
+      <pubDate>Tue, 15 Mar 2016 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2016-03-15-ggplot-plots-subplots/2016-03-15-ggplot-plots-subplots_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Confidence intervals in multilevel models</title>
+      <dc:creator>Matti Vuorre</dc:creator>
+      <link>https://mvuorre.github.io/posts/2016-03-06-multilevel-predictions</link>
+      <description>How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling context</description>
+      <category>statistics</category>
+      <category>R</category>
+      <category>brms</category>
+      <category>tutorial</category>
+      <guid>https://mvuorre.github.io/posts/2016-03-06-multilevel-predictions</guid>
+      <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
+      <media:content url="https://mvuorre.github.io/posts/2016-03-06-multilevel-predictions/index_files/figure-html5/fig1and2-1.png" medium="image" type="image/png" width="1536" height="768"/>
+    </item>
   </channel>
 </rss>

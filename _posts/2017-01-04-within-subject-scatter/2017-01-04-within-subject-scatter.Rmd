@@ -1,7 +1,7 @@
 ---
 title: How to create within-subject scatter plots in R with ggplot2
 description: |
-  Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots. ratio method.
+  Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots. 
 author:
   - name: Matti Vuorre
     url: https://vuorre.netlify.com
@@ -16,6 +16,7 @@ categories:
   - visualization
   - ggplot2
 bibliography: bibliography.bib
+base_url: https://mvuorre.github.io
 output:
   distill::distill_article:
     self_contained: false

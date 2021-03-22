@@ -1,5 +1,5 @@
 ---
-title: "rpihkal: Glue your strings together"
+title: "Glue your strings together"
 description: |
   Use the glue R package to join strings.
 author:
@@ -12,8 +12,8 @@ date: 2018-12-12
 categories:
   - data science
   - R
-  - rpihkal
 bibliography: bibliography.bib
+base_url: https://mvuorre.github.io
 output:
   distill::distill_article:
     self_contained: false

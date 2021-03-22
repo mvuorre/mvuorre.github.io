@@ -1,5 +1,5 @@
 ---
-title: "Statistics and Data Science Tutorials"
+title: "Posts"
 site: distill::distill_website
 listing: posts
 ---

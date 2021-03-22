@@ -6,20 +6,20 @@
       "description": "You've reached the end of the road.",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-03-10T16:13:13+00:00"
+      "last_modified": "2021-03-22T21:11:20+00:00"
     },
     {
       "path": "index.html",
       "title": "Statistics and Data Science Tutorials",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-03-10T16:13:14+00:00"
+      "last_modified": "2021-03-22T21:11:21+00:00"
     },
     {
       "path": "meta.html",
       "author": [],
       "contents": "\nSupport this work\n\n\n\n",
-      "last_modified": "2021-03-10T16:13:14+00:00"
+      "last_modified": "2021-03-22T21:11:21+00:00"
     }
   ],
   "collections": ["posts/posts.json"]

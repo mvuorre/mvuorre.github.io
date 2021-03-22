@@ -36,7 +36,7 @@
       <media:content url="https://mvuorre.github.io/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models_files/figure-html5/beta-distributions-1.png" medium="image" type="image/png" width="1248" height="652"/>
     </item>
     <item>
-      <title>rpihkal: Combine ggplots with patchwork</title>
+      <title>Combine ggplots with patchwork</title>
       <dc:creator>Matti Vuorre</dc:creator>
       <link>https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork</link>
       <description>How to combine arbitrary ggplots</description>
@@ -44,19 +44,17 @@
       <category>visualization</category>
       <category>ggplot2</category>
       <category>R</category>
-      <category>rpihkal</category>
       <guid>https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork</guid>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       <media:content url="https://mvuorre.github.io/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/2018-12-13-rpihkal-combine-ggplots-with-patchwork_files/figure-html5/unnamed-chunk-8-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>rpihkal: Glue your strings together</title>
+      <title>Glue your strings together</title>
       <dc:creator>Matti Vuorre</dc:creator>
       <link>https://mvuorre.github.io/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing</link>
       <description>Use the glue R package to join strings.</description>
       <category>data science</category>
       <category>R</category>
-      <category>rpihkal</category>
       <guid>https://mvuorre.github.io/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing</guid>
       <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
     </item>
@@ -91,7 +89,7 @@
       <title>How to create within-subject scatter plots in R with ggplot2</title>
       <dc:creator>Matti Vuorre</dc:creator>
       <link>https://mvuorre.github.io/posts/2017-01-04-within-subject-scatter</link>
-      <description>Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots. ratio method.</description>
+      <description>Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots.</description>
       <category>statistics</category>
       <category>tutorial</category>
       <category>R</category>

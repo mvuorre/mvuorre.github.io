@@ -6,6 +6,11 @@
     <atom:link href="https://mvuorre.github.io/index.xml" rel="self" type="application/rss+xml"/>
     <description>Statistics and Data Science Tutorials by Matti Vuorre
 </description>
+    <image>
+      <title>Sometimes I R</title>
+      <url>https://mvuorre.github.io/images/favicon.png</url>
+      <link>https://mvuorre.github.io</link>
+    </image>
     <generator>Distill</generator>
     <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     <item>

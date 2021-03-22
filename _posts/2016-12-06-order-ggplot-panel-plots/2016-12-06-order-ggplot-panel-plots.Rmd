@@ -14,6 +14,7 @@ categories:
   - R
   - visualization
 bibliography: bibliography.bib
+base_url: https://mvuorre.github.io
 output:
   distill::distill_article:
     self_contained: false

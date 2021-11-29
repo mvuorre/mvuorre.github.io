@@ -45,6 +45,7 @@ opts_chunk$set(
   fig.align = "center"
 )
 options(width = 140)
+options(brms.backend = "cmdstanr")
 theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
 ```
 
@@ -164,7 +165,9 @@ $\Phi$ is again the cumulative normal density function and maps *z* scores to pr
 
 $$\eta_i = \beta_0 + \beta_1\mbox{isold}_i$$
 
-Given this parameterization, the intercept of the model ($\beta_0$) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion *c*. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in *z*-scores, which is another way of saying *d'*. Therefore, $c = -zHR = -\beta_0$, and $d' = \beta_1$. 
+Given this parameterization, the intercept of the model ($\beta_0$) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion *c*. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in *z*-scores, which is another way of saying *d'*. Therefore, $c = -zFAR = -\beta_0$, and $d' = \beta_1$. If you prefer the conventional calculation of $c = -.5*(zHR + zFAR)$ (e.g., Macmillan & Creelman, 2005), you can recode isold as +.5 vs. -.5 instead of 1 vs. 0.
+
+<aside>**Note.** The criterion parameterization here is unconventional and you probably want to use the contrast coding as suggested above, instead of the R standard coding I use here. See `?contrasts()`. **Huge thanks to [Filip](https://github.com/fidadoma) and [Mike](https://github.com/MikeKSU) for letting me know about this issue!**</aside>
 
 The connection between SDT models and GLM is discussed in detail by @decarlo_signal_1998. Two immediate benefits of thinking about SDT models in a GLM framework is that we can now easily include predictors on *c* and *d'*, and estimate SDT models with varying coefficients using hierarchical modeling methods [@decarlo_statistical_2010; @rouder_introduction_2005]. This latter point means that we can easily fit the models for multiple participants (and items!) simultaneously, while at the same time pooling information across participants (and items). We will return to this point below.
 

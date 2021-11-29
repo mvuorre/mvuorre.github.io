@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,12 +77,34 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -131,9 +153,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="citation_author_institution" content="University of Oxford"/>
 <!--/radix_placeholder_meta_tags-->
   
+  <meta name="citation_reference" content="citation_title=Doing bayesian data analysis: A tutorial introduction with r;citation_publication_date=2014;citation_publisher=Academic Press;citation_author=John K. Kruschke"/>
   <meta name="citation_reference" content="citation_title=Intensive longitudinal methods: An introduction to diary and experience sampling research;citation_publication_date=2013;citation_publisher=Guilford Press;citation_author=Niall Bolger;citation_author=Jean-Philippe Laurenceau"/>
   <meta name="citation_reference" content="citation_title=Statistical rethinking: A bayesian course with examples in r and stan;citation_publication_date=2016;citation_publisher=CRC Press;citation_author=Richard McElreath"/>
+  <meta name="citation_reference" content="citation_title=Stan: A c++ library for probability and sampling, version 2.15.0;citation_publication_date=2016;citation_author=Stan: A c++ library for probability and sampling, version 2.15.0"/>
   <meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;citation_publication_date=2017;citation_publisher=R Foundation for Statistical Computing;citation_author=R: A language and environment for statistical computing"/>
+  <meta name="citation_reference" content="citation_title=RStan: The r interface to stan;citation_publication_date=2016;citation_author=RStan: The r interface to stan"/>
   <meta name="citation_reference" content="citation_title=Data Analysis Using Regression and Multilevel/Hierarchical Models;citation_publication_date=2007;citation_publisher=Cambridge University Press;citation_author=Andrew Gelman;citation_author=Jennifer Hill"/>
   <meta name="citation_reference" content="citation_title=Bayesplot: Plotting for Bayesian models;citation_publication_date=2017;citation_author=Jonah Gabry"/>
   <meta name="citation_reference" content="citation_title=An introduction to Bayesian hierarchical models with an application in the theory of signal detection;citation_publication_date=2005;citation_volume=12;citation_doi=10.3758/BF03196750;citation_issn=1069-9384, 1531-5320;citation_author=Jeffrey N. Rouder;citation_author=Jun Lu"/>
@@ -145,6 +170,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=Calculation of signal detection theory measures;citation_publication_date=1999;citation_volume=31;citation_author=Harold Stanislaw;citation_author=Natasha Todorov"/>
   <meta name="citation_reference" content="citation_title=On the statistical and theoretical basis of signal detection theory and extensions: Unequal variance, random coefficient, and mixture models;citation_publication_date=2010;citation_volume=54;citation_doi=10.1016/j.jmp.2010.01.001;citation_issn=0022-2496;citation_author=Lawrence T. DeCarlo"/>
   <meta name="citation_reference" content="citation_title=Examining the causes of memory strength variability: Recollection, attention failure, or encoding variability?;citation_publication_date=2013;citation_volume=39;citation_doi=10.1037/a0033671;citation_issn=1939-1285(Electronic),0278-7393(Print);citation_author=Joshua D. Koen;citation_author=Mariam Aly;citation_author=Wei-Chun Wang;citation_author=Andrew P. Yonelinas"/>
+  <meta name="citation_reference" content="citation_title=A simple introduction to Markov Chain Monte–Carlo sampling;citation_publication_date=2016;citation_doi=10.3758/s13423-016-1015-8;citation_issn=1069-9384, 1531-5320;citation_author=Don Ravenzwaaij;citation_author=Pete Cassey;citation_author=Scott D. Brown"/>
   <meta name="citation_reference" content="citation_title=Detection theory: A user’s guide;citation_publication_date=2005;citation_publisher=Lawrence Erlbaum Associates;citation_author=Neil A. Macmillan;citation_author=C. Douglas Creelman"/>
   <meta name="citation_reference" content="citation_title=Using the PLUM procedure of SPSS to fit unequal variance and generalized signal detection models;citation_publication_date=2003;citation_volume=35;citation_doi=10.3758/BF03195496;citation_issn=0743-3808, 1532-5970;citation_author=Lawrence T. Decarlo"/>
   <meta name="citation_reference" content="citation_title=MPTinR: Analysis of multinomial processing tree models in R;citation_publication_date=2013;citation_volume=45;citation_doi=10.3758/s13428-012-0259-0;citation_author=Henrik Singmann;citation_author=David Kellen"/>
@@ -158,7 +184,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/anchor-4.2.2/anchor.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/bowser-1.9.3/bowser.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/distill-2.2.21/template.v2.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt_glmm-viz1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt_glmm-viz2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit1-plot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit2-plot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fitglmm-viz1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fitglmm-viz2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/scatterplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/sdtplot-1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/side-by-side-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/unnamed-chunk-26-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/unnamed-chunk-28-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/unnamed-chunk-29-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/uvsdt-densityplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/header-attrs-2.7.1/header-attrs.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/header-attrs-2.7.2/header-attrs.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/jquery-1.11.3/jquery.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/popper-2.6.0/popper.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy-bundle.umd.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy-light-border.css","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy.css","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy.umd.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/webcomponents-2.0.0/webcomponents.js","bibliography.bib"]}
+  {"type":"character","attributes":{},"value":["2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/anchor-4.2.2/anchor.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/bowser-1.9.3/bowser.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/distill-2.2.21/template.v2.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit1-plot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit2-plot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density2-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/scatterplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/sdtplot-1-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/side-by-side-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/unnamed-chunk-26-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/uvsdt-densityplot-1.png","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/header-attrs-2.11/header-attrs.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/jquery-3.6.0/jquery-3.6.0.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/jquery-3.6.0/jquery-3.6.0.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/jquery-3.6.0/jquery-3.6.0.min.map","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/popper-2.6.0/popper.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy-bundle.umd.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy-light-border.css","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy.css","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/tippy-6.2.7/tippy.umd.min.js","2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/webcomponents-2.0.0/webcomponents.js","bibliography.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -504,7 +530,7 @@ d-title {
 
 </style>
 
-<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
 <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1911,7 +1937,10 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        return "<p>" + $('#ref-' + ref).html() + "</p>";
+      }).join("\n");
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2425,8 +2454,8 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.7.2/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2453,7 +2482,7 @@ gtag('config', 'G-NKV51FTEH8');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Bayesian Estimation of Signal Detection Models","description":"Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.","authors":[{"author":"Matti Vuorre","authorURL":"https://vuorre.netlify.com","affiliation":"University of Oxford","affiliationURL":"https://www.oii.ox.ac.uk/people/matti-vuorre/","orcidID":"0000-0001-5052-066X"}],"publishedDate":"2017-10-09T00:00:00.000+00:00","citationText":"Vuorre, 2017"}
+{"title":"Bayesian Estimation of Signal Detection Models","description":"Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.","authors":[{"author":"Matti Vuorre","authorURL":"https://vuorre.netlify.com","affiliation":"University of Oxford","affiliationURL":"https://www.oii.ox.ac.uk/people/matti-vuorre/","orcidID":"0000-0001-5052-066X"}],"publishedDate":"2017-10-09T00:00:00.000+01:00","citationText":"Vuorre, 2017"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2544,7 +2573,7 @@ gtag('config', 'G-NKV51FTEH8');
 <h2 id="signal-detection-theory">Signal Detection Theory</h2>
 <p>Signal Detection Theory (SDT) is a common framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are sometimes difficult to implement in practice. In this tutorial, I describe how to estimate equal and unequal variance Gaussian SDT models as Generalized Linear Models for single participants, and for multiple participants simultaneously using hierarchical Bayesian models (or Generalized Linear Mixed Models).</p>
 <p>Consider a recognition memory experiment where participants are shown a series of images, some of which are new (participant has not seen before) and some of which are old (participant has seen before). Participants answer, for each item, whether they think they have seen the item before (“old!” response) or not (“new!” response). SDT models allow modeling participants’ sensitivity—how well they can distinguish new and old images—and response criterion—their tendency of <em>bias</em> to respond “old!”—separately, and can therefore be enormously useful in modeling the participants’ memory processes. This similar logic applies to e.g. perception, where SDT was initially introduced in.</p>
-<p>The conceptual basis of SDT models is that on each trial, when a stimulus is presented, participants experience some inner “familiarity” (or memory strength) signal, which is hidden from the experimenter, or <em>latent</em>. The participants then decide, based on this familiarity signal, whether they have encountered the current stimulus stimulus previously (“old!”) or not (“new!”). I assume that readers are at least somewhat familiar with the basics of SDT, and will not discuss the underlying theory further. A classic introduction to the topic is <span class="citation" data-cites="macmillan_detection_2005"><a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman</a> (<a href="#ref-macmillan_detection_2005" role="doc-biblioref">2005</a>)</span>.</p>
+<p>The conceptual basis of SDT models is that on each trial, when a stimulus is presented, participants experience some inner “familiarity” (or memory strength) signal, which is hidden from the experimenter, or <em>latent</em>. The participants then decide, based on this familiarity signal, whether they have encountered the current stimulus stimulus previously (“old!”) or not (“new!”). I assume that readers are at least somewhat familiar with the basics of SDT, and will not discuss the underlying theory further. A classic introduction to the topic is <span class="citation" data-cites="macmillan_detection_2005">Macmillan and Creelman (<a href="#ref-macmillan_detection_2005" role="doc-biblioref">2005</a>)</span>.</p>
 <h3 id="example-data">Example data</h3>
 <p>We move on to examining a practical example using the R statistical programming environment <span class="citation" data-cites="r_core_team_r:_2017">(<a href="#ref-r_core_team_r:_2017" role="doc-biblioref">R Core Team 2017</a>)</span>. The following R packages were used in this tutorial:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2555,7 +2584,7 @@ gtag('config', 'G-NKV51FTEH8');
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://wilkelab.org/ggridges/'>ggridges</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>sdtalt</span><span class='op'>)</span>  <span class='co'># devtools::install_github("cran/sdtalt") (not on CRAN)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/paul-buerkner/brms'>brms</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2618,8 +2647,8 @@ gtag('config', 'G-NKV51FTEH8');
 <p>First, we’ll compute for each trial whether the participant’s response was a hit, false alarm, correct rejection, or a miss. We’ll do this by creating a new variable, <code>type</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>confcontr</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>confcontr</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>
     type <span class='op'>=</span> <span class='st'>"hit"</span>,
     type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>isold</span> <span class='op'>==</span> <span class='fl'>1</span> <span class='op'>&amp;</span> <span class='va'>sayold</span> <span class='op'>==</span> <span class='fl'>0</span>, <span class='st'>"miss"</span>, <span class='va'>type</span><span class='op'>)</span>,
     type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>isold</span> <span class='op'>==</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>sayold</span> <span class='op'>==</span> <span class='fl'>0</span>, <span class='st'>"cr"</span>, <span class='va'>type</span><span class='op'>)</span>, <span class='co'># Correct rejection</span>
@@ -2631,10 +2660,10 @@ gtag('config', 'G-NKV51FTEH8');
 <p>Then we can simply count the numbers of these four types of trials for each participant, and put the counts on one row per participant.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>sdt</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>subno</span>, <span class='va'>type</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>spread</span><span class='op'>(</span><span class='va'>type</span>, <span class='va'>count</span><span class='op'>)</span> <span class='co'># Format data to one row per person</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>sdt</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>subno</span>, <span class='va'>type</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/spread.html'>spread</a></span><span class='op'>(</span><span class='va'>type</span>, <span class='va'>count</span><span class='op'>)</span> <span class='co'># Format data to one row per person</span>
 </code></pre>
 </div>
 </div>
@@ -2644,8 +2673,8 @@ gtag('config', 'G-NKV51FTEH8');
 <p>We can use R’s proportion to z-score function (<span class="math inline">\(\Phi^{-1}\)</span>), <code>qnorm()</code>, to calculate each participant’s <em>d’</em> and <em>c</em> from the counts of hits, false alarms, misses and correct rejections:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>sdt</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt</span> <span class='op'>&lt;-</span> <span class='va'>sdt</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>
     zhr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span><span class='op'>(</span><span class='va'>hit</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>hit</span> <span class='op'>+</span> <span class='va'>miss</span><span class='op'>)</span><span class='op'>)</span>,
     zfa <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span><span class='op'>(</span><span class='va'>fa</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>fa</span> <span class='op'>+</span> <span class='va'>cr</span><span class='op'>)</span><span class='op'>)</span>,
     dprime <span class='op'>=</span> <span class='va'>zhr</span> <span class='op'>-</span> <span class='va'>zfa</span>,
@@ -2740,7 +2769,7 @@ gtag('config', 'G-NKV51FTEH8');
 </div>
 <p>This data frame now has point estimates of every participant’s <em>d’</em> and <em>c</em>. The implied EVSDT model for participant 53 is shown in Figure <a href="#fig:sdtplot-1">1</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:sdtplot-1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sdtplot-1"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/sdtplot-1-1.png" alt="The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter's point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d' is the distance between the peaks of the two distributions." width="624" />
 <p class="caption">
 Figure 1: The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d’ is the distance between the peaks of the two distributions.
@@ -2758,9 +2787,12 @@ You are probably familiar with logistic regression models, which are just anothe
 <p><span class="math display">\[p_i = \Phi(\eta_i)\]</span></p>
 <p><span class="math inline">\(\Phi\)</span> is again the cumulative normal density function and maps <em>z</em> scores to probabilities. We then model <span class="math inline">\(\eta\)</span> on an intercept and a slope:</p>
 <p><span class="math display">\[\eta_i = \beta_0 + \beta_1\mbox{isold}_i\]</span></p>
-<p>Given this parameterization, the intercept of the model (<span class="math inline">\(\beta_0\)</span>) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion <em>c</em>. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in <em>z</em>-scores, which is another way of saying <em>d’</em>. Therefore, <span class="math inline">\(c = -zHR = -\beta_0\)</span>, and <span class="math inline">\(d&#39; = \beta_1\)</span>.</p>
-<p>The connection between SDT models and GLM is discussed in detail by <span class="citation" data-cites="decarlo_signal_1998"><a href="#ref-decarlo_signal_1998" role="doc-biblioref">DeCarlo</a> (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>. Two immediate benefits of thinking about SDT models in a GLM framework is that we can now easily include predictors on <em>c</em> and <em>d’</em>, and estimate SDT models with varying coefficients using hierarchical modeling methods <span class="citation" data-cites="decarlo_statistical_2010 rouder_introduction_2005">(<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">DeCarlo 2010</a>; <a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>)</span>. This latter point means that we can easily fit the models for multiple participants (and items!) simultaneously, while at the same time pooling information across participants (and items). We will return to this point below.</p>
-<p>Because we wrote the SDT model as a GLM, we have a variety of software options for estimating the model. For this simple model, you could just use base R’s <code>glm()</code>. Here, we use the Bayesian regression modeling R package brms <span class="citation" data-cites="burkner_brms:_2017 stan_development_team_rstan:_2016">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>; <a href="#ref-stan_development_team_rstan:_2016" role="doc-biblioref">Stan Development Team 2016a</a>)</span>, because its model formula syntax extends seamlessly to more complicated models that we will discuss later. We can estimate the GLM with brms’s <code>brm()</code> function, by providing as arguments a model formula in brms syntax (identical to base R model syntax for simple models), an outcome distribution with a link function, and a data frame.</p>
+<p>Given this parameterization, the intercept of the model (<span class="math inline">\(\beta_0\)</span>) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion <em>c</em>. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in <em>z</em>-scores, which is another way of saying <em>d’</em>. Therefore, <span class="math inline">\(c = -zFAR = -\beta_0\)</span>, and <span class="math inline">\(d&#39; = \beta_1\)</span>. If you prefer the conventional calculation of <span class="math inline">\(c = -.5*(zHR + zFAR)\)</span> (e.g., Macmillan &amp; Creelman, 2005), you can recode isold as +.5 vs. -.5 instead of 1 vs. 0.</p>
+<aside>
+<strong>Note.</strong> The criterion parameterization here is unconventional and you probably want to use the contrast coding as suggested above, instead of the R standard coding I use here. See <code>?contrasts()</code>. <strong>Huge thanks to <a href="https://github.com/fidadoma">Filip</a> and <a href="https://github.com/MikeKSU">Mike</a> for letting me know about this issue!</strong>
+</aside>
+<p>The connection between SDT models and GLM is discussed in detail by <span class="citation" data-cites="decarlo_signal_1998">DeCarlo (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>. Two immediate benefits of thinking about SDT models in a GLM framework is that we can now easily include predictors on <em>c</em> and <em>d’</em>, and estimate SDT models with varying coefficients using hierarchical modeling methods <span class="citation" data-cites="decarlo_statistical_2010 rouder_introduction_2005">(<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">DeCarlo 2010</a>; <a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>)</span>. This latter point means that we can easily fit the models for multiple participants (and items!) simultaneously, while at the same time pooling information across participants (and items). We will return to this point below.</p>
+<p>Because we wrote the SDT model as a GLM, we have a variety of software options for estimating the model. For this simple model, you could just use base R’s <code>glm()</code>. Here, we use the Bayesian regression modeling R package brms <span class="citation" data-cites="burkner_brms:_2017 stan_development_team_rstan:_2016">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>; <a href="#ref-stan_development_team_rstan:_2016" role="doc-biblioref">Stan Development Team 2016a</a>)</span>, because its model formula syntax extends seamlessly to more complicated models that we will discuss later. We can estimate the GLM with brms’s <code>brm()</code> function, by providing as arguments a model formula in brms syntax (identical to base R model syntax for simple models), an outcome distribution with a link function, and a data frame.</p>
 <p>brms’s model syntax uses variable names from the data. We regress the binary <code>sayold</code> responses on the binary <code>isold</code> predictor with the following formula: <code>sayold ~ isold</code>. The distribution of the outcomes is specified with <code>family</code> argument. To specify the bernoulli distribution with a probit link function, we use <code>family = bernoulli(link="probit")</code>. We will only model the first participant’s data (number 53), and therefore specify the data with <code>data = filter(confcontr, subno==53)</code>.</p>
 <p>The <code>brm()</code> function also allows specifying prior distributions on the parameters, but for this introductory discussion we omit discussion of priors. In addition, to run multiple MCMC chains <span class="citation" data-cites="kruschke_doing_2014 ravenzwaaij_simple_2016">(<a href="#ref-kruschke_doing_2014" role="doc-biblioref">Kruschke 2014</a>; <a href="#ref-ravenzwaaij_simple_2016" role="doc-biblioref">van Ravenzwaaij, Cassey, and Brown 2016</a>)</span> in parallel, we set the <code>cores</code> argument to 4 (this makes the model estimation faster). Finally, we also specify <code>file</code>, to save the model to a file so that we don’t have to re-estimate the model whenever we restart R.</p>
 <p>Putting these pieces together, we estimate the SDT model as a probit GLM, using data stored in <code>confcontr</code>, for subject 53 only, with the following function:</p>
@@ -2769,7 +2801,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>evsdt_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span>
   <span class='va'>sayold</span> <span class='op'>~</span> <span class='va'>isold</span>,
   family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsfamily.html'>bernoulli</a></span><span class='op'>(</span>link <span class='op'>=</span> <span class='st'>"probit"</span><span class='op'>)</span>,
-  data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>confcontr</span>, <span class='va'>subno</span> <span class='op'>==</span> <span class='fl'>53</span><span class='op'>)</span>,
+  data <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>confcontr</span>, <span class='va'>subno</span> <span class='op'>==</span> <span class='fl'>53</span><span class='op'>)</span>,
   cores <span class='op'>=</span> <span class='fl'>4</span>,
   file <span class='op'>=</span> <span class='st'>"sdtmodel1-1"</span>
 <span class='op'>)</span>
@@ -2786,22 +2818,22 @@ You are probably familiar with logistic regression models, which are just anothe
   Links: mu = probit 
 Formula: sayold ~ isold 
    Data: filter(confcontr, subno == 53) (Number of observations: 100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
 
 Population-Level Effects: 
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    -0.31      0.18    -0.68     0.04 1.00     3487     2580
-isold         0.39      0.25    -0.09     0.88 1.00     3634     2900
+Intercept    -0.32      0.18    -0.66     0.02 1.00     3070     2366
+isold         0.40      0.25    -0.09     0.90 1.00     2914     1963
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>The regression parameters (<code>Intercept</code> (recall, <span class="math inline">\(c = -\beta_0\)</span>) and <code>isold</code> (<span class="math inline">\(d&#39; = \beta_1\)</span>)) are described in the “Population-Level Effects” table in the above output. <code>Estimate</code> reports the posterior means, which are comparable to maximum likelihood point estimates, and <code>Est.Error</code> reports the posterior standard deviations, which are comparable to standard errors. The next two columns report the parameter’s 95% Credible Intervals (CIs). The estimated parameters’ means match the point estimates we calculated by hand (see table above.)</p>
 <p>In fact, the posterior modes will exactly correspond to the maximum likelihood estimates, if we use uniform priors. The posterior density of <em>d’</em> and <em>c</em>, for participant 53, is illustrated in Figure <a href="#fig:densityplot">2</a>: The maximum likelihood estimate is spot on the highest peak of the posterior density.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:densityplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:densityplot"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot-1.png" alt="The (approximate) joint posterior density of subject 53's SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the 'manually' calculated MLE point estimate of d'." width="624" data-distill-preview=1 />
 <p class="caption">
 Figure 2: The (approximate) joint posterior density of subject 53’s SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the ‘manually’ calculated MLE point estimate of d’.
@@ -2843,7 +2875,7 @@ Figure 2: The (approximate) joint posterior density of subject 53’s SDT parame
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>evsdt_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span>
   <span class='va'>m2</span>,
   family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsfamily.html'>bernoulli</a></span><span class='op'>(</span>link <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>,
-  data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>confcontr</span>, <span class='va'>subno</span> <span class='op'>==</span> <span class='fl'>53</span><span class='op'>)</span>,
+  data <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>confcontr</span>, <span class='va'>subno</span> <span class='op'>==</span> <span class='fl'>53</span><span class='op'>)</span>,
   prior <span class='op'>=</span> <span class='va'>Priors</span>,
   control <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>adapt_delta <span class='op'>=</span> <span class='fl'>.99</span><span class='op'>)</span>,
   cores <span class='op'>=</span> <span class='fl'>4</span>,
@@ -2863,15 +2895,15 @@ Figure 2: The (approximate) joint posterior density of subject 53’s SDT parame
   Links: mu = probit 
 Formula: sayold ~ isold 
    Data: filter(confcontr, subno == 53) (Number of observations: 100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
 
 Population-Level Effects: 
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    -0.31      0.18    -0.68     0.04 1.00     3487     2580
-isold         0.39      0.25    -0.09     0.88 1.00     3634     2900
+Intercept    -0.32      0.18    -0.66     0.02 1.00     3070     2366
+isold         0.40      0.25    -0.09     0.90 1.00     2914     1963
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div class="sourceCode">
@@ -2884,24 +2916,24 @@ Formula: sayold ~ Phi(dprime * isold - c)
          dprime ~ 1
          c ~ 1
    Data: filter(confcontr, subno == 53) (Number of observations: 100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Population-Level Effects: 
                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-dprime_Intercept     0.39      0.25    -0.10     0.88 1.00     1202     1551
-c_Intercept          0.31      0.18    -0.04     0.65 1.00     1125     1595
+dprime_Intercept     0.40      0.25    -0.09     0.90 1.00     1238     1269
+c_Intercept          0.31      0.17    -0.02     0.66 1.00     1266     1326
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>The results are very similar, but note that priors were included only in the nonlinear syntax model. The only real difference is that the MCMC algorithm explored <code>evsdt_2</code>’s posterior less efficiently, as shown by the smaller effective sample sizes (<code>..._ESS</code>) for both parameters. This means that the random draws from the posterior distribution, for <code>evsdt_2</code>, have greater autocorrelation, and therefore we should possibly draw more samples for more accurate inference. The posterior distributions obtained with the 2 methods are shown in Figure <a href="#fig:densityplot2">3</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:densityplot2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:densityplot2"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/densityplot2-1.png" alt="Top row: The (approximate) joint posterior density of subject 53's SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d' that was calculated 'manually'. Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models." width="624" />
 <p class="caption">
-Figure 3: Top row: The (approximate) joint posterior density of subject 53’s SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d’ that was calculated ‘manually.’ Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models.
+Figure 3: Top row: The (approximate) joint posterior density of subject 53’s SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d’ that was calculated ‘manually’. Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models.
 </p>
 </div>
 </div>
@@ -2909,15 +2941,15 @@ Figure 3: Top row: The (approximate) joint posterior density of subject 53’s S
 <h3 id="interim-discussion">Interim discussion</h3>
 <h4 id="fitting-one-subjects-evsdt-model-with-different-methods">Fitting one subject’s EVSDT model with different methods</h4>
 <p>We have now estimated the equal variance Gaussian SDT model’s parameters for one subject’s data using three methods: Calculating point estimates manually, with a probit GLM, and with a probit model using brms’ nonlinear modeling syntax. The main difference between these methods, so far, is that the modeling methods provide estimates of uncertainty in the parameters, whereas the manual calculation does not. This point leads us directly to hierarchical models <span class="citation" data-cites="rouder_introduction_2005 rouder_signal_2007">(<a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>; <a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al. 2007</a>)</span>, which we discuss next.</p>
-<p>However, there are other, perhaps more subtle, benefits of using a regression model framework for estimating SDT models. There is something to be said, for example, about the fact that the models take the raw data as input. ‘Manual’ calculation involves, well, manual computation of values, which may be more error prone than using raw data. This is especially clear if the modeling methods are straightforward to apply: I hope to have illustrated that with R and brms <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>)</span>, Bayesian modeling methods are easy to apply and accessible to a wide audience.</p>
+<p>However, there are other, perhaps more subtle, benefits of using a regression model framework for estimating SDT models. There is something to be said, for example, about the fact that the models take the raw data as input. ‘Manual’ calculation involves, well, manual computation of values, which may be more error prone than using raw data. This is especially clear if the modeling methods are straightforward to apply: I hope to have illustrated that with R and brms <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>)</span>, Bayesian modeling methods are easy to apply and accessible to a wide audience.</p>
 <p>Moving to a modeling framework will also allow us to include multiple sources of variation, such as heterogeneity across items and participants, through crossed “random” effects <span class="citation" data-cites="rouder_signal_2007">(<a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al. 2007</a>)</span>, and covariates that we think might affect the SDT parameters. By changing the link function, we can also easily use other distributions, such as logistic, to represent the signal and noise distributions <span class="citation" data-cites="decarlo_signal_1998 decarlo_statistical_2010">(<a href="#ref-decarlo_signal_1998" role="doc-biblioref">DeCarlo 1998</a>, <a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>.</p>
 <h4 id="prior-distribution">Prior distribution</h4>
 <p>Finally, priors. Newcomers to the Bayesian modeling framework might object to the use of prior distributions, and think that they are unduly biasing the results. However, moderately informative priors usually have far less of an influence on inference than newcomers might assume. Above, we specified the GLM with practically no prior information; if you are reluctant to include existing knowledge into your model, feel free to leave it out. Things are, unfortunately, a little more complicated with the nonlinear modeling functions: The posterior geometry might be funky (technical term), in which case the priors could mainly serve to nudge the posterior samples to be drawn from sensible parameter values.</p>
 <p>Further, priors can be especially useful in estimating SDT models: If participants’ hit or false alarm rates are 0 or 1–a fairly common scenario–mild prior information can be used in a principled manner to release the estimated quantities from the hostile captivity of the boundary values. Prior literature has discussed various corrections to 0 and 1 rates <span class="citation" data-cites="stanislaw_calculation_1999">(<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>. However, Bayesian priors can take care of these edge cases in a more principled manner.</p>
 <h2 id="evsdt-for-multiple-participants">EVSDT for multiple participants</h2>
-<p>Above, we obtained parameter estimates of the EVSDT model for a single subject using three methods: Manual calculation of point estimates <span class="citation" data-cites="stanislaw_calculation_1999">(<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>, estimating the model as a GLM (Generalized Linear Model; <span class="citation" data-cites="decarlo_signal_1998"><a href="#ref-decarlo_signal_1998" role="doc-biblioref">DeCarlo</a> (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>), and estimating the model as a GLM using brms’ nonlinear modeling syntax <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>)</span>.</p>
+<p>Above, we obtained parameter estimates of the EVSDT model for a single subject using three methods: Manual calculation of point estimates <span class="citation" data-cites="stanislaw_calculation_1999">(<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>, estimating the model as a GLM (Generalized Linear Model; <span class="citation" data-cites="decarlo_signal_1998">DeCarlo (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>), and estimating the model as a GLM using brms’ nonlinear modeling syntax <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>)</span>.</p>
 <p>However, researchers are usually not as interested in the specific subjects that happened to participate in their experiment, as they are in the population of potential subjects. Therefore, we are unsatisfied with parameters which describe only the subjects that happened to participate in our study: The final statistical model should have parameters that estimate features of the population of interest.</p>
-<p>Broadly, there are two methods for obtaining these “population level” parameters. By far the most popular method is to summarise the manually calculated subject-specific point estimates of <em>d’</em> and <em>c</em> with their sample means and standard deviations. From these, we can calculate standard errors, t-tests, confidence intervals, etc. Another method–which I hope to motivate here–is to build a bigger model that estimates subject-specific and population-level parameters simultaneously. We call this latter method “hierarchical” or “multilevel” modeling <span class="citation" data-cites="gelman_data_2007 rouder_introduction_2005">(<a href="#ref-gelman_data_2007" role="doc-biblioref">Gelman and Hill 2007</a>; <a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>)</span>. In this section, I show how to obtain population-level EVSDT parameters with these two methods, using the R programming language and the brms R package <span class="citation" data-cites="r_core_team_r:_2017 burkner_brms:_2017">(<a href="#ref-r_core_team_r:_2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>)</span>.</p>
+<p>Broadly, there are two methods for obtaining these “population level” parameters. By far the most popular method is to summarise the manually calculated subject-specific point estimates of <em>d’</em> and <em>c</em> with their sample means and standard deviations. From these, we can calculate standard errors, t-tests, confidence intervals, etc. Another method–which I hope to motivate here–is to build a bigger model that estimates subject-specific and population-level parameters simultaneously. We call this latter method “hierarchical” or “multilevel” modeling <span class="citation" data-cites="gelman_data_2007 rouder_introduction_2005">(<a href="#ref-gelman_data_2007" role="doc-biblioref">Gelman and Hill 2007</a>; <a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>)</span>. In this section, I show how to obtain population-level EVSDT parameters with these two methods, using the R programming language and the brms R package <span class="citation" data-cites="r_core_team_r:_2017 burkner_brms:_2017">(<a href="#ref-r_core_team_r:_2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>)</span>.</p>
 <h3 id="population-level-evsdt-model">Population-level EVSDT Model</h3>
 <p>We now use these data to estimate the population-level EVSDT parameters using two methods: Manual calculation and hierarchical modeling. For hierarchical modeling, I provide R &amp; brms code to estimate the model as a Generalized Linear Mixed Model (GLMM). I also show how to estimate the GLMM with brms’ nonlinear modeling syntax.</p>
 <h4 id="estimation-by-summarizing-subjects-point-estimates">Estimation by summarizing subjects’ point estimates</h4>
@@ -3011,11 +3043,11 @@ Figure 3: Top row: The (approximate) joint posterior density of subject 53’s S
 <p>We can therefore calculate sample means and standard errors for both parameters using these individual-specific values. Here’s one way to do it:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt_sum</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>sdt</span>, <span class='va'>subno</span>, <span class='va'>dprime</span>, <span class='va'>crit</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># Select these variables only</span>
-  <span class='fu'>gather</span><span class='op'>(</span><span class='va'>parameter</span>, <span class='va'>value</span>, <span class='op'>-</span><span class='va'>subno</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># Convert data to long format</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>parameter</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># Prepare to summarise on these grouping variables</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sdt_sum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>sdt</span>, <span class='va'>subno</span>, <span class='va'>dprime</span>, <span class='va'>crit</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'># Select these variables only</span>
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/gather.html'>gather</a></span><span class='op'>(</span><span class='va'>parameter</span>, <span class='va'>value</span>, <span class='op'>-</span><span class='va'>subno</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'># Convert data to long format</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>parameter</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'># Prepare to summarise on these grouping variables</span>
   <span class='co'># Calculate summary statistics for grouping variables</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span>, mu <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>, sd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>, se <span class='op'>=</span> <span class='va'>sd</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, mu <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>, sd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>, se <span class='op'>=</span> <span class='va'>sd</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <table>
@@ -3051,10 +3083,10 @@ Figure 3: Top row: The (approximate) joint posterior density of subject 53’s S
 <p>Note that this method involves calculating point estimates of unknown parameters (the subject-specifc parameters), and then summarizing these parameters with additional models. In other words, we first fit N models with P parameters each (N = number of subjects, P = 2 parameters), and then P more models to summarise the subject-specific models.</p>
 <p>Next, we’ll use hierarchical regression<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> methods to obtain subject-specific and population-level parameters in one single step.</p>
 <h4 id="estimation-with-a-hierarchical-model-glmm">Estimation with a hierarchical model (GLMM)</h4>
-<p>We can estimate the EVSDT model’s parameters for every subject and the population average in one step using a Generalized Linear Mixed Model (GLMM). <span class="citation" data-cites="gelman_data_2007"><a href="#ref-gelman_data_2007" role="doc-biblioref">Gelman and Hill</a> (<a href="#ref-gelman_data_2007" role="doc-biblioref">2007</a>)</span> and <span class="citation" data-cites="mcelreath_statistical_2016"><a href="#ref-mcelreath_statistical_2016" role="doc-biblioref">McElreath</a> (<a href="#ref-mcelreath_statistical_2016" role="doc-biblioref">2016</a>)</span> are good general introductions to hierarchical models. <span class="citation" data-cites="rouder_introduction_2005"><a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu</a> (<a href="#ref-rouder_introduction_2005" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="rouder_signal_2007"><a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al.</a> (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span> discuss hierarchical modeling in the context of signal detection theory.</p>
+<p>We can estimate the EVSDT model’s parameters for every subject and the population average in one step using a Generalized Linear Mixed Model (GLMM). <span class="citation" data-cites="gelman_data_2007">Gelman and Hill (<a href="#ref-gelman_data_2007" role="doc-biblioref">2007</a>)</span> and <span class="citation" data-cites="mcelreath_statistical_2016">McElreath (<a href="#ref-mcelreath_statistical_2016" role="doc-biblioref">2016</a>)</span> are good general introductions to hierarchical models. <span class="citation" data-cites="rouder_introduction_2005">Rouder and Lu (<a href="#ref-rouder_introduction_2005" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span> discuss hierarchical modeling in the context of signal detection theory.</p>
 <p>This model is very much like the GLM discussed in Part 1, but now the subject-specific <em>d’</em>s and <em>c</em>s are modeled as draws from a multivariate normal distribution, whose (“hyper”)parameters describe the population-level parameters. We subscript subjects’ parameters with <em>j</em>, rows in data with <em>i</em>, and write the model as:</p>
 <p><span class="math display">\[y_{ij} \sim Bernoulli(p_{ij})\]</span> <span class="math display">\[\Phi(p_{ij}) = \beta_{0j} + \beta_{1j}\mbox{isold}_{ij}\]</span></p>
-<p>The outcomes <span class="math inline">\(y_{ij}\)</span> are 0 if participant <em>j</em> responded “new!” on trial <em>i</em>, 1 if they responded “old!” The probability of the “old!” response for row <em>i</em> for subject <em>j</em> is <span class="math inline">\(p_{ij}\)</span>. We then write a linear model on the probits (<em>z</em>-scores; <span class="math inline">\(\Phi\)</span>, “Phi”) of <em>p</em>s. The subject-specific intercepts (recall, <span class="math inline">\(\beta_0\)</span> = <em>-zFAR</em>) and slopes (<span class="math inline">\(\beta_1\)</span> = <em>d’</em>) are described by multivariate normal with means and a covariance matrix for the parameters.</p>
+<p>The outcomes <span class="math inline">\(y_{ij}\)</span> are 0 if participant <em>j</em> responded “new!” on trial <em>i</em>, 1 if they responded “old!”. The probability of the “old!” response for row <em>i</em> for subject <em>j</em> is <span class="math inline">\(p_{ij}\)</span>. We then write a linear model on the probits (<em>z</em>-scores; <span class="math inline">\(\Phi\)</span>, “Phi”) of <em>p</em>s. The subject-specific intercepts (recall, <span class="math inline">\(\beta_0\)</span> = <em>-zFAR</em>) and slopes (<span class="math inline">\(\beta_1\)</span> = <em>d’</em>) are described by multivariate normal with means and a covariance matrix for the parameters.</p>
 <p><span class="math display">\[
 \left[\begin{array}{c}
 \beta_{0j} \\ \beta_{1j}
@@ -3080,6 +3112,104 @@ Figure 3: Top row: The (approximate) joint posterior density of subject 53’s S
 <span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 8.7 seconds.
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 finished in 8.9 seconds.
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 finished in 9.2 seconds.
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 9.3 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 9.1 seconds.
+Total execution time: 9.7 seconds.</code></pre>
 </div>
 <p>Let’s take a look at the GLMM’s estimated parameters. First, direct your eyes to the “Population-Level Effects” table in the below output. These two parameters are the mean -criterion (<code>Intercept</code>, <span class="math inline">\(\mu_0\)</span>) and <em>d’</em> (<code>isold</code>, <span class="math inline">\(\mu_1\)</span>). Recall that we are looking at numerical summaries of (random samples from) the parameters’ posterior distributions: <code>Estimate</code> is the posterior mean.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3091,22 +3221,22 @@ Figure 3: Top row: The (approximate) joint posterior density of subject 53’s S
   Links: mu = probit 
 Formula: sayold ~ 1 + isold + (1 + isold | subno) 
    Data: confcontr (Number of observations: 3100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Group-Level Effects: 
 ~subno (Number of levels: 31) 
                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)            0.26      0.06     0.16     0.38 1.00     1379     2098
-sd(isold)                0.38      0.08     0.24     0.56 1.00     1058     2014
-cor(Intercept,isold)    -0.56      0.19    -0.84    -0.12 1.00     1041     1869
+sd(Intercept)            0.26      0.06     0.16     0.39 1.00     1671     2278
+sd(isold)                0.39      0.08     0.25     0.57 1.00     1036     1738
+cor(Intercept,isold)    -0.57      0.19    -0.85    -0.12 1.00     1065     1882
 
 Population-Level Effects: 
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    -0.66      0.06    -0.78    -0.55 1.00     1632     2208
-isold         1.06      0.09     0.89     1.23 1.00     1565     1889
+Intercept    -0.66      0.06    -0.77    -0.54 1.00     1706     1854
+isold         1.06      0.09     0.89     1.23 1.00     1710     2281
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
@@ -3114,7 +3244,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>These mean effects are visualized as a colored density in the left panel of Figure <a href="#fig:evsdt-glmm-viz1">4</a>. However, the GLMM also returns estimates of the parameters’ (co)variation in the population. Notice that we also calculated the sample standard deviations, which also provide this information, but we have no estimates of uncertainty in those point estimates. The GLMM, on the other hand, provides full posterior distributions for these parameters.</p>
 <p>The heterogeneity parameters are reported in the “Group-Level Effects”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> table, above. We find that the criteria are positively correlated with <em>d’</em>s (recall that Intercept = -<em>c</em>). The two standard deviations are visualized in the right panel of Figure <a href="#fig:evsdt-glmm-viz1">4</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:evsdt-glmm-viz1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:evsdt-glmm-viz1"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz1-1.png" alt="Left panel: The (approximate) joint posterior density of the average d' and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d's and criteria in the population. In both panels, the red dot indicates the 'manually' calculated sample statistics." width="624" />
 <p class="caption">
 Figure 4: Left panel: The (approximate) joint posterior density of the average d’ and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d’s and criteria in the population. In both panels, the red dot indicates the ‘manually’ calculated sample statistics.
@@ -3136,10 +3266,10 @@ Figure 4: Left panel: The (approximate) joint posterior density of the average d
 \]</span></p>
 <p>This “partial pooling” of information <span class="citation" data-cites="gelman_data_2007">(<a href="#ref-gelman_data_2007" role="doc-biblioref">Gelman and Hill 2007</a>)</span> is evident when we plot the GLMM’s subject-specific parameters in the same scatterplot with the N models method (calculating point estimates separately for everybody; Figure <a href="#fig:evsdt-glmm-viz2">5</a>).</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:evsdt-glmm-viz2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:evsdt-glmm-viz2"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/evsdt-glmm-viz2-1.png" alt="Subject-specific d's and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject's data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says 'People are different, but not *that* different'." width="624" />
 <p class="caption">
-Figure 5: Subject-specific d’s and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says ‘People are different, but not <em>that</em> different.’
+Figure 5: Subject-specific d’s and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says ‘People are different, but not <em>that</em> different’.
 </p>
 </div>
 </div>
@@ -3165,7 +3295,7 @@ Figure 5: Subject-specific d’s and criteria as given by the independent models
 <p>Here, I briefly describe fitting the above GLMM with brms’ nonlinear model syntax. The basic model is a straightforward reformulation of the single-subject case in Part 1 and the GLMM described above:</p>
 <p><span class="math display">\[p_{ij} = \Phi(d&#39;_j\mbox{isold}_{ij} - c_{j})\]</span></p>
 <p>The varying d-primes and criteria are modeled as multivariate normal, as with the GLMM. It turns out that this rather complex model is surprisingly easy to fit with brms. The formula is very similar to the single-subject nonlinear model but we tell <code>bf()</code> that the dprimes and criteria should have subject-specific parameters, as well as population-level parameters.</p>
-<p>Above, with the GLMM, subject-specific effects were given by <code>(1 + isold | subno)</code>. With the nonlinear modeling syntax, we specify varying effects across multiple parameters using <code>|s|</code> instead of <code>|</code> to tell brms that these parameters should be within one covariance matrix. This syntax gives us the “correlated random effects signal detection model” discussed in <span class="citation" data-cites="rouder_signal_2007"><a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al.</a> (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span>. Apart from the syntax, the model is the same as the GLMM above, but the sign of the intercept is flipped.</p>
+<p>Above, with the GLMM, subject-specific effects were given by <code>(1 + isold | subno)</code>. With the nonlinear modeling syntax, we specify varying effects across multiple parameters using <code>|s|</code> instead of <code>|</code> to tell brms that these parameters should be within one covariance matrix. This syntax gives us the “correlated random effects signal detection model” discussed in <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span>. Apart from the syntax, the model is the same as the GLMM above, but the sign of the intercept is flipped.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>glmm2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsformula.html'>bf</a></span><span class='op'>(</span><span class='va'>sayold</span> <span class='op'>~</span> <span class='fu'>Phi</span><span class='op'>(</span><span class='va'>dprime</span> <span class='op'>*</span> <span class='va'>isold</span> <span class='op'>-</span> <span class='va'>c</span><span class='op'>)</span>,
@@ -3202,6 +3332,104 @@ Figure 5: Subject-specific d’s and criteria as given by the independent models
 <span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 finished in 27.2 seconds.
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 27.7 seconds.
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 finished in 28.1 seconds.
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 34.4 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 29.3 seconds.
+Total execution time: 34.7 seconds.</code></pre>
 </div>
 <p>Although this model samples less efficiently than the first GLMM formulation, we (unsurprisingly) observe similar results.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3213,22 +3441,22 @@ Figure 5: Subject-specific d’s and criteria as given by the independent models
   Links: mu = probit 
 Formula: sayold ~ 1 + isold + (1 + isold | subno) 
    Data: confcontr (Number of observations: 3100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Group-Level Effects: 
 ~subno (Number of levels: 31) 
                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)            0.26      0.06     0.16     0.38 1.00     1379     2098
-sd(isold)                0.38      0.08     0.24     0.56 1.00     1058     2014
-cor(Intercept,isold)    -0.56      0.19    -0.84    -0.12 1.00     1041     1869
+sd(Intercept)            0.26      0.06     0.16     0.39 1.00     1671     2278
+sd(isold)                0.39      0.08     0.25     0.57 1.00     1036     1738
+cor(Intercept,isold)    -0.57      0.19    -0.85    -0.12 1.00     1065     1882
 
 Population-Level Effects: 
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    -0.66      0.06    -0.78    -0.55 1.00     1632     2208
-isold         1.06      0.09     0.89     1.23 1.00     1565     1889
+Intercept    -0.66      0.06    -0.77    -0.54 1.00     1706     1854
+isold         1.06      0.09     0.89     1.23 1.00     1710     2281
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div class="sourceCode">
@@ -3241,22 +3469,22 @@ Formula: sayold ~ Phi(dprime * isold - c)
          dprime ~ 1 + (1 | s | subno)
          c ~ 1 + (1 | s | subno)
    Data: confcontr (Number of observations: 3100) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Group-Level Effects: 
 ~subno (Number of levels: 31) 
                                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(dprime_Intercept)                  0.36      0.08     0.23     0.52 1.00     1687     2077
-sd(c_Intercept)                       0.24      0.05     0.15     0.35 1.00     1199     2077
-cor(dprime_Intercept,c_Intercept)     0.43      0.20    -0.01     0.75 1.00     1111     2041
+sd(dprime_Intercept)                  0.36      0.08     0.22     0.53 1.00     1194     2191
+sd(c_Intercept)                       0.24      0.05     0.15     0.35 1.00      954     1954
+cor(dprime_Intercept,c_Intercept)     0.43      0.20    -0.01     0.74 1.00     1210     1841
 
 Population-Level Effects: 
                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-dprime_Intercept     1.06      0.08     0.90     1.22 1.00     1514     2148
-c_Intercept          0.66      0.06     0.55     0.77 1.00     1726     2400
+dprime_Intercept     1.06      0.08     0.89     1.22 1.01     1296     1578
+c_Intercept          0.66      0.06     0.55     0.77 1.00     1284     1895
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
@@ -3265,14 +3493,14 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>Hierarchical modeling techniques have several advantages over traditional methods, such as (M)ANOVA, for modeling data with within-subject manipulations and repeated measures. For example, many models that previously required using parameters from subject-specific models as inputs to another model can be modeled within a single hierarchical model. Hierarchical models naturally account for unbalanced data, and allow incorporating continuous predictors and discrete outcomes. In the specific context of SDT, we observed that hierarchical models also estimate important parameters that describe possible between-person variability in parameters in the population of interest.</p>
 <p>From casual observation, it appears that hierarchical models are becoming more widely used. Many applied papers now analyze data using multilevel models, instead of rm-ANOVA, suggesting that there is demand for these models within applied research contexts. Conceptualizing more complex, possibly nonlinear models as hierarchical models should then afford a more unified framework for data analysis. Furthermore, by including parameters for between-person variability, these models allow researchers to quantify the extent to which their effects of interest vary and, possibly, whether these effects hold for everybody in the population.</p>
 <h2 id="unequal-variance-gaussian-sdt-model">Unequal variance Gaussian SDT model</h2>
-<p>Next, I extend the discussion to rating tasks to show how unequal variance Gaussian SDT (UVSDT) models can be estimated with with Bayesian methods, using R and the brms package <span class="citation" data-cites="burkner_brms:_2017 r_core_team_r:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>; <a href="#ref-r_core_team_r:_2017" role="doc-biblioref">R Core Team 2017</a>)</span>. As above, we first focus on estimating the model for a single participant, and then discuss hierarchical models for multiple participants.</p>
+<p>Next, I extend the discussion to rating tasks to show how unequal variance Gaussian SDT (UVSDT) models can be estimated with with Bayesian methods, using R and the brms package <span class="citation" data-cites="burkner_brms:_2017 r_core_team_r:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>; <a href="#ref-r_core_team_r:_2017" role="doc-biblioref">R Core Team 2017</a>)</span>. As above, we first focus on estimating the model for a single participant, and then discuss hierarchical models for multiple participants.</p>
 <h3 id="example-data-rating-task">Example data: Rating task</h3>
-<p>We begin with a brief discussion of the rating task, with example data from <span class="citation" data-cites="decarlo_using_2003"><a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo</a> (<a href="#ref-decarlo_using_2003" role="doc-biblioref">2003</a>)</span>. Above, we discussed signal detection experiments where the item was either old or new, and participants provided binary “old!” or “new!” responses. Here, we move to a slight modification of this task, where participants are allowed to express their certainty: On each trial, the presented item is still old or new, but participants now <em>rate their confidence</em> in whether the item was old or new. For example, and in the data below, participants can answer with numbers indicating their confidence that the item is old: 1 = Definitely new, …, 6 = Definitely old.</p>
-<p>One interpretation of the resulting data is that participants set a number of criteria for the confidence ratings, such that greater evidence is required for 6-responses, than 4-responses, for example. That is, there will be different criteria for responding “definitely new,” “maybe new,” and so forth. However, the participant’s underlying discriminability should remain unaffected.</p>
+<p>We begin with a brief discussion of the rating task, with example data from <span class="citation" data-cites="decarlo_using_2003">Decarlo (<a href="#ref-decarlo_using_2003" role="doc-biblioref">2003</a>)</span>. Above, we discussed signal detection experiments where the item was either old or new, and participants provided binary “old!” or “new!” responses. Here, we move to a slight modification of this task, where participants are allowed to express their certainty: On each trial, the presented item is still old or new, but participants now <em>rate their confidence</em> in whether the item was old or new. For example, and in the data below, participants can answer with numbers indicating their confidence that the item is old: 1 = Definitely new, …, 6 = Definitely old.</p>
+<p>One interpretation of the resulting data is that participants set a number of criteria for the confidence ratings, such that greater evidence is required for 6-responses, than 4-responses, for example. That is, there will be different criteria for responding “definitely new”, “maybe new”, and so forth. However, the participant’s underlying discriminability should remain unaffected.</p>
 <p>The example data is shown in a summarised form below (counts of responses for each confidence bin, for both old (<code>isold</code> = 1) and new trial types <span class="citation" data-cites="decarlo_using_2003">(<a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span>):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dsum</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dsum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
   isold <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span>,
   y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span>,
   count <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>174</span>, <span class='fl'>172</span>, <span class='fl'>104</span>, <span class='fl'>92</span>, <span class='fl'>41</span>, <span class='fl'>8</span>, <span class='fl'>46</span>, <span class='fl'>57</span>, <span class='fl'>66</span>, <span class='fl'>101</span>, <span class='fl'>154</span>, <span class='fl'>173</span><span class='op'>)</span>
@@ -3355,7 +3583,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>However, we don’t need to summarise data to counts (or cell means, or the like), but can instead work with raw responses, as provided by the experimental program. Working with such trial-level data is especially useful when we wish to include covariates. Here is the data in the raw trial-level format:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>uncount</span><span class='op'>(</span><span class='va'>dsum</span>, weights <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/uncount.html'>uncount</a></span><span class='op'>(</span><span class='va'>dsum</span>, weights <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>
 </code></pre>
 </div>
 <table>
@@ -3399,9 +3627,9 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>Recall that for the EVSDT model of binary responses, we modeled the probability <em>p</em> (of responding “old!” on trial <em>i</em>) as</p>
 <p><span class="math display">\[p_i = \Phi(d&#39;\mbox{isold}_i - c)\]</span></p>
 <p>This model gives the (z-scored) probability of responding “old” for new items (<em>c</em> = zFAR), and the increase (in z-scores) in “old” responses for old items (<em>d’</em>). For rating data, the model is similar but we now include multiple <em>c</em>s. These index the different criteria for responding with the different confidence ratings. The criteria are assumed to be ordered–people should be more lenient to say unsure old, vs. sure old, when the signal (memory strength) on that trial was weaker.</p>
-<p>The EVSDT model for rating responses models the <em>cumulative probability</em> of responding with confidence rating <em>k</em> or less (<span class="math inline">\(p(y_i \leq k_i)\)</span>; <span class="citation" data-cites="decarlo_using_2003"><a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo</a> (<a href="#ref-decarlo_using_2003" role="doc-biblioref">2003</a>)</span>):</p>
+<p>The EVSDT model for rating responses models the <em>cumulative probability</em> of responding with confidence rating <em>k</em> or less (<span class="math inline">\(p(y_i \leq k_i)\)</span>; <span class="citation" data-cites="decarlo_using_2003">Decarlo (<a href="#ref-decarlo_using_2003" role="doc-biblioref">2003</a>)</span>):</p>
 <p><span class="math display">\[p(y_i \leq k_i) = \Phi(d&#39;\mbox{isold}_i - c_{ki})\]</span></p>
-<p>This model is also known as an ordinal probit (<span class="math inline">\(\Phi\)</span>) model, and can be fit with widely available regression modeling software. <span class="citation" data-cites="decarlo_using_2003">(<a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span> showed how to use the PLUM procedure in SPSS to fit it for a single participant. However, we can obtain Bayesian inference for this model by estimating the model with the brms package in R <span class="citation" data-cites="burkner_brms:_2017 stan_development_team_stan:_2016">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>; <a href="#ref-stan_development_team_stan:_2016" role="doc-biblioref">Stan Development Team 2016b</a>)</span>. Ignoring prior distributions for now, the brms syntax for estimating this model with the above data is:</p>
+<p>This model is also known as an ordinal probit (<span class="math inline">\(\Phi\)</span>) model, and can be fit with widely available regression modeling software. <span class="citation" data-cites="decarlo_using_2003">(<a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span> showed how to use the PLUM procedure in SPSS to fit it for a single participant. However, we can obtain Bayesian inference for this model by estimating the model with the brms package in R <span class="citation" data-cites="burkner_brms:_2017 stan_development_team_stan:_2016">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>; <a href="#ref-stan_development_team_stan:_2016" role="doc-biblioref">Stan Development Team 2016b</a>)</span>. Ignoring prior distributions for now, the brms syntax for estimating this model with the above data is:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fit1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span><span class='va'>y</span> <span class='op'>~</span> <span class='va'>isold</span>,
@@ -3412,6 +3640,104 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 2.2 seconds.
+Chain 4 finished in 2.2 seconds.
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 finished in 2.3 seconds.
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 2.5 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 2.3 seconds.
+Total execution time: 2.8 seconds.</code></pre>
 </div>
 <p>This model estimates an intercept (criterion) for each response category, and the effect of <code>isold</code>, which is <em>d’</em>. The model’s posterior distribution is summarised below:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3423,23 +3749,23 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
   Links: mu = probit; disc = identity 
 Formula: y ~ isold 
    Data: d (Number of observations: 1188) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Population-Level Effects: 
              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept[1]    -0.44      0.05    -0.54    -0.35 1.00     4756     3101
-Intercept[2]     0.23      0.05     0.14     0.32 1.00     5318     3355
-Intercept[3]     0.67      0.05     0.57     0.77 1.00     4556     3486
-Intercept[4]     1.20      0.06     1.10     1.31 1.00     3907     3191
-Intercept[5]     1.88      0.07     1.75     2.01 1.00     3814     3312
-isold            1.26      0.07     1.13     1.38 1.00     4059     3045
+Intercept[1]    -0.44      0.05    -0.55    -0.35 1.00     4481     3040
+Intercept[2]     0.23      0.05     0.13     0.32 1.00     6004     3387
+Intercept[3]     0.67      0.05     0.57     0.77 1.00     5731     3701
+Intercept[4]     1.20      0.06     1.09     1.31 1.00     4699     3686
+Intercept[5]     1.88      0.07     1.75     2.01 1.00     4248     3615
+isold            1.26      0.07     1.13     1.38 1.00     4017     3081
 
 Family Specific Parameters: 
      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-disc     1.00      0.00     1.00     1.00 1.00     4000     4000
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
@@ -3471,7 +3797,7 @@ Link function: Probit.</code></pre>
 <p>Unsurprisingly, the numerical results from brms (posterior means and standard deviations, credibility intervals) match the frequentist ones obtained from SPSS under these conditions.</p>
 <p>We can now illustrate graphically how the estimated parameters map to the signal detection model. <em>d’</em> is the separation of the signal and noise distributions’ peaks: It indexes the subject’s ability to discriminate signal from noise trials. The five intercepts are the (z-scored) criteria for responding with the different confidence ratings. If we convert the z-scores to proportions (using R’s <code>pnorm()</code> for example), they measure the (cumulative) area under the noise distribution to the left of that z-score. The model is visualized in Figure <a href="#fig:fit1-plot">6</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:fit1-plot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fit1-plot"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit1-plot-1.png" alt="The equal variance Gaussian signal detection model, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d' is the distance between the peaks of the two distributions." width="624" />
 <p class="caption">
 Figure 6: The equal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the distance between the peaks of the two distributions.
@@ -3482,7 +3808,7 @@ Figure 6: The equal variance Gaussian signal detection model, visualized from th
 <p>Notice that the above model assumed that the noise and signal distributions have the same variance. The unequal variances SDT (UVSDT) model allows the signal distribution to have a different variance than the noise distribution (whose standard deviation is still arbitrarily fixed at 1). It has been found that when the signal distribution’s standard deviation is allowed to vary, it is consistently greater than 1.</p>
 <p>The UVSDT model adds one parameter, and we can write out the resulting model by including the signal distribution’s standard deviation as a scale parameter in the above equation <span class="citation" data-cites="decarlo_using_2003">(<a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span>. However, because the standard deviation parameter must be greater than zero, it is convenient to model <span class="math inline">\(\mbox{log}(\sigma_{old}) = a\)</span> instead:</p>
 <p><span class="math display">\[p(y_i \leq k_i) = \Phi(\frac{d&#39;\mbox{isold}_i - c_k}{\mbox{exp}(a\mbox{isold}_i)})\]</span></p>
-<p>It turns out that this nonlinear model—also knows as a probit model with heteroscedastic error (e.g. <span class="citation" data-cites="decarlo_statistical_2010"><a href="#ref-decarlo_statistical_2010" role="doc-biblioref">DeCarlo</a> (<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>)—can be estimated with brms. Initially, I thought that we could write out a nonlinear brms formula for the ordinal probit model, but brms does not support nonlinear cumulative ordinal models. I then proceeded to modify the raw Stan code to estimate this model, but although that worked, it would be less practical for applied work because not everyone wants to go through the trouble of writing Stan code.</p>
+<p>It turns out that this nonlinear model—also knows as a probit model with heteroscedastic error (e.g. <span class="citation" data-cites="decarlo_statistical_2010">DeCarlo (<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>)—can be estimated with brms. Initially, I thought that we could write out a nonlinear brms formula for the ordinal probit model, but brms does not support nonlinear cumulative ordinal models. I then proceeded to modify the raw Stan code to estimate this model, but although that worked, it would be less practical for applied work because not everyone wants to go through the trouble of writing Stan code.</p>
 <p>After some back and forth with the creator of brms—Paul Bürkner, who deserves a gold medal for his continuing hard work on this free and open-source software—I found out that brms by default includes a similar parameter in ordinal regression models. If you scroll back up and look at the summary of <code>fit1</code>, at the top you will see that the model’s formula is:</p>
 <pre><code>Formula: y ~ isold 
 disc = 1</code></pre>
@@ -3509,6 +3835,104 @@ disc = 1</code></pre>
 <span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 finished in 6.1 seconds.
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 finished in 6.3 seconds.
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 7.2 seconds.
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 8.9 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 7.1 seconds.
+Total execution time: 9.1 seconds.</code></pre>
 </div>
 <p>The model’s estimated parameters:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3521,26 +3945,26 @@ disc = 1</code></pre>
 Formula: y ~ isold 
          disc ~ 0 + isold
    Data: d (Number of observations: 1188) 
-Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup samples = 4000
+  Draws: 4 chains, each with iter = 1000; warmup = 0; thin = 1;
+         total post-warmup draws = 4000
 
 Population-Level Effects: 
              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept[1]    -0.54      0.05    -0.65    -0.43 1.00     3368     2690
-Intercept[2]     0.20      0.05     0.10     0.30 1.00     5639     3303
-Intercept[3]     0.71      0.05     0.61     0.81 1.00     4686     3152
-Intercept[4]     1.37      0.07     1.24     1.51 1.00     2213     2560
-Intercept[5]     2.31      0.11     2.09     2.54 1.00     1395     1995
-isold            1.53      0.10     1.35     1.73 1.00     1746     2314
-disc_isold      -0.36      0.06    -0.48    -0.23 1.00     1466     2548
+Intercept[1]    -0.54      0.05    -0.64    -0.43 1.00     3309     3262
+Intercept[2]     0.20      0.05     0.11     0.30 1.00     5455     3486
+Intercept[3]     0.71      0.05     0.61     0.82 1.00     4982     3190
+Intercept[4]     1.37      0.07     1.24     1.51 1.00     2638     3117
+Intercept[5]     2.31      0.11     2.10     2.54 1.00     1540     2097
+isold            1.53      0.10     1.35     1.73 1.00     1798     2289
+disc_isold      -0.36      0.06    -0.48    -0.24 1.00     1571     2211
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>Notice that we need to flip the sign of the <code>disc</code> parameter to get <span class="math inline">\(\mbox{log}(\sigma_{old})\)</span>. Exponentiation gives us the standard deviation of the signal distribution, and because we estimated the model in the Bayesian framework, our estimate of this parameter is a posterior distribution, plotted on the y-axis of Figure <a href="#fig:uvsdt-densityplot">7</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:uvsdt-densityplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:uvsdt-densityplot"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/uvsdt-densityplot-1.png" alt="The (approximate) joint posterior density of two UVSDT parameters (d' and standard deviation of the signal distribution) fitted to one participant's data. Lighter yellow colors indicate higher posterior density. Red point shows the maximum likelihood estimates obtained from SPSS's ordinal regression module." width="624" />
 <p class="caption">
 Figure 7: The (approximate) joint posterior density of two UVSDT parameters (d’ and standard deviation of the signal distribution) fitted to one participant’s data. Lighter yellow colors indicate higher posterior density. Red point shows the maximum likelihood estimates obtained from SPSS’s ordinal regression module.
@@ -3577,7 +4001,7 @@ Parameter Estimates
 Link function: Probit.</code></pre>
 <p>Again, the maximum likelihood estimates (SPSS) match our Bayesian quantities numerically, because we used uninformative prior distributions. Plotting the model’s implied distributions illustrates that the signal distribution has greater variance than the noise distribution (Figure <a href="#fig:fit2-plot">8</a>).</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:fit2-plot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fit2-plot"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/fit2-plot-1.png" alt="The unequal variance Gaussian signal detection model, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d' is the scaled distance between the peaks of the two distributions." width="624" />
 <p class="caption">
 Figure 8: The unequal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the scaled distance between the peaks of the two distributions.
@@ -3588,24 +4012,24 @@ Figure 8: The unequal variance Gaussian signal detection model, visualized from 
 <p>Here, we calculate one such quantity: The ratio of the noise to signal standard deviations (<span class="math inline">\(\mbox{exp}(-a)\)</span>; notice that our model returns <em>-a</em> as <em>disc_isold</em>), which is also the slope of the z-ROC curve. We’ll first obtain the posterior samples of <em>disc_isold</em>, then calculate the ratio, and summarize the samples from ratio’s posterior distribution with their 2.5%, 50%, and 97.5%iles:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>fit2</span>, pars <span class='op'>=</span> <span class='st'>"b_disc_isold"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>transmute</span><span class='op'>(</span>ratio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>ratio</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>fit2</span>, pars <span class='op'>=</span> <span class='st'>"b_disc_isold"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>transmute</a></span><span class='op'>(</span>ratio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>ratio</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
   <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span>probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.025</span>, <span class='fl'>.5</span>, <span class='fl'>.975</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>     2.5%       50%     97.5% 
-0.6160153 0.7004072 0.7926746 </code></pre>
+0.6172621 0.6978295 0.7894949 </code></pre>
 </div>
 <p>These summaries are the parameter’s 95% Credible interval and median, and as such can be used to summarize this quantity in a publication. We could also visualize the posterior draws as a histogram:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>fit2</span>, pars <span class='op'>=</span> <span class='st'>"b_disc_isold"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>transmute</span><span class='op'>(</span>ratio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>ratio</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"black"</span>, fill <span class='op'>=</span> <span class='st'>"gray70"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme</span><span class='op'>(</span>aspect.ratio <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>fit2</span>, pars <span class='op'>=</span> <span class='st'>"b_disc_isold"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>transmute</a></span><span class='op'>(</span>ratio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>ratio</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"black"</span>, fill <span class='op'>=</span> <span class='st'>"gray70"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>aspect.ratio <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/unnamed-chunk-26-1.png" width="624" style="display: block; margin: auto;" /></p>
@@ -3613,7 +4037,7 @@ Figure 8: The unequal variance Gaussian signal detection model, visualized from 
 <h2 id="uvsdt-for-multiple-participants">UVSDT for multiple participants</h2>
 <p>Above, we fit the UVSDT model for a single subject. However, we almost always want to discuss our inference about the population, not individual subjects. Further, if we wish to discuss individual subjects, we should place them in the context of other subjects. A multilevel (aka hierarchical, mixed) model accomplishes these goals by including population- and subject-level parameters.</p>
 <h3 id="example-data-set">Example data set</h3>
-<p>We’ll use a data set of 48 subjects’ confidence ratings on a 6 point scale: 1 = “sure new,” …, 6 = “sure old” <span class="citation" data-cites="koen_examining_2013">(<a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al. 2013</a>)</span>. This data set is included in the R package MPTinR <span class="citation" data-cites="singmann_mptinr:_2013">(<a href="#ref-singmann_mptinr:_2013" role="doc-biblioref">Singmann and Kellen 2013</a>)</span>.</p>
+<p>We’ll use a data set of 48 subjects’ confidence ratings on a 6 point scale: 1 = “sure new”, …, 6 = “sure old” <span class="citation" data-cites="koen_examining_2013">(<a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al. 2013</a>)</span>. This data set is included in the R package MPTinR <span class="citation" data-cites="singmann_mptinr:_2013">(<a href="#ref-singmann_mptinr:_2013" role="doc-biblioref">Singmann and Kellen 2013</a>)</span>.</p>
 <p>In this experiment <span class="citation" data-cites="koen_examining_2013">(<a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al. 2013</a>)</span>, participants completed a study phase, and were then tested under full attention, or while doing a second task. Here, we focus on the rating data provided in the full attention condition. Below, I reproduce the aggregate rating counts for old and new items from the Table in the article’s appendix. (It is useful to ensure that we are indeed using the same data.)</p>
 <div class="layout-chunk" data-layout="l-body">
 <table>
@@ -3701,6 +4125,44 @@ Figure 8: The unequal variance Gaussian signal detection model, visualized from 
 <span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:   1 / 500 [  0%]  (Warmup) 
+Chain 2 Iteration:   1 / 500 [  0%]  (Warmup) 
+Chain 3 Iteration:   1 / 500 [  0%]  (Warmup) 
+Chain 4 Iteration:   1 / 500 [  0%]  (Warmup) 
+Chain 3 Iteration: 100 / 500 [ 20%]  (Warmup) 
+Chain 4 Iteration: 100 / 500 [ 20%]  (Warmup) 
+Chain 1 Iteration: 100 / 500 [ 20%]  (Warmup) 
+Chain 2 Iteration: 100 / 500 [ 20%]  (Warmup) 
+Chain 3 Iteration: 200 / 500 [ 40%]  (Warmup) 
+Chain 4 Iteration: 200 / 500 [ 40%]  (Warmup) 
+Chain 1 Iteration: 200 / 500 [ 40%]  (Warmup) 
+Chain 3 Iteration: 251 / 500 [ 50%]  (Sampling) 
+Chain 4 Iteration: 251 / 500 [ 50%]  (Sampling) 
+Chain 1 Iteration: 251 / 500 [ 50%]  (Sampling) 
+Chain 2 Iteration: 200 / 500 [ 40%]  (Warmup) 
+Chain 3 Iteration: 350 / 500 [ 70%]  (Sampling) 
+Chain 4 Iteration: 350 / 500 [ 70%]  (Sampling) 
+Chain 1 Iteration: 350 / 500 [ 70%]  (Sampling) 
+Chain 2 Iteration: 251 / 500 [ 50%]  (Sampling) 
+Chain 3 Iteration: 450 / 500 [ 90%]  (Sampling) 
+Chain 4 Iteration: 450 / 500 [ 90%]  (Sampling) 
+Chain 1 Iteration: 450 / 500 [ 90%]  (Sampling) 
+Chain 3 Iteration: 500 / 500 [100%]  (Sampling) 
+Chain 3 finished in 47.7 seconds.
+Chain 2 Iteration: 350 / 500 [ 70%]  (Sampling) 
+Chain 4 Iteration: 500 / 500 [100%]  (Sampling) 
+Chain 4 finished in 49.8 seconds.
+Chain 1 Iteration: 500 / 500 [100%]  (Sampling) 
+Chain 1 finished in 49.9 seconds.
+Chain 2 Iteration: 450 / 500 [ 90%]  (Sampling) 
+Chain 2 Iteration: 500 / 500 [100%]  (Sampling) 
+Chain 2 finished in 55.1 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 50.6 seconds.
+Total execution time: 55.4 seconds.</code></pre>
 </div>
 <p>We then display numerical summaries of the model’s parameters. Note that the effective sample sizes are modest, and Rhats indicate that we would benefit from drawing more samples from the posterior. For real applications, I recommend more than 500 iterations per chain.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3713,48 +4175,48 @@ Figure 8: The unequal variance Gaussian signal detection model, visualized from 
 Formula: y ~ isold + (isold | s | id) 
          disc ~ 0 + isold + (0 + isold | s | id)
    Data: d (Number of observations: 9502) 
-Samples: 4 chains, each with iter = 500; warmup = 250; thin = 1;
-         total post-warmup samples = 1000
+  Draws: 4 chains, each with iter = 250; warmup = 0; thin = 1;
+         total post-warmup draws = 1000
 
 Group-Level Effects: 
 ~id (Number of levels: 48) 
                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)                 0.34      0.04     0.28     0.43 1.01      252      364
-sd(isold)                     0.78      0.10     0.60     1.01 1.01      153      202
-sd(disc_isold)                0.46      0.05     0.37     0.56 1.03      183      269
-cor(Intercept,isold)         -0.45      0.13    -0.65    -0.16 1.02      167      319
-cor(Intercept,disc_isold)     0.34      0.13     0.08     0.57 1.02      198      454
-cor(isold,disc_isold)        -0.76      0.07    -0.88    -0.59 1.02      217      381
+sd(Intercept)                 0.34      0.04     0.27     0.42 1.01      190      414
+sd(isold)                     0.79      0.09     0.62     0.99 1.03      159      343
+sd(disc_isold)                0.46      0.05     0.37     0.56 1.02      264      531
+cor(Intercept,isold)         -0.47      0.11    -0.68    -0.24 1.02      172      254
+cor(Intercept,disc_isold)     0.34      0.13     0.08     0.58 1.02      195      469
+cor(isold,disc_isold)        -0.76      0.07    -0.88    -0.60 1.01      325      650
 
 Population-Level Effects: 
              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept[1]    -0.59      0.05    -0.69    -0.49 1.03      169      364
-Intercept[2]     0.21      0.05     0.11     0.30 1.03      167      405
-Intercept[3]     0.71      0.05     0.61     0.80 1.03      158      356
-Intercept[4]     1.05      0.05     0.95     1.14 1.03      160      323
-Intercept[5]     1.50      0.05     1.39     1.60 1.03      164      411
-isold            1.86      0.12     1.63     2.10 1.08       51      194
-disc_isold      -0.38      0.07    -0.51    -0.25 1.04      101      304
+Intercept[1]    -0.59      0.06    -0.70    -0.48 1.02      144      385
+Intercept[2]     0.21      0.05     0.10     0.31 1.01      144      352
+Intercept[3]     0.71      0.05     0.60     0.81 1.02      140      337
+Intercept[4]     1.05      0.06     0.95     1.16 1.01      144      385
+Intercept[5]     1.50      0.06     1.39     1.61 1.01      154      407
+isold            1.86      0.13     1.61     2.13 1.01      118      214
+disc_isold      -0.38      0.07    -0.52    -0.23 1.01      144      242
 
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
-<p>Let’s first focus on the “Population-level Effects”: The effects for the “average person.” <code>isold</code> is <em>d’</em>, and is very close to the one reported in the paper (eyeballing Figure 3 in <span class="citation" data-cites="koen_examining_2013"><a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al.</a> (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>; this <em>d’</em> is not numerically reported in the paper). <code>disc_isold</code> is, because of the model’s parameterization, <span class="math inline">\(-\mbox{log}(\sigma_{signal}) = -a\)</span>. The paper discusses <span class="math inline">\(V_o = \sigma_{signal}\)</span>, and therefore we transform each posterior sample of our <em>-a</em> to obtain samples from <span class="math inline">\(V_o\)</span>’s posterior distribution.</p>
+<p>Let’s first focus on the “Population-level Effects”: The effects for the “average person”. <code>isold</code> is <em>d’</em>, and is very close to the one reported in the paper (eyeballing Figure 3 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>; this <em>d’</em> is not numerically reported in the paper). <code>disc_isold</code> is, because of the model’s parameterization, <span class="math inline">\(-\mbox{log}(\sigma_{signal}) = -a\)</span>. The paper discusses <span class="math inline">\(V_o = \sigma_{signal}\)</span>, and therefore we transform each posterior sample of our <em>-a</em> to obtain samples from <span class="math inline">\(V_o\)</span>’s posterior distribution.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>samples</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/posterior_samples.brmsfit.html'>posterior_samples</a></span><span class='op'>(</span><span class='va'>fit</span>, <span class='st'>"b_"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>Vo <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>samples</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/posterior_samples.brmsfit.html'>posterior_samples</a></span><span class='op'>(</span><span class='va'>fit</span>, <span class='st'>"b_"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Vo <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>b_disc_isold</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>We can then plot density curves <span class="citation" data-cites="gabry_bayesplot:_2017">(<a href="#ref-gabry_bayesplot:_2017" role="doc-biblioref">Gabry 2017</a>)</span> for each of the Population-level Effects in our model, including <span class="math inline">\(V_o\)</span>. Figure <a href="#fig:population-density">9</a> shows that our estimate of <span class="math inline">\(V_o\)</span> corresponds very closely to the one reported in the paper (Figure 3 in <span class="citation" data-cites="koen_examining_2013"><a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al.</a> (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>).</p>
+<p>We can then plot density curves <span class="citation" data-cites="gabry_bayesplot:_2017">(<a href="#ref-gabry_bayesplot:_2017" role="doc-biblioref">Gabry 2017</a>)</span> for each of the Population-level Effects in our model, including <span class="math inline">\(V_o\)</span>. Figure <a href="#fig:population-density">9</a> shows that our estimate of <span class="math inline">\(V_o\)</span> corresponds very closely to the one reported in the paper (Figure 3 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://mc-stan.org/bayesplot/reference/MCMC-intervals.html'>mcmc_areas</a></span><span class='op'>(</span><span class='va'>samples</span>, point_est <span class='op'>=</span> <span class='st'>"mean"</span>, prob <span class='op'>=</span> <span class='fl'>.8</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/bayesplot/man/MCMC-intervals.html'>mcmc_areas</a></span><span class='op'>(</span><span class='va'>samples</span>, point_est <span class='op'>=</span> <span class='st'>"mean"</span>, prob <span class='op'>=</span> <span class='fl'>.8</span><span class='op'>)</span>
 </code></pre>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:population-density"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:population-density"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density-1.png" alt="Density plots of UVSDT model's Population-level Effects' posterior distributions. Different parameters are indicated on the y-axis, and possible values on the x-axis. Vertical lines are posterior means, and shaded areas are 80\% credible intervals." width="624" />
 <p class="caption">
 Figure 9: Density plots of UVSDT model’s Population-level Effects’ posterior distributions. Different parameters are indicated on the y-axis, and possible values on the x-axis. Vertical lines are posterior means, and shaded areas are 80% credible intervals.
@@ -3762,23 +4224,23 @@ Figure 9: Density plots of UVSDT model’s Population-level Effects’ posterior
 </div>
 </div>
 <h4 id="heterogeneity-parameters">Heterogeneity parameters</h4>
-<p>Although the “population-level estimates,” which perhaps should be called “average effects,” are usually the main target of inference, they are not the whole story, nor are they necessarily the most interesting part of it. It has been firmly established that, when allowed to vary, the standard deviation of the signal distribution is greater than 1. However, the between-subject variability of this parameter has received less interest. Figure <a href="#fig:population-density2">10</a> reveals that the between-subject heterogeneity of <em>a</em> is quite large: The subject-specific effects have a standard deviation around .5.</p>
+<p>Although the “population-level estimates”, which perhaps should be called “average effects”, are usually the main target of inference, they are not the whole story, nor are they necessarily the most interesting part of it. It has been firmly established that, when allowed to vary, the standard deviation of the signal distribution is greater than 1. However, the between-subject variability of this parameter has received less interest. Figure <a href="#fig:population-density2">10</a> reveals that the between-subject heterogeneity of <em>a</em> is quite large: The subject-specific effects have a standard deviation around .5.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>samples_h</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/posterior_samples.brmsfit.html'>posterior_samples</a></span><span class='op'>(</span><span class='va'>fit</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sd_"</span>, <span class='st'>"cor_"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://mc-stan.org/bayesplot/reference/MCMC-intervals.html'>mcmc_areas</a></span><span class='op'>(</span><span class='va'>samples_h</span>, point_est <span class='op'>=</span> <span class='st'>"mean"</span>, prob <span class='op'>=</span> <span class='fl'>.8</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/bayesplot/man/MCMC-intervals.html'>mcmc_areas</a></span><span class='op'>(</span><span class='va'>samples_h</span>, point_est <span class='op'>=</span> <span class='st'>"mean"</span>, prob <span class='op'>=</span> <span class='fl'>.8</span><span class='op'>)</span>
 </code></pre>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:population-density2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:population-density2"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/population-density2-1.png" alt="Density plots of the standard deviation and correlation parameters of the UVSDT model's parameters. Parameter's appended with 'sd_id__' are between-id standard deviations, ones with 'cor_id__' are between-id correlations." width="624" />
 <p class="caption">
 Figure 10: Density plots of the standard deviation and correlation parameters of the UVSDT model’s parameters. Parameter’s appended with ’sd_id__’ are between-id standard deviations, ones with ’cor_id__’ are between-id correlations.
 </p>
 </div>
 </div>
-<p>Figure <a href="#fig:population-density2">10</a> also tells us that the subject-specific <em>d’</em>s and <em>a</em>s are correlated ("cor_id__isold__disc_isold"). We can further investigate this relationship by plotting the subject specific signal-SDs and <em>d’</em>s side by side:</p>
+<p>Figure <a href="#fig:population-density2">10</a> also tells us that the subject-specific <em>d’</em>s and <em>a</em>s are correlated (“cor_id__isold__disc_isold”). We can further investigate this relationship by plotting the subject specific signal-SDs and <em>d’</em>s side by side:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:side-by-side"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:side-by-side"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/side-by-side-1.png" alt="Ridgeline plot of posterior distributions of subject-specific standard deviations (left) and d-primes (right). The ordering of subjects on the y-axis is the same, so as to highlight the relationship between the two variables." width="624" />
 <p class="caption">
 Figure 11: Ridgeline plot of posterior distributions of subject-specific standard deviations (left) and d-primes (right). The ordering of subjects on the y-axis is the same, so as to highlight the relationship between the two variables.
@@ -3787,7 +4249,7 @@ Figure 11: Ridgeline plot of posterior distributions of subject-specific standar
 </div>
 <p>As can be seen in the ridgeline plots <span class="citation" data-cites="wilke_ggridges:_2017">(<a href="#ref-wilke_ggridges:_2017" role="doc-biblioref">Wilke 2017</a>)</span> in Figure <a href="#fig:side-by-side">11</a>, participants with greater <span class="math inline">\(\sigma_{signal}\)</span> tend to have greater d’: Increase in recognition sensitivity is accompanied with an increase in the signal distribution’s variability. The density plots also make it clear that we are much less certain about individuals whose values (either one) are greater, as shown by the spread out posterior distributions. Yet another way to visualize this relationship is with a scatterplot of the posterior means Figure <a href="#fig:scatterplot">12</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:scatterplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot"></span>
 <img src="2017-10-09-bayesian-estimation-of-signal-detection-theory-models_files/figure-html5/scatterplot-1.png" alt="Scatterplot of posterior means of subject-specific d-primes and signal distribution standard deviations." width="624" />
 <p class="caption">
 Figure 12: Scatterplot of posterior means of subject-specific d-primes and signal distribution standard deviations.
@@ -3795,31 +4257,31 @@ Figure 12: Scatterplot of posterior means of subject-specific d-primes and signa
 </div>
 </div>
 <h2 id="conclusion">Conclusion</h2>
-<p>Estimating EVSDT and UVSDT models in the Bayesian framework with the brms package <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017b</a>)</span> is both easy (relatively speaking) and informative. In this post, we estimated a hierarchical nonlinear cognitive model using no more than a few lines of code. Previous literature on the topic (e.g. <span class="citation" data-cites="rouder_signal_2007"><a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al.</a> (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span>) has focused on simpler (EVSDT) models with more complicated implementations–hopefully in this post I have shown that these models are within the reach of a greater audience, provided that they have some familiarity with R.</p>
+<p>Estimating EVSDT and UVSDT models in the Bayesian framework with the brms package <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017a</a>)</span> is both easy (relatively speaking) and informative. In this post, we estimated a hierarchical nonlinear cognitive model using no more than a few lines of code. Previous literature on the topic (e.g. <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span>) has focused on simpler (EVSDT) models with more complicated implementations–hopefully in this post I have shown that these models are within the reach of a greater audience, provided that they have some familiarity with R.</p>
 <p>Another point worth making is a more general one about hierarchical models: We know that participants introduce (random) variation in our models. Ignoring this variation is clearly not good <span class="citation" data-cites="estes_problem_1956">(<a href="#ref-estes_problem_1956" role="doc-biblioref">Estes 1956</a>)</span>. It is more appropriate to model this variability, and use the resulting parameters to draw inference about the heterogeneity in parameters (and more generally, cognitive strategies) across individuals. Although maximum likelihood methods provide (noisy) point estimates of what I’ve here called between-subject heterogeneity parameters, the Bayesian method allows drawing firm conclusions about these parameters.</p>
 <!-- Include at end of document -->
 <h3 class="appendix" id="support-this-work">Support this work</h3>
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vuorre" data-color="#34A5DA" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h3 class="appendix" id="software-used">Software used</h3>
-<p>The following software packages were used: R [Version 4.0.3; <span class="citation" data-cites="R-base"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>] and the R-packages <em>bayesplot</em> [Version 1.8.0; <span class="citation" data-cites="R-bayesplot"><a href="#ref-R-bayesplot" role="doc-biblioref">Gabry et al.</a> (<a href="#ref-R-bayesplot" role="doc-biblioref">2019</a>)</span>], <em>boot</em> [Version 1.3.27; <span class="citation" data-cites="R-boot"><a href="#ref-R-boot" role="doc-biblioref">Davison and Hinkley</a> (<a href="#ref-R-boot" role="doc-biblioref">1997</a>)</span>], <em>brms</em> [Version 2.15.0; <span class="citation" data-cites="R-brms_a"><a href="#ref-R-brms_a" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_a" role="doc-biblioref">2017a</a>)</span>; <span class="citation" data-cites="R-brms_b"><a href="#ref-R-brms_b" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_b" role="doc-biblioref">2018</a>)</span>], <em>dplyr</em> [Version 1.0.5; <span class="citation" data-cites="R-dplyr"><a href="#ref-R-dplyr" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-dplyr" role="doc-biblioref">2021</a>)</span>], <em>forcats</em> [Version 0.5.1; <span class="citation" data-cites="R-forcats"><a href="#ref-R-forcats" role="doc-biblioref">Wickham</a> (<a href="#ref-R-forcats" role="doc-biblioref">2021a</a>)</span>], <em>ggplot2</em> [Version 3.3.3; <span class="citation" data-cites="R-ggplot2"><a href="#ref-R-ggplot2" role="doc-biblioref">Wickham</a> (<a href="#ref-R-ggplot2" role="doc-biblioref">2016</a>)</span>], <em>ggridges</em> [Version 0.5.3; <span class="citation" data-cites="R-ggridges"><a href="#ref-R-ggridges" role="doc-biblioref">Wilke</a> (<a href="#ref-R-ggridges" role="doc-biblioref">2021</a>)</span>], <em>knitr</em> [Version 1.31; <span class="citation" data-cites="R-knitr"><a href="#ref-R-knitr" role="doc-biblioref">Xie</a> (<a href="#ref-R-knitr" role="doc-biblioref">2015</a>)</span>], <em>lme4</em> [Version 1.1.26; <span class="citation" data-cites="R-lme4"><a href="#ref-R-lme4" role="doc-biblioref">Bates et al.</a> (<a href="#ref-R-lme4" role="doc-biblioref">2015</a>)</span>], <em>Matrix</em> [Version 1.3.2; <span class="citation" data-cites="R-Matrix"><a href="#ref-R-Matrix" role="doc-biblioref">Bates and Maechler</a> (<a href="#ref-R-Matrix" role="doc-biblioref">2021</a>)</span>], <em>purrr</em> [Version 0.3.4; <span class="citation" data-cites="R-purrr"><a href="#ref-R-purrr" role="doc-biblioref">Henry and Wickham</a> (<a href="#ref-R-purrr" role="doc-biblioref">2020</a>)</span>], <em>Rcpp</em> [Version 1.0.6; <span class="citation" data-cites="R-Rcpp_a"><a href="#ref-R-Rcpp_a" role="doc-biblioref">Eddelbuettel and François</a> (<a href="#ref-R-Rcpp_a" role="doc-biblioref">2011</a>)</span>; <span class="citation" data-cites="R-Rcpp_b"><a href="#ref-R-Rcpp_b" role="doc-biblioref">Eddelbuettel and Balamuta</a> (<a href="#ref-R-Rcpp_b" role="doc-biblioref">2018</a>)</span>], <em>readr</em> [Version 1.4.0; <span class="citation" data-cites="R-readr"><a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester</a> (<a href="#ref-R-readr" role="doc-biblioref">2020</a>)</span>], <em>scales</em> [Version 1.1.1; <span class="citation" data-cites="R-scales"><a href="#ref-R-scales" role="doc-biblioref">Wickham and Seidel</a> (<a href="#ref-R-scales" role="doc-biblioref">2020</a>)</span>], <em>sdtalt</em> [Version 1.3; <span class="citation" data-cites="R-sdtalt"><a href="#ref-R-sdtalt" role="doc-biblioref">Wright</a> (<a href="#ref-R-sdtalt" role="doc-biblioref">2011b</a>)</span>], <em>stringr</em> [Version 1.4.0; <span class="citation" data-cites="R-stringr"><a href="#ref-R-stringr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-stringr" role="doc-biblioref">2019</a>)</span>], <em>tibble</em> [Version 3.1.0; <span class="citation" data-cites="R-tibble"><a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham</a> (<a href="#ref-R-tibble" role="doc-biblioref">2021</a>)</span>], <em>tidyr</em> [Version 1.1.3; <span class="citation" data-cites="R-tidyr"><a href="#ref-R-tidyr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-tidyr" role="doc-biblioref">2021b</a>)</span>], <em>tidyverse</em> [Version 1.3.0; <span class="citation" data-cites="R-tidyverse"><a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-tidyverse" role="doc-biblioref">2019</a>)</span>], <em>viridis</em> [Version 0.5.1; <span class="citation" data-cites="R-viridis"><a href="#ref-R-viridis" role="doc-biblioref">Garnier</a> (<a href="#ref-R-viridis" role="doc-biblioref">2018a</a>)</span>; <span class="citation" data-cites="R-viridisLite"><a href="#ref-R-viridisLite" role="doc-biblioref">Garnier</a> (<a href="#ref-R-viridisLite" role="doc-biblioref">2018b</a>)</span>], and <em>viridisLite</em> [Version 0.3.0; <span class="citation" data-cites="R-viridisLite"><a href="#ref-R-viridisLite" role="doc-biblioref">Garnier</a> (<a href="#ref-R-viridisLite" role="doc-biblioref">2018b</a>)</span>].</p>
+<p>The following software packages were used: R [Version 4.1.2; <span class="citation" data-cites="R-base">R Core Team (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>] and the R-packages <em>bayesplot</em> [Version 1.8.1; <span class="citation" data-cites="R-bayesplot">Gabry et al. (<a href="#ref-R-bayesplot" role="doc-biblioref">2019</a>)</span>], <em>boot</em> [Version 1.3.28; <span class="citation" data-cites="R-boot">Davison and Hinkley (<a href="#ref-R-boot" role="doc-biblioref">1997</a>)</span>], <em>brms</em> [Version 2.16.3; <span class="citation" data-cites="R-brms_a">Bürkner (<a href="#ref-R-brms_a" role="doc-biblioref">2017b</a>)</span>; <span class="citation" data-cites="R-brms_b">Bürkner (<a href="#ref-R-brms_b" role="doc-biblioref">2018</a>)</span>], <em>dplyr</em> [Version 1.0.7; <span class="citation" data-cites="R-dplyr">Wickham et al. (<a href="#ref-R-dplyr" role="doc-biblioref">2021</a>)</span>], <em>forcats</em> [Version 0.5.1; <span class="citation" data-cites="R-forcats">Wickham (<a href="#ref-R-forcats" role="doc-biblioref">2021a</a>)</span>], <em>ggplot2</em> [Version 3.3.5; <span class="citation" data-cites="R-ggplot2">Wickham (<a href="#ref-R-ggplot2" role="doc-biblioref">2016</a>)</span>], <em>ggridges</em> [Version 0.5.3; <span class="citation" data-cites="R-ggridges">Wilke (<a href="#ref-R-ggridges" role="doc-biblioref">2021</a>)</span>], <em>knitr</em> [Version 1.36; <span class="citation" data-cites="R-knitr">Xie (<a href="#ref-R-knitr" role="doc-biblioref">2015</a>)</span>], <em>lme4</em> [Version 1.1.27.1; <span class="citation" data-cites="R-lme4">Bates et al. (<a href="#ref-R-lme4" role="doc-biblioref">2015</a>)</span>], <em>Matrix</em> [Version 1.3.4; <span class="citation" data-cites="R-Matrix">Bates and Maechler (<a href="#ref-R-Matrix" role="doc-biblioref">2021</a>)</span>], <em>purrr</em> [Version 0.3.4; <span class="citation" data-cites="R-purrr">Henry and Wickham (<a href="#ref-R-purrr" role="doc-biblioref">2020</a>)</span>], <em>Rcpp</em> [Version 1.0.7; <span class="citation" data-cites="R-Rcpp_a">Eddelbuettel and François (<a href="#ref-R-Rcpp_a" role="doc-biblioref">2011</a>)</span>; <span class="citation" data-cites="R-Rcpp_b">Eddelbuettel and Balamuta (<a href="#ref-R-Rcpp_b" role="doc-biblioref">2018</a>)</span>], <em>readr</em> [Version 2.1.0; <span class="citation" data-cites="R-readr">Wickham and Hester (<a href="#ref-R-readr" role="doc-biblioref">2020</a>)</span>], <em>scales</em> [Version 1.1.1; <span class="citation" data-cites="R-scales">Wickham and Seidel (<a href="#ref-R-scales" role="doc-biblioref">2020</a>)</span>], <em>sdtalt</em> [Version 1.3; <span class="citation" data-cites="R-sdtalt">Wright (<a href="#ref-R-sdtalt" role="doc-biblioref">2011b</a>)</span>], <em>stringr</em> [Version 1.4.0; <span class="citation" data-cites="R-stringr">Wickham (<a href="#ref-R-stringr" role="doc-biblioref">2019</a>)</span>], <em>tibble</em> [Version 3.1.6; <span class="citation" data-cites="R-tibble">Müller and Wickham (<a href="#ref-R-tibble" role="doc-biblioref">2021</a>)</span>], <em>tidyr</em> [Version 1.1.4; <span class="citation" data-cites="R-tidyr">Wickham (<a href="#ref-R-tidyr" role="doc-biblioref">2021b</a>)</span>], <em>tidyverse</em> [Version 1.3.1; <span class="citation" data-cites="R-tidyverse">Wickham et al. (<a href="#ref-R-tidyverse" role="doc-biblioref">2019</a>)</span>], <em>viridis</em> <span class="citation" data-cites="R-viridis R-viridisLite">(<a href="#ref-R-viridis" role="doc-biblioref">Garnier 2018a</a>, <a href="#ref-R-viridisLite" role="doc-biblioref">2018b</a>)</span>, and <em>viridisLite</em> [Version 0.4.0; <span class="citation" data-cites="R-viridisLite">Garnier (<a href="#ref-R-viridisLite" role="doc-biblioref">2018b</a>)</span>].</p>
 <!-- Include at end of document -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-R-Matrix" class="csl-entry" role="doc-biblioentry">
-Bates, Douglas, and Martin Maechler. 2021. <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. <a href="https://CRAN.R-project.org/package=Matrix">https://CRAN.R-project.org/package=Matrix</a>.
-</div>
 <div id="ref-R-lme4" class="csl-entry" role="doc-biblioentry">
 Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. <span>“Fitting Linear Mixed-Effects Models Using <span class="nocase">lme4</span>.”</span> <em>Journal of Statistical Software</em> 67 (1): 1–48. <a href="https://doi.org/10.18637/jss.v067.i01">https://doi.org/10.18637/jss.v067.i01</a>.
+</div>
+<div id="ref-R-Matrix" class="csl-entry" role="doc-biblioentry">
+Bates, Douglas, and Martin Maechler. 2021. <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. <a href="https://CRAN.R-project.org/package=Matrix">https://CRAN.R-project.org/package=Matrix</a>.
 </div>
 <div id="ref-bolger_intensive_2013" class="csl-entry" role="doc-biblioentry">
 Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive Longitudinal Methods: An Introduction to Diary and Experience Sampling Research</em>. Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
 </div>
-<div id="ref-R-brms_a" class="csl-entry" role="doc-biblioentry">
-Bürkner, Paul-Christian. 2017a. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
-</div>
 <div id="ref-burkner_brms:_2017" class="csl-entry" role="doc-biblioentry">
-———. 2017b. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+Bürkner, Paul-Christian. 2017a. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-R-brms_a" class="csl-entry" role="doc-biblioentry">
+———. 2017b. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
 <div id="ref-R-brms_b" class="csl-entry" role="doc-biblioentry">
 ———. 2018. <span>“Advanced <span>Bayesian</span> Multilevel Modeling with the <span>R</span> Package <span class="nocase">brms</span>.”</span> <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.
@@ -3827,14 +4289,14 @@ Bürkner, Paul-Christian. 2017a. <span>“<span class="nocase">brms</span>: An <
 <div id="ref-R-boot" class="csl-entry" role="doc-biblioentry">
 Davison, A. C., and D. V. Hinkley. 1997. <em>Bootstrap Methods and Their Applications</em>. Cambridge: Cambridge University Press. <a href="http://statwww.epfl.ch/davison/BMA/">http://statwww.epfl.ch/davison/BMA/</a>.
 </div>
-<div id="ref-decarlo_using_2003" class="csl-entry" role="doc-biblioentry">
-Decarlo, Lawrence T. 2003. <span>“Using the <span>PLUM</span> Procedure of <span>SPSS</span> to Fit Unequal Variance and Generalized Signal Detection Models.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 35 (1): 49–56. <a href="https://doi.org/10.3758/BF03195496">https://doi.org/10.3758/BF03195496</a>.
-</div>
 <div id="ref-decarlo_signal_1998" class="csl-entry" role="doc-biblioentry">
 DeCarlo, Lawrence T. 1998. <span>“Signal Detection Theory and Generalized Linear Models.”</span> <em>Psychological Methods</em> 3 (2): 186–205. <a href="https://doi.org/10.1037/1082-989X.3.2.186">https://doi.org/10.1037/1082-989X.3.2.186</a>.
 </div>
+<div id="ref-decarlo_using_2003" class="csl-entry" role="doc-biblioentry">
+Decarlo, Lawrence T. 2003. <span>“Using the <span>PLUM</span> Procedure of <span>SPSS</span> to Fit Unequal Variance and Generalized Signal Detection Models.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 35 (1): 49–56. <a href="https://doi.org/10.3758/BF03195496">https://doi.org/10.3758/BF03195496</a>.
+</div>
 <div id="ref-decarlo_statistical_2010" class="csl-entry" role="doc-biblioentry">
-———. 2010. <span>“On the Statistical and Theoretical Basis of Signal Detection Theory and Extensions: <span>Unequal</span> Variance, Random Coefficient, and Mixture Models.”</span> <em>Journal of Mathematical Psychology</em> 54 (3): 304–13. <a href="https://doi.org/10.1016/j.jmp.2010.01.001">https://doi.org/10.1016/j.jmp.2010.01.001</a>.
+DeCarlo, Lawrence T. 2010. <span>“On the Statistical and Theoretical Basis of Signal Detection Theory and Extensions: <span>Unequal</span> Variance, Random Coefficient, and Mixture Models.”</span> <em>Journal of Mathematical Psychology</em> 54 (3): 304–13. <a href="https://doi.org/10.1016/j.jmp.2010.01.001">https://doi.org/10.1016/j.jmp.2010.01.001</a>.
 </div>
 <div id="ref-R-Rcpp_b" class="csl-entry" role="doc-biblioentry">
 Eddelbuettel, Dirk, and James Joseph Balamuta. 2018. <span>“<span class="nocase">Extending extit<span>R</span> with extit<span>C++</span>: A Brief Introduction to extit<span>Rcpp</span></span>.”</span> <em>The American Statistician</em> 72 (1): 28–36. <a href="https://doi.org/10.1080/00031305.2017.1375990">https://doi.org/10.1080/00031305.2017.1375990</a>.
@@ -3948,7 +4410,7 @@ Wright, Daniel B. 2011a. <em>Sdtalt: <span>Signal</span> Detection Theory and Al
 Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 </div>
-<section class="footnotes" role="doc-endnotes">
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1" role="doc-endnote"><p>Hierarchical regression is sometimes used to mean the practice of adding predictors to a regression model based on the predictors’ <em>p</em>-values. Whatever you do, don’t do that.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

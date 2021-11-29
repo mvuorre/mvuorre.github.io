@@ -2441,7 +2441,7 @@ function init_posts_list() {
     var src = $(img).attr('data-src');
     if (src) {
       $(img).attr('src', src);
-      $(img).load(function() {
+      $(img).on("load", function() {
         img.removeAttribute('data-src');
       });
     }
@@ -2487,6 +2487,7 @@ function init_posts_list() {
 
       // mark posts that match the category visible
       var page_category = window.location.hash.replace(/^#category:/, "");
+      page_category = decodeURIComponent(page_category)
       var posts = $('.post-metadata').map(function(idx, script) {
         var metadata = $.parseJSON($(script).html());
         var post = null;
@@ -2502,7 +2503,7 @@ function init_posts_list() {
       set_posts_visible(posts, true);
 
       // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
 
       // update the list_caption
       var list_caption = $('.posts-list-caption');
@@ -2655,7 +2656,7 @@ function init_posts_list() {
 <a href="posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["psychology","statistics","tutorial","R","brms"]}</script>
 <div class="metadata">
-<div class="publishedDate">Oct. 9, 2017</div>
+<div class="publishedDate">Oct. 8, 2017</div>
 <div class="dt-authors">
 <div class="dt-author">Matti Vuorre</div>
 </div>

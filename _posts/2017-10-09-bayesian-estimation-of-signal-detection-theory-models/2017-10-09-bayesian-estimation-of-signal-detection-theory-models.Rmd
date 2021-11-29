@@ -165,15 +165,9 @@ $\Phi$ is again the cumulative normal density function and maps *z* scores to pr
 
 $$\eta_i = \beta_0 + \beta_1\mbox{isold}_i$$
 
-Given this parameterization, the intercept of the model ($\beta_0$) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion *c*. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in *z*-scores, which is another way of saying *d'*. Therefore, $c = -zFAR = -\beta_0$, and $d' = \beta_1$. 
+Given this parameterization, the intercept of the model ($\beta_0$) is going to be the standardized false alarm rate (probability of saying 1 when predictor is 0), which we take as our criterion *c*. The slope of the model is the increase in the probability of saying 1 when the predictor is 1, in *z*-scores, which is another way of saying *d'*. Therefore, $c = -zFAR = -\beta_0$, and $d' = \beta_1$. If you prefer the conventional calculation of $c = -.5*(zHR + zFAR)$ (e.g., Macmillan & Creelman, 2005), you can recode isold as +.5 vs. -.5 instead of 1 vs. 0.
 
-**Note. This parameterisation may differ from more common bias estimates. I received [two very helpful issues on this on GitHub](https://github.com/mvuorre/mvuorre.github.io/issues/1) (thanks!).** 
-
->Additionally, I suggest to add a paragraph, how to compute different bias estimate. Macmillian and Creelman are using c=-0.5(zHR+zFAR). This should be easily computed from posterior distribution as c = -0.5(2β0 - β1). this could help others to transit from nonhierarchical SDT to SDT in brms (<https://github.com/fidadoma>)
-
->The c used throughout Matt’s page is not typical and likely to be very misleading. McMillan & Creelman use the c calculation noted above, and DeCarlo note in their appendix that this corresponds to using effect coding (better yet, -.5 vs. +.5 coding). I have never encountered c being calculated the way Matt does or that DeCarlo mentions early in his paper. Psych has settled on calculating bias as -.5*(zHR+zFAR) or, sometimes, the Beta or slope measure. I’ve never encountered c=-zFAR. (<https://github.com/MikeKSU>)
-
-**Keep these useful comments in mind when reading.**
+<aside>**Note.** The criterion parameterization here is unconventional and you probably want to use the contrast coding as suggested above, instead of the R standard coding I use here. See `?contrasts()`. **Huge thanks to [Filip](https://github.com/fidadoma) and [Mike](https://github.com/MikeKSU) for letting me know about this issue!**</aside>
 
 The connection between SDT models and GLM is discussed in detail by @decarlo_signal_1998. Two immediate benefits of thinking about SDT models in a GLM framework is that we can now easily include predictors on *c* and *d'*, and estimate SDT models with varying coefficients using hierarchical modeling methods [@decarlo_statistical_2010; @rouder_introduction_2005]. This latter point means that we can easily fit the models for multiple participants (and items!) simultaneously, while at the same time pooling information across participants (and items). We will return to this point below.
 

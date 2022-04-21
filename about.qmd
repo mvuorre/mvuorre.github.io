@@ -1,19 +1,29 @@
 ---
 title: "About"
-image: profile.jpg
+image: images/profile.jpg
 about:
-  template: jolla
+  template: trestles
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/vuorre
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://linkedin.com/in/matti-vuorre
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/mvuorre
 
 ---
 
-About this blog
+## Hi 👋 
+
+I'm [Matti Vuorre](https://vuorre.netlify.app), a psychological scientist at the University of Oxford. I sometimes write technical articles about statistics, data science, and psychology on this blog.
+
+## Contact
+
+Questions? Comments? Feel free to [get in touch](https://vuorre.netlify.app/#contact).
+
+## I like coffee
+
+If you've found anything on this website useful, why not consider [buying me a coffee](https://www.buymeacoffee.com/vuorre)? I really like a nice cup of ☕️.

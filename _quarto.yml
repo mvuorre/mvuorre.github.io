@@ -1,18 +1,43 @@
 project:
   type: website
+  resources:
+    - "LICENSE.md"
 
 website:
-  title: "sometimesir"
+  title: "Sometimes I R"
+  site-url: https://sometimesir.com
+  description: "Notes on psychology and statistics, sometimes"
+  repo-url: https://github.com/mvuorre/mvuorre.github.io
+  repo-actions: [issue]
+  search:
+    location: navbar
+    type: textbox
+  reader-mode: true
+  twitter-card: true
+  opengraph: true
+  page-navigation: true
   navbar:
+    background: primary
     right:
       - about.qmd
+      - icon: rss
+        href: index.xml
       - icon: github
-        href: https://github.com/
+        href: https://github.com/mvuorre
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/vuorre
+  page-footer: 
+    background: light
+    border: false
+    left: "[© Matti Vuorre 2022](LICENSE.md)" 
+    right: 
+      - icon: github
+        href: https://github.com/mvuorre
+      - icon: twitter 
+        href: https://twitter.com/vuorre
 format:
   html:
-    theme: cosmo
+    theme: litera
     css: styles.css
 
 

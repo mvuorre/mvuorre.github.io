@@ -1,0 +1,23 @@
+---
+title: "Contact"
+---
+
+I'm always happy to hear from folks and meet new people! Don't hesitate to get in touch via [email](mailto:matti.vuorre@oii.ox.ac.uk), [twitter](https://www.twitter.com/vuorre), [keybase](https://keybase.io/vuorre), or by using the form below.
+
+<form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name:</label><br>
+    <input type="text" name="name" />
+  </p>
+  <p>
+    <label>Your Email:</label><br>
+     <input type="email" name="email" />
+  </p>
+  <p>
+    <label>Message:</label><br>
+    <textarea name="message" rows=8 cols=60></textarea>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>

@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 toc: true
 toc-depth: 2
@@ -38,7 +39,7 @@ website:
   page-footer: 
     background: light
     border: false
-    left: "[© Matti Vuorre 2022](LICENSE.md)" 
+    left: "© Matti Vuorre 2022" 
     right: 
       - icon: github
         aria-label: Github

@@ -1,7 +1,9 @@
 project:
   type: website
-  resources:
-    - "LICENSE.md"
+
+toc: true
+toc-depth: 2
+date-format: iso
 
 website:
   title: "Sometimes I R"
@@ -12,33 +14,46 @@ website:
   search:
     location: navbar
     type: textbox
-  reader-mode: true
   twitter-card: true
   opengraph: true
   page-navigation: true
   navbar:
+    pinned: true
     background: primary
     right:
       - about.qmd
-      - icon: rss
-        href: index.xml
-      - icon: github
-        href: https://github.com/mvuorre
-      - icon: twitter
-        href: https://twitter.com/vuorre
+      - contact.qmd
+      - text: Links
+        menu:
+          - icon: rss
+            aria-label: Feed
+            href: index.xml
+          - text: GitHub
+            href: https://github.com/mvuorre
+          - text: Twitter
+            href: https://twitter.com/vuorre
+          - text: Buy me a coffee
+            href: https://www.buymeacoffee.com/vuorre
+
   page-footer: 
     background: light
     border: false
     left: "[© Matti Vuorre 2022](LICENSE.md)" 
     right: 
       - icon: github
+        aria-label: Github
         href: https://github.com/mvuorre
       - icon: twitter 
+        aria-label: Twitter
         href: https://twitter.com/vuorre
+      - icon: cup
+        aria-label: Buy me a coffee
+        href: https://www.buymeacoffee.com/vuorre
 format:
   html:
-    theme: litera
-    css: styles.css
+    theme: 
+      - litera
+      - custom.scss
 
 
 

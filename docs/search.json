@@ -89,5 +89,12 @@
     "title": "About",
     "section": "I like coffee",
     "text": "I like coffee\nIf you’ve found anything on this website useful, why not consider buying me a coffee? I really like a nice cup of ☕️."
+  },
+  {
+    "objectID": "contact-success.html",
+    "href": "contact-success.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Thanks for getting in touch! I’ll get back to you."
   }
 ]

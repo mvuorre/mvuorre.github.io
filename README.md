@@ -1,1 +1,1 @@
-A Distill blog
+Statistics and psychology blog

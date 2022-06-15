@@ -1,13 +1,6 @@
 ---
 title: Confidence intervals in multilevel models
-# subtitle: Subtitle
 description: How to obtain average & individual-specific confidence limits for regression lines in a multilevel regression modeling context
-author:
-  - name: Matti Vuorre
-    url: https://vuorre.netlify.com
-    affiliation: University of Oxford
-    affiliation-url: https://www.oii.ox.ac.uk/people/matti-vuorre/
-    orcid_id: 0000-0001-5052-066X
 date: 2016-03-06
 categories:
   - statistics
@@ -15,10 +8,7 @@ categories:
   - brms
   - tutorial
 image: "index_files/figure-html/fig1and2-1.png"
-toc: true
 bibliography: bibliography.bib
-license: "CC BY-SA"
-citation: true
 ---
 
 ```{r packages, include = FALSE}
@@ -72,7 +62,7 @@ I will use the `sleepstudy` data set from the `lme4` package as an example:
 
 ```{r exdata, echo = 1}
 sleepstudy <- as_tibble(sleepstudy)
-kable(head(sleepstudy), digits = 2, caption = "Example data") %>% 
+kbl(head(sleepstudy), digits = 2, caption = "Example data") %>% 
   kable_styling()
 ```
 
@@ -329,5 +319,3 @@ conditional_effects(
 ## Conclusion
 
 Working with a matrix of plausible parameter values makes it easier to draw regression lines with confidence intervals. Specifically, the brms package provides easy access to CIs in a multilevel modeling context. 
-
-## {.appendix}

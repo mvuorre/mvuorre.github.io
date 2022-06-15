@@ -1,9 +1,34 @@
-# options specified here will apply to all posts in this folder
+# Shared options for posts
 
-# freeze computational output
-# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+# Freeze computed outputs
 freeze: true
 
-# Enable banner style title blocks
+# Disable banner style title blocks
 title-block-banner: false
 title-block-style: default
+
+# Enable CC licence appendix
+license: "CC BY"
+
+# Default for table of contents
+toc: true
+toc-title: Contents
+toc-depth: 2
+toc-location: right
+
+# Default knitr options
+execute:
+  echo: true
+  message: true
+  warning: true
+
+# Default author
+author:
+  - name: Matti Vuorre
+    url: https://vuorre.netlify.com
+    affiliation: University of Oxford
+    affiliation-url: https://www.oii.ox.ac.uk/people/matti-vuorre/
+    orcid_id: 0000-0001-5052-066X
+
+# Default fields for citation
+citation: true

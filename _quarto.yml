@@ -2,8 +2,6 @@ project:
   type: website
   output-dir: docs
 
-toc: true
-toc-depth: 2
 date-format: iso
 
 website:
@@ -26,12 +24,11 @@ website:
       - contact.qmd
       - text: Links
         menu:
-          - icon: rss
-            aria-label: Feed
+          - text: Feed
             href: index.xml
-          - text: GitHub
+          - text: My GitHub
             href: https://github.com/mvuorre
-          - text: Twitter
+          - text: My Twitter
             href: https://twitter.com/vuorre
           - text: Buy me a coffee
             href: https://www.buymeacoffee.com/vuorre
@@ -55,6 +52,7 @@ format:
     theme: 
       - litera
       - custom.scss
+    monofont: "Fira code"
 
 
 

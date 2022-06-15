@@ -16,14 +16,14 @@ about:
 
 ---
 
-## Hi 👋 
+## Hi 👋
 
-I'm [Matti Vuorre](https://vuorre.netlify.app), a psychological scientist at the University of Oxford. I sometimes write technical articles about statistics, data science, and psychology on this blog.
+I'm [Matti Vuorre](https://vuorre.netlify.app), a psychological scientist at the University of Oxford. I sometimes write about statistics, data science, and psychology on this blog.
 
 ## Contact
 
-Questions? Comments? Feel free to [get in touch](https://vuorre.netlify.app/#contact).
+Questions? Comments? Feel free to [get in touch](contact.qmd).
 
-## I like coffee
+## I like ☕️
 
-If you've found anything on this website useful, why not consider [buying me a coffee](https://www.buymeacoffee.com/vuorre)? I really like a nice cup of ☕️.
+If you've found anything on this website useful, why not consider [buying me a coffee](https://www.buymeacoffee.com/vuorre)? 

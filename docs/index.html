@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.305">
+<meta name="generator" content="quarto-0.9.584">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,12 +17,13 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -30,7 +31,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -75,8 +76,15 @@ ul.task-list{list-style: none;}
       window['quarto-listing-loaded']();
     }
   });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="alternate" type="application/rss+xml" title="Sometimes I R" href="index.xml"><meta name="twitter:title" content="Sometimes I R - Posts">
 <meta name="twitter:card" content="summary">
@@ -106,17 +114,16 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="./index.xml"><i class="bi bi-rss" role="img" aria-label="Feed">
-</i> 
- <span class="dropdown-text"></span></a>
+    <a class="dropdown-item" href="./index.xml">
+ <span class="dropdown-text">Feed</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">GitHub</span></a>
+ <span class="dropdown-text">My GitHub</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">Twitter</span></a>
+ <span class="dropdown-text">My Twitter</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
@@ -136,7 +143,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="brms">brms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tutorial">tutorial <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="brms">brms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tips">tips <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tutorial">tutorial <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -144,8 +151,6 @@ ul.task-list{list-style: none;}
 <div class="quarto-title">
 <h1 class="title">Posts</h1>
 </div>
-
-
 
 
 
@@ -163,33 +168,90 @@ ul.task-list{list-style: none;}
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457222400000" data-listing-file-modified-sort="1650895891936" data-listing-reading-time-sort="13.24">
+<div class="quarto-post image-right" data-index="0" data-categories="R,tips" data-listing-date-sort="1655247600000" data-listing-file-modified-sort="1655289933840" data-listing-reading-time-sort="0.935">
+<div class="thumbnail">
+<p><a href="./posts/easy-notifications-from-r/index.html"> <img src="./posts/easy-notifications-from-r/images/subscribe.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/easy-notifications-from-r/index.html">
+<h3 class="no-anchor listing-title">
+Easy notifications from R
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('tips'); return false;">
+tips
+</div>
+</div>
+<a href="./posts/easy-notifications-from-r/index.html">
+<div class="listing-description">
+<p>How to send notifications from R, or any other CLI, to your phone</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/easy-notifications-from-r/index.html">
+<div class="listing-date">
+2022-06-15
+</div>
+<div class="listing-author">
+Matti Vuorre
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1475103600000" data-listing-file-modified-sort="1655291398542" data-listing-reading-time-sort="9.4">
+<div class="thumbnail">
+<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"> <img src="./posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
+<h3 class="no-anchor listing-title">
+Bayesian Meta-Analysis with R, Stan, and brms
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
+statistics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
+brms
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
+<div class="listing-description">
+<p>Meta-analysis is a special case of Bayesian multilevel modeling</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
+<div class="listing-date">
+2016-09-29
+</div>
+<div class="listing-author">
+Matti Vuorre
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457222400000" data-listing-file-modified-sort="1655290606089" data-listing-reading-time-sort="13.235">
 <div class="thumbnail">
 <p><a href="./posts/2016-03-06-multilevel-predictions/index.html"> <img src="./posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="thumnail-image"> </a></p>
 </div>
@@ -238,7 +300,7 @@ Matti Vuorre
 No matching items
 </div>
 </div></main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();

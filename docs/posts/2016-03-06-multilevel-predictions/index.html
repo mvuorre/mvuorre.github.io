@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.305">
+<meta name="generator" content="quarto-0.9.584">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -102,18 +102,19 @@ div.csl-indent {
 }
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -136,13 +137,14 @@ div.csl-indent {
     "search-submit-button-title": "Submit"
   }
 }</script>
+
 <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="Sometimes I R - Confidence intervals in multilevel models">
-<meta name="twitter:description" content="How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling context">
+<meta name="twitter:description" content="How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling…">
 <meta name="twitter:image" content="https://sometimesir.com/posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png">
 <meta name="twitter:image-height" content="960">
 <meta name="twitter:image-width" content="1536">
@@ -173,17 +175,16 @@ div.csl-indent {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="../../index.xml"><i class="bi bi-rss" role="img" aria-label="Feed">
-</i> 
- <span class="dropdown-text"></span></a>
+    <a class="dropdown-item" href="../../index.xml">
+ <span class="dropdown-text">Feed</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">GitHub</span></a>
+ <span class="dropdown-text">My GitHub</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">Twitter</span></a>
+ <span class="dropdown-text">My Twitter</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
@@ -203,7 +204,7 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
@@ -213,7 +214,6 @@ div.csl-indent {
   <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation">Maximum likelihood estimation</a></li>
   <li><a href="#intervals-from-bayesian-models" id="toc-intervals-from-bayesian-models" class="nav-link" data-scroll-target="#intervals-from-bayesian-models">Intervals from Bayesian models</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -241,8 +241,9 @@ div.csl-indent {
   <div class="quarto-title-meta-heading">Author</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
-    <div class="quarto-title-meta-contents">Matti Vuorre </div>
-
+    <div class="quarto-title-meta-contents">
+    <a href="https://vuorre.netlify.com">Matti Vuorre</a> 
+  </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
             <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
@@ -251,8 +252,6 @@ div.csl-indent {
           </p>
       </div>
     </div>
-
-
 
 <div class="quarto-title-meta">
 
@@ -295,9 +294,10 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>“The average reaction time per day for subjects in a sleep deprivation study. On day 0 the subjects had their normal amount of sleep. Starting that night they were restricted to 3 hours of sleep per night. The observations represent the average reaction time on a series of tests given each day to each subject.”</p>
 </blockquote>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/exdata_6fe07c5c5943912ff8616d33c1b14907">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/exdata_4ac3e4078eecfe60c01d65f62b357aac">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sleepstudy <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>Example data</caption>
  <thead>
@@ -370,7 +370,8 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="multilevel-model">Multilevel model</h2>
 <p>The multilevel model I’ll fit to these data treats the intercept and effect of days as varying between individuals</p>
 <p><span class="math display">\[\mathsf{reaction}_{ij} \sim \mathcal{N}(\mu_{ij}, \sigma)\]</span></p>
-<p><span class="math display">\[\mu_{ij} = \beta_{0j} + \beta_{1j} \  \mathsf{days}_{ij}\]</span> <span class="math display">\[\begin{pmatrix}{\beta_{0j}}\\{\beta_{1j}}\end{pmatrix} \sim
+<p><span class="math display">\[\mu_{ij} = \beta_{0j} + \beta_{1j} \  \mathsf{days}_{ij}\]</span></p>
+<p><span class="math display">\[\begin{pmatrix}{\beta_{0j}}\\{\beta_{1j}}\end{pmatrix} \sim
 \mathcal{N} \begin{pmatrix}{\gamma_{00}},\ {\tau_{00}}\ {\rho_{01}}\\
 {\gamma_{10}},\ {\rho_{01}}\ {\tau_{10}} \end{pmatrix}\]</span></p>
 <p>In this post, and the above equations, I’ll omit the discussion of hyperpriors (priors on <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span> parameters.)</p>
@@ -382,6 +383,7 @@ div.csl-indent {
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fitlmer_2b785618fc12cf8cdda49c8e3fec4e58">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lmerfit <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>Multilevel model summary</caption>
  <thead>
@@ -542,6 +544,7 @@ div.csl-indent {
 </div>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/printbrmfit_545a213d0e691b63d585a7677a1ed8dd">
 <div class="cell-output-display">
+
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>Bayesian model estimates (brms)</caption>
  <thead>
@@ -717,15 +720,12 @@ div.csl-indent {
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Working with a matrix of plausible parameter values makes it easier to draw regression lines with confidence intervals. Specifically, the brms package provides easy access to CIs in a multilevel modeling context.</p>
+
+
+
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="section" class="level2 appendix"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
-
-
-
-
-</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-bolgerIntensiveLongitudinalMethods2013" class="csl-entry" role="doc-biblioentry">
 Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive <span>Longitudinal Methods</span>: <span>An Introduction</span> to <span>Diary</span> and <span>Experience Sampling Research</span></em>. <span>New York, NY</span>: <span>Guilford Press</span>. <a href="https://www.intensivelongitudinal.com">https://www.intensivelongitudinal.com</a>.
 </div>
@@ -735,7 +735,7 @@ Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regressio
 <div id="ref-korner-nievergeltBayesianDataAnalysis2015" class="csl-entry" role="doc-biblioentry">
 Korner-Nievergelt, Franzi, Tobias Roth, Stefanie von Felten, Jérôme Guélat, Bettina Almasi, and Pius Korner-Nievergelt. 2015. <em>Bayesian <span>Data Analysis</span> in <span>Ecology Using Linear Models</span> with <span>R</span>, <span>BUGS</span>, and <span>Stan</span></em>. <span>Elsevier Science</span>. <a href="https://www.elsevier.com/books/bayesian-data-analysis-in-ecology-using-linear-models-with-r-bugs-and-stan/korner-nievergelt/978-0-12-801370-0">https://www.elsevier.com/books/bayesian-data-analysis-in-ecology-using-linear-models-with-r-bugs-and-stan/korner-nievergelt/978-0-12-801370-0</a>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
   author = {Matti Vuorre},
   title = {Confidence Intervals in Multilevel Models},
   date = {2016-03-06},
@@ -746,7 +746,7 @@ Korner-Nievergelt, Franzi, Tobias Roth, Stefanie von Felten, Jérôme Guélat, B
 Matti Vuorre. 2016. <span>“Confidence Intervals in Multilevel
 Models.”</span> March 6, 2016. <a href="https://sometimesir.com/posts/2016-03-06-multilevel-predictions">https://sometimesir.com/posts/2016-03-06-multilevel-predictions</a>.
 </div></div></section></div></main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();

@@ -2,22 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sometimesir.com/contact.html</loc>
-    <lastmod>2022-04-26T09:28:12.625Z</lastmod>
+    <lastmod>2022-06-27T09:54:58.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sometimesir.com/posts/2016-09-29-bayesian-meta-analysis/index.html</loc>
+    <lastmod>2022-06-27T09:54:58.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sometimesir.com/posts/easy-notifications-from-r/index.html</loc>
+    <lastmod>2022-06-27T09:54:59.713Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-03-06-multilevel-predictions/index.html</loc>
-    <lastmod>2022-04-26T09:27:59.086Z</lastmod>
+    <lastmod>2022-06-27T09:55:00.711Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/index.html</loc>
-    <lastmod>2022-04-26T09:28:00.840Z</lastmod>
+    <lastmod>2022-06-27T09:55:01.394Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/about.html</loc>
-    <lastmod>2022-04-26T09:27:59.973Z</lastmod>
+    <lastmod>2022-06-27T09:55:01.774Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/contact-success.html</loc>
-    <lastmod>2022-04-26T09:28:25.589Z</lastmod>
+    <lastmod>2022-06-27T09:55:02.058Z</lastmod>
   </url>
 </urlset>

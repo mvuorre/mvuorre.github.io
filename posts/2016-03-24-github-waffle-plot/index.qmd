@@ -2,25 +2,14 @@
 title: GitHub-style waffle plots in R
 description: |
   Attractive visualization for plotting activity over time in R with ggplot2.
-author:
-  - name: Matti Vuorre
-    url: https://vuorre.netlify.com
-    affiliation: University of Oxford
-    affiliation_url: https://www.oii.ox.ac.uk/people/matti-vuorre/
-    orcid_id: 0000-0001-5052-066X
 date: 2016-03-24
 categories:
   - R
   - visualization
   - data science
   - tutorial
+image: "index_files/figure-html/viz-1.png"
 bibliography: bibliography.bib
-base_url: https://mvuorre.github.io
-output:
-  distill::distill_article:
-    self_contained: false
-    toc: true
-    toc_depth: 3
 ---
 
 ```{r packages, include = FALSE}
@@ -136,7 +125,7 @@ gh_waffle <- function(data, pal = "D", dir = -1) {
 
 Using `gh_waffle()` with the default settings, only providing the data frame `d`, gives the following result:
 
-```{r viz, preview = TRUE, layout = "l-body-outset"}
+```{r viz}
 gh_waffle(d)
 ```
 
@@ -147,15 +136,3 @@ gh_waffle(d)
 * [ggplot2](http://had.co.nz/ggplot2/book)
 * [viridis](https://github.com/sjmgarnier/viridis)
 * [ggthemes](https://github.com/jrnold/ggthemes)
-
-```{r child = here::here("meta.Rmd")}
-# Include 'meta.Rmd' in root
-```
-
-### Software used {.appendix}
-
-```{r cache = FALSE, include = FALSE}
-papaja::r_refs("bibliography.bib")
-```
-
-The following software packages were used in this blog post: `r papaja::cite_r("bibliography.bib")`.

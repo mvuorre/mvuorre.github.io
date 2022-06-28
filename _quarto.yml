@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: docs
+
+date-format: iso
+
+website:
+  title: "Sometimes I R"
+  site-url: https://sometimesir.com
+  description: "Notes on psychology and statistics, sometimes"
+  repo-url: https://github.com/mvuorre/mvuorre.github.io
+  repo-actions: [issue]
+  search:
+    location: navbar
+    type: textbox
+  twitter-card: true
+  opengraph: true
+  page-navigation: true
+  navbar:
+    pinned: true
+    background: primary
+    right:
+      - about.qmd
+      - contact.qmd
+      - text: Links
+        menu:
+          - text: Feed
+            href: index.xml
+          - text: My GitHub
+            href: https://github.com/mvuorre
+          - text: My Twitter
+            href: https://twitter.com/vuorre
+          - text: Buy me a coffee
+            href: https://www.buymeacoffee.com/vuorre
+
+  page-footer: 
+    background: light
+    border: false
+    left: "© Matti Vuorre 2022" 
+    right: 
+      - icon: github
+        aria-label: Github
+        href: https://github.com/mvuorre
+      - icon: twitter 
+        aria-label: Twitter
+        href: https://twitter.com/vuorre
+      - icon: cup
+        aria-label: Buy me a coffee
+        href: https://www.buymeacoffee.com/vuorre
+format:
+  html:
+    theme: 
+      - litera
+      - custom.scss
+    monofont: "Fira code"
+
+
+

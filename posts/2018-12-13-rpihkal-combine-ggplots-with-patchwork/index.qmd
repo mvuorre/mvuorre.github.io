@@ -1,0 +1,104 @@
+---
+title: "Combine ggplots with patchwork"
+description: |
+  How to combine arbitrary ggplots
+date: 2018-12-13
+categories:
+  - data science
+  - visualization
+  - ggplot2
+  - R
+bibliography: bibliography.bib
+image: "index_files/figure-html/mainfig-1.png"
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+library(tidyverse)
+opts_chunk$set(warning = F, message = F, eval = T, cache = F)
+theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
+```
+
+[ggplot2](https://ggplot2.tidyverse.org/) is the best R package for data visualization, and has powerful features for "facetting" plots into small multiples based on categorical variables. 
+
+## Facetting figures into small multiples
+
+This "facetting" is useful for showing the same figure, e.g. a bivariate relationship, at multiple levels of some other variable
+
+```{r, fig.height=2}
+library(tidyverse)
+ggplot(mtcars, aes(mpg, disp)) +
+  geom_point() +
+  facet_wrap("cyl")
+```
+
+But if you would like to get a figure that consists of multiple panels of unrelated plots---with different variables on the X and Y axes, potentially from different data sources---things become more complicated. 
+
+## Combining arbitrary ggplots
+
+Say you have these three figures
+
+```{r}
+p <- ggplot(mtcars)
+  
+a <- p +
+  aes(mpg, disp, col = as.factor(vs)) +
+  geom_smooth(se = F) +
+  geom_point()
+
+b <- p + 
+  aes(disp, gear, group = gear) +
+  ggstance::geom_boxploth()
+
+c <- p +
+  aes(hp) +
+  stat_density(geom = "area") +
+  coord_cartesian(expand = 0)
+```
+
+How would you go about combining them? There are a few options, such as `grid.arrange()` in the [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html) package, and `plot_grid()` in the [cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/plot_grid.html) package. Today, I'll point out a newer package that introduces a whole new syntax for combining together, [patchwork](https://github.com/thomasp85/patchwork).
+
+## Patchwork
+
+patchwork is not yet on CRAN, so install it from GitHub:
+
+```{r, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("thomasp85/patchwork")
+```
+
+Once you load the package, you can add ggplots together by adding them with `+`:
+
+```{r, fig.height = 2}
+library(patchwork)
+a + b + c
+```
+
+
+Basically, you can add ggplots together as if they were geoms inside a single ggplot. However, there's more. `|` specifies side-by-side addition
+
+```{r, fig.height = 2}
+a | c
+```
+
+And `/` is for adding plots under the previous plot
+
+```{r, fig.height = 3}
+b / c
+```
+
+These operators can be used to flexibly compose figures from multiple components, using parentheses to group plots and `+`, `|`, and `/` to add the groups together
+
+```{r, fig.height = 4}
+(a | b) / c
+```
+
+Use `plot_annotation()` to add tags, and `&` to pass theme elements to all plot elements in a composition
+
+```{r mainfig, fig.height = 4, fig.cap = "Tweak this a little bit and throw it in a manuscript."}
+(a | b) / c + 
+  plot_annotation(tag_levels = "A") & 
+  theme(legend.position = "none")
+```
+
+There are many more examples on [patchwork's GitHub page](https://github.com/thomasp85/patchwork). I've found this package more useful in composing figures out of multiple plots than its alternatives, mainly because of the concise but powerful syntax.

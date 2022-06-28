@@ -9,3 +9,6 @@ _posts/**/*_files/
 .Rdata
 .httr-oauth
 .DS_Store
+
+/.quarto/
+_freeze/

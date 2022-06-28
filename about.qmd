@@ -1,0 +1,29 @@
+---
+title: "About"
+image: images/profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/vuorre
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/matti-vuorre
+    - icon: github
+      text: Github
+      href: https://github.com/mvuorre
+
+---
+
+## Hi 👋
+
+I'm [Matti Vuorre](https://vuorre.netlify.app), a psychological scientist at the University of Oxford. I sometimes write about statistics, data science, and psychology on this blog.
+
+## Contact
+
+Questions? Comments? Feel free to [get in touch](contact.qmd). Need help with something? Book a [30-minute](https://book.stripe.com/3csfZ84rg2ee1sQeUU) or [1-hour one-on-one meeting with me](https://book.stripe.com/3csdR03nc6uugnK289).
+
+## I like ☕️
+
+If you've found anything on this website useful, why not consider [buying me a coffee](https://www.buymeacoffee.com/vuorre)? 

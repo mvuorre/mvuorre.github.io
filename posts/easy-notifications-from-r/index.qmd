@@ -1,0 +1,38 @@
+---
+title: Easy notifications from R
+description: How to send notifications from R, or any other CLI, to your phone
+date: 2022-06-15
+categories:
+  - R
+  - tips
+# image: "index_files/figure-html/fig1and2-1.png"
+---
+
+R can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I'll show how to do that easily with [ntfy](https://ntfy.sh).
+
+## Download ntfy.sh
+
+Go to your app store (iOS/Android) and download the ntfy app. 
+
+## Subscribe to a topic
+
+Open the app on your phone and [subscribe to a topic](https://ntfy.sh/docs/subscribe/phone/). Just type in a name that's both memorable and not likely to already be used by someone else. I use `vuorre-r-notifications`.
+
+![](images/subscribe.jpeg){fig-alt="Subscribing to vuorre-r-notifications on ntfy.sh"}
+
+## Send notifications
+
+You can now include variations of `system("curl -d 'Notification text' ntfy.sh/vuorre-r-notifications")` in your R code. For example, to send a notification after a long running code
+
+```{r, eval = FALSE}
+# Long running code here
+Sys.sleep(.1)  # Sleep for .1 second
+# Send notification
+system("curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-notifications")
+```
+
+You'll get this notification on your phone:
+
+![](images/notification.jpeg){fig-alt="Notification received on phone"}
+
+This is really useful when you have simulations (mcmc or otherwise 😉) that take a long time, and you'd like to act as soon as they are done. Have fun!

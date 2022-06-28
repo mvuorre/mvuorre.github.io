@@ -2,25 +2,14 @@
 title: How to create plots with subplots in R
 description: |
   Some tips on creating figures with multiple panels in R
-author:
-  - name: Matti Vuorre
-    url: https://vuorre.netlify.com
-    affiliation: University of Oxford
-    affiliation_url: https://www.oii.ox.ac.uk/people/matti-vuorre/
-    orcid_id: 0000-0001-5052-066X
 date: 2016-03-15
 categories:
   - data science
   - R
   - visualization
   - tutorial
+image: "index_files/figure-html/unnamed-chunk-4-1.png"
 bibliography: bibliography.bib
-base_url: https://mvuorre.github.io
-output:
-  distill::distill_article:
-    self_contained: false
-    toc: true
-    toc_depth: 3
 ---
 
 ```{r packages, include = FALSE}
@@ -177,15 +166,3 @@ dat_long %>%
   geom_histogram(fill = "grey20") +
   facet_wrap("education", scales = "free_y", nrow = 1)
 ```
-
-```{r child = here::here("meta.Rmd")}
-# Include 'meta.Rmd' in root
-```
-
-### Software used {.appendix}
-
-```{r cache = FALSE, include = FALSE}
-papaja::r_refs("bibliography.bib")
-```
-
-The following software packages were used in this blog post: `r papaja::cite_r("bibliography.bib")`.

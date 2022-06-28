@@ -4,6 +4,8 @@ title: "Contact"
 
 I'm always happy to hear from folks and meet new people! Don't hesitate to get in touch via [email](mailto:matti.vuorre@oii.ox.ac.uk), [twitter](https://www.twitter.com/vuorre), [keybase](https://keybase.io/vuorre), or by using the form below.
 
+If you'd like my help with something, you can book a [30-minute](https://book.stripe.com/3csfZ84rg2ee1sQeUU) or [1-hour one-on-one meeting with me](https://book.stripe.com/3csdR03nc6uugnK289).
+
 <form name="contact" method="POST" data-netlify="true" action="/contact-success.html">
   <p>
     <label>Your Name:</label><br>

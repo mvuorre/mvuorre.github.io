@@ -1,0 +1,24 @@
+Each .xlsx datafile has the same structure and set up. The basic demographics for each participant can be found in the demographics file.
+
+Column A: trial number. 
+Column B: Filename (see folder XX for stimuli)
+Column C: Response time
+Column D: Correct (desired) response
+Column E: Actual response
+"Column F: Angle (angular disparity, see paper)"
+Column G: Was the response correct or incorrect
+
+Column H-K: Response times for all correctly made 'Identical' (aka 'same') items (Column B starting with a number)
+Column L-O: Response times for all correctly made 'Mirror-image' (aka 'Different') items (Column B starting with a number)
+Column P-S: Column H-O combined
+
+Outliers removed (these are the data reported in the paper)
+"Column T-V: Response times for all correctly made 'Identical' (aka 'same') items (Column B starting with a number) with within-subject outliers, defined as being smaller than two standard deviations below the mean or two standard deviations above the mean, removed"
+Column Y-AA: Response times for different items with outliers removed as above
+Column AA-AE: Columns T-AA combined.
+
+Row 101: Average RT per angular disparity
+Row 102: SD per angular disparity
+Row 106: Errors per angular disparity
+
+Failures to respond within the time limit are coded as N/A and are considered incorrect responses.

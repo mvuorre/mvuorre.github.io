@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.584">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matti Vuorre">
+<meta name="dcterms.date" content="2019-02-18">
+<meta name="description" content="A reasonable choice might be the zero-one-inflated beta model">
+
+<title>Sometimes I R - How to analyze visual analog (slider) scale data?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Sometimes I R - How to analyze visual analog (slider) scale data?">
+<meta name="twitter:description" content="A reasonable choice might be the zero-one-inflated beta…">
+<meta name="twitter:image" content="https://sometimesir.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
+<meta name="twitter:image-height" content="652">
+<meta name="twitter:image-width" content="1344">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sometimes I R</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html">Contact</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
+        <li>
+    <a class="dropdown-item" href="../../index.xml">
+ <span class="dropdown-text">Feed</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mvuorre">
+ <span class="dropdown-text">My GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/vuorre">
+ <span class="dropdown-text">My Twitter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
+ <span class="dropdown-text">Buy me a coffee</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#normal-model-of-slider-ratings" id="toc-normal-model-of-slider-ratings" class="nav-link" data-scroll-target="#normal-model-of-slider-ratings">Normal model of slider ratings</a></li>
+  <li><a href="#toward-a-better-model" id="toc-toward-a-better-model" class="nav-link" data-scroll-target="#toward-a-better-model">Toward a better model</a></li>
+  </ul></li>
+  <li><a href="#the-zero-one-inflated-beta-model" id="toc-the-zero-one-inflated-beta-model" class="nav-link" data-scroll-target="#the-zero-one-inflated-beta-model">The zero-one-inflated beta model</a>
+  <ul class="collapse">
+  <li><a href="#the-beta-distribution" id="toc-the-beta-distribution" class="nav-link" data-scroll-target="#the-beta-distribution">The beta distribution</a></li>
+  <li><a href="#zero-one-inflation" id="toc-zero-one-inflation" class="nav-link" data-scroll-target="#zero-one-inflation">Zero-one inflation</a></li>
+  </ul></li>
+  <li><a href="#zoib-regression" id="toc-zoib-regression" class="nav-link" data-scroll-target="#zoib-regression">ZOIB regression</a>
+  <ul class="collapse">
+  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data">Example data</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model">The model</a></li>
+  </ul></li>
+  <li><a href="#simulation-compare-zoib-and-t-test-performances" id="toc-simulation-compare-zoib-and-t-test-performances" class="nav-link" data-scroll-target="#simulation-compare-zoib-and-t-test-performances">Simulation: Compare ZOIB and t-test performances</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">How to analyze visual analog (slider) scale data?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">psychology</div>
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">brms</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>A reasonable choice might be the zero-one-inflated beta model</p>
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <a href="https://vuorre.netlify.com">Matti Vuorre</a> 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
+            University of Oxford
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2019-02-18</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In psychological experiments, subjective responses are often collected using two types of response scales: ordinal and visual analog scales. These scales are unlikely to provide normally distributed data. However, researchers often analyze responses from these scales with models that assume normality of the data.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Ordinal scales, of which binary ratings are a special case, provide ordinal data and are thus better analyzed using ordinal models <span class="citation" data-cites="BurknerOrdinalRegressionModels2019 LiddellAnalyzingOrdinalData2018">(<a href="#ref-BurknerOrdinalRegressionModels2019" role="doc-biblioref">Bürkner and Vuorre 2019</a>; <a href="#ref-LiddellAnalyzingOrdinalData2018" role="doc-biblioref">Liddell and Kruschke 2018</a>)</span>.</p>
+<p>Analog scales, also known as slider scales, are also unlikely to provide normally distributed responses because the scale is bounded at the low and high ends. These responses also tend to be skewed. It is common for slider responses to bunch at either end of the slider scale, potentially making the deviation from normality more severe.</p>
+<p>For example, <a href="#fig-vas">Figure&nbsp;1</a> shows a slider scale in action. (I found this random example with a simple internet search at <a href="https://blog.surveyhero.com/2018/09/03/new-question-type-slider/" class="uri">https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</a>). In experiments using slider scales, subjects are typically instructed to use their mouse to drag a response indicator along a horizontal line, and/or click with a mouse on a point of the scale that matches their subjective impression. Sometimes these responses are provided on paper, where subjects are asked to bisect a line at a point that matches their subjective feeling (e.g.&nbsp;halfway between “Leisure” and “Money” if they are subjectively equally important.)</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-vas_d49fde4a4c4c62f226b259ae88878eb6">
+<div class="cell-output-display">
+<div id="fig-vas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="vas.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These analog ratings are sometimes thought to be ‘better’ than discrete ordinal ratings (Likert item responses) because of the greater resolution of the slider scale. The scale’s resolution is limited only by the resolution of the monitor: For example, if the rating scale is 100 pixels wide, there are 100 possible values for the ratings. It is not unthinkable that such ratings can be considered continuous between the low and high endpoints. However, they are often not well described by the normal distribution.</p>
+<section id="normal-model-of-slider-ratings" class="level2">
+<h2 class="anchored" data-anchor-id="normal-model-of-slider-ratings">Normal model of slider ratings</h2>
+<p>Consider <a href="#fig-simulate-example">Figure&nbsp;2</a>. This figure shows 200 simulated ratings on a [0, 1] slider scale (meaning that any value between 0 and 1, inclusive of the endpoints, is possible). I have also superimposed a blue curve of the best-fitting normal density on the histogram. The two most notable non-normal features of these data are that they are bounded at 0 and 1 where the data appears to “bunch”, and (possibly) skewed. Of course, these data were simulated; experience with slider scales tells me, however, that this histogram is not unrepresentative of such ratings.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-simulate-example_1387ec0834bc4477a1f4ba455cf43422">
+<div class="cell-output-display">
+<div id="fig-simulate-example" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-simulate-example-1.png" class="img-fluid figure-img" width="480"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>While the height of the blue curve is not comparable to the heights of the bars (one represents a density, the other counts of observations in rating bins), it should be apparent that features of the rating scale data make the blue normal curve a poor representation of the data.</p>
+<p>First, the skew apparent in the data is not captured by the normal density curve. Second, and perhaps more important, the blue curve does not respect the 0 and 1 boundaries of the slider scale data.</p>
+<p>Focus on this latter point: We can see that the blue curve assigns density to areas outside the possible values: The model predicts impossible values with alarming frequency. Second, the boundary values 0.0 and 1.0 do not receive any special treatment under the normal model, but we can see that the data are bunched at the boundaries. The great frequency of responses at 0.0 and 1.0 leads to large prediction errors from the normal model of these data.</p>
+<p>In other words, (simulated) subjects tend to give many extreme ratings. This is especially apparent in the low end of the rating scale, where the continuous spread of scores tapers off, but then there is a large spike of ratings at zero. The normal model misses these features of the data, and may therefore lead to unrepresentative estimates of the data generating process, and even erroneous conclusions.</p>
+</section>
+<section id="toward-a-better-model" class="level2">
+<h2 class="anchored" data-anchor-id="toward-a-better-model">Toward a better model</h2>
+<p>More generally, if your goal is to predict cognition and behavior <span class="citation" data-cites="YarkoniChoosingPredictionExplanation2017">(<a href="#ref-YarkoniChoosingPredictionExplanation2017" role="doc-biblioref">Yarkoni and Westfall 2017</a>)</span>, a model that is obviously a poor representation of your data—in terms of having such a poor predictive utility—should not be your first choice for data analysis.</p>
+<p>Admittedly, the data in <a href="#fig-simulate-example">Figure&nbsp;2</a> were simulated, and it remains an empirical question as to how common these features are in real data, and how severe these issues are to normal models (t-test, ANOVA, correlation, etc.).</p>
+<p>Nevertheless, it would be desirable to have an accessible data-analytic model for slider scale data, whose assumption better match observed features of the data. Here, I introduce one such model—the zero-one-inflated beta (ZOIB) model—and show how it can be applied to real data using the R package brms <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>. I also compare this model to standard analyses of slider scale data and conclude that the ZOIB can provide more detailed and accurate inferences from data than its conventional counterparts.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/meme_fea791b67312972a519790a812746af9">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zoidberg.jpg" class="img-fluid figure-img" width="240"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-zero-one-inflated-beta-model" class="level1">
+<h1>The zero-one-inflated beta model</h1>
+<p>Above, we established—rather informally—that normal models may be less than optimal for slider scale data. Of course, no model is the <em>correct</em> model of such data, but it would be desirable to use a model that best represents the data under study.</p>
+<p>The model for analysis of slider scale data discussed here has been called the “zero-one-inflated beta” model, or ZOIB <span class="citation" data-cites="LiuZoibPackageBayesian2015">(<a href="#ref-LiuZoibPackageBayesian2015" role="doc-biblioref">Liu and Kong 2015</a>)</span>. It is a model of data in the closed [0, 1] interval, and has two components: A beta distribution for responses in the closed (0, 1) interval, and a bernoulli distribution for the binary {0, 1} responses. Under this model, predictors can affect either or both the continuous and binary responses, the proportion of binary responses, or the spread of the continuous ratings.</p>
+<p>To understand ZOIB, let’s start with a closer look at the theoretical beta density.</p>
+<section id="the-beta-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="the-beta-distribution">The beta distribution</h2>
+<p>The beta distribution used in beta regression <span class="citation" data-cites="FerrariBetaRegressionModelling2004">(<a href="#ref-FerrariBetaRegressionModelling2004" role="doc-biblioref">Ferrari and Cribari-Neto 2004</a>)</span> is a model of data in the open (0, 1) interval. (i.e.&nbsp;all values from 0 to 1, but not 0 and 1 themselves, are permitted.)</p>
+<p>The beta distribution typically has two parameters, which in R are called <code>shape1</code> and <code>shape2</code>. Together, they determine the location, spread, and skew of the distribution. Four example beta densities are shown in <a href="#fig-beta-distributions">Figure&nbsp;3</a>. Using R’s <code>dbeta()</code>, I drew four curves corresponding to beta densities with different <code>shape1</code> and <code>2</code> parameters.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-beta-distributions_77b48c6794176e948912869205427887">
+<div class="cell-output-display">
+<div id="fig-beta-distributions" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3: Four examples of the beta density, corresponding to different shape parameters.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This default parameterization is useful, for example, as a prior distribution for proportions: The <code>shape1</code> and <code>shape2</code> parameters can define the prior number of zeros and ones, respectively. For example, in the above figure, <code>dbeta(x, shape1 = 1, shape2 = 1)</code> results in a uniform prior over proportions, because the prior zeros and ones are 1 each.</p>
+<p>However, for our purposes, it is more useful to parameterize the beta distribution with a mean and a precision. To convert the former parameterization to mean (which we’ll call <span class="math inline">\(\mu\)</span> (mu)) and precision (<span class="math inline">\(\phi\)</span> (phi)), the following formulas can be used</p>
+<p><span class="math display">\[\begin{align*}
+\mbox{shape1} &amp;= \mu \phi \\
+\mbox{shape2} &amp;= (1 - \mu)\phi
+\end{align*}\]</span></p>
+<p>(This parameterization is provided in R in the PropBeta functions from the extraDist package, which calls the precision parameter, or <span class="math inline">\(\phi\)</span>, <code>size</code>.) Redrawing the figure from above with this parameterization using the <code>dprop()</code> function, we get the figure below.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/beta-reparameterized-distributions_6d43416edc798f0ea6ef572070c83111">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Shown above are four density functions of the beta family, whose precision and mean are varied. The first (red line) is a beta distribution with precision = 1, and mean = 0.5. It results in a uniform distribution. If a subject gave random slider scale responses, they might look much like this distribution (any rating is equally probably as any other rating).</p>
+<p>The second beta distribution (green line) has precision 10, and mean 0.2. It is heavily skewed to the right. The third distribution (teal line) has precision 10, and a mean of 0.9. The fourth one, most similar to a normal distribution, has precision 70 and mean 0.50 (purple line).</p>
+<p>In beta regression, this family of distributions is used to model observations, and covariates can have effects on both the mean and precision parameters.</p>
+<p>However, beta regression only allows outcomes in the open (0, 1) interval. We know that slider scales often result in a bunching of values at the boundaries, and these boundary values might be informative of the participants’ cognition and behavior. To handle these extreme values, we can add a zero-one inflation process to the beta distribution.</p>
+</section>
+<section id="zero-one-inflation" class="level2">
+<h2 class="anchored" data-anchor-id="zero-one-inflation">Zero-one inflation</h2>
+<p>The zero-one-inflated beta (ZOIB) adds a separate discrete process for the {0, 1} values, using two additional parameters. Following convention, we shall call them <span class="math inline">\(\alpha\)</span> (alpha) and <span class="math inline">\(\gamma\)</span> (gamma). These parameters describe the probability of an observation being a 0 or 1 (<span class="math inline">\(\alpha\)</span>), and conditional on that, whether the observation was 1 (<span class="math inline">\(\gamma\)</span>).</p>
+<p>In other words, the model of outcomes under ZOIB is described by four parameters. The first is <span class="math inline">\(\alpha\)</span>, the probability that an observation is either 0 or 1. (Thus, <span class="math inline">\(1-\alpha\)</span> is the probability of a non-boundary observation.) If an observation is not 0 or 1, the datum is described by the beta distribution with some mean <span class="math inline">\(\mu\)</span> and precision <span class="math inline">\(\phi\)</span>. If an observation is 0 or 1, the probability of it being 1 is given by <span class="math inline">\(\gamma\)</span> (just like your usual model of binary outcomes, e.g.&nbsp;logistic regression). So you can think of the model as a kind of mixture of beta and logistic regressions, where the <span class="math inline">\(\alpha\)</span> parameter describes the mixing proportions. The mathematical representation of this model is given in <a href="https://cran.rstudio.com/web/packages/brms/vignettes/brms_families.html#zero-inflated-and-hurdle-models">this vignette</a> <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>.</p>
+<p>To illustrate, I wrote a little function <code>rzoib()</code> that takes these parameters as arguments, and generates <code>n</code> random draws. Here is a histogram of 1k samples from four ZOIB distributions with various combinations of the parameters:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/zoib-distributions_4b0ffacde88a39739a5f0aa829a7ed2f">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/zoib-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Take the first (red) one. <span class="math inline">\(\alpha\)</span> was set to zero, and therefore there are no observations exactly at zero or 1. Because <span class="math inline">\(\alpha = 0\)</span>, it doesn’t matter that <span class="math inline">\(\gamma\)</span> was set to 0.5. <span class="math inline">\(\gamma\)</span> is the conditional one probability, given that the observation was 0 or 1. Therefore, the first histogram only contains draws from a beta distribution with mean = 0.2, and precision = 6.</p>
+<p>Next, take a look at the second (green) histogram. Here, <span class="math inline">\(\alpha = 0.1\)</span>, so 10% of the observations will be either 0 or 1. Of these 10%, 30% are ones (<span class="math inline">\(\gamma = 0.3\)</span>). The bulk of the distribution, 90%, are draws from a beta distribution with a mean = 0.5, and precision = 3.</p>
+<p>The bottom two histograms are two more combinations of the four parameters. Try to understand how their shapes are explained by the specific parameter combinations.</p>
+<p>In summary, ZOIB is a reasonable model of slider scale data that can capture their major features, has support for the entire [0, 1] range of data, and does not assign density to impossible values (unlike the normal model). It also has an intuitive way of dealing with the boundary values as a separate process, thus providing more nuanced information about the outcome variable under study.</p>
+<p>Next, we discuss a regression model with ZOIB as the data model: We are most interested in how other variables affect or relate to the outcome variables under study (slider scale ratings). By modeling the four parameters of the ZOIB model on predictors, ZOIB regression allows us to do just that.</p>
+</section>
+</section>
+<section id="zoib-regression" class="level1">
+<h1>ZOIB regression</h1>
+<p>In this example, we examine the ZOIB model in the context of one binary predictor variable (Group A vs B, a “between subjects” manipulation).</p>
+<section id="example-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-data">Example data</h2>
+<p>To illustrate the ZOIB model in action, I simulated a data set of 100 ratings from two groups, A and B. These data are shown in <a href="#fig-zoib-example">Figure&nbsp;4</a>.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-zoib-example_f89e588e13fec1a98ff7bba3a1fdd2c7">
+<div class="cell-output-display">
+<div id="fig-zoib-example" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-zoib-example-1.png" class="img-fluid figure-img" width="288"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/zoib-exampletab_0d983374bb6eba9277ef29281c5fb222">
+
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/ex-ttest_d167746b8fa2757ccdc3bab5adb7c10c">
+
+</div>
+<p>We are interested in the extent to which Group A’s ratings differ from Group B’s ratings. It is common practice to address this question with a t-test, treating the ratings as normally distributed within each group. I compared the two groups’ means with a t-test: The difference was not statistically significant (B - A = 0.06, 95%CI = [-0.07, 0.2], p=0.340). I’ve also heard that you can do something called a Mann-Whitney U test, or a Kruskal-Wallis test when you have a categorical predictor and don’t want to assume a parametric form for your outcomes. I tried those as well. Neither of these nonparametric tests were significant (p=0.226; p=0.225). I therefore concluded that I was unable to reject the null hypothesis that Group A and Group B’s population means are not different.</p>
+<p>But as can be seen from <a href="#fig-simulate-example">Figure&nbsp;2</a>, the normal model makes unreasonable assumptions about these ratings. We see in <a href="#fig-zoib-example">Figure&nbsp;4</a> that there are many non-normal features in this example data set; e.g.&nbsp;many values are bunched at 0.0 and 1.0. Let’s fit the ZOIB model on these data, and see if our conclusions differ. Spoiler alert: they do.</p>
+</section>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The model</h2>
+<p>We will model the data as ZOIB, and use <code>group</code> as a predictor of the mean and precision of the beta distribution, the zero-one inflation probability <span class="math inline">\(\alpha\)</span>, and the conditional one-inflation probability <span class="math inline">\(\gamma\)</span>. In other words, in this model <code>group</code> may affect the mean and/or precision of the assumed beta distribution of the continuous ratings (0, 1), and/or the probability with which a binary rating is given, and/or the probability that a binary rating is 1. How do we estimate this model?</p>
+<p>It might not come as a surprise that we estimate the model with bayesian methods, using the R package brms <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>. Previously, I have discussed how to estimate signal detection theoretic models, “robust models”, and other multilevel models using this package. I’m a big fan of brms because of its modeling flexibility and post-processing functions: With concise syntax, you can fit a wide variety of possibly nonlinear, multivariate, and multilevel models, and analyze and visualize the models’ results.</p>
+<p>Let’s load the package, and start building our model.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The R formula syntax allows a concise representation of regression models in the form of <code>response ~ predictors</code>. For a simple normal (i.e.&nbsp;gaussian) model of the mean of <code>Ratings</code> as a function of <code>group</code>, you could write <code>Ratings ~ group, family = gaussian</code>. However, we want to predict the four parameters of the ZOIB model, and so will need to expand this notation.</p>
+<p>The brms package allows modeling more than one parameter of an outcome distribution. Specifically, we want to predict so-called “distributional parameters”, and <code>bf()</code> allows predicting them in their own formulas. Implicitly, <code>Ratings ~ group</code> means that you want to model the <em>mean</em> of <code>Ratings</code> on <code>group</code>. Therefore, to model <span class="math inline">\(\phi\)</span>, <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\gamma\)</span>, we will give them their own regression formulas within a call to <code>bf()</code>:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/brms-bf_1852a8e969083f61e39a4efa79ee547a">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>zoib_model <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Rating <span class="sc">~</span> group,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> group,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  zoi <span class="sc">~</span> group,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  coi <span class="sc">~</span> group, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">zero_one_inflated_beta</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The four sub-models of our model are, in order of appearance: 1. the model of the beta distribution’s mean (read, “predict <code>Rating</code>’s mean from <code>group</code>”). Then, 2. the model of <code>phi</code>; the beta distribution’s precision. 3. <code>zoi</code> is the zero-one inflation (<span class="math inline">\(\alpha\)</span>); that is, we model the probability of a binary rating as a function of <code>group</code>. 4. <code>coi</code> is the conditional one-inflation: Given that a response was {0, 1}, the probability of it being 1 is modelled on <code>group</code>.</p>
+<p>As is usual in R’s formula syntax, the intercepts of each of these formulas are implicitly included. (To make intercepts explicit, use e.g.&nbsp;<code>Rating ~ 1 + group</code>.) Therefore, this model will have 8 parameters; the intercepts are Group A’s mean, <code>phi</code>, <code>zoi</code>, and <code>coi</code>. Then, there will be a Group B parameter for each of them, indicating the extent to which the parameters differ for Group B versus Group A.</p>
+<p>If <code>group</code> has a positive effect on (the mean of) <code>Rating</code>, we may conclude that the continuous rating’s mean differs as function of Group. On the other hand, if <code>coi</code> is affected by <code>group</code>, Group has an effect on the binary {0, 1} ratings. If group has no effects on any of the parameters, we throw up our hands and design a new study.</p>
+<p>Finally, we specified <code>family = zero_one_inflated_beta()</code>. Just like logistic regression, ZOIB regression is a type of generalized linear model. Therefore, each distributional parameter is modeled through a link function. The mean, zoi, and coi parameters are modeled through a logit link function. Phi is modeled through a log link function. These link functions can be changed by giving named arguments to <code>zero_one_inflated_beta()</code>. It is important to keep in mind the specific link functions, we will need them when interpreting the model’s parameters.</p>
+<p>To estimate this model, we pass the resulting <code>zoib_model</code> to <code>brm()</code>, with a data frame from the current R environment, 4 CPU cores for speed, and a file argument to save the resulting model to disk. The last two arguments are optional.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> zoib_model,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-zoib"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>brms estimates the regression model using bayesian methods: It will return random draws from the parameters’ posterior distribution. It takes less than a minute to draw samples from this model. Let’s then interpret the estimated parameters (i.e.&nbsp;the numerical summaries of the posterior distribution):</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_b6cba7b5785bbafe900170141d8864ce">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: zero_one_inflated_beta </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = logit; phi = log; zoi = logit; coi = logit </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: Rating ~ group </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">##          phi ~ group</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">##          zoi ~ group</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          coi ~ group</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##    Data: dat (Number of observations: 100) </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 4000</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept         0.33      0.15     0.02     0.62 1.00     5961     3032</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_Intercept     1.49      0.23     1.03     1.91 1.00     5877     3483</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_Intercept    -0.79      0.32    -1.45    -0.16 1.00     7063     2584</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_Intercept     0.62      0.58    -0.48     1.86 1.00     6958     2651</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## groupB            0.92      0.21     0.51     1.34 1.00     6930     3124</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_groupB        0.49      0.32    -0.13     1.13 1.00     5555     3277</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_groupB        0.07      0.45    -0.80     0.95 1.00     6640     2678</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_groupB       -0.87      0.78    -2.47     0.64 1.00     7135     2449</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First, the summary of this model prints a paragraph of information about the model, such as the outcome family (ZOIB), link functions, etc. The regression coefficients are found under the “Population-Level Effects:” header. The columns of this section are “Estimate”, the posterior mean or point estimate of the parameter. “Est.Error”, the posterior standard deviation, or so called standard error of the parameter. Then, the lower and upper limit of the 95% Credible Interval. The two last columns are diagnostics of the model fitting procedure.</p>
+<p>The first four rows of this describe the parameters for the baseline group (Group A). <code>Intercept</code> is the logit-transformed mean of the beta distribution for Group A’s ratings (the subset of ratings that were (0, 1)). Next, <code>phi_Intercept</code> describes the precision of the beta distribution fitted to Group A’s slider responses, on the scale of the (log) link function. <code>zoi_Intercept</code> is the zero or one inflation of Group A’s data, on the logit scale. <code>coi_Intercept</code> is the conditional one inflation; out of the 0 or 1 ratings in Group A’s data, describing the proportion of ones (out of the 0/1 responses)?</p>
+<p>These parameters are described on the link scale, so for each of them, we can use the inverse link function to transform them to the response scale. Precision (<code>phi_Intercept</code>) was modeled on the log scale. Therefore, we can convert it back to the original scale by exponentiating. For the other parameters, which were modeled on the logit scale, we can use the inverse, which is <code>plogis()</code>.</p>
+<p>However, before converting the parameters, it is important to note that the estimates displayed above are summaries (means, quantiles) of the posterior draws of the parameters on the link function scale. Therefore, we cannot simply convert the summaries. Instead, we must transform each of the posterior samples, and then re-calculate the summaries. The following code accomplishes this “transform-then-summarize” procedure for each of the four parameters:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_5d9fc5fcbfff575b48f050ddbd6a1e8f">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_samples</span>(fit, <span class="at">pars =</span> <span class="st">"b_"</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"b_phi_Intercept"</span>), exp) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span><span class="st">"b_phi_Intercept"</span>), plogis) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">posterior_summary</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Parameter"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Est.Error</th>
+<th style="text-align: right;">Q2.5</th>
+<th style="text-align: right;">Q97.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">b_Intercept</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">0.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">b_phi_Intercept</td>
+<td style="text-align: right;">4.57</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">2.79</td>
+<td style="text-align: right;">6.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b_zoi_Intercept</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.46</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">b_coi_Intercept</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.87</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We can then interpret these summaries, beginning with <code>b_Intercept</code>. This is the estimated mean of the beta distribution fitted to Group A’s (0, 1) rating scale responses (with its standard error, lower- and upper limits of the 95% CI). Then, <code>b_Phi_Intercept</code> is the precision of the beta distribution. <code>zoi</code> is the zero-one inflation, and <code>coi</code> the conditional one inflation.</p>
+<p>To make <code>b_zoi_Intercept</code> concrete, we should be able to compare its posterior mean to the observed proportion of 0/1 values in the data:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_d32c7eaac5ed6e62ffc18a46f8f950da">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group<span class="sc">==</span><span class="st">"A"</span>] <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.311</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Above we calculated the proportion of zeros and ones in the data set, and found that it matches the estimated value. Similarly, for <code>coi</code>, we can find the corresponding value from the data:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_ac6dca96dcaa50a7b9d6ca452b14e19b">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group<span class="sc">==</span><span class="st">"A"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>Rating <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.643</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s get back to the model summary output. The following four parameters are the effects of being in group B on these parameters. Most importantly, <code>groupB</code> is the effect of group B (versus group A) on the mean of the ratings’ assumed beta distribution, in the logit scale. Immediately, we can see that the parameter’s 95% Credible Interval does not include zero. Traditionally, this parameter would be called “significant”; group B’s (0, 1) ratings are on average greater than group A’s.</p>
+<p>To transform this effect back to the data scale, we can again use <code>plogis()</code>. However, it is important to keep in mind that the effect’s size on the original scale depends on the intercept, getting smaller as the intercept increases (just like in any other generalized linear model.) The following bit of code transforms this effect and its uncertainty back to the original scale.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_7d26594ef60e0ef3eaed6747388bd71a">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B - A"</span> <span class="ot">=</span> <span class="st">"plogis(Intercept + groupB) = plogis(Intercept)"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypothesis</span>(fit, h)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      B - A     0.19      0.04     0.11     0.29         NA        NA    *</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="do">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data were simulated with the <code>rzoib()</code> function, and I set <span class="math inline">\(\alpha = 0.25, \gamma = 0.5, \mu = 0.6 + 0.15\mbox{groupB}, \phi = 5\)</span>. Therefore, the results of the t-tests and nonparametric tests were misses; a true effect was missed. On the other hand, the ZOIB regression model detected the true effect of group on the beta distribution’s mean.</p>
+<p>Finally, let’s visualize this key finding using the <code>conditional_effects()</code> function from brms.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-ex-me_aed1f396fa2dcf093960d34d14e062b2">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conditional_effects</span>(fit, <span class="at">dpar =</span> <span class="st">"mu"</span>), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_args =</span> <span class="fu">list</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">shape =</span> <span class="dv">1</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-ex-me" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-ex-me-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Comparing <a href="#fig-ex-me">Figure&nbsp;5</a> to <a href="#fig-zoib-example">Figure&nbsp;4</a> reveals the fundamental difference of the normal t-test model, and the ZOIB model: The ZOIB regression (<a href="#fig-ex-me">Figure&nbsp;5</a>) has found a large difference between the continuous part of the slider ratings’ means because it has treated the data with an appropriate model. By conflating the continuous and binary data, the t-test did not detect this difference.</p>
+<p>In conclusion, this example showed that ZOIB results in more informative, and potentially more accurate, inferences from analog scale (“slider”) data. Of course, in this simulation we had the benefit of knowing the true state of matters: The data were simulated from a ZOIB model. Nevertheless, we have reasoned that by respecting the major features of slider scale data, the ZOIB is a more accurate representation of it, and was therefore able to detect a difference where the t-test did not. Next, I put this conjecture to a test by conducting a small simulation study.</p>
+</section>
+</section>
+<section id="simulation-compare-zoib-and-t-test-performances" class="level1">
+<h1>Simulation: Compare ZOIB and t-test performances</h1>
+<p>To compare the performance of the t-test and ZOIB in a little bit more detail, I conducted a small simulation study. I simulated 100 data sets of 200 ratings from two independent groups, from the ZOIB model (100 ratings per group). I set <span class="math inline">\(\alpha = 0.2, \gamma = 0.7, \mu = 0.6 + 0.1\mbox{groupB}, \phi = 5\)</span>; that is, there was a small effect of group on the mean of the beta distribution, and all other parameters were constant across groups. A sample of the resulting data sets is shown in <a href="#fig-sim-examplesets">Figure&nbsp;6</a>.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/zoib-sim-1_91ebf9ab74e950b4005676b8b8abf427">
+
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sim-examplesets_03586da8508d5d58d42a692663107647">
+<div class="cell-output-display">
+<div id="fig-sim-examplesets" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/sim-sig-ttests_5b758580ad7ad2a0cbfb37d54f6af372">
+
+</div>
+<p>I first conducted an independent samples, unequal variances t-test on each of the 100 simulated data sets, comparing the two groups’ mean ratings. 35% of these t-tests were significantly positive at the .05 level. That is, the power of the t-test in this simulation was about 35%. (Uncertainty in this value is moderate, because I only did 100 simulation runs.)</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/sim-sig-brms_a2d3b32c194bda0a063d87cb01f5f792">
+
+</div>
+<p>I then estimated the ZOIB model for each of the 100 simulated data sets. Statistical significance does not play a role in Bayesian statistics, but to most easily compare the results of these two models, I calculated the proportion of simulations for which the estimated Group on <span class="math inline">\(\mu\)</span> effect’s 95% Credible Interval was entirely above zero. If a 95% CI does not include zero, disrespecting the philosophical differences of bayesian and frequentist statistics, I may say that the estimate is “significant”.</p>
+<p>This parameter was significantly greater than zero in 67% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in <a href="#fig-sims-compare">Figure&nbsp;7</a>.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sims-compare_86473af857a11cf2e39a1f2b4a67b7af">
+<div class="cell-output-display">
+<div id="fig-sims-compare" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-sims-compare-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As can be seen in this figure, in this particular setup, the t-tests severely underperformed in detecting a true effect when compared to the ZOIB model. Of course, this is to be expected, because the data were generated from the ZOIB model.</p>
+<p>Out there in the wild, which of these models is closer to the true data generating process for slider scale ratings? Normal models, or ZOIB? (Or, most likely, some other class of models?) As we have seen, normal models may be poor representations of bounded and skewed slider scale data. It is therefore possible that the routine use of normal models in analyzing slider scale data can result in missing true effects at a rate higher than indicated by conventional power analyses.</p>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<p>I have not extensively reviewed the performance of the ZOIB model in this blog post. Neither did I analyze real slider scale data. Therefore, I can not and would not recommend exclusively favoring the ZOIB model over normal models for the analysis of slider scale data. However, I can recommend at least trying ZOIB for your own slider scale data, and thinking about what models might best fit your data if they appear non normal.</p>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>There are many limitations to the current discussion, and the simulation studies should be considerably expanded to more realistic and variable situations.</p>
+<p>One limitation of the ZOIB model might be what I here discussed as its main benefit. ZOIB separates the binary and continuous processes, such that a predictor’s effect on one or both of them are independent in the model. However, it is likely that these two processes are somehow correlated. Thus, ZOIB does not give only one “effect” of a predictor on the ratings, but two, one for the continuous part, and one for the binary. By not getting a single effect, if nothing else, the model is more complex and probably more difficult to analyze and/or explain.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<p>The beta regression model has previously been discussed as a reasonable model of data in the open (0, 1) interval <span class="citation" data-cites="FerrariBetaRegressionModelling2004">(<a href="#ref-FerrariBetaRegressionModelling2004" role="doc-biblioref">Ferrari and Cribari-Neto 2004</a>)</span>. It’s application in psychological studies has also been discussed by <span class="citation" data-cites="SmithsonBetterLemonSqueezer2006 VerkuilenMixedMixtureRegression2012">(<a href="#ref-SmithsonBetterLemonSqueezer2006" role="doc-biblioref">Smithson and Verkuilen 2006</a>; see also <a href="#ref-VerkuilenMixedMixtureRegression2012" role="doc-biblioref">Verkuilen and Smithson 2012</a>)</span>. These earlier papers recommended that values at the 0 and 1 boundaries be somehow transformed to make the data suitable for the model, but transforming the data such that a model can be fitted seems like a bad idea.</p>
+<p>Mixtures of beta and discrete models were discussed by <span class="citation" data-cites="OspinaInflatedBetaDistributions2008">Ospina and Ferrari (<a href="#ref-OspinaInflatedBetaDistributions2008" role="doc-biblioref">2008</a>)</span>, and an R package for estimation of the ZOIB model was introduced by <span class="citation" data-cites="LiuZoibPackageBayesian2015">Liu and Kong (<a href="#ref-LiuZoibPackageBayesian2015" role="doc-biblioref">2015</a>)</span>. <span class="citation" data-cites="LiuReviewComparisonBayesian2018">Liu and Eugenio (<a href="#ref-LiuReviewComparisonBayesian2018" role="doc-biblioref">2018</a>)</span> found that ZOIB models are better estimated with Bayesian methods than with maximum likelihood methods.</p>
+<p>More information about the brms package can be found in <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">Bürkner (<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">2017</a>)</span>, and in the excellent vignettes at <a href="https://cran.rstudio.com/web/packages/brms/" class="uri">https://cran.rstudio.com/web/packages/brms/</a>.</p>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-BurknerBrmsPackageBayesian2017" class="csl-entry" role="doc-biblioentry">
+Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An</span> <span>R</span> <span>Package</span> for <span>Bayesian</span> <span>Multilevel</span> <span>Models</span> <span>Using</span> <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-BurknerOrdinalRegressionModels2019" class="csl-entry" role="doc-biblioentry">
+Bürkner, Paul-Christian, and Matti Vuorre. 2019. <span>“Ordinal <span>Regression</span> <span>Models</span> in <span>Psychology</span>: <span>A</span> <span>Tutorial</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 2 (1): 77–101. <a href="https://doi.org/10.1177/2515245918823199">https://doi.org/10.1177/2515245918823199</a>.
+</div>
+<div id="ref-FerrariBetaRegressionModelling2004" class="csl-entry" role="doc-biblioentry">
+Ferrari, Silvia, and Francisco Cribari-Neto. 2004. <span>“Beta <span>Regression</span> for <span>Modelling</span> <span>Rates</span> and <span>Proportions</span>.”</span> <em>Journal of Applied Statistics</em> 31 (7): 799–815. <a href="https://doi.org/10.1080/0266476042000214501">https://doi.org/10.1080/0266476042000214501</a>.
+</div>
+<div id="ref-LiddellAnalyzingOrdinalData2018" class="csl-entry" role="doc-biblioentry">
+Liddell, Torrin M., and John K. Kruschke. 2018. <span>“Analyzing Ordinal Data with Metric Models: <span>What</span> Could Possibly Go Wrong?”</span> <em>Journal of Experimental Social Psychology</em> 79 (November): 328–48. <a href="https://doi.org/10.1016/j.jesp.2018.08.009">https://doi.org/10.1016/j.jesp.2018.08.009</a>.
+</div>
+<div id="ref-LiuReviewComparisonBayesian2018" class="csl-entry" role="doc-biblioentry">
+Liu, Fang, and Evercita C Eugenio. 2018. <span>“A Review and Comparison of <span>Bayesian</span> and Likelihood-Based Inferences in Beta Regression and Zero-or-One-Inflated Beta Regression.”</span> <em>Statistical Methods in Medical Research</em> 27 (4): 1024–44. <a href="https://doi.org/10.1177/0962280216650699">https://doi.org/10.1177/0962280216650699</a>.
+</div>
+<div id="ref-LiuZoibPackageBayesian2015" class="csl-entry" role="doc-biblioentry">
+Liu, Fang, and Yunchuan Kong. 2015. <span>“Zoib: <span>An</span> <span>R</span> <span>Package</span> for <span>Bayesian</span> <span>Inference</span> for <span>Beta</span> <span>Regression</span> and <span>Zero</span>/<span>One</span> <span>Inflated</span> <span>Beta</span> <span>Regression</span>.”</span> <em>The R Journal</em> 7 (2): 34–51. <a href="https://journal.r-project.org/archive/2015/RJ-2015-019/index.html">https://journal.r-project.org/archive/2015/RJ-2015-019/index.html</a>.
+</div>
+<div id="ref-OspinaInflatedBetaDistributions2008" class="csl-entry" role="doc-biblioentry">
+Ospina, Raydonal, and Silvia L. P. Ferrari. 2008. <span>“Inflated Beta Distributions.”</span> <em>Statistical Papers</em> 51 (1): 111. <a href="https://doi.org/10.1007/s00362-008-0125-4">https://doi.org/10.1007/s00362-008-0125-4</a>.
+</div>
+<div id="ref-SmithsonBetterLemonSqueezer2006" class="csl-entry" role="doc-biblioentry">
+Smithson, Michael, and Jay Verkuilen. 2006. <span>“A Better Lemon Squeezer? <span>Maximum</span>-Likelihood Regression with Beta-Distributed Dependent Variables.”</span> <em>Psychological Methods</em> 11 (1): 54–71. <a href="https://doi.org/10.1037/1082-989X.11.1.54">https://doi.org/10.1037/1082-989X.11.1.54</a>.
+</div>
+<div id="ref-VerkuilenMixedMixtureRegression2012" class="csl-entry" role="doc-biblioentry">
+Verkuilen, Jay, and Michael Smithson. 2012. <span>“Mixed and <span>Mixture</span> <span>Regression</span> <span>Models</span> for <span>Continuous</span> <span>Bounded</span> <span>Responses</span> <span>Using</span> the <span>Beta</span> <span>Distribution</span>.”</span> <em>Journal of Educational and Behavioral Statistics</em> 37 (1): 82–113. <a href="https://doi.org/10.3102/1076998610396895">https://doi.org/10.3102/1076998610396895</a>.
+</div>
+<div id="ref-YarkoniChoosingPredictionExplanation2017" class="csl-entry" role="doc-biblioentry">
+Yarkoni, Tal, and Jacob Westfall. 2017. <span>“Choosing <span>Prediction</span> <span>Over</span> <span>Explanation</span> in <span>Psychology</span>: <span>Lessons</span> <span>From</span> <span>Machine</span> <span>Learning</span>.”</span> <em>Perspectives on Psychological Science</em> 12 (6): 1100–1122. <a href="https://doi.org/10.1177/1745691617693393">https://doi.org/10.1177/1745691617693393</a>.
+</div>
+</div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>Technically, normal models assume that the residuals are normally distributed. I will keep referring to data being normally distributed or not, for clarity.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2019,
+  author = {Matti Vuorre},
+  title = {How to Analyze Visual Analog (Slider) Scale Data?},
+  date = {2019-02-18},
+  url = {https://sometimesir.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2019" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Matti Vuorre. 2019. <span>“How to Analyze Visual Analog (Slider) Scale
+Data?”</span> February 18, 2019. <a href="https://sometimesir.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models">https://sometimesir.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mvuorre">
+      <i class="bi bi-github" role="img" aria-label="Github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/vuorre">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
+      <i class="bi bi-cup" role="img" aria-label="Buy me a coffee">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

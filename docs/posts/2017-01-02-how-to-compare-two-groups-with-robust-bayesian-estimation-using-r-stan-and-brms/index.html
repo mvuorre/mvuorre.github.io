@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.584">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matti Vuorre">
+<meta name="dcterms.date" content="2017-01-02">
+<meta name="description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.">
+
+<title>Sometimes I R - How to Compare Two Groups with Robust Bayesian Estimation in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Sometimes I R - How to Compare Two Groups with Robust Bayesian Estimation in R">
+<meta name="twitter:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST).">
+<meta name="twitter:image" content="https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png">
+<meta name="twitter:image-height" content="614">
+<meta name="twitter:image-width" content="1344">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sometimes I R</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html">Contact</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
+        <li>
+    <a class="dropdown-item" href="../../index.xml">
+ <span class="dropdown-text">Feed</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mvuorre">
+ <span class="dropdown-text">My GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/vuorre">
+ <span class="dropdown-text">My Twitter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
+ <span class="dropdown-text">Buy me a coffee</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-t-in-a-t-test" id="toc-the-t-in-a-t-test" class="nav-link" data-scroll-target="#the-t-in-a-t-test">The t in a t-test</a></li>
+  <li><a href="#bayesian-estimation-of-the-t-test" id="toc-bayesian-estimation-of-the-t-test" class="nav-link" data-scroll-target="#bayesian-estimation-of-the-t-test">Bayesian estimation of the t-test</a></li>
+  <li><a href="#robust-bayesian-estimation" id="toc-robust-bayesian-estimation" class="nav-link" data-scroll-target="#robust-bayesian-estimation">Robust Bayesian Estimation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">How to Compare Two Groups with Robust Bayesian Estimation in R</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">brms</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.</p>
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <a href="https://vuorre.netlify.com">Matti Vuorre</a> 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
+            University of Oxford
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2017-01-02</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Happy New Year 2017 everybody! 2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). We now recognize that different scientific questions may require different statistical tools, and are ready to adopt new and innovative methods. A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.</p>
+<p>More specifically, we’ll focus on the t-test. Everyone knows it, everyone uses it. Yet, there are (arguably) better methods for drawing inferences from two independent groups’ metric data <span class="citation" data-cites="kruschkeBayesianEstimationSupersedes2013">(<a href="#ref-kruschkeBayesianEstimationSupersedes2013" role="doc-biblioref">Kruschke 2013</a>)</span>:</p>
+<blockquote class="blockquote">
+<p>“When data are interpreted in terms of meaningful parameters in a mathematical description, such as the difference of mean parameters in two groups, it is Bayesian analysis that provides complete information about the credible parameter values. Bayesian analysis is also more intuitive than traditional methods of null hypothesis significance testing (e.g., Dienes, 2011).” <span class="citation" data-cites="kruschkeBayesianEstimationSupersedes2013">(<a href="#ref-kruschkeBayesianEstimationSupersedes2013" role="doc-biblioref">Kruschke 2013</a>)</span></p>
+</blockquote>
+<p>In that article (<em>“Bayesian estimation supersedes the t-test”</em>) <span class="citation" data-cites="kruschkeBayesianEstimationSupersedes2013">Kruschke (<a href="#ref-kruschkeBayesianEstimationSupersedes2013" role="doc-biblioref">2013</a>)</span> provided clear and well-reasoned arguments favoring Bayesian parameter estimation over null hypothesis significance testing in the context of comparing two groups, a situation which is usually dealt with a t-test. It also introduced a “robust” model for comparing two groups, which modeled the data as t-distributed, instead of normal. The article provided R code for running the estimation procedures, which could be downloaded from the <a href="http://www.indiana.edu/~kruschke/BEST/">author’s website</a> or <a href="https://cran.r-project.org/package=BEST">as an R package</a>.</p>
+<p>The R code and programs work well for this specific application (estimating the robust model for one or two groups’ metric data). However, modifying the code to handle more complicated situations is not easy, and the underlying estimation algorithms don’t necessarily scale up to handle more complicated situations. Therefore, in this blog post I’ll introduce easy to use, free, open-source, state-of-the-art computer programs for Bayesian estimation, in the context of comparing two groups’ metric (continuous) data. The programs are available for the R programming language—so make sure you are familiar with R basics (e.g.&nbsp;<a href="http://blog.efpsa.org/2016/12/05/introduction-to-data-analysis-using-r/">here</a>). I provide R code for t-tests and Bayesian estimation in R using the R package <a href="https://cran.r-project.org/package=brms">brms</a>, which provides a concise front-end layer to <a href="http://mc-stan.org/">Stan</a>.</p>
+<p>These programs supersede many older Bayesian inference programs because they are easy to use, fast, and are able to handle models with thousands of parameters. Learning to implement basic analyses such as t-tests, and Kruschke’s robust model, with these programs is very useful because you’ll then be able to do Bayesian statistics in practice, and will be prepared to understand and implement more complex models.</p>
+<p>Understanding the results of Bayesian estimation requires some knowledge of Bayesian statistics, of course, but since I cannot cover everything in this one post, I refer readers to excellent books on the topic: <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">McElreath (<a href="#ref-mcelreathStatisticalRethinkingBayesian2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="kruschkeDoingBayesianData2014">Kruschke (<a href="#ref-kruschkeDoingBayesianData2014" role="doc-biblioref">2014</a>)</span>, <span class="citation" data-cites="gelmanBayesianDataAnalysis2013">Gelman et al. (<a href="#ref-gelmanBayesianDataAnalysis2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>First, I’ll introduce the basic t-test in some detail, and then focus on understanding them as specific instantiations of <em>linear models</em>. If that sounds familiar, skip ahead to <a href="#bayesian-estimation-of-the-t-test">Bayesian Estimation of the t-test</a>, where I introduce the <strong>brms</strong> package for estimating models using Bayesian methods. Following that, we’ll use “distributional regression” to obtain Bayesian estimates of the unequal variances t-test model. Finally, we’ll learn how to estimate the robust unequal variances model using brms.</p>
+<p>We will use the following R packages:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_c20f80666b7b32871dd0303a15a4e119">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-t-in-a-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="the-t-in-a-t-test">The t in a t-test</h2>
+<p>We’ll begin with t-tests, using example data from Kruschke’s paper (p.&nbsp;577):</p>
+<blockquote class="blockquote">
+<p>“Consider data from two groups of people who take an IQ test. Group 1 (N1=47) consumes a “smart drug,” and Group 2 (N2=42) is a control group that consumes a placebo.”</p>
+</blockquote>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_f2646d19bedbc7dbb647207aea8aa0d2">
+
+</div>
+<p>These data are visualized as histograms, below:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/dataplot1_010c4453c00c39f3c08cce9b1954f2e0">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/dataplot1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Histograms of the two groups’ IQ scores.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="equal-variances-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="equal-variances-t-test">Equal variances t-test</h3>
+<p>These two groups’ IQ scores could be compared with a simple <strong>equal variances t-test</strong> (which you shouldn’t use; <a href="https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html">Lakens, 2015</a>), also known as Student’s t-test.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_f469487ee80746cfc327c61d952599f2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(IQ <span class="sc">~</span> Group, <span class="at">data =</span> d, <span class="at">var.equal =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  Two Sample t-test</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## data:  IQ by Group</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## t = -1.5587, df = 87, p-value = 0.1227</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means between group Control and group Treatment is not equal to 0</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  -3.544155  0.428653</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   mean in group Control mean in group Treatment </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                100.3571                101.9149</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We interpret the t-test in terms of the observed t-value, and whether it exceeds the critical t-value. The critical t-value, in turn, is defined as the extreme <span class="math inline">\(\alpha / 2\)</span> percentiles of a t-distribution with the given degrees of freedom.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_ba309069df0008514dc5ea2c31794b57">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The test results in an observed t-value of 1.56, which is not far enough in the tails of a t-distribution with 87 degrees of freedom to warrant rejecting the null hypothesis (given that we are using <span class="math inline">\(\alpha\)</span> = .05, which may or may not be an entirely brilliant idea).</p>
+</section>
+<section id="unequal-variances-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="unequal-variances-t-test">Unequal variances t-test</h3>
+<p>Next, we’ll run the more appropriate, <strong>unequal variances t-test</strong> (also known as Welch’s t-test), which R gives by default:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_fd71ebf594333d99a0dbfd178e16dbe6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(IQ <span class="sc">~</span> Group, <span class="at">data =</span> d, <span class="at">var.equal =</span> F)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  Welch Two Sample t-test</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## data:  IQ by Group</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## t = -1.6222, df = 63.039, p-value = 0.1098</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means between group Control and group Treatment is not equal to 0</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  -3.4766863  0.3611848</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   mean in group Control mean in group Treatment </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                100.3571                101.9149</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that while R gives Welch’s t-test by default, SPSS gives both. If you’re using SPSS, make sure to report the Welch’s test results, instead of the equal variances test. Here, the conclusion with respect to rejecting the null hypothesis of equal means is the same. However, notice that the results are numerically different, as they should, because these two t-tests refer to different models.</p>
+<p>It is of course up to you, as a researcher, to decide whether you assume equal variances or not. But note that we almost always allow the means to be different (that’s the whole point of the test, really), while many treatments may just as well have an effect on the variances.</p>
+<p>The first take-home message from today is that there are actually two t-tests, each associated with a different statistical model. And to make clear what the difference is, we must acquaint ourselves with the models.</p>
+</section>
+<section id="describing-the-models-underlying-the-t-tests" class="level3">
+<h3 class="anchored" data-anchor-id="describing-the-models-underlying-the-t-tests">Describing the model(s) underlying the t-test(s)</h3>
+<p>We don’t often think of t-<em>tests</em> (and ANOVAs) as <em>models</em>, but it turns out that they are just linear models disguised as “tests” (see <a href="http://www.sbirc.ed.ac.uk/cyril/SPM-course/Talks/2013/1-GLM-CP.pdf">here</a>, <a href="https://lindeloev.github.io/tests-as-linear/">here</a>, and <a href="https://stats.stackexchange.com/questions/59047/how-are-regression-the-t-test-and-the-anova-all-versions-of-the-general-linear">here</a>). Recently, there has been a tremendous push for model/parameter estimation, instead of null hypothesis significance testing <span class="citation" data-cites="gigerenzerMindlessStatistics2004 cummingNewStatisticsWhy2014 kruschkeDoingBayesianData2014">(<a href="#ref-gigerenzerMindlessStatistics2004" role="doc-biblioref">Gigerenzer 2004</a>; <a href="#ref-cummingNewStatisticsWhy2014" role="doc-biblioref">Cumming 2014</a>; <a href="#ref-kruschkeDoingBayesianData2014" role="doc-biblioref">Kruschke 2014</a>)</span>, so we will benefit from thinking about t-tests as linear models. Doing so will facilitate seamlessly expanding our models to handle more complicated situations.</p>
+<p>The equal variances t-test models metric data with three parameters: Mean for group A, mean for group B, and one shared standard deviation (i.e.&nbsp;the assumption that the standard deviations are equal between the two groups.)</p>
+<p>We call the metric outcome variable (IQ scores in our example) <span class="math inline">\(y_{ik}\)</span>, where <span class="math inline">\(i\)</span> is a subscript indicating the <span class="math inline">\(i^{th}\)</span> datum, and <span class="math inline">\(k\)</span> indicates the <span class="math inline">\(k^{th}\)</span> group. So <span class="math inline">\(y_{19, 1}\)</span> would be the 19th datum, belonging to group 1. Then we specify that <span class="math inline">\(y_{ik}\)</span> are normally distributed, <span class="math inline">\(N(\mu_{ik}, \sigma)\)</span>, where <span class="math inline">\(\mu_{ik}\)</span> indicates the mean of group <span class="math inline">\(k\)</span>, and <span class="math inline">\(\sigma\)</span> the common standard deviation.</p>
+<p><span class="math display">\[y_{ik} \sim N(\mu_{ik}, \sigma^2)\]</span></p>
+<p>Read the formula as “Y is normally distributed with mean <span class="math inline">\(\mu_{ik}\)</span> (mu), and standard deviation <span class="math inline">\(\sigma\)</span> (sigma)”. Note that the standard deviation <span class="math inline">\(\sigma\)</span> doesn’t have any subscripts: we assume it is the same for the groups.</p>
+<p>The means for groups 0 and 1 are simply <span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(\mu_1\)</span>, respectively, and their difference (let’s call it <span class="math inline">\(d\)</span>) is <span class="math inline">\(d = \mu_0 - \mu_1\)</span>. The 95% CI for <span class="math inline">\(d\)</span> is given in the t-test output, and we can tell that it differs from the one given by Welch’s t-test.</p>
+<p>It is unsurprising, then, that if we use a different model (the <a href="https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html">more appropriate unequal variances model</a>), our inferences may be different. Welch’s t-test is the same as Student’s, except that now we assume (and subsequently estimate) a unique standard deviation <span class="math inline">\(\sigma_{ik}\)</span> for both groups.</p>
+<p><span class="math display">\[y_{ik} \sim N(\mu_{ik}, \sigma_{ik}^2)\]</span></p>
+<p>This model makes a lot of sense, because rarely are we in a situation to <em>a priori</em> decide that the variance of scores in Group A is equal to the variance of scores in Group B. If you use the equal variances t-test, you should be prepared to justify and defend this assumption. (Deciding between models—such as between these two t-tests—is one way in which our prior information enters and influences data analysis.)</p>
+<p>Armed with this knowledge, we can now see that “conducting a t-test” can be understood as estimating one of these two models. By estimating the model, we obtain t-values, degrees of freedom, and consequently, <a href="http://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/">p-values</a>.</p>
+<p>However, for the models described here, it can be easier to think of the t-test as a specific type of the <strong>general linear model</strong>. We can re-write the t-test in an equivalent way, but instead have a specific parameter for the difference in means by writing it as a linear model. The equal variance model can be written as</p>
+<p><span class="math display">\[y_{ik} \sim N(\mu_{ik}, \sigma^2)\]</span></p>
+<p><span class="math display">\[\mu_{ik} = \beta_0 + \beta_1 Group_{ik}\]</span></p>
+<p>Here, <span class="math inline">\(\sigma\)</span> is just as before, but we now model the mean with an intercept (control group’s mean, <span class="math inline">\(\beta_0\)</span>) and the effect of the treatment (<span class="math inline">\(\beta_1\)</span>). With this model, <span class="math inline">\(\beta_1\)</span> directly tells us the estimated difference in the two groups. And because it is a parameter in the model, it has an associated standard error, t-value, degrees of freedom, and a p-value. The model can be estimated in R with the following line of code:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_18e542bb89dbd51bb24090b76bb1aede">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>olsmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(IQ <span class="sc">~</span> Group, <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The key input here is a model formula, which in R is specified as <code>outcome ~ predictor</code> (<code>DV ~ IV</code>). Using the <code>lm()</code> function, we estimated a linear model predicting <code>IQ</code> from an intercept (automatically included) and a Group parameter. I called this object <code>olsmod</code> for Ordinary Least Squares Model.</p>
+<p>R has it’s own model formula syntax, which is well worth learning. The formula in the previous model, <code>IQ ~ Group</code> means that we want to regress IQ on an intercept (which is implicitly included), and group (<code>Group</code>). Besides the formula, we only need to provide the data, which is contained in <code>d</code>.</p>
+<p>You can verify that the results are identical to the equal variances t-test above.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_56682d283cd045c5f2d8eb7777380994">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(olsmod)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = IQ ~ Group, data = d)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">##      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## -19.9149  -0.9149   0.0851   1.0851  22.0851 </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)    100.3571     0.7263 138.184   &lt;2e-16 ***</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">## GroupTreatment   1.5578     0.9994   1.559    0.123    </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Residual standard error: 4.707 on 87 degrees of freedom</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.02717,    Adjusted R-squared:  0.01599 </span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="do">## F-statistic:  2.43 on 1 and 87 DF,  p-value: 0.1227</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Focus on the <code>GroupTreatment</code> row in the estimated coefficients. <code>Estimate</code> is the point estimate (best guess) of the difference in means. <code>t value</code> is the observed t-value (identical to what <code>t.test()</code> reported), and the p-value (<code>Pr(&gt;|t|)</code>) matches as well. The <code>(Intercept)</code> row refers to <span class="math inline">\(\beta_0\)</span>, which is the control group’s mean.</p>
+<p>This way of thinking about the model, where we have parameters for one group’s mean, and the effect of the other group, facilitates focusing on the important parameter, the difference, instead of individual means. However, you can of course compute the difference from the means, or the means from one mean and a difference.</p>
+</section>
+</section>
+<section id="bayesian-estimation-of-the-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-estimation-of-the-t-test">Bayesian estimation of the t-test</h2>
+<section id="equal-variances-model" class="level3">
+<h3 class="anchored" data-anchor-id="equal-variances-model">Equal variances model</h3>
+<p>Next, I’ll illustrate how to estimate the equal variances t-test using Bayesian methods.</p>
+<p>Estimating this model with R, thanks to the Stan and brms teams, is as easy as the linear regression model we ran above. The most important function in the brms package is <code>brm()</code>, for Bayesian Regression Model(ing). The user needs only to input a model formula, just as above, and a data frame that contains the variables specified in the formula. <code>brm()</code> then translates the model into Stan language, and asks Stan to compile the model into C++ and draw samples from the posterior distribution. The result is an R object with the estimated results. We run the model and save the results to <code>mod_eqvar</code> for equal variances model:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-7_a3c902108e9ee8bf6d8b363294a721b4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod_eqvar <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  IQ <span class="sc">~</span> Group,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,  <span class="co"># Use 4 cores for parallel processing</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"iqgroup"</span>  <span class="co"># Save results into a file</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The results can be viewed with <code>summary()</code>:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_c394c494672e0d2019bfadb8574d6c97">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_eqvar)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: gaussian </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = identity; sigma = identity </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: IQ ~ Group </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    Data: d (Number of observations: 89) </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 4000</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept        100.35      0.73    98.95   101.78 1.00     3922     3153</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">## GroupTreatment     1.54      1.03    -0.49     3.61 1.00     3992     2859</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Family Specific Parameters: </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">## sigma     4.71      0.37     4.05     5.48 1.00     3613     2743</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that the model contains three parameters, one of which is the shared standard deviation <code>sigma</code>. Compare the output of the Bayesian model to the one estimated with <code>lm()</code> (OLS):</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_3baba5f94d16532f646ec82efad7cd81">
+<div class="cell-output-display">
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>Model results, left: OLS, right: brms.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:left;"> brms </th>
+   <th style="text-align:right;"> Estimate </th>
+   <th style="text-align:right;"> Est.Error </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:right;"> 100.36 </td>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:left;"> Intercept </td>
+   <td style="text-align:right;"> 100.35 </td>
+   <td style="text-align:right;"> 0.73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> GroupTreatment </td>
+   <td style="text-align:right;"> 1.56 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:left;"> GroupTreatment </td>
+   <td style="text-align:right;"> 1.54 </td>
+   <td style="text-align:right;"> 1.03 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>The point estimates (posterior means in the Bayesian model) and standard errors (SD of the respective posterior distribution) are pretty much identical.</p>
+<p>We now know the models behind t-tests, and how to estimate the equal variances t-test using the <code>t.test()</code>, <code>lm()</code>, and <code>brm()</code> functions. We also know how to run Welch’s t-test using <code>t.test()</code>. However, estimating the general linear model version of the unequal variances t-test model is slightly more complicated, because it involves specifying predictors for <span class="math inline">\(\sigma\)</span>, the standard deviation parameter.</p>
+</section>
+<section id="unequal-variances-model" class="level3">
+<h3 class="anchored" data-anchor-id="unequal-variances-model">Unequal variances model</h3>
+<p>We only need a small adjustment to the equal variances model to specify the unequal variances model:</p>
+<p><span class="math display">\[y_{ik} \sim N(\mu_{ik}, \sigma_{ik})\]</span></p>
+<p><span class="math display">\[\mu_{ik} = \beta_0 + \beta_1 Group_{ik}\]</span></p>
+<p>Notice that we now have subscripts for <span class="math inline">\(\sigma\)</span>, denoting that it varies between groups. In fact, we’ll write out a linear model for the standard deviation parameter.</p>
+<p><span class="math display">\[\sigma_{ik} = \gamma_0 + \gamma_1 Group_{ik}\]</span></p>
+<p>The model now includes, instead of a common <span class="math inline">\(\sigma\)</span>, one parameter for Group 0’s standard deviation <span class="math inline">\(\gamma_0\)</span> (gamma), and one for the effect of Group 1 on the standard deviation <span class="math inline">\(\gamma_1\)</span>, such that group 1’s standard deviation is <span class="math inline">\(\gamma_0 + \gamma_1\)</span>. Therefore, we have 4 free parameters, two means and two standard deviations. (The full specification would include prior distributions for all the parameters, but that topic is outside of the scope of this post.) <code>brm()</code> takes more complicated models by wrapping them inside <code>bf()</code> (short for <code>brmsformula()</code>), which is subsequently entered as the first argument to <code>brm()</code>.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_43b399d45de91eceaa16b14fbb3dfc9b">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>uneq_var_frm <span class="ot">&lt;-</span> <span class="fu">bf</span>(IQ <span class="sc">~</span> Group, sigma <span class="sc">~</span> Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can see that the formula regresses IQ on Group, such that we’ll have an intercept (implicitly included), and an effect of Group 1. We also model the standard deviation sigma on Group.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-11_1bc91816870236e5afe5de100e0191a9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod_uneqvar <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  uneq_var_frm,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"iqgroup-uv"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-12_e22d832a0cddd7bf8395bc7a5d2afaa1">
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = log 
+## Formula: IQ ~ Group 
+##          sigma ~ Group
+##    Data: d (Number of observations: 89) 
+##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 4000
+## 
+## Population-Level Effects: 
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept              100.36      0.40    99.59   101.14 1.00     5287     2795
+## sigma_Intercept          0.94      0.11     0.74     1.17 1.00     3649     2628
+## GroupTreatment           1.56      0.97    -0.35     3.56 1.00     2802     2663
+## sigma_GroupTreatment     0.87      0.15     0.57     1.16 1.00     3637     2913
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<p>The model’s output contains our 4 parameters. <code>Intercept</code> is the mean for group 0, <code>Group 1</code> is the “effect of group 1”. The <code>sigma_Intercept</code> is the standard deviation of Group 0, <code>sigma_Group</code> is the effect of group 1 on the standard deviation (the SD of Group 1 is <code>sigma_Intercept</code> + <code>sigma_Group</code>). The sigmas are implicitly modeled through a log-link (because they must be positive). To convert them back to the scale of the data, they need to be exponentiated. After taking the exponents of the sigmas, the results look like this:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_91a06583cb8e972d7928824c94480c8a">
+<div class="cell-output-display">
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>Posterior summary after transformation</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Parameter </th>
+   <th style="text-align:right;"> Estimate </th>
+   <th style="text-align:right;"> Est.Error </th>
+   <th style="text-align:right;"> Q2.5 </th>
+   <th style="text-align:right;"> Q97.5 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Intercept </td>
+   <td style="text-align:right;"> 100.36 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 99.59 </td>
+   <td style="text-align:right;"> 101.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sigma_Intercept </td>
+   <td style="text-align:right;"> 2.57 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 2.09 </td>
+   <td style="text-align:right;"> 3.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> GroupTreatment </td>
+   <td style="text-align:right;"> 1.56 </td>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> -0.35 </td>
+   <td style="text-align:right;"> 3.56 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sigma_GroupTreatment </td>
+   <td style="text-align:right;"> 2.41 </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 1.77 </td>
+   <td style="text-align:right;"> 3.19 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Keep in mind that the parameters refer to Group 0’s mean (Intercept) and SD (sigma), and the difference between groups in those values (Group) and (sigma_Group). We now have fully Bayesian estimates of the 4 parameters of the unequal variances t-test model. Finally, let’s move on to the “Robust Bayesian Estimation” model.</p>
+</section>
+</section>
+<section id="robust-bayesian-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="robust-bayesian-estimation">Robust Bayesian Estimation</h2>
+<p>Kruschke’s robust model is a comparison of two groups, using five parameters: One mean for each group, one standard deviation for each group, just as in the unequal variances model above. The fifth parameter is a “normality” parameter, <span class="math inline">\(\nu\)</span> (nu), which means that we are now using a t-distribution to model the data. Using a t-distribution to model the data, instead of a Gaussian, means that the model is less sensitive to extreme values. Here’s what the model looks like:</p>
+<p><span class="math display">\[y_{ik} \sim T(\nu, \mu_{ik}, \sigma_{ik})\]</span></p>
+<p>Read the above formula as “Y are random draws from a t-distribution with ‘normality’ parameter <span class="math inline">\(\nu\)</span>, mean <span class="math inline">\(\mu_{ik}\)</span>, and standard deviation <span class="math inline">\(\sigma_{ik}\)</span>”. We have linear models for the means and standard deviations, as above.</p>
+<p>This model, as you can see, is almost identical to the unequal variances t-test, but instead uses a t distribution (we assume data are t-distributed), and includes the normality parameter. Using <code>brm()</code> we can still use the unequal variances model, but have to specify the t-distribution. We do this by specifying the <code>family</code> argument to be <code>student</code> (as in Student’s t)</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_500a9524a8e25806acf32563743df2c1">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod_robust <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(IQ <span class="sc">~</span> Group, sigma <span class="sc">~</span> Group),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> student,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"iqgroup-robust"</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-15_46fb2a1eb497d5e24e38d966dfa06437">
+<pre><code>##  Family: student 
+##   Links: mu = identity; sigma = log; nu = identity 
+## Formula: IQ ~ Group 
+##          sigma ~ Group
+##    Data: d (Number of observations: 89) 
+##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 4000
+## 
+## Population-Level Effects: 
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept              100.52      0.21   100.11   100.94 1.00     6163     2908
+## sigma_Intercept          0.00      0.20    -0.39     0.38 1.00     4140     2977
+## GroupTreatment           1.01      0.42     0.23     1.83 1.00     3572     3080
+## sigma_GroupTreatment     0.67      0.26     0.14     1.16 1.00     3732     2923
+## 
+## Family Specific Parameters: 
+##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## nu     1.85      0.48     1.15     3.01 1.00     2762     2106
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<p>You can compare the results to those in Kruschke’s paper (2013, p.578) to verify that they are nearly identical. There are small discrepancies because of limited number of posterior samples, and because the paper reported posterior modes whereas we focused on means.</p>
+<p>Finally, here is how to estimate the model using the original code (Kruschke &amp; Meredith, 2015):</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-16_596625b05c5126695e0a5854983c1d29">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BEST)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>BEST <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(group_0, group_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I didn’t actually run that code because after numerous attempts, I was unable to install the rjags package that BEST depends on.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Well, that ended up much longer than what I intended. The aim was both to illustrate the ease of Bayesian modeling in R using brms, and highlight the fact that we can easily move from simple t-tests to more complex (and possibly better) models.</p>
+<p>If you’ve followed through, you should be able to conduct Student’s (equal variances) and Welch’s (unequal variances) t-tests in R, and to think about those tests as instantiations of general linear models. Further, you should be able to estimate these models using Bayesian methods.</p>
+<p>You should now also be familiar with Kruschke’s robust model for comparing two groups’ metric data, and be able to implement it a few lines of R code. This model found credible differences between two groups, although the frequentist t-tests and models reported p-values well above .05. That should be motivation enough to try robust (Bayesian) models on your own data.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-cummingNewStatisticsWhy2014" class="csl-entry" role="doc-biblioentry">
+Cumming, Geoff. 2014. <span>“The <span>New Statistics Why</span> and <span>How</span>.”</span> <em>Psychological Science</em> 25 (1): 7–29. <a href="https://doi.org/10.1177/0956797613504966">https://doi.org/10.1177/0956797613504966</a>.
+</div>
+<div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry" role="doc-biblioentry">
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>.
+</div>
+<div id="ref-gigerenzerMindlessStatistics2004" class="csl-entry" role="doc-biblioentry">
+Gigerenzer, Gerd. 2004. <span>“Mindless Statistics.”</span> <em>The Journal of Socio-Economics</em>, Statistical <span>Significance</span>, 33 (5): 587–606. <a href="https://doi.org/10.1016/j.socec.2004.09.033">https://doi.org/10.1016/j.socec.2004.09.033</a>.
+</div>
+<div id="ref-kruschkeBayesianEstimationSupersedes2013" class="csl-entry" role="doc-biblioentry">
+Kruschke, John K. 2013. <span>“Bayesian Estimation Supersedes the t Test.”</span> <em>Journal of Experimental Psychology: General</em> 142 (2): 573–603. <a href="https://doi.org/10.1037/a0029146">https://doi.org/10.1037/a0029146</a>.
+</div>
+<div id="ref-kruschkeDoingBayesianData2014" class="csl-entry" role="doc-biblioentry">
+———. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>.
+</div>
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="doc-biblioentry">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+  author = {Matti Vuorre},
+  title = {How to {Compare} {Two} {Groups} with {Robust} {Bayesian}
+    {Estimation} in {R}},
+  date = {2017-01-02},
+  url = {https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Matti Vuorre. 2017. <span>“How to Compare Two Groups with Robust
+Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms">https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mvuorre">
+      <i class="bi bi-github" role="img" aria-label="Github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/vuorre">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
+      <i class="bi bi-cup" role="img" aria-label="Buy me a coffee">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

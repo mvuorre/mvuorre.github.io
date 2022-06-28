@@ -1,0 +1,327 @@
+---
+title: How to Compare Two Groups with Robust Bayesian Estimation in R
+description: |
+  2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups' data.
+date: 2017-01-02
+categories:
+  - statistics
+  - tutorial
+  - R
+  - brms
+bibliography: bibliography.bib
+image: "index_files/figure-html/dataplot1-1.png"
+---
+
+```{r packages, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(scales)
+library(broom)
+library(brms)
+library(tidyverse)
+```
+
+```{r setup, include = FALSE}
+opts_chunk$set(
+  warning = F,
+  message = F,
+  eval = T,
+  cache = T,
+  echo = T,
+  collapse = T,
+  fig.align = "center"
+)
+options(width = 140)
+theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
+```
+
+## Introduction
+
+Happy New Year 2017 everybody! 2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). We now recognize that different scientific questions may require different statistical tools, and are ready to adopt new and innovative methods. A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups' data.
+
+More specifically, we'll focus on the t-test. Everyone knows it, everyone uses it. Yet, there are (arguably) better methods for drawing inferences from two independent groups' metric data [@kruschkeBayesianEstimationSupersedes2013]:
+
+>"When data are interpreted in terms of meaningful parameters in a mathematical description, such as the difference of mean parameters in two groups, it is Bayesian analysis that provides complete information about the credible parameter values. Bayesian analysis is also more intuitive than traditional methods of null hypothesis significance testing (e.g., Dienes, 2011)." [@kruschkeBayesianEstimationSupersedes2013]
+
+In that article (*"Bayesian estimation supersedes the t-test"*) @kruschkeBayesianEstimationSupersedes2013 provided clear and well-reasoned arguments favoring Bayesian parameter estimation over null hypothesis significance testing in the context of comparing two groups, a situation which is usually dealt with a t-test. It also introduced a "robust" model for comparing two groups, which modeled the data as t-distributed, instead of normal. The article provided R code for running the estimation procedures, which could be downloaded from the [author's website](http://www.indiana.edu/~kruschke/BEST/) or [as an R package](https://cran.r-project.org/package=BEST). 
+
+The R code and programs work well for this specific application (estimating the robust model for one or two groups' metric data). However, modifying the code to handle more complicated situations is not easy, and the underlying estimation algorithms don't necessarily scale up to handle more complicated situations. Therefore, in this blog post I'll introduce easy to use, free, open-source, state-of-the-art computer programs for Bayesian estimation, in the context of comparing two groups' metric (continuous) data. The programs are available for the R programming language---so make sure you are familiar with R basics (e.g. [here](http://blog.efpsa.org/2016/12/05/introduction-to-data-analysis-using-r/)). I provide R code for t-tests and Bayesian estimation in R using the R package [brms](https://cran.r-project.org/package=brms), which provides a concise front-end layer to [Stan](http://mc-stan.org/). 
+
+These programs supersede many older Bayesian inference programs because they are easy to use, fast, and are able to handle models with thousands of parameters. Learning to implement basic analyses such as t-tests, and Kruschke's robust model, with these programs is very useful because you'll then be able to do Bayesian statistics in practice, and will be prepared to understand and implement more complex models.
+
+Understanding the results of Bayesian estimation requires some knowledge of Bayesian statistics, of course, but since I cannot cover everything in this one post, I refer readers to excellent books on the topic: @mcelreathStatisticalRethinkingBayesian2020,  @kruschkeDoingBayesianData2014, @gelmanBayesianDataAnalysis2013.
+
+First, I'll introduce the basic t-test in some detail, and then focus on understanding them as specific instantiations of *linear models*. If that sounds familiar, skip ahead to [Bayesian Estimation of the t-test](#bayesian-estimation-of-the-t-test), where I introduce the **brms** package for estimating models using Bayesian methods. Following that, we'll use "distributional regression" to obtain Bayesian estimates of the unequal variances t-test model. Finally, we'll learn how to estimate the robust unequal variances model using brms. 
+
+We will use the following R packages:
+
+```{r packages, eval = FALSE}
+```
+
+## The t in a t-test
+
+We'll begin with t-tests, using example data from Kruschke's paper (p. 577):
+
+>"Consider data from two groups of people who take an IQ test. Group 1 (N1=47) consumes a “smart drug,” and Group 2 (N2=42) is a control group that consumes a placebo."
+
+```{r, echo=F}
+group_c <- c(
+  99, 101, 100, 101, 102, 100, 97, 101, 104, 101, 102, 102, 100, 105, 88, 101, 100,
+  104, 100, 100, 100, 101, 102, 103, 97, 101, 101, 100, 101, 99, 101, 100, 100,
+  101, 100, 99, 101, 100, 102, 99, 100, 99
+)
+group_t <- c(
+  101, 100, 102, 104, 102, 97, 105, 105, 98, 101, 100, 123, 105, 103, 100, 95, 102, 106,
+  109, 102, 82, 102, 100, 102, 102, 101, 102, 102, 103, 103, 97, 97, 103, 101, 97, 104,
+  96, 103, 124, 101, 101, 100, 101, 101, 104, 100, 101
+)
+d <- bind_rows(
+  tibble(Group = "Control", IQ = group_c),
+  tibble(Group = "Treatment", IQ = group_t)
+)
+dsum <- d %>%
+  group_by(Group) %>%
+  summarize(
+    m = mean(IQ),
+    s = sd(IQ)
+  )
+```
+
+These data are visualized as histograms, below:
+
+```{r dataplot1, fig.height=3.2, fig.cap="Histograms of the two groups' IQ scores.", echo = FALSE}
+ggplot(d, aes(x = IQ)) +
+  geom_histogram(binwidth = 1, col = "black") +
+  geom_label(
+    data = dsum,
+    aes(label = paste(
+      "mean =", round(m, 1),
+      "\nSD =", round(s, 1)
+    ), x = 90, y = 10)
+  ) +
+  scale_y_continuous(expand = expansion(c(0, 0.05))) +
+  facet_wrap("Group", nrow = 1)
+```
+
+### Equal variances t-test
+
+These two groups' IQ scores could be compared with a simple **equal variances t-test** (which you shouldn't use; [Lakens, 2015](https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html)), also known as Student's t-test.
+
+```{r, echo=T}
+t.test(IQ ~ Group, data = d, var.equal = T)
+```
+
+We interpret the t-test in terms of the observed t-value, and whether it exceeds the critical t-value. The critical t-value, in turn, is defined as the extreme $\alpha / 2$ percentiles of a t-distribution with the given degrees of freedom. 
+
+```{r, fig.cap="t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.", fig.width=4, fig.height=3.2, echo = FALSE}
+x <- seq(-5, 5, by = .1)
+y <- dt(x, 87)
+ggplot(data.frame(x, y), aes(x = x, y = y)) +
+  geom_line(size = 1.3) +
+  geom_vline(xintercept = qt(c(0.025, 0.975), df = 87), lty = 2) +
+  geom_segment(
+    arrow = arrow(),
+    aes(x = 1.5587, xend = 1.5587, y = .3, yend = 0)
+  ) +
+  geom_label(aes(x = 1.5587, y = .3), label = "Observed\nt-value") +
+  scale_y_continuous("",
+    limits = c(0, .5),
+    expand = c(0, 0.001), breaks = NULL
+  ) +
+  scale_x_continuous("", expand = c(0, 0), breaks = -3:3, limits = c(-4, 4))
+```
+
+The test results in an observed t-value of 1.56, which is not far enough in the tails of a t-distribution with 87 degrees of freedom to warrant rejecting the null hypothesis (given that we are using $\alpha$ = .05, which may or may not be an entirely brilliant idea).
+
+### Unequal variances t-test
+
+Next, we'll run the more appropriate, **unequal variances t-test** (also known as Welch's t-test), which R gives by default:
+
+```{r, echo=T}
+t.test(IQ ~ Group, data = d, var.equal = F)
+```
+
+Note that while R gives Welch's t-test by default, SPSS gives both. If you're using SPSS, make sure to report the Welch's test results, instead of the equal variances test. Here, the conclusion with respect to rejecting the null hypothesis of equal means is the same. However, notice that the results are numerically different, as they should, because these two t-tests refer to different models.
+
+It is of course up to you, as a researcher, to decide whether you assume equal variances or not. But note that we almost always allow the means to be different (that's the whole point of the test, really), while many treatments may just as well have an effect on the variances. 
+
+The first take-home message from today is that there are actually two t-tests, each associated with a different statistical model. And to make clear what the difference is, we must acquaint ourselves with the models. 
+
+### Describing the model(s) underlying the t-test(s)
+
+We don't often think of t-*tests* (and ANOVAs) as *models*, but it turns out that they are just linear models disguised as "tests" (see [here](http://www.sbirc.ed.ac.uk/cyril/SPM-course/Talks/2013/1-GLM-CP.pdf), [here](https://lindeloev.github.io/tests-as-linear/), and [here](https://stats.stackexchange.com/questions/59047/how-are-regression-the-t-test-and-the-anova-all-versions-of-the-general-linear)). Recently, there has been a tremendous push for model/parameter estimation, instead of null hypothesis significance testing [@gigerenzerMindlessStatistics2004; @cummingNewStatisticsWhy2014; @kruschkeDoingBayesianData2014], so we will benefit from thinking about t-tests as linear models. Doing so will facilitate seamlessly expanding our models to handle more complicated situations. 
+
+The equal variances t-test models metric data with three parameters: Mean for group A, mean for group B, and one shared standard deviation (i.e. the assumption that the standard deviations are equal between the two groups.) 
+
+We call the metric outcome variable (IQ scores in our example) $y_{ik}$, where $i$ is a subscript indicating the $i^{th}$ datum, and $k$ indicates the $k^{th}$ group. So $y_{19, 1}$ would be the 19th datum, belonging to group 1. Then we specify that $y_{ik}$ are normally distributed, $N(\mu_{ik}, \sigma)$, where $\mu_{ik}$ indicates the mean of group $k$, and $\sigma$ the common standard deviation.
+
+$$y_{ik} \sim N(\mu_{ik}, \sigma^2)$$
+
+Read the formula as "Y is normally distributed with mean $\mu_{ik}$ (mu), and standard deviation $\sigma$ (sigma)". Note that the standard deviation $\sigma$ doesn't have any subscripts: we assume it is the same for the groups. 
+
+The means for groups 0 and 1 are simply $\mu_0$ and $\mu_1$, respectively, and their difference (let's call it $d$) is $d = \mu_0 - \mu_1$. The 95% CI for $d$ is given in the t-test output, and we can tell that it differs from the one given by Welch's t-test.
+
+It is unsurprising, then, that if we use a different model (the [more appropriate unequal variances model](https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html)), our inferences may be different. Welch's t-test is the same as Student's, except that now we assume (and subsequently estimate) a unique standard deviation $\sigma_{ik}$ for both groups.
+
+$$y_{ik} \sim N(\mu_{ik}, \sigma_{ik}^2)$$
+
+This model makes a lot of sense, because rarely are we in a situation to *a priori* decide that the variance of scores in Group A is equal to the variance of scores in Group B. If you use the equal variances t-test, you should be prepared to justify and defend this assumption. (Deciding between models---such as between these two t-tests---is one way in which our prior information enters and influences data analysis.)
+
+Armed with this knowledge, we can now see that "conducting a t-test" can be understood as estimating one of these two models. By estimating the model, we obtain t-values, degrees of freedom, and consequently, [p-values](http://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/). 
+
+However, for the models described here, it can be easier to think of the t-test as a specific type of the **general linear model**. We can re-write the t-test in an equivalent way, but instead have a specific parameter for the difference in means by writing it as a linear model. The equal variance model can be written as
+
+$$y_{ik} \sim N(\mu_{ik}, \sigma^2)$$
+$$\mu_{ik} = \beta_0 + \beta_1 Group_{ik}$$
+
+Here, $\sigma$ is just as before, but we now model the mean with an intercept (control group's mean, $\beta_0$) and the effect of the treatment ($\beta_1$). With this model, $\beta_1$ directly tells us the estimated difference in the two groups. And because it is a parameter in the model, it has an associated standard error, t-value, degrees of freedom, and a p-value. The model can be estimated in R with the following line of code:
+
+```{r, echo = T}
+olsmod <- lm(IQ ~ Group, data = d)
+```
+
+The key input here is a model formula, which in R is specified as `outcome ~ predictor` (`DV ~ IV`). Using the `lm()` function, we estimated a linear model predicting `IQ` from an intercept (automatically included) and a Group parameter. I called this object `olsmod` for Ordinary Least Squares Model.
+
+R has it's own model formula syntax, which is well worth learning. The formula in the previous model, `IQ ~ Group` means that we want to regress IQ on an intercept (which is implicitly included), and group (`Group`). Besides the formula, we only need to provide the data, which is contained in `d`. 
+
+You can verify that the results are identical to the equal variances t-test above.
+
+```{r, echo=T}
+summary(olsmod)
+```
+
+Focus on the `GroupTreatment` row in the estimated coefficients. `Estimate` is the point estimate (best guess) of the difference in means. `t value` is the observed t-value (identical to what `t.test()` reported), and the p-value (`Pr(>|t|)`) matches as well. The `(Intercept)` row refers to $\beta_0$, which is the control group's mean.
+
+This way of thinking about the model, where we have parameters for one group's mean, and the effect of the other group, facilitates focusing on the important parameter, the difference, instead of individual means. However, you can of course compute the difference from the means, or the means from one mean and a difference.
+
+## Bayesian estimation of the t-test
+
+### Equal variances model
+
+Next, I'll illustrate how to estimate the equal variances t-test using Bayesian methods.
+
+Estimating this model with R, thanks to the Stan and brms teams, is as easy as the linear regression model we ran above. The most important function in the brms package is `brm()`, for Bayesian Regression Model(ing). The user needs only to input a model formula, just as above, and a data frame that contains the variables specified in the formula. `brm()` then translates the model into Stan language, and asks Stan to compile the model into C++ and draw samples from the posterior distribution. The result is an R object with the estimated results. We run the model and save the results to `mod_eqvar` for equal variances model:
+
+```{r, echo = T, message=F, results='hide'}
+mod_eqvar <- brm(
+  IQ ~ Group,
+  data = d,
+  cores = 4,  # Use 4 cores for parallel processing
+  file = "iqgroup"  # Save results into a file
+)
+```
+
+The results can be viewed with `summary()`:
+
+```{r}
+summary(mod_eqvar)
+```
+
+Notice that the model contains three parameters, one of which is the shared standard deviation `sigma`. Compare the output of the Bayesian model to the one estimated with `lm()` (OLS):
+
+```{r echo = FALSE}
+library(broom)
+bind_cols(
+  tidy(olsmod)[, 1:3],
+  rownames_to_column(as.data.frame(fixef(mod_eqvar)[, 1:2]), var = "brms")
+) %>%
+  kable(digits = 2, caption = "Model results, left: OLS, right: brms.") %>% 
+  kable_styling()
+```
+
+The point estimates (posterior means in the Bayesian model) and standard errors (SD of the respective posterior distribution) are pretty much identical.
+
+We now know the models behind t-tests, and how to estimate the equal variances t-test using the `t.test()`, `lm()`, and `brm()` functions. We also know how to run Welch's t-test using `t.test()`. However, estimating the general linear model version of the unequal variances t-test model is slightly more complicated, because it involves specifying predictors for $\sigma$, the standard deviation parameter.
+
+
+### Unequal variances model
+
+We only need a small adjustment to the equal variances model to specify the unequal variances model:
+
+$$y_{ik} \sim N(\mu_{ik}, \sigma_{ik})$$
+$$\mu_{ik} = \beta_0 + \beta_1 Group_{ik}$$
+
+Notice that we now have subscripts for $\sigma$, denoting that it varies between groups. In fact, we'll write out a linear model for the standard deviation parameter.
+
+$$\sigma_{ik} = \gamma_0 + \gamma_1 Group_{ik}$$
+
+The model now includes, instead of a common $\sigma$, one parameter for Group 0's standard deviation $\gamma_0$ (gamma), and one for the effect of Group 1 on the standard deviation $\gamma_1$, such that group 1's standard deviation is $\gamma_0 + \gamma_1$. Therefore, we have 4 free parameters, two means and two standard deviations. (The full specification would include prior distributions for all the parameters, but that topic is outside of the scope of this post.) `brm()` takes more complicated models by wrapping them inside `bf()` (short for `brmsformula()`), which is subsequently entered as the first argument to `brm()`.
+
+```{r, echo=T}
+uneq_var_frm <- bf(IQ ~ Group, sigma ~ Group)
+```
+
+You can see that the formula regresses IQ on Group, such that we'll have an intercept (implicitly included), and an effect of Group 1. We also model the standard deviation sigma on Group. 
+
+```{r, echo = T}
+mod_uneqvar <- brm(
+  uneq_var_frm,
+  data = d,
+  cores = 4,
+  file = "iqgroup-uv"
+)
+```
+
+```{r echo = F}
+options(width = 120)
+summary(mod_uneqvar)
+```
+
+The model's output contains our 4 parameters. `Intercept` is the mean for group 0, `Group 1` is the "effect of group 1". The `sigma_Intercept` is the standard deviation of Group 0, `sigma_Group` is the effect of group 1 on the standard deviation (the SD of Group 1 is `sigma_Intercept` + `sigma_Group`). The sigmas are implicitly modeled through a log-link (because they must be positive). To convert them back to the scale of the data, they need to be exponentiated. After taking the exponents of the sigmas, the results look like this:
+
+```{r echo = F}
+as.data.frame(fixef(mod_uneqvar, summary = FALSE)) %>% 
+  as_tibble() %>% 
+  mutate(across(starts_with("sigma"), exp)) %>% 
+  posterior_summary() %>% 
+  as.data.frame() %>% 
+  rownames_to_column("Parameter") %>% 
+  kable(digits = 2, caption = "Posterior summary after transformation") %>% 
+  kable_styling()
+```
+
+Keep in mind that the parameters refer to Group 0's mean (Intercept) and SD (sigma), and the difference between groups in those values (Group) and (sigma_Group). We now have fully Bayesian estimates of the 4 parameters of the unequal variances t-test model. Finally, let's move on to the "Robust Bayesian Estimation" model.
+
+## Robust Bayesian Estimation
+
+Kruschke's robust model is a comparison of two groups, using five parameters: One mean for each group, one standard deviation for each group, just as in the unequal variances model above. The fifth parameter is a "normality" parameter, $\nu$ (nu), which means that we are now using a t-distribution to model the data. Using a t-distribution to model the data, instead of a Gaussian, means that the model is less sensitive to extreme values. Here's what the model looks like:
+
+$$y_{ik} \sim T(\nu, \mu_{ik}, \sigma_{ik})$$
+
+Read the above formula as "Y are random draws from a t-distribution with 'normality' parameter $\nu$, mean $\mu_{ik}$, and standard deviation $\sigma_{ik}$". We have linear models for the means and standard deviations, as above.
+
+This model, as you can see, is almost identical to the unequal variances t-test, but instead uses a t distribution (we assume data are t-distributed), and includes the normality parameter. Using `brm()` we can still use the unequal variances model, but have to specify the t-distribution. We do this by specifying the `family` argument to be `student` (as in Student's t)
+
+```{r, echo = T}
+mod_robust <- brm(
+  bf(IQ ~ Group, sigma ~ Group),
+  family = student,
+  data = d,
+  cores = 4,
+  file = "iqgroup-robust"
+)
+```
+
+```{r echo = F}
+options(width = 120)
+summary(mod_robust)
+```
+
+You can compare the results to those in Kruschke's paper (2013, p.578) to verify that they are nearly identical. There are small discrepancies because of limited number of posterior samples, and because the paper reported posterior modes whereas we focused on means.
+
+Finally, here is how to estimate the model using the original code (Kruschke & Meredith, 2015):
+
+```{r, eval = FALSE}
+library(BEST)
+BEST <- BESTmcmc(group_0, group_1)
+```
+
+I didn't actually run that code because after numerous attempts, I was unable to install the rjags package that BEST depends on.
+
+## Conclusion
+
+Well, that ended up much longer than what I intended. The aim was both to illustrate the ease of Bayesian modeling in R using brms, and highlight the fact that we can easily move from simple t-tests to more complex (and possibly better) models.
+
+If you've followed through, you should be able to conduct Student's (equal variances) and Welch's (unequal variances) t-tests in R, and to think about those tests as instantiations of general linear models. Further, you should be able to estimate these models using Bayesian methods.
+
+You should now also be familiar with Kruschke's robust model for comparing two groups' metric data, and be able to implement it a few lines of R code. This model found credible differences between two groups, although the frequentist t-tests and models reported p-values well above .05. That should be motivation enough to try robust (Bayesian) models on your own data.

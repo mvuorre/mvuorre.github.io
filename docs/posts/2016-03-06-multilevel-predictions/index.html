@@ -147,7 +147,7 @@ div.csl-indent {
 <meta name="twitter:description" content="How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling…">
 <meta name="twitter:image" content="https://sometimesir.com/posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png">
 <meta name="twitter:image-height" content="960">
-<meta name="twitter:image-width" content="1536">
+<meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -218,7 +218,7 @@ div.csl-indent {
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -345,20 +345,20 @@ div.csl-indent {
 </div>
 <p>The data is structured in a long format, where each row contains all variables at a single measurement instance.</p>
 </section>
-<section id="fixed-effects-models-and-cis" class="level2 page-columns page-full">
+<section id="fixed-effects-models-and-cis" class="level2">
 <h2 class="anchored" data-anchor-id="fixed-effects-models-and-cis">Fixed Effects Models and CIs</h2>
 <p>Below, I show two kinds of scatterplots from the data. The left one represents a fixed effects regression, where information about individuals is discarded, and all that is left is a lonely band of inference in a sea of scattered observations. The right panel shows fixed effects regressions separately for each individual.</p>
-<div class="cell page-columns page-full" data-layout-align="center" data-preview="true" data-hash="index_cache/html/fig1and2_69a0102f45c0a762a7235e6b562fd06b">
+<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/fig1and2_56d6fbe2e508b6ebfd368d1c8ce937ce">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>)) <span class="sc">+</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">level =</span> .<span class="dv">95</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Subject, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">|</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display column-body-outset">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig1and2-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="index_files/figure-html/fig1and2-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Scatterplots with a completely pooled model (left), and individual specific models (right).</figcaption><p></p>
 </figure>
 </div>
@@ -377,7 +377,7 @@ div.csl-indent {
 <p>In this post, and the above equations, I’ll omit the discussion of hyperpriors (priors on <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span> parameters.)</p>
 <p>If the above equations baffle the mind, or multilevel models are mysterious to you, <span class="citation" data-cites="bolgerIntensiveLongitudinalMethods2013">Bolger and Laurenceau (<a href="#ref-bolgerIntensiveLongitudinalMethods2013" role="doc-biblioref">2013</a>)</span> and <span class="citation" data-cites="gelmanDataAnalysisUsing2007">Gelman and Hill (<a href="#ref-gelmanDataAnalysisUsing2007" role="doc-biblioref">2007</a>)</span> are great introductions to the topic.</p>
 </section>
-<section id="maximum-likelihood-estimation" class="level2 page-columns page-full">
+<section id="maximum-likelihood-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
 <p>I’ll estimate the multilevel model using the lme4 package.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fitlmer_2b785618fc12cf8cdda49c8e3fec4e58">
@@ -413,7 +413,7 @@ div.csl-indent {
 </div>
 </div>
 <p>The key points here are the estimates and their associated standard errors, the latter of which are missing for the varying effects’ correlations and standard deviations.</p>
-<section id="working-with-point-estimates" class="level3 page-columns page-full">
+<section id="working-with-point-estimates" class="level3">
 <h3 class="anchored" data-anchor-id="working-with-point-estimates">Working with point estimates</h3>
 <p>Using the model output, we can generate regression lines using the <code>predict()</code> function. Using this method, we can simply add a new column to the existing <code>sleepstudy</code> data frame, giving the fitted value for each row in the data. However, for visualization, it is very useful to generate the fitted values for specific combinations of predictor values, instead of generating a fitted value for every observation. To do this, I simply create dataframes with the relevant predictors, and feed these data frames as data to <code>predict()</code>.</p>
 <p>To get fitted values at the average level, when there is only one predictor, the data frame is simply a column with rows for each level of <code>Days</code>. For the varying effects, I create a data frame where each individual has all levels of <code>Days</code>, using the <code>expand.grid()</code> function.</p>
@@ -426,13 +426,13 @@ div.csl-indent {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>newvary<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, newvary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I’ll show these predictions within the previous figures: On the left, a single fixed effects model versus the average regression line from the new multilevel model, and on the right the separate fixed effects models versus the varying regression lines from the multilevel model. Below, I use blue colors to indicate the fixed effects models’ predictions, and black for the multilevel model’s predictions.</p>
-<div class="cell page-columns page-full" data-layout-align="center" data-hash="index_cache/html/plotlmer_655fa3da1282a64d9175f5cd45750e35">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/plotlmer_85b7c90bd39cb953a81173759eeb874f">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">|</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newvary, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display column-body-outset">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/plotlmer-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="index_files/figure-html/plotlmer-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -532,14 +532,14 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="intervals-from-bayesian-models">Intervals from Bayesian models</h2>
 <p>Confidence intervals are commonly called credible intervals in the Bayesian context, but I’ll use these terms interchangeably. The reader should be aware that, unlike traditional confidence intervals, credible intervals actually allow statements about credibility. In fact, being allowed to say the things we usually mean when discussing confidence intervals is one of many good reasons for applying bayesian statistics.</p>
 <p>I use brms to specify the model and sample from the posterior distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit_brms_ead1148c0159b5a7bc47ea900d55ef9a">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit_brms_ce72a9721a15de316778223bafa3e38d">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>brmfit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sleepstudy,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject),</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> gaussian,</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">2000</span>,</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">"models/sleepstudy"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"sleepstudy"</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/printbrmfit_545a213d0e691b63d585a7677a1ed8dd">
@@ -560,43 +560,43 @@ div.csl-indent {
 <tbody>
   <tr>
    <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 251.21 </td>
-   <td style="text-align:right;"> 7.54 </td>
-   <td style="text-align:right;"> 236.94 </td>
-   <td style="text-align:right;"> 266.40 </td>
-   <td style="text-align:right;"> 2637.14 </td>
+   <td style="text-align:right;"> 251.36 </td>
+   <td style="text-align:right;"> 7.37 </td>
+   <td style="text-align:right;"> 237.03 </td>
+   <td style="text-align:right;"> 266.18 </td>
+   <td style="text-align:right;"> 2493.41 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Days </td>
-   <td style="text-align:right;"> 10.30 </td>
-   <td style="text-align:right;"> 1.74 </td>
-   <td style="text-align:right;"> 6.73 </td>
-   <td style="text-align:right;"> 13.64 </td>
-   <td style="text-align:right;"> 1575.23 </td>
+   <td style="text-align:right;"> 10.45 </td>
+   <td style="text-align:right;"> 1.66 </td>
+   <td style="text-align:right;"> 7.13 </td>
+   <td style="text-align:right;"> 13.71 </td>
+   <td style="text-align:right;"> 1765.78 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd(Intercept) </td>
-   <td style="text-align:right;"> 26.89 </td>
-   <td style="text-align:right;"> 6.78 </td>
-   <td style="text-align:right;"> 15.86 </td>
-   <td style="text-align:right;"> 42.19 </td>
-   <td style="text-align:right;"> 2467.71 </td>
+   <td style="text-align:right;"> 27.04 </td>
+   <td style="text-align:right;"> 6.98 </td>
+   <td style="text-align:right;"> 15.42 </td>
+   <td style="text-align:right;"> 42.98 </td>
+   <td style="text-align:right;"> 2563.72 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd(Days) </td>
-   <td style="text-align:right;"> 6.67 </td>
-   <td style="text-align:right;"> 1.59 </td>
-   <td style="text-align:right;"> 4.21 </td>
-   <td style="text-align:right;"> 10.35 </td>
-   <td style="text-align:right;"> 1356.55 </td>
+   <td style="text-align:right;"> 6.56 </td>
+   <td style="text-align:right;"> 1.48 </td>
+   <td style="text-align:right;"> 4.16 </td>
+   <td style="text-align:right;"> 9.95 </td>
+   <td style="text-align:right;"> 2200.07 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> cor(Intercept,Days) </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> -0.47 </td>
-   <td style="text-align:right;"> 0.66 </td>
-   <td style="text-align:right;"> 1472.98 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> -0.45 </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> 1926.01 </td>
   </tr>
 </tbody>
 </table>

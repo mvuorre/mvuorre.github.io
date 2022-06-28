@@ -217,14 +217,14 @@ Confidence intervals are commonly called credible intervals in the Bayesian cont
 
 I use brms to specify the model and sample from the posterior distribution.
 
-```{r fit_brms}
+```{r fit_brms, results = 'hide'}
 brmfit <- brm(
   data = sleepstudy,
   Reaction ~ Days + (Days | Subject),
   family = gaussian,
   iter = 2000,
   chains = 4,
-  file = here("models/sleepstudy")
+  file = "sleepstudy"
 )
 ```
 

@@ -1,25 +1,23 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.584">
 
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-  <meta name="generator" content="distill" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-  <style type="text/css">
-  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
-  body {
-    visibility: hidden;
-  }
-  </style>
+<meta name="author" content="Matti Vuorre">
+<meta name="dcterms.date" content="2017-03-21">
+<meta name="description" content="How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.">
 
- <!--radix_placeholder_import_source-->
- <!--/radix_placeholder_import_source-->
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
+<title>Sometimes I R - Bayes Factors with brms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -54,3103 +52,798 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ad0000; } /* Alert */
-code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
-code span.bn { color: #ad0000; } /* BaseN */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
-code span.ch { color: #20794d; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #5e5e5e; } /* Comment */
-code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-code span.dt { color: #ad0000; } /* DataType */
-code span.dv { color: #ad0000; } /* DecVal */
-code span.er { color: #ad0000; } /* Error */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #ad0000; } /* Float */
-code span.fu { color: #4758ab; } /* Function */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
-code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
-code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
-code span.ss { color: #20794d; } /* SpecialString */
-code span.st { color: #20794d; } /* String */
-code span.va { color: #111111; } /* Variable */
-code span.vs { color: #20794d; } /* VerbatimString */
-code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-</style>
-
-  <!--radix_placeholder_meta_tags-->
-<title>Sometimes I R: Bayes Factors with brms</title>
-
-<meta property="description" itemprop="description" content="How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method."/>
-
-<link rel="canonical" href="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"/>
-<link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
-<link rel="icon" type="image/png" href="../../images/favicon.png"/>
-
-<!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2017-03-21"/>
-<meta property="article:created" itemprop="dateCreated" content="2017-03-21"/>
-<meta name="article:author" content="Matti Vuorre"/>
-
-<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Sometimes I R: Bayes Factors with brms"/>
-<meta property="og:type" content="article"/>
-<meta property="og:description" content="How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method."/>
-<meta property="og:url" content="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"/>
-<meta property="og:image" content="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-3-1.png"/>
-<meta property="og:image:width" content="1248"/>
-<meta property="og:image:height" content="768"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:site_name" content="Sometimes I R"/>
-
-<!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Sometimes I R: Bayes Factors with brms"/>
-<meta property="twitter:description" content="How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method."/>
-<meta property="twitter:url" content="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"/>
-<meta property="twitter:image" content="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-3-1.png"/>
-<meta property="twitter:image:width" content="1248"/>
-<meta property="twitter:image:height" content="768"/>
-<meta property="twitter:site" content="@vuorre"/>
-<meta property="twitter:creator" content="@vuorre"/>
-
-<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Sometimes I R: Bayes Factors with brms"/>
-<meta name="citation_fulltext_html_url" content="https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"/>
-<meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2017/03/21"/>
-<meta name="citation_publication_date" content="2017/03/21"/>
-<meta name="citation_author" content="Matti Vuorre"/>
-<meta name="citation_author_institution" content="University of Oxford"/>
-<!--/radix_placeholder_meta_tags-->
-  
-  <meta name="citation_reference" content="citation_title=Bayesian hypothesis testing for psychologists: A tutorial on the savage–dickey method;citation_publication_date=2010;citation_volume=60;citation_doi=10.1016/j.cogpsych.2009.12.001;citation_issn=0010-0285;citation_author=Eric-Jan Wagenmakers;citation_author=Tom Lodewyckx;citation_author=Himanshu Kuriyal;citation_author=Raoul Grasman"/>
-  <meta name="citation_reference" content="citation_title=Stan: A c++ library for probability and sampling, version 2.15.0;citation_publication_date=2016;citation_author=Stan: A c++ library for probability and sampling, version 2.15.0"/>
-  <!--radix_placeholder_rmarkdown_metadata-->
-
-<script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","bibliography","base_url","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Bayes Factors with brms"]},{"type":"character","attributes":{},"value":["How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Matti Vuorre"]},{"type":"character","attributes":{},"value":["https://vuorre.netlify.com"]},{"type":"character","attributes":{},"value":["University of Oxford"]},{"type":"character","attributes":{},"value":["https://www.oii.ox.ac.uk/people/matti-vuorre/"]},{"type":"character","attributes":{},"value":["0000-0001-5052-066X"]}]}]},{"type":"character","attributes":{},"value":["2017-03-21"]},{"type":"character","attributes":{},"value":["statistics","tutorial","R","brms"]},{"type":"character","attributes":{},"value":["bibliography.bib"]},{"type":"character","attributes":{},"value":["https://mvuorre.github.io"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"]},{"type":"character","attributes":{},"value":["https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/"]}]}
-</script>
-<!--/radix_placeholder_rmarkdown_metadata-->
-  
-  <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2017-03-21-bayes-factors-with-brms_files/anchor-4.2.2/anchor.min.js","2017-03-21-bayes-factors-with-brms_files/bowser-1.9.3/bowser.min.js","2017-03-21-bayes-factors-with-brms_files/distill-2.2.21/template.v2.js","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-10-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-11-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-12-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-13-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-14-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-2-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-20-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-22-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-23-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-25-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-3-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-30-1.png","2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-32-1.png","2017-03-21-bayes-factors-with-brms_files/header-attrs-2.7.2/header-attrs.js","2017-03-21-bayes-factors-with-brms_files/jquery-1.11.3/jquery.min.js","2017-03-21-bayes-factors-with-brms_files/kePrint-0.0.1/kePrint.js","2017-03-21-bayes-factors-with-brms_files/lightable-0.0.1/lightable.css","2017-03-21-bayes-factors-with-brms_files/popper-2.6.0/popper.min.js","2017-03-21-bayes-factors-with-brms_files/tippy-6.2.7/tippy-bundle.umd.min.js","2017-03-21-bayes-factors-with-brms_files/tippy-6.2.7/tippy-light-border.css","2017-03-21-bayes-factors-with-brms_files/tippy-6.2.7/tippy.css","2017-03-21-bayes-factors-with-brms_files/tippy-6.2.7/tippy.umd.min.js","2017-03-21-bayes-factors-with-brms_files/webcomponents-2.0.0/webcomponents.js","bibliography.bib"]}
-  </script>
-  <!--radix_placeholder_navigation_in_header-->
-<meta name="distill:offset" content="../.."/>
-
-<script type="application/javascript">
-
-  window.headroom_prevent_pin = false;
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // initialize headroom for banner
-    var header = $('header').get(0);
-    var headerHeight = header.offsetHeight;
-    var headroom = new Headroom(header, {
-      tolerance: 5,
-      onPin : function() {
-        if (window.headroom_prevent_pin) {
-          window.headroom_prevent_pin = false;
-          headroom.unpin();
-        }
-      }
-    });
-    headroom.init();
-    if(window.location.hash)
-      headroom.unpin();
-    $(header).addClass('headroom--transition');
-
-    // offset scroll location for banner on hash change
-    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-    window.addEventListener("hashchange", function(event) {
-      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-    });
-
-    // responsive menu
-    $('.distill-site-header').each(function(i, val) {
-      var topnav = $(this);
-      var toggle = topnav.find('.nav-toggle');
-      toggle.on('click', function() {
-        topnav.toggleClass('responsive');
-      });
-    });
-
-    // nav dropdowns
-    $('.nav-dropbtn').click(function(e) {
-      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-      $(this).parent().siblings('.nav-dropdown')
-         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-    });
-    $("body").click(function(e){
-      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-    });
-    $(".nav-dropdown").click(function(e){
-      e.stopPropagation();
-    });
-  });
-</script>
-
-<style type="text/css">
-
-/* Theme (user-documented overrideables for nav appearance) */
-
-.distill-site-nav {
-  color: rgba(255, 255, 255, 0.8);
-  background-color: #0F2E3D;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-.distill-site-nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.distill-site-nav a:hover {
-  color: white;
-}
-
-@media print {
-  .distill-site-nav {
-    display: none;
-  }
-}
-
-.distill-site-header {
-
-}
-
-.distill-site-footer {
-
-}
-
-
-/* Site Header */
-
-.distill-site-header {
-  width: 100%;
-  box-sizing: border-box;
-  z-index: 3;
-}
-
-.distill-site-header .nav-left {
-  display: inline-block;
-  margin-left: 8px;
-}
-
-@media screen and (max-width: 768px) {
-  .distill-site-header .nav-left {
-    margin-left: 0;
-  }
-}
-
-
-.distill-site-header .nav-right {
-  float: right;
-  margin-right: 8px;
-}
-
-.distill-site-header a,
-.distill-site-header .title {
-  display: inline-block;
-  text-align: center;
-  padding: 14px 10px 14px 10px;
-}
-
-.distill-site-header .title {
-  font-size: 18px;
-  min-width: 150px;
-}
-
-.distill-site-header .logo {
-  padding: 0;
-}
-
-.distill-site-header .logo img {
-  display: none;
-  max-height: 20px;
-  width: auto;
-  margin-bottom: -4px;
-}
-
-.distill-site-header .nav-image img {
-  max-height: 18px;
-  width: auto;
-  display: inline-block;
-  margin-bottom: -3px;
-}
-
-
-
-@media screen and (min-width: 1000px) {
-  .distill-site-header .logo img {
-    display: inline-block;
-  }
-  .distill-site-header .nav-left {
-    margin-left: 20px;
-  }
-  .distill-site-header .nav-right {
-    margin-right: 20px;
-  }
-  .distill-site-header .title {
-    padding-left: 12px;
-  }
-}
-
-
-.distill-site-header .nav-toggle {
-  display: none;
-}
-
-.nav-dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.nav-dropdown .nav-dropbtn {
-  border: none;
-  outline: none;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 16px 10px;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  margin: 0;
-  margin-top: 1px;
-  z-index: 2;
-}
-
-.nav-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 200px;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 4px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-  z-index: 1;
-  margin-top: 2px;
-  white-space: nowrap;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.nav-dropdown-content hr {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.nav-dropdown-active {
-  display: block;
-}
-
-.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-  color: black;
-  padding: 6px 24px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.nav-dropdown-content .nav-dropdown-header {
-  display: block;
-  padding: 5px 24px;
-  padding-bottom: 0;
-  text-transform: uppercase;
-  font-size: 14px;
-  color: #999999;
-  white-space: nowrap;
-}
-
-.nav-dropdown:hover .nav-dropbtn {
-  color: white;
-}
-
-.nav-dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.nav-right .nav-dropdown-content {
-  margin-left: -45%;
-  right: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-  .distill-site-header a.nav-toggle {
-    float: right;
-    display: block;
-  }
-  .distill-site-header .title {
-    margin-left: 0;
-  }
-  .distill-site-header .nav-right {
-    margin-right: 0;
-  }
-  .distill-site-header {
-    overflow: hidden;
-  }
-  .nav-right .nav-dropdown-content {
-    margin-left: 0;
-  }
-}
-
-
-@media screen and (max-width: 768px) {
-  .distill-site-header.responsive {position: relative; min-height: 500px; }
-  .distill-site-header.responsive a.nav-toggle {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .distill-site-header.responsive a,
-  .distill-site-header.responsive .nav-dropdown {
-    display: block;
-    text-align: left;
-  }
-  .distill-site-header.responsive .nav-left,
-  .distill-site-header.responsive .nav-right {
-    width: 100%;
-  }
-  .distill-site-header.responsive .nav-dropdown {float: none;}
-  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-}
-
-/* Site Footer */
-
-.distill-site-footer {
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  z-index: 3;
-  margin-top: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-}
-
-/* Headroom */
-
-d-title {
-  padding-top: 6rem;
-}
-
-@media print {
-  d-title {
-    padding-top: 4rem;
-  }
-}
-
-.headroom {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.headroom--transition {
-  transition: all .4s ease-in-out;
-}
-
-.headroom--unpinned {
-  top: -100px;
-}
-
-.headroom--pinned {
-  top: 0;
-}
-
-/* adjust viewport for navbar height */
-/* helps vertically center bootstrap (non-distill) content */
-.min-vh-100 {
-  min-height: calc(100vh - 100px) !important;
-}
-
-</style>
-
-<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
-<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
-<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-<script type="application/javascript">
-
-function getMeta(metaName) {
-  var metas = document.getElementsByTagName('meta');
-  for (let i = 0; i < metas.length; i++) {
-    if (metas[i].getAttribute('name') === metaName) {
-      return metas[i].getAttribute('content');
-    }
-  }
-  return '';
-}
-
-function offsetURL(url) {
-  var offset = getMeta('distill:offset');
-  return offset ? offset + '/' + url : url;
-}
-
-function createFuseIndex() {
-
-  // create fuse index
-  var options = {
-    keys: [
-      { name: 'title', weight: 20 },
-      { name: 'categories', weight: 15 },
-      { name: 'description', weight: 10 },
-      { name: 'contents', weight: 5 },
-    ],
-    ignoreLocation: true,
-    threshold: 0
-  };
-  var fuse = new window.Fuse([], options);
-
-  // fetch the main search.json
-  return fetch(offsetURL('search.json'))
-    .then(function(response) {
-      if (response.status == 200) {
-        return response.json().then(function(json) {
-          // index main articles
-          json.articles.forEach(function(article) {
-            fuse.add(article);
-          });
-          // download collections and index their articles
-          return Promise.all(json.collections.map(function(collection) {
-            return fetch(offsetURL(collection)).then(function(response) {
-              if (response.status === 200) {
-                return response.json().then(function(articles) {
-                  articles.forEach(function(article) {
-                    fuse.add(article);
-                  });
-                })
-              } else {
-                return Promise.reject(
-                  new Error('Unexpected status from search index request: ' +
-                            response.status)
-                );
-              }
-            });
-          })).then(function() {
-            return fuse;
-          });
-        });
-
-      } else {
-        return Promise.reject(
-          new Error('Unexpected status from search index request: ' +
-                      response.status)
-        );
-      }
-    });
-}
-
-window.document.addEventListener("DOMContentLoaded", function (event) {
-
-  // get search element (bail if we don't have one)
-  var searchEl = window.document.getElementById('distill-search');
-  if (!searchEl)
-    return;
-
-  createFuseIndex()
-    .then(function(fuse) {
-
-      // make search box visible
-      searchEl.classList.remove('hidden');
-
-      // initialize autocomplete
-      var options = {
-        autoselect: true,
-        hint: false,
-        minLength: 2,
-      };
-      window.autocomplete(searchEl, options, [{
-        source: function(query, callback) {
-          const searchOptions = {
-            isCaseSensitive: false,
-            shouldSort: true,
-            minMatchCharLength: 2,
-            limit: 10,
-          };
-          var results = fuse.search(query, searchOptions);
-          callback(results
-            .map(function(result) { return result.item; })
-          );
-        },
-        templates: {
-          suggestion: function(suggestion) {
-            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-              : '';
-            var html = `
-              <div class="search-item">
-                <h3>${suggestion.title}</h3>
-                <div class="search-item-description">
-                  ${suggestion.description || ''}
-                </div>
-                <div class="search-item-preview">
-                  ${img}
-                </div>
-              </div>
-            `;
-            return html;
-          }
-        }
-      }]).on('autocomplete:selected', function(event, suggestion) {
-        window.location.href = offsetURL(suggestion.path);
-      });
-      // remove inline display style on autocompleter (we want to
-      // manage responsive display via css)
-      $('.algolia-autocomplete').css("display", "");
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-
-});
-
-</script>
-
-<style type="text/css">
-
-.nav-search {
-  font-size: x-small;
-}
-
-/* Algolioa Autocomplete */
-
-.algolia-autocomplete {
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: sub;
-  background-color: white;
-  color: black;
-  padding: 6px;
-  padding-top: 8px;
-  padding-bottom: 0;
-  border-radius: 6px;
-  border: 1px #0F2E3D solid;
-  width: 180px;
-}
-
-
-@media screen and (max-width: 768px) {
-  .distill-site-nav .algolia-autocomplete {
-    display: none;
-    visibility: hidden;
-  }
-  .distill-site-nav.responsive .algolia-autocomplete {
-    display: inline-block;
-    visibility: visible;
-  }
-  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-    margin-left: 0;
-    width: 400px;
-    max-height: 400px;
-  }
-}
-
-.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-  width: 90%;
-  outline: none;
-  border: none;
-}
-
-.algolia-autocomplete .aa-hint {
-  color: #999;
-}
-.algolia-autocomplete .aa-dropdown-menu {
-  width: 550px;
-  max-height: 70vh;
-  overflow-x: visible;
-  overflow-y: scroll;
-  padding: 5px;
-  margin-top: 3px;
-  margin-left: -150px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #999;
-  border-top: none;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-  cursor: pointer;
-  padding: 5px 4px;
-  border-bottom: 1px solid #eee;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-  border-bottom: none;
-  margin-bottom: 2px;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-  overflow: hidden;
-  font-size: 0.8em;
-  line-height: 1.4em;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-  font-size: 1rem;
-  margin-block-start: 0;
-  margin-block-end: 5px;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-  display: inline-block;
-  overflow: hidden;
-  height: 2.8em;
-  width: 80%;
-  margin-right: 4%;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-  display: inline-block;
-  width: 15%;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-  height: 3em;
-  width: auto;
-  display: none;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-  display: initial;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-  background-color: #eee;
-}
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-  font-weight: bold;
-  font-style: normal;
-}
-
-</style>
-
-
-<!--/radix_placeholder_navigation_in_header-->
-  <!--radix_placeholder_distill-->
-
-<style type="text/css">
-
-body {
-  background-color: white;
-}
-
-.pandoc-table {
-  width: 100%;
-}
-
-.pandoc-table>caption {
-  margin-bottom: 10px;
-}
-
-.pandoc-table th:not([align]) {
-  text-align: left;
-}
-
-.pagedtable-footer {
-  font-size: 15px;
-}
-
-d-byline .byline {
-  grid-template-columns: 2fr 2fr;
-}
-
-d-byline .byline h3 {
-  margin-block-start: 1.5em;
-}
-
-d-byline .byline .authors-affiliations h3 {
-  margin-block-start: 0.5em;
-}
-
-.authors-affiliations .orcid-id {
-  width: 16px;
-  height:16px;
-  margin-left: 4px;
-  margin-right: 4px;
-  vertical-align: middle;
-  padding-bottom: 2px;
-}
-
-d-title .dt-tags {
-  margin-top: 1em;
-  grid-column: text;
-}
-
-.dt-tags .dt-tag {
-  text-decoration: none;
-  display: inline-block;
-  color: rgba(0,0,0,0.6);
-  padding: 0em 0.4em;
-  margin-right: 0.5em;
-  margin-bottom: 0.4em;
-  font-size: 70%;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-d-article table.gt_table td,
-d-article table.gt_table th {
-  border-bottom: none;
-}
-
-.html-widget {
-  margin-bottom: 2.0em;
-}
-
-.l-screen-inset {
-  padding-right: 16px;
-}
-
-.l-screen .caption {
-  margin-left: 10px;
-}
-
-.shaded {
-  background: rgb(247, 247, 247);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.shaded .html-widget {
-  margin-bottom: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.shaded .shaded-content {
-  background: white;
-}
-
-.text-output {
-  margin-top: 0;
-  line-height: 1.5em;
-}
-
-.hidden {
-  display: none !important;
-}
-
-d-article {
-  padding-top: 2.5rem;
-  padding-bottom: 30px;
-}
-
-d-appendix {
-  padding-top: 30px;
-}
-
-d-article>p>img {
-  width: 100%;
-}
-
-d-article h2 {
-  margin: 1rem 0 1.5rem 0;
-}
-
-d-article h3 {
-  margin-top: 1.5rem;
-}
-
-d-article iframe {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 2.0em;
-  width: 100%;
-}
-
-/* Tweak code blocks */
-
-d-article div.sourceCode code,
-d-article pre code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-}
-
-d-article pre,
-d-article div.sourceCode,
-d-article div.sourceCode pre {
-  overflow: auto;
-}
-
-d-article div.sourceCode {
-  background-color: white;
-}
-
-d-article div.sourceCode pre {
-  padding-left: 10px;
-  font-size: 12px;
-  border-left: 2px solid rgba(0,0,0,0.1);
-}
-
-d-article pre {
-  font-size: 12px;
-  color: black;
-  background: none;
-  margin-top: 0;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-
-d-article pre a {
-  border-bottom: none;
-}
-
-d-article pre a:hover {
-  border-bottom: none;
-  text-decoration: underline;
-}
-
-d-article details {
-  grid-column: text;
-  margin-bottom: 0.8em;
-}
-
-@media(min-width: 768px) {
-
-d-article pre,
-d-article div.sourceCode,
-d-article div.sourceCode pre {
-  overflow: visible !important;
-}
-
-d-article div.sourceCode pre {
-  padding-left: 18px;
-  font-size: 14px;
-}
-
-d-article pre {
-  font-size: 14px;
-}
-
-}
-
-figure img.external {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  padding: 18px;
-  box-sizing: border-box;
-}
-
-/* CSS for d-contents */
-
-.d-contents {
-  grid-column: text;
-  color: rgba(0,0,0,0.8);
-  font-size: 0.9em;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-  padding-left: 0.25em;
-  justify-self: start;
-}
-
-@media(min-width: 1000px) {
-  .d-contents.d-contents-float {
-    height: 0;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    justify-self: center;
-    padding-right: 3em;
-    padding-left: 2em;
-  }
-}
-
-.d-contents nav h3 {
-  font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-.d-contents li {
-  list-style-type: none
-}
-
-.d-contents nav > ul {
-  padding-left: 0;
-}
-
-.d-contents ul {
-  padding-left: 1em
-}
-
-.d-contents nav ul li {
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
-}
-
-.d-contents nav a {
-  font-size: 13px;
-  border-bottom: none;
-  text-decoration: none
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.d-contents nav a:hover {
-  text-decoration: underline solid rgba(0, 0, 0, 0.6)
-}
-
-.d-contents nav > ul > li > a {
-  font-weight: 600;
-}
-
-.d-contents nav > ul > li > ul {
-  font-weight: inherit;
-}
-
-.d-contents nav > ul > li > ul > li {
-  margin-top: 0.2em;
-}
-
-
-.d-contents nav ul {
-  margin-top: 0;
-  margin-bottom: 0.25em;
-}
-
-.d-article-with-toc h2:nth-child(2) {
-  margin-top: 0;
-}
-
-
-/* Figure */
-
-.figure {
-  position: relative;
-  margin-bottom: 2.5em;
-  margin-top: 1.5em;
-}
-
-.figure img {
-  width: 100%;
-}
-
-.figure .caption {
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 12px;
-  line-height: 1.5em;
-}
-
-.figure img.external {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  padding: 18px;
-  box-sizing: border-box;
-}
-
-.figure .caption a {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.figure .caption b,
-.figure .caption strong, {
-  font-weight: 600;
-  color: rgba(0, 0, 0, 1.0);
-}
-
-/* Citations */
-
-d-article .citation {
-  color: inherit;
-  cursor: inherit;
-}
-
-div.hanging-indent{
-  margin-left: 1em; text-indent: -1em;
-}
-
-/* Citation hover box */
-
-.tippy-box[data-theme~=light-border] {
-  background-color: rgba(250, 250, 250, 0.95);
-}
-
-.tippy-content > p {
-  margin-bottom: 0;
-  padding: 2px;
-}
-
-
-/* Tweak 1000px media break to show more text */
-
-@media(min-width: 1000px) {
-  .base-grid,
-  distill-header,
-  d-title,
-  d-abstract,
-  d-article,
-  d-appendix,
-  distill-appendix,
-  d-byline,
-  d-footnote-list,
-  d-citation-list,
-  distill-footer {
-    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
-    grid-column-gap: 16px;
-  }
-
-  .grid {
-    grid-column-gap: 16px;
-  }
-
-  d-article {
-    font-size: 1.06rem;
-    line-height: 1.7em;
-  }
-  figure .caption, .figure .caption, figure figcaption {
-    font-size: 13px;
-  }
-}
-
-@media(min-width: 1180px) {
-  .base-grid,
-  distill-header,
-  d-title,
-  d-abstract,
-  d-article,
-  d-appendix,
-  distill-appendix,
-  d-byline,
-  d-footnote-list,
-  d-citation-list,
-  distill-footer {
-    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
-    grid-column-gap: 32px;
-  }
-
-  .grid {
-    grid-column-gap: 32px;
-  }
-}
-
-
-/* Get the citation styles for the appendix (not auto-injected on render since
-   we do our own rendering of the citation appendix) */
-
-d-appendix .citation-appendix,
-.d-appendix .citation-appendix {
-  font-size: 11px;
-  line-height: 15px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 18px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: rgba(0, 0, 0, 0.02);
-  padding: 10px 18px;
-  border-radius: 3px;
-  color: rgba(150, 150, 150, 1);
-  overflow: hidden;
-  margin-top: -12px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-/* Include appendix styles here so they can be overridden */
-
-d-appendix {
-  contain: layout style;
-  font-size: 0.8em;
-  line-height: 1.7em;
-  margin-top: 60px;
-  margin-bottom: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgba(0,0,0,0.5);
-  padding-top: 60px;
-  padding-bottom: 48px;
-}
-
-d-appendix h3 {
-  grid-column: page-start / text-start;
-  font-size: 15px;
-  font-weight: 500;
-  margin-top: 1em;
-  margin-bottom: 0;
-  color: rgba(0,0,0,0.65);
-}
-
-d-appendix h3 + * {
-  margin-top: 1em;
-}
-
-d-appendix ol {
-  padding: 0 0 0 15px;
-}
-
-@media (min-width: 768px) {
-  d-appendix ol {
-    padding: 0 0 0 30px;
-    margin-left: -30px;
-  }
-}
-
-d-appendix li {
-  margin-bottom: 1em;
-}
-
-d-appendix a {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-d-appendix > * {
-  grid-column: text;
-}
-
-d-appendix > d-footnote-list,
-d-appendix > d-citation-list,
-d-appendix > distill-appendix {
-  grid-column: screen;
-}
-
-/* Include footnote styles here so they can be overridden */
-
-d-footnote-list {
-  contain: layout style;
-}
-
-d-footnote-list > * {
-  grid-column: text;
-}
-
-d-footnote-list a.footnote-backlink {
-  color: rgba(0,0,0,0.3);
-  padding-left: 0.5em;
-}
-
-
-
-/* Anchor.js */
-
-.anchorjs-link {
-  /*transition: all .25s linear; */
-  text-decoration: none;
-  border-bottom: none;
-}
-*:hover > .anchorjs-link {
-  margin-left: -1.125em !important;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-/* Social footer */
-
-.social_footer {
-  margin-top: 30px;
-  margin-bottom: 0;
-  color: rgba(0,0,0,0.67);
-}
-
-.disqus-comments {
-  margin-right: 30px;
-}
-
-.disqus-comment-count {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-}
-
-#disqus_thread {
-  margin-top: 30px;
-}
-
-.article-sharing a {
-  border-bottom: none;
-  margin-right: 8px;
-}
-
-.article-sharing a:hover {
-  border-bottom: none;
-}
-
-.sidebar-section.subscribe {
-  font-size: 12px;
-  line-height: 1.6em;
-}
-
-.subscribe p {
-  margin-bottom: 0.5em;
-}
-
-
-.article-footer .subscribe {
-  font-size: 15px;
-  margin-top: 45px;
-}
-
-
-.sidebar-section.custom {
-  font-size: 12px;
-  line-height: 1.6em;
-}
-
-.custom p {
-  margin-bottom: 0.5em;
-}
-
-/* Styles for listing layout (hide title) */
-.layout-listing d-title, .layout-listing .d-title {
-  display: none;
-}
-
-/* Styles for posts lists (not auto-injected) */
-
-
-.posts-with-sidebar {
-  padding-left: 45px;
-  padding-right: 45px;
-}
-
-.posts-list .description h2,
-.posts-list .description p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-}
-
-.posts-list .description h2 {
-  font-weight: 700;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.posts-list h2.post-tag {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 12px;
-}
-.posts-list {
-  margin-top: 60px;
-  margin-bottom: 24px;
-}
-
-.posts-list .post-preview {
-  text-decoration: none;
-  overflow: hidden;
-  display: block;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 24px 0;
-}
-
-.post-preview-last {
-  border-bottom: none !important;
-}
-
-.posts-list .posts-list-caption {
-  grid-column: screen;
-  font-weight: 400;
-}
-
-.posts-list .post-preview h2 {
-  margin: 0 0 6px 0;
-  line-height: 1.2em;
-  font-style: normal;
-  font-size: 24px;
-}
-
-.posts-list .post-preview p {
-  margin: 0 0 12px 0;
-  line-height: 1.4em;
-  font-size: 16px;
-}
-
-.posts-list .post-preview .thumbnail {
-  box-sizing: border-box;
-  margin-bottom: 24px;
-  position: relative;
-  max-width: 500px;
-}
-.posts-list .post-preview img {
-  width: 100%;
-  display: block;
-}
-
-.posts-list .metadata {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin-bottom: 18px;
-}
-
-.posts-list .metadata > * {
-  display: inline-block;
-}
-
-.posts-list .metadata .publishedDate {
-  margin-right: 2em;
-}
-
-.posts-list .metadata .dt-authors {
-  display: block;
-  margin-top: 0.3em;
-  margin-right: 2em;
-}
-
-.posts-list .dt-tags {
-  display: block;
-  line-height: 1em;
-}
-
-.posts-list .dt-tags .dt-tag {
-  display: inline-block;
-  color: rgba(0,0,0,0.6);
-  padding: 0.3em 0.4em;
-  margin-right: 0.2em;
-  margin-bottom: 0.4em;
-  font-size: 60%;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.posts-list img {
-  opacity: 1;
-}
-
-.posts-list img[data-src] {
-  opacity: 0;
-}
-
-.posts-more {
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
   clear: both;
 }
-
-
-.posts-sidebar {
-  font-size: 16px;
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-
-.posts-sidebar h3 {
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-weight: 400;
-  text-transform: uppercase;
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-
-.sidebar-section {
-  margin-bottom: 30px;
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
 }
-
-.categories ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+div.csl-indent {
+  margin-left: 2em;
 }
-
-.categories li {
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 0;
-}
-
-.categories li>a {
-  border-bottom: none;
-}
-
-.categories li>a:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-}
-
-.categories .active {
-  font-weight: 600;
-}
-
-.categories .category-count {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-
-@media(min-width: 768px) {
-  .posts-list .post-preview h2 {
-    font-size: 26px;
-  }
-  .posts-list .post-preview .thumbnail {
-    float: right;
-    width: 30%;
-    margin-bottom: 0;
-  }
-  .posts-list .post-preview .description {
-    float: left;
-    width: 45%;
-  }
-  .posts-list .post-preview .metadata {
-    float: left;
-    width: 20%;
-    margin-top: 8px;
-  }
-  .posts-list .post-preview p {
-    margin: 0 0 12px 0;
-    line-height: 1.5em;
-    font-size: 16px;
-  }
-  .posts-with-sidebar .posts-list {
-    float: left;
-    width: 75%;
-  }
-  .posts-with-sidebar .posts-sidebar {
-    float: right;
-    width: 20%;
-    margin-top: 60px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-
-/* Improve display for browsers without grid (IE/Edge <= 15) */
-
-.downlevel {
-  line-height: 1.6em;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  margin: 0;
-}
-
-.downlevel .d-title {
-  padding-top: 6rem;
-  padding-bottom: 1.5rem;
-}
-
-.downlevel .d-title h1 {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1.1em;
-  margin: 0 0 0.5rem;
-}
-
-.downlevel .d-title p {
-  font-weight: 300;
-  font-size: 1.2rem;
-  line-height: 1.55em;
-  margin-top: 0;
-}
-
-.downlevel .d-byline {
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  font-size: 0.8rem;
-  line-height: 1.8em;
-}
-
-.downlevel .section-separator {
-  border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.downlevel .d-article {
-  font-size: 1.06rem;
-  line-height: 1.7em;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-
-
-.downlevel .d-appendix {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: none;
-  font-size: 0.8em;
-  line-height: 1.7em;
-  margin-bottom: 0;
-  color: rgba(0,0,0,0.5);
-  padding-top: 40px;
-  padding-bottom: 48px;
-}
-
-.downlevel .footnotes ol {
-  padding-left: 13px;
-}
-
-.downlevel .base-grid,
-.downlevel .distill-header,
-.downlevel .d-title,
-.downlevel .d-abstract,
-.downlevel .d-article,
-.downlevel .d-appendix,
-.downlevel .distill-appendix,
-.downlevel .d-byline,
-.downlevel .d-footnote-list,
-.downlevel .d-citation-list,
-.downlevel .distill-footer,
-.downlevel .appendix-bottom,
-.downlevel .posts-container {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-@media(min-width: 768px) {
-  .downlevel .base-grid,
-  .downlevel .distill-header,
-  .downlevel .d-title,
-  .downlevel .d-abstract,
-  .downlevel .d-article,
-  .downlevel .d-appendix,
-  .downlevel .distill-appendix,
-  .downlevel .d-byline,
-  .downlevel .d-footnote-list,
-  .downlevel .d-citation-list,
-  .downlevel .distill-footer,
-  .downlevel .appendix-bottom,
-  .downlevel .posts-container {
-  padding-left: 150px;
-  padding-right: 150px;
-  max-width: 900px;
-}
-}
-
-.downlevel pre code {
-  display: block;
-  border-left: 2px solid rgba(0, 0, 0, .1);
-  padding: 0 0 0 20px;
-  font-size: 14px;
-}
-
-.downlevel code, .downlevel pre {
-  color: black;
-  background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-
-.downlevel .posts-list .post-preview {
-  color: inherit;
-}
-
-
-
 </style>
 
-<script type="application/javascript">
 
-function is_downlevel_browser() {
-  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
-                                 window.navigator.userAgent)) {
-    return true;
-  } else {
-    return window.load_distill_framework === undefined;
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
   }
-}
-
-// show body when load is complete
-function on_load_complete() {
-
-  // add anchors
-  if (window.anchors) {
-    window.anchors.options.placement = 'left';
-    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
-  }
-
-
-  // set body to visible
-  document.body.style.visibility = 'visible';
-
-  // force redraw for leaflet widgets
-  if (window.HTMLWidgets) {
-    var maps = window.HTMLWidgets.findAll(".leaflet");
-    $.each(maps, function(i, el) {
-      var map = this.getMap();
-      map.invalidateSize();
-      map.eachLayer(function(layer) {
-        if (layer instanceof L.TileLayer)
-          layer.redraw();
-      });
-    });
-  }
-
-  // trigger 'shown' so htmlwidgets resize
-  $('d-article').trigger('shown');
-}
-
-function init_distill() {
-
-  init_common();
-
-  // create front matter
-  var front_matter = $('<d-front-matter></d-front-matter>');
-  $('#distill-front-matter').wrap(front_matter);
-
-  // create d-title
-  $('.d-title').changeElementType('d-title');
-
-  // create d-byline
-  var byline = $('<d-byline></d-byline>');
-  $('.d-byline').replaceWith(byline);
-
-  // create d-article
-  var article = $('<d-article></d-article>');
-  $('.d-article').wrap(article).children().unwrap();
-
-  // move posts container into article
-  $('.posts-container').appendTo($('d-article'));
-
-  // create d-appendix
-  $('.d-appendix').changeElementType('d-appendix');
-
-  // flag indicating that we have appendix items
-  var appendix = $('.appendix-bottom').children('h3').length > 0;
-
-  // replace footnotes with <d-footnote>
-  $('.footnote-ref').each(function(i, val) {
-    appendix = true;
-    var href = $(this).attr('href');
-    var id = href.replace('#', '');
-    var fn = $('#' + id);
-    var fn_p = $('#' + id + '>p');
-    fn_p.find('.footnote-back').remove();
-    var text = fn_p.html();
-    var dtfn = $('<d-footnote></d-footnote>');
-    dtfn.html(text);
-    $(this).replaceWith(dtfn);
-  });
-  // remove footnotes
-  $('.footnotes').remove();
-
-  // move refs into #references-listing
-  $('#references-listing').replaceWith($('#refs'));
-
-  $('h1.appendix, h2.appendix').each(function(i, val) {
-    $(this).changeElementType('h3');
-  });
-  $('h3.appendix').each(function(i, val) {
-    var id = $(this).attr('id');
-    $('.d-contents a[href="#' + id + '"]').parent().remove();
-    appendix = true;
-    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
-  });
-
-  // show d-appendix if we have appendix content
-  $("d-appendix").css('display', appendix ? 'grid' : 'none');
-
-  // localize layout chunks to just output
-  $('.layout-chunk').each(function(i, val) {
-
-    // capture layout
-    var layout = $(this).attr('data-layout');
-
-    // apply layout to markdown level block elements
-    var elements = $(this).children().not('details, div.sourceCode, pre, script');
-    elements.each(function(i, el) {
-      var layout_div = $('<div class="' + layout + '"></div>');
-      if (layout_div.hasClass('shaded')) {
-        var shaded_content = $('<div class="shaded-content"></div>');
-        $(this).wrap(shaded_content);
-        $(this).parent().wrap(layout_div);
-      } else {
-        $(this).wrap(layout_div);
-      }
-    });
-
-
-    // unwrap the layout-chunk div
-    $(this).children().unwrap();
-  });
-
-  // remove code block used to force  highlighting css
-  $('.distill-force-highlighting-css').parent().remove();
-
-  // remove empty line numbers inserted by pandoc when using a
-  // custom syntax highlighting theme
-  $('code.sourceCode a:empty').remove();
-
-  // load distill framework
-  load_distill_framework();
-
-  // wait for window.distillRunlevel == 4 to do post processing
-  function distill_post_process() {
-
-    if (!window.distillRunlevel || window.distillRunlevel < 4)
-      return;
-
-    // hide author/affiliations entirely if we have no authors
-    var front_matter = JSON.parse($("#distill-front-matter").html());
-    var have_authors = front_matter.authors && front_matter.authors.length > 0;
-    if (!have_authors)
-      $('d-byline').addClass('hidden');
-
-    // article with toc class
-    $('.d-contents').parent().addClass('d-article-with-toc');
-
-    // strip links that point to #
-    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
-
-    // add orcid ids
-    $('.authors-affiliations').find('.author').each(function(i, el) {
-      var orcid_id = front_matter.authors[i].orcidID;
-      if (orcid_id) {
-        var a = $('<a></a>');
-        a.attr('href', 'https://orcid.org/' + orcid_id);
-        var img = $('<img></img>');
-        img.addClass('orcid-id');
-        img.attr('alt', 'ORCID ID');
-        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
-        a.append(img);
-        $(this).append(a);
-      }
-    });
-
-    // hide elements of author/affiliations grid that have no value
-    function hide_byline_column(caption) {
-      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
-    }
-
-    // affiliations
-    var have_affiliations = false;
-    for (var i = 0; i<front_matter.authors.length; ++i) {
-      var author = front_matter.authors[i];
-      if (author.affiliation !== "&nbsp;") {
-        have_affiliations = true;
-        break;
-      }
-    }
-    if (!have_affiliations)
-      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
-
-    // published date
-    if (!front_matter.publishedDate)
-      hide_byline_column("Published");
-
-    // document object identifier
-    var doi = $('d-byline').find('h3:contains("DOI")');
-    var doi_p = doi.next().empty();
-    if (!front_matter.doi) {
-      // if we have a citation and valid citationText then link to that
-      if ($('#citation').length > 0 && front_matter.citationText) {
-        doi.html('Citation');
-        $('<a href="#citation"></a>')
-          .text(front_matter.citationText)
-          .appendTo(doi_p);
-      } else {
-        hide_byline_column("DOI");
-      }
-    } else {
-      $('<a></a>')
-         .attr('href', "https://doi.org/" + front_matter.doi)
-         .html(front_matter.doi)
-         .appendTo(doi_p);
-    }
-
-     // change plural form of authors/affiliations
-    if (front_matter.authors.length === 1) {
-      var grid = $('.authors-affiliations');
-      grid.children('h3:contains("Authors")').text('Author');
-      grid.children('h3:contains("Affiliations")').text('Affiliation');
-    }
-
-    // remove d-appendix and d-footnote-list local styles
-    $('d-appendix > style:first-child').remove();
-    $('d-footnote-list > style:first-child').remove();
-
-    // move appendix-bottom entries to the bottom
-    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
-    $('.appendix-bottom').remove();
-
-    // hoverable references
-    $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
-      window.tippy(this, {
-        allowHTML: true,
-        content: refHtml,
-        maxWidth: 500,
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'light-border',
-        placement: 'bottom-start'
-      });
-    });
-
-    // clear polling timer
-    clearInterval(tid);
-
-    // show body now that everything is ready
-    on_load_complete();
-  }
-
-  var tid = setInterval(distill_post_process, 50);
-  distill_post_process();
-
-}
-
-function init_downlevel() {
-
-  init_common();
-
-   // insert hr after d-title
-  $('.d-title').after($('<hr class="section-separator"/>'));
-
-  // check if we have authors
-  var front_matter = JSON.parse($("#distill-front-matter").html());
-  var have_authors = front_matter.authors && front_matter.authors.length > 0;
-
-  // manage byline/border
-  if (!have_authors)
-    $('.d-byline').remove();
-  $('.d-byline').after($('<hr class="section-separator"/>'));
-  $('.d-byline a').remove();
-
-  // remove toc
-  $('.d-contents').remove();
-
-  // move appendix elements
-  $('h1.appendix, h2.appendix').each(function(i, val) {
-    $(this).changeElementType('h3');
-  });
-  $('h3.appendix').each(function(i, val) {
-    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
-  });
-
-
-  // inject headers into references and footnotes
-  var refs_header = $('<h3></h3>');
-  refs_header.text('References');
-  $('#refs').prepend(refs_header);
-
-  var footnotes_header = $('<h3></h3');
-  footnotes_header.text('Footnotes');
-  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
-
-  // move appendix-bottom entries to the bottom
-  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
-  $('.appendix-bottom').remove();
-
-  // remove appendix if it's empty
-  if ($('.d-appendix').children().length === 0)
-    $('.d-appendix').remove();
-
-  // prepend separator above appendix
-  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
-
-  // trim code
-  $('pre>code').each(function(i, val) {
-    $(this).html($.trim($(this).html()));
-  });
-
-  // move posts-container right before article
-  $('.posts-container').insertBefore($('.d-article'));
-
-  $('body').addClass('downlevel');
-
-  on_load_complete();
-}
-
-
-function init_common() {
-
-  // jquery plugin to change element types
-  (function($) {
-    $.fn.changeElementType = function(newType) {
-      var attrs = {};
-
-      $.each(this[0].attributes, function(idx, attr) {
-        attrs[attr.nodeName] = attr.nodeValue;
-      });
-
-      this.replaceWith(function() {
-        return $("<" + newType + "/>", attrs).append($(this).contents());
-      });
-    };
-  })(jQuery);
-
-  // prevent underline for linked images
-  $('a > img').parent().css({'border-bottom' : 'none'});
-
-  // mark non-body figures created by knitr chunks as 100% width
-  $('.layout-chunk').each(function(i, val) {
-    var figures = $(this).find('img, .html-widget');
-    if ($(this).attr('data-layout') !== "l-body") {
-      figures.css('width', '100%');
-    } else {
-      figures.css('max-width', '100%');
-      figures.filter("[width]").each(function(i, val) {
-        var fig = $(this);
-        fig.css('width', fig.attr('width') + 'px');
-      });
-
-    }
-  });
-
-  // auto-append index.html to post-preview links in file: protocol
-  // and in rstudio ide preview
-  $('.post-preview').each(function(i, val) {
-    if (window.location.protocol === "file:")
-      $(this).attr('href', $(this).attr('href') + "index.html");
-  });
-
-  // get rid of index.html references in header
-  if (window.location.protocol !== "file:") {
-    $('.distill-site-header a[href]').each(function(i,val) {
-      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
-    });
-  }
-
-  // add class to pandoc style tables
-  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
-  $('.kable-table').children('table').addClass('pandoc-table');
-
-  // add figcaption style to table captions
-  $('caption').parent('table').addClass("figcaption");
-
-  // initialize posts list
-  if (window.init_posts_list)
-    window.init_posts_list();
-
-  // implmement disqus comment link
-  $('.disqus-comment-count').click(function() {
-    window.headroom_prevent_pin = true;
-    $('#disqus_thread').toggleClass('hidden');
-    if (!$('#disqus_thread').hasClass('hidden')) {
-      var offset = $(this).offset();
-      $(window).resize();
-      $('html, body').animate({
-        scrollTop: offset.top - 35
-      });
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  if (is_downlevel_browser())
-    init_downlevel();
-  else
-    window.addEventListener('WebComponentsReady', init_distill);
-});
-
-</script>
-
-<style type="text/css">
-/* base variables */
-
-/* Edit the CSS properties in this file to create a custom
-   Distill theme. Only edit values in the right column
-   for each row; values shown are the CSS defaults.
-   To return any property to the default,
-   you may set its value to: unset
-   All rows must end with a semi-colon.                      */
-
-/* Optional: embed custom fonts here with `@import`          */
-/* This must remain at the top of this file.                 */
-
-
-
-html {
-  /*-- Main font sizes --*/
-  --title-size:      50px;
-  --body-size:       1.06rem;
-  --code-size:       14px;
-  --aside-size:      12px;
-  --fig-cap-size:    13px;
-  /*-- Main font colors --*/
-  --title-color:     #000000;
-  --header-color:    rgba(0, 0, 0, 0.8);
-  --body-color:      rgba(0, 0, 0, 0.8);
-  --aside-color:     rgba(0, 0, 0, 0.6);
-  --fig-cap-color:   rgba(0, 0, 0, 0.6);
-  /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    sans-serif;
-  --mono-font:       monospace;
-  --body-font:       sans-serif;
-  --navbar-font:     sans-serif;  /* websites + blogs only */
-}
-
-/*-- ARTICLE METADATA --*/
-d-byline {
-  --heading-size:    0.6rem;
-  --heading-color:   rgba(0, 0, 0, 0.5);
-  --body-size:       0.8rem;
-  --body-color:      rgba(0, 0, 0, 0.8);
-}
-
-/*-- ARTICLE TABLE OF CONTENTS --*/
-.d-contents {
-  --heading-size:    18px;
-  --contents-size:   13px;
-}
-
-/*-- ARTICLE APPENDIX --*/
-d-appendix {
-  --heading-size:    15px;
-  --heading-color:   rgba(0, 0, 0, 0.65);
-  --text-size:       0.8em;
-  --text-color:      rgba(0, 0, 0, 0.5);
-}
-
-/*-- WEBSITE HEADER + FOOTER --*/
-/* These properties only apply to Distill sites and blogs  */
-
-.distill-site-header {
-  --title-size:       18px;
-  --text-color:       rgba(255, 255, 255, 0.8);
-  --text-size:        15px;
-  --hover-color:      white;
-  --bkgd-color:       #0F2E3D;
-}
-
-.distill-site-footer {
-  --text-color:       rgba(255, 255, 255, 0.8);
-  --text-size:        15px;
-  --hover-color:      white;
-  --bkgd-color:       #0F2E3D;
-}
-
-/*-- Additional custom styles --*/
-/* Add any additional CSS rules below                      */
-</style>
-<style type="text/css">
-/* base variables */
-
-/* Edit the CSS properties in this file to create a custom
-   Distill theme. Only edit values in the right column
-   for each row; values shown are the CSS defaults.
-   To return any property to the default,
-   you may set its value to: unset
-   All rows must end with a semi-colon.                      */
-
-/* Optional: embed custom fonts here with `@import`          */
-/* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap');
-
-html {
-  /*-- Main font sizes --*/
-  --title-size:      32px;
-  --body-size:       1.06rem;
-  --code-size:       14px;
-  --aside-size:      12px;
-  --fig-cap-size:    13px;
-  /*-- Main font colors --*/
-  --title-color:     #000000;
-  --header-color:    rgba(0, 0, 0, 0.8);
-  --body-color:      rgba(0, 0, 0, 0.8);
-  --aside-color:     rgba(0, 0, 0, 0.6);
-  --fig-cap-color:   rgba(0, 0, 0, 0.6);
-  /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    "Roboto", sans-serif;
-  --mono-font:       "Fira Code", monospace;
-  --body-font:       "Roboto", sans-serif;
-  --navbar-font:     "Roboto", sans-serif;  /* websites + blogs only */
-}
-
-/*-- ARTICLE METADATA --*/
-d-byline {
-  --heading-size:    0.6rem;
-  --heading-color:   rgba(0, 0, 0, 0.5);
-  --body-size:       0.8rem;
-  --body-color:      rgba(0, 0, 0, 0.8);
-}
-
-/*-- ARTICLE TABLE OF CONTENTS --*/
-.d-contents {
-  --heading-size:    18px;
-  --contents-size:   13px;
-}
-
-/*-- ARTICLE APPENDIX --*/
-d-appendix {
-  --heading-size:    15px;
-  --heading-color:   rgba(0, 0, 0, 0.65);
-  --text-size:       0.85em;
-  --text-color:      rgba(0, 0, 0, 0.6);
-}
-
-/*-- WEBSITE HEADER + FOOTER --*/
-/* These properties only apply to Distill sites and blogs  */
-
-.distill-site-header {
-  --title-size:       18px;
-  --text-color:       rgba(255, 255, 255, 0.8);
-  --text-size:        15px;
-  --hover-color:      #34A5DA;
-  --bkgd-color:       #222222;
-  border-bottom: 4px solid #34A5DA;
-  webkit-box-shadow: 1px 1px 18px #4d4d4d;
-  moz-box-shadow: 1px 1px 18px #4d4d4d;
-  box-shadow: 1px 1px 18px #4d4d4d;
-}
-
-.distill-site-footer {
-  --text-color:       rgba(255, 255, 255, 0.8);
-  --text-size:        15px;
-  --hover-color:      white;
-  --bkgd-color:       #0F2E3D;
-}
-
-/*-- Additional custom styles --*/
-
-/* Underline links with accent color */
-d-article a {
-  border-bottom: 1px solid #34A5DA;
-}
-d-article a:hover {
-  border-bottom: 2px solid #34A5DA;
-}
-.d-contents nav a:hover {
-    text-decoration: none;
-}
-.categories li > a:hover {
-    border-bottom: 2px solid #34A5DA;
-}
-
-/* Use accent color for decoration */
-d-article div.sourceCode pre {
-    border-left: 2px solid #34A5DA;
-}
-d-article blockquote {
-    border-left: 2px solid #34A5DA;
-}
-
-/* Adjust fonts */
-d-article h2 {
-  line-height: 1.15em;
-  font-size: 26px;
-}
-code {
-  font-family: var(--mono-font);
-  font-size: 14px;
-}</style>
-<style type="text/css">
-/* base style */
-
-/* FONT FAMILIES */
-
-:root {
-  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-}
-
-body,
-.posts-list .post-preview p,
-.posts-list .description p {
-  font-family: var(--body-font), var(--body-default);
-}
-
-h1, h2, h3, h4, h5, h6,
-.posts-list .post-preview h2,
-.posts-list .description h2 {
-  font-family: var(--heading-font), var(--heading-default);
-}
-
-d-article div.sourceCode code,
-d-article pre code {
-  font-family: var(--mono-font), var(--mono-default);
-}
-
-
-/*-- TITLE --*/
-d-title h1,
-.posts-list > h1 {
-  color: var(--title-color, black);
-}
-
-d-title h1 {
-  font-size: var(--title-size, 50px);
-}
-
-/*-- HEADERS --*/
-d-article h1,
-d-article h2,
-d-article h3,
-d-article h4,
-d-article h5,
-d-article h6 {
-  color: var(--header-color, rgba(0, 0, 0, 0.8));
-}
-
-/*-- BODY --*/
-d-article > p,  /* only text inside of <p> tags */
-d-article > ul, /* lists */
-d-article > ol {
-  color: var(--body-color, rgba(0, 0, 0, 0.8));
-  font-size: var(--body-size, 1.06rem);
-}
-
-
-/*-- CODE --*/
-d-article div.sourceCode code,
-d-article pre code {
-  font-size: var(--code-size, 14px);
-}
-
-/*-- ASIDE --*/
-d-article aside {
-  font-size: var(--aside-size, 12px);
-  color: var(--aside-color, rgba(0, 0, 0, 0.6));
-}
-
-/*-- FIGURE CAPTIONS --*/
-figure .caption,
-figure figcaption,
-.figure .caption {
-  font-size: var(--fig-cap-size, 13px);
-  color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
-}
-
-/*-- METADATA --*/
-d-byline h3 {
-  font-size: var(--heading-size, 0.6rem);
-  color: var(--heading-color, rgba(0, 0, 0, 0.5));
-}
-
-d-byline {
-  font-size: var(--body-size, 0.8rem);
-  color: var(--body-color, rgba(0, 0, 0, 0.8));
-}
-
-d-byline a,
-d-article d-byline a {
-  color: var(--body-color, rgba(0, 0, 0, 0.8));
-}
-
-/*-- TABLE OF CONTENTS --*/
-.d-contents nav h3 {
-  font-size: var(--heading-size, 18px);
-}
-
-.d-contents nav a {
-  font-size: var(--contents-size, 13px);
-}
-
-/*-- APPENDIX --*/
-d-appendix h3 {
-  font-size: var(--heading-size, 15px);
-  color: var(--heading-color, rgba(0, 0, 0, 0.65));
-}
-
-d-appendix {
-  font-size: var(--text-size, 0.8em);
-  color: var(--text-color, rgba(0, 0, 0, 0.5));
-}
-
-d-appendix d-footnote-list a.footnote-backlink {
-  color: var(--text-color, rgba(0, 0, 0, 0.5));
-}
-
-/*-- WEBSITE HEADER + FOOTER --*/
-.distill-site-header .title {
-  font-size: var(--title-size, 18px);
-  font-family: var(--navbar-font), var(--heading-default);
-}
-
-.distill-site-header a,
-.nav-dropdown .nav-dropbtn {
-  font-family: var(--navbar-font), var(--heading-default);
-}
-
-.nav-dropdown .nav-dropbtn {
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  font-size: var(--text-size, 15px);
-}
-
-.distill-site-header a:hover,
-.nav-dropdown:hover .nav-dropbtn {
-  color: var(--hover-color, white);
-}
-
-.distill-site-header {
-  font-size: var(--text-size, 15px);
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  background-color: var(--bkgd-color, #0F2E3D);
-}
-
-.distill-site-footer {
-  font-size: var(--text-size, 15px);
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  background-color: var(--bkgd-color, #0F2E3D);
-}
-
-.distill-site-footer a:hover {
-  color: var(--hover-color, white);
-}</style>
-<!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.7.2/header-attrs.js"></script>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
-  <!--radix_placeholder_site_in_header-->
-<script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-NKV51FTEH8"></script>
-<script type="text/javascript" cookie-consent="tracking">
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-NKV51FTEH8');
-</script>
-<!--/radix_placeholder_site_in_header-->
-
-
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Sometimes I R - Bayes Factors with brms">
+<meta name="twitter:description" content="How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.">
+<meta name="twitter:image" content="https://sometimesir.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png">
+<meta name="twitter:image-height" content="960">
+<meta name="twitter:image-width" content="1344">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="nav-fixed">
 
-<!--radix_placeholder_front_matter-->
-
-<script id="distill-front-matter" type="text/json">
-{"title":"Bayes Factors with brms","description":"How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.","authors":[{"author":"Matti Vuorre","authorURL":"https://vuorre.netlify.com","affiliation":"University of Oxford","affiliationURL":"https://www.oii.ox.ac.uk/people/matti-vuorre/","orcidID":"0000-0001-5052-066X"}],"publishedDate":"2017-03-21T00:00:00.000+00:00","citationText":"Vuorre, 2017"}
-</script>
-
-<!--/radix_placeholder_front_matter-->
-<!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="../../index.html" class="title">Sometimes I R</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="../../index.xml">
-<i class="fa fa-rss" aria-hidden="true"></i>
-</a>
-<a href="https://github.com/mvuorre/mvuorre.github.io" aria-label="Link to source">
-<i class="fab fa-github" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
-<!--/radix_placeholder_navigation_before_body-->
-<!--radix_placeholder_site_before_body-->
-<!--/radix_placeholder_site_before_body-->
-
-<div class="d-title">
-<h1>Bayes Factors with brms</h1>
-<!--radix_placeholder_categories-->
-<div class="dt-tags">
-  <a href="../../index.html#category:statistics" class="dt-tag">statistics</a>
-  <a href="../../index.html#category:tutorial" class="dt-tag">tutorial</a>
-  <a href="../../index.html#category:R" class="dt-tag">R</a>
-  <a href="../../index.html#category:brms" class="dt-tag">brms</a>
-</div>
-<!--/radix_placeholder_categories-->
-<p><p>How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.</p></p>
-</div>
-
-<div class="d-byline">
-  Matti Vuorre <a href="https://vuorre.netlify.com" class="uri">https://vuorre.netlify.com</a> (University of Oxford)<a href="https://www.oii.ox.ac.uk/people/matti-vuorre/" class="uri">https://www.oii.ox.ac.uk/people/matti-vuorre/</a>
-  
-<br/>2017-03-21
-</div>
-
-<div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#example-0">Example 0</a></li>
-<li><a href="#example-1-equality-of-proportions">Example 1: Equality of Proportions</a></li>
-<li><a href="#example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sometimes I R</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html">Contact</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
+        <li>
+    <a class="dropdown-item" href="../../index.xml">
+ <span class="dropdown-text">Feed</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mvuorre">
+ <span class="dropdown-text">My GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/vuorre">
+ <span class="dropdown-text">My Twitter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
+ <span class="dropdown-text">Buy me a coffee</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
-</nav>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#example-0" id="toc-example-0" class="nav-link active" data-scroll-target="#example-0">Example 0</a></li>
+  <li><a href="#example-1-equality-of-proportions" id="toc-example-1-equality-of-proportions" class="nav-link" data-scroll-target="#example-1-equality-of-proportions">Example 1: Equality of Proportions</a></li>
+  <li><a href="#example-2-hierarchical-bayesian-one-sample-proportion-test" id="toc-example-2-hierarchical-bayesian-one-sample-proportion-test" class="nav-link" data-scroll-target="#example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bayes Factors with brms</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">brms</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.</p>
+  </div>
 </div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <a href="https://vuorre.netlify.com">Matti Vuorre</a> 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
+            University of Oxford
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2017-03-21</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
 <p>Here’s a short post on how to calculate Bayes Factors with the R package <a href="http://CRAN.R-project.org/package=brms">brms</a> using the Savage-Dickey density ratio method <span class="citation" data-cites="wagenmakers_bayesian_2010">(<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">Wagenmakers et al. 2010</a>)</span>.</p>
-<p>To get up to speed with what the Savage-Dickey density ratio method is–or what Bayes Factors are–please read the target article <span class="citation" data-cites="wagenmakers_bayesian_2010">(<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">Wagenmakers et al. 2010</a>)</span>. (The paper is available on the <a href="http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf">author’s webpage</a>.) Here, I’ll only show the R &amp; brms code to do the calculations discussed in <span class="citation" data-cites="wagenmakers_bayesian_2010"><a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">Wagenmakers et al.</a> (<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">2010</a>)</span>. In their paper, they used WinBUGS, which requires quite a bit of code to sample from even a relatively simple model. brms on the other hand uses the familiar R formula syntax, making it easy to use. brms also does the MCMC sampling with <a href="http://mc-stan.org/">Stan</a> <span class="citation" data-cites="stan_development_team_stan:_2016">(<a href="#ref-stan_development_team_stan:_2016" role="doc-biblioref">Stan Development Team 2016</a>)</span>, or rather creates Stan code from a specified R model formula by what can only be described as string processing magic, making the sampling very fast. Let’s get straight to the examples. We will use these packages:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://haozhu233.github.io/kableExtra/'>kableExtra</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://scales.r-lib.org'>scales</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/paul-buerkner/brms'>brms</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-</code></pre>
+<p>To get up to speed with what the Savage-Dickey density ratio method is–or what Bayes Factors are–please read the target article <span class="citation" data-cites="wagenmakers_bayesian_2010">(<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">Wagenmakers et al. 2010</a>)</span>. (The paper is available on the <a href="http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf">author’s webpage</a>.) Here, I’ll only show the R &amp; brms code to do the calculations discussed in <span class="citation" data-cites="wagenmakers_bayesian_2010">Wagenmakers et al. (<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">2010</a>)</span>. In their paper, they used WinBUGS, which requires quite a bit of code to sample from even a relatively simple model. brms on the other hand uses the familiar R formula syntax, making it easy to use. brms also does the MCMC sampling with <a href="http://mc-stan.org/">Stan</a> <span class="citation" data-cites="stan_development_team_stan:_2016">(<a href="#ref-stan_development_team_stan:_2016" role="doc-biblioref">Stan Development Team 2016</a>)</span>, or rather creates Stan code from a specified R model formula by what can only be described as string processing magic, making the sampling very fast. Let’s get straight to the examples. We will use these packages:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_50922088949ccc77b1646107a2c1b79c">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<h2 id="example-0">Example 0</h2>
+<section id="example-0" class="level2">
+<h2 class="anchored" data-anchor-id="example-0">Example 0</h2>
 <p>Wagenmakers and colleagues begin with a simple example of 10 true/false questions: We observe a person answering 9 (s) out of 10 (k) questions correctly.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>s <span class='op'>=</span> <span class='fl'>9</span>, k <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_cc51a5e32633ed7a27a3f660e91e1efd">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">s =</span> <span class="dv">9</span>, <span class="at">k =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We are interested in the person’s latent ability to answer similar questions correctly. This ability is represented by <span class="math inline">\(\theta\)</span> (theta), which for us will be the probability parameter (sometimes also called the rate parameter) in a binomial distribution. The maximum likelihood (point) estimate for <span class="math inline">\(\theta\)</span> is the proportion n/k = .9.</p>
-<p>The first thing we’ll need to specify with respect to our statistical model is the prior probability distribution for <span class="math inline">\(\theta\)</span>. As in Wagenmakers et al. 2010, we specify a uniform prior, representing no prior information about the person’s ability to aswer the questions. For the binomial probability parameter, <span class="math inline">\(Beta(\alpha = 1, \beta = 1)\)</span> is a uniform prior.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pd</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
-  x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, by <span class='op'>=</span> <span class='fl'>.01</span><span class='op'>)</span>,
-  Prior <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>dbeta</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span>
-<span class='op'>)</span>
-</code></pre>
+<p>The first thing we’ll need to specify with respect to our statistical model is the prior probability distribution for <span class="math inline">\(\theta\)</span>. As in Wagenmakers et al.&nbsp;2010, we specify a uniform prior, representing no prior information about the person’s ability to aswer the questions. For the binomial probability parameter, <span class="math inline">\(Beta(\alpha = 1, \beta = 1)\)</span> is a uniform prior.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_8bab6d1522df9f9ac544afd66105aa74">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Prior =</span> <span class="fu">dbeta</span>(x, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-2-1.png" width="624" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 <p>The solid line represents the probability density assigned to values of <span class="math inline">\(\theta\)</span> by this prior probability distribution. You can see that it is 1 for all possible parameter values: They are all equally likely a priori. For this simple illustration, we can easily calculate the posterior distribution by adding the number of correct and incorrect answers to the parameters of the prior Beta distribution.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pd</span><span class='op'>$</span><span class='va'>Posterior</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>dbeta</a></span><span class='op'>(</span><span class='va'>pd</span><span class='op'>$</span><span class='va'>x</span>, <span class='fl'>9</span><span class='op'>+</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/figure1_3dc4bd868858cf18fe8fa3481b566395">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pd<span class="sc">$</span>Posterior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(pd<span class="sc">$</span>x, <span class="dv">9</span><span class="sc">+</span><span class="dv">1</span>, <span class="dv">1</span><span class="sc">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/figure1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-3-1.png" width="624" data-distill-preview=1 style="display: block; margin: auto;" /></p>
 </div>
-<p>The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a “null hypothesis” value indicating that the person’s latent ability is .5, i.e. that they are simply guessing.</p>
-<div class="layout-chunk" data-layout="l-body">
+</div>
+<p>The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a “null hypothesis” value indicating that the person’s latent ability is .5, i.e.&nbsp;that they are simply guessing.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_fb1e118b34bd94a7e42c6bdde6483200">
+<div class="cell-output-display">
+
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:unnamed-chunk-4">Table 1: </span>Bayes Factors for first example.
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-x
-</th>
-<th style="text-align:right;">
-Prior
-</th>
-<th style="text-align:right;">
-Posterior
-</th>
-<th style="text-align:right;">
-BF01
-</th>
-<th style="text-align:right;">
-BF10
-</th>
-</tr>
-</thead>
+<caption>Bayes Factors for first example.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> Prior </th>
+   <th style="text-align:right;"> Posterior </th>
+   <th style="text-align:right;"> BF01 </th>
+   <th style="text-align:right;"> BF10 </th>
+  </tr>
+ </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.107
-</td>
-<td style="text-align:right;">
-0.107
-</td>
-<td style="text-align:right;">
-9.309
-</td>
-</tr>
+  <tr>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.107 </td>
+   <td style="text-align:right;"> 0.107 </td>
+   <td style="text-align:right;"> 9.309 </td>
+  </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 <p>OK, so in this example we are able to get to the posterior with simply adding values into the parameters of the Beta distribution, but let’s now see how to get to this problem using brms. First, here’s the brms formula of the model:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsformula.html'>bf</a></span><span class='op'>(</span>
-  <span class='va'>s</span> <span class='op'>|</span> <span class='fu'>trials</span><span class='op'>(</span><span class='va'>k</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>0</span> <span class='op'>+</span> <span class='va'>Intercept</span>,
-  family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/family.html'>binomial</a></span><span class='op'>(</span>link <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>
-<span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_f71290f001916c2673434922a43172c7">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  s <span class="sc">|</span> <span class="fu">trials</span>(k) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Intercept,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"identity"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Read the first line as “s successes from k trials regressed on intercept.” That’s a little clunky, but bear with it. If you are familiar with R’s modeling syntax, you’ll be wondering why we didn’t simply specify <code>~ 1</code> (R’s default notation for an intercept). The reason is that brms by default uses a little trick in parameterizing the intercept which speeds up the MCMC sampling. In order to specify a prior for the intercept, you’ll have to take the default intercept out (<code>0 +</code>), and use the reserved string <code>intercept</code> to say that you mean the regular intercept. See <code>?brmsformula</code> for details. (For this model, with only one parameter, this complication doesn’t matter, but I wanted to introduce it early on so that you’d be aware of it when estimating multi-parameter models.)</p>
+<p>Read the first line as “s successes from k trials regressed on intercept”. That’s a little clunky, but bear with it. If you are familiar with R’s modeling syntax, you’ll be wondering why we didn’t simply specify <code>~ 1</code> (R’s default notation for an intercept). The reason is that brms by default uses a little trick in parameterizing the intercept which speeds up the MCMC sampling. In order to specify a prior for the intercept, you’ll have to take the default intercept out (<code>0 +</code>), and use the reserved string <code>intercept</code> to say that you mean the regular intercept. See <code>?brmsformula</code> for details. (For this model, with only one parameter, this complication doesn’t matter, but I wanted to introduce it early on so that you’d be aware of it when estimating multi-parameter models.)</p>
 <p>The next line specifies that the data model is binomial, and that we want to model it’s parameter through an identity link. Usually when you model proportions or binary data, you’d use a logistic (logistic regression!), probit or other similar link function. In fact this is what we’ll do for later examples. Finally, we’ll use the data frame <code>d</code>.</p>
 <p>OK, then we’ll want to specify our priors. Priors are extremo important for Bayes Factors–and probabilistic inference in general. To help set priors, we’ll first call <code>get_priors()</code> with the model information, which is basically like asking brms to tell what are the possible priors, and how to specify then, given this model.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/brms/man/get_prior.html'>get_prior</a></span><span class='op'>(</span><span class='va'>m0</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_c86354cd23443caadb4f8ed21559cfb9">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(m0, <span class="at">data =</span> d)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   prior class      coef group resp dpar nlpar lb ub       source</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  (flat)     b                                            default</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  (flat)     b Intercept                             (vectorized)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>  prior class      coef group resp dpar nlpar bound       source
- (flat)     b                                            default
- (flat)     b Intercept                             (vectorized)</code></pre>
-</div>
-<p>The first line says that there is only one class of parameters <code>b</code>, think of class <code>b</code> as “betas” or “regression coefficients.” The second line says that the <code>b</code> class has only one parameter, the intercept. So we can set a prior for the intercept, and this prior can be any probability distribution in Stan language. We’ll create this prior using brms’ <code>set_prior()</code>, give it a text string representing the Beta(1, 1) prior for all parameters of class <code>b</code> (shortcut, could also specify that we want it for the intercept specifically), and then say the upper and lower bounds (<span class="math inline">\(\theta\)</span> must be between 0 and 1).</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Prior</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/set_prior.html'>set_prior</a></span><span class='op'>(</span><span class='st'>"beta(1, 1)"</span>, class <span class='op'>=</span> <span class='st'>"b"</span>, lb <span class='op'>=</span> <span class='fl'>0</span>, ub <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</code></pre>
-</div>
+<p>The first line says that there is only one class of parameters <code>b</code>, think of class <code>b</code> as “betas” or “regression coefficients”. The second line says that the <code>b</code> class has only one parameter, the intercept. So we can set a prior for the intercept, and this prior can be any probability distribution in Stan language. We’ll create this prior using brms’ <code>set_prior()</code>, give it a text string representing the Beta(1, 1) prior for all parameters of class <code>b</code> (shortcut, could also specify that we want it for the intercept specifically), and then say the upper and lower bounds (<span class="math inline">\(\theta\)</span> must be between 0 and 1).</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_3fb335effddea5621cb4e2f1865d045c">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Prior <span class="ot">&lt;-</span> <span class="fu">set_prior</span>(<span class="st">"beta(1, 1)"</span>, <span class="at">class =</span> <span class="st">"b"</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Almost there. Now we’ll actually sample from the model using <code>brm()</code>, give it the model, priors, data, ask it to sample from priors (for the density ratio), and set a few extra MCMC parameters.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span>
-  formula <span class='op'>=</span> <span class='va'>m0</span>,
-  prior <span class='op'>=</span> <span class='va'>Prior</span>,
-  data <span class='op'>=</span> <span class='va'>d</span>,
-  sample_prior <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  iter <span class='op'>=</span> <span class='fl'>1e4</span>,
-  cores <span class='op'>=</span> <span class='fl'>4</span>,
-  file <span class='op'>=</span> <span class='st'>"bayesfactormodel"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-7_284135aafe8234ebf5596ac8a6a2e6d3">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> m0,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> Prior,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample_prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="fl">1e4</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"bayesfactormodel"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can get the estimated parameter by asking the model summary:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_6c850acdbbc4945d8d9f15801f02e895">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: binomial </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = identity </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: s | trials(k) ~ 0 + Intercept </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    Data: d (Number of observations: 1) </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 20000</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.83      0.10     0.59     0.98 1.00     6511     7151</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code> Family: binomial 
-  Links: mu = identity 
-Formula: s | trials(k) ~ 0 + Intercept 
-   Data: d (Number of observations: 1) 
-Samples: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;
-         total post-warmup samples = 20000
+<p>The Credible Interval matches exactly what’s reported in the paper. The point estimate differs slightly because here we see the posterior mean, whereas in the paper, Wagenmakers et al.&nbsp;report the posterior mode. I’ll draw a line at their posterior mode, below, to show that it matches.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_0579405a8f362975d9015e6982268847">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">posterior_samples</span>(m, <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 
-Population-Level Effects: 
-          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept     0.83      0.10     0.59     0.98 1.00     6161     6317
-
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-</div>
-<p>The Credible Interval matches exactly what’s reported in the paper. The point estimate differs slightly because here we see the posterior mean, whereas in the paper, Wagenmakers et al. report the posterior mode. I’ll draw a line at their posterior mode, below, to show that it matches.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>samples</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/posterior_samples.brmsfit.html'>posterior_samples</a></span><span class='op'>(</span><span class='va'>m</span>, <span class='st'>"b"</span><span class='op'>)</span>
-</code></pre>
-</div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:unnamed-chunk-10">Table 2: </span>Six first rows of posterior samples.
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-b_Intercept
-</th>
-<th style="text-align:right;">
-prior_b
-</th>
-</tr>
-</thead>
+<caption>Six first rows of posterior samples.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> b_Intercept </th>
+   <th style="text-align:right;"> prior_b </th>
+  </tr>
+ </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0.90
-</td>
-<td style="text-align:right;">
-0.97
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0.78
-</td>
-<td style="text-align:right;">
-0.11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0.76
-</td>
-<td style="text-align:right;">
-0.67
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0.76
-</td>
-<td style="text-align:right;">
-0.43
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0.87
-</td>
-<td style="text-align:right;">
-0.89
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0.86
-</td>
-<td style="text-align:right;">
-0.50
-</td>
-</tr>
+  <tr>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.84 </td>
+   <td style="text-align:right;"> 0.81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> 0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> 0.68 </td>
+  </tr>
 </tbody>
 </table>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-10-1.png" width="624" style="display: block; margin: auto;" /></p>
+
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 <p>We can already see the densities, so all that’s left is to obtain the exact values at the value of interest (.5) and take the <span class="math inline">\(\frac{posterior}{prior}\)</span> ratio. Instead of doing any of this by hand, we’ll use brms’ function <code>hypothesis()</code> that allows us to test point hypotheses using the Dickey Savage density ratio. For this function we’ll need to specify the point of interest, .5, as the point hypothesis to be tested.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/hypothesis.brmsfit.html'>hypothesis</a></span><span class='op'>(</span><span class='va'>m</span>, <span class='st'>"Intercept = 0.5"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>h</span>, digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>Hypothesis Tests for class b:
-             Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1 (Intercept)-(0.5) = 0   0.3338    0.1031   0.0889   0.4778     0.1176    0.1052    *
----
-&#39;CI&#39;: 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
-&#39;*&#39;: For one-sided hypotheses, the posterior probability exceeds 95%;
-for two-sided hypotheses, the value tested against lies outside the 95%-CI.
-Posterior probabilities of point hypotheses assume equal prior probabilities.</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_e7d6d29f2b2925eb91836ac3b9071797">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(m, <span class="st">"Intercept = 0.5"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h, <span class="at">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (Intercept)-(0.5) = 0   0.3324    0.1028   0.0909   0.4753     0.1037     0.094    *</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>Evid.Ratio</code> is our Bayes Factor BF01. Notice that it matches the value 0.107 pretty well. You can also plot this hypothesis object easily with the <code>plot()</code> method:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-11_03064fc0db1b62e777eec8594f967597">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-12-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
-<p>OK, so that was a lot of work for such a simple problem, but the real beauty of brms (and Stan) is the scalability: We can easily solve a problem with one row of data and one parameter, and it won’t take much more to solve a problem with tens of thousands of rows of data, and hundreds of parameters. Let’s move on to the next example from <span class="citation" data-cites="wagenmakers_bayesian_2010"><a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">Wagenmakers et al.</a> (<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">2010</a>)</span>.</p>
-<h2 id="example-1-equality-of-proportions">Example 1: Equality of Proportions</h2>
+</div>
+<p>OK, so that was a lot of work for such a simple problem, but the real beauty of brms (and Stan) is the scalability: We can easily solve a problem with one row of data and one parameter, and it won’t take much more to solve a problem with tens of thousands of rows of data, and hundreds of parameters. Let’s move on to the next example from <span class="citation" data-cites="wagenmakers_bayesian_2010">Wagenmakers et al. (<a href="#ref-wagenmakers_bayesian_2010" role="doc-biblioref">2010</a>)</span>.</p>
+</section>
+<section id="example-1-equality-of-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-equality-of-proportions">Example 1: Equality of Proportions</h2>
 <p>These are the data from the paper</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
-  pledge <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"yes"</span>, <span class='st'>"no"</span><span class='op'>)</span>,
-  s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>424</span>, <span class='fl'>5416</span><span class='op'>)</span>,
-  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>777</span>, <span class='fl'>9072</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='va'>d</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-12_2bbf7d86300289ec68bc33f532937fbf">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pledge =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="fu">c</span>(<span class="dv">424</span>, <span class="dv">5416</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">777</span>, <span class="dv">9072</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>d</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   pledge    s    n</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1    yes  424  777</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     no 5416 9072</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>  pledge    s    n
-1    yes  424  777
-2     no 5416 9072</code></pre>
-</div>
-<p>They use Beta(1, 1) priors for both rate parameters, which we’ll do as well. Notice that usually a regression formula has an intercept and a coefficient (e.g. effect of group.) By taking the intercept out (<code>0 +</code>) we can define two pledger-group proportions instead, and set priors on these. If we used an intercept + effect formula, we could set a prior on the effect itself.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsformula.html'>bf</a></span><span class='op'>(</span>
-  <span class='va'>s</span> <span class='op'>|</span> <span class='fu'>trials</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>0</span> <span class='op'>+</span> <span class='va'>pledge</span>,
-  family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/family.html'>binomial</a></span><span class='op'>(</span>link <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/brms/man/get_prior.html'>get_prior</a></span><span class='op'>(</span>
-  <span class='va'>m1</span>,
-  data <span class='op'>=</span> <span class='va'>d</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>  prior class      coef group resp dpar nlpar bound       source
- (flat)     b                                            default
- (flat)     b  pledgeno                             (vectorized)
- (flat)     b pledgeyes                             (vectorized)</code></pre>
+<p>They use Beta(1, 1) priors for both rate parameters, which we’ll do as well. Notice that usually a regression formula has an intercept and a coefficient (e.g.&nbsp;effect of group.) By taking the intercept out (<code>0 +</code>) we can define two pledger-group proportions instead, and set priors on these. If we used an intercept + effect formula, we could set a prior on the effect itself.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_90d12253ac90d1f3b47323ad5fa115c0">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  s <span class="sc">|</span> <span class="fu">trials</span>(n) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> pledge,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"identity"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  m1,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   prior class      coef group resp dpar nlpar lb ub       source</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  (flat)     b                                            default</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  (flat)     b  pledgeno                             (vectorized)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  (flat)     b pledgeyes                             (vectorized)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can set the Beta prior for both groups’ rate with one line of code by setting the prior on the <code>b</code> class without specifying the <code>coef</code>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Prior</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/set_prior.html'>set_prior</a></span><span class='op'>(</span><span class='st'>"beta(1, 1)"</span>, class <span class='op'>=</span> <span class='st'>"b"</span>, lb <span class='op'>=</span> <span class='fl'>0</span>, ub <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_85decd0258db5c981f4bf36b61c6d999">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Prior <span class="ot">&lt;-</span> <span class="fu">set_prior</span>(<span class="st">"beta(1, 1)"</span>, <span class="at">class =</span> <span class="st">"b"</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Like above, let’s estimate.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span>
-  <span class='va'>m1</span>,
-  prior <span class='op'>=</span> <span class='va'>Prior</span>,
-  sample_prior <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  iter <span class='op'>=</span> <span class='fl'>1e4</span>,
-  data <span class='op'>=</span> <span class='va'>d</span>,
-  cores <span class='op'>=</span> <span class='fl'>4</span>,
-  file <span class='op'>=</span> <span class='st'>"bayesfactormodel2"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-15_939f9fe59972232a3315322c9bc988d0">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  m1,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> Prior,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample_prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="fl">1e4</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"bayesfactormodel2"</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Our estimates match the MLEs reported in the paper:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>m1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code> Family: binomial 
-  Links: mu = identity 
-Formula: s | trials(n) ~ 0 + pledge 
-   Data: d (Number of observations: 2) 
-Samples: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;
-         total post-warmup samples = 20000
-
-Population-Level Effects: 
-          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-pledgeno      0.60      0.01     0.59     0.61 1.00    17032    13364
-pledgeyes     0.55      0.02     0.51     0.58 1.00    17551    12410
-
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-16_1fda04a0f242dafa295451c3f39be1a4">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: binomial </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = identity </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: s | trials(n) ~ 0 + pledge </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    Data: d (Number of observations: 2) </span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 20000</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeno      0.60      0.01     0.59     0.61 1.00    18204    13969</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeyes     0.55      0.02     0.51     0.58 1.00    18227    14283</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To get the density ratio Bayes Factor, we’ll need to specify a text string as our hypothesis. Our hypothesis is that the rate parameters <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are not different: <span class="math inline">\(\theta_1\)</span> = <span class="math inline">\(\theta_2\)</span>. The alternative, then, is the notion that the parameter values differ.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>h1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/hypothesis.brmsfit.html'>hypothesis</a></span><span class='op'>(</span><span class='va'>m1</span>, <span class='st'>"pledgeyes = pledgeno"</span><span class='op'>)</span>
-<span class='va'>h1</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-17_f3941cb242db1c037d29915016d4e7ad">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(m1, <span class="st">"pledgeyes = pledgeno"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>h1</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.01        0.5      0.33    *</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="do">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>Hypothesis Tests for class b:
-                Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.51      0.34    *
----
-&#39;CI&#39;: 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
-&#39;*&#39;: For one-sided hypotheses, the posterior probability exceeds 95%;
-for two-sided hypotheses, the value tested against lies outside the 95%-CI.
-Posterior probabilities of point hypotheses assume equal prior probabilities.</code></pre>
-</div>
-<p>As noted in the paper, a difference value of 0 is about twice as well supported before seeing the data, i.e. the null hypothesis of no difference is twice less likely after seeing the data:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span> <span class='op'>/</span> <span class='va'>h1</span><span class='op'>$</span><span class='va'>hypothesis</span><span class='op'>$</span><span class='va'>Evid.Ratio</span> <span class='co'># BF10</span>
-</code></pre>
-</div>
-<pre><code>[1] 1.950406</code></pre>
+<p>As noted in the paper, a difference value of 0 is about twice as well supported before seeing the data, i.e.&nbsp;the null hypothesis of no difference is twice less likely after seeing the data:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-18_ead8dac40605294695c217abdc41dba0">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> h1<span class="sc">$</span>hypothesis<span class="sc">$</span>Evid.Ratio <span class="co"># BF10</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.99857</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The paper reports BF01 = 0.47, so we’re getting the same results (as we should.) You can also compare this figure to what’s reported in the paper.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>h1p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>h1</span>, plot <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
-<span class='va'>h1p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>h1</span>, plot <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>+</span>
-  <span class='fu'>coord_cartesian</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>.05</span>, <span class='fl'>.05</span><span class='op'>)</span>, ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-  
-<span class='op'>(</span><span class='va'>h1p1</span> <span class='op'>|</span> <span class='va'>h1p2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>guides <span class='op'>=</span> <span class='st'>"collect"</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_fe9d6c85bf18b295d23dd39713de79c2">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>h1p1 <span class="ot">&lt;-</span> <span class="fu">plot</span>(h1, <span class="at">plot =</span> F)[[<span class="dv">1</span>]]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>h1p2 <span class="ot">&lt;-</span> <span class="fu">plot</span>(h1, <span class="at">plot =</span> F)[[<span class="dv">1</span>]] <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">05</span>, .<span class="dv">05</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>(h1p1 <span class="sc">|</span> h1p2) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-20-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
-<p>Moving right on to Example 2, skipping the section on “order restricted analysis.”</p>
-<h2 id="example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</h2>
+</div>
+<p>Moving right on to Example 2, skipping the section on “order restricted analysis”.</p>
+</section>
+<section id="example-2-hierarchical-bayesian-one-sample-proportion-test" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</h2>
 <p>The data for example 2 is not available, but we’ll simulate similar data. The simulation assumes that the neither-primed condition average correct probability is 50%, and that the both-primed condition benefit is 5%. Obviously, the numbers here won’t match anymore, but the data reported in the paper has an average difference in proportions of about 4%.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
-<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
-  id <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>74</span>, each <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>,
-  primed <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"neither"</span>, <span class='st'>"both"</span><span class='op'>)</span>, times <span class='op'>=</span> <span class='fl'>74</span><span class='op'>)</span>,
-  prime <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, times <span class='op'>=</span> <span class='fl'>74</span><span class='op'>)</span>, <span class='co'># Dummy coded</span>
-  n <span class='op'>=</span> <span class='fl'>21</span>,
-  correct <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>74</span> <span class='op'>*</span> <span class='fl'>2</span>, <span class='fl'>21</span>, <span class='fl'>.5</span> <span class='op'>+</span> <span class='va'>prime</span> <span class='op'>*</span> <span class='fl'>.05</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='fu'>group_by</span><span class='op'>(</span><span class='va'>d</span>, <span class='va'>primed</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>summarize</span><span class='op'>(</span>p <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>correct</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 2 x 2
-  primed      p
-* &lt;chr&gt;   &lt;dbl&gt;
-1 both    0.542
-2 neither 0.499</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-20_f3fee0a30f209fdea026ce047ba0e748">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">74</span>, <span class="at">each =</span> <span class="dv">2</span>)),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">primed =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"neither"</span>, <span class="st">"both"</span>), <span class="at">times =</span> <span class="dv">74</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">prime =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">times =</span> <span class="dv">74</span>), <span class="co"># Dummy coded</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">21</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="fu">rbinom</span>(<span class="dv">74</span> <span class="sc">*</span> <span class="dv">2</span>, <span class="dv">21</span>, .<span class="dv">5</span> <span class="sc">+</span> prime <span class="sc">*</span> .<span class="dv">05</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(d, primed) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">sum</span>(correct) <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 2</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   primed      p</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 both    0.542</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 neither 0.499</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This data yields a similar t-value as in the paper.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/t.test.html'>t.test</a></span><span class='op'>(</span><span class='va'>correct</span> <span class='op'>/</span> <span class='va'>n</span> <span class='op'>~</span> <span class='va'>primed</span>, paired <span class='op'>=</span> <span class='cn'>T</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-    Paired t-test
-
-data:  correct/n by primed
-t = 2.3045, df = 73, p-value = 0.02404
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- 0.005741069 0.079201016
-sample estimates:
-mean of the differences 
-             0.04247104 </code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-21_7cbf84f49d65b19f5829d7e24b4ed4a3">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(correct <span class="sc">/</span> n <span class="sc">~</span> primed, <span class="at">paired =</span> T, <span class="at">data =</span> d)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  Paired t-test</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="do">## data:  correct/n by primed</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="do">## t = 2.3045, df = 73, p-value = 0.02404</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  0.005741069 0.079201016</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="do">## mean of the differences </span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="do">##              0.04247104</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead of doing a probit regression, I’m going to do logistic regression. Therefore we define the prior on the log-odds scale. The log odds for the expected probability of .5 is 0. I prefer log-odds because–although complicated–they make sense, unlike standardized effect sizes. Note that the probit scale would also be fine as they are very similar.</p>
 <p>Let’s just get a quick intuition about effects in log-odds: The change in log odds from p = .5 to .55 is about 0.2.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tibble</span><span class='op'>(</span>
-  rate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, by <span class='op'>=</span> <span class='fl'>.01</span><span class='op'>)</span>,
-  logit <span class='op'>=</span> <span class='fu'>arm</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arm/man/invlogit.html'>logit</a></span><span class='op'>(</span><span class='va'>rate</span><span class='op'>)</span>
-<span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>rate</span>, <span class='va'>logit</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_segment</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span>, xend <span class='op'>=</span> <span class='fl'>0.55</span>, y <span class='op'>=</span> <span class='fl'>.2</span>, yend <span class='op'>=</span> <span class='fl'>.2</span>, size <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_segment</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span>, xend <span class='op'>=</span> <span class='fl'>0.5</span>, y <span class='op'>=</span> <span class='fl'>0</span>, yend <span class='op'>=</span> <span class='fl'>0</span>, size <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>coord_cartesian</span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>, expand <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-22_4334c2ea6cc77cc282384accbf85d0ea">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">rate =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">logit =</span> arm<span class="sc">::</span><span class="fu">logit</span>(rate)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(rate, logit)) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="fl">0.55</span>, <span class="at">y =</span> .<span class="dv">2</span>, <span class="at">yend =</span> .<span class="dv">2</span>, <span class="at">size =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">0</span>, <span class="at">size =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="at">expand =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-23-1.png" width="624" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 <p>We are cheating a little because we know these values, having simulated the data. However, log-odds are not straightforward (!), and this knowledge will allow us to specify better priors in this example. Let’s get the possible priors for this model by calling <code>get_prior()</code>. Notice that the model now includes id-varying “random” effects, and we model them from independent Gaussians by specifying <code>||</code> instead of <code>|</code> which would give a multivariate Gaussian on the varying effects.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brmsformula.html'>bf</a></span><span class='op'>(</span>
-  <span class='va'>correct</span> <span class='op'>|</span> <span class='fu'>trials</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>0</span> <span class='op'>+</span> <span class='va'>Intercept</span> <span class='op'>+</span> <span class='va'>prime</span> <span class='op'>+</span>
-    <span class='op'>(</span><span class='fl'>0</span> <span class='op'>+</span> <span class='va'>Intercept</span> <span class='op'>+</span> <span class='va'>prime</span> <span class='op'>||</span> <span class='va'>id</span><span class='op'>)</span>,
-  family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/family.html'>binomial</a></span><span class='op'>(</span>link <span class='op'>=</span> <span class='st'>"logit"</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/brms/man/get_prior.html'>get_prior</a></span><span class='op'>(</span>
-  <span class='va'>m2</span>,
-  data <span class='op'>=</span> <span class='va'>d</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>                prior class      coef group resp dpar nlpar bound
-               (flat)     b                                      
-               (flat)     b Intercept                            
-               (flat)     b     prime                            
- student_t(3, 0, 2.5)    sd                                      
- student_t(3, 0, 2.5)    sd              id                      
- student_t(3, 0, 2.5)    sd Intercept    id                      
- student_t(3, 0, 2.5)    sd     prime    id                      
-       source
-      default
- (vectorized)
- (vectorized)
-      default
- (vectorized)
- (vectorized)
- (vectorized)</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-23_9b08ef9a3926e03c3b96fbc107b7f821">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  correct <span class="sc">|</span> <span class="fu">trials</span>(n) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">||</span> id),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  m2,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                 prior class      coef group resp dpar nlpar lb ub       source</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b                                            default</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b Intercept                             (vectorized)</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b     prime                             (vectorized)</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd                                  0         default</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd              id                  0    (vectorized)</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd Intercept    id                  0    (vectorized)</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd     prime    id                  0    (vectorized)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The leftmost column gives the pre-specified defaults used by brms. Here are the priors we’ll specify. The most important pertains to <code>prime</code>, which is going to be the effect size in log-odds. Our prior for the log odds of the prime effect is going to be a Gaussian distribution centered on 0, with a standard deviation of .2, which is rather diffuse.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Prior</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/brms/man/set_prior.html'>set_prior</a></span><span class='op'>(</span><span class='st'>"normal(0, 10)"</span>, class <span class='op'>=</span> <span class='st'>"b"</span>, coef <span class='op'>=</span> <span class='st'>"Intercept"</span><span class='op'>)</span>,
-  <span class='fu'><a href='https://rdrr.io/pkg/brms/man/set_prior.html'>set_prior</a></span><span class='op'>(</span><span class='st'>"cauchy(0, 10)"</span>, class <span class='op'>=</span> <span class='st'>"sd"</span><span class='op'>)</span>,
-  <span class='fu'><a href='https://rdrr.io/pkg/brms/man/set_prior.html'>set_prior</a></span><span class='op'>(</span><span class='st'>"normal(0, .2)"</span>, class <span class='op'>=</span> <span class='st'>"b"</span>, coef <span class='op'>=</span> <span class='st'>"prime"</span><span class='op'>)</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-24_30f40e13ceb271f8eeebda753a8e58c4">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Prior <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_prior</span>(<span class="st">"normal(0, 10)"</span>, <span class="at">class =</span> <span class="st">"b"</span>, <span class="at">coef =</span> <span class="st">"Intercept"</span>),</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_prior</span>(<span class="st">"cauchy(0, 10)"</span>, <span class="at">class =</span> <span class="st">"sd"</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_prior</span>(<span class="st">"normal(0, .2)"</span>, <span class="at">class =</span> <span class="st">"b"</span>, <span class="at">coef =</span> <span class="st">"prime"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then we estimate the model using the specified priors.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>m2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span>
-  <span class='va'>m2</span>,
-  prior <span class='op'>=</span> <span class='va'>Prior</span>,
-  sample_prior <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  iter <span class='op'>=</span> <span class='fl'>1e4</span>,
-  data <span class='op'>=</span> <span class='va'>d</span>,
-  cores <span class='op'>=</span> <span class='fl'>4</span>,
-  file <span class='op'>=</span> <span class='st'>"bayesfactormodel3"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-25_100bf6f068f10b1720bd39145f877cd9">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  m2,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> Prior,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample_prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="fl">1e4</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"bayesfactormodel3"</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>OK, so our results here will be different because we didn’t parameterize the prior on a standardized effect size because <strong>a</strong>) I don’t like standardized effect sizes, and <strong>b</strong>) I would have to play around with the Stan code, and this post is about brms. Anyway, here are the estimated parameters:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>m2</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code> Family: binomial 
-  Links: mu = logit 
-Formula: correct | trials(n) ~ 0 + intercept + prime + (0 + intercept + prime || id) 
-   Data: d (Number of observations: 148) 
-Samples: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;
-         total post-warmup samples = 20000
-
-Group-Level Effects: 
-~id (Number of levels: 74) 
-              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-sd(intercept)     0.07      0.05     0.00     0.18 1.00     7067
-sd(prime)         0.12      0.08     0.01     0.30 1.00     5825
-              Tail_ESS
-sd(intercept)     9309
-sd(prime)         8073
-
-Population-Level Effects: 
-          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-intercept     0.01      0.05    -0.09     0.11 1.00    19281    15567
-prime         0.15      0.07     0.02     0.29 1.00    19914    15907
-
-Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-26_2121e3c1317d461ed846d6376ac78d19">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: binomial </span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = logit </span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: correct | trials(n) ~ 0 + Intercept + prime + (0 + Intercept + prime || id) </span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    Data: d (Number of observations: 148) </span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 20000</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Group-Level Effects: </span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ~id (Number of levels: 74) </span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="do">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6352     7804</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(prime)         0.13      0.08     0.01     0.30 1.00     5336     7835</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.01      0.05    -0.09     0.11 1.00    14623    14182</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="do">## prime         0.15      0.07     0.01     0.29 1.00    14858    14612</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And our null-hypothesis density ratio:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>h2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/hypothesis.brmsfit.html'>hypothesis</a></span><span class='op'>(</span><span class='va'>m2</span>, <span class='st'>"prime = 0"</span><span class='op'>)</span>
-<span class='va'>h2</span>
-</code></pre>
-</div>
-<pre><code>Hypothesis Tests for class b:
-   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1 (prime) = 0     0.15      0.07     0.02     0.29       0.28      0.22    *
----
-&#39;CI&#39;: 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
-&#39;*&#39;: For one-sided hypotheses, the posterior probability exceeds 95%;
-for two-sided hypotheses, the value tested against lies outside the 95%-CI.
-Posterior probabilities of point hypotheses assume equal prior probabilities.</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-27_caf739a0b00834b17c2c7fef7deb118d">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(m2, <span class="st">"prime = 0"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>h2</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (prime) = 0     0.15      0.07     0.01     0.29        0.3      0.23    *</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="do">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Priming effect of zero log-odds is 4 times less likely after seeing the data:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span> <span class='op'>/</span> <span class='va'>h2</span><span class='op'>$</span><span class='va'>hypothesis</span><span class='op'>$</span><span class='va'>Evid.Ratio</span>
-</code></pre>
-</div>
-<pre><code>[1] 3.522026</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-28_10dd8c444e34a93c2734fec2400567cd">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> h2<span class="sc">$</span>hypothesis<span class="sc">$</span>Evid.Ratio</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.325041</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is best illustrated by plotting the densities:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>h2</span><span class='op'>)</span>
-</code></pre>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-29_8bdb9fb111bdedf9ec600ab4a1bb4fc3">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p><img src="2017-03-21-bayes-factors-with-brms_files/figure-html5/unnamed-chunk-30-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
-<h2 id="conclusion">Conclusion</h2>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Read the paper! Hopefully you’ll be able to use brms’ <code>hypothesis()</code> function to calculate bayes factors when needed.</p>
-<!-- Include at end of document -->
-<h3 class="appendix" id="support-this-work">Support this work</h3>
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vuorre" data-color="#34A5DA" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h3 class="appendix" id="software-used">Software used</h3>
-<p>The following software packages were used: R [Version 4.0.3; <span class="citation" data-cites="R-base"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>] and the R-packages <em>brms</em> [Version 2.15.0; <span class="citation" data-cites="R-brms_a"><a href="#ref-R-brms_a" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_a" role="doc-biblioref">2017</a>)</span>; <span class="citation" data-cites="R-brms_b"><a href="#ref-R-brms_b" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_b" role="doc-biblioref">2018</a>)</span>], <em>dplyr</em> [Version 1.0.5; <span class="citation" data-cites="R-dplyr"><a href="#ref-R-dplyr" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-dplyr" role="doc-biblioref">2021</a>)</span>], <em>forcats</em> [Version 0.5.1; <span class="citation" data-cites="R-forcats"><a href="#ref-R-forcats" role="doc-biblioref">Wickham</a> (<a href="#ref-R-forcats" role="doc-biblioref">2021a</a>)</span>], <em>ggplot2</em> [Version 3.3.3; <span class="citation" data-cites="R-ggplot2"><a href="#ref-R-ggplot2" role="doc-biblioref">Wickham</a> (<a href="#ref-R-ggplot2" role="doc-biblioref">2016</a>)</span>], <em>kableExtra</em> [Version 1.3.4; <span class="citation" data-cites="R-kableExtra"><a href="#ref-R-kableExtra" role="doc-biblioref">Zhu</a> (<a href="#ref-R-kableExtra" role="doc-biblioref">2021</a>)</span>], <em>knitr</em> [Version 1.31; <span class="citation" data-cites="R-knitr"><a href="#ref-R-knitr" role="doc-biblioref">Xie</a> (<a href="#ref-R-knitr" role="doc-biblioref">2015</a>)</span>], <em>patchwork</em> [Version 1.1.1; <span class="citation" data-cites="R-patchwork"><a href="#ref-R-patchwork" role="doc-biblioref">Pedersen</a> (<a href="#ref-R-patchwork" role="doc-biblioref">2020</a>)</span>], <em>purrr</em> [Version 0.3.4; <span class="citation" data-cites="R-purrr"><a href="#ref-R-purrr" role="doc-biblioref">Henry and Wickham</a> (<a href="#ref-R-purrr" role="doc-biblioref">2020</a>)</span>], <em>Rcpp</em> [Version 1.0.6; <span class="citation" data-cites="R-Rcpp_a"><a href="#ref-R-Rcpp_a" role="doc-biblioref">Eddelbuettel and François</a> (<a href="#ref-R-Rcpp_a" role="doc-biblioref">2011</a>)</span>; <span class="citation" data-cites="R-Rcpp_b"><a href="#ref-R-Rcpp_b" role="doc-biblioref">Eddelbuettel and Balamuta</a> (<a href="#ref-R-Rcpp_b" role="doc-biblioref">2018</a>)</span>], <em>readr</em> [Version 1.4.0; <span class="citation" data-cites="R-readr"><a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester</a> (<a href="#ref-R-readr" role="doc-biblioref">2020</a>)</span>], <em>scales</em> [Version 1.1.1; <span class="citation" data-cites="R-scales"><a href="#ref-R-scales" role="doc-biblioref">Wickham and Seidel</a> (<a href="#ref-R-scales" role="doc-biblioref">2020</a>)</span>], <em>stringr</em> [Version 1.4.0; <span class="citation" data-cites="R-stringr"><a href="#ref-R-stringr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-stringr" role="doc-biblioref">2019</a>)</span>], <em>tibble</em> [Version 3.1.0; <span class="citation" data-cites="R-tibble"><a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham</a> (<a href="#ref-R-tibble" role="doc-biblioref">2021</a>)</span>], <em>tidyr</em> [Version 1.1.3; <span class="citation" data-cites="R-tidyr"><a href="#ref-R-tidyr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-tidyr" role="doc-biblioref">2021b</a>)</span>], and <em>tidyverse</em> [Version 1.3.0; <span class="citation" data-cites="R-tidyverse"><a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-tidyverse" role="doc-biblioref">2019</a>)</span>].</p>
-<!-- Include at end of document -->
-<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-R-brms_a" class="csl-entry" role="doc-biblioentry">
-Bürkner, Paul-Christian. 2017. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
-</div>
-<div id="ref-R-brms_b" class="csl-entry" role="doc-biblioentry">
-———. 2018. <span>“Advanced <span>Bayesian</span> Multilevel Modeling with the <span>R</span> Package <span class="nocase">brms</span>.”</span> <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.
-</div>
-<div id="ref-R-Rcpp_b" class="csl-entry" role="doc-biblioentry">
-Eddelbuettel, Dirk, and James Joseph Balamuta. 2018. <span>“<span class="nocase">Extending extit<span>R</span> with extit<span>C++</span>: A Brief Introduction to extit<span>Rcpp</span></span>.”</span> <em>The American Statistician</em> 72 (1): 28–36. <a href="https://doi.org/10.1080/00031305.2017.1375990">https://doi.org/10.1080/00031305.2017.1375990</a>.
-</div>
-<div id="ref-R-Rcpp_a" class="csl-entry" role="doc-biblioentry">
-Eddelbuettel, Dirk, and Romain François. 2011. <span>“<span>Rcpp</span>: Seamless <span>R</span> and <span>C++</span> Integration.”</span> <em>Journal of Statistical Software</em> 40 (8): 1–18. <a href="https://doi.org/10.18637/jss.v040.i08">https://doi.org/10.18637/jss.v040.i08</a>.
-</div>
-<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
-Henry, Lionel, and Hadley Wickham. 2020. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
-</div>
-<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
-Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
-</div>
-<div id="ref-R-patchwork" class="csl-entry" role="doc-biblioentry">
-Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
-</div>
-<div id="ref-R-base" class="csl-entry" role="doc-biblioentry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-stan_development_team_stan:_2016" class="csl-entry" role="doc-biblioentry">
 Stan Development Team. 2016. <em>Stan: A c++ Library for Probability and Sampling, Version 2.15.0</em>. <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
 </div>
 <div id="ref-wagenmakers_bayesian_2010" class="csl-entry" role="doc-biblioentry">
 Wagenmakers, Eric-Jan, Tom Lodewyckx, Himanshu Kuriyal, and Raoul Grasman. 2010. <span>“Bayesian Hypothesis Testing for Psychologists: A Tutorial on the Savage–Dickey Method.”</span> <em>Cognitive Psychology</em> 60 (3): 158–89. <a href="https://doi.org/10.1016/j.cogpsych.2009.12.001">https://doi.org/10.1016/j.cogpsych.2009.12.001</a>.
 </div>
-<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
-———. 2019. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
-</div>
-<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
-———. 2021a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
-</div>
-<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
-———. 2021b. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
-</div>
-<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
-</div>
-<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
-</div>
-<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
-</div>
-<div id="ref-R-scales" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, and Dana Seidel. 2020. <em>Scales: Scale Functions for Visualization</em>. <a href="https://CRAN.R-project.org/package=scales">https://CRAN.R-project.org/package=scales</a>.
-</div>
-<div id="ref-R-knitr" class="csl-entry" role="doc-biblioentry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
-</div>
-<div id="ref-R-kableExtra" class="csl-entry" role="doc-biblioentry">
-Zhu, Hao. 2021. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
-</div>
-</div>
-<!--radix_placeholder_article_footer-->
-<!--/radix_placeholder_article_footer-->
-</div>
-
-<div class="d-appendix">
-</div>
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+  author = {Matti Vuorre},
+  title = {Bayes {Factors} with Brms},
+  date = {2017-03-21},
+  url = {https://sometimesir.com/posts/2017-03-21-bayes-factors-with-brms},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Matti Vuorre. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
+2017. <a href="https://sometimesir.com/posts/2017-03-21-bayes-factors-with-brms">https://sometimesir.com/posts/2017-03-21-bayes-factors-with-brms</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
 </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mvuorre">
+      <i class="bi bi-github" role="img" aria-label="Github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/vuorre">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
+      <i class="bi bi-cup" role="img" aria-label="Buy me a coffee">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
-<!--radix_placeholder_site_after_body-->
-<!--/radix_placeholder_site_after_body-->
-<!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-  <h3 id="references">References</h3>
-  <div id="references-listing"></div>
-  <h3 id="updates-and-corrections">Corrections</h3>
-  <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/mvuorre/mvuorre.github.io/issues/new">create an issue</a> on the source repository.</p>
-  <h3 id="reuse">Reuse</h3>
-  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/mvuorre/mvuorre.github.io">https://github.com/mvuorre/mvuorre.github.io</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-  <h3 id="citation">Citation</h3>
-  <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Vuorre (2017, March 21). Sometimes I R: Bayes Factors with brms. Retrieved from https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/</pre>
-  <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{vuorre2017bayes,
-  author = {Vuorre, Matti},
-  title = {Sometimes I R: Bayes Factors with brms},
-  url = {https://mvuorre.github.io/posts/2017-03-21-bayes-factors-with-brms/},
-  year = {2017}
-}</pre>
-</div>
-<!--/radix_placeholder_appendices-->
-<!--radix_placeholder_navigation_after_body-->
-<!--/radix_placeholder_navigation_after_body-->
 
-</body>
 
-</html>
+</body></html>

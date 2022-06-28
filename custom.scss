@@ -1,0 +1,13 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+.navbar {
+  font-size: $font-size-sm;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  background-color: $gray-800 !important;
+  border-bottom: 4px solid #34A5DA;
+  webkit-box-shadow: 1px 1px 18px #4d4d4d;
+  moz-box-shadow: 1px 1px 18px #4d4d4d;
+  box-shadow: 1px 1px 18px #4d4d4d;
+}

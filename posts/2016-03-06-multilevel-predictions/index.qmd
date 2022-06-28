@@ -72,9 +72,7 @@ The data is structured in a long format, where each row contains all variables a
 
 Below, I show two kinds of scatterplots from the data. The left one represents a fixed effects regression, where information about individuals is discarded, and all that is left is a lonely band of inference in a sea of scattered observations. The right panel shows fixed effects regressions separately for each individual.
 
-```{r fig1and2, fig.cap = "Scatterplots with a completely pooled model (left), and individual specific models (right).", echo = TRUE, preview = TRUE, fig.width = 8}
-#| column: body-outset
-
+```{r fig1and2, fig.cap = "Scatterplots with a completely pooled model (left), and individual specific models (right).", echo = TRUE, preview = TRUE}
 p1 <- ggplot(sleepstudy, aes(x = Days, y = Reaction)) +
   geom_point(shape = 1) +
   scale_x_continuous(breaks = c(0, 3, 6, 9)) +
@@ -131,8 +129,7 @@ newvary$Reaction <- predict(lmerfit, newvary)
 
 I'll show these predictions within the previous figures: On the left, a single fixed effects model versus the average regression line from the new multilevel model, and on the right the separate fixed effects models versus the varying regression lines from the multilevel model. Below, I use blue colors to indicate the fixed effects models' predictions, and black for the multilevel model's predictions.
 
-```{r plotlmer, fig.width = 8}
-#| column: body-outset
+```{r plotlmer}
 p1 + geom_line(data = newavg, col = "black", size = 1) |
   p2 + geom_line(data = newvary, col = "black", size = 1)
 ```

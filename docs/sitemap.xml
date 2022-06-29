@@ -2,74 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sometimesir.com/contact.html</loc>
-    <lastmod>2022-06-28T21:57:14.126Z</lastmod>
+    <lastmod>2022-06-29T09:27:42.360Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html</loc>
-    <lastmod>2022-06-28T21:57:15.226Z</lastmod>
+    <lastmod>2022-06-29T09:27:43.525Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-09-29-bayesian-meta-analysis/index.html</loc>
-    <lastmod>2022-06-28T21:57:16.041Z</lastmod>
+    <lastmod>2022-06-29T09:27:44.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sometimesir.com/posts/hexsticker-favicon/index.html</loc>
+    <lastmod>2022-06-29T14:05:11.241Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/easy-notifications-from-r/index.html</loc>
-    <lastmod>2022-06-28T21:57:16.728Z</lastmod>
+    <lastmod>2022-06-29T09:27:48.101Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-03-24-github-waffle-plot/index.html</loc>
-    <lastmod>2022-06-28T21:57:17.521Z</lastmod>
+    <lastmod>2022-06-29T09:27:48.829Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html</loc>
-    <lastmod>2022-06-28T21:57:18.646Z</lastmod>
+    <lastmod>2022-06-29T09:27:50.014Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</loc>
-    <lastmod>2022-06-28T21:57:19.325Z</lastmod>
+    <lastmod>2022-06-29T09:27:50.761Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html</loc>
-    <lastmod>2022-06-28T21:57:21.008Z</lastmod>
+    <lastmod>2022-06-29T09:27:52.521Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2017-03-21-bayes-factors-with-brms/index.html</loc>
-    <lastmod>2022-06-28T21:57:22.008Z</lastmod>
+    <lastmod>2022-06-29T09:27:53.555Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-03-06-multilevel-predictions/index.html</loc>
-    <lastmod>2022-06-28T21:57:22.911Z</lastmod>
+    <lastmod>2022-06-29T09:27:54.488Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-12-06-order-ggplot-panel-plots/index.html</loc>
-    <lastmod>2022-06-28T21:57:23.533Z</lastmod>
+    <lastmod>2022-06-29T09:27:55.103Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html</loc>
-    <lastmod>2022-06-28T21:57:24.336Z</lastmod>
+    <lastmod>2022-06-29T09:27:55.804Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2017-01-04-within-subject-scatter/index.html</loc>
-    <lastmod>2022-06-28T21:57:25.082Z</lastmod>
+    <lastmod>2022-06-29T09:27:56.480Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2016-03-15-ggplot-plots-subplots/index.html</loc>
-    <lastmod>2022-06-28T21:57:25.903Z</lastmod>
+    <lastmod>2022-06-29T09:27:57.200Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html</loc>
-    <lastmod>2022-06-28T21:57:26.540Z</lastmod>
+    <lastmod>2022-06-29T09:27:57.840Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/index.html</loc>
-    <lastmod>2022-06-28T21:57:27.287Z</lastmod>
+    <lastmod>2022-06-29T14:05:12.017Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/about.html</loc>
-    <lastmod>2022-06-28T21:57:27.564Z</lastmod>
+    <lastmod>2022-06-29T09:27:58.937Z</lastmod>
   </url>
   <url>
     <loc>https://sometimesir.com/contact-success.html</loc>
-    <lastmod>2022-06-28T21:57:27.907Z</lastmod>
+    <lastmod>2022-06-29T09:27:59.261Z</lastmod>
   </url>
 </urlset>

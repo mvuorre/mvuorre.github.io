@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/hexsticker-favicon/index.html",
       "/posts/easy-notifications-from-r/index.html",
       "/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html",
       "/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html",

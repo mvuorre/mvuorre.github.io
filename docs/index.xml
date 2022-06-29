@@ -9,8 +9,117 @@
 <link>https://sometimesir.com/index.html</link>
 <atom:link href="https://sometimesir.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on psychology and statistics, sometimes</description>
+<image>
+<url>https://sometimesir.com/sticker.png</url>
+<title>Sometimes I R</title>
+<link>https://sometimesir.com/index.html</link>
+</image>
 <generator>quarto-0.9.584</generator>
-<lastBuildDate>Tue, 14 Jun 2022 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 28 Jun 2022 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Website favicons with hexSticker</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://sometimesir.com/posts/hexsticker-favicon/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>My website needed a new <a href="https://en.wikipedia.org/wiki/Favicon">favicon</a>, and I decided to create one with R. I quite like the look of those hexagonal R package logos, and it turns out there’s an R package that helps you make those: <a href="https://github.com/GuangchuangYu/hexSticker">hexSticker</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(hexSticker)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(viridis)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(here)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<p>First, the design. I really like the simple symmetry of a (normal) density curve. So I based my design on that. To make it a bit more interesting, I decided to stack a small number of them on top of another, each with its own color. Here’s how I went about doing that.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;"># A consistent color palette for the image</span></span>
+<span id="cb2-2">palette <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">viridis</span>(<span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;"># Create data for the density curves</span></span>
+<span id="cb2-5">d <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb2-6">    <span class="at" style="color: #657422;">m =</span> <span class="dv" style="color: #AD0000;">0</span>,</span>
+<span id="cb2-7">    <span class="at" style="color: #657422;">s =</span> <span class="fl" style="color: #AD0000;">1.75</span>,</span>
+<span id="cb2-8">    <span class="at" style="color: #657422;">n1 =</span> <span class="fu" style="color: #4758AB;">factor</span>(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">10</span>),</span>
+<span id="cb2-9">    <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">5</span>, <span class="dv" style="color: #AD0000;">5</span>, <span class="at" style="color: #657422;">by =</span> .<span class="dv" style="color: #AD0000;">01</span>)</span>
+<span id="cb2-10">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">dnorm</span>(x, m, s))</span>
+<span id="cb2-12"></span>
+<span id="cb2-13"><span class="co" style="color: #5E5E5E;"># Plot said data</span></span>
+<span id="cb2-14">p <span class="ot" style="color: #003B4F;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb2-15">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">col =</span> n1, <span class="at" style="color: #657422;">group =</span> n1)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-16">  <span class="co" style="color: #5E5E5E;"># What's a better / more overused color scale? Nothing.</span></span>
+<span id="cb2-17">  <span class="fu" style="color: #4758AB;">scale_color_viridis_d</span>(<span class="at" style="color: #657422;">begin =</span> .<span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">end =</span> .<span class="dv" style="color: #AD0000;">9</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-18">  <span class="co" style="color: #5E5E5E;"># Adjust the empty areas between plot geoms and axis limits</span></span>
+<span id="cb2-19">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(</span>
+<span id="cb2-20">    <span class="at" style="color: #657422;">expand =</span> <span class="fu" style="color: #4758AB;">expansion</span>(<span class="fu" style="color: #4758AB;">c</span>(.<span class="dv" style="color: #AD0000;">015</span>, .<span class="dv" style="color: #AD0000;">015</span>))</span>
+<span id="cb2-21">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-22">  <span class="co" style="color: #5E5E5E;"># These curves go up</span></span>
+<span id="cb2-23">  <span class="fu" style="color: #4758AB;">geom_line</span>(</span>
+<span id="cb2-24">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> x, <span class="at" style="color: #657422;">y =</span> y),</span>
+<span id="cb2-25">    <span class="at" style="color: #657422;">size =</span> .<span class="dv" style="color: #AD0000;">8</span>,</span>
+<span id="cb2-26">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_stack</span>()</span>
+<span id="cb2-27">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-28">  <span class="co" style="color: #5E5E5E;"># And these curves go down, but a little less so</span></span>
+<span id="cb2-29">  <span class="fu" style="color: #4758AB;">geom_line</span>(</span>
+<span id="cb2-30">    <span class="at" style="color: #657422;">size =</span> .<span class="dv" style="color: #AD0000;">8</span>,</span>
+<span id="cb2-31">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> x, <span class="at" style="color: #657422;">y =</span> <span class="sc" style="color: #5E5E5E;">-</span>y<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">5</span>),</span>
+<span id="cb2-32">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_stack</span>()</span>
+<span id="cb2-33">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-34">  <span class="co" style="color: #5E5E5E;"># Make the plot otherwise completely empty</span></span>
+<span id="cb2-35">  <span class="fu" style="color: #4758AB;">theme_void</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-36">  <span class="fu" style="color: #4758AB;">theme_transparent</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-37">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
+<span id="cb2-38">    <span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span></span>
+<span id="cb2-39">  )</span></code></pre></div>
+</div>
+<p>Can you imagine from above what it’ll look like 😉? You’ll see in a bit. Next I needed to pass the plot object throught <code>hexSticker::sticker()</code> to create the hexagonal sticker plot. There are quite a few arguments to that function and it took me a few minutes to figure out what they do. I basically wanted to fill the hexagonal area with the plot, and add a URL to the corner.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">s <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sticker</span>(</span>
+<span id="cb3-2">  p, </span>
+<span id="cb3-3">  <span class="at" style="color: #657422;">s_x =</span> <span class="dv" style="color: #AD0000;">1</span>,</span>
+<span id="cb3-4">  <span class="at" style="color: #657422;">s_y =</span> <span class="dv" style="color: #AD0000;">1</span>,</span>
+<span id="cb3-5">  <span class="at" style="color: #657422;">s_width =</span> <span class="fl" style="color: #AD0000;">1.9</span>,</span>
+<span id="cb3-6">  <span class="at" style="color: #657422;">s_height =</span> <span class="fl" style="color: #AD0000;">1.7</span>,</span>
+<span id="cb3-7">  <span class="at" style="color: #657422;">h_fill =</span> <span class="st" style="color: #20794D;">"black"</span>,</span>
+<span id="cb3-8">  <span class="at" style="color: #657422;">h_color =</span> palette[<span class="dv" style="color: #AD0000;">3</span>],</span>
+<span id="cb3-9">  <span class="at" style="color: #657422;">package =</span> <span class="st" style="color: #20794D;">""</span>,</span>
+<span id="cb3-10">  <span class="at" style="color: #657422;">url =</span> <span class="st" style="color: #20794D;">"sometimesir.com"</span>,</span>
+<span id="cb3-11">  <span class="at" style="color: #657422;">u_color =</span> palette[<span class="dv" style="color: #AD0000;">7</span>],</span>
+<span id="cb3-12">  <span class="at" style="color: #657422;">u_size =</span> <span class="dv" style="color: #AD0000;">24</span>,</span>
+<span id="cb3-13">  <span class="at" style="color: #657422;">dpi =</span> <span class="dv" style="color: #AD0000;">800</span>,</span>
+<span id="cb3-14">  <span class="at" style="color: #657422;">filename =</span> <span class="fu" style="color: #4758AB;">here</span>(<span class="st" style="color: #20794D;">"favicon.png"</span>)</span>
+<span id="cb3-15">  )</span>
+<span id="cb3-16"><span class="fu" style="color: #4758AB;">plot</span>(s)</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-favicon" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://sometimesir.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The more I kept tweaking this, the more it started to look like a tropical fish swimming towards me. Only the eyes are missing! When printed in RStudio or here in the html output of a rmarkdown/quarto document, the margins are oddly large. But the output file looks just as it should, and is now both the logo (top-left corner) and favicon (browser tab) of this website.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {Website Favicons with {hexSticker}},
+  date = {2022-06-29},
+  url = {https://sometimesir.com/posts/hexsticker-favicon},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2022. <span>“Website Favicons with hexSticker.”</span>
+June 29, 2022. <a href="https://sometimesir.com/posts/hexsticker-favicon">https://sometimesir.com/posts/hexsticker-favicon</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <guid>https://sometimesir.com/posts/hexsticker-favicon/index.html</guid>
+  <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://sometimesir.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+</item>
 <item>
   <title>Easy notifications from R</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -876,7 +985,7 @@ December 13, 2018. <a href="https://sometimesir.com/posts/2018-12-13-rpihkal-com
   <category>R</category>
   <guid>https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>

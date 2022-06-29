@@ -11,7 +11,7 @@ website:
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [issue]
   favicon: favicon.png
-  image: sticker.png
+  image: favicon.png
   search:
     location: navbar
     type: textbox

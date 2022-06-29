@@ -10,9 +10,11 @@
 <atom:link href="https://sometimesir.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on psychology and statistics, sometimes</description>
 <image>
-<url>https://sometimesir.com/sticker.png</url>
+<url>https://sometimesir.com/favicon.png</url>
 <title>Sometimes I R</title>
 <link>https://sometimesir.com/index.html</link>
+<height>167</height>
+<width>144</width>
 </image>
 <generator>quarto-0.9.584</generator>
 <lastBuildDate>Tue, 28 Jun 2022 23:00:00 GMT</lastBuildDate>
@@ -985,7 +987,7 @@ December 13, 2018. <a href="https://sometimesir.com/posts/2018-12-13-rpihkal-com
   <category>R</category>
   <guid>https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
+  <media:content url="https://sometimesir.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Glue your strings together</title>

@@ -10,6 +10,8 @@ website:
   description: "Notes on psychology and statistics, sometimes"
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [issue]
+  favicon: favicon.png
+  image: favicon.png
   search:
     location: navbar
     type: textbox
@@ -17,6 +19,7 @@ website:
   opengraph: true
   page-navigation: true
   navbar:
+    logo: favicon.png
     pinned: true
     background: primary
     right:

@@ -1,0 +1,14 @@
+{
+  "hash": "4d2fb2f7f4eabd4ef59ab8e4ef4a9f0e",
+  "result": {
+    "markdown": "---\ntitle: Easy notifications from R\ndescription: How to send notifications from R, or any other CLI, to your phone\ndate: 2022-06-15\ncategories:\n  - R\n  - tips\n---\n\n\nR can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I'll show how to do that easily with [ntfy](https://ntfy.sh).\n\n## Download ntfy.sh\n\nGo to your app store (iOS/Android) and download the ntfy app. \n\n## Subscribe to a topic\n\nOpen the app on your phone and [subscribe to a topic](https://ntfy.sh/docs/subscribe/phone/). Just type in a name that's both memorable and not likely to already be used by someone else. I use `vuorre-r-notifications`.\n\n![](images/subscribe.jpeg){fig-alt=\"Subscribing to vuorre-r-notifications on ntfy.sh\"}\n\n## Send notifications\n\nYou can now include variations of `system(\"curl -d 'Notification text' ntfy.sh/vuorre-r-notifications\")` in your R code. For example, to send a notification after a long running code\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Long running code here\nSys.sleep(.1)  # Sleep for .1 second\n# Send notification\nsystem(\"curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-notifications\")\n```\n:::\n\n\nYou'll get this notification on your phone:\n\n![](images/notification.jpeg){fig-alt=\"Notification received on phone\"}\n\nThis is really useful when you have simulations (mcmc or otherwise 😉) that take a long time, and you'd like to act as soon as they are done. Have fun!\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -11,4 +11,3 @@ _posts/**/*_files/
 .DS_Store
 
 /.quarto/
-_freeze/

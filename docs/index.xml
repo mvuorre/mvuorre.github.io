@@ -16,7 +16,7 @@
 <height>167</height>
 <width>144</width>
 </image>
-<generator>quarto-0.9.584</generator>
+<generator>quarto-0.9.629</generator>
 <lastBuildDate>Tue, 28 Jun 2022 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Website favicons with hexSticker</title>
@@ -239,8 +239,8 @@ Matti Vuorre. 2022. <span>“Easy Notifications from R.”</span> June 15,
    <td style="text-align:left;"> b_Intercept </td>
    <td style="text-align:right;"> 2.89 </td>
    <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> 2.48 </td>
-   <td style="text-align:right;"> 3.30 </td>
+   <td style="text-align:right;"> 2.49 </td>
+   <td style="text-align:right;"> 3.31 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> b_time </td>
@@ -253,7 +253,7 @@ Matti Vuorre. 2022. <span>“Easy Notifications from R.”</span> June 15,
    <td style="text-align:left;"> b_treatment1 </td>
    <td style="text-align:right;"> -0.05 </td>
    <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> -0.63 </td>
+   <td style="text-align:right;"> -0.68 </td>
    <td style="text-align:right;"> 0.52 </td>
   </tr>
   <tr>
@@ -319,7 +319,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q4     0.86       0.4     0.04     1.67         NA        NA    *
+1         q4     0.88       0.4     0.05     1.66         NA        NA    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -337,7 +337,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q5     0.05      0.02     0.01     0.09      56.14      0.98    *
+1         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -360,8 +360,8 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
 1         q2     0.11      0.02     0.06     0.16         NA        NA    *
-2         q4     0.86      0.40     0.04     1.67         NA        NA    *
-3         q5     0.05      0.02     0.01     0.09      56.14      0.98    *
+2         q4     0.88      0.40     0.05     1.66         NA        NA    *
+3         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -616,21 +616,21 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb4-13"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb4-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept         0.33      0.15     0.02     0.62 1.00     5961     3032</span></span>
+font-style: italic;">## Intercept         0.33      0.16     0.03     0.64 1.00     7221     2600</span></span>
 <span id="cb4-15"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## phi_Intercept     1.49      0.23     1.03     1.91 1.00     5877     3483</span></span>
+font-style: italic;">## phi_Intercept     1.50      0.24     1.00     1.94 1.00     6306     3106</span></span>
 <span id="cb4-16"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## zoi_Intercept    -0.79      0.32    -1.45    -0.16 1.00     7063     2584</span></span>
+font-style: italic;">## zoi_Intercept    -0.80      0.32    -1.44    -0.18 1.00     7341     2983</span></span>
 <span id="cb4-17"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## coi_Intercept     0.62      0.58    -0.48     1.86 1.00     6958     2651</span></span>
+font-style: italic;">## coi_Intercept     0.62      0.56    -0.40     1.75 1.00     6324     3166</span></span>
 <span id="cb4-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## groupB            0.92      0.21     0.51     1.34 1.00     6930     3124</span></span>
+font-style: italic;">## groupB            0.91      0.21     0.50     1.32 1.00     6770     2984</span></span>
 <span id="cb4-19"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## phi_groupB        0.49      0.32    -0.13     1.13 1.00     5555     3277</span></span>
+font-style: italic;">## phi_groupB        0.48      0.33    -0.15     1.14 1.00     5750     2654</span></span>
 <span id="cb4-20"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## zoi_groupB        0.07      0.45    -0.80     0.95 1.00     6640     2678</span></span>
+font-style: italic;">## zoi_groupB        0.08      0.43    -0.75     0.91 1.00     7812     3178</span></span>
 <span id="cb4-21"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## coi_groupB       -0.87      0.78    -2.47     0.64 1.00     7135     2449</span></span>
+font-style: italic;">## coi_groupB       -0.87      0.75    -2.35     0.52 1.00     6093     2866</span></span>
 <span id="cb4-22"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb4-23"><span class="do" style="color: #5E5E5E;
@@ -669,28 +669,28 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <td style="text-align: right;">0.58</td>
 <td style="text-align: right;">0.04</td>
 <td style="text-align: right;">0.51</td>
-<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.66</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_phi_Intercept</td>
-<td style="text-align: right;">4.57</td>
-<td style="text-align: right;">1.03</td>
-<td style="text-align: right;">2.79</td>
-<td style="text-align: right;">6.76</td>
+<td style="text-align: right;">4.59</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">2.72</td>
+<td style="text-align: right;">6.99</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_zoi_Intercept</td>
-<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.31</td>
 <td style="text-align: right;">0.07</td>
 <td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">0.45</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_coi_Intercept</td>
 <td style="text-align: right;">0.64</td>
 <td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.38</td>
-<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.85</td>
 </tr>
 </tbody>
 </table>
@@ -720,7 +720,7 @@ font-style: italic;">## Hypothesis Tests for class b:</span></span>
 <span id="cb8-4"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb8-5"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 1      B - A     0.19      0.04     0.11     0.29         NA        NA    *</span></span>
+font-style: italic;">## 1      B - A     0.19      0.05      0.1     0.28         NA        NA    *</span></span>
 <span id="cb8-6"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## ---</span></span>
 <span id="cb8-7"><span class="do" style="color: #5E5E5E;
@@ -780,7 +780,7 @@ font-style: italic;">## Posterior probabilities of point hypotheses assume equal
 
 </div>
 <p>I then estimated the ZOIB model for each of the 100 simulated data sets. Statistical significance does not play a role in Bayesian statistics, but to most easily compare the results of these two models, I calculated the proportion of simulations for which the estimated Group on <img src="https://latex.codecogs.com/png.latex?%5Cmu"> effect’s 95% Credible Interval was entirely above zero. If a 95% CI does not include zero, disrespecting the philosophical differences of bayesian and frequentist statistics, I may say that the estimate is “significant”.</p>
-<p>This parameter was significantly greater than zero in 67% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in Figure&nbsp;7.</p>
+<p>This parameter was significantly greater than zero in 66% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in Figure&nbsp;7.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sims-compare_86473af857a11cf2e39a1f2b4a67b7af">
 <div class="cell-output-display">
 <div id="fig-sims-compare" class="quarto-figure quarto-figure-center anchored">
@@ -1370,9 +1370,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb7-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.04 1.00     3195     2064</span></span>
+font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.03 1.00     3528     2413</span></span>
 <span id="cb7-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold         0.39      0.26    -0.11     0.89 1.00     3271     2299</span></span>
+font-style: italic;">## isold         0.39      0.25    -0.11     0.88 1.00     3846     2644</span></span>
 <span id="cb7-13"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb7-14"><span class="do" style="color: #5E5E5E;
@@ -1454,9 +1454,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb11-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb11-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.04 1.00     3195     2064</span></span>
+font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.03 1.00     3528     2413</span></span>
 <span id="cb11-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold         0.39      0.26    -0.11     0.89 1.00     3271     2299</span></span>
+font-style: italic;">## isold         0.39      0.25    -0.11     0.88 1.00     3846     2644</span></span>
 <span id="cb11-13"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb11-14"><span class="do" style="color: #5E5E5E;
@@ -1489,9 +1489,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb11-28"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb11-29"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## dprime_Intercept     0.40      0.26    -0.12     0.89 1.00     1108     1528</span></span>
+font-style: italic;">## dprime_Intercept     0.38      0.25    -0.10     0.87 1.01      871      956</span></span>
 <span id="cb11-30"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## c_Intercept          0.31      0.18    -0.02     0.67 1.00     1153     1600</span></span>
+font-style: italic;">## c_Intercept          0.31      0.17    -0.04     0.64 1.00      872     1159</span></span>
 <span id="cb11-31"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb11-32"><span class="do" style="color: #5E5E5E;
@@ -1714,11 +1714,11 @@ font-style: italic;">## ~subno (Number of levels: 31) </span></span>
 <span id="cb14-11"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb14-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(Intercept)            0.26      0.06     0.16     0.38 1.00     1632     2169</span></span>
+font-style: italic;">## sd(Intercept)            0.26      0.05     0.16     0.37 1.00     1672     2368</span></span>
 <span id="cb14-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.57 1.01      963     1664</span></span>
+font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.56 1.00     1077     2112</span></span>
 <span id="cb14-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(Intercept,isold)    -0.57      0.20    -0.85    -0.08 1.01      979     1920</span></span>
+font-style: italic;">## cor(Intercept,isold)    -0.56      0.19    -0.84    -0.09 1.00      985     1805</span></span>
 <span id="cb14-15"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb14-16"><span class="do" style="color: #5E5E5E;
@@ -1726,9 +1726,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb14-17"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb14-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1881     2644</span></span>
+font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1769     2349</span></span>
 <span id="cb14-19"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold         1.06      0.09     0.89     1.23 1.00     1511     2354</span></span>
+font-style: italic;">## isold         1.06      0.08     0.89     1.22 1.00     1643     2815</span></span>
 <span id="cb14-20"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb14-21"><span class="do" style="color: #5E5E5E;
@@ -1838,11 +1838,11 @@ font-style: italic;">## ~subno (Number of levels: 31) </span></span>
 <span id="cb20-11"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(Intercept)            0.26      0.06     0.16     0.38 1.00     1632     2169</span></span>
+font-style: italic;">## sd(Intercept)            0.26      0.05     0.16     0.37 1.00     1672     2368</span></span>
 <span id="cb20-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.57 1.01      963     1664</span></span>
+font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.56 1.00     1077     2112</span></span>
 <span id="cb20-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(Intercept,isold)    -0.57      0.20    -0.85    -0.08 1.01      979     1920</span></span>
+font-style: italic;">## cor(Intercept,isold)    -0.56      0.19    -0.84    -0.09 1.00      985     1805</span></span>
 <span id="cb20-15"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb20-16"><span class="do" style="color: #5E5E5E;
@@ -1850,9 +1850,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb20-17"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1881     2644</span></span>
+font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1769     2349</span></span>
 <span id="cb20-19"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold         1.06      0.09     0.89     1.23 1.00     1511     2354</span></span>
+font-style: italic;">## isold         1.06      0.08     0.89     1.22 1.00     1643     2815</span></span>
 <span id="cb20-20"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb20-21"><span class="do" style="color: #5E5E5E;
@@ -1887,11 +1887,11 @@ font-style: italic;">## ~subno (Number of levels: 31) </span></span>
 <span id="cb20-36"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-37"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(dprime_Intercept)                  0.36      0.08     0.22     0.53 1.00     1408     2077</span></span>
+font-style: italic;">## sd(dprime_Intercept)                  0.36      0.07     0.22     0.52 1.00     1543     2092</span></span>
 <span id="cb20-38"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(c_Intercept)                       0.24      0.05     0.15     0.35 1.00     1241     2084</span></span>
+font-style: italic;">## sd(c_Intercept)                       0.24      0.05     0.15     0.35 1.00     1289     2143</span></span>
 <span id="cb20-39"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(dprime_Intercept,c_Intercept)     0.43      0.20    -0.05     0.74 1.00     1521     2084</span></span>
+font-style: italic;">## cor(dprime_Intercept,c_Intercept)     0.43      0.20    -0.01     0.74 1.00     1299     1902</span></span>
 <span id="cb20-40"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb20-41"><span class="do" style="color: #5E5E5E;
@@ -1899,9 +1899,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb20-42"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-43"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## dprime_Intercept     1.06      0.08     0.90     1.22 1.00     1691     2000</span></span>
+font-style: italic;">## dprime_Intercept     1.05      0.08     0.89     1.22 1.00     1239     1378</span></span>
 <span id="cb20-44"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## c_Intercept          0.66      0.06     0.55     0.77 1.00     1720     2297</span></span>
+font-style: italic;">## c_Intercept          0.65      0.06     0.54     0.77 1.00     1217     2071</span></span>
 <span id="cb20-45"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb20-46"><span class="do" style="color: #5E5E5E;
@@ -2090,17 +2090,17 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb24-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb24-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[1]    -0.44      0.05    -0.54    -0.35 1.00     4648     3287</span></span>
+font-style: italic;">## Intercept[1]    -0.44      0.05    -0.54    -0.35 1.00     4155     3083</span></span>
 <span id="cb24-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[2]     0.23      0.05     0.14     0.32 1.00     5766     3221</span></span>
+font-style: italic;">## Intercept[2]     0.23      0.05     0.14     0.32 1.00     5584     3151</span></span>
 <span id="cb24-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[3]     0.67      0.05     0.57     0.77 1.00     4891     3334</span></span>
+font-style: italic;">## Intercept[3]     0.67      0.05     0.57     0.77 1.00     5537     3058</span></span>
 <span id="cb24-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[4]     1.20      0.05     1.09     1.31 1.00     4438     3126</span></span>
+font-style: italic;">## Intercept[4]     1.20      0.06     1.09     1.31 1.00     4292     3495</span></span>
 <span id="cb24-15"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[5]     1.88      0.07     1.75     2.01 1.00     4099     3485</span></span>
+font-style: italic;">## Intercept[5]     1.88      0.07     1.75     2.01 1.00     3827     3194</span></span>
 <span id="cb24-16"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold            1.26      0.06     1.13     1.38 1.00     4120     2877</span></span>
+font-style: italic;">## isold            1.25      0.07     1.13     1.38 1.00     3899     3026</span></span>
 <span id="cb24-17"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb24-18"><span class="do" style="color: #5E5E5E;
@@ -2207,19 +2207,19 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb29-11"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb29-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[1]    -0.54      0.05    -0.65    -0.43 1.00     3236     2840</span></span>
+font-style: italic;">## Intercept[1]    -0.54      0.05    -0.64    -0.43 1.00     3023     2786</span></span>
 <span id="cb29-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[2]     0.20      0.05     0.10     0.30 1.00     5061     3535</span></span>
+font-style: italic;">## Intercept[2]     0.20      0.05     0.11     0.30 1.00     5092     3354</span></span>
 <span id="cb29-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[3]     0.71      0.05     0.61     0.81 1.00     4647     3346</span></span>
+font-style: italic;">## Intercept[3]     0.71      0.05     0.61     0.82 1.00     4178     3179</span></span>
 <span id="cb29-15"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[4]     1.37      0.07     1.24     1.50 1.00     2428     2917</span></span>
+font-style: italic;">## Intercept[4]     1.37      0.07     1.24     1.51 1.00     2477     2738</span></span>
 <span id="cb29-16"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[5]     2.32      0.11     2.10     2.55 1.00     1557     2118</span></span>
+font-style: italic;">## Intercept[5]     2.31      0.11     2.10     2.54 1.00     1541     2376</span></span>
 <span id="cb29-17"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold            1.53      0.09     1.35     1.73 1.00     1643     2287</span></span>
+font-style: italic;">## isold            1.53      0.10     1.34     1.72 1.00     1701     1866</span></span>
 <span id="cb29-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## disc_isold      -0.36      0.06    -0.49    -0.24 1.00     1562     2126</span></span>
+font-style: italic;">## disc_isold      -0.36      0.06    -0.48    -0.24 1.00     1601     2444</span></span>
 <span id="cb29-19"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb29-20"><span class="do" style="color: #5E5E5E;
@@ -2289,7 +2289,7 @@ Link function: Probit.</code></pre>
 <span id="cb31-5"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##      2.5%       50%     97.5% </span></span>
 <span id="cb31-6"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 0.6139348 0.6967339 0.7878961</span></span></code></pre></div>
+font-style: italic;">## 0.6175506 0.6991651 0.7894645</span></span></code></pre></div>
 </div>
 <p>These summaries are the parameter’s 95% Credible interval and median, and as such can be used to summarize this quantity in a publication. We could also visualize the posterior draws as a histogram:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-26_1b0f82d7300a5119f158604ccb404871">
@@ -2425,17 +2425,17 @@ font-style: italic;">## ~id (Number of levels: 48) </span></span>
 <span id="cb37-12"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb37-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(Intercept)                 0.35      0.04     0.29     0.43 1.02      234      514</span></span>
+font-style: italic;">## sd(Intercept)                 0.34      0.04     0.27     0.43 1.00      187      406</span></span>
 <span id="cb37-14"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(isold)                     0.77      0.10     0.60     0.98 1.03      133      345</span></span>
+font-style: italic;">## sd(isold)                     0.77      0.10     0.60     0.99 1.02      153      270</span></span>
 <span id="cb37-15"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(disc_isold)                0.45      0.05     0.37     0.55 1.02      209      338</span></span>
+font-style: italic;">## sd(disc_isold)                0.46      0.05     0.37     0.57 1.00      173      357</span></span>
 <span id="cb37-16"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(Intercept,isold)         -0.45      0.12    -0.68    -0.20 1.02      203      324</span></span>
+font-style: italic;">## cor(Intercept,isold)         -0.46      0.12    -0.68    -0.21 1.02      203      359</span></span>
 <span id="cb37-17"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(Intercept,disc_isold)     0.33      0.13     0.08     0.58 1.01      234      340</span></span>
+font-style: italic;">## cor(Intercept,disc_isold)     0.34      0.13     0.09     0.59 1.03      155      304</span></span>
 <span id="cb37-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## cor(isold,disc_isold)        -0.75      0.07    -0.86    -0.57 1.03      177      337</span></span>
+font-style: italic;">## cor(isold,disc_isold)        -0.76      0.07    -0.87    -0.60 1.01      224      487</span></span>
 <span id="cb37-19"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb37-20"><span class="do" style="color: #5E5E5E;
@@ -2443,19 +2443,19 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb37-21"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb37-22"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[1]    -0.59      0.05    -0.69    -0.50 1.02      180      484</span></span>
+font-style: italic;">## Intercept[1]    -0.59      0.05    -0.69    -0.49 1.01      132      323</span></span>
 <span id="cb37-23"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[2]     0.20      0.05     0.10     0.29 1.02      190      336</span></span>
+font-style: italic;">## Intercept[2]     0.20      0.05     0.11     0.30 1.02      129      340</span></span>
 <span id="cb37-24"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[3]     0.70      0.05     0.60     0.79 1.02      191      401</span></span>
+font-style: italic;">## Intercept[3]     0.70      0.05     0.60     0.81 1.02      132      270</span></span>
 <span id="cb37-25"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[4]     1.04      0.05     0.94     1.14 1.02      193      401</span></span>
+font-style: italic;">## Intercept[4]     1.05      0.05     0.94     1.16 1.02      141      334</span></span>
 <span id="cb37-26"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept[5]     1.49      0.05     1.39     1.59 1.03      210      460</span></span>
+font-style: italic;">## Intercept[5]     1.50      0.05     1.39     1.61 1.01      147      216</span></span>
 <span id="cb37-27"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## isold            1.85      0.11     1.64     2.08 1.02      170      292</span></span>
+font-style: italic;">## isold            1.88      0.12     1.67     2.12 1.03      115      240</span></span>
 <span id="cb37-28"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## disc_isold      -0.37      0.07    -0.51    -0.24 1.01      197      437</span></span>
+font-style: italic;">## disc_isold      -0.39      0.07    -0.52    -0.26 1.01      139      255</span></span>
 <span id="cb37-29"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb37-30"><span class="do" style="color: #5E5E5E;
@@ -2765,7 +2765,7 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb9-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb9-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept     0.83      0.10     0.59     0.98 1.00     6511     7151</span></span>
+font-style: italic;">## Intercept     0.83      0.10     0.59     0.98 1.00     6331     6217</span></span>
 <span id="cb9-12"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb9-13"><span class="do" style="color: #5E5E5E;
@@ -2790,28 +2790,28 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> 0.73 </td>
-   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.41 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 0.84 </td>
-   <td style="text-align:right;"> 0.81 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.89 </td>
-   <td style="text-align:right;"> 0.55 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.87 </td>
-   <td style="text-align:right;"> 0.74 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.90 </td>
    <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.88 </td>
   </tr>
 </tbody>
 </table>
@@ -2834,7 +2834,7 @@ font-style: italic;">## Hypothesis Tests for class b:</span></span>
 <span id="cb11-4"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb11-5"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 1 (Intercept)-(0.5) = 0   0.3324    0.1028   0.0909   0.4753     0.1037     0.094    *</span></span>
+font-style: italic;">## 1 (Intercept)-(0.5) = 0    0.335    0.1037   0.0892   0.4781     0.1119    0.1006    *</span></span>
 <span id="cb11-6"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## ---</span></span>
 <span id="cb11-7"><span class="do" style="color: #5E5E5E;
@@ -2933,9 +2933,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb17-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb17-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## pledgeno      0.60      0.01     0.59     0.61 1.00    18204    13969</span></span>
+font-style: italic;">## pledgeno      0.60      0.01     0.59     0.61 1.00    17582    12872</span></span>
 <span id="cb17-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## pledgeyes     0.55      0.02     0.51     0.58 1.00    18227    14283</span></span>
+font-style: italic;">## pledgeyes     0.55      0.02     0.51     0.58 1.00    19471    13744</span></span>
 <span id="cb17-13"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb17-14"><span class="do" style="color: #5E5E5E;
@@ -2954,7 +2954,7 @@ font-style: italic;">## Hypothesis Tests for class b:</span></span>
 <span id="cb18-4"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb18-5"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.01        0.5      0.33    *</span></span>
+font-style: italic;">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.55      0.36    *</span></span>
 <span id="cb18-6"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## ---</span></span>
 <span id="cb18-7"><span class="do" style="color: #5E5E5E;
@@ -2970,7 +2970,7 @@ font-style: italic;">## Posterior probabilities of point hypotheses assume equal
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-18_ead8dac40605294695c217abdc41dba0">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">/</span> h1<span class="sc" style="color: #5E5E5E;">$</span>hypothesis<span class="sc" style="color: #5E5E5E;">$</span>Evid.Ratio <span class="co" style="color: #5E5E5E;"># BF10</span></span>
 <span id="cb19-2"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## [1] 1.99857</span></span></code></pre></div>
+font-style: italic;">## [1] 1.808643</span></span></code></pre></div>
 </div>
 <p>The paper reports BF01 = 0.47, so we’re getting the same results (as we should.) You can also compare this figure to what’s reported in the paper.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_fe9d6c85bf18b295d23dd39713de79c2">
@@ -3132,9 +3132,9 @@ font-style: italic;">## ~id (Number of levels: 74) </span></span>
 <span id="cb27-11"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb27-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6352     7804</span></span>
+font-style: italic;">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6289     7595</span></span>
 <span id="cb27-13"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sd(prime)         0.13      0.08     0.01     0.30 1.00     5336     7835</span></span>
+font-style: italic;">## sd(prime)         0.12      0.08     0.01     0.30 1.00     5325     7048</span></span>
 <span id="cb27-14"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb27-15"><span class="do" style="color: #5E5E5E;
@@ -3142,9 +3142,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb27-16"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb27-17"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept     0.01      0.05    -0.09     0.11 1.00    14623    14182</span></span>
+font-style: italic;">## Intercept     0.01      0.05    -0.09     0.11 1.00    15752    13860</span></span>
 <span id="cb27-18"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## prime         0.15      0.07     0.01     0.29 1.00    14858    14612</span></span>
+font-style: italic;">## prime         0.15      0.07     0.01     0.29 1.00    14810    14424</span></span>
 <span id="cb27-19"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb27-20"><span class="do" style="color: #5E5E5E;
@@ -3163,7 +3163,7 @@ font-style: italic;">## Hypothesis Tests for class b:</span></span>
 <span id="cb28-4"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##    Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb28-5"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 1 (prime) = 0     0.15      0.07     0.01     0.29        0.3      0.23    *</span></span>
+font-style: italic;">## 1 (prime) = 0     0.15      0.07     0.01     0.29       0.31      0.23    *</span></span>
 <span id="cb28-6"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## ---</span></span>
 <span id="cb28-7"><span class="do" style="color: #5E5E5E;
@@ -3179,7 +3179,7 @@ font-style: italic;">## Posterior probabilities of point hypotheses assume equal
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-28_10dd8c444e34a93c2734fec2400567cd">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">/</span> h2<span class="sc" style="color: #5E5E5E;">$</span>hypothesis<span class="sc" style="color: #5E5E5E;">$</span>Evid.Ratio</span>
 <span id="cb29-2"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## [1] 3.325041</span></span></code></pre></div>
+font-style: italic;">## [1] 3.267158</span></span></code></pre></div>
 </div>
 <p>This is best illustrated by plotting the densities:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-29_8bdb9fb111bdedf9ec600ab4a1bb4fc3">
@@ -3749,9 +3749,9 @@ font-style: italic;">## Population-Level Effects: </span></span>
 <span id="cb7-10"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-11"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## Intercept        100.35      0.73    98.95   101.78 1.00     3922     3153</span></span>
+font-style: italic;">## Intercept        100.36      0.73    98.93   101.75 1.00     3751     3056</span></span>
 <span id="cb7-12"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## GroupTreatment     1.54      1.03    -0.49     3.61 1.00     3992     2859</span></span>
+font-style: italic;">## GroupTreatment     1.55      1.00    -0.38     3.58 1.00     3779     2943</span></span>
 <span id="cb7-13"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb7-14"><span class="do" style="color: #5E5E5E;
@@ -3759,7 +3759,7 @@ font-style: italic;">## Family Specific Parameters: </span></span>
 <span id="cb7-15"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-16"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## sigma     4.71      0.37     4.05     5.48 1.00     3613     2743</span></span>
+font-style: italic;">## sigma     4.72      0.36     4.09     5.48 1.00     3732     3046</span></span>
 <span id="cb7-17"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## </span></span>
 <span id="cb7-18"><span class="do" style="color: #5E5E5E;
@@ -3791,7 +3791,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
    <td style="text-align:right;"> 100.36 </td>
    <td style="text-align:right;"> 0.73 </td>
    <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 100.35 </td>
+   <td style="text-align:right;"> 100.36 </td>
    <td style="text-align:right;"> 0.73 </td>
   </tr>
   <tr>
@@ -3799,8 +3799,8 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
    <td style="text-align:right;"> 1.56 </td>
    <td style="text-align:right;"> 1.00 </td>
    <td style="text-align:left;"> GroupTreatment </td>
-   <td style="text-align:right;"> 1.54 </td>
-   <td style="text-align:right;"> 1.03 </td>
+   <td style="text-align:right;"> 1.55 </td>
+   <td style="text-align:right;"> 1.00 </td>
   </tr>
 </tbody>
 </table>
@@ -3841,10 +3841,10 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 ## 
 ## Population-Level Effects: 
 ##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept              100.36      0.40    99.59   101.14 1.00     5287     2795
-## sigma_Intercept          0.94      0.11     0.74     1.17 1.00     3649     2628
-## GroupTreatment           1.56      0.97    -0.35     3.56 1.00     2802     2663
-## sigma_GroupTreatment     0.87      0.15     0.57     1.16 1.00     3637     2913
+## Intercept              100.36      0.40    99.59   101.13 1.00     5504     2987
+## sigma_Intercept          0.93      0.11     0.72     1.17 1.00     3359     2430
+## GroupTreatment           1.55      1.00    -0.38     3.57 1.00     3006     2714
+## sigma_GroupTreatment     0.87      0.16     0.56     1.17 1.00     3605     2689
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -3871,28 +3871,28 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
    <td style="text-align:right;"> 100.36 </td>
    <td style="text-align:right;"> 0.40 </td>
    <td style="text-align:right;"> 99.59 </td>
-   <td style="text-align:right;"> 101.14 </td>
+   <td style="text-align:right;"> 101.13 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sigma_Intercept </td>
-   <td style="text-align:right;"> 2.57 </td>
+   <td style="text-align:right;"> 2.56 </td>
    <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> 2.09 </td>
-   <td style="text-align:right;"> 3.22 </td>
+   <td style="text-align:right;"> 2.06 </td>
+   <td style="text-align:right;"> 3.21 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> GroupTreatment </td>
-   <td style="text-align:right;"> 1.56 </td>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> -0.35 </td>
-   <td style="text-align:right;"> 3.56 </td>
+   <td style="text-align:right;"> 1.55 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> 3.57 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sigma_GroupTreatment </td>
    <td style="text-align:right;"> 2.41 </td>
-   <td style="text-align:right;"> 0.36 </td>
-   <td style="text-align:right;"> 1.77 </td>
-   <td style="text-align:right;"> 3.19 </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 1.76 </td>
+   <td style="text-align:right;"> 3.23 </td>
   </tr>
 </tbody>
 </table>
@@ -3928,14 +3928,14 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 ## 
 ## Population-Level Effects: 
 ##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept              100.52      0.21   100.11   100.94 1.00     6163     2908
-## sigma_Intercept          0.00      0.20    -0.39     0.38 1.00     4140     2977
-## GroupTreatment           1.01      0.42     0.23     1.83 1.00     3572     3080
-## sigma_GroupTreatment     0.67      0.26     0.14     1.16 1.00     3732     2923
+## Intercept              100.52      0.21   100.11   100.96 1.00     5221     2774
+## sigma_Intercept          0.00      0.20    -0.38     0.39 1.00     3936     3069
+## GroupTreatment           1.03      0.43     0.18     1.88 1.00     2918     2756
+## sigma_GroupTreatment     0.67      0.25     0.20     1.16 1.00     4031     2919
 ## 
 ## Family Specific Parameters: 
 ##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## nu     1.85      0.48     1.15     3.01 1.00     2762     2106
+## nu     1.87      0.48     1.15     3.00 1.00     2987     2011
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -4392,11 +4392,11 @@ font-style: italic;">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
 ## Group-Level Effects: 
 ## ~study (Number of levels: 16) 
 ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sd(Intercept)     0.10      0.04     0.04     0.19 1.00     1399     2178
+## sd(Intercept)     0.10      0.04     0.04     0.20 1.00     1256     1887
 ## 
 ## Population-Level Effects: 
 ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept     0.15      0.03     0.09     0.23 1.00     1890     2023
+## Intercept     0.15      0.04     0.08     0.22 1.00     1957     1884
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
@@ -4431,7 +4431,7 @@ font-style: italic;">## Hypothesis Tests for class b:</span></span>
 <span id="cb5-3"><span class="do" style="color: #5E5E5E;
 font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb5-4"><span class="do" style="color: #5E5E5E;
-font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.03     -0.1     0.01       0.09      0.09     </span></span>
+font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.04    -0.11     0.01       0.08      0.08     </span></span>
 <span id="cb5-5"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## ---</span></span>
 <span id="cb5-6"><span class="do" style="color: #5E5E5E;
@@ -5289,43 +5289,43 @@ R.”</span> March 15, 2016. <a href="https://sometimesir.com/posts/2016-03-15-g
 <tbody>
   <tr>
    <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 251.36 </td>
-   <td style="text-align:right;"> 7.37 </td>
-   <td style="text-align:right;"> 237.03 </td>
-   <td style="text-align:right;"> 266.18 </td>
-   <td style="text-align:right;"> 2493.41 </td>
+   <td style="text-align:right;"> 250.96 </td>
+   <td style="text-align:right;"> 7.64 </td>
+   <td style="text-align:right;"> 235.59 </td>
+   <td style="text-align:right;"> 265.13 </td>
+   <td style="text-align:right;"> 1558.74 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Days </td>
-   <td style="text-align:right;"> 10.45 </td>
-   <td style="text-align:right;"> 1.66 </td>
-   <td style="text-align:right;"> 7.13 </td>
-   <td style="text-align:right;"> 13.71 </td>
-   <td style="text-align:right;"> 1765.78 </td>
+   <td style="text-align:right;"> 10.46 </td>
+   <td style="text-align:right;"> 1.86 </td>
+   <td style="text-align:right;"> 7.07 </td>
+   <td style="text-align:right;"> 13.95 </td>
+   <td style="text-align:right;"> 1391.49 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd(Intercept) </td>
-   <td style="text-align:right;"> 27.04 </td>
-   <td style="text-align:right;"> 6.98 </td>
-   <td style="text-align:right;"> 15.42 </td>
-   <td style="text-align:right;"> 42.98 </td>
-   <td style="text-align:right;"> 2563.72 </td>
+   <td style="text-align:right;"> 26.82 </td>
+   <td style="text-align:right;"> 7.16 </td>
+   <td style="text-align:right;"> 15.29 </td>
+   <td style="text-align:right;"> 42.38 </td>
+   <td style="text-align:right;"> 1715.64 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd(Days) </td>
-   <td style="text-align:right;"> 6.56 </td>
-   <td style="text-align:right;"> 1.48 </td>
-   <td style="text-align:right;"> 4.16 </td>
-   <td style="text-align:right;"> 9.95 </td>
-   <td style="text-align:right;"> 2200.07 </td>
+   <td style="text-align:right;"> 6.61 </td>
+   <td style="text-align:right;"> 1.57 </td>
+   <td style="text-align:right;"> 4.19 </td>
+   <td style="text-align:right;"> 10.16 </td>
+   <td style="text-align:right;"> 1609.65 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> cor(Intercept,Days) </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> -0.45 </td>
-   <td style="text-align:right;"> 0.64 </td>
-   <td style="text-align:right;"> 1926.01 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> -0.46 </td>
+   <td style="text-align:right;"> 0.70 </td>
+   <td style="text-align:right;"> 1674.70 </td>
   </tr>
 </tbody>
 </table>

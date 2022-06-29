@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.584">
+<meta name="generator" content="quarto-0.9.629">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -381,7 +381,7 @@ div.csl-indent {
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.83      0.10     0.59     0.98 1.00     6511     7151</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.83      0.10     0.59     0.98 1.00     6331     6217</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -402,28 +402,28 @@ div.csl-indent {
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> 0.73 </td>
-   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.41 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 0.84 </td>
-   <td style="text-align:right;"> 0.81 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.89 </td>
-   <td style="text-align:right;"> 0.55 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.87 </td>
-   <td style="text-align:right;"> 0.74 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.90 </td>
    <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.88 </td>
   </tr>
 </tbody>
 </table>
@@ -443,7 +443,7 @@ div.csl-indent {
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h, <span class="at">digits =</span> <span class="dv">4</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (Intercept)-(0.5) = 0   0.3324    0.1028   0.0909   0.4753     0.1037     0.094    *</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (Intercept)-(0.5) = 0    0.335    0.1037   0.0892   0.4781     0.1119    0.1006    *</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
@@ -520,8 +520,8 @@ div.csl-indent {
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeno      0.60      0.01     0.59     0.61 1.00    18204    13969</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeyes     0.55      0.02     0.51     0.58 1.00    18227    14283</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeno      0.60      0.01     0.59     0.61 1.00    17582    12872</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## pledgeyes     0.55      0.02     0.51     0.58 1.00    19471    13744</span></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -533,7 +533,7 @@ div.csl-indent {
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>h1</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.01        0.5      0.33    *</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.55      0.36    *</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
@@ -543,7 +543,7 @@ div.csl-indent {
 <p>As noted in the paper, a difference value of 0 is about twice as well supported before seeing the data, i.e.&nbsp;the null hypothesis of no difference is twice less likely after seeing the data:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-18_ead8dac40605294695c217abdc41dba0">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> h1<span class="sc">$</span>hypothesis<span class="sc">$</span>Evid.Ratio <span class="co"># BF10</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.99857</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.808643</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The paper reports BF01 = 0.47, so we’re getting the same results (as we should.) You can also compare this figure to what’s reported in the paper.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_fe9d6c85bf18b295d23dd39713de79c2">
@@ -670,13 +670,13 @@ div.csl-indent {
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Group-Level Effects: </span></span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ~id (Number of levels: 74) </span></span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="do">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6352     7804</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(prime)         0.13      0.08     0.01     0.30 1.00     5336     7835</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6289     7595</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">## sd(prime)         0.12      0.08     0.01     0.30 1.00     5325     7048</span></span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="do">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.01      0.05    -0.09     0.11 1.00    14623    14182</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="do">## prime         0.15      0.07     0.01     0.29 1.00    14858    14612</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept     0.01      0.05    -0.09     0.11 1.00    15752    13860</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="do">## prime         0.15      0.07     0.01     0.29 1.00    14810    14424</span></span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -688,7 +688,7 @@ div.csl-indent {
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>h2</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (prime) = 0     0.15      0.07     0.01     0.29        0.3      0.23    *</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 (prime) = 0     0.15      0.07     0.01     0.29       0.31      0.23    *</span></span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
@@ -698,7 +698,7 @@ div.csl-indent {
 <p>Priming effect of zero log-odds is 4 times less likely after seeing the data:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-28_10dd8c444e34a93c2734fec2400567cd">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> h2<span class="sc">$</span>hypothesis<span class="sc">$</span>Evid.Ratio</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.325041</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.267158</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is best illustrated by plotting the densities:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-29_8bdb9fb111bdedf9ec600ab4a1bb4fc3">

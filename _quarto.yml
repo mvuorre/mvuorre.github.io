@@ -15,8 +15,13 @@ website:
   search:
     location: navbar
     type: textbox
-  twitter-card: true
-  opengraph: true
+  open-graph: 
+    image: favicon.png
+    image-alt: Sometimes I R
+  twitter-card: 
+    image: favicon.png
+    image-alt: Sometimes I R
+    creator: "@vuorre"
   page-navigation: true
   navbar:
     logo: favicon.png

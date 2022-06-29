@@ -5,7 +5,6 @@ date: 2022-06-15
 categories:
   - R
   - tips
-# image: "index_files/figure-html/fig1and2-1.png"
 ---
 
 R can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I'll show how to do that easily with [ntfy](https://ntfy.sh).

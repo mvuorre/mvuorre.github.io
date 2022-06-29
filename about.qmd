@@ -22,7 +22,7 @@ I'm [Matti Vuorre](https://vuorre.netlify.app), a psychological scientist at the
 
 ## Contact
 
-Questions? Comments? Feel free to [get in touch](contact.qmd). Need help with something? Book a [30-minute](https://book.stripe.com/3csfZ84rg2ee1sQeUU) or [1-hour one-on-one meeting with me](https://book.stripe.com/3csdR03nc6uugnK289).
+Questions? Comments? Feel free to [get in touch](contact.qmd). Need help with something? Book a [one-on-one meeting with me](https://book.stripe.com/aEU8wG5vkaKK5J6bIK).
 
 ## I like ☕️
 

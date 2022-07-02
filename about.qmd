@@ -13,7 +13,7 @@ about:
     - icon: github
       text: Github
       href: https://github.com/mvuorre
-
+comments: false
 ---
 
 ## Hi 👋

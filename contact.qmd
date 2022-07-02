@@ -1,5 +1,6 @@
 ---
 title: "Contact"
+comments: false
 ---
 
 I'm always happy to hear from folks and meet new people! Don't hesitate to get in touch via [email](mailto:matti.vuorre@oii.ox.ac.uk), [twitter](https://www.twitter.com/vuorre), [keybase](https://keybase.io/vuorre), or by using the form below.

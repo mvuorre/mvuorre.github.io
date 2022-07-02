@@ -10,6 +10,17 @@ website:
   description: "Notes on psychology and statistics, sometimes"
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [issue]
+  comments:
+    giscus:
+      repo: mvuorre/mvuorre.github.io
+      repo-id: R_kgDOHk4rRg
+      category: giscus
+      category-id: DIC_kwDOHk4rRs4CQAdF
+      mapping: pathname
+      reactions-enabled: true
+      input-position: top
+      theme: light
+      lang: en
   favicon: favicon.png
   image: favicon.png
   search:

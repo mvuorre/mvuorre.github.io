@@ -13,10 +13,8 @@
 <url>https://sometimesir.com/favicon.png</url>
 <title>Sometimes I R</title>
 <link>https://sometimesir.com/index.html</link>
-<height>167</height>
-<width>144</width>
 </image>
-<generator>quarto-0.9.629</generator>
+<generator>quarto-1.1.189</generator>
 <lastBuildDate>Tue, 28 Jun 2022 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Website favicons with hexSticker</title>
@@ -3570,7 +3568,7 @@ R with Ggplot2.”</span> January 4, 2017. <a href="https://sometimesir.com/post
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><p></p>
+<p></p><figcaption class="figure-caption">Histograms of the two groups’ IQ scores.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3609,7 +3607,7 @@ font-style: italic;">##                100.3571                101.9149</span></
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://sometimesir.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
-<p></p><p></p>
+<p></p><figcaption class="figure-caption">t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3652,17 +3650,16 @@ font-style: italic;">##                100.3571                101.9149</span></
 <h3 class="anchored" data-anchor-id="describing-the-models-underlying-the-t-tests">Describing the model(s) underlying the t-test(s)</h3>
 <p>We don’t often think of t-<em>tests</em> (and ANOVAs) as <em>models</em>, but it turns out that they are just linear models disguised as “tests” (see <a href="http://www.sbirc.ed.ac.uk/cyril/SPM-course/Talks/2013/1-GLM-CP.pdf">here</a>, <a href="https://lindeloev.github.io/tests-as-linear/">here</a>, and <a href="https://stats.stackexchange.com/questions/59047/how-are-regression-the-t-test-and-the-anova-all-versions-of-the-general-linear">here</a>). Recently, there has been a tremendous push for model/parameter estimation, instead of null hypothesis significance testing <span class="citation" data-cites="gigerenzerMindlessStatistics2004 cummingNewStatisticsWhy2014 kruschkeDoingBayesianData2014">(Gigerenzer 2004; Cumming 2014; Kruschke 2014)</span>, so we will benefit from thinking about t-tests as linear models. Doing so will facilitate seamlessly expanding our models to handle more complicated situations.</p>
 <p>The equal variances t-test models metric data with three parameters: Mean for group A, mean for group B, and one shared standard deviation (i.e.&nbsp;the assumption that the standard deviations are equal between the two groups.)</p>
-<p>We call the metric outcome variable (IQ scores in our example) <img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D">, where <img src="https://latex.codecogs.com/png.latex?i"> is a subscript indicating the <img src="https://latex.codecogs.com/png.latex?i%5E%7Bth%7D"> datum, and <img src="https://latex.codecogs.com/png.latex?k"> indicates the <img src="https://latex.codecogs.com/png.latex?k%5E%7Bth%7D"> group. So <img src="https://latex.codecogs.com/png.latex?y_%7B19,%201%7D"> would be the 19th datum, belonging to group 1. Then we specify that <img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D"> are normally distributed, <img src="https://latex.codecogs.com/png.latex?N(%5Cmu_%7Bik%7D,%20%5Csigma)">, where <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bik%7D"> indicates the mean of group <img src="https://latex.codecogs.com/png.latex?k">, and <img src="https://latex.codecogs.com/png.latex?%5Csigma"> the common standard deviation.</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bik%7D,%20%5Csigma%5E2)"></p>
-<p>Read the formula as “Y is normally distributed with mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bik%7D"> (mu), and standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma"> (sigma)”. Note that the standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma"> doesn’t have any subscripts: we assume it is the same for the groups.</p>
+<p>We call the metric outcome variable (IQ scores in our example) <img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D">, where <img src="https://latex.codecogs.com/png.latex?i"> is a subscript indicating the <img src="https://latex.codecogs.com/png.latex?i%5E%7Bth%7D"> datum, and <img src="https://latex.codecogs.com/png.latex?k"> indicates the <img src="https://latex.codecogs.com/png.latex?k%5E%7Bth%7D"> group. So <img src="https://latex.codecogs.com/png.latex?y_%7B19,%201%7D"> would be the 19th datum, belonging to group 1. Then we specify that <img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D"> are normally distributed, <img src="https://latex.codecogs.com/png.latex?N(%5Cmu_%7Bk%7D,%20%5Csigma)">, where <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D"> indicates the mean of group <img src="https://latex.codecogs.com/png.latex?k">, and <img src="https://latex.codecogs.com/png.latex?%5Csigma"> the common standard deviation.</p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bk%7D,%20%5Csigma%5E2)"></p>
+<p>Read the formula as “Y is normally distributed with mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D"> (mu), and standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma"> (sigma)”. Note that the standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma"> doesn’t have any subscripts: we assume it is the same for the groups.</p>
 <p>The means for groups 0 and 1 are simply <img src="https://latex.codecogs.com/png.latex?%5Cmu_0"> and <img src="https://latex.codecogs.com/png.latex?%5Cmu_1">, respectively, and their difference (let’s call it <img src="https://latex.codecogs.com/png.latex?d">) is <img src="https://latex.codecogs.com/png.latex?d%20=%20%5Cmu_0%20-%20%5Cmu_1">. The 95% CI for <img src="https://latex.codecogs.com/png.latex?d"> is given in the t-test output, and we can tell that it differs from the one given by Welch’s t-test.</p>
-<p>It is unsurprising, then, that if we use a different model (the <a href="https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html">more appropriate unequal variances model</a>), our inferences may be different. Welch’s t-test is the same as Student’s, except that now we assume (and subsequently estimate) a unique standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bik%7D"> for both groups.</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bik%7D,%20%5Csigma_%7Bik%7D%5E2)"></p>
+<p>It is unsurprising, then, that if we use a different model (the <a href="https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html">more appropriate unequal variances model</a>), our inferences may be different. Welch’s t-test is the same as Student’s, except that now we assume (and subsequently estimate) a unique standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bk%7D"> for both groups.</p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bk%7D,%20%5Csigma_%7Bk%7D%5E2)"></p>
 <p>This model makes a lot of sense, because rarely are we in a situation to <em>a priori</em> decide that the variance of scores in Group A is equal to the variance of scores in Group B. If you use the equal variances t-test, you should be prepared to justify and defend this assumption. (Deciding between models—such as between these two t-tests—is one way in which our prior information enters and influences data analysis.)</p>
 <p>Armed with this knowledge, we can now see that “conducting a t-test” can be understood as estimating one of these two models. By estimating the model, we obtain t-values, degrees of freedom, and consequently, <a href="http://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/">p-values</a>.</p>
 <p>However, for the models described here, it can be easier to think of the t-test as a specific type of the <strong>general linear model</strong>. We can re-write the t-test in an equivalent way, but instead have a specific parameter for the difference in means by writing it as a linear model. The equal variance model can be written as</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bik%7D,%20%5Csigma%5E2)"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bik%7D%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20Group_%7Bik%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bk%7D,%20%5Csigma%5E2)"> <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20Group_%7Bik%7D"></p>
 <p>Here, <img src="https://latex.codecogs.com/png.latex?%5Csigma"> is just as before, but we now model the mean with an intercept (control group’s mean, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_0">) and the effect of the treatment (<img src="https://latex.codecogs.com/png.latex?%5Cbeta_1">). With this model, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> directly tells us the estimated difference in the two groups. And because it is a parameter in the model, it has an associated standard error, t-value, degrees of freedom, and a p-value. The model can be estimated in R with the following line of code:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_18e542bb89dbd51bb24090b76bb1aede">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">olsmod <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">lm</span>(IQ <span class="sc" style="color: #5E5E5E;">~</span> Group, <span class="at" style="color: #657422;">data =</span> d)</span></code></pre></div>
@@ -3813,10 +3810,9 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <section id="unequal-variances-model" class="level3">
 <h3 class="anchored" data-anchor-id="unequal-variances-model">Unequal variances model</h3>
 <p>We only need a small adjustment to the equal variances model to specify the unequal variances model:</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bik%7D,%20%5Csigma_%7Bik%7D)"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bik%7D%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20Group_%7Bik%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bk%7D,%20%5Csigma_%7Bk%7D)"> <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20Group_%7Bik%7D"></p>
 <p>Notice that we now have subscripts for <img src="https://latex.codecogs.com/png.latex?%5Csigma">, denoting that it varies between groups. In fact, we’ll write out a linear model for the standard deviation parameter.</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bik%7D%20=%20%5Cgamma_0%20+%20%5Cgamma_1%20Group_%7Bik%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bk%7D%20=%20%5Cgamma_0%20+%20%5Cgamma_1%20Group_%7Bik%7D"></p>
 <p>The model now includes, instead of a common <img src="https://latex.codecogs.com/png.latex?%5Csigma">, one parameter for Group 0’s standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cgamma_0"> (gamma), and one for the effect of Group 1 on the standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cgamma_1">, such that group 1’s standard deviation is <img src="https://latex.codecogs.com/png.latex?%5Cgamma_0%20+%20%5Cgamma_1">. Therefore, we have 4 free parameters, two means and two standard deviations. (The full specification would include prior distributions for all the parameters, but that topic is outside of the scope of this post.) <code>brm()</code> takes more complicated models by wrapping them inside <code>bf()</code> (short for <code>brmsformula()</code>), which is subsequently entered as the first argument to <code>brm()</code>.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_43b399d45de91eceaa16b14fbb3dfc9b">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">uneq_var_frm <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">bf</span>(IQ <span class="sc" style="color: #5E5E5E;">~</span> Group, sigma <span class="sc" style="color: #5E5E5E;">~</span> Group)</span></code></pre></div>
@@ -3905,8 +3901,8 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <section id="robust-bayesian-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="robust-bayesian-estimation">Robust Bayesian Estimation</h2>
 <p>Kruschke’s robust model is a comparison of two groups, using five parameters: One mean for each group, one standard deviation for each group, just as in the unequal variances model above. The fifth parameter is a “normality” parameter, <img src="https://latex.codecogs.com/png.latex?%5Cnu"> (nu), which means that we are now using a t-distribution to model the data. Using a t-distribution to model the data, instead of a Gaussian, means that the model is less sensitive to extreme values. Here’s what the model looks like:</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20T(%5Cnu,%20%5Cmu_%7Bik%7D,%20%5Csigma_%7Bik%7D)"></p>
-<p>Read the above formula as “Y are random draws from a t-distribution with ‘normality’ parameter <img src="https://latex.codecogs.com/png.latex?%5Cnu">, mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bik%7D">, and standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bik%7D">”. We have linear models for the means and standard deviations, as above.</p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20T(%5Cnu,%20%5Cmu_%7Bk%7D,%20%5Csigma_%7Bk%7D)"></p>
+<p>Read the above formula as “Y are random draws from a t-distribution with ‘normality’ parameter <img src="https://latex.codecogs.com/png.latex?%5Cnu">, mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D">, and standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bk%7D">”. We have linear models for the means and standard deviations, as above.</p>
 <p>This model, as you can see, is almost identical to the unequal variances t-test, but instead uses a t distribution (we assume data are t-distributed), and includes the normality parameter. Using <code>brm()</code> we can still use the unequal variances model, but have to specify the t-distribution. We do this by specifying the <code>family</code> argument to be <code>student</code> (as in Student’s t)</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_500a9524a8e25806acf32563743df2c1">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">mod_robust <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">brm</span>(</span>
@@ -3980,6 +3976,7 @@ McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Co
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
   author = {Matti Vuorre},
+  editor = {},
   title = {How to {Compare} {Two} {Groups} with {Robust} {Bayesian}
     {Estimation} in {R}},
   date = {2017-01-02},

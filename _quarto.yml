@@ -20,14 +20,13 @@ website:
       reactions-enabled: true
       input-position: top
       theme: light
-      lang: en
   favicon: favicon.png
   image: favicon.png
   search:
     location: navbar
     type: textbox
   twitter-card: true
-  opengraph: true
+  open-graph: true
   page-navigation: true
   navbar:
     logo: favicon.png

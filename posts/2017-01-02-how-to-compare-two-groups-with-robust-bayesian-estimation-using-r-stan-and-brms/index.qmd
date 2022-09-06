@@ -153,17 +153,17 @@ We don't often think of t-*tests* (and ANOVAs) as *models*, but it turns out tha
 
 The equal variances t-test models metric data with three parameters: Mean for group A, mean for group B, and one shared standard deviation (i.e. the assumption that the standard deviations are equal between the two groups.) 
 
-We call the metric outcome variable (IQ scores in our example) $y_{ik}$, where $i$ is a subscript indicating the $i^{th}$ datum, and $k$ indicates the $k^{th}$ group. So $y_{19, 1}$ would be the 19th datum, belonging to group 1. Then we specify that $y_{ik}$ are normally distributed, $N(\mu_{ik}, \sigma)$, where $\mu_{ik}$ indicates the mean of group $k$, and $\sigma$ the common standard deviation.
+We call the metric outcome variable (IQ scores in our example) $y_{ik}$, where $i$ is a subscript indicating the $i^{th}$ datum, and $k$ indicates the $k^{th}$ group. So $y_{19, 1}$ would be the 19th datum, belonging to group 1. Then we specify that $y_{ik}$ are normally distributed, $N(\mu_{k}, \sigma)$, where $\mu_{k}$ indicates the mean of group $k$, and $\sigma$ the common standard deviation.
 
-$$y_{ik} \sim N(\mu_{ik}, \sigma^2)$$
+$$y_{ik} \sim N(\mu_{k}, \sigma^2)$$
 
-Read the formula as "Y is normally distributed with mean $\mu_{ik}$ (mu), and standard deviation $\sigma$ (sigma)". Note that the standard deviation $\sigma$ doesn't have any subscripts: we assume it is the same for the groups. 
+Read the formula as "Y is normally distributed with mean $\mu_{k}$ (mu), and standard deviation $\sigma$ (sigma)". Note that the standard deviation $\sigma$ doesn't have any subscripts: we assume it is the same for the groups. 
 
 The means for groups 0 and 1 are simply $\mu_0$ and $\mu_1$, respectively, and their difference (let's call it $d$) is $d = \mu_0 - \mu_1$. The 95% CI for $d$ is given in the t-test output, and we can tell that it differs from the one given by Welch's t-test.
 
-It is unsurprising, then, that if we use a different model (the [more appropriate unequal variances model](https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html)), our inferences may be different. Welch's t-test is the same as Student's, except that now we assume (and subsequently estimate) a unique standard deviation $\sigma_{ik}$ for both groups.
+It is unsurprising, then, that if we use a different model (the [more appropriate unequal variances model](https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html)), our inferences may be different. Welch's t-test is the same as Student's, except that now we assume (and subsequently estimate) a unique standard deviation $\sigma_{k}$ for both groups.
 
-$$y_{ik} \sim N(\mu_{ik}, \sigma_{ik}^2)$$
+$$y_{ik} \sim N(\mu_{k}, \sigma_{k}^2)$$
 
 This model makes a lot of sense, because rarely are we in a situation to *a priori* decide that the variance of scores in Group A is equal to the variance of scores in Group B. If you use the equal variances t-test, you should be prepared to justify and defend this assumption. (Deciding between models---such as between these two t-tests---is one way in which our prior information enters and influences data analysis.)
 
@@ -171,8 +171,8 @@ Armed with this knowledge, we can now see that "conducting a t-test" can be unde
 
 However, for the models described here, it can be easier to think of the t-test as a specific type of the **general linear model**. We can re-write the t-test in an equivalent way, but instead have a specific parameter for the difference in means by writing it as a linear model. The equal variance model can be written as
 
-$$y_{ik} \sim N(\mu_{ik}, \sigma^2)$$
-$$\mu_{ik} = \beta_0 + \beta_1 Group_{ik}$$
+$$y_{ik} \sim N(\mu_{k}, \sigma^2)$$
+$$\mu_{k} = \beta_0 + \beta_1 Group_{ik}$$
 
 Here, $\sigma$ is just as before, but we now model the mean with an intercept (control group's mean, $\beta_0$) and the effect of the treatment ($\beta_1$). With this model, $\beta_1$ directly tells us the estimated difference in the two groups. And because it is a parameter in the model, it has an associated standard error, t-value, degrees of freedom, and a p-value. The model can be estimated in R with the following line of code:
 
@@ -238,12 +238,12 @@ We now know the models behind t-tests, and how to estimate the equal variances t
 
 We only need a small adjustment to the equal variances model to specify the unequal variances model:
 
-$$y_{ik} \sim N(\mu_{ik}, \sigma_{ik})$$
-$$\mu_{ik} = \beta_0 + \beta_1 Group_{ik}$$
+$$y_{ik} \sim N(\mu_{k}, \sigma_{k})$$
+$$\mu_{k} = \beta_0 + \beta_1 Group_{ik}$$
 
 Notice that we now have subscripts for $\sigma$, denoting that it varies between groups. In fact, we'll write out a linear model for the standard deviation parameter.
 
-$$\sigma_{ik} = \gamma_0 + \gamma_1 Group_{ik}$$
+$$\sigma_{k} = \gamma_0 + \gamma_1 Group_{ik}$$
 
 The model now includes, instead of a common $\sigma$, one parameter for Group 0's standard deviation $\gamma_0$ (gamma), and one for the effect of Group 1 on the standard deviation $\gamma_1$, such that group 1's standard deviation is $\gamma_0 + \gamma_1$. Therefore, we have 4 free parameters, two means and two standard deviations. (The full specification would include prior distributions for all the parameters, but that topic is outside of the scope of this post.) `brm()` takes more complicated models by wrapping them inside `bf()` (short for `brmsformula()`), which is subsequently entered as the first argument to `brm()`.
 
@@ -286,9 +286,9 @@ Keep in mind that the parameters refer to Group 0's mean (Intercept) and SD (sig
 
 Kruschke's robust model is a comparison of two groups, using five parameters: One mean for each group, one standard deviation for each group, just as in the unequal variances model above. The fifth parameter is a "normality" parameter, $\nu$ (nu), which means that we are now using a t-distribution to model the data. Using a t-distribution to model the data, instead of a Gaussian, means that the model is less sensitive to extreme values. Here's what the model looks like:
 
-$$y_{ik} \sim T(\nu, \mu_{ik}, \sigma_{ik})$$
+$$y_{ik} \sim T(\nu, \mu_{k}, \sigma_{k})$$
 
-Read the above formula as "Y are random draws from a t-distribution with 'normality' parameter $\nu$, mean $\mu_{ik}$, and standard deviation $\sigma_{ik}$". We have linear models for the means and standard deviations, as above.
+Read the above formula as "Y are random draws from a t-distribution with 'normality' parameter $\nu$, mean $\mu_{k}$, and standard deviation $\sigma_{k}$". We have linear models for the means and standard deviations, as above.
 
 This model, as you can see, is almost identical to the unequal variances t-test, but instead uses a t distribution (we assume data are t-distributed), and includes the normality parameter. Using `brm()` we can still use the unequal variances model, but have to specify the t-distribution. We do this by specifying the `family` argument to be `student` (as in Student's t)
 

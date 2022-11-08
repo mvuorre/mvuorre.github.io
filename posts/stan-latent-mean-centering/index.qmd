@@ -1,0 +1,54 @@
+---
+title: Latent mean centering in Stan (and brms)
+description: Researchers studying longitudinal data routinely center their data to target specific research questions. The most common centering method separates observed variables into between- and within-person variances. This "centering within cluster" is beneficial and almost always preferred because it allows examining within-person processes that are completely separated from between-person dynamics [@endersCenteringPredictorVariables2007]. In this entry, I highlight common problems in how within-cluster centering is done, and show how to alleviate those problems with bayesian estimation via Stan and brms.
+date: 2023-01-01
+categories:
+  - R
+  - modelling
+  - bayes
+  - stan
+  - brms
+reference-location: margin
+execute-dir: file
+knitr:
+  opts_chunk: 
+    echo: false
+    message: false
+    warning: false
+image: ""
+draft: true
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+library(knitr)
+library(brms)
+library(kableExtra)
+library(posterior)
+library(tidyverse)
+options(
+  brms.backend = "rstan",
+  mc.cores = parallel::detectCores(logical = FALSE)
+  )
+k2 <- function(x) {
+  kable_classic_2(x, "striped", full_width = FALSE, html_font = "Arial")
+}
+```
+
+```{r}
+# Download and uncompress McNeish and Hamaker materials if not yet done
+if (!dir.exists("materials")) {
+  dir.create("materials", showWarnings = FALSE)
+  download.file(
+    "https://files.osf.io/v1/resources/wuprx/providers/osfstorage/5bfc839601593f0016774697/?zip=",
+    destfile = "materials/materials.zip"
+  )
+  unzip("materials/materials.zip", exdir = "materials")
+}
+```
+
+:::{.callout-important}
+!Work in progress! Don't believe anything here.
+:::
+

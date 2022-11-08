@@ -14,7 +14,7 @@ license: "CC BY"
 toc: true
 toc-title: Contents
 toc-depth: 2
-toc-location: right
+toc-location: left
 
 # Default knitr options
 execute:

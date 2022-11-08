@@ -6,6 +6,7 @@ listing:
   type: default
   categories: true
   feed: true
+  max-description-length: 200
 page-layout: full
 title-block-banner: false
 comments: false

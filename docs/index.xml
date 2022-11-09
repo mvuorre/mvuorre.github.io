@@ -156,6 +156,7 @@ June 29, 2022. <a href="https://sometimesir.com/posts/hexsticker-favicon">https:
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
   author = {Matti Vuorre},
+  editor = {},
   title = {Easy Notifications from {R}},
   date = {2022-06-15},
   url = {https://sometimesir.com/posts/easy-notifications-from-r},

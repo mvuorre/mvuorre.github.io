@@ -16,6 +16,9 @@ toc-title: Contents
 toc-depth: 2
 toc-location: left
 
+# Link sections
+anchor-sections: true
+
 # Default knitr options
 execute:
   echo: true

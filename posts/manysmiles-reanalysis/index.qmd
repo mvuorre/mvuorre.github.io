@@ -1,0 +1,1023 @@
+---
+title: "ManySmiles reanalysis"
+abstract: "Do people's facial expressions influence their own emotions? In the ManySmiles collaboration, ~50 researchers from 19 countries worked together to find out. In this pedagogical example, I reanalyse the ManySmiles dataset by estimating incrementally more plausible models to investigate their finding's robustness to various modelling choices. Overall, I suggest that large multilab projects, which presumably have some resources and human work hours to spare, should investigate the analytic robustness of their statistical analyses more carefully." 
+date: 2022-11-20
+categories:
+  - R
+  - modelling
+  - bayes
+  - stan
+  - brms
+reference-location: margin
+execute-dir: file
+knitr:
+  opts_chunk: 
+    message: false
+    warning: false
+    cache: true
+format:
+  html:
+    code-fold: true
+    code-summary: "Code"
+image: ""
+draft: true
+bibliography: references.bib
+---
+
+# Introduction
+
+According to the *Facial Feedback Hypothesis*, people's facial expressions influence how they feel. In a well-known study of this idea, subjects held a pen in their mouth so as to induce smiles without explicitly attempting to smile [@strackInhibitingFacilitatingConditions1988]. When participants held a pen in their mouths, they found cartoons funnier than when they did not have a pen in their mouths, thus suggesting that this "unintended smile" made people more joyous.
+
+Since then, people have found this idea both interesting and difficult to replicate. One registered report with 17 independent replications found an average treatment effect of pen-in-mouth on funniness ratings of 0.03 [-0.11, 0.16][^ci] units on a 10-point Likert item, versus the original study that reported an effect of 0.82 [@wagenmakersRegisteredReplicationReport2016].
+
+[^ci]: I report all estimates as frequentist point estimates and 95% confidence intervals or bayesian posterior means and 95% actual confidence intervals.
+
+To alleviate the resulting confusion, a new adversarial collaboration---a study conducted jointly by researchers who believe in the facial feedback hypothesis and people who don't---with researchers from 19 countries did some more replicating [@colesMultilabTestFacial2022]. 
+
+In this multi-lab study, participants rated their happiness across four dimensions---happiness, enjoyment, liking, and satisfaction---under different conditions. Using 1,504 participants' data[^1], the authors reported that 1. posing happy vs. neutral expressions led to higher happiness ratings, and 2. happy poses led to greater happiness ratings when participants mimicked or voluntarily changed their facial pose, but not when they had a pen stuck in their mouths. If True, the facial feedback hypothesis suggests that people's lives could be improved (made happier, at least) by having them do a brief happy pose every morning. (Hey, maybe that works? I don't know. [MRIS](https://en.wikipedia.org/wiki/Further_research_is_needed).) 
+
+[^1]: The initial sample size was 3,878, but most participants were excluded from this main analysis because they guessed what the study was about and thus might have trolled the researchers.
+
+Even though these replication experiments have dozens on people working on such consequential ideas, I find (on skimming the reports) it surprising that relatively little effort is spent on how the data are analysed. Since data from these modern efforts are openly available, my goal in this write-up is to examine whether the results in [@colesMultilabTestFacial2022] are robust to other, more plausible, modelling strategies. My complementary purpose for this entry is to illustrate some fundamentals of incremental model building in a tutorial-like fashion.
+
+```{r setup}
+#| message: false
+#| cache: false
+#| include: false
+library(emmeans)
+library(lmerTest)
+library(lme4)
+library(knitr)
+library(ggstance)
+library(bayestestR)
+library(patchwork)
+library(scales)
+library(ggthemes)
+library(ggdark)
+library(ggh4x)
+library(tidybayes)
+library(ggbeeswarm)
+library(kableExtra)
+library(broom.mixed)
+library(brms)
+library(tidyverse)
+options(
+  brms.backend = "cmdstanr"
+)
+theme_set(
+  theme_few(
+    base_family = "Comic Sans MS", 
+    base_size = 12
+  ) %>% 
+    dark_mode()
+)
+
+k2 <- function(x) {
+  x %>% 
+    kbl(digits = 2) %>% 
+    kable_classic_2(html_font = "Arial", lightable_options = "striped", full_width = FALSE)
+}
+```
+
+# Original analysis
+
+The multi-lab experiment included three manipulated variables in a fully crossed design: **Pose** (whether participants were supposed to pose a happy or a neutral expression); **Task** (participants either mimicked an expression, voluntarily performed the expression, or pen-in-mouthed the expression); and **Picture** (absence vs. presence of a positive picture). Pose was manipulated within-subjects with no repetitions, while Task and Picture were between-subject manipulations.
+
+After performing each pose, participants completed *"the Discrete Emotions Questionnaire’s four-item happiness subscale, which asked the participants to indicate the degree to which they experienced happiness, satisfaction, liking and enjoyment during the preceding task (1 = 'not at all' to 7 = 'an extreme amount')"* (p. 8) [see @harmon-jonesDiscreteEmotionsQuestionnaire2016].
+
+I started by making sure that I could exactly replicate the reported analyses. This is important because it's easy to jump into an analysis only to find out e.g. that you haven't been looking at the right dataset with the right exclusions, et cetera. I first downloaded the authors' R scripts and datasets from <https://osf.io/ac3t2/>. Against my modal experience with looking at open datasets, this one was easy to navigate and well enough documented. Kudos to whoever was in charge of that! I show these data in @tbl-data.
+
+```{r}
+#| label: tbl-data
+#| tbl-cap: Experimental conditions and sample data
+if (!dir.exists("_osf")) {
+  download.file(
+    "https://files.osf.io/v1/resources/ac3t2/providers/osfstorage/5fdcb348149e75052a02a4c0/?zip=", 
+    "tmp.zip"
+  )
+  unzip("tmp.zip", exdir = "_osf")
+  unzip("_osf/data.zip", exdir = "_osf")
+  unlink("tmp.zip")
+}
+
+dat <- readRDS("_osf/data/processed/DF.l.inc.rds") %>% 
+  select(ResponseId, lab, condition:sat) %>%
+  mutate(
+    pid = fct_anon(ResponseId, "p"),
+    task = fct_recode(
+      condition, Pen = "pentask", Mimic = "mimicry", Voluntary = "directd"
+    ),
+    pose = fct_recode(trial, Happy = "happy", Neutral = "neutr"),
+    image = fct_recode(image, Absent = "absentt", Present = "present"),
+    .keep = "unused", .before = 3
+  ) %>% 
+  arrange(task, pose, image, lab, pid)
+
+distinct(dat, task, pose, image, .keep_all = TRUE) %>% 
+  k2()
+```
+
+The manuscript reports various analyses with different assumptions and on different subsets of the data, but I focused on their stated primary analysis [@colesMultilabTestFacial2022, p. 3]:
+
+>|
+Participants reported higher levels of happiness in the presence than in the absence of positive images (Mdiff = 0.30; 95% confidence interval (CI), (0.12, 0.48)). Participants also reported more happiness after posing happy versus neutral expressions (*M*~diff~ = 0.31; 95% CI, (0.21, 0.40)). Contrary to our hypothesis, the Pose effect was not significantly larger in the presence than in the absence of positive stimuli (F(1, 29.50) = 1.33, P = 0.26). <br>
+Unexpectedly, there was an interaction between Pose and Facial Movement Task (F(2, 32.95) = 17.11, P < 0.001). The effect of Pose on self-reported happiness was the largest in the facial mimicry task (*M*~diff~ = 0.49; 95% CI, (0.36, 0.61)) and the voluntary facial action task (*M*~diff~ = 0.40; 95% CI, (0.23, 0.56)). There was moderate support for the null hypothesis in the pen-in-mouth condition (*M*~diff~ = 0.04; 95% CI, (−0.07, 0.15)).
+
+In other words, happy poses led to greater happiness ratings than did neutral poses in the mimicry and voluntary expression conditions, but not in the pen-in-mouth condition. (I removed lots of numbers from the quote for clarity.) Positive expressions (vs. neutral) increased happiness ratings when the expressions were produced voluntarily or via mimicry, but not when the expressions resulted from having a pen stuck in your mouth. I illustrate these effects in @fig-data.
+
+```{r}
+#| label: fig-data
+#| fig-cap: "Mean happiness ratings following Happy and Neutral poses. Each point represents one individual's ratings; points above the diagonal indicate greater ratings for happy poses. Points are jittered to show overlapping points on the discrete scales. Red points indicate the x-y means across participants."
+dat %>% 
+  select(lab:happiness) %>% 
+  pivot_wider(names_from = pose, values_from = happiness) %>% 
+  ggplot(aes(Neutral, Happy)) +
+  scale_x_continuous(
+    breaks = 1:7
+  ) +
+  scale_y_continuous(
+    breaks = 1:7
+  ) +
+  geom_abline(intercept = 0, slope = 1, linewidth = .25, color = "gray80") +
+  geom_point(
+    size = 0.75,
+    position = position_jitter(.1, .1),
+    col = "white"
+  ) +
+  stat_centroid(color = "red", size = 3) +
+  facet_grid(
+    image~task
+  ) +
+  theme(
+    aspect.ratio = 1
+  )
+```
+
+I then estimated the authors' model, using the same R package [@batesFittingLinearMixedEffects2015; @batesLme4LinearMixedEffects2022; @rcoreteamLanguageEnvironmentStatistical2021]. (I copy pasted the code but changed some variable names to help me understand what's going on.) I then verified that I got the same results (@tbl-authors). 
+
+```{r}
+#| label: tbl-authors
+#| tbl-cap: Key contrasts from original model
+# Use contrast coding throughout
+options(contrasts = c("contr.sum", "contr.poly"))
+# Save model to file to save time in future runs
+path <- "lmermodel.rds"
+if (!file.exists(path)) {
+  fit <- lmer(
+    happiness ~ pose * task * image +
+      (1 | lab) + (1 | pid) + 
+      (0 + pose | lab) +
+      (0 + task | lab)  +
+      (0 + image | lab) +
+      (0 + pose : image | lab) +
+      (0 + pose : task | lab)  + 
+      (0 + task : image | lab) + 
+      (0 + pose : task : image | lab),
+    data = dat
+  )
+  saveRDS(fit, path)
+} else {fit <- readRDS(path)}
+
+# Contrasts
+emm_orig <- emmeans(
+  fit,
+  pairwise ~ pose | task,
+  adjust = "none",
+  lmer.df = "asymptotic" # living on the edge
+)$contrasts %>% 
+  tidy(conf.int = TRUE) %>% 
+  select(task, contrast, estimate, conf.low, conf.high)
+
+# Table
+emm_orig %>%   
+  k2()
+```
+
+We see that happy poses led to ~0.4 units greater happiness ratings when the poses were done voluntarily or via facial mimicry. The difference was only 0.04 in the pen condition.
+
+The above analysis is standard operating procedure for these kinds of data. We have some ordinal outcomes across multiple items and multiple sources of variation (trials, multiple responses per participant, different labs, many countries, etc.). So we take the mean (or sometimes sum) of the item responses and specify a multilevel model assuming a normal response distribution. More formally:
+
+$$
+\begin{align*}
+y_i &\sim \text{Normal}(\mu_i, \sigma^2), \\
+\mu_i &= \alpha_{0} + \beta_{0\text{lab}[i]} + \gamma_{0\text{person}[i]} + \\
+&\quad (\alpha_{1} + \beta_{1\text{lab}[i]})\text{Pose}_i + \\
+&\quad (\alpha_{2} + \beta_{2\text{lab}[i]})\text{Task}_i + \\
+&\quad (\alpha_{3} + \beta_{3\text{lab}[i]})\text{Image}_i + \\
+&\quad (\alpha_{4} + \beta_{4\text{lab}[i]})\text{Pose}_i \times \text{Task}_i + \\
+&\quad (\alpha_{5} + \beta_{5\text{lab}[i]})\text{Pose}_i \times \text{Image}_i + \\
+&\quad (\alpha_{6} + \beta_{6\text{lab}[i]})\text{Task}_i \times \text{Image}_i + \\
+&\quad (\alpha_{7} + \beta_{7\text{lab}[i]})\text{Pose}_i \times \text{Task}_i \times \text{Image}_i,
+\end{align*}
+$$ {#eq-authors1}
+
+where $y_i$ is the happiness rating (mean of the four items) on row *i* of the data, Pose is happy (contrast codes; 1) or neutral (-1), Task is voluntary expression (1, 0), mimicry (0, 1), or pen-in-mouth (-1, -1), and Image is the presence (-1) or absence (1) of the happy image. 
+
+:::{.callout-tip collapse="true"}
+## Contrast coding details
+
+The authors used contrast coding, which is a way of coding categorical predictors such that all other effects are estimated at the average level with respect to the other predictors. This coding is detailed in @tbl-contrasts.
+
+```{r}
+#| label: tbl-contrasts
+#| tbl-cap: Contrast coding of predictor variables
+bind_cols(
+  distinct(dat, pose, task, image), 
+  model.matrix(~pose+task+image, data = distinct(dat, pose, task, image))[,-1]
+) %>% 
+  arrange(pose, task, image) %>% 
+  k2() %>%  
+  add_header_above(c("Data" = 3, "Contrast codes" = 4))
+```
+:::
+
+Importantly, the model contains parameters that themselves are modelled with joint prior distributions. The person-specific deviations in the intercepts are modelled as 
+
+$$
+\gamma_0 \sim \text{Normal}(0, \sigma_{\gamma_0}^2).
+$$ {#eq-authors2}
+
+That is, they are normally distributed with mean zero and standard deviation estimated from the data. In practice, their mean will then be $\alpha_0$, and the estimated $\sigma_{\gamma_0}$ determines their shrinkage toward the mean.
+
+More importantly, the model allowed all eight parameters to vary across labs. Those parameters (or rather the deviations from the population average) are multivariate normal distributed with means 0 and the variance-covariance matrix $\Sigma$. 
+
+$$
+\begin{align*}
+\pmb{\beta} &\sim \text{Normal}(\pmb{0}, \Sigma) \\
+\Sigma &= \textbf{SRS} \\
+\end{align*}
+$$ {#eq-authors3}
+
+For technical and inconsequential reasons we rather estimate the standard deviations **S** 
+
+$$
+\begin{align*}
+\pmb{S} &= 
+\begin{bmatrix} 
+\sigma_{\beta_0} &0 &0 &0 &0 &0 &0 &0 \\[1ex]
+0 &\sigma_{\beta_1} &0 &0 &0 &0 &0 &0 \\[1ex]
+0 &0 &\sigma_{\beta_2} &0 &0 &0 &0 &0 \\[1ex] 
+0 &0 &0 &\sigma_{\beta_3} &0 &0 &0 &0 \\[1ex] 
+0 &0 &0 &0 &\sigma_{\beta_4} &0 &0 &0 \\[1ex] 
+0 &0 &0 &0 &0 &\sigma_{\beta_5} &0 &0 \\[1ex] 
+0 &0 &0 &0 &0 &0 &\sigma_{\beta_6} &0 \\[1ex] 
+0 &0 &0 &0 &0 &0 &0 &\sigma_{\beta_7} 
+\end{bmatrix},
+\end{align*}
+$$ {#eq-authors4}
+
+and correlation matrix **R**. Now the verbose `lmer()` syntax above, where there were many separate statements for lab specific effects (`(1 | lab)`, `(0 + pose | lab)`, etc), indicated that all the correlations between the lab-specific parameters are set to zero:
+
+$$
+\pmb{R} = 
+\begin{bmatrix} 
+1 &0 &0 &0 &0 &0 &0 &0 \\[1ex]
+0 &1 &0 &0 &0 &0 &0 &0 \\[1ex]
+0 &0 &1 &0 &0 &0 &0 &0 \\[1ex]
+0 &0 &0 &1 &0 &0 &0 &0 \\[1ex]
+0 &0 &0 &0 &1 &0 &0 &0 \\[1ex]
+0 &0 &0 &0 &0 &1 &0 &0 \\[1ex]
+0 &0 &0 &0 &0 &0 &1 &0 \\[1ex]
+0 &0 &0 &0 &0 &0 &0 &1 \\
+\end{bmatrix},
+$$ {#eq-authors5}
+
+While this strategy can sometimes work pretty well and ignore some non-focal sources of variation, it doesn't capture many features of the original data very accurately. For example, it ignores an important feature of the data generating procedure---the individual item ratings considered and decided on by the participants. In this reanalysis, I walk through these features one by one, and estimate models that allow an incrementally more accurate representation of the data generating process I believe to underlie the observed data. At each step, we assess how robust our key conclusions are to these strategic decisions.
+
+# Reanalysis 1: Gaussian models
+
+In our first analyses, we will still assume that the outcome variables are normally distributed.
+
+## 1. Bayesian estimation
+
+When I estimated the model above I got several warning messages about "singularities". What are they? The following quote is from `?lme4::isSingular`:
+
+>While singular models are statistically well defined (it is theoretically sensible for the true maximum likelihood estimate to correspond to a singular fit), there are real concerns that (1) singular fits correspond to overfitted models that may have poor power; (2) chances of numerical problems and mis-convergence are higher for singular models (e.g. it may be computationally difficult to compute profile confidence intervals for such models); (3) standard inferential procedures such as Wald statistics and likelihood ratio tests may be inappropriate.
+There is not yet consensus about how to deal with singularity, or more generally to choose which random-effects specification (from a range of choices of varying complexity) to use. Some proposals include: [...] use a fully Bayesian method that both regularizes the model via informative priors and gives estimates and credible intervals for all parameters that average over the uncertainty in the random effects parameters (Gelman and Hill 2006, McElreath 2015; MCMCglmm, rstanarm and brms packages)
+
+That is, multilevel models can be difficult for maximum likelihood estimation. I suspect that the empty correlation matrix **R** above was used to avoid more severe problems in estimating the model. Those happen to me all the time when I try to use `lmer()` with more complicated models. However! We know that bayesian estimation avoids these problems and can therefore lead to more accurate and complete estimates. In addition, bayesian estimation makes more sense than frequentist estimation (Jaynes, lindley). Our first incremental model revision, then, is to estimate the same model, but with a full correlation matrix **R**, using bayesian techniques.
+
+That is, we implement the above equations, but this time with **R** that looks like this monster[^mo]
+
+[^mo]: I just had to write it out and am confident there's at least two typos!
+
+$$
+\mathbf{R} = 
+\begin{bmatrix} 
+1 &\rho_{\beta_0\beta_1} &\rho_{\beta_0\beta_2} &\rho_{\beta_0\beta_3} &\rho_{\beta_0\beta_4} &\rho_{\beta_0\beta_5} &\rho_{\beta_0\beta_6} &\rho_{\beta_0\beta_7} \\[1ex]
+\rho_{\beta_0\beta_1} &1 &\rho_{\beta_1\beta_2} &\rho_{\beta_1\beta_3} &\rho_{\beta_1\beta_4} &\rho_{\beta_1\beta_5} &\rho_{\beta_1\beta_6} &\rho_{\beta_1\beta_7} \\[1ex]
+\rho_{\beta_0\beta_2} &\rho_{\beta_1\beta_2} &1 &\rho_{\beta_2\beta_3} &\rho_{\beta_2\beta_4} &\rho_{\beta_2\beta_5} &\rho_{\beta_2\beta_6} &\rho_{\beta_2\beta_7} \\[1ex]
+\rho_{\beta_0\beta_3} &\rho_{\beta_1\beta_3} &\rho_{\beta_2\beta_3} &1 &\rho_{\beta_3\beta_4} &\rho_{\beta_3\beta_5} &\rho_{\beta_3\beta_6} &\rho_{\beta_3\beta_7} \\[1ex]
+\rho_{\beta_0\beta_4} &\rho_{\beta_1\beta_4} &\rho_{\beta_2\beta_4} &\rho_{\beta_3\beta_4} &1 &\rho_{\beta_4\beta_5} &\rho_{\beta_4\beta_6} &\rho_{\beta_4\beta_7} \\[1ex]
+\rho_{\beta_0\beta_5} &\rho_{\beta_1\beta_5} &\rho_{\beta_2\beta_5} &\rho_{\beta_3\beta_5} &\rho_{\beta_4\beta_5} &1 &\rho_{\beta_5\beta_6} &\rho_{\beta_5\beta_7} \\[1ex]
+\rho_{\beta_0\beta_6} &\rho_{\beta_1\beta_6} &\rho_{\beta_2\beta_6} &\rho_{\beta_3\beta_6} &\rho_{\beta_4\beta_6} &\rho_{\beta_5\beta_6} &1 &\rho_{\beta_6\beta_7} \\[1ex]
+\rho_{\beta_0\beta_7} &\rho_{\beta_1\beta_7} &\rho_{\beta_2\beta_7} &\rho_{\beta_3\beta_7} &\rho_{\beta_4\beta_7} &\rho_{\beta_5\beta_7} &\rho_{\beta_6\beta_7} &1 \\
+\end{bmatrix}
+$$
+
+Implementing the bayesian model is very easy with the R package brms [@burknerAdvancedBayesianMultilevel2018; @burknerBrmsPackageBayesian2017; @standevelopmentteamStanModelingLanguage2021]. We use the extended lme4-like syntax offered by brms to specify the model
+
+```{r model-gaussian}
+#| echo: true
+model_gaussian <- bf(
+  happiness ~ pose * task * image +
+    (pose * task * image |l| lab) + 
+    (1 | pid)
+) +
+  gaussian()
+```
+
+The above code is nearly identical to the `lmer()` code used above, but we didn't have to split the lab-specific effects into multiple calls. Putting them into the same parentheses means they will share a full covariance matrix. I will expain the `|l|` syntax later, for now think of it simply as `|`. In addition to full lab-specific effects, we also allowed the intercepts to vary by `pid` (person identifier). And finally we specified that we want to use a gaussian outcome distribution by adding `guassian()` to the model formula.
+
+To complete the model, we specify vaguely informative prior distributions. I am not setting a prior on the global intercept because I don't have a good sense at all where it might be and am not particularly worried about this. As a result, the software we use will set a noninformative prior on it that just nudges the algorithms go brrr even better.
+
+$$
+\begin{align}
+\pmb{\alpha} &\sim \text{Normal}(0, 1), \\
+\sigma_{\beta_0} &\sim \text{t}^+(7, 0, 1), \\
+\pmb{\sigma}_{\beta_{1-7}} &\sim \text{t}^+(7, 0, 0.5), \\
+\sigma_{\gamma_0} &\sim \text{t}^+(7, 0, 2), \\
+\sigma &\sim \text{t}^+(7, 0, 2), \\
+\textbf{R} &\sim \text{LKJ}(4),
+\end{align}
+$$
+where $\text{t}^+$ is the positive student's t distribution (I indicate 7 "degrees of freedom" for each), and LKJ is a prior distribution on the correlation matrices that slightly regulates them toward zero. Here is some syntax to define the prior distributions and save them to a variable `priors`.
+
+```{r prior-gaussian}
+#| echo: true
+priors <- prior(normal(0, 1), class = b) +
+  prior(student_t(7, 0, 0.5), class = sd, group = lab) +
+  prior(student_t(7, 0, 1), class = sd, coef = Intercept, group = lab) +
+  prior(student_t(7, 0, 2), class = sd, coef = Intercept, group = pid) +
+  prior(student_t(7, 0, 2), class = sigma) +
+  prior(lkj_corr_cholesky(4), class = L)
+```
+
+Now we put all these pieces together in one call to `brm()`. I define a variable for the number of iterations to use in estimating the model, because I will use this number repeatedly below. I also adjust the sampling algorithms, of which you can read more about [here](https://mc-stan.org/users/documentation/).
+
+```{r fit-gaussian}
+#| echo: true
+ITER <- 3000
+fit_gaussian <- brm(
+  model_gaussian,
+  data = dat,
+  prior = priors,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),  # ask me :)
+  file = "brm-fit_gaussian"
+)
+```
+
+This model already has an enormous amount of parameters, so I refrain from printing `summary(fit_gaussian)` here. Instead, I will just display the model's population-level effects
+
+```{r summary-gaussian}
+describe_posterior(
+  fit_gaussian, 
+  centrality = "mean", 
+  test = "pd", 
+  effects = "fixed"
+) %>% 
+  tibble() %>% 
+  select(-CI, -Rhat, -ESS) %>% 
+  kbl(digits = 2) %>% 
+  kable_classic_2(html_font = "Source Sans Pro", lightable_options = "striped")
+```
+
+With complicated models like this, it can be very difficult to understand the results by just looking at the estimated parameters. In this reanalysis, I am primarily focusing on the pairwise comparisons of happy versus neutral poses in the three different tasks. 
+
+Because we will be doing this many times, I write a quick function to collect posterior samples of the key contrasts, and then visualize those
+
+```{r}
+#| include: true
+posterior_contrasts <- function(model, dpar = "mu") {
+  emm <- emmeans(
+    model,
+    pairwise ~ pose | task,
+    adjust = "none",
+    dpar = dpar
+  )
+  gather_emmeans_draws(emm$contrasts) %>% 
+    ungroup()
+}
+```
+
+I then draw a figure of the posterior densities next to the frequentist point estimates and confidence intervals. I did not expect any differences here, as the only reason for differences in the population-level estimates would have been if the maximum likelihood had truly failed, which it didn't.
+
+```{r}
+p1 <- posterior_contrasts(fit_gaussian) %>% 
+  ggplot(aes(.value, task)) +
+  scale_shape_manual(values = c(21, 19)) +
+  scale_fill_brewer(na.translate = FALSE) +
+  scale_x_continuous(
+    "Estimated contrast (Happy - Neutral)",
+    breaks = extended_breaks()
+  ) +
+  stat_halfeye(
+    aes(shape = stat(sign(xmin) == sign(xmax))),
+    position = position_dodge(.7), 
+    normalize = "xy", 
+    height = .5,
+    point_interval = "mean_qi",
+    fatten_point = 2.5,
+    point_fill = "white",
+    slab_fill = "dodgerblue1",
+    # interval_size_domain = c(0.5, 1),
+    interval_size_range = c(0.7, 1.1),
+    slab_alpha = .7,
+    adjust = 1.5,
+    .width = c(.8, .95)
+  ) +
+  geom_pointrangeh(
+    data = emm_orig,
+    aes(x = estimate, xmin = conf.low, xmax = conf.high),
+    position = position_nudge(y = -.1)
+  ) +
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "none"
+  )
+p1
+```
+
+That's it, we've replicated the analysis but switched to a more robust statistical and computational framework.
+
+:::{.callout-note}
+## Verdict: Bayesian estimation
+Switching to bayesian estimation and including a full correlation matrix for the lab-specific effects did not result in meaningfully large differences in the key pairwise contrasts, as expected. However, we were able to estimate the full model without problems and therefore found bayesian estimation via `brm()` superior to maximum likelihood frequentist estimation via `lmer()`. 
+:::
+
+## 2. Constant variance
+
+The original model assumed a constant level of residual noise for the observations:
+
+$$
+y_i \sim \text{Normal}(\mu_i, \sigma^2), \\
+$$
+where the mean of the distribution is potentially varying over the $i$ observations, but $\sigma$ is assumed constant. But just as with means, the experimental conditions, labs that participated in the study, or individual participants can have different residual variances. If these differences are not allowed for, or examined, investigators can end up missing important differences, and finding mean differences with inflated confidence (Welch). In the next model iteration, I relax the assumption of constant variances, but instead model different residuals for each experimental condition and for each experimental condition in each lab.
+
+That is, I modify the previous model to also model $\sigma$ on the same predictors:
+
+$$
+\begin{align*}
+y_i &\sim \text{Normal}(\mu_i, \sigma^2), \\
+\mu_i &= \alpha^{\mu}_{0} + \beta^{\mu}_{0\text{lab}[i]} + \gamma^{\mu}_{0\text{person}[i]} + \\
+&\quad (\alpha^{\mu}_{1} + \beta^{\mu}_{1\text{lab}[i]})\text{Pose}_i + \\
+&\quad (\alpha^{\mu}_{2} + \beta^{\mu}_{2\text{lab}[i]})\text{Task}_i + \\
+&\quad (\alpha^{\mu}_{3} + \beta^{\mu}_{3\text{lab}[i]})\text{Image}_i + \\
+&\quad (\alpha^{\mu}_{4} + \beta^{\mu}_{4\text{lab}[i]})\text{Pose}_i \times \text{Task}_i + \\
+&\quad (\alpha^{\mu}_{5} + \beta^{\mu}_{5\text{lab}[i]})\text{Pose}_i \times \text{Image}_i + \\
+&\quad (\alpha^{\mu}_{6} + \beta^{\mu}_{6\text{lab}[i]})\text{Task}_i \times \text{Image}_i + \\
+&\quad (\alpha^{\mu}_{7} + \beta^{\mu}_{7\text{lab}[i]})\text{Pose}_i \times \text{Task}_i \times \text{Image}_i, \\
+\text{log}(\sigma_i) &= \alpha^{\sigma}_{0} + \beta^{\sigma}_{0\text{lab}[i]} + \gamma^{\sigma}_{0\text{person}[i]} + \\
+&\quad (\alpha^{\sigma}_{1} + \beta^{\sigma}_{1\text{lab}[i]})\text{Pose}_i + \\
+&\quad (\alpha^{\sigma}_{2} + \beta^{\sigma}_{2\text{lab}[i]})\text{Task}_i + \\
+&\quad (\alpha^{\sigma}_{3} + \beta^{\sigma}_{3\text{lab}[i]})\text{Image}_i + \\
+&\quad (\alpha^{\sigma}_{4} + \beta^{\sigma}_{4\text{lab}[i]})\text{Pose}_i \times \text{Task}_i + \\
+&\quad (\alpha^{\sigma}_{5} + \beta^{\sigma}_{5\text{lab}[i]})\text{Pose}_i \times \text{Image}_i + \\
+&\quad (\alpha^{\sigma}_{6} + \beta^{\sigma}_{6\text{lab}[i]})\text{Task}_i \times \text{Image}_i + \\
+&\quad (\alpha^{\sigma}_{7} + \beta^{\sigma}_{7\text{lab}[i]})\text{Pose}_i \times \text{Task}_i \times \text{Image}_i.
+\end{align*}
+$$
+
+Here, I refrain from writing out the corresponding **S** and **R**, because my fingers and our eyes might fall off. Note here that because we want to construct a linear model of the standard deviation, which must be positive, we model it through the log-link function. brms does this automatically, but we have to keep it in mind in case we make the mistake of looking at the raw parameter estimates!
+
+To do this, we add another linear formula to the previous model using `... + lf()` (for **l**inear **f**unction). But instead of specifying the variable we are modelling as above, we model `sigma` like this:
+
+```{r}
+#| include: true
+model_gaussian_sigma <- model_gaussian + 
+  lf(
+    sigma ~ pose * task * image +
+    (pose * task * image |l| lab)
+  )
+```
+
+In addition, we now see the `|l|` syntax appear again in the lab-varying effects specification. This means that all lab-varying effects share the same variance-covariance matrix. (The letter or text between the bars is arbitrary, and I chose "l" short for "lab".) That is, now for example the lab-specific intercepts for the mean parameter and standard deviation parameters are allowed to correlate with each other. 
+
+In practice, this means that the shrinkage---the pulling of lab-specific parameters towards their means---happens in more dimensions, and the increased information pooling is theoretically making them on aggregate more predictive of the actual underlying parameters (Gelman, Mcelreath, ).
+
+Importantly, I repeat that the linear predictor for sigma---the combination of the predictors---is passed through a log-link function in order to ensure that the actual predicted quantity, the standard deviation, is positive. We return to this point when interpreting the parameter estimates. 
+
+We again complete the model by specifying weakly informative prior distributions on the sigma predictors and (co)variances across labs. These numbers might appear small, but recall that they are on the log scale.
+
+```{r}
+#| include: true
+# Add more priors, take out prior for global sigma which doesn't exist anymore
+priors <- priors[-5,] +
+  prior(normal(0, 0.5), class = b, dpar = sigma) +
+  prior(student_t(7, 0, 0.25), class = sd, group = lab, dpar = sigma) +
+  prior(lkj(4), class = L, group = lab, dpar = sigma)
+```
+
+We fit the model with the same code as above, but use the updated model and priors.
+
+```{r}
+#| include: true
+fit_gaussian_sigma <- brm(
+  model_gaussian_sigma,
+  data = dat,
+  prior = priors,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_gaussian_sigma"
+)
+```
+
+We then examine whether including this structure of varying residual standard deviances has improved the model's predictive performance. I do this with leave-one-out cross-validation (LOO), which estimates the models out of sample predictive accuracy (Vehtari). The model that did not assume a constant residual variance had a higher ELPD (expected log predictive density), which indicates better estimated prediction accuracy for that model. The difference is quite large, and suggests to us that we have improved our model. 
+
+```{r}
+fit_gaussian <- add_criterion(fit_gaussian, c("loo", "waic"))
+fit_gaussian_sigma <- add_criterion(fit_gaussian_sigma, c("loo", "waic"))
+loo_compare(fit_gaussian, fit_gaussian_sigma, criterion = "loo")
+```
+
+
+
+```{r}
+(plot(conditional_effects(
+  fit_gaussian_sigma,
+  "task:pose"
+), plot = FALSE)[[1]] |
+  plot(conditional_effects(
+    fit_gaussian_sigma,
+    "task:pose", 
+    dpar = "sigma", 
+  ), plot = FALSE)[[1]]) +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "bottom")
+```
+
+
+```{r}
+post_mu <- bind_rows(
+  "Gaussian" = posterior_contrasts(fit_gaussian),
+  "Gaussian (sigma)" = posterior_contrasts(fit_gaussian_sigma), 
+  .id = "Model"
+)
+post_sigma <- bind_rows(
+  "Gaussian" = as_draws_df(fit_gaussian, variable = "sigma") %>% 
+    rename(.value = "sigma") %>% 
+    crossing(distinct(post_mu, contrast, task)),
+  "Gaussian (sigma)" = posterior_contrasts(fit_gaussian_sigma, "sigma"), 
+  .id = "Model"
+)
+bind_rows(
+  "mu" = post_mu, "sigma" = post_sigma, .id = "Parameter"
+) %>% 
+  ggplot(aes(.value, task, fill = Model)) +
+  scale_shape_manual(values = c(21, 19)) +
+  scale_fill_brewer(palette = "Set1") +
+  scale_x_continuous(
+    "Estimated contrast (Happy - Neutral)",
+    breaks = extended_breaks()
+  ) +
+  stat_halfeye(
+    aes(shape = stat(sign(xmin) == sign(xmax))),
+    position = position_dodge(.5), 
+    normalize = "xy", 
+    height = .45,
+    point_interval = "mean_qi",
+    fatten_point = 2.5,
+    point_fill = "white",
+    # interval_size_domain = c(0.5, 1),
+    interval_size_range = c(0.7, 1.1),
+    slab_alpha = .7,
+    adjust = 1.5,
+    .width = c(.8, .95)
+  ) +
+  geom_pointrangeh(
+    data = emm_orig %>% mutate(Parameter = "mu"),
+    aes(x = estimate, xmin = conf.low, xmax = conf.high),
+    fill = NA,
+    position = position_nudge(y = -.2)
+  ) +
+  geom_point(
+    data = distinct(emm_orig, task, contrast) %>% 
+      mutate(Parameter = "sigma", sigma = sigma(fit)),
+    aes(x = sigma), fill = NA,
+    position = position_nudge(y = -.2)
+  ) +
+  guides(shape = "none") +
+  facet_wrap("Parameter") +
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "bottom"
+  )
+```
+
+:::{.callout-note}
+## Verdict: Modelling sigma
+Allowing different residual deviations for the experimental conditions and labs did not change the focal mean differences in a meaningful manner. It did, however, lead to a large improvement in the model's estimated predictive accuracy.
+:::
+
+## 3. Varying items
+
+So far, we've modelled the same aggregated happiness subscale means as the original analysis. However, an implicit step of that analysis is the aggregation of the four responses into a single mean. In structural equation modelling world, which I have seen a glimpse of in a fever dream, that is equivalent to assuming that all the four items load equally to a latent "happiness" variable. While practically useful, this can be a somewhat suspicious assumption. In my neck of the woods, we might address this assumption by allowing for some or all of the model variables to vary between the four items. Then, we will not only be modelling the mean "happiness", by virtue of the item-varying effects' mean parameter, but also item-specific effects. We can then examine the latter directly, and their heterogeneity via the item-varying effects standard deviation.
+
+First, to model the four outcomes together while allowing for differences between them, we must pivot the data into a "long format" with respect to the items:
+
+```{r}
+#| label: data-pivot
+#| tbl-cap: Data in long format with regard to "item"
+d <- dat %>% 
+  pivot_longer(
+    c(enj, hap, lke, sat), 
+    names_to = "item", 
+    values_to = "response"
+  ) %>% 
+  select(-happiness)
+head(d) %>% 
+  kbl() %>% 
+  kable_classic_2(html_font = "Source Sans Pro", lightable_options = "striped")
+```
+
+As a consequence, we now have a new outcome variable `response`, and a predictor variable called `item`. What we can then do is rewrite our model to include item-specific deviations from the average parameters. In essence, this reformulation will include a lot more information in the model by virtue of modelling the individual responses. It will also respect the hypothetical data generating mechanism---the thought process and mechanics that go into giving an individual rating response---better and thus might ultimately be a more informative model with respect to psychological theory. We write this model as
+
+$$
+\begin{align*}
+y_i &\sim \text{Normal}(\mu_i, \sigma^2), \\
+\mu_i &= \alpha_{0} + \beta_{0\text{lab}[i]} + \delta_{0\text{item}[i]} + \gamma_{0\text{person}[i]} + \\
+&\quad (\alpha_{1} + \beta_{1\text{lab}[i]} + \delta_{1\text{item}[i]})\text{Pose}_i + \\
+&\quad (\alpha_{2} + \beta_{2\text{lab}[i]} + \delta_{2\text{item}[i]})\text{Task}_i + \\
+&\quad (\alpha_{3} + \beta_{3\text{lab}[i]} + \delta_{3\text{item}[i]})\text{Image}_i + \\
+&\quad (\alpha_{4} + \beta_{4\text{lab}[i]} + \delta_{4\text{item}[i]})\text{Pose}_i \times \text{Task}_i + \\
+&\quad (\alpha_{5} + \beta_{5\text{lab}[i]} + \delta_{5\text{item}[i]})\text{Pose}_i \times \text{Image}_i + \\
+&\quad (\alpha_{6} + \beta_{6\text{lab}[i]} + \delta_{6\text{item}[i]})\text{Task}_i \times \text{Image}_i + \\
+&\quad (\alpha_{7} + \beta_{7\text{lab}[i]} + \delta_{7\text{item}[i]})\text{Pose}_i \times \text{Task}_i \times \text{Image}_i, \\
+\gamma_0 &\sim \text{Normal}(0, \sigma_{\gamma_0}^2), \\
+\pmb{\beta} &\sim \text{Normal}(\pmb{0}, \Sigma^{\text{lab}}) \\
+\pmb{\delta} &\sim \text{Normal}(\pmb{0}, \Sigma^{\text{item}}) \\
+\Sigma^{\text{lab}} &= \textbf{S}^{\text{lab}}\textbf{R}^{\text{lab}}\textbf{S}^{\text{lab}} \\
+\Sigma^{\text{item}} &= \textbf{S}^{\text{item}}\textbf{R}^{\text{item}}\textbf{S}^{\text{item}} \\
+\end{align*}
+$$
+
+where $y_i$ is now the item response on row *i* of the data, and we have two variance-covariance matrices, one for labs and one for items.[^dl]
+
+[^dl]: Dear lord there must be a better way for writing this out.
+
+We then translate this into code with a call very similar to above:
+
+```{r}
+#| include: true
+# Model specification
+model_gaussian_item <- bf(
+  response ~ pose * task * image +
+    (pose * task * image |l| lab) + 
+    (pose * task * image |i| item) + 
+    (1 | pid)
+) +
+  gaussian()
+
+# Estimation
+fit_gaussian_item <- brm(
+  model_gaussian_item,
+  data = d,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_gaussian_item"
+)
+```
+
+Before looking at the model in more detail, let us first simply compare its population-level parameters (those that indicate effects for "the average item and average lab") to those of previous models:
+
+```{r}
+#| cache: true
+
+out <- tibble(
+  fit = list(
+    fit_gaussian, 
+    fit_gaussian_sigma, 
+    fit_gaussian_item
+    ),
+  model = c(
+    "Gaussian", "Gaussian (sigma)", "Gaussian (item)"
+  )
+) %>% 
+  mutate(model = fct_inorder(model)) %>% 
+  mutate(
+    contrasts = map(fit, posterior_contrasts)
+  )
+
+pds <- out %>% 
+  mutate(
+    pd = map(
+      contrasts,
+      ~group_by(.x, contrast, task) %>% 
+        group_modify(~describe_posterior(.$.value, test = "pd"))
+    )
+  ) %>% 
+  select(model, pd) %>% 
+  unnest(pd)
+
+out %>% 
+  select(-fit) %>% 
+  unnest(contrasts) %>% 
+  ggplot(aes(.value, task, fill = model)) +
+  scale_shape_manual(values = c(21, 19)) +
+  scale_fill_brewer(palette = "Set1") +
+  scale_x_continuous(
+    "Estimated contrast (Happy - Neutral)",
+    breaks = extended_breaks()
+  ) +
+  coord_cartesian(xlim = c(-1, 2)) +
+  stat_halfeye(
+    aes(shape = stat(sign(xmin) == sign(xmax))),
+    position = position_dodge(.7), 
+    normalize = "xy", 
+    height = .5,
+    point_interval = "mean_qi",
+    fatten_point = 3,
+    point_fill = "white",
+    interval_size_range = c(.35, .7),
+    slab_alpha = .75,
+    adjust = 1.5,
+    .width = c(.8, .95)
+  ) +
+  geom_text(
+    data = pds,
+    aes(label = percent(pd, .1), x = CI_high),
+    position = position_dodge(.7),
+    vjust = 1.2
+  ) +
+  guides(shape = "none") +
+  theme(
+    legend.position = "bottom",
+    axis.title.y = element_blank()
+  )
+```
+
+Although we observe similar posterior means across the models, our latest model's parameters are quite a bit more uncertain. Below and to the right of each posterior density, I display the parameter's posterior probability of direction. Although the differences between models are not great, we see that as we've built our models, those have tended to decrease. This is a result of including more sources of uncertainty in the model. However, because we can now investigate the items and the heterogeneity in effects therein, we should look at them to see whether the mean is a representative estimate.
+
+```{r}
+emm <- emmeans(
+  fit_gaussian_item,
+  pairwise ~ pose | task,
+  adjust = "none"
+)
+h <- c(
+  Voluntary = "pose1*2 + pose1:task1*2 + pose1:task2*0 = 0",
+  Mimic = "pose1*2 + pose1:task1*0 + pose1:task2*2 = 0",
+  Pen = "pose1*2 + pose1:task1*-2 + pose1:task2*-2 = 0"
+)
+out <- hypothesis(fit_gaussian_item, h, scope = "coef", group = "item")
+names(out$samples) <- interaction(out$hypothesis$Group, out$hypothesis$Hypothesis)
+out <- out$samples %>% 
+  rownames_to_column("draw") %>% 
+  pivot_longer(-draw) %>% 
+  separate(name, c("item", "task")) %>% 
+  mutate(task = fct_inorder(task))
+out %>% 
+  ggplot(aes(value, task, fill = item)) +
+  scale_shape_manual(values = c(21, 19)) +
+  scale_fill_brewer(palette = "Dark2") +
+  coord_cartesian(xlim = c(-1, 2)) +
+  scale_x_continuous(
+    "Estimated contrast (Happy - Neutral)",
+    breaks = extended_breaks(),
+  ) +
+  stat_halfeye(
+    aes(shape = stat(sign(xmin) == sign(xmax))),
+    position = position_dodge(.7), 
+    normalize = "xy", 
+    height = .5,
+    point_interval = "mean_qi",
+    fatten_point = 3,
+    point_fill = "white",
+    interval_size_range = c(.35, .7),
+    slab_alpha = .75,
+    adjust = 1.5,
+    .width = c(.8, .95)
+  ) +
+  guides(shape = "none") +
+  theme(
+    legend.position = "bottom",
+    axis.title.y = element_blank()
+  )
+```
+
+What are we to do with this information? Well, one might be interested in whether the effects of the facial expression tasks are different depending on whether participants report on happiness, enjoyment, liking, or satisfaction. To illustrate, I compare the pose effect (happy - neutral) in the three tasks between responses to the happiness item and the three other items. We find that the poses had a greater effect on happiness than on liking or satisfaction (but not enjoyment) in the voluntary and mimic conditions, but not in the pen condition.
+
+```{r}
+out %>% 
+  pivot_wider(names_from = item, values_from = value) %>% 
+  mutate(
+    `hap-sat` = hap-sat,
+    `hap-enj` = hap-enj,
+    `hap-lke` = hap-lke
+    ) %>% 
+  group_by(task) %>% 
+  select(contains("-")) %>% 
+  pivot_longer(-task, names_to = "contrast") %>% 
+  group_by(task, contrast) %>% 
+  mean_qi() %>%
+  select(task, contrast, Mean = value, CI_low = .lower, CI_high = .upper) %>% 
+  kbl(digits = 2) %>% 
+  kable_classic_2(lightable_options = "striped", full_width = FALSE)
+```
+
+
+```{r}
+
+model_gaussian_item_sigma <- bf(
+  response ~ pose * task * image +
+    (pose * task * image |l| lab) +
+    (pose * task * image |i| item) +
+    (1 | pid)
+) +
+  lf(
+    sigma ~ pose * task * image +
+      (pose + task + image |l| lab) +
+      (pose + task + image |i| item)
+  )
+
+priors <- priors + 
+  prior(student_t(7, 0, 2), class = sd, group = item, coef = Intercept) +
+  prior(student_t(7, 0, 1), class = sd, group = item) +
+  prior(student_t(7, 0, 0.5), class = sd, group = item, dpar = sigma)
+
+fit_gaussian_item_sigma <- brm(
+  model_gaussian_item_sigma,
+  data = d,
+  prior = priors,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_gaussian_item_sigma"
+)
+```
+
+
+
+```{r}
+model_gaussian_item_sigma <- model_gaussian_item + 
+  lf(
+    sigma ~ pose * task * image +
+      (pose + task + image |l| lab)+
+      (pose + task + image |i| item)
+  )
+fit_gaussian_item_sigma <- brm(
+  model_gaussian_item_sigma,
+  data = d,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_gaussian_item_sigma"
+)
+```
+
+```{r}
+fit_gaussian_item <- add_criterion(fit_gaussian_item, c("loo", "waic"))
+fit_gaussian_item_sigma <- add_criterion(fit_gaussian_item_sigma, c("loo", "waic"))
+loo_compare(fit_gaussian_item, fit_gaussian_item_sigma, criterion = "loo")
+```
+
+```{r}
+#| cache: true
+
+out <- tibble(
+  fit = list(
+    fit_gaussian, 
+    fit_gaussian_sigma, 
+    fit_gaussian_item, 
+    fit_gaussian_item_sigma
+    ),
+  model = c(
+    "gaussian", "gaussian_sigma", "gaussian_item", "gaussian_item_sigma"
+  )
+) %>% 
+  mutate(
+    contrasts = map(fit, posterior_contrasts)
+  )
+out %>% 
+  select(-fit) %>% 
+  unnest(contrasts) %>% 
+  ggplot(aes(.value, task, fill = model)) +
+  scale_shape_manual(values = c(21, 19)) +
+  scale_x_continuous(
+    "Estimated contrast (Happy - Neutral)",
+    breaks = extended_breaks()
+  ) +
+  stat_halfeye(
+    aes(shape = stat(sign(xmin) == sign(xmax))),
+    position = position_dodge(.7), 
+    normalize = "xy", 
+    height = .5,
+    point_interval = "mean_qi",
+    fatten_point = 3,
+    point_fill = "white",
+    interval_size_range = c(.35, .7),
+    slab_alpha = .75,
+    adjust = 1.5,
+    .width = c(.8, .95)
+  ) +
+  guides(shape = "none")
+```
+
+# Reanalysis 2: Ordinal models
+
+Previously, we assumed that conditional on the predictors, the data are normally distributed with a constant level of residual variation. But we know that the data collected are not "normal", but instead sum-scores of four ordinal items. We know that analysing ordinal items as if they were metric can be a pretty bad idea [@liddellAnalyzingOrdinalData2018], and that there are other models better suited for ordinal outcomes [@burknerOrdinalRegressionModels2019]. In this reanalysis, I will use ordinal models to better represent the ordinal nature of the outcomes. As an added bonus, this will allow us to examine differential effects on the four different aspects of "happiness".
+
+Instead of modelling the mean of enjoyment, happiness, liking, and satisfaction as normally distributed conditional on the model, we model each of the individual responses as ordinal, using a cumulative probit model [@burknerOrdinalRegressionModels2019]. A word of warning; this gets hairy real fast. 
+
+We will now be able to model the parameters as varying across the four items, with an empirical multivariate normal prior distribution ("random effects" [@juddTreatingStimuliRandom2012]), just as we did above where we specified varying effects over labs. In addition to then getting item-specific parameters, their prior distribution will give us average parameters ("fixed effects" or "population-level parameters" [@gelmanDataAnalysisUsing2007, p. 245 footnote 2.]) that indicate quantities "for the average item", and (co)variances across the items.
+
+In addition, I specify that the thresholds that partition the latent "happiness" variable into observed responses are estimated wholly separately for the items.
+
+```{r}
+model_ordinal <- bf(
+  response | thres(gr = item) ~ pose * task * image +
+    (pose * task * image |l| lab) + 
+    (pose * task * image |i| item) + 
+    (1 | pid)
+) +
+  cumulative("probit_approx")
+```
+
+In the above, I specified `cumulative("probit_approx")`, which indicates a cumulative family of the response probabilities, with an approximate probit link function. This is slightly faster than the `"probit"`, but gives basically the same results with simpler calculations. We then draw samples from the model, and initialize all chains at zero, which usually helps in sampling from these models.
+
+```{r}
+fit_ordinal <- brm(
+  model_ordinal,
+  data = d,
+  init = 0,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_ordinal"
+)
+```
+
+
+
+Varying variance
+
+```{r}
+#| eval: false
+model_ordinal_sigma <- model_ordinal +
+  lf(
+    disc ~ 0 + pose + task + image + 
+      (pose + task + image |l| lab) +
+      (pose + task + image |i| item), 
+    cmc = FALSE
+  )
+
+
+get_prior(model_ordinal_sigma, d)
+
+priors <- prior(normal(0, 1), class = b) +
+  prior(normal(0, 1), class = b, dpar = disc) +
+  prior(student_t(7, 0, 0.5), class = sd, coef = Intercept, group = lab) +
+  prior(student_t(7, 0, 0.3), class = sd, group = lab) +
+  prior(student_t(7, 0, 0.5), class = sd, coef = Intercept, group = lab, dpar = disc) +
+  prior(student_t(7, 0, 0.3), class = sd, group = lab, dpar = disc) +
+  prior(lkj_corr_cholesky(4), class = L, group = lab) + 
+  prior(student_t(7, 0, 0.5), class = sd, coef = Intercept, group = item) +
+  prior(student_t(7, 0, 0.3), class = sd, group = item) +
+  prior(student_t(7, 0, 0.5), class = sd, coef = Intercept, group = item, dpar = disc) +
+  prior(student_t(7, 0, 0.3), class = sd, group = item, dpar = disc) +
+  prior(lkj_corr_cholesky(4), class = L, group = item) + 
+  prior(student_t(7, 0, 0.5), class = sd, coef = Intercept, group = pid)
+
+fit_ordinal_sigma <- brm(
+  model_ordinal_sigma,
+  init = 0,
+  data = d,
+  prior = priors,
+  cores = 4, threads = 2, iter = ITER,
+  control = list(adapt_delta = .99),
+  file = "brm-fit_ordinal_sigma"
+)
+
+```
+
+# Effect size
+
+Do this: https://solomonkurz.netlify.app/post/2022-07-18-sum-score-effect-sizes-for-multilevel-bayesian-cumulative-probit-models/
+
+# Conclusions
+
+Yolo
+
+# Latent variable approach {.appendix}
+
+Latent variable modelling and SEM is out of my wheel house so I've left this to an appendix. The basic idea here is that the "happiness" rating modelled in the original analysis is the mean of four different items, happiness, liking, enjoyment, and satisfaction. Using a mean of those is equivalent to a latent construct whose item factor loadings are all 1. However, it is not established that those items load equally to a latent attribute that we might call "happiness". 
+
+In my reanalysis above, we allowed item-specific parameters, and were able to examine their means as well. That bears some small resemblance to what we will do now. We will estimate a multiple factor latent variable for each observation (combination of four item ratings), and then output that variable to use in the multilevel model in lieu of the mean. It would be better to do this CFA and multilevel regression in the same model so as to not discard the latent variable uncertainty, but I don't know how to do that, ergo the two-step procedure. Recall that our data looks like this
+
+```{r}
+head(dat, 3) %>% 
+  kable()
+```
+
+We then first specify the CFA model to estimate the latent variable "happiness", using lavaan.
+
+```{r}
+library(lavaan)
+model_cfa <- 'y  =~ hap + enj + lke + sat'
+fit_cfa <- cfa(model_cfa, data = dat)
+summary(fit_cfa, fit.measures = TRUE)
+dat <- bind_cols(dat, hpn = predict(fit_cfa)[,1])
+```
+
+
+# Notes {.appendix}
+
+Nothing here has been peer-reviewed or sanity checked by experts or non-experts. 

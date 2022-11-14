@@ -2,16 +2,23 @@
 
 /*-- scss:rules --*/
 .navbar {
-  font-size: $font-size-sm;
   height: 60px;
-  border: 1px solid rgba(0, 0, 0, .1);
-  background-color: $gray-800 !important;
-  border-bottom: 4px solid #34A5DA;
   webkit-box-shadow: 1px 1px 18px #4d4d4d;
   moz-box-shadow: 1px 1px 18px #4d4d4d;
   box-shadow: 1px 1px 18px #4d4d4d;
 }
 
 .navbar-brand > img {
-  max-height: 36px;
+  max-height: 48px;
+}
+
+div.quarto-about-solana .about-entity .about-link {
+  font-size: 1.5em;
+  color: $primary;
+  border-style: none;
+  transition: all .35s ease;
+}
+
+div.quarto-about-solana .about-entity .about-link:hover {
+  color: $link-hover-color;
 }

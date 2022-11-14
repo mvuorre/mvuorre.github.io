@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -150,11 +150,11 @@ div.csl-indent {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Sometimes I R - Latent mean centering in Stan (and brms)">
-<meta property="og:description" content="WIP Researchers studying longitudinal data routinely center their predictors to target specific research questions. The most common centering method separates an observed variable into between- and within-person components. This “centering within cluster” is beneficial because it allows examining within-person processes independent from between-person dynamics (Enders and Tofighi 2007). However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering. In this entry, I explore how to latent-mean-center variables in multilevel models using brms.">
+<meta property="og:description" content="**WIP** Researchers studying longitudinal data routinely center their predictors to target specific research questions.">
 <meta property="og:image" content="">
 <meta property="og:site-name" content="Sometimes I R">
 <meta name="twitter:title" content="Sometimes I R - Latent mean centering in Stan (and brms)">
-<meta name="twitter:description" content="WIP Researchers studying longitudinal data routinely center their predictors to target specific research questions. The most common centering method separates an observed variable into between- and within-person components. This “centering within cluster” is beneficial because it allows examining within-person processes independent from between-person dynamics (Enders and Tofighi 2007). However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering. In this entry, I explore how to latent-mean-center variables in multilevel models using brms.">
+<meta name="twitter:description" content="**WIP** Researchers studying longitudinal data routinely center their predictors to target specific research questions.">
 <meta name="twitter:image" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -179,13 +179,17 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contact.html">Contact</a>
+    <a class="nav-link" href="../../contact.html">
+ <span class="menu-text">Contact</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">Links</a>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Links</span>
+    </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
         <li>
     <a class="dropdown-item" href="../../index.xml">
@@ -221,7 +225,11 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#single-level-ar1-model" id="toc-single-level-ar1-model" class="nav-link" data-scroll-target="#single-level-ar1-model">Single-level AR(1) model</a></li>
-  <li><a href="#multilevel-ar1-model" id="toc-multilevel-ar1-model" class="nav-link" data-scroll-target="#multilevel-ar1-model">Multilevel AR(1) model</a></li>
+  <li><a href="#multilevel-ar1-model" id="toc-multilevel-ar1-model" class="nav-link" data-scroll-target="#multilevel-ar1-model">Multilevel AR(1) model</a>
+  <ul class="collapse">
+  <li><a href="#brms" id="toc-brms" class="nav-link" data-scroll-target="#brms">brms</a></li>
+  </ul></li>
+  <li><a href="#stan" id="toc-stan" class="nav-link" data-scroll-target="#stan">Stan</a></li>
   <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See also</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -255,7 +263,7 @@ div.csl-indent {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <a href="https://vuorre.netlify.com">Matti Vuorre</a> 
+    <a href="https://vuorre.netlify.com">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -275,6 +283,7 @@ div.csl-indent {
       <p class="date">2023-01-01</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -288,44 +297,46 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(posterior)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Options for sampling</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.backend =</span> <span class="st">"rstan"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for tables</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_classic_2</span>(<span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Arial"</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting theme</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>() <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> .<span class="dv">1</span>),</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and uncompress McNeish and Hamaker materials if not yet done</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">"materials"</span>)) {</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">"materials"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://files.osf.io/v1/resources/wuprx/providers/osfstorage/5bfc839601593f0016774697/?zip="</span>,</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> <span class="st">"materials/materials.zip"</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unzip</span>(<span class="st">"materials/materials.zip"</span>, <span class="at">exdir =</span> <span class="st">"materials"</span>)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(posterior)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Options for sampling</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.backend =</span> <span class="st">"rstan"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for tables</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_classic_2</span>(<span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Arial"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting theme</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>() <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> .<span class="dv">1</span>),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and uncompress McNeish and Hamaker materials if not yet done</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"materials/materials.zip"</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(path)) {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">"materials"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://files.osf.io/v1/resources/wuprx/providers/osfstorage/5bfc839601593f0016774697/?zip="</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> path</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unzip</span>(path, <span class="at">exdir =</span> <span class="st">"materials"</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -344,8 +355,8 @@ Work in progress!
 <p>I’ve also posted a question about this on the Stan forums: <a href="https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424" class="uri">https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424</a>.</p>
 </div>
 </div>
-<section id="introduction" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level1 page-columns page-full">
+<h1>Introduction</h1>
 <div class="page-columns page-full"><p>Within cluster centering, or <em>person-mean centering</em> (psychologists’ clusters are typically persons), is an easy but essential data processing step. For example consider the example data of 100 people’s ratings of urge to smoke and depression, collected over 50 days with one response per day <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020</a>)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, shown in <a href="#tbl-data">Table&nbsp;1</a> and <a href="#fig-data">Figure&nbsp;1</a>.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Grab a free copy at <a href="https://osf.io/j56bm/download" class="uri">https://osf.io/j56bm/download</a>. I couldn’t figure if this example data is real or simulated, or what the measurement instruments were.</p></li></div></div>
 <div class="cell">
 <details>
@@ -492,17 +503,17 @@ Work in progress!
 <p>However, the person-mean is an unknown quantity, and centering on the observed value rather than an estimate of the true “latent” quantity can be problematic. Specifically, observed mean centering leads to Nickell’s (negative bias in autoregressive effects) and Lüdtke’s (bias in other time-varying effects) biases <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020, 617–18</a>)</span>. Essentially these problems arise from not considering that the person means are unobserved, latent quantities, but instead treating them as values known without uncertainty.</p>
 <p>So, what to do? McNeish and Hamaker <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">2020</a>)</span> and others discuss latent mean centering, which accounts for uncertainty in the person-means appropriately, and thus debiases the estimated coefficients. Latent mean centering is done inside the model, and means treating the means as estimated parameters. However, I have only been able to find examples that do this latent mean centering in MPlus, such as <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020</a>)</span>. Therefore my goal here is to reproduce their model with the free and open source software <a href="https://mc-stan.org">Stan</a> front-end <a href="https://paul-buerkner.github.io/brms/">brms</a>.</p>
 </section>
-<section id="single-level-ar1-model" class="level2">
-<h2 class="anchored" data-anchor-id="single-level-ar1-model">Single-level AR(1) model</h2>
+<section id="single-level-ar1-model" class="level1">
+<h1>Single-level AR(1) model</h1>
 <p>To begin with, we replicate the authors’ basic N=1 model predicting the urge to smoke from the urge to smoke on a previous measurement occasion, and the current level of depression. Because we are modelling one person’s data only, there is no need for centering, but this model serves as a useful starting point for our quest.</p>
-<p>Following <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020</a>)</span>, we assume that Urge at time <span class="math inline">\(t\)</span> is normally distributed around a mean <span class="math inline">\(\mu_t\)</span> with standard deviation <span class="math inline">\(\sigma\)</span>. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression:</p>
+<p>Following <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020</a>)</span>, we assume that Urge at time <span class="math inline">\(t\)</span> is normally distributed around a mean <span class="math inline">\(\mu_t\)</span> with standard deviation <span class="math inline">\(\sigma\)</span>. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression[^I’ve used the more common <span class="math inline">\(\phi\)</span> (phi) throughout than the <span class="math inline">\(\varphi\)</span> used by M&amp;P (because I couldn’t get it to render in HTML!)]:</p>
 <p><span id="eq-n1"><span class="math display">\[\begin{align*}
 \text{Urge}_{t} &amp;\sim N(\mu_{t}, \sigma^2), \\
-\mu_{t} &amp;= \alpha + \varphi\text{Urge}_{(t-1)} + \beta\text{Dep}_{t}
+\mu_{t} &amp;= \alpha + \phi\text{Urge}_{(t-1)} + \beta\text{Dep}_{t}
 \end{align*} \tag{1}\]</span></span></p>
 <p>This is straightforward. We first create a lagged urge variable, and then fit the model. Notice though that this will lead to one missing data point because the first value doesn’t have a lagged value. We confirm that our estimates are in line with those reported in the paper</p>
 <div class="cell">
-<details>
+<details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate model</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
@@ -514,17 +525,33 @@ Work in progress!
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create lagged urge</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">urge1 =</span> <span class="fu">lag</span>(urge)),</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m2"</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show table of coefficients' posterior summaries</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m2) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sigma_sq =</span> sigma<span class="sc">^</span><span class="dv">2</span>, <span class="at">.keep =</span> <span class="st">"unused"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">str_c</span>(variable, <span class="fu">c</span>(<span class="st">" ($</span><span class="sc">\\</span><span class="st">alpha$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">varphi$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">beta$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2$)"</span>))</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show table of coefficients' posterior summaries</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m2) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sigma_sq =</span> sigma<span class="sc">^</span><span class="dv">2</span>, <span class="at">.keep =</span> <span class="st">"unused"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">str_c</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      variable, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">" ($</span><span class="sc">\\</span><span class="st">alpha$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">phi$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">beta$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2$)"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(median, q2<span class="fl">.5</span>, q97<span class="fl">.5</span>), <span class="sc">~</span><span class="fu">number</span>(., .<span class="dv">01</span>)),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Result (brms)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_glue</span>(<span class="st">"{median} [{q2.5}, {q97.5}]"</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Authors =</span> <span class="fu">c</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"0.07 [-0.24, 0.39]"</span>, </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"0.35 [0.25, 0.46]"</span>, </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2.43 [2.12, 2.75]"</span>, </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1.36 [0.92, 2.20]"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(median<span class="sc">:</span>q97<span class="fl">.5</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -532,35 +559,30 @@ Work in progress!
  <thead>
   <tr>
    <th style="text-align:left;"> variable </th>
-   <th style="text-align:right;"> median </th>
-   <th style="text-align:right;"> q2.5 </th>
-   <th style="text-align:right;"> q97.5 </th>
+   <th style="text-align:left;"> Result (brms) </th>
+   <th style="text-align:left;"> Authors </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> b_Intercept ($\alpha$) </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> -0.27 </td>
-   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:left;"> 0.08 [-0.27, 0.41] </td>
+   <td style="text-align:left;"> 0.07 [-0.24, 0.39] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> b_urge1 ($\varphi$) </td>
-   <td style="text-align:right;"> 0.35 </td>
-   <td style="text-align:right;"> 0.24 </td>
-   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:left;"> b_urge1 ($\phi$) </td>
+   <td style="text-align:left;"> 0.35 [0.24, 0.47] </td>
+   <td style="text-align:left;"> 0.35 [0.25, 0.46] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> b_dep ($\beta$) </td>
-   <td style="text-align:right;"> 2.44 </td>
-   <td style="text-align:right;"> 2.11 </td>
-   <td style="text-align:right;"> 2.75 </td>
+   <td style="text-align:left;"> 2.44 [2.11, 2.75] </td>
+   <td style="text-align:left;"> 2.43 [2.12, 2.75] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sigma_sq ($\sigma^2$) </td>
-   <td style="text-align:right;"> 1.35 </td>
-   <td style="text-align:right;"> 0.90 </td>
-   <td style="text-align:right;"> 2.09 </td>
+   <td style="text-align:left;"> 1.35 [0.90, 2.09] </td>
+   <td style="text-align:left;"> 1.36 [0.92, 2.20] </td>
   </tr>
 </tbody>
 </table>
@@ -568,53 +590,66 @@ Work in progress!
 </div>
 </div>
 </section>
-<section id="multilevel-ar1-model" class="level2">
-<h2 class="anchored" data-anchor-id="multilevel-ar1-model">Multilevel AR(1) model</h2>
+<section id="multilevel-ar1-model" class="level1 page-columns page-full">
+<h1>Multilevel AR(1) model</h1>
 <p>Above, we modelled a single person’s urge to smoke on their previous urge to smoke and current depression. Here, we attempt to model 100 individuals’ data in a single multilevel model. Before worrying about latent mean centering, we can estimate this model using the observed mean centered values shown in Table <a href="#tbl-data">Table&nbsp;1</a>. The authors’ model of these data is</p>
 <p><span id="eq-ml"><span class="math display">\[\begin{align*}
 \text{Urge}_{ti} &amp;\sim N(\mu_{ti}, \sigma^2), \\
-\mu_{ti} &amp;= \bar{\alpha} + \alpha_i + (\bar{\varphi}+\varphi_i)\text{Urge}^c_{(t-1)i} + (\bar{\beta} + \beta_i)\text{Dep}^c_{ti}, \\
-(\alpha_i, \varphi_i, \beta_i) &amp;\sim MVN(\pmb{0}, \Sigma),
+\mu_{ti} &amp;= \bar{\alpha} + \alpha_i + (\bar{\phi}+\phi_i)\text{Urge}^c_{(t-1)i} + (\bar{\beta} + \beta_i)\text{Dep}^c_{ti}, \\
+(\alpha_i, \phi_i, \beta_i) &amp;\sim MVN(\pmb{0}, \Sigma),
 \end{align*} \tag{2}\]</span></span></p>
 <p>where we now have a subscript <span class="math inline">\(i\)</span> for participants, parameters with bars (population-level) and without (person-specific, with subscripts <span class="math inline">\(i\)</span>), and the variance-covariance matrix for the latter, where all covariances are set to zero as in <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(<a href="#ref-mcneishPrimerTwolevelDynamic2020" role="doc-biblioref">McNeish and Hamaker 2020</a>)</span>. Notice that the the subscripted parameters are deviations with a mean of zero, so we can talk about e.g.&nbsp;<span class="math inline">\(\bar{\alpha} + \alpha_2\)</span> as person 2’s intercept. <span class="math inline">\(\text{Urge}^c_{(t-1)i}\)</span> and <span class="math inline">\(\text{Dep}^c_{ti}\)</span> are the within-person centered values of urge to smoke on the previous timepoint and depression, respectively (<code>_cw</code> values in Table <a href="#tbl-data">Table&nbsp;1</a>.) We can fit this model with brms with a small modification of the previous model</p>
 <div class="cell">
-<details>
+<details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m4_data <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create lagged variable</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(person) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">urge1 =</span> <span class="fu">lag</span>(urge)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">+</span> (urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">||</span> person),</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4"</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create lagged variable</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m4_data <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(person) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">urge1 =</span> <span class="fu">lag</span>(urge)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate model</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">+</span> (urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">||</span> person),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors’ Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don’t really know what the data are from the paper)</p>
+<p>We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors’ Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don’t really know what the data are from the paper). Importantly, we have not estimated the latent depression variable, so that is missing</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show table of coefficients' posterior summaries</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m4) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">"sd_"</span>), <span class="st">"sigma"</span>), <span class="sc">~</span>.<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mutate(sigma_sq = sigma^2, .keep = "unused") %&gt;% </span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">str_c</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      variable, </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">" ($</span><span class="sc">\\</span><span class="st">alpha$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">varphi$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">beta$)"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">alpha}$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">varphi)}$"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">beta})$"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2$)"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show table of coefficients' posterior summaries</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m4) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">"sd_"</span>), <span class="st">"sigma"</span>), <span class="sc">~</span>.<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mutate(sigma_sq = sigma^2, .keep = "unused") %&gt;% </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">str_c</span>(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      variable, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">" ($</span><span class="sc">\\</span><span class="st">alpha$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">phi$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">beta$)"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">alpha}$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">phi)}$"</span>, </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">beta})$"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2$)"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(median, q2<span class="fl">.5</span>, q97<span class="fl">.5</span>), <span class="sc">~</span><span class="fu">number</span>(., .<span class="dv">01</span>)),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Result (brms)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_glue</span>(<span class="st">"{median} [{q2.5}, {q97.5}]"</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Authors =</span> <span class="fu">c</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"-0.01 [-0.18, 0.16]"</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.21 [0.17, 0.24]"</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.80 [0.61, 0.95]"</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.60 [0.44, 0.83]"</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.02 [0.01, 0.03]"</span>,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.79 [0.61, 0.95]"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 1.14 [1.09, 1.19]"</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(median<span class="sc">:</span>q97<span class="fl">.5</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -622,53 +657,45 @@ Work in progress!
  <thead>
   <tr>
    <th style="text-align:left;"> variable </th>
-   <th style="text-align:right;"> median </th>
-   <th style="text-align:right;"> q2.5 </th>
-   <th style="text-align:right;"> q97.5 </th>
+   <th style="text-align:left;"> Result (brms) </th>
+   <th style="text-align:left;"> Authors </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> b_Intercept ($\alpha$) </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> -0.15 </td>
-   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:left;"> 0.02 [-0.15, 0.17] </td>
+   <td style="text-align:left;"> -0.01 [-0.18, 0.16] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> b_urge_cw1 ($\varphi$) </td>
-   <td style="text-align:right;"> 0.20 </td>
-   <td style="text-align:right;"> 0.16 </td>
-   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:left;"> b_urge_cw1 ($\phi$) </td>
+   <td style="text-align:left;"> 0.20 [0.16, 0.23] </td>
+   <td style="text-align:left;"> 0.21 [0.17, 0.24] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> b_dep_cw ($\beta$) </td>
-   <td style="text-align:right;"> 0.79 </td>
-   <td style="text-align:right;"> 0.62 </td>
-   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:left;"> 0.79 [0.62, 0.97] </td>
+   <td style="text-align:left;"> 0.80 [0.61, 0.95] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd_person__Intercept ($\sigma^2_{\alpha}$) </td>
-   <td style="text-align:right;"> 0.68 </td>
-   <td style="text-align:right;"> 0.52 </td>
-   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:left;"> 0.68 [0.52, 0.90] </td>
+   <td style="text-align:left;"> 0.60 [0.44, 0.83] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> sd_person__urge_cw1 ($\sigma^2_{\varphi)}$ </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:left;"> sd_person__urge_cw1 ($\sigma^2_{\phi)}$ </td>
+   <td style="text-align:left;"> 0.02 [0.01, 0.03] </td>
+   <td style="text-align:left;"> 0.02 [0.01, 0.03] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sd_person__dep_cw ($\sigma^2_{\beta})$ </td>
-   <td style="text-align:right;"> 0.77 </td>
-   <td style="text-align:right;"> 0.58 </td>
-   <td style="text-align:right;"> 1.03 </td>
+   <td style="text-align:left;"> 0.77 [0.58, 1.03] </td>
+   <td style="text-align:left;"> 0.79 [0.61, 0.95] </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sigma ($\sigma^2$) </td>
-   <td style="text-align:right;"> 1.14 </td>
-   <td style="text-align:right;"> 1.10 </td>
-   <td style="text-align:right;"> 1.19 </td>
+   <td style="text-align:left;"> 1.14 [1.10, 1.19] </td>
+   <td style="text-align:left;"> 1.14 [1.09, 1.19] </td>
   </tr>
 </tbody>
 </table>
@@ -680,46 +707,77 @@ Work in progress!
 \text{Urge}^n_{(t-1)i} &amp;= \text{Urge}^c_{(t-1)i} + \text{Urge}^b_i, \\
 \text{Dep}^n_{ti} &amp;= \text{Dep}^c_{ti} + \text{Dep}^b_i
 \end{align*} \tag{3}\]</span></span></p>
-<p>I think we can write this with brms nonlinear syntax</p>
+<section id="brms" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="brms">brms</h2>
+<div class="page-columns page-full"><p>I think we can write this with brms nonlinear syntax.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Note that <span class="math inline">\(\alpha\)</span> is also the mean of <code>urge1</code>, which consequently doesn’t need its own mean estimated (this one tripped me up.)</p></li></div></div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m4_latent_formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> alpha <span class="sc">+</span> phi<span class="sc">*</span>(urge1 <span class="sc">-</span> alpha) <span class="sc">+</span> beta<span class="sc">*</span>(dep <span class="sc">-</span> depb),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Latent intercept of urge</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  alpha <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Latent mean of depression</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  depb <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'Effect' of latent mean-person centered lagged urge on urge</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person), </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'Effect' of latent mean-person centered depression on urge</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  beta <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">nl =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gaussian</span>()</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">get_prior</span>(m4_latent_formula, <span class="at">data =</span> m4_data) <span class="sc">%&gt;%</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>      class <span class="sc">==</span> <span class="st">"b"</span> <span class="sc">&amp;</span> coef <span class="sc">==</span> <span class="st">"Intercept"</span> <span class="sc">~</span> <span class="st">"normal(0, 1.5)"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>      class <span class="sc">==</span> <span class="st">"sd"</span> <span class="sc">&amp;</span> coef <span class="sc">==</span> <span class="st">"Intercept"</span> <span class="sc">~</span> <span class="st">"student_t(7, 0, 1)"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> prior</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>m4_latent <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  m4_latent_formula,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> p,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4_latent"</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m4_latent_formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> alpha <span class="sc">+</span> phi<span class="sc">*</span>(urge1 <span class="sc">-</span> alpha) <span class="sc">+</span> beta<span class="sc">*</span>(dep <span class="sc">-</span> depb),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  alpha <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  <span class="co"># Latent intercept of urge</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># urge1b ~ 1 + (1 | person),  # This is alpha! Weird &amp; awesome (M&amp;H2020 p.618)</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  depb <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  <span class="co"># Latent mean of depression</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  <span class="co"># Slope of latent mean-person centered lagged urge on urge</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  beta <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  <span class="co"># Slope of latent mean-person centered depression on urge</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nl =</span> <span class="cn">TRUE</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gaussian</span>()</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">get_prior</span>(m4_latent_formula, <span class="at">data =</span> m4_data) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="fu">case_when</span>(</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>      class <span class="sc">==</span> <span class="st">"b"</span> <span class="sc">&amp;</span> coef <span class="sc">==</span> <span class="st">"Intercept"</span> <span class="sc">~</span> <span class="st">"normal(0, 1.5)"</span>,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>      class <span class="sc">==</span> <span class="st">"sd"</span> <span class="sc">&amp;</span> coef <span class="sc">==</span> <span class="st">"Intercept"</span> <span class="sc">~</span> <span class="st">"student_t(7, 0, 1)"</span>,</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> prior</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>m4_latent <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  m4_latent_formula,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> p,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4_latent"</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m4_latent) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">"sd_"</span>), <span class="st">"sigma"</span>), <span class="sc">~</span>.<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">str_replace</span>(variable, <span class="st">"sd_person__"</span>, <span class="st">"var_"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(m4_latent) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">"sd_"</span>), <span class="st">"sigma"</span>), <span class="sc">~</span>.<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(median, <span class="sc">~</span><span class="fu">quantile2</span>(., <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">str_replace</span>(variable, <span class="st">"sd_person__"</span>, <span class="st">"var_"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">str_c</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      variable, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">" ($</span><span class="sc">\\</span><span class="st">alpha$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">phi$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">beta$)"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">alpha}$)"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">phi)}$"</span>, </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2_{</span><span class="sc">\\</span><span class="st">beta})$"</span>, <span class="st">" ($</span><span class="sc">\\</span><span class="st">sigma^2$)"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(median, q2<span class="fl">.5</span>, q97<span class="fl">.5</span>), <span class="sc">~</span><span class="fu">number</span>(., .<span class="dv">01</span>)),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Result (brms)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_glue</span>(<span class="st">"{median} [{q2.5}, {q97.5}]"</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Authors =</span> <span class="fu">c</span>(</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">"-0.01 [-0.18, 0.16]"</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.21 [0.17, 0.24]"</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.80 [0.61, 0.95]"</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.01 [-0.02, 0.04]"</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.60 [0.44, 0.83]"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.02 [0.01, 0.03]"</span>,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.79 [0.61, 0.95]"</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 0.01 [0.00, 0.01]"</span>,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>      <span class="st">" 1.14 [1.09, 1.19]"</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(median<span class="sc">:</span>q97<span class="fl">.5</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -727,85 +785,166 @@ Work in progress!
  <thead>
   <tr>
    <th style="text-align:left;"> variable </th>
-   <th style="text-align:right;"> median </th>
-   <th style="text-align:right;"> q2.5 </th>
-   <th style="text-align:right;"> q97.5 </th>
+   <th style="text-align:left;"> Result (brms) </th>
+   <th style="text-align:left;"> Authors </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> b_alpha_Intercept </td>
-   <td style="text-align:right;"> -0.11 </td>
-   <td style="text-align:right;"> -0.33 </td>
-   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:left;"> b_alpha_Intercept ($\alpha$) </td>
+   <td style="text-align:left;"> -0.11 [-0.33, 0.08] </td>
+   <td style="text-align:left;"> -0.01 [-0.18, 0.16] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> b_depb_Intercept </td>
-   <td style="text-align:right;"> -0.10 </td>
-   <td style="text-align:right;"> -0.23 </td>
-   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:left;"> b_depb_Intercept ($\phi$) </td>
+   <td style="text-align:left;"> -0.10 [-0.23, 0.03] </td>
+   <td style="text-align:left;"> 0.21 [0.17, 0.24] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> b_phi_Intercept </td>
-   <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> 0.18 </td>
-   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:left;"> b_phi_Intercept ($\beta$) </td>
+   <td style="text-align:left;"> 0.21 [0.18, 0.25] </td>
+   <td style="text-align:left;"> 0.80 [0.61, 0.95] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> b_beta_Intercept </td>
-   <td style="text-align:right;"> 0.78 </td>
-   <td style="text-align:right;"> 0.62 </td>
-   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:left;"> b_beta_Intercept ($\sigma^2_{\alpha}$) </td>
+   <td style="text-align:left;"> 0.78 [0.62, 0.95] </td>
+   <td style="text-align:left;"> 0.01 [-0.02, 0.04] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> var_alpha_Intercept </td>
-   <td style="text-align:right;"> 0.57 </td>
-   <td style="text-align:right;"> 0.41 </td>
-   <td style="text-align:right;"> 0.77 </td>
+   <td style="text-align:left;"> var_alpha_Intercept ($\sigma^2_{\phi)}$ </td>
+   <td style="text-align:left;"> 0.57 [0.41, 0.77] </td>
+   <td style="text-align:left;"> 0.60 [0.44, 0.83] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> var_depb_Intercept </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:left;"> var_depb_Intercept ($\sigma^2_{\beta})$ </td>
+   <td style="text-align:left;"> 0.01 [0.00, 0.05] </td>
+   <td style="text-align:left;"> 0.02 [0.01, 0.03] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> var_phi_Intercept </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:left;"> var_phi_Intercept ($\sigma^2$) </td>
+   <td style="text-align:left;"> 0.02 [0.01, 0.03] </td>
+   <td style="text-align:left;"> 0.79 [0.61, 0.95] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> var_beta_Intercept </td>
-   <td style="text-align:right;"> 0.77 </td>
-   <td style="text-align:right;"> 0.58 </td>
-   <td style="text-align:right;"> 1.02 </td>
+   <td style="text-align:left;"> var_beta_Intercept ($\alpha$) </td>
+   <td style="text-align:left;"> 0.77 [0.58, 1.02] </td>
+   <td style="text-align:left;"> 0.01 [0.00, 0.01] </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> sigma </td>
-   <td style="text-align:right;"> 1.14 </td>
-   <td style="text-align:right;"> 1.10 </td>
-   <td style="text-align:right;"> 1.19 </td>
+   <td style="text-align:left;"> sigma ($\phi$) </td>
+   <td style="text-align:left;"> 1.14 [1.10, 1.19] </td>
+   <td style="text-align:left;"> 1.14 [1.09, 1.19] </td>
   </tr>
 </tbody>
 </table>
 
 </div>
 </div>
-<p>We can compare these to the MPlus results, but I don’t know how that model works, what the priors are etc.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Screenshot%202022-11-09%20at%2021.34.19.png" class="img-fluid figure-img" alt="Table 4 from McNeish and Hamaker (2020)."></p>
-<p></p><figcaption class="figure-caption">Table 4 from McNeish and Hamaker (2020)|50%</figcaption><p></p>
-</figure>
+<p>We can compare these to the MPlus results, but I don’t know how that model works, what the priors are etc. The estimates for phi and beta are the same, but depb and alpha are way off.</p>
+<div class="page-columns page-full"><p>After chatting with some very helpful folks at the <a href="https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424/6">Stan board</a>, it became clear that the latent depression mean isn’t appropriately connected to the raw values of depression. That is, we should specify that <code>dep</code> is predicted from <code>depb</code>. The next challenge is then figuring out how to do that with brms, since <code>depb</code> is not observed. If possible, I believe it would require using the <code>mi()</code> syntax appropriately. Here is my first walk down that path.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;I haven’t used <code>mi()</code> before and I’m pretty clearly wandering around in the dark here.</p></li></div></div>
+<p>This is the first thing I tried: Specifying <code>depb</code> as missing everywhere it occurred. However, I get an error that says that it should also be specified as a response variable:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m4_latent_formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> alpha <span class="sc">+</span> phi<span class="sc">*</span>(urge1 <span class="sc">-</span> alpha) <span class="sc">+</span> beta<span class="sc">*</span>(dep <span class="sc">-</span> <span class="fu">mi</span>(depb)),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  alpha <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  dep <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> <span class="fu">mi</span>(depb),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  depb <span class="sc">|</span> <span class="fu">mi</span>() <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person), </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  beta <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nl =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gaussian</span>()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># If variable doesn't exist in data, `brm()` gives an error</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>m4_data_2 <span class="ot">&lt;-</span> m4_data <span class="sc">%&gt;%</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">depb =</span> <span class="cn">NaN</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(urge1)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>m4_latent <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  m4_latent_formula,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data_2,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4_latent_v2"</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error: Variables in 'mi' terms should also be specified as response variables in the model. See ?mi. Error occurred for 'depb'.</code></pre>
 </div>
-<p>The estimates for phi and beta are the same, but depb and alpha are way off. The variances seem very similar though? I don’t know why, I think I’ve specified the right model. Maybe MPlus has weird priors?</p>
-<p>Help needed :)</p>
+</div>
+<p>So I then tried putting it in a different <code>bf()</code> call. This gives an error in Stan, which I think indicates that <code>mi(depb)</code> is interpreted literally:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m4_latent_formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> alpha <span class="sc">+</span> phi<span class="sc">*</span>(urge1 <span class="sc">-</span> alpha) <span class="sc">+</span> beta<span class="sc">*</span>(dep <span class="sc">-</span> <span class="fu">mi</span>(depb)),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  alpha <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),  </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  dep <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> <span class="fu">mi</span>(depb),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person), </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  beta <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">nl =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(depb <span class="sc">|</span> <span class="fu">mi</span>() <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> person)) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gaussian</span>() <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_rescor</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>m4_latent <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  m4_latent_formula,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data_2,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Prior is required</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">nlpar =</span> dep, <span class="at">resp =</span> urge, <span class="at">coef =</span> midepb),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"m4_latent_v2"</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in stanc(file = file, model_code = model_code, model_name = model_name, : failed to parse Stan model '0ab74412d9b37b7cd77a36bedab9204c' due to the above error.</code></pre>
+</div>
+</div>
+<p>So I now think that next I should move terms from the non-linear formula to the <code>X ~ Y</code> statements below, but I’m not sure how that should look like. <a href="https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227">This looks useful</a>.</p>
+</section>
 </section>
 
 
 
-<div id="quarto-appendix" class="default"><section id="see-also" class="level2 appendix"><h2 class="quarto-appendix-heading">See also</h2><div class="quarto-appendix-contents">
+
+<div id="quarto-appendix" class="default"><section id="stan" class="level1 appendix"><h2 class="quarto-appendix-heading">Stan</h2><div class="quarto-appendix-contents">
+
+<p>This Stan model is from <a href="https://discourse.mc-stan.org/u/simonbrauer">Simon Brauer</a> at the Stan board. Thanks Simon!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>wip the code has errors</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>.m4_data <span class="ot">&lt;-</span> m4_data <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(urge1)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>m4_data_stan <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">nrow</span>(.m4_data),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">M =</span> <span class="fu">length</span>(<span class="fu">unique</span>(.m4_data<span class="sc">$</span>person)),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">urge_t =</span> .m4_data<span class="sc">$</span>urge,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">urge_tm1 =</span> .m4_data<span class="sc">$</span>urge1,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dep_t =</span> .m4_data<span class="sc">$</span>dep</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(m4_data_stan)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>m4_fit_stan <span class="ot">&lt;-</span> <span class="fu">stan</span>(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"model.stan"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> m4_data_stan, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.95</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div></section><section id="see-also" class="level1 appendix"><h2 class="quarto-appendix-heading">See also</h2><div class="quarto-appendix-contents">
 
 <p>I’ve found these prior discussions useful</p>
 <ul>
@@ -813,6 +952,7 @@ Work in progress!
 <li><a href="https://discourse.mc-stan.org/t/treat-the-cluster-mean-of-a-predictor-variable-as-a-latent-variable-hierarchical-linear-models/15001/5" class="uri">https://discourse.mc-stan.org/t/treat-the-cluster-mean-of-a-predictor-variable-as-a-latent-variable-hierarchical-linear-models/15001/5</a></li>
 <li><a href="https://discourse.mc-stan.org/t/modeling-latent-means-in-brms-for-multilevel-group-mean-centering/12642/3" class="uri">https://discourse.mc-stan.org/t/modeling-latent-means-in-brms-for-multilevel-group-mean-centering/12642/3</a></li>
 <li><a href="https://scottclaessens.github.io/blog/2020/brmsLV/" class="uri">https://scottclaessens.github.io/blog/2020/brmsLV/</a></li>
+<li><a href="https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227" class="uri">https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227</a></li>
 </ul>
 
 
@@ -826,7 +966,6 @@ McNeish, Daniel, and Ellen L. Hamaker. 2020. <span>“A Primer on Two-Level Dyna
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2023,
   author = {Matti Vuorre},
-  editor = {},
   title = {Latent Mean Centering in {Stan} (and Brms)},
   date = {2023-01-01},
   url = {https://sometimesir.com/posts/stan-latent-mean-centering},
@@ -877,7 +1016,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -913,24 +1069,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

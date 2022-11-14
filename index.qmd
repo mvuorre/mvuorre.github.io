@@ -1,15 +1,80 @@
 ---
-title: "Posts"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  feed: true
-  max-description-length: 200
-page-layout: full
-title-block-banner: false
+title: "Matti Vuorre"
+subtitle: |
+  Psychological scientist
+image: /images/profile.png
+about:
+  id: edu-exp
+  template: solana
+  image-width: 12em
+  image-shape: round
+  links:
+    - text: "{{< fa solid envelope >}}"
+      href: "mailto:m.j.vuorre@tilburguniversity.edu"
+      aria-label: "envelope logo for linking to Matti's email"
+    - text: "{{< fa brands orcid >}}"
+      href: "https://orcid.org/0000-0001-5052-066X"
+      aria-label: "ORCID logo linking to Matti's ORCID account"
+    - text: "{{< fa brands mastodon >}}"
+      href: "https://fosstodon.org/@matti"
+      aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
+    - text: "{{< fa brands github >}}"
+      href: "https://github.com/mvuorre"
+      aria-label: "GitHub logo linking to Matti's GitHub page"
+    - text: "CV"
+      href: "https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf"
+      aria-label: "GitHub logo linking to Matti's GitHub page"
+    - text: "{{< fa brands twitter >}}"
+      href: "https://twitter.com/vuorre"
+      aria-label: "Twitter logo linking to Matti's Twitter profile"
+    - text: "{{< fa brands linkedin >}}"
+      href: "https://www.linkedin.com/in/matti-vuorre"
+      aria-label: "LinkedIn logo linking to Matti Vuorre's LinkedIn profile"
+from: markdown+emoji
 comments: false
 ---
 
+::: {#edu-exp}
+:::
 
+:wave: I am a psychological researcher at Tilburg University, where I study cognition and well-being in the context of online and digital media. Most recently, I have focused on the roles that digital technologies---particularly video games---play in people's lives. To study these topics, I apply statistical methods to large-scale datasets and conduct controlled experiments. For more details, you can take a look at my [vita](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) (also available in [dark](https://github.com/mvuorre/CV/raw/dracula/vuorre-matti.pdf) :vampire:). You can also check out my OII profile [here](https://www.oii.ox.ac.uk/people/profiles/matti-vuorre/).
+
+I currently focus on well-being in the context of digital and online environments, but have also written about [meta-cognition](https://link.springer.com/article/10.1007%2Fs11409-020-09257-1), and have a keen interest in methodology (e.g. [here](https://journals.sagepub.com/doi/10.1177/2515245918754826)), broadly defined, and applied statistics ([here](https://www.tandfonline.com/doi/full/10.1080/21642850.2018.1428102)). I sometimes write about applied statistics at [Sometimes \| R](sometimes%7Cr.html), and have an unhealthy relationship with the R statistical programming language (I practically have R Studio launch at startup :nerd_face:, in dark mode of course)...
+
+## Selected writings
+
+Here are some recent works that I was particularly happy to have contributed to. (Unlike children, you *can* have favourite papers :laughing:.)
+
+-   "*There Is No Evidence That Associations Between Adolescents' Digital Technology Engagement and Mental Health Problems Have Increased.*" ([web](https://doi.org/10.1177/2167702621994549) \| [pdf](https://journals.sagepub.com/doi/pdf/10.1177/2167702621994549) \| [code](https://github.com/digital-wellbeing/timetrends))
+-   "*Time spent playing video games is unlikely to impact well-being.*" ([web](https://royalsocietypublishing.org/doi/full/10.1098/rsos.220411) \| [pdf](https://royalsocietypublishing.org/doi/pdf/10.1098/rsos.220411?download=true) \| [code & data](https://zenodo.org/badge/latestdoi/373533911))
+-   "*Video game play is positively correlated with well-being.*" ([web](https://doi.org/10.1098/rsos.202049) \| [pdf](https://royalsocietypublishing.org/doi/pdf/10.1098/rsos.202049) \| [code & data](https://github.com/digital-wellbeing/gametime))
+-   "*Ordinal Regression Models in Psychology: A Tutorial.*" ([web](https://doi.org/10.1177/2515245918823199) \| [pdf](https://journals.sagepub.com/doi/pdf/10.1177/2515245918823199))
+
+I believe scientific communication should be available to all, so these are all open-access papers where the actual research document is available for free, for anyone. If you find a paper of mine that you'd be interested in reading, and that somehow isn't available online, let me know and I'll fix it ASAP. In the future, we'll figure out a way to get rid of publishers entirely.
+
+## Bibliography
+
+You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/bib/my-publications.bib) is a .bib file with references to all the works that I have contributed to :wink:.
+
+::: grid
+::: {.g-col-12 .g-col-md-7 style="text-align: left;"}
+## Education
+
+-   ***PhD***, **2018**\
+    *Columbia University, USA*
+    
+-   ***MA***, **2015**\
+    *Columbia University, USA*
+
+-   ***BSc (Hons)*** **in Psychology**, **2013**\
+    *Victoria University of Wellington, New Zealand*
+:::
+
+::: {.g-col-12 .g-col-md-5 style="text-align: left;"}
+## Interests
+
+- Perhaps
+- A list of
+- Things
+:::
+:::

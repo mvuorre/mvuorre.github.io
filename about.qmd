@@ -1,18 +1,27 @@
 ---
-title: "About"
-image: images/profile.jpg
+title: "Matti Vuorre"
+image: images/profile.png
 about:
   template: trestles
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/vuorre
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/matti-vuorre
-    - icon: github
-      text: Github
-      href: https://github.com/mvuorre
+    - text: "{{< fa solid envelope >}}"
+      href: "mailto:m.j.vuorre@tilburguniversity.edu"
+      aria-label: "envelope logo for linking to Matti's email"
+    - text: "{{< fa brands orcid >}}"
+      href: "https://orcid.org/0000-0001-5052-066X"
+      aria-label: "ORCID logo linking to Matti's ORCID account"
+    - text: "{{< fa brands mastodon >}}"
+      href: "https://fosstodon.org/@matti"
+      aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
+    - text: "{{< fa brands twitter >}}"
+      href: "https://twitter.com/vuorre"
+      aria-label: "Twitter logo linking to Matti's Twitter profile"
+    - text: "{{< fa brands linkedin >}}"
+      href: "https://www.linkedin.com/in/matti-vuorre"
+      aria-label: "LinkedIn logo linking to Matti Vuorre's LinkedIn profile"
+    - text: "{{< fa brands github >}}"
+      href: "https://github.com/mvuorre"
+      aria-label: "GitHub logo linking to Matti's GitHub page"
 comments: false
 ---
 

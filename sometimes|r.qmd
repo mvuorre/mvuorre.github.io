@@ -1,0 +1,15 @@
+---
+title: "Sometimes | R"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+  max-description-length: 200
+page-layout: full
+title-block-banner: false
+comments: false
+---
+
+I sometimes write about statistics, data science, and psychology on this blog.

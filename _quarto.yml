@@ -5,7 +5,7 @@ project:
 date-format: iso
 
 website:
-  title: "Sometimes I R"
+  title: "vuorre.me"
   site-url: https://sometimesir.com
   description: "Notes on psychology and statistics, sometimes"
   repo-url: https://github.com/mvuorre/mvuorre.github.io
@@ -33,7 +33,8 @@ website:
     pinned: true
     background: primary
     right:
-      - about.qmd
+      - index.qmd
+      - sometimes|r.qmd
       - contact.qmd
       - text: Links
         menu:
@@ -63,8 +64,9 @@ website:
 format:
   html:
     theme: 
-      - litera
+      - zephyr
       - custom.scss
+    mainfont: "Fira sans"
     monofont: "Fira code"
 
 

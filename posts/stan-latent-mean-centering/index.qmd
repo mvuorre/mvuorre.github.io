@@ -9,7 +9,6 @@ categories:
   - stan
   - brms
 reference-location: margin
-execute-dir: file
 knitr:
   opts_chunk: 
     message: false
@@ -18,6 +17,8 @@ format:
   html:
     code-fold: true
     code-summary: "Code"
+    code-overflow: wrap
+    from: markdown+emoji
 image: ""
 draft: true
 bibliography: references.bib
@@ -29,6 +30,7 @@ bibliography: references.bib
 library(knitr)
 library(brms)
 library(ggthemes)
+library(scales)
 library(kableExtra)
 library(posterior)
 library(tidyverse)
@@ -59,18 +61,19 @@ theme_set(
 )
 
 # Download and uncompress McNeish and Hamaker materials if not yet done
-if (!dir.exists("materials")) {
+path <- "materials/materials.zip"
+if (!file.exists(path)) {
   dir.create("materials", showWarnings = FALSE)
   download.file(
     "https://files.osf.io/v1/resources/wuprx/providers/osfstorage/5bfc839601593f0016774697/?zip=",
-    destfile = "materials/materials.zip"
+    destfile = path
   )
-  unzip("materials/materials.zip", exdir = "materials")
+  unzip(path, exdir = "materials")
 }
 ```
 
 ::: callout-important
-## Work in progress!
+# Work in progress!
 
 I have not yet figured out how to do latent mean centering with Stan or brms. I know that it can be done with Stan (what can't?). I am not sure, however, if we can latent-mean-center with brms.
 
@@ -81,7 +84,7 @@ If you would like to help with this problem, please check out the [GitHub repo](
 I've also posted a question about this on the Stan forums: <https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424>.
 :::
 
-## Introduction
+# Introduction
 
 Within cluster centering, or *person-mean centering* (psychologists' clusters are typically persons), is an easy but essential data processing step. For example consider the example data of 100 people's ratings of urge to smoke and depression, collected over 50 days with one response per day [@mcneishPrimerTwolevelDynamic2020] [^1], shown in @tbl-data and @fig-data.
 
@@ -148,20 +151,21 @@ However, the person-mean is an unknown quantity, and centering on the observed v
 
 So, what to do? McNeish and Hamaker [-@mcneishPrimerTwolevelDynamic2020] and others discuss latent mean centering, which accounts for uncertainty in the person-means appropriately, and thus debiases the estimated coefficients. Latent mean centering is done inside the model, and means treating the means as estimated parameters. However, I have only been able to find examples that do this latent mean centering in MPlus, such as [@mcneishPrimerTwolevelDynamic2020]. Therefore my goal here is to reproduce their model with the free and open source software [Stan](https://mc-stan.org) front-end [brms](https://paul-buerkner.github.io/brms/).
 
-## Single-level AR(1) model
+# Single-level AR(1) model
 
 To begin with, we replicate the authors' basic N=1 model predicting the urge to smoke from the urge to smoke on a previous measurement occasion, and the current level of depression. Because we are modelling one person's data only, there is no need for centering, but this model serves as a useful starting point for our quest.
 
-Following [@mcneishPrimerTwolevelDynamic2020], we assume that Urge at time $t$ is normally distributed around a mean $\mu_t$ with standard deviation $\sigma$. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression:
+Following [@mcneishPrimerTwolevelDynamic2020], we assume that Urge at time $t$ is normally distributed around a mean $\mu_t$ with standard deviation $\sigma$. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression[^I've used the more common $\phi$ (phi) throughout than the $\varphi$ used by M&P (because I couldn't get it to render in HTML!)]:
 
 $$\begin{align*}
 \text{Urge}_{t} &\sim N(\mu_{t}, \sigma^2), \\
-\mu_{t} &= \alpha + \varphi\text{Urge}_{(t-1)} + \beta\text{Dep}_{t}
+\mu_{t} &= \alpha + \phi\text{Urge}_{(t-1)} + \beta\text{Dep}_{t}
 \end{align*}$$ {#eq-n1}
 
 This is straightforward. We first create a lagged urge variable, and then fit the model. Notice though that this will lead to one missing data point because the first value doesn't have a lagged value. We confirm that our estimates are in line with those reported in the paper
 
 ```{r}
+#| code-fold: show
 # Estimate model
 m2 <- brm(
   urge ~ urge1 + dep,
@@ -173,39 +177,54 @@ m2 <- brm(
     mutate(urge1 = lag(urge)),
   file = "m2"
 )
+```
 
+
+```{r}
 # Show table of coefficients' posterior summaries
 as_draws_df(m2) %>% 
   select(1:4) %>% 
   mutate(sigma_sq = sigma^2, .keep = "unused") %>% 
   summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
   mutate(
-    variable = str_c(variable, c(" ($\\alpha$)", " ($\\varphi$)", " ($\\beta$)", " ($\\sigma^2$)"))
+    variable = str_c(
+      variable, 
+      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)", " ($\\sigma^2$)")
+    ),
+    across(c(median, q2.5, q97.5), ~number(., .01)),
+    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
+    Authors = c(
+      "0.07 [-0.24, 0.39]", 
+      "0.35 [0.25, 0.46]", 
+      "2.43 [2.12, 2.75]", 
+      "1.36 [0.92, 2.20]"
+    )
   ) %>% 
+  select(-c(median:q97.5)) %>% 
   k2()
 ```
 
-## Multilevel AR(1) model {#multilevel-ar1-model}
+# Multilevel AR(1) model {#multilevel-ar1-model}
 
 Above, we modelled a single person's urge to smoke on their previous urge to smoke and current depression. Here, we attempt to model 100 individuals' data in a single multilevel model. Before worrying about latent mean centering, we can estimate this model using the observed mean centered values shown in Table @tbl-data. The authors' model of these data is
 
 $$\begin{align*}
 \text{Urge}_{ti} &\sim N(\mu_{ti}, \sigma^2), \\
-\mu_{ti} &= \bar{\alpha} + \alpha_i + (\bar{\varphi}+\varphi_i)\text{Urge}^c_{(t-1)i} + (\bar{\beta} + \beta_i)\text{Dep}^c_{ti}, \\
-(\alpha_i, \varphi_i, \beta_i) &\sim MVN(\pmb{0}, \Sigma),
+\mu_{ti} &= \bar{\alpha} + \alpha_i + (\bar{\phi}+\phi_i)\text{Urge}^c_{(t-1)i} + (\bar{\beta} + \beta_i)\text{Dep}^c_{ti}, \\
+(\alpha_i, \phi_i, \beta_i) &\sim MVN(\pmb{0}, \Sigma),
 \end{align*}$$ {#eq-ml}
 
 where we now have a subscript $i$ for participants, parameters with bars (population-level) and without (person-specific, with subscripts $i$), and the variance-covariance matrix for the latter, where all covariances are set to zero as in [@mcneishPrimerTwolevelDynamic2020]. Notice that the the subscripted parameters are deviations with a mean of zero, so we can talk about e.g. $\bar{\alpha} + \alpha_2$ as person 2's intercept. $\text{Urge}^c_{(t-1)i}$ and $\text{Dep}^c_{ti}$ are the within-person centered values of urge to smoke on the previous timepoint and depression, respectively (`_cw` values in Table @tbl-data.) We can fit this model with brms with a small modification of the previous model
 
 ```{r}
-#| echo: true
-
+#| code-fold: show
+# Create lagged variable
 m4_data <- d %>% 
-  # Create lagged variable
   group_by(person) %>% 
   mutate(urge1 = lag(urge)) %>% 
   ungroup()
 
+# Estimate model
 m4 <- brm(
   urge ~ urge_cw1 + dep_cw + (urge_cw1 + dep_cw || person),
   family = gaussian(),
@@ -214,7 +233,7 @@ m4 <- brm(
 )
 ```
 
-We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors' Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don't really know what the data are from the paper)
+We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors' Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don't really know what the data are from the paper). Importantly, we have not estimated the latent depression variable, so that is missing
 
 ```{r}
 # Show table of coefficients' posterior summaries
@@ -228,11 +247,23 @@ as_draws_df(m4) %>%
   mutate(
     variable = str_c(
       variable, 
-      c(" ($\\alpha$)", " ($\\varphi$)", " ($\\beta$)",
-        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\varphi)}$", " ($\\sigma^2_{\\beta})$",
-        " ($\\sigma^2$)")
-      )
-    ) %>% 
+      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)",
+        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\phi)}$", 
+        " ($\\sigma^2_{\\beta})$", " ($\\sigma^2$)")
+      ),
+    across(c(median, q2.5, q97.5), ~number(., .01)),
+    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
+    Authors = c(
+      "-0.01 [-0.18, 0.16]",
+      " 0.21 [0.17, 0.24]",
+      " 0.80 [0.61, 0.95]",
+      " 0.60 [0.44, 0.83]",
+      " 0.02 [0.01, 0.03]",
+      " 0.79 [0.61, 0.95]",
+      " 1.14 [1.09, 1.19]"
+    )
+  ) %>% 
+  select(-c(median:q97.5)) %>% 
   k2()
 ```
 
@@ -243,21 +274,27 @@ $$\begin{align*}
 \text{Dep}^n_{ti} &= \text{Dep}^c_{ti} + \text{Dep}^b_i
 \end{align*}$$ {#eq-lmc}
 
-I think we can write this with brms nonlinear syntax
+## brms
+
+I think we can write this with brms nonlinear syntax.^[Note that $\alpha$ is also the mean of `urge1`, which consequently doesn't need its own mean estimated (this one tripped me up.)]
 
 ```{r}
+#| code-fold: show
 m4_latent_formula <- bf(
   urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - depb),
-  alpha ~ 1 + (1 | person),  # Latent intercept of urge
-  # urge1b ~ 1 + (1 | person),  # This is alpha! Weird & awesome (M&H2020 p.618)
-  depb ~ 1 + (1 | person),  # Latent mean of depression
-  phi ~ 1 + (1 | person),  # Slope of latent mean-person centered lagged urge on urge
-  beta ~ 1 + (1 | person),  # Slope of latent mean-person centered depression on urge
+  # Latent intercept of urge
+  alpha ~ 1 + (1 | person),  
+  # Latent mean of depression
+  depb ~ 1 + (1 | person),
+  # 'Effect' of latent mean-person centered lagged urge on urge
+  phi ~ 1 + (1 | person), 
+  # 'Effect' of latent mean-person centered depression on urge
+  beta ~ 1 + (1 | person),
   nl = TRUE
 ) +
   gaussian()
 
-p <- get_prior(m4_latent_formula, data = m4_data) %>% 
+p <- get_prior(m4_latent_formula, data = m4_data) %>%
   mutate(
     prior = case_when(
       class == "b" & coef == "Intercept" ~ "normal(0, 1.5)",
@@ -273,7 +310,10 @@ m4_latent <- brm(
   control = list(adapt_delta = 0.99),
   file = "m4_latent"
 )
+```
 
+
+```{r}
 as_draws_df(m4_latent) %>% 
   select(1:9) %>% 
   mutate(
@@ -281,18 +321,125 @@ as_draws_df(m4_latent) %>%
   ) %>% 
   summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
   mutate(variable = str_replace(variable, "sd_person__", "var_")) %>% 
+  mutate(
+    variable = str_c(
+      variable, 
+      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)",
+        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\phi)}$", 
+        " ($\\sigma^2_{\\beta})$", " ($\\sigma^2$)")
+      ),
+    across(c(median, q2.5, q97.5), ~number(., .01)),
+    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
+    Authors = c(
+      "-0.01 [-0.18, 0.16]",
+      " 0.21 [0.17, 0.24]",
+      " 0.80 [0.61, 0.95]",
+      " 0.01 [-0.02, 0.04]",
+      " 0.60 [0.44, 0.83]",
+      " 0.02 [0.01, 0.03]",
+      " 0.79 [0.61, 0.95]",
+      " 0.01 [0.00, 0.01]",
+      " 1.14 [1.09, 1.19]"
+    )
+  ) %>% 
+  select(-c(median:q97.5)) %>% 
   k2()
 ```
 
-We can compare these to the MPlus results, but I don't know how that model works, what the priors are etc.
+We can compare these to the MPlus results, but I don't know how that model works, what the priors are etc. The estimates for phi and beta are the same, but depb and alpha are way off. 
 
-![Table 4 from McNeish and Hamaker (2020)|50%](images/Screenshot%202022-11-09%20at%2021.34.19.png){fig-alt="Table 4 from McNeish and Hamaker (2020)."}
+After chatting with some very helpful folks at the [Stan board](https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424/6), it became clear that the latent depression mean isn't appropriately connected to the raw values of depression. That is, we should specify that `dep` is predicted from `depb`. The next challenge is then figuring out how to do that with brms, since `depb` is not observed. If possible, I believe it would require using the `mi()` syntax appropriately. Here is my first walk down that path.^[I haven't used `mi()` before and I'm pretty clearly wandering around in the dark here.]
 
-The estimates for phi and beta are the same, but depb and alpha are way off. The variances seem very similar though? I don't know why, I think I've specified the right model. Maybe MPlus has weird priors?
+This is the first thing I tried: Specifying `depb` as missing everywhere it occurred. However, I get an error that says that it should also be specified as a response variable:
 
-Help needed :)
+```{r}
+#| code-fold: show
+#| error: true
+#| eval: true
+m4_latent_formula <- bf(
+  urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - mi(depb)),
+  alpha ~ 1 + (1 | person),  
+  dep ~ 0 + mi(depb),
+  depb | mi() ~ 1 + (1 | person),
+  phi ~ 1 + (1 | person), 
+  beta ~ 1 + (1 | person),
+  nl = TRUE
+) +
+  gaussian()
 
-## See also {.appendix}
+# If variable doesn't exist in data, `brm()` gives an error
+m4_data_2 <- m4_data %>% 
+  mutate(depb = NaN) %>% 
+  drop_na(urge1)
+
+m4_latent <- brm(
+  m4_latent_formula,
+  data = m4_data_2,
+  control = list(adapt_delta = 0.99),
+  file = "m4_latent_v2"
+)
+```
+
+So I then tried putting it in a different `bf()` call. This gives an error in Stan, which I think indicates that `mi(depb)` is interpreted literally:
+
+```{r}
+#| code-fold: show
+#| error: true
+#| eval: true
+m4_latent_formula <- bf(
+  urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - mi(depb)),
+  alpha ~ 1 + (1 | person),  
+  dep ~ 0 + mi(depb),
+  phi ~ 1 + (1 | person), 
+  beta ~ 1 + (1 | person),
+  nl = TRUE
+) +
+  bf(depb | mi() ~ 1 + (1 | person)) +
+  gaussian() +
+  set_rescor(FALSE)
+
+m4_latent <- brm(
+  m4_latent_formula,
+  data = m4_data_2,
+  # Prior is required
+  prior = prior(normal(0, 1), nlpar = dep, resp = urge, coef = midepb),
+  control = list(adapt_delta = 0.99),
+  file = "m4_latent_v2"
+)
+```
+
+So I now think that next I should move terms from the non-linear formula to the `X ~ Y` statements below, but I'm not sure how that should look like. [This looks useful](https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227).
+
+
+# Stan {.appendix}
+
+This Stan model is from [Simon Brauer](https://discourse.mc-stan.org/u/simonbrauer) at the Stan board. Thanks Simon!
+
+:::{.callout-note}
+wip the code has errors
+:::
+
+```{r}
+#| eval: false
+.m4_data <- m4_data %>% drop_na(urge1)
+m4_data_stan <- list(
+  N = nrow(.m4_data),
+  M = length(unique(.m4_data$person)),
+  urge_t = .m4_data$urge,
+  urge_tm1 = .m4_data$urge1,
+  dep_t = .m4_data$dep
+)
+str(m4_data_stan)
+library(rstan)
+m4_fit_stan <- stan(
+  file = "model.stan",
+  data = m4_data_stan, control = list(adapt_delta = 0.95)
+)
+
+```
+
+
+# See also {.appendix}
 
 I've found these prior discussions useful
 
@@ -300,3 +447,4 @@ I've found these prior discussions useful
 -   <https://discourse.mc-stan.org/t/treat-the-cluster-mean-of-a-predictor-variable-as-a-latent-variable-hierarchical-linear-models/15001/5>
 -   <https://discourse.mc-stan.org/t/modeling-latent-means-in-brms-for-multilevel-group-mean-centering/12642/3>
 -   <https://scottclaessens.github.io/blog/2020/brmsLV/>
+-   <https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227>

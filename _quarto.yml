@@ -5,8 +5,8 @@ project:
 date-format: iso
 
 website:
-  title: "vuorre.me"
-  site-url: https://sometimesir.com
+  title: "Matti's homepage"
+  site-url: https://vuorre.netlify.app
   description: "Notes on psychology and statistics, sometimes"
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [issue]
@@ -24,7 +24,7 @@ website:
   image: favicon.png
   search:
     location: navbar
-    type: textbox
+    type: overlay
   twitter-card: true
   open-graph: true
   page-navigation: true
@@ -34,31 +34,39 @@ website:
     background: primary
     right:
       - index.qmd
-      - sometimes|r.qmd
+      - sometimesIr.qmd
       - contact.qmd
-      - text: Links
-        menu:
-          - text: Feed
-            href: index.xml
-          - text: My GitHub
-            href: https://github.com/mvuorre
-          - text: My Twitter
-            href: https://twitter.com/vuorre
-          - text: Buy me a coffee
-            href: https://www.buymeacoffee.com/vuorre
+      - personal.qmd
+      - text: "{{< fa rss >}}"
+        href: index.xml
 
   page-footer: 
     background: light
     border: false
     left: "© Matti Vuorre 2022" 
     right: 
-      - icon: github
-        aria-label: Github
-        href: https://github.com/mvuorre
-      - icon: twitter 
-        aria-label: Twitter
-        href: https://twitter.com/vuorre
-      - icon: cup
+      - text: "{{< fa solid envelope >}}"
+        href: "mailto:m.j.vuorre@tilburguniversity.edu"
+        aria-label: "envelope logo for linking to Matti's email"
+      - text: "{{< fa brands orcid >}}"
+        href: "https://orcid.org/0000-0001-5052-066X"
+        aria-label: "ORCID logo linking to Matti's ORCID account"
+      - text: "{{< fa brands mastodon >}}"
+        href: "https://fosstodon.org/@matti"
+        aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
+      - text: "{{< fa brands github >}}"
+        href: "https://github.com/mvuorre"
+        aria-label: "GitHub logo linking to Matti's GitHub page"
+      - text: "CV"
+        href: "https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf"
+        aria-label: "GitHub logo linking to Matti's GitHub page"
+      - text: "{{< fa brands twitter >}}"
+        href: "https://twitter.com/vuorre"
+        aria-label: "Twitter logo linking to Matti's Twitter profile"
+      - text: "{{< fa brands linkedin >}}"
+        href: "https://www.linkedin.com/in/matti-vuorre"
+        aria-label: "LinkedIn logo linking to Matti Vuorre's LinkedIn profile"
+      - text: "{{< fa mug-hot >}}"
         aria-label: Buy me a coffee
         href: https://www.buymeacoffee.com/vuorre
 format:

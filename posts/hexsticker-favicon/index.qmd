@@ -46,13 +46,6 @@ p <- d %>%
     linewidth = 2,
     position = position_stack()
   ) +
-  # And these curves go down, but a little less so
-  # geom_line(
-  #   linewidth = 2, 
-  #   alpha = 2/3,
-  #   aes(x = x, y = -y*.75),
-  #   position = position_stack()
-  # ) +
   # Make the plot otherwise completely empty
   theme_void() +
   theme_transparent() +

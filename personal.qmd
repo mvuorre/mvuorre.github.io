@@ -1,0 +1,35 @@
+---
+title: "About me"
+subtitle: |
+  Pleased to make your acquintance :wave:
+from: markdown+emoji
+comments: false
+---
+
+> "*Gentlemen, you can't fight in here! This is the Internet.*" --President [Merkin Muffley](https://www.imdb.com/title/tt0057012/quotes/?ref_=tt_trv_qu)
+
+I am a Finn[^fi] currently living in the United Kingdom. I [work](/research/index.html) at the [Oxford Internet Institute](https://www.oii.ox.ac.uk) in Oxford (surprise!). Prior to moving to the UK, I studied Psychology and Philosophy in Wellington, New Zealand, at the [Victoria University of Wellington](https://www.wgtn.ac.nz/) Kelburn campus from 2008 to 2013. The hobbits were right, Aotearoa *is* a wonderful place, and I never really left. 
+
+After NZ I completed a PhD in Psychology at Columbia in New York in the spring of 2018. My PhD "*[Using Visual Illusions to Examine Action-Related Perceptual Changes](https://academiccommons.columbia.edu/doi/10.7916/D8W39CRZ)*" is in the area of cognitive psychology, and examined how simple manual movements can distort perception. Since that I have worked as a [post-doc](https://en.wikipedia.org/wiki/Postdoctoral_researcher) at Columbia, and now at OII.
+
+[^fi]: "Finland is the first country in the world to publish its own set of country themed [emojis](https://finland.fi/emoji/). The Finland emoji collection contains 56 tongue-in-cheek emotions, which were created to explain some hard-to-describe Finnish emotions, Finnish words and customs." Here's a Finn eating some salmiakki: {{< figure src="https://finland.fi/wp-content/uploads/2016/05/emoji-black_gold.png" title="Finnish Black Gold" height="120px" width="120px" class="center">}} So proud of you :flag-fi:.
+
+If you're not sure what a post-doc is or what they do (I don't think anyone does), I remember someone saying in a tweet ([remember those](https://en.wikipedia.org/wiki/Mastodon_(software))?) that this video is a pretty accurate summary:
+
+{{< video https://youtu.be/w1gCW_66zzc >}}
+
+Wow, who doesn't love monster trucks?
+
+When I've some free time, I like hiking, making photographs, rock climbing (mostly crushing V2 problems on plastic---beast mode!), spending time with my family, badminton, eating Korean food, and playing with computers. I'm not very good at any of those things, but hey, life is all about learning. 
+
+During the Global Pandemic of 2020-20xx<sup>©</sup> I mostly read [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) on my phone, watched [quality TV](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki), and enjoyed [Salt Denim IPAs](https://www.saltbeerfactory.co.uk/product/denim/) 🤣. I also installed the Reddit app on my phone which proved to be a giant waste of time.
+
+In 2022 I was very fortunate to get a job as an assistant professor at Tilburg University in the Netherlands, starting 2023. I'm super excited about this new adventure, and look forward to meeting new colleagues & friends, and eating chocolate chips on toast for breakfast.
+
+
+## Coda {.appendix}
+
+If you find something particularly silly on this website, [please let me know](https://github.com/mvuorre/homepage/issues)!
+
+[^se]: They should teach this in schools. Being able to efficiently find what you need on the internet is an important skill. It took me some time early in my PhD to find out the patterns, keywords, and typical pages to click on when learning e.g. [R](https://cran.r-project.org/). This has something to do with the [(un)known (un)knowns](https://en.wikipedia.org/wiki/There_are_known_knowns) business. Also, ~~don't use Chrome~~ use [Firefox](https://www.mozilla.org/en-GB/firefox/all/#product-desktop-release) :star:.
+

@@ -1,5 +1,6 @@
 ---
-title: "Sometimes | R"
+title: Sometimes I R
+subtitle: A blog about statistics, psychology, science, and sometimes R
 listing:
   contents: posts
   sort: "date desc"
@@ -8,8 +9,6 @@ listing:
   feed: true
   max-description-length: 200
 page-layout: full
-title-block-banner: false
+title-block-banner: true
 comments: false
 ---
-
-I sometimes write about statistics, data science, and psychology on this blog.

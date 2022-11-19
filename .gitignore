@@ -12,3 +12,5 @@ _posts/**/*_files/
 
 /.quarto/
 /.vscode/
+
+/.luarc.json

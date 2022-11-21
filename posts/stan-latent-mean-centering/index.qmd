@@ -44,7 +44,7 @@ options(
 # Function for tables
 k2 <- function(x) {
   x %>% 
-    kbl(digits = 2) %>% 
+    kbl(digits = 2, format = "markdown") %>% 
     kable_classic_2("striped", full_width = FALSE, html_font = "Arial")
 }
 
@@ -355,7 +355,7 @@ This is the first thing I tried: Specifying `depb` as missing everywhere it occu
 ```{r}
 #| code-fold: show
 #| error: true
-#| eval: true
+#| eval: false
 m4_latent_formula <- bf(
   urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - mi(depb)),
   alpha ~ 1 + (1 | person),  
@@ -385,7 +385,7 @@ So I then tried putting it in a different `bf()` call. This gives an error in St
 ```{r}
 #| code-fold: show
 #| error: true
-#| eval: true
+#| eval: false
 m4_latent_formula <- bf(
   urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - mi(depb)),
   alpha ~ 1 + (1 | person),  
@@ -402,13 +402,82 @@ m4_latent <- brm(
   m4_latent_formula,
   data = m4_data_2,
   # Prior is required
-  prior = prior(normal(0, 1), nlpar = dep, resp = urge, coef = midepb),
+  prior = p,
   control = list(adapt_delta = 0.99),
   file = "m4_latent_v2"
 )
 ```
 
 So I now think that next I should move terms from the non-linear formula to the `X ~ Y` statements below, but I'm not sure how that should look like. [This looks useful](https://discourse.mc-stan.org/t/mi-with-non-linear-model/11227).
+
+### Yet another try
+
+```{r}
+#| code-fold: show
+m4_latent_formula <- bf(
+  urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - depB),
+  alpha ~ 1 + (1 | person),
+  phi ~ 1 + (1 | person),
+  beta ~ 1 + (1 | person),
+  nlf(depB ~ depBI),
+  depBI ~ 1 + (1 | person),
+  nl = TRUE
+) +
+  gaussian()
+
+p <- get_prior(m4_latent_formula, data = m4_data) %>%
+  mutate(
+    prior = case_when(
+      class == "b" & coef == "Intercept" ~ "normal(0, 1)",
+      class == "sd" & coef == "Intercept" ~ "student_t(7, 0, 1)",
+      TRUE ~ prior
+    )
+  )
+
+m4_latent <- brm(
+  m4_latent_formula,
+  data = m4_data,
+  prior = p,
+  control = list(adapt_delta = 0.99),
+  file = "m4_latent_v3"
+)
+```
+
+Hmhm this seems to work and looks right -- we needed to sneak in a formula to predict the latent mean depression, and the above looks correct. Let's show a pretty table of the parameters
+
+```{r}
+as_draws_df(m4_latent) %>% 
+  select(1:9) %>% 
+  mutate(
+    across(c(starts_with("sd_"), "sigma"), ~.^2)
+  ) %>% 
+  summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
+  mutate(variable = str_replace(variable, "sd_person__", "var_")) %>% 
+  mutate(
+    variable = str_c(
+      variable, 
+      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)", " (DepB)",
+        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\phi)}$", 
+        " ($\\sigma^2_{\\beta})$", " ($\\sigma^2_{DepB})$",
+        " ($\\sigma^2$)")
+      ),
+    across(c(median, q2.5, q97.5), ~number(., .01)),
+    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
+    Authors = c(
+      "-0.01 [-0.18, 0.16]",
+      " 0.21 [0.17, 0.24]",
+      " 0.80 [0.61, 0.95]",
+      " 0.01 [-0.02, 0.04]",
+      " 0.60 [0.44, 0.83]",
+      " 0.02 [0.01, 0.03]",
+      " 0.79 [0.61, 0.95]",
+      " 0.01 [0.00, 0.01]",
+      " 1.14 [1.09, 1.19]"
+    )
+  ) %>% 
+  select(-c(median:q97.5)) %>% 
+  k2()
+```
 
 
 # Stan {.appendix}

@@ -1,11 +1,9 @@
 ---
-title: "Contact"
+title: "Get in touch"
 comments: false
 ---
 
-I'm always happy to hear from folks and meet new people! Don't hesitate to get in touch via [email](mailto:matti.vuorre@oii.ox.ac.uk), [twitter](https://www.twitter.com/vuorre), [keybase](https://keybase.io/vuorre), or by using the form below.
-
-If you'd like my help with something, you can book a [one-on-one meeting with me](https://book.stripe.com/aEU8wG5vkaKK5J6bIK).
+I'm always happy to hear from folks and meet new people! Don't hesitate to contact me via [email](mailto:m.j.vuorre@tilburguniversity.edu) or by using the form below.
 
 <form name="contact" method="POST" data-netlify="true" action="/contact-success.html">
   <p>

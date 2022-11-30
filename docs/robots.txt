@@ -1,1 +1,1 @@
-Sitemap: https://sometimesir.com/sitemap.xml
+Sitemap: https://vuorre.netlify.app/sitemap.xml

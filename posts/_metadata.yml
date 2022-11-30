@@ -4,7 +4,7 @@
 freeze: true
 
 # Disable banner style title blocks
-title-block-banner: false
+title-block-banner: true
 title-block-style: default
 
 # Enable CC licence appendix
@@ -28,7 +28,7 @@ execute:
 # Default author
 author:
   - name: Matti Vuorre
-    url: https://vuorre.netlify.com
+    url: https://vuorre.netlify.app
     affiliation: University of Oxford
     affiliation-url: https://www.oii.ox.ac.uk/people/matti-vuorre/
     orcid: 0000-0001-5052-066X

@@ -1,0 +1,437 @@
+---
+title: Tidymultiverse
+description: How to conduct multiverse analyses in R in parallel with tidy pipelines
+date: 2022-11-30
+categories:
+  - R
+  - multiverse
+  - tidyverse
+  - specr
+draft: false
+execute:
+  cache: true
+  message: false
+  warning: false
+from: markdown+emoji
+reference-location: margin
+execute-dir: file
+format:
+  html:
+    code-fold: show
+    code-summary: "Code"
+    df-print: kable
+bibliography: references.bib
+image: "images/undraw-lost-online.png"
+---
+
+# Introduction
+
+:::{.callout-note}
+## Work in progress
+This entry is an unfinished draft.
+:::
+
+The results of statistical analyses often depend on analysts' (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse (sometimes called specification curve) analysis is a method whereby the analysts don't only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results [@simonsohnSpecificationCurveAnalysis2020; @steegenIncreasingTransparencyMultiverse2016].
+
+For example, @orbenAssociationAdolescentWellbeing2019 showed, through analyzing the same datasets in thousands of different ways, that conclusions regarding the association between the psychological well-being of adolescents and their digital technology use critically depend on (mostly) arbitrary decisions in how and which data are analysed (@fig-op3).
+
+This blog entry is about the technical aspects of conducting multiverse analyses in R. I have briefly examined the landscape of R packages that facilitate multiverse analyses, and found that none suited my needs. In this entry, I outline a general and flexible [tidyverse](https://www.tidyverse.org/)-centric multiverse analysis pipeline. I eschew using external packages to maximize flexibility and speed (parallel processing).
+
+```{r}
+#| echo: false
+#| label: fig-op3
+#| fig-cap: Figure 3 from @orbenAssociationAdolescentWellbeing2019. Reproduced 100% without permission, but I don't think Amy or Andy would mind.
+library(knitr)
+library(tidyverse)
+include_graphics('images/orben-przybylski-2019-fig3.png')
+```
+
+Currently, I am aware of three R packages for conducting multiverse analyses. The [multiverse](https://github.com/MUCollective/multiverse/) package provides extensive functionality for conducting and reporting multiverse analyses, including a "domain specific language" for analyses and reporting. However, while powerful, the package seems somewhat complicated (for the use cases that I have in mind). Frankly, after briefly reviewing the documentation, I don't know how to use it (but it seems cool!) [mverse](https://github.com/mverseanalysis/mverse/) aims to make the multiverse package easier to use. I haven't explored it much but it only seems to offer `lm()` and `glm()` models. [specr](https://github.com/masurp/specr) (maybe most relevant for my use cases in psychology) provides a much simpler set of functions (with less flexibility, however). 
+
+Another downside of these packages is that they don't provide options for parallel computations. Parallelization is quite important because multiverse analyses can include (tens, hundreds) of thousands of analyses and can therefore take a long time to complete. I started a pull request that aimed to add that functionality to specr, but along the way found that it wasn't so easy to implement with the current specr syntax and codebase, and my limited R skills.
+
+While thinking about how best to contribute to specr, I realized that multiverse analyses don't necessarily need extra functions, but can be easily implemented in familiar data analysis pipelines ([dplyr](https://dplyr.tidyverse.org/) and `%>%`; depending on how familiar you are with the tidyverse). This entry is part of my journey of trying to figure out how to flexibly conduct multiverse analyses in parallel in R, and demonstrates a flexible syntax for parallelizing multiverse analyses with `%>%`lines.
+
+I am not an expert in parallel processing by any means, so would love to know if you have any feedback on how I've implemented it below! Let me know in the comments :smile:
+
+# Example multiverse analysis
+
+Let’s start with a simple toy example with two outcomes, two predictors, and two covariates, and no prior reason to choose between specifications. That is, we think that `y1` and `y2` are equally likely to represent our outcome construct of interest, `x1` and `x2` are equally likely to represent the predictor construct, and we can’t choose if or how to include the covariates `c1` and `c2` in the model. Let's load the required libraries and show the example data (@tbl-data):
+
+```{r}
+#| cache: false
+library(kableExtra)
+library(scales)
+library(ggthemes)
+library(tictoc)
+library(tidyverse)
+
+theme_set(
+  theme_few(
+    base_family = "Comic Sans MS", 
+    base_size = 12
+  )
+)
+
+k2 <- function(x) {
+  x %>% 
+    kbl(digits = 2) %>% 
+    kable_classic_2(html_font = "Arial", lightable_options = "striped", full_width = FALSE)
+}
+
+# Data generation
+generate_data <- function(seed = NA, n = 1e5) {
+  if (!is.na(seed)) set.seed(seed)
+  dat <- tibble(
+    x1 = rnorm(n),
+    x2 = rnorm(n),
+    y1 = rnorm(n) + x1*.1,
+    y2 = rnorm(n) + x1*.2,
+    c1 = rnorm(n) + x1*.3,
+    c2 = rnorm(n),
+    group = sample(c("a", "b", "c", "d"), n, replace = TRUE)
+  )
+}
+dat <- generate_data(9)
+```
+
+```{r}
+#| label: tbl-data
+#| echo: false
+#| tbl-cap: !expr 'str_glue("Example data (n = {number(nrow(dat), big.mark = \",\")}; {format(object.size(dat), \"Mb\")} on disk)")'
+head(dat) %>% 
+  k2()
+```
+
+We can specify a fully crossed multiverse analysis over outcomes, predictors, and covariates, easily with specr. Also, to make the example a bit more interesting for later examples, I'll estimate the model using two functions (`lm()` and `glm()` which in this case give the same results), and will time the function call using tictoc. @tbl-specr shows the first few rows of the results.
+
+```{r}
+#| label: specr
+#| cache: true
+library(specr)
+tic()
+results_specr <- run_specs(
+  df = dat, 
+  y = c("y1", "y2"), 
+  x = c("x1", "x2"), 
+  model = c("lm", "glm"), 
+  controls = c("c1", "c2"), 
+  subsets = list(group = unique(dat$group))
+)
+toc()
+```
+
+```{r}
+#| code-fold: true
+#| label: tbl-specr
+#| tbl-cap: "First six rows of multiverse numerical results from specr"
+results_specr %>% 
+  head() %>% 
+  .[,1:10] %>% 
+  kbl(
+    digits = 2
+  ) %>% 
+  kable_classic_2(html_font = "Arial", full_width = FALSE)
+```
+
+Another great thing about this package is that you can easily draw specification curve figures (@fig-specr)
+
+```{r}
+#| label: fig-specr
+#| fig-cap: Specification curve figure drawn from specr results
+#| fig-height: 7
+plot_specs(
+  results_specr, 
+  choices = c("x", "y", "model", "controls", "subsets")
+)
+```
+
+However, even with this modest data set and `r nrow(results_specr)` specifications, this took a while.
+
+I first decided to take a stab at parallelizing `run_specs()`. This turned out to be a bit of a dead end because I couldn't make the parallelization fit in with how [`run_specs()`](https://github.com/masurp/specr/blob/master/R/run_specs.r) works in the back-end.[^1] So instead of shoehorning a parallel back-end to specr, I decided to implement the parallelization in a tidy pipeline. This pipeline, with no additional dependencies (apart from the tidyverse!), works pretty well. It of course does not provide specr's one-liners, but I believe the flexibility of this approach pays back for it.
+
+[^1]: It first creates a data frame with the specs, then the requested subsets, and then either applies `run_spec()` to all the datasets and specs using `map()`, or if no subsets were requested, runs the `run_spec()` on the specs only. So it wasn't straightforward to parallelize over both data subsets and specs. Parallelizing over specs [was simple](https://github.com/masurp/specr/pull/31/commits/142bdf879b96966b3f4bd1fdf04e886711d827f1).
+
+# Tidymultiverse
+
+## Specification table
+
+The first step in a multiverse analysis is defining the grid of specifications.
+
+The one difficulty here is that the dataset can also be part of the specifications (e.g. different outlier removal thresholds), but you can't include the dataset in the table of specifications, because it would easily get too large and your computer would run out of memory (I learned this the hard way). So we will still iterate over the specs table, and pull relevant subsets of the data from the source data table in the function that iterates over the specs.
+
+A flexible and easy way to declare the specifications is `expand_grid()`. This allows us to create tables that cross all the variables declared therein. I've chosen here to create a grid of variables.
+
+```{r}
+specs <- expand_grid(
+  x = c("x1", "x2"),
+  y = c("y1", "y2"),
+  covariate = c("x1", "x2"),
+  model = c("lm", "glm")
+)
+```
+
+```{r}
+#| label: tbl-specs-1
+#| echo: false
+#| tbl-cap: First six rows of example specifications table. 
+head(specs) %>% k2()
+```
+
+But we could also just as well create a grid of formulas. Depending on your analysis, this might be a viable option
+
+```{r}
+#| eval: false
+expand_grid(
+  formula = c("y1 ~ x1", "y1 ~ x2", "y1 ~ x1 + c1"), # And so on
+  model = c("lm", "glm")
+)
+```
+
+We will stick with specifying variables instead, for this example. We can include subgroups as well:
+
+```{r}
+specs <- expand_grid(
+  x = c("x1", "x2"),
+  y = c("y1", "y2"),
+  covariate = c("x1", "x2"),
+  model = c("lm", "glm"),
+  # Include all distinct values of g
+  distinct(dat, group)
+)
+```
+
+
+```{r}
+#| label: tbl-specs-2
+#| tbl-cap: First six rows of example specifications table with subgroups.
+head(specs) %>% k2()
+```
+
+Now each row in the table specifies 1. the modelling function (e.g. `lm()`), the subgroup, and the left-hand and right-hand side variables of the formula to put in the modelling function. Next, we need a function to also expand the covariates to all their combinations (I lifted much of this from the [specr source](https://github.com/masurp/specr/blob/7d5a0c3664dd5d281ecaebb783ce75b638447205/R/setup_specs.r#L41), I found it surprisingly hard to write):
+
+```{r}
+#' Expand a vector of covariate names to all their combinations
+#'
+#' For example expand_covariate(c("age", "sex")) returns
+#' c("1", "age", "sex", "age + sex")
+#'
+#' @param covariate vector of covariate(s) e.g. c("age", "sex")
+#'
+#' @return a character vector of all predictor combinations (incl. Intercept)
+expand_covariate <- function(covariate) {
+  list(
+    "1",
+    do.call(
+      "c",
+      map(seq_along(covariate), ~combn(covariate, .x, FUN = list))) %>%
+      map(~paste(.x, collapse = " + "))
+  ) %>%
+    unlist
+}
+```
+
+### The specification table
+
+Putting all this together, and also creating the formulas from `y`, `x`, and `c`, we have completed the first part of our pipeline, creating the specifications:
+
+```{r}
+specs <- expand_grid(
+  x = c("x1", "x2"),
+  y = c("y1", "y2"),
+  covariate = expand_covariate(c("c1", "c2")),
+  model = c("lm", "glm"),
+  distinct(dat, group)
+) %>% 
+  mutate(formula = paste0(y, " ~ ", x, " + ", covariate))
+```
+
+
+```{r}
+#| label: tbl-specs-3
+#| tbl-cap: First six rows of example specifications table with subgroups and formulas.
+head(specs) %>% k2()
+```
+
+## Estimating the specifications
+
+Having set up the specifications, all that is left to do is to iterate over its rows, while at the same time use the correct subsets of data. While iterating, we will get the slope parameter from each row using `tidy()`. Here's how it could look like. The arguments to `pmap()` require some explaining. We are creating a cell on each row of `specs` using `pmap()`. This will apply a function to all the named elements in `list()`. The function, then, is `do.call()`, which takes the name of the function (here, `lm()` or `glm()`) as the first argument, passed using the shorthand `..1`. Then, we provide a list of arguments to the function. `formula = ..2` takes the second element from the above list. `data` takes our main data frame `dat`, but filters it based on the groups, passed in with `..3` (`group` in the above list). We then pipe the results to `tidy()` to give a tibble of the estimated parameters, and `slice()` to just take the second row of the parameters (the slope parameter). The `unnest()` command at the end unnests the resulting tibble of results into the specs table.
+
+```{r}
+#| label: tidy-multiverse
+#| cache: true
+library(broom)
+tic()
+results_1 <- specs %>% 
+  mutate(
+    out = pmap(
+      list(model, formula, group), 
+      ~do.call(
+        ..1, 
+        list(formula = ..2, data = filter(dat, group == ..3))
+      ) %>% 
+        tidy(conf.int = TRUE) %>% 
+        slice(2)
+    )
+  ) %>% 
+  unnest(out)
+toc()
+```
+
+We already see an improvement in the run-time of this pipeline over `run_specs()`, but note that my implementation does not estimate models for the complete data (`subsets` = `all` in specr), so it is not an entirely fair comparison.
+
+## Parallel estimation
+
+Now that we have our pipeline set up, we can use multidplyr to easily (and safely!) parallelize our computations.
+
+:::{.callout-note}
+Parallelization is hard and rarely works out of the box. Multidplyr works best when the individual computations are slow, because there is always some overhead in sending stuff back and forth between the nodes of the cluster. So the benefits will be even greater with larger data or slower models. The benefit of using multidplyr vs other parallel backends is that the user retains control over how to split up the computations. Your feedback is more than welcome (comments are open at the end of this post)!
+:::
+
+To start, we load multidplyr, create a new cluster, and send the required libraries and variables to it.
+
+```{r}
+#| cache: false
+library(multidplyr)
+# Create a new cluster
+cluster <- new_cluster(8)
+
+# Load libraries in and send data to nodes in the cluster
+cluster_library(cluster, c("purrr", "broom", "tidyr", "dplyr"))
+cluster_copy(cluster, c("dat"))
+```
+
+Multidplyr integrates seamlessly into `%>%`lines by sending groups in the passed data to nodes in the cluster. It is therefore important to think a bit about how to group your data. For us, we want to equally divide the `lm()` and `glm()` calls across nodes, because `glm()` is considerably slower. If one node got all the `glm()` calls, we would have to wait for that one node even after the others had completed.
+
+Here, it makes sense for us to group the data by `formula` and `group`. After grouping the data, we `partition()` it across the nodes in the cluster, run our computations, and then `collect()` the results back to our main R process. I also pass the `tidy()` results to `slice(2)` to just get the slope parameters.
+
+```{r}
+#| cache: false
+tic()
+results_2 <- specs %>% 
+  group_by(formula, group) %>% 
+  partition(cluster) %>%
+  mutate(
+    out = pmap(
+      list(model, formula, group), 
+      ~do.call(..1, list(formula = ..2, data = filter(dat, .data[["group"]] == ..3))) %>% 
+        tidy(conf.int = TRUE) %>% 
+        slice(2)
+    )
+  ) %>% 
+  collect() %>% 
+  ungroup() %>% 
+  unnest(out)
+toc()
+```
+
+This particular parallelization scheme (8 cores working on subsets defined by `formula` and `group` in `dat`) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.
+
+I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation.
+
+```{r}
+#| label: tbl-results-check
+#| tbl-cap: Example results from the three estimation methods.
+bind_rows(
+  "specr" = results_specr %>% 
+    filter(subsets != "all", x == "x1", y == "y1", model == "lm", controls == "c1") %>% 
+    rename(covariate = controls, group = subsets) %>% 
+    mutate(group = str_remove(group, "group = ")),
+  "tidymultiverse" = results_1 %>% 
+    filter(term == x, x == "x1", y == "y1", model == "lm", covariate == "c1") %>% 
+    select(-formula, -term),
+  "TM (parallel)" = results_2 %>% 
+    filter(term == x, x == "x1", y == "y1", model == "lm", covariate == "c1") %>% 
+    select(-formula, -term),
+  .id = "Method"
+) %>% 
+  select(Method, estimate, std.error, conf.low, conf.high, group) %>% 
+  arrange(group) %>% 
+  k2()
+```
+
+# Complete tidymultiverse example
+
+Let's take this one step further and show an example of a complete pipeline. We still analyse the same dataset, but with an additional complexity: We are worried about outliers in the data, and would like to explore a multiverse over different data filtering thresholds (reject `y1` values that are more than 1, 2, or 3 standard deviations from the mean). We can implement this in many ways. For example, we could create indicator variables that could be used as subgroups just as we have done with `group` so far. Another interesting alternative is to dynamically filter the source data in the function that iterates over the specs table. We take the latter route here.
+
+```{r}
+#| code-line-numbers: true
+tic()
+results <- expand_grid(
+  threshold = c(1, 2, 3),
+  x = c("x1", "x2"),
+  y = c("y1", "y2"),
+  covariate = expand_covariate(c("c1", "c2")),
+  model = c("lm", "glm"),
+  distinct(dat, group)
+) %>% 
+  mutate(formula = paste0(y, " ~ ", x, " + ", covariate)) %>% 
+  group_by(formula, group) %>%
+  partition(cluster) %>%
+  mutate(
+    out = pmap(
+      list(model, formula, group, threshold), 
+      ~do.call(
+        ..1, 
+        list(
+          formula = ..2, 
+          data = filter(
+            dat, 
+            group == ..3,
+            between(y1, mean(y1) - sd(y1)*..4, mean(y1) + sd(y1)*..4)
+          )
+        )
+      ) %>% 
+        tidy(conf.int = TRUE) %>% 
+        slice(2)
+    )
+  ) %>% 
+  collect() %>%
+  unnest(out) %>%
+  ungroup()
+toc()
+```
+
+Ok, ok, that was too much in one go. Let's focus on the key piece here: Applying the modelling function to each row of the specifications, on rows 15 to 27. 
+
+- `list(model, formula, group, threshold)`
+  - We pick these variables from the specification table to use as arguments in `do.call()`
+- `do.call(**..1**)`
+  - This means that we will run the function named in the first element in the above list, `model` (which is `lm` or `glm`), with the subsequent arguments
+- `formula = ..2`, use the second element from the list passed to `pmap()` as the `formula` argument of `model` (e.g. `lm()`) 
+- `data = filter(...)`
+  - This is where the action is. We dynamically filter the source data frame `dat` based on variables in the specification table.
+  - `group == ..3` means that we filter the data on group (the third argument in the list of arguments passed to `pmap()`)
+  - `between(y1, mean(y1) - sd(y1)*..4, mean(y1) + sd(y1)*..4)` we filter data in `dat` based on the fourth argument `threshold`. This line says to include only `y1` values that are within `..4` (= `threshold` in the specification table) standard deviations from the mean.
+
+This syntax seems a bit hairy, but it is entirely general. The key point here is that we don't have to learn any new syntax from a new package, but can simply keep applying tidyverse's `%>%`lines with familiar dplyr verbs like `filter()`. The ugly aspect here is that we are sneaking in those `%>%`lines inside the `do.call()` function, which then iterates over the specification table.
+
+## A visualization
+
+```{r}
+#| label: fig-results-2
+#| cache: false
+#| fig-height: 8
+#| fig-cap: Specification curve figure example with ggplot().
+library(patchwork)
+results <- arrange(results, estimate) %>% mutate(spec = 1:n())
+p_dash <- results %>% 
+  select(spec, p.value, threshold:group) %>% 
+  pivot_longer(-c(spec, p.value), values_transform = as.character) %>% 
+  ggplot(aes(spec, value, col = p.value < 0.05)) +
+  scale_color_brewer(palette = "Set1") +
+  scale_x_continuous(
+    "Specification"
+  ) +
+  geom_point(size = 0.5) +
+  facet_grid(rows = vars(name), scales = "free_y", space = "free_y") +
+  theme(axis.title.y = element_blank())
+p_curve <- results %>% 
+  ggplot(aes(spec, estimate, col = p.value < 0.05)) +
+  scale_color_brewer(palette = "Set1") +
+  geom_pointrange(aes(ymin = conf.low, ymax = conf.high), size = 0.5)
+(p_curve / p_dash) &
+  theme(legend.position = "none")
+```
+
+

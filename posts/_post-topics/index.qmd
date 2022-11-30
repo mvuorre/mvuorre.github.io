@@ -1,0 +1,38 @@
+---
+title: Some topics that I'd like to learn more about and possibly write about 
+description: Notes to self I guess
+date: 2023-01-01
+# categories:
+image: ""
+draft: true
+---
+
+# GitHub Codespaces
+
+# R and Quarto in VS Code
+
+I've been using R, and it's extensions R Markdown, Quarto, bookdown, etc, exclusively through R Studio for nearly a decade. (Holy 💩.) R Studio is great, it's optimized for producing content with R, and the folks behind it develop amazing software to support the R coding experience.
+
+However, with the recent launch of [Quarto](https://quarto.org/), I think things are going to change. Quarto is a cross-language cross-IDE technical publishing system, and as such the R Studio functions supporting things like R Markdown will be less important. Also, VS Code is a hugely more popular IDE with a massive community around it. It is far superior to R Studio when working with other languages, such as LaTeX, Markdown, and Finnish, all of which I use fairly often. Switching to VS Code would allow me to use only one editor across all my projects, and offer a generally smoother coding / writing experience.
+
+
+## Resources
+
+- <https://twitter.com/Matt_Craddock/status/1572533356260200454>
+- <https://aeturrell.github.io/markov-wanderer/posts/setting-up-r-in-vscode/>
+- <https://gist.github.com/strengejacke/82e8d7b869bd9f961d12b4091c145b88>
+- <https://curso-r.github.io/beautiful-r/editors.html#vs-code>
+- <https://code.visualstudio.com/docs/languages/r>
+- <https://github.com/REditorSupport/vscode-R/wiki/Getting-Started>
+
+# Multiple comparisons
+
+Frequentism is about decisions, probability is.
+
+Frequentist decide a priori.
+
+Bayesians are empirical and use information.
+
+# Splines and GAMs
+
+https://www.core77.com/posts/55368/When-Splines-Were-Physical-Objects#

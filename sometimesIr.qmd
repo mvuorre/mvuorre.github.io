@@ -1,0 +1,14 @@
+---
+title: Sometimes I R
+subtitle: A blog about statistics, psychology, science, and sometimes R
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+  max-description-length: 200
+page-layout: full
+title-block-banner: true
+comments: false
+---

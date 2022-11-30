@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sometimes I R - Posts</title>
+<title>Matti’s homepage - Matti Vuorre</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,23 +30,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "textbox",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -60,45 +59,23 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="alternate" type="application/rss+xml" title="Sometimes I R" href="index.xml"><meta property="og:title" content="Sometimes I R - Posts">
-<meta property="og:site-name" content="Sometimes I R">
-<meta name="twitter:title" content="Sometimes I R - Posts">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Matti’s homepage - Matti Vuorre">
+<meta property="og:description" content="Psychological scientist">
+<meta property="og:image" content="https://vuorre.netlify.app/images/profile.png">
+<meta property="og:site-name" content="Matti's homepage">
+<meta property="og:image:height" content="480">
+<meta property="og:image:width" content="635">
+<meta name="twitter:title" content="Matti’s homepage - Matti Vuorre">
+<meta name="twitter:description" content="Psychological scientist">
+<meta name="twitter:image" content="https://vuorre.netlify.app/images/profile.png">
+<meta name="twitter:image-height" content="480">
+<meta name="twitter:image-width" content="635">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -109,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="./favicon.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Sometimes I R</span>
+    <span class="navbar-title">Matti’s homepage</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -118,36 +95,25 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sometimesir.html">
+ <span class="menu-text">Sometimes I R</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./contact.html">
- <span class="menu-text">Contact</span></a>
+ <span class="menu-text">Get in touch</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Links</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
-        <li>
-    <a class="dropdown-item" href="./index.xml">
- <span class="dropdown-text">Feed</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./personal.html">
+ <span class="menu-text">About me</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">My GitHub</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./sometimesir.xml">
+ <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">My Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
- <span class="dropdown-text">Buy me a coffee</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -155,692 +121,102 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(15)</span></div><div class="category" data-category="brms">brms <span class="quarto-category-count">(7)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="psychology">psychology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(8)</span></div><div class="category" data-category="tips">tips <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tutorial">tutorial <span class="quarto-category-count">(10)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(5)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-about-solana column-body">
+  <div class="about-entity">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts</h1>
+<h1 class="title">Matti Vuorre</h1>
+<p class="subtitle lead"></p><p>Psychological scientist</p><p></p>
 </div>
-
-
-
 <div class="quarto-title-meta">
-
-    
-  
-    
   </div>
-  
+</header> <div class="about-links">
+  <a href="mailto:m.j.vuorre@tilburguniversity.edu" class="about-link">
+     <span class="about-link-text"><i class="fa-solid fa-envelope" aria-label="envelope"></i></span>
+  </a>
+  <a href="https://orcid.org/0000-0001-5052-066X" class="about-link">
+     <span class="about-link-text"><i class="fa-brands fa-orcid" aria-label="orcid"></i></span>
+  </a>
+  <a href="https://fosstodon.org/@matti" class="about-link">
+     <span class="about-link-text"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></span>
+  </a>
+  <a href="https://github.com/mvuorre" class="about-link">
+     <span class="about-link-text"><i class="fa-brands fa-github" aria-label="github"></i></span>
+  </a>
+  <a href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf" class="about-link">
+     <span class="about-link-text">CV</span>
+  </a>
+  <a href="https://twitter.com/vuorre" class="about-link">
+     <span class="about-link-text"><i class="fa-brands fa-twitter" aria-label="twitter"></i></span>
+  </a>
+  <a href="https://www.linkedin.com/in/matti-vuorre" class="about-link">
+     <span class="about-link-text"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></span>
+  </a>
+</div>
+      <div class="about-contents"><div id="edu-exp">
+</div></div>
+    </div>
+    <img src="/images/profile.png" class="about-image
+  round " style="height: 12em; width: 12em;">
+  </div>
+</div>
 
-</header>
+<p><span class="emoji" data-emoji="wave">👋</span> I am a psychological researcher at the Oxford Internet Institute, where I study psychological functioning in the context of digital technologies and online/virtual environments. Much of my most recent research has focused on the roles that digital technologies—particularly video games—play in individuals’ well-being. In my work, I apply statistical methods to large-scale datasets and conduct controlled experiments. I also place great emphasis on the transparency and reproduciblity of all my work. For more details, you can take a look at my <a href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">vita</a> (also available in <a href="https://github.com/mvuorre/CV/raw/dracula/vuorre-matti.pdf">dark mode</a>, obviously <span class="emoji" data-emoji="vampire">🧛</span>). You can also check out my OII profile <a href="https://www.oii.ox.ac.uk/people/profiles/matti-vuorre/">here</a>.</p>
+<p>In addition to my current research topics, I have written about <a href="https://link.springer.com/article/10.1007%2Fs11409-020-09257-1">meta-cognition</a> and have a keen interest in methodology (e.g.&nbsp;<a href="https://journals.sagepub.com/doi/10.1177/2515245918754826">here</a>) and applied statistics (<a href="https://www.tandfonline.com/doi/full/10.1080/21642850.2018.1428102">here</a>) within the psychological sciences. I also have a very sporadic blog about statistics, psychology, science and the wonderful R statistical programming environment at <a href="sometimesIr.html">Sometimes I R</a>. Surely I am not the only person who has R Studio launch on startup <span class="emoji" data-emoji="nerd_face">🤓</span>?</p>
+<section id="selected-writings" class="level2">
+<h2 data-anchor-id="selected-writings">Selected writings</h2>
+<p>Here are some recent works that I was particularly happy to have contributed to. (Unlike children, you <em>can</em> have favorite papers.)</p>
+<ul>
+<li>“<em>There Is No Evidence That Associations Between Adolescents’ Digital Technology Engagement and Mental Health Problems Have Increased.</em>” (<a href="https://doi.org/10.1177/2167702621994549">web</a> | <a href="https://journals.sagepub.com/doi/pdf/10.1177/2167702621994549">pdf</a> | <a href="https://github.com/digital-wellbeing/timetrends">code</a>)</li>
+<li>“<em>Time spent playing video games is unlikely to impact well-being.</em>” (<a href="https://royalsocietypublishing.org/doi/full/10.1098/rsos.220411">web</a> | <a href="https://royalsocietypublishing.org/doi/pdf/10.1098/rsos.220411?download=true">pdf</a> | <a href="https://zenodo.org/badge/latestdoi/373533911">code &amp; data</a>)</li>
+<li>“<em>Video game play is positively correlated with well-being.</em>” (<a href="https://doi.org/10.1098/rsos.202049">web</a> | <a href="https://royalsocietypublishing.org/doi/pdf/10.1098/rsos.202049">pdf</a> | <a href="https://github.com/digital-wellbeing/gametime">code &amp; data</a>)</li>
+<li>“<em>Ordinal Regression Models in Psychology: A Tutorial.</em>” (<a href="https://doi.org/10.1177/2515245918823199">web</a> | <a href="https://journals.sagepub.com/doi/pdf/10.1177/2515245918823199">pdf</a> | <a href="https://osf.io/cu8jv/">code &amp; data</a>)</li>
+</ul>
+<p>I believe scientific communication should be available to all, so all these papers are openly available. If you find a paper of mine that you’d be interested in reading, and which somehow isn’t available online, let me know and I’ll fix it ASAP. In the future, we’ll figure out a way to get rid of publishers entirely.</p>
+</section>
+<section id="bibliography" class="level2">
+<h2 data-anchor-id="bibliography">Bibliography</h2>
+<p>You can find all my publications on <a href="https://orcid.org/0000-0001-5052-066X">ORCID</a>, <a href="https://www.zotero.org/vuorre">Zotero</a>, or <a href="https://scholar.google.com/citations?hl=en&amp;user=I4DSy-8AAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>. To make it easier for you to cite my work, <a href="./my-publications.bib">here</a> is a .bib file with references to all the works that I have contributed to <span class="emoji" data-emoji="wink">😉</span>.</p>
+</section>
+<div class="grid">
+<section id="education" class="level2 g-col-12 g-col-md-7" style="text-align: left;">
+<h2 data-anchor-id="education">Education</h2>
+<ul>
+<li>PhD (2018)<br>
+<em>Columbia University</em></li>
+<li>MA (2015) &amp; MSc (2017)<br>
+<em>Columbia University</em></li>
+<li>BSc (Hons) in Psychology (2013)<br>
+<em>Victoria University of Wellington</em></li>
+</ul>
+</section>
+<section id="employment" class="level2 g-col-12 g-col-md-5" style="text-align: left;">
+<h2 data-anchor-id="employment">Employment</h2>
+<ul>
+<li>Tilburg University (2023 - )<br>
+<em>Assistant Professor</em></li>
+<li>University of Oxford (2020 - 2022)<br>
+<em>Postdoctoral researcher</em></li>
+<li>Columbia University (2018 - 2020)<br>
+<em>Postdoctoral Scientist</em></li>
+</ul>
+</section>
+</div>
 
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R" data-listing-date-sort="1656457200000" data-listing-file-modified-sort="1669025975882" data-listing-reading-time-sort="2.51">
-<div class="thumbnail">
-<p><a href="./posts/hexsticker-favicon/index.html"> <img src="./posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/hexsticker-favicon/index.html">
-<h3 class="no-anchor listing-title">
-Website favicons with hexSticker
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-<a href="./posts/hexsticker-favicon/index.html">
-<div class="listing-description">
-<p>My journey to make a website favicon with the hexSticker R package</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/hexsticker-favicon/index.html">
-<div class="listing-date">
-2022-06-29
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,tips" data-listing-date-sort="1655247600000" data-listing-file-modified-sort="1656515057716" data-listing-reading-time-sort="0.935">
-<div class="thumbnail">
-<p><a href="./posts/easy-notifications-from-r/index.html"> <img src="./posts/easy-notifications-from-r/images/subscribe.jpeg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/easy-notifications-from-r/index.html">
-<h3 class="no-anchor listing-title">
-Easy notifications from R
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tips'); return false;">
-tips
-</div>
-</div>
-<a href="./posts/easy-notifications-from-r/index.html">
-<div class="listing-description">
-<p>How to send notifications from R, or any other CLI, to your phone</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/easy-notifications-from-r/index.html">
-<div class="listing-date">
-2022-06-15
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1580947200000" data-listing-file-modified-sort="1656515057713" data-listing-reading-time-sort="7.605">
-<div class="thumbnail">
-<p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"> <img src="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
-<h3 class="no-anchor listing-title">
-How to calculate contrasts from a fitted brms model
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-</div>
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
-<div class="listing-description">
-<p>Answer more questions with your estimated parameters, without refitting the model.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
-<div class="listing-date">
-2020-02-06
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1550448000000" data-listing-file-modified-sort="1656515057705" data-listing-reading-time-sort="31.11">
-<div class="thumbnail">
-<p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"> <img src="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
-<h3 class="no-anchor listing-title">
-How to analyze visual analog (slider) scale data?
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
-psychology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-</div>
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
-<div class="listing-description">
-<p>A reasonable choice might be the zero-one-inflated beta model</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
-<div class="listing-date">
-2019-02-18
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="data science,visualization,ggplot2,R" data-listing-date-sort="1544659200000" data-listing-file-modified-sort="1656515057705" data-listing-reading-time-sort="1.965">
-<div class="thumbnail">
-<p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"> <img src="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
-<h3 class="no-anchor listing-title">
-Combine ggplots with patchwork
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
-data science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ggplot2'); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
-<div class="listing-description">
-<p>How to combine arbitrary ggplots</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
-<div class="listing-date">
-2018-12-13
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="data science,R" data-listing-date-sort="1544572800000" data-listing-file-modified-sort="1656515057704" data-listing-reading-time-sort="2.315">
-<div class="thumbnail">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
-<h3 class="no-anchor listing-title">
-Glue your strings together
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
-data science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
-<div class="listing-description">
-<p>Use the glue R package to join strings.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
-<div class="listing-date">
-2018-12-12
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1507503600000" data-listing-file-modified-sort="1656515057691" data-listing-reading-time-sort="54.935">
-<div class="thumbnail">
-<p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"> <img src="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
-<h3 class="no-anchor listing-title">
-Bayesian Estimation of Signal Detection Models
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
-psychology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-</div>
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
-<div class="listing-description">
-<p>Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
-<div class="listing-date">
-2017-10-09
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1490054400000" data-listing-file-modified-sort="1656515057689" data-listing-reading-time-sort="11.805">
-<div class="thumbnail">
-<p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"> <img src="./posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
-<h3 class="no-anchor listing-title">
-Bayes Factors with brms
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-</div>
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
-<div class="listing-description">
-<p>How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
-<div class="listing-date">
-2017-03-21
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="statistics,tutorial,R,visualization,ggplot2" data-listing-date-sort="1483488000000" data-listing-file-modified-sort="1656515057687" data-listing-reading-time-sort="4.645">
-<div class="thumbnail">
-<p><a href="./posts/2017-01-04-within-subject-scatter/index.html"> <img src="./posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">
-<h3 class="no-anchor listing-title">
-How to create within-subject scatter plots in R with ggplot2
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ggplot2'); return false;">
-ggplot2
-</div>
-</div>
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">
-<div class="listing-description">
-<p>Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You’ll often see within-subject data visualized as bar graphs (condition means, and maybe mean…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">
-<div class="listing-date">
-2017-01-04
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1483315200000" data-listing-file-modified-sort="1668282378251" data-listing-reading-time-sort="16.32">
-<div class="thumbnail">
-<p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"> <img src="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
-<h3 class="no-anchor listing-title">
-How to Compare Two Groups with Robust Bayesian Estimation in R
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-</div>
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
-<div class="listing-description">
-<p>2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
-<div class="listing-date">
-2017-01-02
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="data science,R,visualization" data-listing-date-sort="1480982400000" data-listing-file-modified-sort="1656515057670" data-listing-reading-time-sort="3.295">
-<div class="thumbnail">
-<p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"> <img src="./posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
-<h3 class="no-anchor listing-title">
-How to arrange ggplot2 panel plots
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
-data science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-</div>
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
-<div class="listing-description">
-<p>Arrange your visual display of information to maximize your figures’ impact.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
-<div class="listing-date">
-2016-12-06
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1475103600000" data-listing-file-modified-sort="1656515057668" data-listing-reading-time-sort="9.4">
-<div class="thumbnail">
-<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"> <img src="./posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
-<h3 class="no-anchor listing-title">
-Bayesian Meta-Analysis with R, Stan, and brms
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-</div>
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
-<div class="listing-description">
-<p>Meta-analysis is a special case of Bayesian multilevel modeling</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
-<div class="listing-date">
-2016-09-29
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="R,visualization,data science,tutorial" data-listing-date-sort="1458777600000" data-listing-file-modified-sort="1656515057667" data-listing-reading-time-sort="3.51">
-<div class="thumbnail">
-<p><a href="./posts/2016-03-24-github-waffle-plot/index.html"> <img src="./posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">
-<h3 class="no-anchor listing-title">
-GitHub-style waffle plots in R
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
-data science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-</div>
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">
-<div class="listing-description">
-<p>Attractive visualization for plotting activity over time in R with ggplot2.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">
-<div class="listing-date">
-2016-03-24
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="data science,R,visualization,tutorial" data-listing-date-sort="1458000000000" data-listing-file-modified-sort="1656515057665" data-listing-reading-time-sort="5.68">
-<div class="thumbnail">
-<p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"> <img src="./posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
-<h3 class="no-anchor listing-title">
-How to create plots with subplots in R
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
-data science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-</div>
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
-<div class="listing-description">
-<p>Some tips on creating figures with multiple panels in R</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
-<div class="listing-date">
-2016-03-15
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457222400000" data-listing-file-modified-sort="1656515057656" data-listing-reading-time-sort="13.2">
-<div class="thumbnail">
-<p><a href="./posts/2016-03-06-multilevel-predictions/index.html"> <img src="./posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">
-<h3 class="no-anchor listing-title">
-Confidence intervals in multilevel models
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('brms'); return false;">
-brms
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
-tutorial
-</div>
-</div>
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">
-<div class="listing-description">
-<p>How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling context</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">
-<div class="listing-date">
-2016-03-06
-</div>
-<div class="listing-author">
-Matti Vuorre
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -861,13 +237,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
@@ -980,23 +349,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">© Matti Vuorre 2022</div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mvuorre">
-      <i class="bi bi-github" role="img" aria-label="Github">
-</i> 
-    </a>
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a>
   </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/vuorre">
-      <i class="bi bi-twitter" role="img" aria-label="Twitter">
-</i> 
-    </a>
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a>
   </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
-      <i class="bi bi-cup" role="img" aria-label="Buy me a coffee">
-</i> 
-    </a>
+    <li class="nav-item">
+    <a class="nav-link" href="https://fosstodon.org/@matti"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mvuorre"><i class="fa-brands fa-github" aria-label="github"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">CV</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/vuorre"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre"><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></a>
   </li>  
 </ul>
     </div>

@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matti Vuorre">
+<meta name="dcterms.date" content="2022-11-30">
+<meta name="description" content="How to conduct multiverse analyses in R in parallel with tidy pipelines">
+
+<title>Matti’s homepage - Tidymultiverse</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Matti’s homepage - Tidymultiverse">
+<meta property="og:description" content="How to conduct multiverse analyses in R in parallel with tidy pipelines">
+<meta property="og:image" content="https://vuorre.netlify.app/posts/parallel-multiverse/images/undraw-lost-online.png">
+<meta property="og:site-name" content="Matti's homepage">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1167">
+<meta name="twitter:title" content="Matti’s homepage - Tidymultiverse">
+<meta name="twitter:description" content="How to conduct multiverse analyses in R in parallel with tidy pipelines">
+<meta name="twitter:image" content="https://vuorre.netlify.app/posts/parallel-multiverse/images/undraw-lost-online.png">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1167">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../favicon.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Matti’s homepage</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../sometimesIr.html">
+ <span class="menu-text">Sometimes I R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html">
+ <span class="menu-text">Get in touch</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../personal.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../sometimesir.xml">
+ <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tidymultiverse</h1>
+                  <div>
+        <div class="description">
+          How to conduct multiverse analyses in R in parallel with tidy pipelines
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">multiverse</div>
+                <div class="quarto-category">tidyverse</div>
+                <div class="quarto-category">specr</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
+              University of Oxford
+              </a>
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2022-11-30</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#example-multiverse-analysis" id="toc-example-multiverse-analysis" class="nav-link" data-scroll-target="#example-multiverse-analysis">Example multiverse analysis</a></li>
+  <li><a href="#tidymultiverse" id="toc-tidymultiverse" class="nav-link" data-scroll-target="#tidymultiverse">Tidymultiverse</a>
+  <ul class="collapse">
+  <li><a href="#specification-table" id="toc-specification-table" class="nav-link" data-scroll-target="#specification-table">Specification table</a></li>
+  <li><a href="#estimating-the-specifications" id="toc-estimating-the-specifications" class="nav-link" data-scroll-target="#estimating-the-specifications">Estimating the specifications</a></li>
+  <li><a href="#parallel-estimation" id="toc-parallel-estimation" class="nav-link" data-scroll-target="#parallel-estimation">Parallel estimation</a></li>
+  </ul></li>
+  <li><a href="#complete-tidymultiverse-example" id="toc-complete-tidymultiverse-example" class="nav-link" data-scroll-target="#complete-tidymultiverse-example">Complete tidymultiverse example</a>
+  <ul class="collapse">
+  <li><a href="#a-visualization" id="toc-a-visualization" class="nav-link" data-scroll-target="#a-visualization">A visualization</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Work in progress
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This entry is an unfinished draft.</p>
+</div>
+</div>
+<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse (sometimes called specification curve) analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(<a href="#ref-simonsohnSpecificationCurveAnalysis2020" role="doc-biblioref">Simonsohn, Simmons, and Nelson 2020</a>; <a href="#ref-steegenIncreasingTransparencyMultiverse2016" role="doc-biblioref">Steegen et al. 2016</a>)</span>.</p>
+<p>For example, <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (<a href="#ref-orbenAssociationAdolescentWellbeing2019" role="doc-biblioref">2019</a>)</span> showed, through analyzing the same datasets in thousands of different ways, that conclusions regarding the association between the psychological well-being of adolescents and their digital technology use critically depend on (mostly) arbitrary decisions in how and which data are analysed (<a href="#fig-op3">Figure&nbsp;1</a>).</p>
+<p>This blog entry is about the technical aspects of conducting multiverse analyses in R. I have briefly examined the landscape of R packages that facilitate multiverse analyses, and found that none suited my needs. In this entry, I outline a general and flexible <a href="https://www.tidyverse.org/">tidyverse</a>-centric multiverse analysis pipeline. I eschew using external packages to maximize flexibility and speed (parallel processing).</p>
+<div class="cell" data-hash="index_cache/html/fig-op3_8c7e2c07d79e14f6ec7bc1622363ce63">
+<div class="cell-output-display">
+<div id="fig-op3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (<a href="#ref-orbenAssociationAdolescentWellbeing2019" role="doc-biblioref">2019</a>)</span>. Reproduced 100% without permission, but I don’t think Amy or Andy would mind.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Currently, I am aware of three R packages for conducting multiverse analyses. The <a href="https://github.com/MUCollective/multiverse/">multiverse</a> package provides extensive functionality for conducting and reporting multiverse analyses, including a “domain specific language” for analyses and reporting. However, while powerful, the package seems somewhat complicated (for the use cases that I have in mind). Frankly, after briefly reviewing the documentation, I don’t know how to use it (but it seems cool!) <a href="https://github.com/mverseanalysis/mverse/">mverse</a> aims to make the multiverse package easier to use. I haven’t explored it much but it only seems to offer <code>lm()</code> and <code>glm()</code> models. <a href="https://github.com/masurp/specr">specr</a> (maybe most relevant for my use cases in psychology) provides a much simpler set of functions (with less flexibility, however).</p>
+<p>Another downside of these packages is that they don’t provide options for parallel computations. Parallelization is quite important because multiverse analyses can include (tens, hundreds) of thousands of analyses and can therefore take a long time to complete. I started a pull request that aimed to add that functionality to specr, but along the way found that it wasn’t so easy to implement with the current specr syntax and codebase, and my limited R skills.</p>
+<p>While thinking about how best to contribute to specr, I realized that multiverse analyses don’t necessarily need extra functions, but can be easily implemented in familiar data analysis pipelines (<a href="https://dplyr.tidyverse.org/">dplyr</a> and <code>%&gt;%</code>; depending on how familiar you are with the tidyverse). This entry is part of my journey of trying to figure out how to flexibly conduct multiverse analyses in parallel in R, and demonstrates a flexible syntax for parallelizing multiverse analyses with <code>%&gt;%</code>lines.</p>
+<p>I am not an expert in parallel processing by any means, so would love to know if you have any feedback on how I’ve implemented it below! Let me know in the comments <span class="emoji" data-emoji="smile">😄</span></p>
+</section>
+<section id="example-multiverse-analysis" class="level1 page-columns page-full">
+<h1>Example multiverse analysis</h1>
+<p>Let’s start with a simple toy example with two outcomes, two predictors, and two covariates, and no prior reason to choose between specifications. That is, we think that <code>y1</code> and <code>y2</code> are equally likely to represent our outcome construct of interest, <code>x1</code> and <code>x2</code> are equally likely to represent the predictor construct, and we can’t choose if or how to include the covariates <code>c1</code> and <code>c2</code> in the model. Let’s load the required libraries and show the example data (<a href="#tbl-data">Table&nbsp;1</a>):</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tictoc)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">base_family =</span> <span class="st">"Comic Sans MS"</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">base_size =</span> <span class="dv">12</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_classic_2</span>(<span class="at">html_font =</span> <span class="st">"Arial"</span>, <span class="at">lightable_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Data generation</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>generate_data <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">seed =</span> <span class="cn">NA</span>, <span class="at">n =</span> <span class="fl">1e5</span>) {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(seed)) <span class="fu">set.seed</span>(seed)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x1 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x2 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">1</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y2 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">2</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">c1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">3</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">c2 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">generate_data</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
+<div class="cell-output-display">
+<div id="tbl-data" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;1:  Example data (n = 100,000; 5.3 Mb on disk) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x1 </th>
+   <th style="text-align:right;"> x2 </th>
+   <th style="text-align:right;"> y1 </th>
+   <th style="text-align:right;"> y2 </th>
+   <th style="text-align:right;"> c1 </th>
+   <th style="text-align:right;"> c2 </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> -0.77 </td>
+   <td style="text-align:right;"> 1.10 </td>
+   <td style="text-align:right;"> -0.36 </td>
+   <td style="text-align:right;"> -1.23 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> -0.77 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.82 </td>
+   <td style="text-align:right;"> -1.68 </td>
+   <td style="text-align:right;"> -0.50 </td>
+   <td style="text-align:right;"> -0.79 </td>
+   <td style="text-align:right;"> -1.08 </td>
+   <td style="text-align:right;"> -0.81 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.14 </td>
+   <td style="text-align:right;"> -1.89 </td>
+   <td style="text-align:right;"> -0.67 </td>
+   <td style="text-align:right;"> 0.71 </td>
+   <td style="text-align:right;"> -0.89 </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.28 </td>
+   <td style="text-align:right;"> -0.98 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> -1.40 </td>
+   <td style="text-align:right;"> 1.24 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> 0.83 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.78 </td>
+   <td style="text-align:right;"> -0.45 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -1.19 </td>
+   <td style="text-align:right;"> -0.54 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> 2.10 </td>
+   <td style="text-align:right;"> 1.42 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We can specify a fully crossed multiverse analysis over outcomes, predictors, and covariates, easily with specr. Also, to make the example a bit more interesting for later examples, I’ll estimate the model using two functions (<code>lm()</code> and <code>glm()</code> which in this case give the same results), and will time the function call using tictoc. <a href="#tbl-specr">Table&nbsp;2</a> shows the first few rows of the results.</p>
+<div class="cell" data-hash="index_cache/html/specr_b0f58f39187fbb67b7dcbb5e8e31587f">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(specr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>results_specr <span class="ot">&lt;-</span> <span class="fu">run_specs</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">df =</span> dat, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>), </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>), </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>), </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">subsets =</span> <span class="fu">list</span>(<span class="at">group =</span> <span class="fu">unique</span>(dat<span class="sc">$</span>group))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>28.683 sec elapsed</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results_specr <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  .[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="at">html_font =</span> <span class="st">"Arial"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specr" class="anchored">
+
+<table class=" lightable-classic-2" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;2:  First six rows of multiverse numerical results from specr </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> controls </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+   <th style="text-align:right;"> conf.low </th>
+   <th style="text-align:right;"> conf.high </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 13.96 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 29.79 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 13.96 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Another great thing about this package is that you can easily draw specification curve figures (<a href="#fig-specr">Figure&nbsp;2</a>)</p>
+<div class="cell" data-hash="index_cache/html/fig-specr_617539ff4398e57bcb4bff2078677e43">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_specs</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  results_specr, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"model"</span>, <span class="st">"controls"</span>, <span class="st">"subsets"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-specr" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-specr-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Specification curve figure drawn from specr results</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, even with this modest data set and 160 specifications, this took a while.</p>
+<div class="page-columns page-full"><p>I first decided to take a stab at parallelizing <code>run_specs()</code>. This turned out to be a bit of a dead end because I couldn’t make the parallelization fit in with how <a href="https://github.com/masurp/specr/blob/master/R/run_specs.r"><code>run_specs()</code></a> works in the back-end.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So instead of shoehorning a parallel back-end to specr, I decided to implement the parallelization in a tidy pipeline. This pipeline, with no additional dependencies (apart from the tidyverse!), works pretty well. It of course does not provide specr’s one-liners, but I believe the flexibility of this approach pays back for it.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;It first creates a data frame with the specs, then the requested subsets, and then either applies <code>run_spec()</code> to all the datasets and specs using <code>map()</code>, or if no subsets were requested, runs the <code>run_spec()</code> on the specs only. So it wasn’t straightforward to parallelize over both data subsets and specs. Parallelizing over specs <a href="https://github.com/masurp/specr/pull/31/commits/142bdf879b96966b3f4bd1fdf04e886711d827f1">was simple</a>.</p></li></div></div>
+</section>
+<section id="tidymultiverse" class="level1">
+<h1>Tidymultiverse</h1>
+<section id="specification-table" class="level2">
+<h2 class="anchored" data-anchor-id="specification-table">Specification table</h2>
+<p>The first step in a multiverse analysis is defining the grid of specifications.</p>
+<p>The one difficulty here is that the dataset can also be part of the specifications (e.g.&nbsp;different outlier removal thresholds), but you can’t include the dataset in the table of specifications, because it would easily get too large and your computer would run out of memory (I learned this the hard way). So we will still iterate over the specs table, and pull relevant subsets of the data from the source data table in the function that iterates over the specs.</p>
+<p>A flexible and easy way to declare the specifications is <code>expand_grid()</code>. This allows us to create tables that cross all the variables declared therein. I’ve chosen here to create a grid of variables.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_36964913f4bba4a690d472f716503c50">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">covariate =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
+<div class="cell-output-display">
+<div id="tbl-specs-1" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;3:  First six rows of example specifications table. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>But we could also just as well create a grid of formulas. Depending on your analysis, this might be a viable option</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_3897713cd6b8874a6d5aa3076331c794">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_grid</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> <span class="fu">c</span>(<span class="st">"y1 ~ x1"</span>, <span class="st">"y1 ~ x2"</span>, <span class="st">"y1 ~ x1 + c1"</span>), <span class="co"># And so on</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We will stick with specifying variables instead, for this example. We can include subgroups as well:</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_f100595467f826154248c233050c6023">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">covariate =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Include all distinct values of g</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(dat, group)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-2_951a5517d0714adbd6a7fcb059893d14">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(specs) <span class="sc">%&gt;%</span> <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specs-2" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;4:  First six rows of example specifications table with subgroups. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now each row in the table specifies 1. the modelling function (e.g.&nbsp;<code>lm()</code>), the subgroup, and the left-hand and right-hand side variables of the formula to put in the modelling function. Next, we need a function to also expand the covariates to all their combinations (I lifted much of this from the <a href="https://github.com/masurp/specr/blob/7d5a0c3664dd5d281ecaebb783ce75b638447205/R/setup_specs.r#L41">specr source</a>, I found it surprisingly hard to write):</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-12_c2a355d5d6798bf491ec3de29f930469">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Expand a vector of covariate names to all their combinations</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' For example expand_covariate(c("age", "sex")) returns</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' c("1", "age", "sex", "age + sex")</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param covariate vector of covariate(s) e.g. c("age", "sex")</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return a character vector of all predictor combinations (incl. Intercept)</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>expand_covariate <span class="ot">&lt;-</span> <span class="cf">function</span>(covariate) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"1"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"c"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(<span class="fu">seq_along</span>(covariate), <span class="sc">~</span><span class="fu">combn</span>(covariate, .x, <span class="at">FUN =</span> list))) <span class="sc">%&gt;%</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(<span class="sc">~</span><span class="fu">paste</span>(.x, <span class="at">collapse =</span> <span class="st">" + "</span>))</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    unlist</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="the-specification-table" class="level3">
+<h3 class="anchored" data-anchor-id="the-specification-table">The specification table</h3>
+<p>Putting all this together, and also creating the formulas from <code>y</code>, <code>x</code>, and <code>c</code>, we have completed the first part of our pipeline, creating the specifications:</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_31bc7224b7c21af83c74d4b7e94b1484">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">covariate =</span> <span class="fu">expand_covariate</span>(<span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>)),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(dat, group)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">formula =</span> <span class="fu">paste0</span>(y, <span class="st">" ~ "</span>, x, <span class="st">" + "</span>, covariate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-3_17968333a512f3b2750a2687b85be941">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(specs) <span class="sc">%&gt;%</span> <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specs-3" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;5:  First six rows of example specifications table with subgroups and formulas. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> group </th>
+   <th style="text-align:left;"> formula </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> d </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> b </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> a </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> d </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> b </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estimating-the-specifications" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-the-specifications">Estimating the specifications</h2>
+<p>Having set up the specifications, all that is left to do is to iterate over its rows, while at the same time use the correct subsets of data. While iterating, we will get the slope parameter from each row using <code>tidy()</code>. Here’s how it could look like. The arguments to <code>pmap()</code> require some explaining. We are creating a cell on each row of <code>specs</code> using <code>pmap()</code>. This will apply a function to all the named elements in <code>list()</code>. The function, then, is <code>do.call()</code>, which takes the name of the function (here, <code>lm()</code> or <code>glm()</code>) as the first argument, passed using the shorthand <code>..1</code>. Then, we provide a list of arguments to the function. <code>formula = ..2</code> takes the second element from the above list. <code>data</code> takes our main data frame <code>dat</code>, but filters it based on the groups, passed in with <code>..3</code> (<code>group</code> in the above list). We then pipe the results to <code>tidy()</code> to give a tibble of the estimated parameters, and <code>slice()</code> to just take the second row of the parameters (the slope parameter). The <code>unnest()</code> command at the end unnests the resulting tibble of results into the specs table.</p>
+<div class="cell" data-hash="index_cache/html/tidy-multiverse_160fbed96e3afce30deabac3373935d6">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>results_1 <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">out =</span> <span class="fu">pmap</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group), </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span><span class="fu">do.call</span>(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        ..<span class="dv">1</span>, </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">formula =</span> ..<span class="dv">2</span>, <span class="at">data =</span> <span class="fu">filter</span>(dat, group <span class="sc">==</span> ..<span class="dv">3</span>))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">slice</span>(<span class="dv">2</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>13.419 sec elapsed</code></pre>
+</div>
+</div>
+<p>We already see an improvement in the run-time of this pipeline over <code>run_specs()</code>, but note that my implementation does not estimate models for the complete data (<code>subsets</code> = <code>all</code> in specr), so it is not an entirely fair comparison.</p>
+</section>
+<section id="parallel-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="parallel-estimation">Parallel estimation</h2>
+<p>Now that we have our pipeline set up, we can use multidplyr to easily (and safely!) parallelize our computations.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Parallelization is hard and rarely works out of the box. Multidplyr works best when the individual computations are slow, because there is always some overhead in sending stuff back and forth between the nodes of the cluster. So the benefits will be even greater with larger data or slower models. The benefit of using multidplyr vs other parallel backends is that the user retains control over how to split up the computations. Your feedback is more than welcome (comments are open at the end of this post)!</p>
+</div>
+</div>
+<p>To start, we load multidplyr, create a new cluster, and send the required libraries and variables to it.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multidplyr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new cluster</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cluster <span class="ot">&lt;-</span> <span class="fu">new_cluster</span>(<span class="dv">8</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries in and send data to nodes in the cluster</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cluster_library</span>(cluster, <span class="fu">c</span>(<span class="st">"purrr"</span>, <span class="st">"broom"</span>, <span class="st">"tidyr"</span>, <span class="st">"dplyr"</span>))</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cluster_copy</span>(cluster, <span class="fu">c</span>(<span class="st">"dat"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Multidplyr integrates seamlessly into <code>%&gt;%</code>lines by sending groups in the passed data to nodes in the cluster. It is therefore important to think a bit about how to group your data. For us, we want to equally divide the <code>lm()</code> and <code>glm()</code> calls across nodes, because <code>glm()</code> is considerably slower. If one node got all the <code>glm()</code> calls, we would have to wait for that one node even after the others had completed.</p>
+<p>Here, it makes sense for us to group the data by <code>formula</code> and <code>group</code>. After grouping the data, we <code>partition()</code> it across the nodes in the cluster, run our computations, and then <code>collect()</code> the results back to our main R process. I also pass the <code>tidy()</code> results to <code>slice(2)</code> to just get the slope parameters.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>results_2 <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(formula, group) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">partition</span>(cluster) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">out =</span> <span class="fu">pmap</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group), </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span><span class="fu">do.call</span>(..<span class="dv">1</span>, <span class="fu">list</span>(<span class="at">formula =</span> ..<span class="dv">2</span>, <span class="at">data =</span> <span class="fu">filter</span>(dat, .data[[<span class="st">"group"</span>]] <span class="sc">==</span> ..<span class="dv">3</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">slice</span>(<span class="dv">2</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.089 sec elapsed</code></pre>
+</div>
+</div>
+<p>This particular parallelization scheme (8 cores working on subsets defined by <code>formula</code> and <code>group</code> in <code>dat</code>) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.</p>
+<p>I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation.</p>
+<div class="cell" data-hash="index_cache/html/tbl-results-check_e60317c685f391f1f922ca746efbd363">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"specr"</span> <span class="ot">=</span> results_specr <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(subsets <span class="sc">!=</span> <span class="st">"all"</span>, x <span class="sc">==</span> <span class="st">"x1"</span>, y <span class="sc">==</span> <span class="st">"y1"</span>, model <span class="sc">==</span> <span class="st">"lm"</span>, controls <span class="sc">==</span> <span class="st">"c1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">covariate =</span> controls, <span class="at">group =</span> subsets) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">str_remove</span>(group, <span class="st">"group = "</span>)),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidymultiverse"</span> <span class="ot">=</span> results_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(term <span class="sc">==</span> x, x <span class="sc">==</span> <span class="st">"x1"</span>, y <span class="sc">==</span> <span class="st">"y1"</span>, model <span class="sc">==</span> <span class="st">"lm"</span>, covariate <span class="sc">==</span> <span class="st">"c1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>formula, <span class="sc">-</span>term),</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"TM (parallel)"</span> <span class="ot">=</span> results_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(term <span class="sc">==</span> x, x <span class="sc">==</span> <span class="st">"x1"</span>, y <span class="sc">==</span> <span class="st">"y1"</span>, model <span class="sc">==</span> <span class="st">"lm"</span>, covariate <span class="sc">==</span> <span class="st">"c1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>formula, <span class="sc">-</span>term),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">"Method"</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Method, estimate, std.error, conf.low, conf.high, group) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">k2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-results-check" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;6:  Example results from the three estimation methods. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Method </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> conf.low </th>
+   <th style="text-align:right;"> conf.high </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="complete-tidymultiverse-example" class="level1">
+<h1>Complete tidymultiverse example</h1>
+<p>Let’s take this one step further and show an example of a complete pipeline. We still analyse the same dataset, but with an additional complexity: We are worried about outliers in the data, and would like to explore a multiverse over different data filtering thresholds (reject <code>y1</code> values that are more than 1, 2, or 3 standard deviations from the mean). We can implement this in many ways. For example, we could create indicator variables that could be used as subgroups just as we have done with <code>group</code> so far. Another interesting alternative is to dynamically filter the source data in the function that iterates over the specs table. We take the latter route here.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-19_85402d14a04c69766ed7469d1fdc7b78">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">tic</span>()</span>
+<span id="cb19-2"><a href="#cb19-2"></a>results <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="at">threshold =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>),</span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="at">covariate =</span> <span class="fu">expand_covariate</span>(<span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>)),</span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>),</span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">distinct</span>(dat, group)</span>
+<span id="cb19-9"><a href="#cb19-9"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">mutate</span>(<span class="at">formula =</span> <span class="fu">paste0</span>(y, <span class="st">" ~ "</span>, x, <span class="st">" + "</span>, covariate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-11"><a href="#cb19-11"></a>  <span class="fu">group_by</span>(formula, group) <span class="sc">%&gt;%</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>  <span class="fu">partition</span>(cluster) <span class="sc">%&gt;%</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-14"><a href="#cb19-14"></a>    <span class="at">out =</span> <span class="fu">pmap</span>(</span>
+<span id="cb19-15"><a href="#cb19-15"></a>      <span class="fu">list</span>(model, formula, group, threshold), </span>
+<span id="cb19-16"><a href="#cb19-16"></a>      <span class="sc">~</span><span class="fu">do.call</span>(</span>
+<span id="cb19-17"><a href="#cb19-17"></a>        ..<span class="dv">1</span>, </span>
+<span id="cb19-18"><a href="#cb19-18"></a>        <span class="fu">list</span>(</span>
+<span id="cb19-19"><a href="#cb19-19"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>, </span>
+<span id="cb19-20"><a href="#cb19-20"></a>          <span class="at">data =</span> <span class="fu">filter</span>(</span>
+<span id="cb19-21"><a href="#cb19-21"></a>            dat, </span>
+<span id="cb19-22"><a href="#cb19-22"></a>            group <span class="sc">==</span> ..<span class="dv">3</span>,</span>
+<span id="cb19-23"><a href="#cb19-23"></a>            <span class="fu">between</span>(y1, <span class="fu">mean</span>(y1) <span class="sc">-</span> <span class="fu">sd</span>(y1)<span class="sc">*</span>..<span class="dv">4</span>, <span class="fu">mean</span>(y1) <span class="sc">+</span> <span class="fu">sd</span>(y1)<span class="sc">*</span>..<span class="dv">4</span>)</span>
+<span id="cb19-24"><a href="#cb19-24"></a>          )</span>
+<span id="cb19-25"><a href="#cb19-25"></a>        )</span>
+<span id="cb19-26"><a href="#cb19-26"></a>      ) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-27"><a href="#cb19-27"></a>        <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-28"><a href="#cb19-28"></a>        <span class="fu">slice</span>(<span class="dv">2</span>)</span>
+<span id="cb19-29"><a href="#cb19-29"></a>    )</span>
+<span id="cb19-30"><a href="#cb19-30"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-31"><a href="#cb19-31"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-32"><a href="#cb19-32"></a>  <span class="fu">unnest</span>(out) <span class="sc">%&gt;%</span></span>
+<span id="cb19-33"><a href="#cb19-33"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb19-34"><a href="#cb19-34"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>8.295 sec elapsed</code></pre>
+</div>
+</div>
+<p>Ok, ok, that was too much in one go. Let’s focus on the key piece here: Applying the modelling function to each row of the specifications, on rows 15 to 27.</p>
+<ul>
+<li><code>list(model, formula, group, threshold)</code>
+<ul>
+<li>We pick these variables from the specification table to use as arguments in <code>do.call()</code></li>
+</ul></li>
+<li><code>do.call(**..1**)</code>
+<ul>
+<li>This means that we will run the function named in the first element in the above list, <code>model</code> (which is <code>lm</code> or <code>glm</code>), with the subsequent arguments</li>
+</ul></li>
+<li><code>formula = ..2</code>, use the second element from the list passed to <code>pmap()</code> as the <code>formula</code> argument of <code>model</code> (e.g.&nbsp;<code>lm()</code>)</li>
+<li><code>data = filter(...)</code>
+<ul>
+<li>This is where the action is. We dynamically filter the source data frame <code>dat</code> based on variables in the specification table.</li>
+<li><code>group == ..3</code> means that we filter the data on group (the third argument in the list of arguments passed to <code>pmap()</code>)</li>
+<li><code>between(y1, mean(y1) - sd(y1)*..4, mean(y1) + sd(y1)*..4)</code> we filter data in <code>dat</code> based on the fourth argument <code>threshold</code>. This line says to include only <code>y1</code> values that are within <code>..4</code> (= <code>threshold</code> in the specification table) standard deviations from the mean.</li>
+</ul></li>
+</ul>
+<p>This syntax seems a bit hairy, but it is entirely general. The key point here is that we don’t have to learn any new syntax from a new package, but can simply keep applying tidyverse’s <code>%&gt;%</code>lines with familiar dplyr verbs like <code>filter()</code>. The ugly aspect here is that we are sneaking in those <code>%&gt;%</code>lines inside the <code>do.call()</code> function, which then iterates over the specification table.</p>
+<section id="a-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="a-visualization">A visualization</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">arrange</span>(results, estimate) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">spec =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p_dash <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(spec, p.value, threshold<span class="sc">:</span>group) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(spec, p.value), <span class="at">values_transform =</span> as.character) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(spec, value, <span class="at">col =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Specification"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(name), <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>p_curve <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> </span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(spec, estimate, <span class="at">col =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high), <span class="at">size =</span> <span class="fl">0.5</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>(p_curve <span class="sc">/</span> p_dash) <span class="sc">&amp;</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-results-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-results-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Specification curve figure example with ggplot().</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-orbenAssociationAdolescentWellbeing2019" class="csl-entry" role="doc-biblioentry">
+Orben, Amy, and Andrew K. Przybylski. 2019. <span>“The Association Between Adolescent Well-Being and Digital Technology Use.”</span> <em>Nature Human Behaviour</em> 3 (2, 2): 173–82. <a href="https://doi.org/10.1038/s41562-018-0506-1">https://doi.org/10.1038/s41562-018-0506-1</a>.
+</div>
+<div id="ref-simonsohnSpecificationCurveAnalysis2020" class="csl-entry" role="doc-biblioentry">
+Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
+</div>
+<div id="ref-steegenIncreasingTransparencyMultiverse2016" class="csl-entry" role="doc-biblioentry">
+Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, September. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {Tidymultiverse},
+  date = {2022-11-30},
+  url = {https://vuorre.netlify.app/posts/parallel-multiverse},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Matti Vuorre. 2022. <span>“Tidymultiverse.”</span> November 30, 2022. <a href="https://vuorre.netlify.app/posts/parallel-multiverse">https://vuorre.netlify.app/posts/parallel-multiverse</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="mvuorre/mvuorre.github.io" data-repo-id="R_kgDOHk4rRg" data-category="giscus" data-category-id="DIC_kwDOHk4rRs4CQAdF" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://fosstodon.org/@matti"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mvuorre"><i class="fa-brands fa-github" aria-label="github"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">CV</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/vuorre"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre"><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

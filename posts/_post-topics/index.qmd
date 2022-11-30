@@ -1,17 +1,15 @@
 ---
-title: Visual Studio Code for R, R Markdown, and Quarto
-description: Let's do it
+title: Some topics that I'd like to learn more about and possibly write about 
+description: Notes to self I guess
 date: 2023-01-01
-categories:
-  - R
-  - VS Code
+# categories:
 image: ""
 draft: true
 ---
 
-::: callout-note
-This post is a (permanently?) work in progress on trying to set Microsoft's Visual Studio Code up as an R editor.
-:::
+# GitHub Codespaces
+
+# R and Quarto in VS Code
 
 I've been using R, and it's extensions R Markdown, Quarto, bookdown, etc, exclusively through R Studio for nearly a decade. (Holy 💩.) R Studio is great, it's optimized for producing content with R, and the folks behind it develop amazing software to support the R coding experience.
 
@@ -26,3 +24,15 @@ However, with the recent launch of [Quarto](https://quarto.org/), I think things
 - <https://curso-r.github.io/beautiful-r/editors.html#vs-code>
 - <https://code.visualstudio.com/docs/languages/r>
 - <https://github.com/REditorSupport/vscode-R/wiki/Getting-Started>
+
+# Multiple comparisons
+
+Frequentism is about decisions, probability is.
+
+Frequentist decide a priori.
+
+Bayesians are empirical and use information.
+
+# Splines and GAMs
+
+https://www.core77.com/posts/55368/When-Splines-Were-Physical-Objects#

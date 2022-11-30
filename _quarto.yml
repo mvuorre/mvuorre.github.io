@@ -7,7 +7,7 @@ date-format: iso
 website:
   title: "Matti's homepage"
   site-url: https://vuorre.netlify.app
-  description: "Notes on psychology and statistics, sometimes"
+  description: "Notes on psychology, statistics, and R, sometimes"
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [issue]
   comments:
@@ -33,12 +33,13 @@ website:
     pinned: true
     background: primary
     right:
-      - index.qmd
-      - sometimesIr.qmd
+      - text: Home
+        href: index.qmd
+      - sometimesir.qmd
       - contact.qmd
       - personal.qmd
       - text: "{{< fa rss >}}"
-        href: index.xml
+        href: sometimesir.xml
 
   page-footer: 
     background: light
@@ -69,6 +70,7 @@ website:
       - text: "{{< fa mug-hot >}}"
         aria-label: Buy me a coffee
         href: https://www.buymeacoffee.com/vuorre
+
 format:
   html:
     theme: 

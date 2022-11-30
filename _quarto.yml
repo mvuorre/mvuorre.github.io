@@ -35,11 +35,11 @@ website:
     right:
       - text: Home
         href: index.qmd
-      - sometimesir.qmd
+      - blog.qmd
       - contact.qmd
       - personal.qmd
       - text: "{{< fa rss >}}"
-        href: sometimesir.xml
+        href: blog.xml
 
   page-footer: 
     background: light

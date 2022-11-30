@@ -6,18 +6,966 @@
       version="2.0">
 <channel>
 <title>Matti&#39;s homepage</title>
-<link>https://vuorre.netlify.app/sometimesIr.html</link>
-<atom:link href="https://vuorre.netlify.app/sometimesIr.xml" rel="self" type="application/rss+xml"/>
-<description>Notes on psychology and statistics, sometimes</description>
+<link>https://vuorre.netlify.app/sometimesir.html</link>
+<atom:link href="https://vuorre.netlify.app/sometimesir.xml" rel="self" type="application/rss+xml"/>
+<description>Notes on psychology, statistics, and R, sometimes</description>
 <image>
 <url>https://vuorre.netlify.app/favicon.png</url>
 <title>Matti&#39;s homepage</title>
-<link>https://vuorre.netlify.app/sometimesIr.html</link>
+<link>https://vuorre.netlify.app/sometimesir.html</link>
 <height>167</height>
 <width>144</width>
 </image>
 <generator>quarto-1.2.269</generator>
-<lastBuildDate>Tue, 28 Jun 2022 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 30 Nov 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Tidymultiverse</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Work in progress
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This entry is an unfinished draft.</p>
+</div>
+</div>
+<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse (sometimes called specification curve) analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(Simonsohn, Simmons, and Nelson 2020; Steegen et al. 2016)</span>.</p>
+<p>For example, <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span> showed, through analyzing the same datasets in thousands of different ways, that conclusions regarding the association between the psychological well-being of adolescents and their digital technology use critically depend on (mostly) arbitrary decisions in how and which data are analysed (Figure&nbsp;1).</p>
+<p>This blog entry is about the technical aspects of conducting multiverse analyses in R. I have briefly examined the landscape of R packages that facilitate multiverse analyses, and found that none suited my needs. In this entry, I outline a general and flexible <a href="https://www.tidyverse.org/">tidyverse</a>-centric multiverse analysis pipeline. I eschew using external packages to maximize flexibility and speed (parallel processing).</p>
+<div class="cell" data-hash="index_cache/html/fig-op3_8c7e2c07d79e14f6ec7bc1622363ce63">
+<div class="cell-output-display">
+<div id="fig-op3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span>. Reproduced 100% without permission, but I don’t think Amy or Andy would mind.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Currently, I am aware of three R packages for conducting multiverse analyses. The <a href="https://github.com/MUCollective/multiverse/">multiverse</a> package provides extensive functionality for conducting and reporting multiverse analyses, including a “domain specific language” for analyses and reporting. However, while powerful, the package seems somewhat complicated (for the use cases that I have in mind). Frankly, after briefly reviewing the documentation, I don’t know how to use it (but it seems cool!) <a href="https://github.com/mverseanalysis/mverse/">mverse</a> aims to make the multiverse package easier to use. I haven’t explored it much but it only seems to offer <code>lm()</code> and <code>glm()</code> models. <a href="https://github.com/masurp/specr">specr</a> (maybe most relevant for my use cases in psychology) provides a much simpler set of functions (with less flexibility, however).</p>
+<p>Another downside of these packages is that they don’t provide options for parallel computations. Parallelization is quite important because multiverse analyses can include (tens, hundreds) of thousands of analyses and can therefore take a long time to complete. I started a pull request that aimed to add that functionality to specr, but along the way found that it wasn’t so easy to implement with the current specr syntax and codebase, and my limited R skills.</p>
+<p>While thinking about how best to contribute to specr, I realized that multiverse analyses don’t necessarily need extra functions, but can be easily implemented in familiar data analysis pipelines (<a href="https://dplyr.tidyverse.org/">dplyr</a> and <code>%&gt;%</code>; depending on how familiar you are with the tidyverse). This entry is part of my journey of trying to figure out how to flexibly conduct multiverse analyses in parallel in R, and demonstrates a flexible syntax for parallelizing multiverse analyses with <code>%&gt;%</code>lines.</p>
+<p>I am not an expert in parallel processing by any means, so would love to know if you have any feedback on how I’ve implemented it below! Let me know in the comments <span class="emoji" data-emoji="smile">😄</span></p>
+</section>
+<section id="example-multiverse-analysis" class="level1 page-columns page-full">
+<h1>Example multiverse analysis</h1>
+<p>Let’s start with a simple toy example with two outcomes, two predictors, and two covariates, and no prior reason to choose between specifications. That is, we think that <code>y1</code> and <code>y2</code> are equally likely to represent our outcome construct of interest, <code>x1</code> and <code>x2</code> are equally likely to represent the predictor construct, and we can’t choose if or how to include the covariates <code>c1</code> and <code>c2</code> in the model. Let’s load the required libraries and show the example data (Table&nbsp;1):</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(kableExtra)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(scales)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(ggthemes)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(tictoc)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;">theme_set</span>(</span>
+<span id="cb1-8">  <span class="fu" style="color: #4758AB;">theme_few</span>(</span>
+<span id="cb1-9">    <span class="at" style="color: #657422;">base_family =</span> <span class="st" style="color: #20794D;">"Comic Sans MS"</span>, </span>
+<span id="cb1-10">    <span class="at" style="color: #657422;">base_size =</span> <span class="dv" style="color: #AD0000;">12</span></span>
+<span id="cb1-11">  )</span>
+<span id="cb1-12">)</span>
+<span id="cb1-13"></span>
+<span id="cb1-14">k2 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(x) {</span>
+<span id="cb1-15">  x <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-16">    <span class="fu" style="color: #4758AB;">kbl</span>(<span class="at" style="color: #657422;">digits =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-17">    <span class="fu" style="color: #4758AB;">kable_classic_2</span>(<span class="at" style="color: #657422;">html_font =</span> <span class="st" style="color: #20794D;">"Arial"</span>, <span class="at" style="color: #657422;">lightable_options =</span> <span class="st" style="color: #20794D;">"striped"</span>, <span class="at" style="color: #657422;">full_width =</span> <span class="cn" style="color: #8f5902;">FALSE</span>)</span>
+<span id="cb1-18">}</span>
+<span id="cb1-19"></span>
+<span id="cb1-20"><span class="co" style="color: #5E5E5E;"># Data generation</span></span>
+<span id="cb1-21">generate_data <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(<span class="at" style="color: #657422;">seed =</span> <span class="cn" style="color: #8f5902;">NA</span>, <span class="at" style="color: #657422;">n =</span> <span class="fl" style="color: #AD0000;">1e5</span>) {</span>
+<span id="cb1-22">  <span class="cf" style="color: #003B4F;">if</span> (<span class="sc" style="color: #5E5E5E;">!</span><span class="fu" style="color: #4758AB;">is.na</span>(seed)) <span class="fu" style="color: #4758AB;">set.seed</span>(seed)</span>
+<span id="cb1-23">  dat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">tibble</span>(</span>
+<span id="cb1-24">    <span class="at" style="color: #657422;">x1 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n),</span>
+<span id="cb1-25">    <span class="at" style="color: #657422;">x2 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n),</span>
+<span id="cb1-26">    <span class="at" style="color: #657422;">y1 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n) <span class="sc" style="color: #5E5E5E;">+</span> x1<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">1</span>,</span>
+<span id="cb1-27">    <span class="at" style="color: #657422;">y2 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n) <span class="sc" style="color: #5E5E5E;">+</span> x1<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">2</span>,</span>
+<span id="cb1-28">    <span class="at" style="color: #657422;">c1 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n) <span class="sc" style="color: #5E5E5E;">+</span> x1<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">3</span>,</span>
+<span id="cb1-29">    <span class="at" style="color: #657422;">c2 =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n),</span>
+<span id="cb1-30">    <span class="at" style="color: #657422;">group =</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"a"</span>, <span class="st" style="color: #20794D;">"b"</span>, <span class="st" style="color: #20794D;">"c"</span>, <span class="st" style="color: #20794D;">"d"</span>), n, <span class="at" style="color: #657422;">replace =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb1-31">  )</span>
+<span id="cb1-32">}</span>
+<span id="cb1-33">dat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">generate_data</span>(<span class="dv" style="color: #AD0000;">9</span>)</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
+<div class="cell-output-display">
+<div id="tbl-data" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;1:  Example data (n = 100,000; 5.3 Mb on disk) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x1 </th>
+   <th style="text-align:right;"> x2 </th>
+   <th style="text-align:right;"> y1 </th>
+   <th style="text-align:right;"> y2 </th>
+   <th style="text-align:right;"> c1 </th>
+   <th style="text-align:right;"> c2 </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> -0.77 </td>
+   <td style="text-align:right;"> 1.10 </td>
+   <td style="text-align:right;"> -0.36 </td>
+   <td style="text-align:right;"> -1.23 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> -0.77 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.82 </td>
+   <td style="text-align:right;"> -1.68 </td>
+   <td style="text-align:right;"> -0.50 </td>
+   <td style="text-align:right;"> -0.79 </td>
+   <td style="text-align:right;"> -1.08 </td>
+   <td style="text-align:right;"> -0.81 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.14 </td>
+   <td style="text-align:right;"> -1.89 </td>
+   <td style="text-align:right;"> -0.67 </td>
+   <td style="text-align:right;"> 0.71 </td>
+   <td style="text-align:right;"> -0.89 </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -0.28 </td>
+   <td style="text-align:right;"> -0.98 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> -1.40 </td>
+   <td style="text-align:right;"> 1.24 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> 0.83 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.78 </td>
+   <td style="text-align:right;"> -0.45 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -1.19 </td>
+   <td style="text-align:right;"> -0.54 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> 2.10 </td>
+   <td style="text-align:right;"> 1.42 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We can specify a fully crossed multiverse analysis over outcomes, predictors, and covariates, easily with specr. Also, to make the example a bit more interesting for later examples, I’ll estimate the model using two functions (<code>lm()</code> and <code>glm()</code> which in this case give the same results), and will time the function call using tictoc. Table&nbsp;2 shows the first few rows of the results.</p>
+<div class="cell" data-hash="index_cache/html/specr_b0f58f39187fbb67b7dcbb5e8e31587f">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(specr)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">tic</span>()</span>
+<span id="cb2-3">results_specr <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">run_specs</span>(</span>
+<span id="cb2-4">  <span class="at" style="color: #657422;">df =</span> dat, </span>
+<span id="cb2-5">  <span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1"</span>, <span class="st" style="color: #20794D;">"y2"</span>), </span>
+<span id="cb2-6">  <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>), </span>
+<span id="cb2-7">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>), </span>
+<span id="cb2-8">  <span class="at" style="color: #657422;">controls =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"c1"</span>, <span class="st" style="color: #20794D;">"c2"</span>), </span>
+<span id="cb2-9">  <span class="at" style="color: #657422;">subsets =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">group =</span> <span class="fu" style="color: #4758AB;">unique</span>(dat<span class="sc" style="color: #5E5E5E;">$</span>group))</span>
+<span id="cb2-10">)</span>
+<span id="cb2-11"><span class="fu" style="color: #4758AB;">toc</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>28.683 sec elapsed</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">results_specr <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;">head</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb4-3">  .[,<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">10</span>] <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb4-4">  <span class="fu" style="color: #4758AB;">kbl</span>(</span>
+<span id="cb4-5">    <span class="at" style="color: #657422;">digits =</span> <span class="dv" style="color: #AD0000;">2</span></span>
+<span id="cb4-6">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb4-7">  <span class="fu" style="color: #4758AB;">kable_classic_2</span>(<span class="at" style="color: #657422;">html_font =</span> <span class="st" style="color: #20794D;">"Arial"</span>, <span class="at" style="color: #657422;">full_width =</span> <span class="cn" style="color: #8f5902;">FALSE</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specr" class="anchored">
+
+<table class=" lightable-classic-2" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;2:  First six rows of multiverse numerical results from specr </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> controls </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+   <th style="text-align:right;"> conf.low </th>
+   <th style="text-align:right;"> conf.high </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 13.96 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 29.79 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 13.96 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> c1 + c2 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Another great thing about this package is that you can easily draw specification curve figures (Figure&nbsp;2)</p>
+<div class="cell" data-hash="index_cache/html/fig-specr_617539ff4398e57bcb4bff2078677e43">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">plot_specs</span>(</span>
+<span id="cb5-2">  results_specr, </span>
+<span id="cb5-3">  <span class="at" style="color: #657422;">choices =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x"</span>, <span class="st" style="color: #20794D;">"y"</span>, <span class="st" style="color: #20794D;">"model"</span>, <span class="st" style="color: #20794D;">"controls"</span>, <span class="st" style="color: #20794D;">"subsets"</span>)</span>
+<span id="cb5-4">)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-specr" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-specr-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Specification curve figure drawn from specr results</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, even with this modest data set and 160 specifications, this took a while.</p>
+<div class="page-columns page-full"><p>I first decided to take a stab at parallelizing <code>run_specs()</code>. This turned out to be a bit of a dead end because I couldn’t make the parallelization fit in with how <a href="https://github.com/masurp/specr/blob/master/R/run_specs.r"><code>run_specs()</code></a> works in the back-end.<sup>1</sup> So instead of shoehorning a parallel back-end to specr, I decided to implement the parallelization in a tidy pipeline. This pipeline, with no additional dependencies (apart from the tidyverse!), works pretty well. It of course does not provide specr’s one-liners, but I believe the flexibility of this approach pays back for it.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;It first creates a data frame with the specs, then the requested subsets, and then either applies <code>run_spec()</code> to all the datasets and specs using <code>map()</code>, or if no subsets were requested, runs the <code>run_spec()</code> on the specs only. So it wasn’t straightforward to parallelize over both data subsets and specs. Parallelizing over specs <a href="https://github.com/masurp/specr/pull/31/commits/142bdf879b96966b3f4bd1fdf04e886711d827f1">was simple</a>.</p></li></div></div>
+</section>
+<section id="tidymultiverse" class="level1">
+<h1>Tidymultiverse</h1>
+<section id="specification-table" class="level2">
+<h2 class="anchored" data-anchor-id="specification-table">Specification table</h2>
+<p>The first step in a multiverse analysis is defining the grid of specifications.</p>
+<p>The one difficulty here is that the dataset can also be part of the specifications (e.g.&nbsp;different outlier removal thresholds), but you can’t include the dataset in the table of specifications, because it would easily get too large and your computer would run out of memory (I learned this the hard way). So we will still iterate over the specs table, and pull relevant subsets of the data from the source data table in the function that iterates over the specs.</p>
+<p>A flexible and easy way to declare the specifications is <code>expand_grid()</code>. This allows us to create tables that cross all the variables declared therein. I’ve chosen here to create a grid of variables.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_36964913f4bba4a690d472f716503c50">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">specs <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb6-2">  <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb6-3">  <span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1"</span>, <span class="st" style="color: #20794D;">"y2"</span>),</span>
+<span id="cb6-4">  <span class="at" style="color: #657422;">covariate =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb6-5">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>)</span>
+<span id="cb6-6">)</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
+<div class="cell-output-display">
+<div id="tbl-specs-1" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;3:  First six rows of example specifications table. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x2 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y2 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>But we could also just as well create a grid of formulas. Depending on your analysis, this might be a viable option</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_3897713cd6b8874a6d5aa3076331c794">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb7-2">  <span class="at" style="color: #657422;">formula =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1 ~ x1"</span>, <span class="st" style="color: #20794D;">"y1 ~ x2"</span>, <span class="st" style="color: #20794D;">"y1 ~ x1 + c1"</span>), <span class="co" style="color: #5E5E5E;"># And so on</span></span>
+<span id="cb7-3">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>)</span>
+<span id="cb7-4">)</span></code></pre></div>
+</details>
+</div>
+<p>We will stick with specifying variables instead, for this example. We can include subgroups as well:</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_f100595467f826154248c233050c6023">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">specs <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb8-2">  <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb8-3">  <span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1"</span>, <span class="st" style="color: #20794D;">"y2"</span>),</span>
+<span id="cb8-4">  <span class="at" style="color: #657422;">covariate =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb8-5">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>),</span>
+<span id="cb8-6">  <span class="co" style="color: #5E5E5E;"># Include all distinct values of g</span></span>
+<span id="cb8-7">  <span class="fu" style="color: #4758AB;">distinct</span>(dat, group)</span>
+<span id="cb8-8">)</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-2_951a5517d0714adbd6a7fcb059893d14">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;">head</span>(specs) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="fu" style="color: #4758AB;">k2</span>()</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specs-2" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;4:  First six rows of example specifications table with subgroups. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now each row in the table specifies 1. the modelling function (e.g.&nbsp;<code>lm()</code>), the subgroup, and the left-hand and right-hand side variables of the formula to put in the modelling function. Next, we need a function to also expand the covariates to all their combinations (I lifted much of this from the <a href="https://github.com/masurp/specr/blob/7d5a0c3664dd5d281ecaebb783ce75b638447205/R/setup_specs.r#L41">specr source</a>, I found it surprisingly hard to write):</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-12_c2a355d5d6798bf491ec3de29f930469">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;">#' Expand a vector of covariate names to all their combinations</span></span>
+<span id="cb10-2"><span class="co" style="color: #5E5E5E;">#'</span></span>
+<span id="cb10-3"><span class="co" style="color: #5E5E5E;">#' For example expand_covariate(c("age", "sex")) returns</span></span>
+<span id="cb10-4"><span class="co" style="color: #5E5E5E;">#' c("1", "age", "sex", "age + sex")</span></span>
+<span id="cb10-5"><span class="co" style="color: #5E5E5E;">#'</span></span>
+<span id="cb10-6"><span class="co" style="color: #5E5E5E;">#' @param covariate vector of covariate(s) e.g. c("age", "sex")</span></span>
+<span id="cb10-7"><span class="co" style="color: #5E5E5E;">#'</span></span>
+<span id="cb10-8"><span class="co" style="color: #5E5E5E;">#' @return a character vector of all predictor combinations (incl. Intercept)</span></span>
+<span id="cb10-9">expand_covariate <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(covariate) {</span>
+<span id="cb10-10">  <span class="fu" style="color: #4758AB;">list</span>(</span>
+<span id="cb10-11">    <span class="st" style="color: #20794D;">"1"</span>,</span>
+<span id="cb10-12">    <span class="fu" style="color: #4758AB;">do.call</span>(</span>
+<span id="cb10-13">      <span class="st" style="color: #20794D;">"c"</span>,</span>
+<span id="cb10-14">      <span class="fu" style="color: #4758AB;">map</span>(<span class="fu" style="color: #4758AB;">seq_along</span>(covariate), <span class="sc" style="color: #5E5E5E;">~</span><span class="fu" style="color: #4758AB;">combn</span>(covariate, .x, <span class="at" style="color: #657422;">FUN =</span> list))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb10-15">      <span class="fu" style="color: #4758AB;">map</span>(<span class="sc" style="color: #5E5E5E;">~</span><span class="fu" style="color: #4758AB;">paste</span>(.x, <span class="at" style="color: #657422;">collapse =</span> <span class="st" style="color: #20794D;">" + "</span>))</span>
+<span id="cb10-16">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb10-17">    unlist</span>
+<span id="cb10-18">}</span></code></pre></div>
+</details>
+</div>
+<section id="the-specification-table" class="level3">
+<h3 class="anchored" data-anchor-id="the-specification-table">The specification table</h3>
+<p>Putting all this together, and also creating the formulas from <code>y</code>, <code>x</code>, and <code>c</code>, we have completed the first part of our pipeline, creating the specifications:</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_31bc7224b7c21af83c74d4b7e94b1484">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">specs <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb11-2">  <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb11-3">  <span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1"</span>, <span class="st" style="color: #20794D;">"y2"</span>),</span>
+<span id="cb11-4">  <span class="at" style="color: #657422;">covariate =</span> <span class="fu" style="color: #4758AB;">expand_covariate</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"c1"</span>, <span class="st" style="color: #20794D;">"c2"</span>)),</span>
+<span id="cb11-5">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>),</span>
+<span id="cb11-6">  <span class="fu" style="color: #4758AB;">distinct</span>(dat, group)</span>
+<span id="cb11-7">) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb11-8">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">formula =</span> <span class="fu" style="color: #4758AB;">paste0</span>(y, <span class="st" style="color: #20794D;">" ~ "</span>, x, <span class="st" style="color: #20794D;">" + "</span>, covariate))</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="index_cache/html/tbl-specs-3_17968333a512f3b2750a2687b85be941">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;">head</span>(specs) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="fu" style="color: #4758AB;">k2</span>()</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-specs-3" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;5:  First six rows of example specifications table with subgroups and formulas. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> covariate </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:left;"> group </th>
+   <th style="text-align:left;"> formula </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> d </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> b </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> c </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> lm </td>
+   <td style="text-align:left;"> a </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> d </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x1 </td>
+   <td style="text-align:left;"> y1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> glm </td>
+   <td style="text-align:left;"> b </td>
+   <td style="text-align:left;"> y1 ~ x1 + 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estimating-the-specifications" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-the-specifications">Estimating the specifications</h2>
+<p>Having set up the specifications, all that is left to do is to iterate over its rows, while at the same time use the correct subsets of data. While iterating, we will get the slope parameter from each row using <code>tidy()</code>. Here’s how it could look like. The arguments to <code>pmap()</code> require some explaining. We are creating a cell on each row of <code>specs</code> using <code>pmap()</code>. This will apply a function to all the named elements in <code>list()</code>. The function, then, is <code>do.call()</code>, which takes the name of the function (here, <code>lm()</code> or <code>glm()</code>) as the first argument, passed using the shorthand <code>..1</code>. Then, we provide a list of arguments to the function. <code>formula = ..2</code> takes the second element from the above list. <code>data</code> takes our main data frame <code>dat</code>, but filters it based on the groups, passed in with <code>..3</code> (<code>group</code> in the above list). We then pipe the results to <code>tidy()</code> to give a tibble of the estimated parameters, and <code>slice()</code> to just take the second row of the parameters (the slope parameter). The <code>unnest()</code> command at the end unnests the resulting tibble of results into the specs table.</p>
+<div class="cell" data-hash="index_cache/html/tidy-multiverse_160fbed96e3afce30deabac3373935d6">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;">library</span>(broom)</span>
+<span id="cb13-2"><span class="fu" style="color: #4758AB;">tic</span>()</span>
+<span id="cb13-3">results_1 <span class="ot" style="color: #003B4F;">&lt;-</span> specs <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb13-4">  <span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb13-5">    <span class="at" style="color: #657422;">out =</span> <span class="fu" style="color: #4758AB;">pmap</span>(</span>
+<span id="cb13-6">      <span class="fu" style="color: #4758AB;">list</span>(model, formula, group), </span>
+<span id="cb13-7">      <span class="sc" style="color: #5E5E5E;">~</span><span class="fu" style="color: #4758AB;">do.call</span>(</span>
+<span id="cb13-8">        ..<span class="dv" style="color: #AD0000;">1</span>, </span>
+<span id="cb13-9">        <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">formula =</span> ..<span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">data =</span> <span class="fu" style="color: #4758AB;">filter</span>(dat, group <span class="sc" style="color: #5E5E5E;">==</span> ..<span class="dv" style="color: #AD0000;">3</span>))</span>
+<span id="cb13-10">      ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb13-11">        <span class="fu" style="color: #4758AB;">tidy</span>(<span class="at" style="color: #657422;">conf.int =</span> <span class="cn" style="color: #8f5902;">TRUE</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb13-12">        <span class="fu" style="color: #4758AB;">slice</span>(<span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb13-13">    )</span>
+<span id="cb13-14">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb13-15">  <span class="fu" style="color: #4758AB;">unnest</span>(out)</span>
+<span id="cb13-16"><span class="fu" style="color: #4758AB;">toc</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>13.419 sec elapsed</code></pre>
+</div>
+</div>
+<p>We already see an improvement in the run-time of this pipeline over <code>run_specs()</code>, but note that my implementation does not estimate models for the complete data (<code>subsets</code> = <code>all</code> in specr), so it is not an entirely fair comparison.</p>
+</section>
+<section id="parallel-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="parallel-estimation">Parallel estimation</h2>
+<p>Now that we have our pipeline set up, we can use multidplyr to easily (and safely!) parallelize our computations.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Parallelization is hard and rarely works out of the box. Multidplyr works best when the individual computations are slow, because there is always some overhead in sending stuff back and forth between the nodes of the cluster. So the benefits will be even greater with larger data or slower models. The benefit of using multidplyr vs other parallel backends is that the user retains control over how to split up the computations. Your feedback is more than welcome (comments are open at the end of this post)!</p>
+</div>
+</div>
+<p>To start, we load multidplyr, create a new cluster, and send the required libraries and variables to it.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;">library</span>(multidplyr)</span>
+<span id="cb15-2"><span class="co" style="color: #5E5E5E;"># Create a new cluster</span></span>
+<span id="cb15-3">cluster <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">new_cluster</span>(<span class="dv" style="color: #AD0000;">8</span>)</span>
+<span id="cb15-4"></span>
+<span id="cb15-5"><span class="co" style="color: #5E5E5E;"># Load libraries in and send data to nodes in the cluster</span></span>
+<span id="cb15-6"><span class="fu" style="color: #4758AB;">cluster_library</span>(cluster, <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"purrr"</span>, <span class="st" style="color: #20794D;">"broom"</span>, <span class="st" style="color: #20794D;">"tidyr"</span>, <span class="st" style="color: #20794D;">"dplyr"</span>))</span>
+<span id="cb15-7"><span class="fu" style="color: #4758AB;">cluster_copy</span>(cluster, <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dat"</span>))</span></code></pre></div>
+</details>
+</div>
+<p>Multidplyr integrates seamlessly into <code>%&gt;%</code>lines by sending groups in the passed data to nodes in the cluster. It is therefore important to think a bit about how to group your data. For us, we want to equally divide the <code>lm()</code> and <code>glm()</code> calls across nodes, because <code>glm()</code> is considerably slower. If one node got all the <code>glm()</code> calls, we would have to wait for that one node even after the others had completed.</p>
+<p>Here, it makes sense for us to group the data by <code>formula</code> and <code>group</code>. After grouping the data, we <code>partition()</code> it across the nodes in the cluster, run our computations, and then <code>collect()</code> the results back to our main R process. I also pass the <code>tidy()</code> results to <code>slice(2)</code> to just get the slope parameters.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;">tic</span>()</span>
+<span id="cb16-2">results_2 <span class="ot" style="color: #003B4F;">&lt;-</span> specs <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-3">  <span class="fu" style="color: #4758AB;">group_by</span>(formula, group) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-4">  <span class="fu" style="color: #4758AB;">partition</span>(cluster) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb16-5">  <span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb16-6">    <span class="at" style="color: #657422;">out =</span> <span class="fu" style="color: #4758AB;">pmap</span>(</span>
+<span id="cb16-7">      <span class="fu" style="color: #4758AB;">list</span>(model, formula, group), </span>
+<span id="cb16-8">      <span class="sc" style="color: #5E5E5E;">~</span><span class="fu" style="color: #4758AB;">do.call</span>(..<span class="dv" style="color: #AD0000;">1</span>, <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">formula =</span> ..<span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">data =</span> <span class="fu" style="color: #4758AB;">filter</span>(dat, .data[[<span class="st" style="color: #20794D;">"group"</span>]] <span class="sc" style="color: #5E5E5E;">==</span> ..<span class="dv" style="color: #AD0000;">3</span>))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-9">        <span class="fu" style="color: #4758AB;">tidy</span>(<span class="at" style="color: #657422;">conf.int =</span> <span class="cn" style="color: #8f5902;">TRUE</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-10">        <span class="fu" style="color: #4758AB;">slice</span>(<span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb16-11">    )</span>
+<span id="cb16-12">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-13">  <span class="fu" style="color: #4758AB;">collect</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-14">  <span class="fu" style="color: #4758AB;">ungroup</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb16-15">  <span class="fu" style="color: #4758AB;">unnest</span>(out)</span>
+<span id="cb16-16"><span class="fu" style="color: #4758AB;">toc</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.089 sec elapsed</code></pre>
+</div>
+</div>
+<p>This particular parallelization scheme (8 cores working on subsets defined by <code>formula</code> and <code>group</code> in <code>dat</code>) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.</p>
+<p>I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation.</p>
+<div class="cell" data-hash="index_cache/html/tbl-results-check_e60317c685f391f1f922ca746efbd363">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;">bind_rows</span>(</span>
+<span id="cb18-2">  <span class="st" style="color: #20794D;">"specr"</span> <span class="ot" style="color: #003B4F;">=</span> results_specr <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-3">    <span class="fu" style="color: #4758AB;">filter</span>(subsets <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"all"</span>, x <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"x1"</span>, y <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"y1"</span>, model <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"lm"</span>, controls <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"c1"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-4">    <span class="fu" style="color: #4758AB;">rename</span>(<span class="at" style="color: #657422;">covariate =</span> controls, <span class="at" style="color: #657422;">group =</span> subsets) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-5">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">group =</span> <span class="fu" style="color: #4758AB;">str_remove</span>(group, <span class="st" style="color: #20794D;">"group = "</span>)),</span>
+<span id="cb18-6">  <span class="st" style="color: #20794D;">"tidymultiverse"</span> <span class="ot" style="color: #003B4F;">=</span> results_1 <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-7">    <span class="fu" style="color: #4758AB;">filter</span>(term <span class="sc" style="color: #5E5E5E;">==</span> x, x <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"x1"</span>, y <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"y1"</span>, model <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"lm"</span>, covariate <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"c1"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-8">    <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>formula, <span class="sc" style="color: #5E5E5E;">-</span>term),</span>
+<span id="cb18-9">  <span class="st" style="color: #20794D;">"TM (parallel)"</span> <span class="ot" style="color: #003B4F;">=</span> results_2 <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-10">    <span class="fu" style="color: #4758AB;">filter</span>(term <span class="sc" style="color: #5E5E5E;">==</span> x, x <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"x1"</span>, y <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"y1"</span>, model <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"lm"</span>, covariate <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"c1"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-11">    <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>formula, <span class="sc" style="color: #5E5E5E;">-</span>term),</span>
+<span id="cb18-12">  <span class="at" style="color: #657422;">.id =</span> <span class="st" style="color: #20794D;">"Method"</span></span>
+<span id="cb18-13">) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-14">  <span class="fu" style="color: #4758AB;">select</span>(Method, estimate, std.error, conf.low, conf.high, group) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-15">  <span class="fu" style="color: #4758AB;">arrange</span>(group) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb18-16">  <span class="fu" style="color: #4758AB;">k2</span>()</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-results-check" class="anchored">
+
+<table class=" lightable-classic-2 lightable-striped" style="font-family: Arial; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;6:  Example results from the three estimation methods. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Method </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> conf.low </th>
+   <th style="text-align:right;"> conf.high </th>
+   <th style="text-align:left;"> group </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> a </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:left;"> b </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> c </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> specr </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tidymultiverse </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TM (parallel) </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> d </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="complete-tidymultiverse-example" class="level1">
+<h1>Complete tidymultiverse example</h1>
+<p>Let’s take this one step further and show an example of a complete pipeline. We still analyse the same dataset, but with an additional complexity: We are worried about outliers in the data, and would like to explore a multiverse over different data filtering thresholds (reject <code>y1</code> values that are more than 1, 2, or 3 standard deviations from the mean). We can implement this in many ways. For example, we could create indicator variables that could be used as subgroups just as we have done with <code>group</code> so far. Another interesting alternative is to dynamically filter the source data in the function that iterates over the specs table. We take the latter route here.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-19_85402d14a04c69766ed7469d1fdc7b78">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;">tic</span>()</span>
+<span id="cb19-2">results <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand_grid</span>(</span>
+<span id="cb19-3">  <span class="at" style="color: #657422;">threshold =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">3</span>),</span>
+<span id="cb19-4">  <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"x1"</span>, <span class="st" style="color: #20794D;">"x2"</span>),</span>
+<span id="cb19-5">  <span class="at" style="color: #657422;">y =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"y1"</span>, <span class="st" style="color: #20794D;">"y2"</span>),</span>
+<span id="cb19-6">  <span class="at" style="color: #657422;">covariate =</span> <span class="fu" style="color: #4758AB;">expand_covariate</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"c1"</span>, <span class="st" style="color: #20794D;">"c2"</span>)),</span>
+<span id="cb19-7">  <span class="at" style="color: #657422;">model =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"lm"</span>, <span class="st" style="color: #20794D;">"glm"</span>),</span>
+<span id="cb19-8">  <span class="fu" style="color: #4758AB;">distinct</span>(dat, group)</span>
+<span id="cb19-9">) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb19-10">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">formula =</span> <span class="fu" style="color: #4758AB;">paste0</span>(y, <span class="st" style="color: #20794D;">" ~ "</span>, x, <span class="st" style="color: #20794D;">" + "</span>, covariate)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb19-11">  <span class="fu" style="color: #4758AB;">group_by</span>(formula, group) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb19-12">  <span class="fu" style="color: #4758AB;">partition</span>(cluster) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb19-13">  <span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb19-14">    <span class="at" style="color: #657422;">out =</span> <span class="fu" style="color: #4758AB;">pmap</span>(</span>
+<span id="cb19-15">      <span class="fu" style="color: #4758AB;">list</span>(model, formula, group, threshold), </span>
+<span id="cb19-16">      <span class="sc" style="color: #5E5E5E;">~</span><span class="fu" style="color: #4758AB;">do.call</span>(</span>
+<span id="cb19-17">        ..<span class="dv" style="color: #AD0000;">1</span>, </span>
+<span id="cb19-18">        <span class="fu" style="color: #4758AB;">list</span>(</span>
+<span id="cb19-19">          <span class="at" style="color: #657422;">formula =</span> ..<span class="dv" style="color: #AD0000;">2</span>, </span>
+<span id="cb19-20">          <span class="at" style="color: #657422;">data =</span> <span class="fu" style="color: #4758AB;">filter</span>(</span>
+<span id="cb19-21">            dat, </span>
+<span id="cb19-22">            group <span class="sc" style="color: #5E5E5E;">==</span> ..<span class="dv" style="color: #AD0000;">3</span>,</span>
+<span id="cb19-23">            <span class="fu" style="color: #4758AB;">between</span>(y1, <span class="fu" style="color: #4758AB;">mean</span>(y1) <span class="sc" style="color: #5E5E5E;">-</span> <span class="fu" style="color: #4758AB;">sd</span>(y1)<span class="sc" style="color: #5E5E5E;">*</span>..<span class="dv" style="color: #AD0000;">4</span>, <span class="fu" style="color: #4758AB;">mean</span>(y1) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">sd</span>(y1)<span class="sc" style="color: #5E5E5E;">*</span>..<span class="dv" style="color: #AD0000;">4</span>)</span>
+<span id="cb19-24">          )</span>
+<span id="cb19-25">        )</span>
+<span id="cb19-26">      ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb19-27">        <span class="fu" style="color: #4758AB;">tidy</span>(<span class="at" style="color: #657422;">conf.int =</span> <span class="cn" style="color: #8f5902;">TRUE</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb19-28">        <span class="fu" style="color: #4758AB;">slice</span>(<span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb19-29">    )</span>
+<span id="cb19-30">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb19-31">  <span class="fu" style="color: #4758AB;">collect</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb19-32">  <span class="fu" style="color: #4758AB;">unnest</span>(out) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb19-33">  <span class="fu" style="color: #4758AB;">ungroup</span>()</span>
+<span id="cb19-34"><span class="fu" style="color: #4758AB;">toc</span>()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>8.295 sec elapsed</code></pre>
+</div>
+</div>
+<p>Ok, ok, that was too much in one go. Let’s focus on the key piece here: Applying the modelling function to each row of the specifications, on rows 15 to 27.</p>
+<ul>
+<li><code>list(model, formula, group, threshold)</code>
+<ul>
+<li>We pick these variables from the specification table to use as arguments in <code>do.call()</code></li>
+</ul></li>
+<li><code>do.call(**..1**)</code>
+<ul>
+<li>This means that we will run the function named in the first element in the above list, <code>model</code> (which is <code>lm</code> or <code>glm</code>), with the subsequent arguments</li>
+</ul></li>
+<li><code>formula = ..2</code>, use the second element from the list passed to <code>pmap()</code> as the <code>formula</code> argument of <code>model</code> (e.g.&nbsp;<code>lm()</code>)</li>
+<li><code>data = filter(...)</code>
+<ul>
+<li>This is where the action is. We dynamically filter the source data frame <code>dat</code> based on variables in the specification table.</li>
+<li><code>group == ..3</code> means that we filter the data on group (the third argument in the list of arguments passed to <code>pmap()</code>)</li>
+<li><code>between(y1, mean(y1) - sd(y1)*..4, mean(y1) + sd(y1)*..4)</code> we filter data in <code>dat</code> based on the fourth argument <code>threshold</code>. This line says to include only <code>y1</code> values that are within <code>..4</code> (= <code>threshold</code> in the specification table) standard deviations from the mean.</li>
+</ul></li>
+</ul>
+<p>This syntax seems a bit hairy, but it is entirely general. The key point here is that we don’t have to learn any new syntax from a new package, but can simply keep applying tidyverse’s <code>%&gt;%</code>lines with familiar dplyr verbs like <code>filter()</code>. The ugly aspect here is that we are sneaking in those <code>%&gt;%</code>lines inside the <code>do.call()</code> function, which then iterates over the specification table.</p>
+<section id="a-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="a-visualization">A visualization</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;">library</span>(patchwork)</span>
+<span id="cb21-2">results <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">arrange</span>(results, estimate) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">spec =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">n</span>())</span>
+<span id="cb21-3">p_dash <span class="ot" style="color: #003B4F;">&lt;-</span> results <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb21-4">  <span class="fu" style="color: #4758AB;">select</span>(spec, p.value, threshold<span class="sc" style="color: #5E5E5E;">:</span>group) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb21-5">  <span class="fu" style="color: #4758AB;">pivot_longer</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="fu" style="color: #4758AB;">c</span>(spec, p.value), <span class="at" style="color: #657422;">values_transform =</span> as.character) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb21-6">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(spec, value, <span class="at" style="color: #657422;">col =</span> p.value <span class="sc" style="color: #5E5E5E;">&lt;</span> <span class="fl" style="color: #AD0000;">0.05</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-7">  <span class="fu" style="color: #4758AB;">scale_color_brewer</span>(<span class="at" style="color: #657422;">palette =</span> <span class="st" style="color: #20794D;">"Set1"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-8">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(</span>
+<span id="cb21-9">    <span class="st" style="color: #20794D;">"Specification"</span></span>
+<span id="cb21-10">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-11">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">size =</span> <span class="fl" style="color: #AD0000;">0.5</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-12">  <span class="fu" style="color: #4758AB;">facet_grid</span>(<span class="at" style="color: #657422;">rows =</span> <span class="fu" style="color: #4758AB;">vars</span>(name), <span class="at" style="color: #657422;">scales =</span> <span class="st" style="color: #20794D;">"free_y"</span>, <span class="at" style="color: #657422;">space =</span> <span class="st" style="color: #20794D;">"free_y"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-13">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">axis.title.y =</span> <span class="fu" style="color: #4758AB;">element_blank</span>())</span>
+<span id="cb21-14">p_curve <span class="ot" style="color: #003B4F;">&lt;-</span> results <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb21-15">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(spec, estimate, <span class="at" style="color: #657422;">col =</span> p.value <span class="sc" style="color: #5E5E5E;">&lt;</span> <span class="fl" style="color: #AD0000;">0.05</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-16">  <span class="fu" style="color: #4758AB;">scale_color_brewer</span>(<span class="at" style="color: #657422;">palette =</span> <span class="st" style="color: #20794D;">"Set1"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb21-17">  <span class="fu" style="color: #4758AB;">geom_pointrange</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">ymin =</span> conf.low, <span class="at" style="color: #657422;">ymax =</span> conf.high), <span class="at" style="color: #657422;">size =</span> <span class="fl" style="color: #AD0000;">0.5</span>)</span>
+<span id="cb21-18">(p_curve <span class="sc" style="color: #5E5E5E;">/</span> p_dash) <span class="sc" style="color: #5E5E5E;">&amp;</span></span>
+<span id="cb21-19">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-results-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-results-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Specification curve figure example with ggplot().</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-orbenAssociationAdolescentWellbeing2019" class="csl-entry">
+Orben, Amy, and Andrew K. Przybylski. 2019. <span>“The Association Between Adolescent Well-Being and Digital Technology Use.”</span> <em>Nature Human Behaviour</em> 3 (2, 2): 173–82. <a href="https://doi.org/10.1038/s41562-018-0506-1">https://doi.org/10.1038/s41562-018-0506-1</a>.
+</div>
+<div id="ref-simonsohnSpecificationCurveAnalysis2020" class="csl-entry">
+Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
+</div>
+<div id="ref-steegenIncreasingTransparencyMultiverse2016" class="csl-entry">
+Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, September. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {Tidymultiverse},
+  date = {2022-11-30},
+  url = {https://vuorre.netlify.app/posts/parallel-multiverse},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2022. <span>“Tidymultiverse.”</span> November 30, 2022. <a href="https://vuorre.netlify.app/posts/parallel-multiverse">https://vuorre.netlify.app/posts/parallel-multiverse</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>multiverse</category>
+  <category>tidyverse</category>
+  <category>specr</category>
+  <guid>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</guid>
+  <pubDate>Wed, 30 Nov 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/parallel-multiverse/images/undraw-lost-online.png" medium="image" type="image/png" height="117" width="144"/>
+</item>
 <item>
   <title>Website favicons with hexSticker</title>
   <dc:creator>Matti Vuorre</dc:creator>

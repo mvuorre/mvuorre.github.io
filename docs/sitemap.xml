@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://vuorre.netlify.app/index.html</loc>
-    <lastmod>2022-11-30T22:28:19.390Z</lastmod>
+    <lastmod>2022-12-01T10:49:24.185Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/about.html</loc>
@@ -86,6 +86,10 @@
   </url>
   <url>
     <loc>https://vuorre.netlify.app/blog.html</loc>
-    <lastmod>2022-11-30T22:28:20.877Z</lastmod>
+    <lastmod>2022-12-01T10:41:34.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</loc>
+    <lastmod>2022-12-01T10:49:22.165Z</lastmod>
   </url>
 </urlset>

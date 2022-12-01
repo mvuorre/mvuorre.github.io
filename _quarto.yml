@@ -35,7 +35,8 @@ website:
     right:
       - text: Home
         href: index.qmd
-      - blog.qmd
+      - text: Blog
+        href: blog.qmd
       - contact.qmd
       - personal.qmd
       - text: "{{< fa rss >}}"

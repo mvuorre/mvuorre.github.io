@@ -42,6 +42,7 @@ This blog entry is about the technical aspects of conducting multiverse analyses
 #| label: fig-op3
 #| fig-cap: Figure 3 from @orbenAssociationAdolescentWellbeing2019. Reproduced 100% without permission, but I don't think Amy or Andy would mind.
 library(knitr)
+library(broom)
 library(tidyverse)
 include_graphics('images/orben-przybylski-2019-fig3.png')
 ```
@@ -260,9 +261,8 @@ Having set up the specifications, all that is left to do is to iterate over its 
 ```{r}
 #| label: tidy-multiverse
 #| cache: true
-library(broom)
 tic()
-results_1 <- specs %>% 
+results_dplyr <- specs %>% 
   mutate(
     out = pmap(
       list(model, formula, group), 
@@ -308,13 +308,16 @@ Here, it makes sense for us to group the data by `formula` and `group`. After gr
 ```{r}
 #| cache: false
 tic()
-results_2 <- specs %>% 
+results_multidplyr <- specs %>% 
   group_by(formula, group) %>% 
   partition(cluster) %>%
   mutate(
     out = pmap(
       list(model, formula, group), 
-      ~do.call(..1, list(formula = ..2, data = filter(dat, .data[["group"]] == ..3))) %>% 
+      ~do.call(
+        ..1, 
+        list(formula = ..2, data = filter(dat, group == ..3))
+      ) %>% 
         tidy(conf.int = TRUE) %>% 
         slice(2)
     )
@@ -327,6 +330,35 @@ toc()
 
 This particular parallelization scheme (8 cores working on subsets defined by `formula` and `group` in `dat`) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.
 
+### Parallelization with furrr
+
+```{r}
+library(furrr)
+plan(multisession, workers = 8)
+```
+
+
+```{r}
+tic()
+results_furrr <- specs %>% 
+  mutate(
+    out = future_pmap(
+      list(model, formula, group), 
+      ~do.call(
+        ..1, 
+        list(formula = ..2, data = filter(dat, group == ..3))
+      ) %>% 
+        broom::tidy(conf.int = TRUE) %>% 
+        slice(2)
+    )
+  ) %>% 
+  unnest(out)
+toc()
+```
+
+
+## Checking results
+
 I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation.
 
 ```{r}
@@ -337,11 +369,20 @@ bind_rows(
     filter(subsets != "all", x == "x1", y == "y1", model == "lm", controls == "c1") %>% 
     rename(covariate = controls, group = subsets) %>% 
     mutate(group = str_remove(group, "group = ")),
-  "tidymultiverse" = results_1 %>% 
-    filter(term == x, x == "x1", y == "y1", model == "lm", covariate == "c1") %>% 
+  "tidymultiverse" = results_dplyr %>% 
+    filter(
+      term == x, x == "x1", y == "y1", model == "lm", covariate == "c1"
+      ) %>% 
     select(-formula, -term),
-  "TM (parallel)" = results_2 %>% 
-    filter(term == x, x == "x1", y == "y1", model == "lm", covariate == "c1") %>% 
+  "tidymultiverse\nmultidplyr" = results_multidplyr %>% 
+    filter(
+      term == x, x == "x1", y == "y1", model == "lm", covariate == "c1"
+      ) %>%
+    select(-formula, -term),
+  "tidymultiverse\nfurrr" = results_multidplyr %>% 
+    filter(
+      term == x, x == "x1", y == "y1", model == "lm", covariate == "c1"
+      ) %>%
     select(-formula, -term),
   .id = "Method"
 ) %>% 

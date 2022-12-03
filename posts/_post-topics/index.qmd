@@ -36,3 +36,7 @@ Bayesians are empirical and use information.
 # Splines and GAMs
 
 https://www.core77.com/posts/55368/When-Splines-Were-Physical-Objects#
+
+# Blog about my own work
+
+- Regression and other stories (p66) points out some tips on moving "beyond hypothesis testing". I think my past GWP papers have gone toward an approach like this and I would like to talk about to what extent I was successful in that.

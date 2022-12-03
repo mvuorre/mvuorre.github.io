@@ -684,6 +684,120 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>How to run R remotely</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.netlify.app/posts/remote-r/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I recently saw an <a href="https://fosstodon.org/@michaelflynn/109445977522188850">interesting question</a> on Mastodon: <strong>How can I run R remotely?</strong> This blog entry sketches some answers to that question.</p>
+<p>It’s often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we’re lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don’t like using them (maybe they have windows installed!) or we don’t have physical access to them. In those cases, we’d like to run R, or at least some of the R tasks, remotely.</p>
+<p>In order to best solve this problem, we need to recognize two main scenarios:</p>
+<ol type="1">
+<li>The laptop (or “slow” computer) and desktop (or “fast” computer) are on the same local network, or</li>
+<li>The laptop and desktop are not on the same local network.</li>
+</ol>
+<p>We discuss these options in turn. The answers turn out to be very similar, but when the computers are not on the same network, the solution is just a wee bit more complicated.</p>
+<section id="what-you-need" class="level1">
+<h1>What you need</h1>
+<p>These solutions work on Linux, MacOS, and even Windows operating systems. The slow and fast computers can have any combination of these.</p>
+<p>You also need to use RStudio for the solutions discussed here. It turns out that doing this in VS Code can be even easier because of its superb remote session support. I’ll add the VS Code writeup later, once my transition from RStudio to VS Code is complete <span class="emoji" data-emoji="wink">😉</span>.</p>
+<p>The first thing you need to set up is an RStudio Server instance on the fast computer. If your fast computer is running Linux, <a href="https://posit.co/download/rstudio-server/">this is trivial</a>.</p>
+<p>If your fast computer has either MacOS or Windows, you will need to set up the RStudio Server instance using Docker. This is really easy, and we begin here.</p>
+</section>
+<section id="rstudio-server" class="level1 page-columns page-full">
+<h1>RStudio Server</h1>
+<p>We are first going to install RStudio Server on the fast computer. You cannot run RStudio Server on MacOS or Windows, but we can easily fire one up using <a href="https://www.docker.com/">Docker</a>. First, using your fast computer, head over to the Docker website and download the Docker desktop app. Then start it and make sure it is running (you will have a menu bar or taskbar Docker button to indicate that it’s running).</p>
+<p>Then start a terminal session, and use it to start a <a href="https://rocker-project.org/">rocker/rstudio</a> container:</p>
+
+<div class="no-row-height column-margin column-container"><div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The rocker images don’t yet work on M1 Macs. If you, like me, are using an M1 Mac, you can replace <code>rocker/rstudio</code> with <code>amoselb/rstudio-m1</code>.</p>
+</div>
+</div></div><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;">docker</span> run <span class="at" style="color: #657422;">--rm</span> <span class="at" style="color: #657422;">-ti</span> <span class="at" style="color: #657422;">-e</span> PASSWORD=yourpassword <span class="at" style="color: #657422;">-p</span> 8787:8787 rocker/rstudio</span></code></pre></div>
+<p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (Figure&nbsp;1).</p>
+<div id="fig-login" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/remote-r/images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption><p></p>
+</figure>
+</div>
+<p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (Figure&nbsp;2).</p>
+<div id="fig-rstudio-server" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/remote-r/images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption><p></p>
+</figure>
+</div>
+<p>Notice how it runs on Ubuntu, although my computer is an M1 Mac. Pretty cool, huh.</p>
+<p>Ok, so how do we connect to this from other computers. We might now either want to connect from another computer on the same network, or on another network. Let’s start with the first.</p>
+</section>
+<section id="computers-on-the-same-local-network" class="level1">
+<h1>Computers on the same local network</h1>
+<p>This is pretty easy! First, find your fast computer’s local IP. There’s many ways to find this and you could for example query it in the terminal:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;">ipconfig</span> getifaddr en0</span></code></pre></div>
+<p>Your local IP address will be something like <code>192.168.0.123</code>. My fast computer currently runs on <code>192.168.0.155</code>, and I’ll use it below.</p>
+<p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see Figure&nbsp;3.</p>
+<div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/remote-r/images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption><p></p>
+</figure>
+</div>
+<p>It really isn’t more difficult than that.</p>
+</section>
+<section id="computers-on-different-networks" class="level1">
+<h1>Computers on different networks</h1>
+<p>OK, so you still have RStudio Server running on your fast computer, but maybe it’s now at work and you are at home with your slow computer. How to connect? There’s many ways to do this, but here we will use <a href="https://tailscale.com/">Tailscale</a>.</p>
+<p>First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point <span class="emoji" data-emoji="smile">😄</span>. [Unless you already have e.g.&nbsp;SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale running on both and that they are signed in to the same Tailscale account. You can follow the <a href="https://tailscale.com/kb/1017/install/">official instructions</a>. It really is quite easy and that’s why I use Tailscale and not some other SSH or VPN based solution.</p>
+<p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (Figure&nbsp;4), whether they are active or not.</p>
+<div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/remote-r/images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption><p></p>
+</figure>
+</div>
+<p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in Figure&nbsp;4, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see Figure&nbsp;3 again.</p>
+<p>I can then use RStudio (server as a client) running on my fast computer on any of my other computers, by using the Tailscale IP address.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world. Hope that was as helpful to you as it has been for me <span class="emoji" data-emoji="smile">😄</span>. If something didn’t work for you, comments are open below.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {How to Run {R} Remotely},
+  date = {2022-11-30},
+  url = {https://vuorre.netlify.app/posts/remote-r},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2022. <span>“How to Run R Remotely.”</span> November 30,
+2022. <a href="https://vuorre.netlify.app/posts/remote-r">https://vuorre.netlify.app/posts/remote-r</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>RStudio Server</category>
+  <category>Docker</category>
+  <category>Tailscale</category>
+  <category>tutorial</category>
+  <guid>https://vuorre.netlify.app/posts/remote-r/index.html</guid>
+  <pubDate>Wed, 30 Nov 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>Tidymultiverse</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</link>
@@ -1727,7 +1841,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
   <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -2598,7 +2712,7 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>

@@ -1,7 +1,7 @@
 ---
 title: How to run R remotely
 description: Running R on a remote computer is surprisingly easy
-date: 2022-11-30
+date: 2022-12-03
 categories:
   - R
   - RStudio Server
@@ -25,9 +25,9 @@ format:
 image: "images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg"
 ---
 
-I recently saw an [interesting question](https://fosstodon.org/@michaelflynn/109445977522188850) on Mastodon: **How can I run R remotely?** This blog entry sketches some answers to that question.
+I recently saw an [interesting question](https://fosstodon.org/@michaelflynn/109445977522188850) on Mastodon: **How can I run R remotely?** 
 
-It's often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we're lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don't like using them (maybe they have windows installed!) or we don't have physical access to them. In those cases, we'd like to run R, or at least some of the R tasks, remotely. 
+It's often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we're lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don't like using them (maybe they have windows installed!) or we don't have physical access to them. In those cases, we'd like to run R on the fast computer but also access it remotely from other computers. In this entry, I show how to create remote R sessions with ease using RStudio Server, Docker (optionally), and Tailscale.
 
 In order to best solve this problem, we need to recognize two main scenarios:
 
@@ -74,7 +74,7 @@ Ok, so how do we connect to this from other computers. We might now either want 
 
 # Computers on the same local network
 
-This is pretty easy! First, find your fast computer's local IP. There's many ways to find this and you could for example query it in the terminal:
+This is pretty easy! First, find your fast computer's local IP address. There's many ways to find this and you could for example query it in the terminal:
 
 ```bash
 ipconfig getifaddr en0
@@ -90,9 +90,9 @@ It really isn't more difficult than that.
 
 # Computers on different networks
 
-OK, so you still have RStudio Server running on your fast computer, but maybe it's now at work and you are at home with your slow computer. How to connect? There's many ways to do this, but here we will use [Tailscale](https://tailscale.com/).
+OK, so you still have RStudio Server running on your fast computer, but maybe it's at work and you are now at home with your slow computer and a cold beer. How to connect? There's many ways to do this, but here we will use [Tailscale](https://tailscale.com/).
 
-First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point :smile:. [Unless you already have e.g. SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale running on both and that they are signed in to the same Tailscale account. You can follow the [official instructions](https://tailscale.com/kb/1017/install/). It really is quite easy and that's why I use Tailscale and not some other SSH or VPN based solution.
+First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point :smile:. [Unless you already have e.g. SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale is running on both and that they are signed in to the same Tailscale account. You can follow the [official instructions](https://tailscale.com/kb/1017/install/). It really is quite easy and that's why I use Tailscale and not some other SSH or VPN based solution.
 
 Then, you can head to <https://login.tailscale.com/admin/machines> (on either computer). It will show you all the machines that you've connected to Tailscale (@fig-tailscale), whether they are active or not.
 
@@ -100,8 +100,10 @@ Then, you can head to <https://login.tailscale.com/admin/machines> (on either co
 
 Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer's Tailscale IP, redacted in @fig-tailscale, is `xxx.xxx.x.xx`. So now I go home with my slow computer, and then use the browser to connect to `xxx.xxx.x.xx:8787`, and I see @fig-rstudio-remote-1 again. 
 
-I can then use RStudio (server as a client) running on my fast computer on any of my other computers, by using the Tailscale IP address.
+I can then use RStudio (server) running on my fast computer on any of my other computers (as clients), by using the Tailscale IP address.
 
 # Conclusion
 
-If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world. Hope that was as helpful to you as it has been for me :smile:. If something didn't work for you, comments are open below.
+If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world. 
+
+I hope that was as helpful to you as it has been for me :smile:. If something didn't work for you, comments are open below.

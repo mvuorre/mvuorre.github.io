@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Matti Vuorre">
-<meta name="dcterms.date" content="2022-11-30">
+<meta name="dcterms.date" content="2022-12-03">
 <meta name="description" content="Running R on a remote computer is surprisingly easy">
 
 <title>Matti’s homepage - How to run R remotely</title>
@@ -225,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2022-11-30</p>
+        <p class="date">2022-12-03</p>
       </div>
     </div>
     
@@ -257,8 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>I recently saw an <a href="https://fosstodon.org/@michaelflynn/109445977522188850">interesting question</a> on Mastodon: <strong>How can I run R remotely?</strong> This blog entry sketches some answers to that question.</p>
-<p>It’s often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we’re lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don’t like using them (maybe they have windows installed!) or we don’t have physical access to them. In those cases, we’d like to run R, or at least some of the R tasks, remotely.</p>
+<p>I recently saw an <a href="https://fosstodon.org/@michaelflynn/109445977522188850">interesting question</a> on Mastodon: <strong>How can I run R remotely?</strong></p>
+<p>It’s often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we’re lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don’t like using them (maybe they have windows installed!) or we don’t have physical access to them. In those cases, we’d like to run R on the fast computer but also access it remotely from other computers. In this entry, I show how to create remote R sessions with ease using RStudio Server, Docker (optionally), and Tailscale.</p>
 <p>In order to best solve this problem, we need to recognize two main scenarios:</p>
 <ol type="1">
 <li>The laptop (or “slow” computer) and desktop (or “fast” computer) are on the same local network, or</li>
@@ -309,7 +309,7 @@ Note
 </section>
 <section id="computers-on-the-same-local-network" class="level1">
 <h1>Computers on the same local network</h1>
-<p>This is pretty easy! First, find your fast computer’s local IP. There’s many ways to find this and you could for example query it in the terminal:</p>
+<p>This is pretty easy! First, find your fast computer’s local IP address. There’s many ways to find this and you could for example query it in the terminal:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipconfig</span> getifaddr en0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Your local IP address will be something like <code>192.168.0.123</code>. My fast computer currently runs on <code>192.168.0.155</code>, and I’ll use it below.</p>
 <p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see <a href="#fig-rstudio-remote-1">Figure&nbsp;3</a>.</p>
@@ -323,8 +323,8 @@ Note
 </section>
 <section id="computers-on-different-networks" class="level1">
 <h1>Computers on different networks</h1>
-<p>OK, so you still have RStudio Server running on your fast computer, but maybe it’s now at work and you are at home with your slow computer. How to connect? There’s many ways to do this, but here we will use <a href="https://tailscale.com/">Tailscale</a>.</p>
-<p>First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point <span class="emoji" data-emoji="smile">😄</span>. [Unless you already have e.g.&nbsp;SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale running on both and that they are signed in to the same Tailscale account. You can follow the <a href="https://tailscale.com/kb/1017/install/">official instructions</a>. It really is quite easy and that’s why I use Tailscale and not some other SSH or VPN based solution.</p>
+<p>OK, so you still have RStudio Server running on your fast computer, but maybe it’s at work and you are now at home with your slow computer and a cold beer. How to connect? There’s many ways to do this, but here we will use <a href="https://tailscale.com/">Tailscale</a>.</p>
+<p>First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point <span class="emoji" data-emoji="smile">😄</span>. [Unless you already have e.g.&nbsp;SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale is running on both and that they are signed in to the same Tailscale account. You can follow the <a href="https://tailscale.com/kb/1017/install/">official instructions</a>. It really is quite easy and that’s why I use Tailscale and not some other SSH or VPN based solution.</p>
 <p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (<a href="#fig-tailscale">Figure&nbsp;4</a>), whether they are active or not.</p>
 <div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -333,11 +333,12 @@ Note
 </figure>
 </div>
 <p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in <a href="#fig-tailscale">Figure&nbsp;4</a>, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see <a href="#fig-rstudio-remote-1">Figure&nbsp;3</a> again.</p>
-<p>I can then use RStudio (server as a client) running on my fast computer on any of my other computers, by using the Tailscale IP address.</p>
+<p>I can then use RStudio (server) running on my fast computer on any of my other computers (as clients), by using the Tailscale IP address.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world. Hope that was as helpful to you as it has been for me <span class="emoji" data-emoji="smile">😄</span>. If something didn’t work for you, comments are open below.</p>
+<p>If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world.</p>
+<p>I hope that was as helpful to you as it has been for me <span class="emoji" data-emoji="smile">😄</span>. If something didn’t work for you, comments are open below.</p>
 
 
 </section>
@@ -345,12 +346,12 @@ Note
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
   author = {Matti Vuorre},
   title = {How to Run {R} Remotely},
-  date = {2022-11-30},
+  date = {2022-12-03},
   url = {https://vuorre.netlify.app/posts/remote-r},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Matti Vuorre. 2022. <span>“How to Run R Remotely.”</span> November 30,
+Matti Vuorre. 2022. <span>“How to Run R Remotely.”</span> December 3,
 2022. <a href="https://vuorre.netlify.app/posts/remote-r">https://vuorre.netlify.app/posts/remote-r</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

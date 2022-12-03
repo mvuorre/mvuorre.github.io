@@ -3,6 +3,7 @@
     "listing": "/blog.html",
     "items": [
       "/posts/latent-mean-centering/index.html",
+      "/posts/remote-r/index.html",
       "/posts/parallel-multiverse/index.html",
       "/posts/hexsticker-favicon/index.html",
       "/posts/easy-notifications-from-r/index.html",

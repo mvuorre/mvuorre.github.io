@@ -1,0 +1,109 @@
+---
+title: How to run R remotely
+description: Running R on a remote computer is surprisingly easy
+date: 2022-12-03
+categories:
+  - R
+  - RStudio Server
+  - Docker
+  - Tailscale
+  - tutorial
+draft: false
+execute:
+  cache: true
+  message: false
+  warning: false
+from: markdown+emoji
+reference-location: margin
+execute-dir: file
+format:
+  html:
+    code-fold: show
+    code-summary: "Code"
+    df-print: kable
+# bibliography: references.bib
+image: "images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg"
+---
+
+I recently saw an [interesting question](https://fosstodon.org/@michaelflynn/109445977522188850) on Mastodon: **How can I run R remotely?** 
+
+It's often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we're lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don't like using them (maybe they have windows installed!) or we don't have physical access to them. In those cases, we'd like to run R on the fast computer but also access it remotely from other computers. In this entry, I show how to create remote R sessions with ease using RStudio Server, Docker (optionally), and Tailscale.
+
+In order to best solve this problem, we need to recognize two main scenarios:
+
+1. The laptop (or "slow" computer) and desktop (or "fast" computer) are on the same local network, or
+2. The laptop and desktop are not on the same local network.
+
+We discuss these options in turn. The answers turn out to be very similar, but when the computers are not on the same network, the solution is just a wee bit more complicated.
+
+# What you need
+
+These solutions work on Linux, MacOS, and even Windows operating systems. The slow and fast computers can have any combination of these. 
+
+You also need to use RStudio for the solutions discussed here. It turns out that doing this in VS Code can be even easier because of its superb remote session support. I'll add the VS Code writeup later, once my transition from RStudio to VS Code is complete :wink:.
+
+The first thing you need to set up is an RStudio Server instance on the fast computer. If your fast computer is running Linux, [this is trivial](https://posit.co/download/rstudio-server/). 
+
+If your fast computer has either MacOS or Windows, you will need to set up the RStudio Server instance using Docker. This is really easy, and we begin here.
+
+# RStudio Server 
+
+We are first going to install RStudio Server on the fast computer. You cannot run RStudio Server on MacOS or Windows, but we can easily fire one up using [Docker](https://www.docker.com/). First, using your fast computer, head over to the Docker website and download the Docker desktop app. Then start it and make sure it is running (you will have a menu bar or taskbar Docker button to indicate that it's running).
+
+Then start a terminal session, and use it to start a [rocker/rstudio](https://rocker-project.org/) container:
+
+:::{.callout-note .aside}
+The rocker images don't yet work on M1 Macs. If you, like me, are using an M1 Mac, you can replace `rocker/rstudio` with `amoselb/rstudio-m1`.
+:::
+
+```bash
+docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 rocker/rstudio
+```
+
+Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing `localhost:8787` in the address bar. You should see the RStudio Server login window pop up (@fig-login).
+
+![RStudio Server login window.](images/login.png){fig-alt="RStudio Server login window." #fig-login}
+
+Then use `rstudio` as the Username, and `yourpassword` as the password. You'll then have a fully functioning RStudio session in your browser (@fig-rstudio-server).
+
+![RStudio Server--RStudio in the browser!.](images/rstudio-server.png){fig-alt="RStudio Server." #fig-rstudio-server}
+
+Notice how it runs on Ubuntu, although my computer is an M1 Mac. Pretty cool, huh.
+
+Ok, so how do we connect to this from other computers. We might now either want to connect from another computer on the same network, or on another network. Let's start with the first.
+
+# Computers on the same local network
+
+This is pretty easy! First, find your fast computer's local IP address. There's many ways to find this and you could for example query it in the terminal:
+
+```bash
+ipconfig getifaddr en0
+```
+
+Your local IP address will be something like `192.168.0.123`. My fast computer currently runs on `192.168.0.155`, and I'll use it below.
+
+Fire up a browser in your slow computer, and navigate to `192.168.0.155:8787`. I'm using my phone as the slow computer here, and after logging in with the same credentials as above, I see @fig-rstudio-remote-1.
+
+![RStudio remote session on my phone.](images/phone-1.jpg){fig-alt="RStudio remote session on my phone." #fig-rstudio-remote-1}
+
+It really isn't more difficult than that.
+
+# Computers on different networks
+
+OK, so you still have RStudio Server running on your fast computer, but maybe it's at work and you are now at home with your slow computer and a cold beer. How to connect? There's many ways to do this, but here we will use [Tailscale](https://tailscale.com/).
+
+First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point :smile:. [Unless you already have e.g. SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale is running on both and that they are signed in to the same Tailscale account. You can follow the [official instructions](https://tailscale.com/kb/1017/install/). It really is quite easy and that's why I use Tailscale and not some other SSH or VPN based solution.
+
+Then, you can head to <https://login.tailscale.com/admin/machines> (on either computer). It will show you all the machines that you've connected to Tailscale (@fig-tailscale), whether they are active or not.
+
+![Tailscale admin panel.](images/tailscale-1.png){fig-alt="Tailscale admin panel." #fig-tailscale}
+
+Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer's Tailscale IP, redacted in @fig-tailscale, is `xxx.xxx.x.xx`. So now I go home with my slow computer, and then use the browser to connect to `xxx.xxx.x.xx:8787`, and I see @fig-rstudio-remote-1 again. 
+
+I can then use RStudio (server) running on my fast computer on any of my other computers (as clients), by using the Tailscale IP address.
+
+# Conclusion
+
+If it is possible for you to have a powerful computer always connected to the internet, you can make a persistent RStudio computing platform out of it with RStudio Server. You can then use Tailscale to connect to it very easily from anywhere in the world. 
+
+I hope that was as helpful to you as it has been for me :smile:. If something didn't work for you, comments are open below.

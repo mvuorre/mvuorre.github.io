@@ -1,0 +1,56 @@
+---
+title: Raincloud plots---a simpler alternative
+description: I like raincloud plots, but think that they can duplicate the information a bit, which might have detrimental effects on comphrenesion and clarity
+date: 2022-12-05
+categories:
+  - R
+---
+
+Just some quick alternatives for raincloudplots
+
+```{r}
+#| message: false
+library(ggbeeswarm)
+library(ggnewscale)
+library(tidyverse)
+# Data generation
+generate_data <- function(seed = NA, n = 600) {
+  if (!is.na(seed)) set.seed(seed)
+  dat <- tibble(
+    x = sample(0:1, n, replace = TRUE),
+    c = rnorm(n),
+    time = rep(0:3, n/4, replace = TRUE),
+    y = rnorm(n, x*.2 + c*.4 + time*.2, time * .1)
+  ) %>% 
+    mutate(x = factor(x, labels = c("Old", "Young")))
+}
+dat <- generate_data(9)
+dat
+```
+
+```{r}
+dat %>% 
+  ggplot(aes(time, y)) +
+  scale_color_viridis_c(
+    "Covariate (Old)"
+  ) +
+  geom_point(
+    data = . %>% filter(x == "Old"),
+    aes(x = time + .1, col = c),
+    size = 1.75,
+    position = position_quasirandom(width = .075)
+  ) +
+  new_scale_color() +
+    scale_color_viridis_c(
+    "Covariate (Young)", 
+    option = "A"
+  ) +
+  geom_point(
+    data = . %>% filter(x == "Young"),
+    aes(x = time - .1, col = c),
+    size = 1.75,
+    position = position_quasirandom(width = .075)
+  ) +
+  theme_classic()
+```
+

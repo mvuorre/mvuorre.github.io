@@ -1,0 +1,16 @@
+{
+  "hash": "3b1f26739f65ec684d6395000a9b1cff",
+  "result": {
+    "markdown": "---\ntitle: Raincloud plots---a simpler alternative\ndescription: I like raincloud plots, but think that they can duplicate the information a bit, which might have detrimental effects on comphrenesion and clarity\ndate: 2022-12-05\ncategories:\n  - R\n---\n\n\nJust some quick alternatives for raincloudplots\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggbeeswarm)\nlibrary(ggnewscale)\nlibrary(tidyverse)\n# Data generation\ngenerate_data <- function(seed = NA, n = 600) {\n  if (!is.na(seed)) set.seed(seed)\n  dat <- tibble(\n    x = sample(0:1, n, replace = TRUE),\n    c = rnorm(n),\n    time = rep(0:3, n/4, replace = TRUE),\n    y = rnorm(n, x*.2 + c*.4 + time*.2, time * .1)\n  ) %>% \n    mutate(x = factor(x, labels = c(\"Old\", \"Young\")))\n}\ndat <- generate_data(9)\ndat\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 600 × 4\n   x           c  time       y\n   <fct>   <dbl> <int>   <dbl>\n 1 Old    0.790      0  0.316 \n 2 Old    0.0871     1  0.164 \n 3 Young  1.88       2  1.36  \n 4 Old   -0.599      3  0.428 \n 5 Young -1.84       0 -0.536 \n 6 Old   -0.733      1 -0.152 \n 7 Old    1.83       2  1.33  \n 8 Young  0.584      3  0.774 \n 9 Young -2.00       0 -0.602 \n10 Old   -0.381      1  0.0163\n# … with 590 more rows\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ndat %>% \n  ggplot(aes(time, y)) +\n  scale_color_viridis_c(\n    \"Covariate (Old)\"\n  ) +\n  geom_point(\n    data = . %>% filter(x == \"Old\"),\n    aes(x = time + .1, col = c),\n    size = 1.75,\n    position = position_quasirandom(width = .075)\n  ) +\n  new_scale_color() +\n    scale_color_viridis_c(\n    \"Covariate (Young)\", \n    option = \"A\"\n  ) +\n  geom_point(\n    data = . %>% filter(x == \"Young\"),\n    aes(x = time - .1, col = c),\n    size = 1.75,\n    position = position_quasirandom(width = .075)\n  ) +\n  theme_classic()\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

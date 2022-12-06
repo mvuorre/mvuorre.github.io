@@ -684,6 +684,210 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Some alternatives to raincloud plots</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="ggrain" class="level1">
+<h1>ggrain</h1>
+<p><a href="https://github.com/njudd/ggrain">ggrain</a> <span class="citation" data-cites="ggrain">(Judd, van Langen, and Kievit 2022)</span> is an R package that brings extra geoms to ggplot2 to make it easy to create informative plots of your data like Figure&nbsp;1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(ggrain)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">theme_set</span>(</span>
+<span id="cb1-3">  <span class="fu" style="color: #4758AB;">theme_classic</span>(<span class="at" style="color: #657422;">base_family =</span> <span class="st" style="color: #20794D;">"Comic Sans MS"</span>)</span>
+<span id="cb1-4">)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">ggplot</span>(iris, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> Species, <span class="at" style="color: #657422;">y =</span> Sepal.Length, <span class="at" style="color: #657422;">fill =</span>  Species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb1-6">    <span class="fu" style="color: #4758AB;">geom_rain</span>(<span class="at" style="color: #657422;">rain.side =</span> <span class="st" style="color: #20794D;">'l'</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-ggrain" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: A raincloud plot using the ggrain package.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The hallmark feature of a raincloud plot is that it includes the raw data (points), a summary (boxplot), and a density (shaded curve/area) of your data.</p>
+<p>I love raincloud plots. But. I am concerned that they might unnecessarily duplicate features of the data, which might lead to visually overwhelming presentations, and therefore degrade the signal to noise ratio of the plots.</p>
+<p>It just might be possible to show these three features—raw data, summary, and densities—in a visually simpler and perhaps more compelling way. In this blog entry, I’ll try two variations on this theme that I hope simplify the presentation without taking information away.</p>
+</section>
+<section id="raincloud-plots-the-hard-way" class="level1">
+<h1>Raincloud plots the hard way</h1>
+<p>But first, I’ll try to recreate this raincloud plot without the ggrain package. Most of the geoms and stats we need are in the <a href="https://mjskay.github.io/ggdist/index.html">ggdist</a> package <span class="citation" data-cites="ggdist">(Kay 2022)</span>. The end result (Figure&nbsp;2) looks very similar to the ggrain version, above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">library</span>(ggdist)</span>
+<span id="cb2-3">iris <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(Species, Sepal.Length, <span class="at" style="color: #657422;">fill =</span> Species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-5">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_jitter</span>(<span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">033</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-6">  <span class="fu" style="color: #4758AB;">geom_boxplot</span>(<span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_nudge</span>(<span class="at" style="color: #657422;">x =</span> <span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">0.085</span>), <span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">05</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-7">  <span class="fu" style="color: #4758AB;">stat_halfeye</span>(</span>
+<span id="cb2-8">    <span class="at" style="color: #657422;">side =</span> <span class="st" style="color: #20794D;">"left"</span>, </span>
+<span id="cb2-9">    <span class="at" style="color: #657422;">normalize =</span> <span class="st" style="color: #20794D;">"none"</span>,</span>
+<span id="cb2-10">    <span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">3</span>,</span>
+<span id="cb2-11">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_nudge</span>(<span class="at" style="color: #657422;">x =</span> <span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">0.15</span>), </span>
+<span id="cb2-12">    <span class="at" style="color: #657422;">point_interval =</span> <span class="cn" style="color: #8f5902;">NULL</span></span>
+<span id="cb2-13">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-ggdistrain-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: A raincloud plot made using ‘base’ ggplot2 and ggdist.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>OK, so now we have a handle on how to create raincloud plots “manually”.</p>
+</section>
+<section id="removing-summaries-and-densities" class="level1">
+<h1>Removing summaries and densities</h1>
+<p>What I would like to do next is to make the summaries less prominent. I can use <code>stat_halfeye()</code>. Above, I used <code>stat_halfeye(..., point_inteval = NULL)</code> to remove them completely. Here, I will specify some quantiles to show with the <code>width</code> argument. I am not sure if Figure&nbsp;3 is an improvement.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">iris <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(Species, Sepal.Length, <span class="at" style="color: #657422;">fill =</span> Species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_jitter</span>(<span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">033</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb3-4">  <span class="fu" style="color: #4758AB;">stat_halfeye</span>(</span>
+<span id="cb3-5">    <span class="at" style="color: #657422;">side =</span> <span class="st" style="color: #20794D;">"left"</span>, </span>
+<span id="cb3-6">    <span class="at" style="color: #657422;">normalize =</span> <span class="st" style="color: #20794D;">"none"</span>,</span>
+<span id="cb3-7">    <span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">3</span>,</span>
+<span id="cb3-8">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_nudge</span>(<span class="at" style="color: #657422;">x =</span> <span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">0.1</span>),</span>
+<span id="cb3-9">    <span class="at" style="color: #657422;">.width =</span> <span class="fu" style="color: #4758AB;">c</span>(.<span class="dv" style="color: #AD0000;">5</span>, .<span class="dv" style="color: #AD0000;">99</span>)</span>
+<span id="cb3-10">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-ggdistrain-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: A raincloud plot made using ‘base’ ggplot2 and ggdist, with different summary geoms (a point interval).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Maybe all this information can be gleaned from the points alone. To do this, we can jitter the points according to a method specified in the <a href="https://cran.r-project.org/web/packages/vipor/index.html">vipor</a> package <span class="citation" data-cites="vipor">(Sherrill-Mix and Clarke 2017)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;">library</span>(ggbeeswarm)</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;">set.seed</span>(<span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb4-3">iris <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb4-4">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(Species, Sepal.Length, <span class="at" style="color: #657422;">fill =</span> Species, <span class="at" style="color: #657422;">col =</span> Species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb4-5">  <span class="fu" style="color: #4758AB;">geom_point</span>(</span>
+<span id="cb4-6">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_quasirandom</span>(<span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb4-7">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-rain-bee" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-rain-bee-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: A scatterplot where the points are jittered on the x-axis according to a normal density kernel.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure&nbsp;4 arranges the points using one of the offsetting algorithms in vipor, brought to ggplot via the <a href="https://cran.r-project.org/web/packages/ggbeeswarm/index.html">ggbeeswarm</a> package <span class="citation" data-cites="ggbeeswarm">(Clarke and Sherrill-Mix 2017)</span>. By default, this is the “quasirandom” method, where “points are distributed within a kernel density estimate of the distribution with offset determined by quasirandom Van der Corput noise”. I can only guess that “the distribution” refers to a gaussian distribution.</p>
+<p>It would be really nice if we could choose the x-axis side to which jitter the points. Then we could display two groups side by side. Unfortunately that is not possible.</p>
+</section>
+<section id="a-more-complicated-example" class="level1">
+<h1>A more complicated example</h1>
+<div id="fig-new-ggrain" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/https:/cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: A more complicated raincloud plot courtesy of Rogier Kievit</figcaption><p></p>
+</figure>
+</div>
+<p>Let’s try a more complicated example similar to Rogier Kievit’s figure (Figure&nbsp;5). I first simulate some data with two groups and four timepoints. There’s also some covariate that I’d like to display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;"># Data generation</span></span>
+<span id="cb5-2">generate_data <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(<span class="at" style="color: #657422;">seed =</span> <span class="cn" style="color: #8f5902;">NA</span>, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">200</span>) {</span>
+<span id="cb5-3">  <span class="cf" style="color: #003B4F;">if</span> (<span class="sc" style="color: #5E5E5E;">!</span><span class="fu" style="color: #4758AB;">is.na</span>(seed)) <span class="fu" style="color: #4758AB;">set.seed</span>(seed)</span>
+<span id="cb5-4">  dat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">tibble</span>(</span>
+<span id="cb5-5">    <span class="at" style="color: #657422;">id =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span>n,</span>
+<span id="cb5-6">    <span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">1</span>, n, <span class="at" style="color: #657422;">replace =</span> <span class="cn" style="color: #8f5902;">TRUE</span>),</span>
+<span id="cb5-7">    <span class="at" style="color: #657422;">c =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n),</span>
+<span id="cb5-8">    <span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">1</span><span class="st" style="color: #20794D;">`</span> <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n, x<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> c<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">4</span>, <span class="fl" style="color: #AD0000;">1.1</span>),</span>
+<span id="cb5-9">    <span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">2</span><span class="st" style="color: #20794D;">`</span> <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n, x<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> c<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">4</span>, <span class="fl" style="color: #AD0000;">1.2</span>),</span>
+<span id="cb5-10">    <span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">3</span><span class="st" style="color: #20794D;">`</span> <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n, x<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> c<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">4</span>, <span class="fl" style="color: #AD0000;">1.3</span>),</span>
+<span id="cb5-11">    <span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">4</span><span class="st" style="color: #20794D;">`</span> <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">rnorm</span>(n, x<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> c<span class="sc" style="color: #5E5E5E;">*</span>.<span class="dv" style="color: #AD0000;">4</span>, <span class="fl" style="color: #AD0000;">1.4</span>)</span>
+<span id="cb5-12">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb5-13">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">factor</span>(x, <span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Old"</span>, <span class="st" style="color: #20794D;">"Young"</span>))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb5-14">    <span class="fu" style="color: #4758AB;">pivot_longer</span>(<span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">1</span><span class="st" style="color: #20794D;">`</span><span class="sc" style="color: #5E5E5E;">:</span><span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">4</span><span class="st" style="color: #20794D;">`</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb5-15">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">name =</span> <span class="fu" style="color: #4758AB;">as.integer</span>(name))</span>
+<span id="cb5-16">}</span>
+<span id="cb5-17">dat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">generate_data</span>(<span class="dv" style="color: #AD0000;">9</span>)</span></code></pre></div>
+</div>
+<p>I’ll try to show this plot with much fewer visual symbols, and hopefully retain most of the information.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;">library</span>(ggnewscale)</span>
+<span id="cb6-2">dat <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;">rename</span>(<span class="at" style="color: #657422;">Time =</span> name, <span class="at" style="color: #657422;">Value =</span> value) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(Time, Value)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;">scale_color_viridis_c</span>(</span>
+<span id="cb6-6">    <span class="st" style="color: #20794D;">"Covariate"</span></span>
+<span id="cb6-7">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-8">  <span class="fu" style="color: #4758AB;">geom_point</span>(</span>
+<span id="cb6-9">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">col =</span> c, <span class="at" style="color: #657422;">group =</span> x),</span>
+<span id="cb6-10">    <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">alpha =</span> .<span class="dv" style="color: #AD0000;">75</span>,</span>
+<span id="cb6-11">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_quasirandom</span>(<span class="at" style="color: #657422;">width =</span> .<span class="dv" style="color: #AD0000;">05</span>, <span class="at" style="color: #657422;">dodge.width =</span> .<span class="dv" style="color: #AD0000;">35</span>)</span>
+<span id="cb6-12">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-13">  <span class="fu" style="color: #4758AB;">new_scale_color</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-14">  <span class="fu" style="color: #4758AB;">scale_color_brewer</span>(</span>
+<span id="cb6-15">    <span class="st" style="color: #20794D;">"Group"</span>,</span>
+<span id="cb6-16">    <span class="at" style="color: #657422;">palette =</span> <span class="st" style="color: #20794D;">"Set1"</span></span>
+<span id="cb6-17">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-18">  <span class="fu" style="color: #4758AB;">stat_pointinterval</span>(</span>
+<span id="cb6-19">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">color =</span> x),</span>
+<span id="cb6-20">    <span class="at" style="color: #657422;">interval_size_range =</span> <span class="fu" style="color: #4758AB;">c</span>(.<span class="dv" style="color: #AD0000;">3</span>, .<span class="dv" style="color: #AD0000;">9</span>),</span>
+<span id="cb6-21">    <span class="at" style="color: #657422;">position =</span> <span class="fu" style="color: #4758AB;">position_dodge</span>(.<span class="dv" style="color: #AD0000;">075</span>)</span>
+<span id="cb6-22">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-ggdistrain-new" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-new-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6: An attempt at a more complicated “raincloud” plot using ggnewscale and ggdist.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hmm. Figure&nbsp;6 doesn’t quite work visually as I’d like it to. I think it would be really nice if the jittered points were jittered only on their respective sides.</p>
+<p>I might come back to this later to see if I can improve on this design.</p>
+<p>The takeaway, though, is that the ggrain package provides really nice figures out of the box. If we want to do more complex figures kind of like these, the ggdist and ggbeeswarm plots can create compelling alternatives.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ggbeeswarm" class="csl-entry">
+Clarke, Erik, and Scott Sherrill-Mix. 2017. <em>Ggbeeswarm: Categorical Scatter (Violin Point) Plots</em>. <a href="https://CRAN.R-project.org/package=ggbeeswarm">https://CRAN.R-project.org/package=ggbeeswarm</a>.
+</div>
+<div id="ref-ggrain" class="csl-entry">
+Judd, Nicholas, Jordy van Langen, and Rogier Kievit. 2022. <em>Ggrain: A Rainclouds Geom for Ggplot2</em>. <a href="https://github.com/njudd/ggrain">https://github.com/njudd/ggrain</a>.
+</div>
+<div id="ref-ggdist" class="csl-entry">
+Kay, Matthew. 2022. <em><span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.
+</div>
+<div id="ref-vipor" class="csl-entry">
+Sherrill-Mix, Scott, and Erik Clarke. 2017. <em>Vipor: Plot Categorical Data Using Quasirandom Noise and Density Estimates</em>. <a href="https://CRAN.R-project.org/package=vipor">https://CRAN.R-project.org/package=vipor</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {Some Alternatives to Raincloud Plots},
+  date = {2022-12-06},
+  url = {https://vuorre.netlify.app/posts/raincloud-plot-alt},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2022. <span>“Some Alternatives to Raincloud Plots.”</span>
+December 6, 2022. <a href="https://vuorre.netlify.app/posts/raincloud-plot-alt">https://vuorre.netlify.app/posts/raincloud-plot-alt</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>visualization</category>
+  <category>ggplot2</category>
+  <guid>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</guid>
+  <pubDate>Tue, 06 Dec 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" medium="image" type="image/png"/>
+</item>
+<item>
   <title>How to run R remotely</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.netlify.app/posts/remote-r/index.html</link>
@@ -1842,7 +2046,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
   <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -2713,7 +2917,7 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>

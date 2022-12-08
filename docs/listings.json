@@ -3,6 +3,7 @@
     "listing": "/blog.html",
     "items": [
       "/posts/latent-mean-centering/index.html",
+      "/posts/computer-setup-dotfiles/index.html",
       "/posts/parallel-multiverse/index.html",
       "/posts/raincloud-plot-alt/index.html",
       "/posts/remote-r/index.html",

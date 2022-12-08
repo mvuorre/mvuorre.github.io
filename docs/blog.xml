@@ -684,6 +684,137 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>How I like to set up my computer</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Like many people in academia, I spend much of my working time in front of computers. It’s then important to me that everything is <em>just</em> the way I want it, software is easily available and updated, and that my terminal looks nice <span class="emoji" data-emoji="mage">🧙</span>.</p>
+<p>This blog post is an adaptation of a document that I’ve saved for myself in the eventual case that I have to wipe my computer and reinstall everything, or if I get a new computer. I use Macs, but some of these things also work on Linux. Nothing here will work for Windows machines.</p>
+<section id="macos-setup" class="level1">
+<h1>MacOS setup</h1>
+<p>This aims to be succinct and quick, using homebrew to install as much as possible from the command line.</p>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p>Fire up the terminal and install <a href="https://brew.sh/">homebrew</a>. The command is currently</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;">/bin/bash</span> <span class="at" style="color: #657422;">-c</span> <span class="st" style="color: #20794D;">"</span><span class="va" style="color: #111111;">$(</span><span class="ex" style="color: null;">curl</span> <span class="at" style="color: #657422;">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va" style="color: #111111;">)</span><span class="st" style="color: #20794D;">"</span></span></code></pre></div>
+<p>but I would check the website before running that. Then install some stuff. First the GUI stuff that I use:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;"># GUI apps</span></span>
+<span id="cb2-2"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb2-3">  firefox iterm2 microsoft-office <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb2-4">  zotero obsidian todoist sublime-text <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb2-5">  mactex rectangle alfred slack zoom <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb2-6">  visual-studio-code docker monitorcontrol</span></code></pre></div>
+<p>Then the terminal and command line things that I like to use:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;"># Terminal and CLI things</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;">brew</span> install <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb3-3">  tailscale starship bat <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb3-4">  btop lsd dua syncthing</span></code></pre></div>
+<p>And then a bunch of fonts. There’s probably more now but I’ve forgotten. The more the merrier <span class="emoji" data-emoji="smile">😄</span>.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;">brew</span> tap homebrew/cask-fonts</span>
+<span id="cb4-2"><span class="ex" style="color: null;">brew</span> install svn</span>
+<span id="cb4-3"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-4">  font-fantasque-sans-mono font-fantasque-sans-mono-nerd-font <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-5">  font-noto-sans font-noto-serif font-noto-mono font-noto-mono-for-powerline <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-6">  font-noto-emoji font-hasklug-nerd-font font-anonymice-nerd-font <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-7">  font-meslo-lg-nerd-font font-fira-code font-fira-mono font-fira-sans <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-8">  font-fira-sans-condensed font-pt-mono font-pt-sans font-pt-sans-narrow <span class="dt" style="color: #AD0000;">\</span></span>
+<span id="cb4-9">  font-pt-serif font-pt-sans-caption font-pt-serif-caption</span></code></pre></div>
+</section>
+<section id="terminal" class="level2">
+<h2 class="anchored" data-anchor-id="terminal">Terminal</h2>
+<p>I then set up my terminal environment. I use <a href="https://iterm2.com/">iTerm2</a> and the <a href="https://starship.rs/">Starship</a> prompt. I also pick up some nice iTerm2 color themes from <a href="https://iterm2colorschemes.com/" class="uri">https://iterm2colorschemes.com/</a>.</p>
+<p>Now I can open up VS Code in the current working directory with <code>code .</code>, or get nice outputs when listing working directory contents (I’ve aliased <code>l</code> to <code>lsd -la</code> in <code>~/.zshrc</code>):</p>
+<p><img src="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" class="img-fluid"></p>
+</section>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
+<p>Then onto the serious stuff <span class="emoji" data-emoji="gem">💎</span></p>
+<ul>
+<li><p>I install R from <a href="https://cran.r-project.org/">CRAN</a> because I (sometimes) want to use specific versions. Also I need to remember to get the appropriate M1 version more often <span class="emoji" data-emoji="smile">😄</span>.</p></li>
+<li><p>RStudio: I use the <a href="https://dailies.rstudio.com/">daily development version</a> of RStudio. I don’t install this with homebrew because it sometimes has issues with using the right R version.</p></li>
+<li><p>I also used to make sure that I’m using the faster Apple provided <a href="https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Which-BLAS-is-used-and-how-can-it-be-changed_003f">BLAS</a> (20x faster for some operations). I can’t remember if I’ve done that this time though and am now afraid to check.</p></li>
+</ul>
+<p>I then immediately open RStudio and install my “base” packages that I use all the time.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"pak"</span>)</span>
+<span id="cb5-2">pak<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">pkg_install</span>(</span>
+<span id="cb5-3">  <span class="fu" style="color: #4758AB;">c</span>(</span>
+<span id="cb5-4">    <span class="st" style="color: #20794D;">"usethis"</span>, <span class="st" style="color: #20794D;">"tidyverse"</span>, <span class="st" style="color: #20794D;">"brms"</span>, </span>
+<span id="cb5-5">    <span class="st" style="color: #20794D;">"kableExtra"</span>, <span class="st" style="color: #20794D;">"janitor"</span>, <span class="st" style="color: #20794D;">"here"</span>, </span>
+<span id="cb5-6">    <span class="st" style="color: #20794D;">"scales"</span>, <span class="st" style="color: #20794D;">"gtsummary"</span>, <span class="st" style="color: #20794D;">"multidplyr"</span>, </span>
+<span id="cb5-7">    <span class="st" style="color: #20794D;">"ggtext"</span>, <span class="st" style="color: #20794D;">"parameters"</span>, <span class="st" style="color: #20794D;">"tidybayes"</span>, </span>
+<span id="cb5-8">    <span class="st" style="color: #20794D;">"ggstance"</span>, <span class="st" style="color: #20794D;">"ggdist"</span>, <span class="st" style="color: #20794D;">"patchwork"</span>, </span>
+<span id="cb5-9">    <span class="st" style="color: #20794D;">"ggforce"</span>, <span class="st" style="color: #20794D;">"ggh4x"</span>, <span class="st" style="color: #20794D;">"lavaan"</span>, </span>
+<span id="cb5-10">    <span class="st" style="color: #20794D;">"emmeans"</span>, <span class="st" style="color: #20794D;">"ggstance"</span>, <span class="st" style="color: #20794D;">"renv"</span>, </span>
+<span id="cb5-11">    <span class="st" style="color: #20794D;">"furrr"</span>, <span class="st" style="color: #20794D;">"remotes"</span>, <span class="st" style="color: #20794D;">"kableExtra"</span>,</span>
+<span id="cb5-12">    <span class="st" style="color: #20794D;">"gt"</span></span>
+<span id="cb5-13">  )</span>
+<span id="cb5-14">)</span></code></pre></div>
+</section>
+<section id="utilities" class="level2">
+<h2 class="anchored" data-anchor-id="utilities">Utilities</h2>
+<p>I use <a href="https://apps.apple.com/us/app/amphetamine/id937984704?mt=12">Amphetamine</a> to make sure my computer never sleeps (unless I tell it to.) Amphetamine is not available on homebrew.</p>
+<section id="zotero" class="level3">
+<h3 class="anchored" data-anchor-id="zotero">Zotero</h3>
+<p>I love Zotero, and it has some stellar plugins:</p>
+<ul>
+<li>Install the Zotero SciHub add-on so I can access papers <a href="https://github.com/ethanwillis/zotero-scihub" class="uri">https://github.com/ethanwillis/zotero-scihub</a></li>
+<li>Better BibTex <a href="https://retorque.re/zotero-better-bibtex/installation/" class="uri">https://retorque.re/zotero-better-bibtex/installation/</a>
+<ul>
+<li>This will automatically help manage bibtex keys</li>
+<li>Possible to live-update a .bib file for e.g.&nbsp;syncing to somewhere</li>
+</ul></li>
+<li>Zutilo <a href="https://github.com/wshanks/Zutilo" class="uri">https://github.com/wshanks/Zutilo</a>, but I can’t now remember what it even does</li>
+<li>ZotFile
+<ul>
+<li>Point Zotero to my pdfs on ~/Sync/ZoteroPDF (Syncthing directory)</li>
+<li>check change to lower case, replace blanks, max length 60 in zotfile settings</li>
+</ul></li>
+<li>Use <a href="https://github.com/retorquere/zotero-storage-scanner" class="uri">https://github.com/retorquere/zotero-storage-scanner</a> to e.g.&nbsp;get rid of broken attachments</li>
+</ul>
+</section>
+</section>
+<section id="general-things" class="level2">
+<h2 class="anchored" data-anchor-id="general-things">General Things</h2>
+<p>I then turn on Dock hiding in Mac settings. Have I told you that the Ventura update totally destroyed the Settings menu, and I am now seriously considering switching to Linux? Well I did now. I also rename the computer to something dumb in System settings &gt; Sharing &gt; Computer Name.</p>
+</section>
+<section id="dotfiles-and-configuration-files" class="level2">
+<h2 class="anchored" data-anchor-id="dotfiles-and-configuration-files">Dotfiles and configuration files</h2>
+<p>I also have a git repo with some dotfiles and configurations I use, but it’s currently private. It mainly creates some terminal aliases and theme options, and git global configurations. I just backup existing files and copy from the repo to wherever they need to be, but there are more complicated workflows too.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>After this I usually have a pretty useful computer. Because of homebrew its quite fast too.</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="credits" class="level2 appendix"><h2 class="quarto-appendix-heading">Credits</h2><div class="quarto-appendix-contents">
+
+<p>Inspired by <a href="https://gist.github.com/gadenbuie/a14cab3d075901d8b25cbaf9e1f1fa7d" class="uri">https://gist.github.com/gadenbuie/a14cab3d075901d8b25cbaf9e1f1fa7d</a>.</p>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Matti Vuorre},
+  title = {How {I} Like to Set up My Computer},
+  date = {2022-12-08},
+  url = {https://vuorre.netlify.app/posts/computer-setup-dotfiles},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2022. <span>“How I Like to Set up My Computer.”</span>
+December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfiles">https://vuorre.netlify.app/posts/computer-setup-dotfiles</a>.
+</div></div></section></div> ]]></description>
+  <category>tips</category>
+  <category>computers</category>
+  <guid>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</guid>
+  <pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
+</item>
+<item>
   <title>Tidymultiverse</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</link>
@@ -2214,7 +2345,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
   <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -3085,7 +3216,7 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>

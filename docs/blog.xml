@@ -800,18 +800,18 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
   author = {Matti Vuorre},
   title = {How {I} Like to Set up My Computer},
-  date = {2022-12-14},
+  date = {2022-12-08},
   url = {https://vuorre.netlify.app/posts/computer-setup-dotfiles},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Matti Vuorre. 2022. <span>“How I Like to Set up My Computer.”</span>
-December 14, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfiles">https://vuorre.netlify.app/posts/computer-setup-dotfiles</a>.
+December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfiles">https://vuorre.netlify.app/posts/computer-setup-dotfiles</a>.
 </div></div></section></div> ]]></description>
   <category>tips</category>
   <category>computers</category>
   <guid>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</guid>
-  <pubDate>Wed, 14 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
 </item>
 <item>

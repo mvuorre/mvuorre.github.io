@@ -1,7 +1,7 @@
 ---
 title: How I like to set up my computer
 description: Some notes (for myself) on how I like to set up my MacOS environment for work (and fun).
-date: 2022-12-14
+date: 2022-12-08
 categories:
   - tips
   - computers

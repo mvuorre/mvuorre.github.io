@@ -55,7 +55,7 @@ website:
         aria-label: "ORCID logo linking to Matti's ORCID account"
       - text: "{{< fa brands mastodon >}}"
         href: "https://fosstodon.org/@matti"
-        aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
+        aria-label: "Mastodon logo linking to Matti's Fosstodon instance Mastodon account"
       - text: "{{< fa brands github >}}"
         href: "https://github.com/mvuorre"
         aria-label: "GitHub logo linking to Matti's GitHub page"
@@ -79,6 +79,6 @@ format:
       - custom.scss
     mainfont: "Fira sans"
     monofont: "Fira code"
-
-
+    header-includes:
+      - <script data-goatcounter="https://vuorre.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 

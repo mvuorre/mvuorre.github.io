@@ -16,8 +16,8 @@
 <height>167</height>
 <width>144</width>
 </image>
-<generator>quarto-1.2.269</generator>
-<lastBuildDate>Sun, 01 Jan 2023 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.2.313</generator>
+<lastBuildDate>Sat, 31 Dec 2022 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Latent mean centering with brms</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -681,7 +681,7 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <category>longitudinal</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</guid>
-  <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How I like to set up my computer</title>
@@ -811,7 +811,7 @@ December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfi
   <category>tips</category>
   <category>computers</category>
   <guid>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</guid>
-  <pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
 </item>
 <item>
@@ -1926,7 +1926,7 @@ Matti Vuorre. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a href
   <category>tidyverse</category>
   <category>specr</category>
   <guid>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</guid>
-  <pubDate>Wed, 07 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 06 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/parallel-multiverse/images/undraw-lost-online.png" medium="image" type="image/png" height="117" width="144"/>
 </item>
 <item>
@@ -2130,7 +2130,7 @@ December 6, 2022. <a href="https://vuorre.netlify.app/posts/raincloud-plot-alt">
   <category>visualization</category>
   <category>ggplot2</category>
   <guid>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</guid>
-  <pubDate>Tue, 06 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 05 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" medium="image" type="image/png"/>
 </item>
 <item>
@@ -2246,7 +2246,7 @@ Matti Vuorre. 2022. <span>“How to Run R Remotely.”</span> December 3,
   <category>Tailscale</category>
   <category>tutorial</category>
   <guid>https://vuorre.netlify.app/posts/remote-r/index.html</guid>
-  <pubDate>Sat, 03 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 02 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2344,8 +2344,8 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
 </div></div></section></div> ]]></description>
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
-  <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
+  <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -2396,7 +2396,7 @@ Matti Vuorre. 2022. <span>“Easy Notifications from R.”</span> June 15,
   <category>R</category>
   <category>tips</category>
   <guid>https://vuorre.netlify.app/posts/easy-notifications-from-r/index.html</guid>
-  <pubDate>Tue, 14 Jun 2022 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 Jun 2022 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/easy-notifications-from-r/images/subscribe.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2635,7 +2635,7 @@ Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/posts/202
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html</guid>
-  <pubDate>Thu, 06 Feb 2020 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Feb 2020 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -3095,7 +3095,7 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.netlify.app/posts/201
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html</guid>
-  <pubDate>Mon, 18 Feb 2019 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
 </item>
 <item>
@@ -3215,8 +3215,8 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>ggplot2</category>
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
-  <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
+  <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Glue your strings together</title>
@@ -3334,7 +3334,7 @@ Matti Vuorre. 2018. <span>“Glue Your Strings Together.”</span> December
   <category>data science</category>
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html</guid>
-  <pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Dec 2018 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bayesian Estimation of Signal Detection Models</title>
@@ -4858,7 +4858,7 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.netlify.app/posts/201
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html</guid>
-  <pubDate>Sun, 08 Oct 2017 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -5456,7 +5456,7 @@ Matti Vuorre. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index.html</guid>
-  <pubDate>Tue, 21 Mar 2017 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 20 Mar 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -5755,7 +5755,7 @@ R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.netlify.app/p
   <category>visualization</category>
   <category>ggplot2</category>
   <guid>https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index.html</guid>
-  <pubDate>Wed, 04 Jan 2017 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 03 Jan 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -6227,7 +6227,7 @@ Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.net
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html</guid>
-  <pubDate>Mon, 02 Jan 2017 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 01 Jan 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" medium="image" type="image/png" height="66" width="144"/>
 </item>
 <item>
@@ -6334,7 +6334,7 @@ December 6, 2016. <a href="https://vuorre.netlify.app/posts/2016-12-06-order-ggp
   <category>R</category>
   <category>visualization</category>
   <guid>https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index.html</guid>
-  <pubDate>Tue, 06 Dec 2016 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 05 Dec 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -6762,7 +6762,7 @@ Brms.”</span> September 29, 2016. <a href="https://vuorre.netlify.app/posts/20
   <category>brms</category>
   <category>tutorial</category>
   <guid>https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index.html</guid>
-  <pubDate>Wed, 28 Sep 2016 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 28 Sep 2016 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -6902,7 +6902,7 @@ Matti Vuorre. 2016. <span>“GitHub-Style Waffle Plots in R.”</span> March
   <category>data science</category>
   <category>tutorial</category>
   <guid>https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index.html</guid>
-  <pubDate>Thu, 24 Mar 2016 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 23 Mar 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -7224,7 +7224,7 @@ R.”</span> March 15, 2016. <a href="https://vuorre.netlify.app/posts/2016-03-1
   <category>visualization</category>
   <category>tutorial</category>
   <guid>https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index.html</guid>
-  <pubDate>Tue, 15 Mar 2016 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 14 Mar 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -7717,7 +7717,7 @@ Models.”</span> March 6, 2016. <a href="https://vuorre.netlify.app/posts/2016-
   <category>brms</category>
   <category>tutorial</category>
   <guid>https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index.html</guid>
-  <pubDate>Sun, 06 Mar 2016 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 05 Mar 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>

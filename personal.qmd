@@ -8,21 +8,15 @@ comments: false
 
 > "*Gentlemen, you can't fight in here! This is the Internet.*" --President [Merkin Muffley](https://www.imdb.com/title/tt0057012/quotes/?ref_=tt_trv_qu)
 
-I am a Finn currently living in the United Kingdom. I [work](/research/index.html) at the [Oxford Internet Institute](https://www.oii.ox.ac.uk) in Oxford (surprise!). Prior to moving to the UK, I studied Psychology and Philosophy in Wellington, New Zealand, at the [Victoria University of Wellington](https://www.wgtn.ac.nz/) Kelburn campus from 2008 to 2013. The hobbits were right, Aotearoa is a wonderful place, and I never really left. 
+I am a Finn living in the Netherlands. I work at [Tilburg University](https://www.tilburguniversity.edu/staff/m-j-vuorre). Prior to moving to the Netherlands, I studied Psychology and Philosophy in Wellington, New Zealand, at the [Victoria University of Wellington](https://www.wgtn.ac.nz/) Kelburn campus from 2008 to 2013. The hobbits were right, Aotearoa is a wonderful place, and I never really left. 
 
-After NZ I completed a PhD in Psychology at Columbia University in New York City in the spring of 2018. My PhD "*[Using Visual Illusions to Examine Action-Related Perceptual Changes](https://academiccommons.columbia.edu/doi/10.7916/D8W39CRZ)*" is in the area of cognitive psychology, and examined how simple manual movements can distort perception. Since so many people ask me if I liked living in NYC, all I can say is that I was very busy eating bagels and Trader Joe's "Everything but the bagel" seasoning^[Thanks Andy!]. (We lived right next to Riverside Park so, yeah, it was pretty sweet!) Since that I have worked as a [post-doc](https://en.wikipedia.org/wiki/Postdoctoral_researcher) at Columbia, and now at OII.
+After NZ I completed a PhD in Psychology at Columbia University in New York City in the spring of 2018. My PhD "*[Using Visual Illusions to Examine Action-Related Perceptual Changes](https://academiccommons.columbia.edu/doi/10.7916/D8W39CRZ)*" is in the area of cognitive psychology, and examined how simple manual movements can distort perception. In New York, I was very busy eating bagels and Trader Joe's "Everything but the bagel" seasoning^[Thanks Andy!]. (We lived right next to Riverside Park so, yeah, it was pretty sweet!) After that I worked as a [post-doc](https://en.wikipedia.org/wiki/Postdoctoral_researcher)[^postdoc] at Columbia and Oxford. In 2023 I moved to the Netherlands and am now an Assistant Professor at Tilburg University.
 
-If you're not sure what a post-doc is or what they do (I don't think anyone does), I remember someone saying in a tweet ([remember those](https://en.wikipedia.org/wiki/Mastodon_(software))?) that this video is a pretty accurate summary:
-
-{{< video https://youtu.be/w1gCW_66zzc >}}
-
-Wow, who doesn't love monster trucks?
+[^postdoc]: If you're not sure what a post-doc is or what they do (I don't think anyone does), I remember someone saying in a tweet ([remember those](https://en.wikipedia.org/wiki/Mastodon_(software))?) that this video is a pretty accurate summary: {{< video https://youtu.be/w1gCW_66zzc >}} Wow, who doesn't love monster trucks?
 
 When I've some free time, I like hiking, making photographs, rock climbing (mostly crushing V2 problems on plastic---beast mode!), spending time with my family, badminton, eating Korean food, and playing with computers. I'm not very good at any of those things, but hey, life is all about learning. 
 
-During the Global Pandemic of 2020-20xx<sup>©</sup> I mostly read [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) on my phone, watched [quality TV](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki), and enjoyed [Salt Denim IPAs](https://www.saltbeerfactory.co.uk/product/denim/) 🤣. I also installed the Reddit app on my phone which proved to be a giant waste of time.
-
-In 2022 I was very fortunate to get a job as an assistant professor at Tilburg University in the Netherlands, starting 2023. I'm super excited about this new adventure, and look forward to meeting new colleagues & friends, and eating chocolate chips on toast for breakfast.
+During the Global Pandemic of 2020-20xx<sup>©</sup> I mostly read [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) on my phone, watched [quality TV](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki), and enjoyed [Salt Denim IPAs](https://www.saltbeerfactory.co.uk/product/denim/) 🤣.
 
 ## Coda {.appendix}
 

@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/yet-another-data-request-email/index.html",
       "/posts/latent-mean-centering/index.html",
       "/posts/computer-setup-dotfiles/index.html",
       "/posts/parallel-multiverse/index.html",

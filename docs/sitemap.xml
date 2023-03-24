@@ -2,106 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vuorre.netlify.app/contact.html</loc>
-    <lastmod>2023-01-16T09:51:46.931Z</lastmod>
+    <lastmod>2023-03-24T09:14:41.280Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</loc>
-    <lastmod>2023-01-16T09:51:48.144Z</lastmod>
+    <lastmod>2023-03-24T09:14:43.979Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html</loc>
-    <lastmod>2023-01-16T09:51:49.434Z</lastmod>
+    <lastmod>2023-03-24T09:14:46.353Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index.html</loc>
-    <lastmod>2023-01-16T09:51:50.205Z</lastmod>
+    <lastmod>2023-03-24T09:14:47.176Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</loc>
-    <lastmod>2023-01-16T09:51:50.919Z</lastmod>
+    <lastmod>2023-03-24T09:14:47.825Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</loc>
-    <lastmod>2023-01-16T09:51:51.662Z</lastmod>
+    <lastmod>2023-03-24T09:14:48.620Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/easy-notifications-from-r/index.html</loc>
-    <lastmod>2023-01-16T09:51:52.283Z</lastmod>
+    <lastmod>2023-03-24T09:14:49.349Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index.html</loc>
-    <lastmod>2023-01-16T09:51:54.253Z</lastmod>
+    <lastmod>2023-03-24T09:14:51.481Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html</loc>
-    <lastmod>2023-01-16T09:51:55.380Z</lastmod>
+    <lastmod>2023-03-24T09:14:52.724Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</loc>
-    <lastmod>2023-01-16T09:51:56.068Z</lastmod>
+    <lastmod>2023-03-24T09:14:53.449Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html</loc>
-    <lastmod>2023-01-16T09:51:57.752Z</lastmod>
+    <lastmod>2023-03-24T09:14:55.242Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index.html</loc>
-    <lastmod>2023-01-16T09:51:58.639Z</lastmod>
+    <lastmod>2023-03-24T09:14:56.278Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/remote-r/index.html</loc>
-    <lastmod>2023-01-16T09:51:59.168Z</lastmod>
+    <lastmod>2023-03-24T09:14:56.871Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index.html</loc>
-    <lastmod>2023-01-16T09:52:00.032Z</lastmod>
+    <lastmod>2023-03-24T09:14:57.840Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index.html</loc>
-    <lastmod>2023-01-16T09:52:00.693Z</lastmod>
+    <lastmod>2023-03-24T09:14:58.590Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html</loc>
-    <lastmod>2023-01-16T09:52:01.400Z</lastmod>
+    <lastmod>2023-03-24T09:14:59.380Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index.html</loc>
-    <lastmod>2023-01-16T09:52:02.104Z</lastmod>
+    <lastmod>2023-03-24T09:15:00.140Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index.html</loc>
-    <lastmod>2023-01-16T09:52:02.831Z</lastmod>
+    <lastmod>2023-03-24T09:15:00.916Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html</loc>
-    <lastmod>2023-01-16T09:52:03.491Z</lastmod>
+    <lastmod>2023-03-24T09:15:01.658Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</loc>
-    <lastmod>2023-01-16T09:52:04.442Z</lastmod>
+    <lastmod>2023-03-24T09:15:02.776Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</loc>
-    <lastmod>2023-01-16T09:52:05.090Z</lastmod>
+    <lastmod>2023-03-24T09:15:03.590Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/index.html</loc>
-    <lastmod>2023-01-16T09:52:05.750Z</lastmod>
+    <lastmod>2023-03-24T09:15:04.500Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/about.html</loc>
-    <lastmod>2023-01-16T09:52:06.074Z</lastmod>
+    <lastmod>2023-03-24T09:15:04.932Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/personal.html</loc>
-    <lastmod>2023-01-16T09:52:06.386Z</lastmod>
+    <lastmod>2023-03-24T09:15:05.313Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/contact-success.html</loc>
-    <lastmod>2023-01-16T09:52:06.672Z</lastmod>
+    <lastmod>2023-03-24T09:15:05.651Z</lastmod>
   </url>
   <url>
     <loc>https://vuorre.netlify.app/blog.html</loc>
-    <lastmod>2023-01-16T09:52:07.237Z</lastmod>
+    <lastmod>2023-03-24T11:36:29.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vuorre.netlify.app/posts/yet-another-data-request-email/index.html</loc>
+    <lastmod>2023-03-24T11:36:28.947Z</lastmod>
   </url>
 </urlset>

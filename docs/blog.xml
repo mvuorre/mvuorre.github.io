@@ -13,11 +13,67 @@
 <url>https://vuorre.netlify.app/favicon.png</url>
 <title>Matti&#39;s homepage</title>
 <link>https://vuorre.netlify.app/blog.html</link>
-<height>167</height>
-<width>144</width>
 </image>
 <generator>quarto-1.2.313</generator>
-<lastBuildDate>Sat, 31 Dec 2022 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Yet another data request email</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.netlify.app/posts/yet-another-data-request-email/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In “Associations Between Infant Screen Use, Electroencephalography Markers, and Cognitive Outcomes” <span class="citation" data-cites="lawAssociationsInfantScreen2023">Law et al. (2023)</span> write that “Screen time at age 12 months contributed to multiple 9-year attention and executive functioning measures (<img src="https://latex.codecogs.com/png.latex?%5Ceta%5E2">, 0.03-0.16; Cohen d, 0.35-0.87)”. This is potentially huge news, for at least two reasons:</p>
+<ol type="1">
+<li><p>There isn’t very much literature on such longitudinal within-person associations between “screen time” <span class="citation" data-cites="k.kayeConceptualMethodologicalMayhem2020">(K. Kaye et al. 2020)</span> and psychosocial outcomes in a time frame spanning infancy to childhood. Studying this association is very important in trying to understand how digital technologies in extremely sensitive developmental periods might affect later life outcomes. So this study potentially provides some really important evidence on the effects of “screen time”.</p></li>
+<li><p>The effects are <em>huge</em>. <img src="https://latex.codecogs.com/png.latex?%5Ceta%5E2"> is a metric assessing the proportion of variability in the outcome that is explained by the predictor. Here, the finding is that infants’ screen time can explain up to 16% of variability in cognitive functioning at age 9.</p></li>
+</ol>
+<p>Naturally, scientists studying the effects of digital technologies should be very interested in these findings. As the authors write (emphasis mine):</p>
+<blockquote class="blockquote">
+<p>In short, increased screen time in infancy is associated with impairments in cognitive processes critical for health, academic achievement, and future work success. However, the findings from this cohort study do not prove causation. Screen time likely represents a measurable contextual characteristic of a family or a proxy for the quality of parent-child interaction. <em>Replication of this study’s findings</em> and randomized clinical trials are warranted.</p>
+</blockquote>
+<p>As a first step, I wanted to see and reproduce the computations leading to those effect size estimates. Basic reproduction of analyses is often considered an essential first step in replicating a study. Then, I wanted to extend their analysis by examining the impact of potential measurement error in the infant screen time measure (such self- [or here, parent-] reports are known to be somewhat inaccurate <span class="citation" data-cites="parrySystematicReviewMetaanalysis2021">(Parry et al. 2021)</span>) on the associations.</p>
+<p>I went ahead to the article’s website, and looked at Supplement 2. Data sharing statement. It states:</p>
+<blockquote class="blockquote">
+<p>Data available: No Additional Information Explanation for why data not available: This cohort study requires ethics approval for each specific research question before data may be shared. The data used in this cohort are described in https://gustodatavault.sg/. The data will be made available to researchers who provide a methodologically sound proposal.</p>
+</blockquote>
+<p>That’s great. I understand that these data are potentially very sensitive, and the people curating these data are right in protecting their participants’ privacy. It is also great to see that the data will be shared with serious researchers. I have a clear and methodologically sound proposal for analysing these data:</p>
+<blockquote class="blockquote">
+<p>Importance: Law et al.&nbsp;(2023) report potentially very consequential results regarding associations between infant screen time and later psychosocial functioning. It is imperative, then, to reproduce the analyses and examine their underlying assumptions. Objective: Reproduce the analyses in Law et al.&nbsp;(2023) and examine the impact of assuming no measurement error in the screen time measure at infancy on resulting associations between screen time and psychological functioning at age 9. Methodology: Statistical analyses as reported in Law et al.&nbsp;(2023), with a sensitivity analysis with varying levels of measurement error in age 12 months “screen time”. Proposed outcome: A pre-print deposited on https://psyarxiv.com/ reporting the results and implications of a. the reproduction analysis and b. the sensitivity analysis.</p>
+</blockquote>
+<p>I clicked through to the data website (<a href="https://gustodatavault.sg/about/request-for-data" class="uri">https://gustodatavault.sg/about/request-for-data</a>), and created an account. I am now waiting to have my account approved so that I can proceed with submitting my data request. Stay tuned!</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-k.kayeConceptualMethodologicalMayhem2020" class="csl-entry">
+K. Kaye, Linda, Amy Orben, David A. Ellis, Simon C. Hunter, and Stephen Houghton. 2020. <span>“The <span>Conceptual</span> and <span>Methodological Mayhem</span> of <span>‘<span>Screen Time</span>’</span>.”</span> <em>International Journal of Environmental Research and Public Health</em> 17 (10, 10): 3661. <a href="https://doi.org/10.3390/ijerph17103661">https://doi.org/10.3390/ijerph17103661</a>.
+</div>
+<div id="ref-lawAssociationsInfantScreen2023" class="csl-entry">
+Law, Evelyn C., Meredith X. Han, Zhuoyuan Lai, Shuping Lim, Zi Yan Ong, Valerie Ng, Laurel J. Gabard-Durnam, et al. 2023. <span>“Associations <span>Between Infant Screen Use</span>, <span>Electroencephalography Markers</span>, and <span>Cognitive Outcomes</span>.”</span> <em>JAMA Pediatrics</em> 177 (3): 311–18. <a href="https://doi.org/10.1001/jamapediatrics.2022.5674">https://doi.org/10.1001/jamapediatrics.2022.5674</a>.
+</div>
+<div id="ref-parrySystematicReviewMetaanalysis2021" class="csl-entry">
+Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T. Fisher, Hannah Mieczkowski, and Daniel S. Quintana. 2021. <span>“A Systematic Review and Meta-Analysis of Discrepancies Between Logged and Self-Reported Digital Media Use.”</span> <em>Nature Human Behaviour</em>, May, 1–13. <a href="https://doi.org/10.1038/s41562-021-01117-5">https://doi.org/10.1038/s41562-021-01117-5</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2023,
+  author = {Matti Vuorre},
+  title = {Yet Another Data Request Email},
+  date = {2023-03-24},
+  url = {https://vuorre.netlify.app/posts/yet-another-data-request-email},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2023" class="csl-entry quarto-appendix-citeas">
+Matti Vuorre. 2023. <span>“Yet Another Data Request Email.”</span> March
+24, 2023. <a href="https://vuorre.netlify.app/posts/yet-another-data-request-email">https://vuorre.netlify.app/posts/yet-another-data-request-email</a>.
+</div></div></section></div> ]]></description>
+  <category>psychology</category>
+  <guid>https://vuorre.netlify.app/posts/yet-another-data-request-email/index.html</guid>
+  <pubDate>Thu, 23 Mar 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.netlify.app/posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" medium="image" type="image/png" height="113" width="144"/>
+</item>
 <item>
   <title>Latent mean centering with brms</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -2345,7 +2401,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
   <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -3216,7 +3272,7 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>
@@ -7226,499 +7282,6 @@ R.”</span> March 15, 2016. <a href="https://vuorre.netlify.app/posts/2016-03-1
   <guid>https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index.html</guid>
   <pubDate>Mon, 14 Mar 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" medium="image" type="image/png" height="103" width="144"/>
-</item>
-<item>
-  <title>Confidence intervals in multilevel models</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>In this post, I address the following problem: How to obtain regression lines and their associated confidence intervals at the average and individual-specific levels, in a two-level multilevel linear regression.</p>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Visualization is perhaps the most effective way of communicating the results of a statistical model. For regression models, two figures are commonly used: The coefficient plot shows the coefficients of a model graphically, and can be used to replace or augment a model summary table. The advantage over tables is that it is usually faster to understand the estimated parameters by looking at them in graphical form, but the downside is losing the numerical accuracy of the table. However, both of these model summaries become increasingly difficult to interpret as the number of coefficients increases, and especially when interaction terms are included.</p>
-<p>An alternative visualization is the line plot, which shows what the model implies in terms of the data, such as the relationship between X and Y, and perhaps how that relationship is moderated by other variables. For a linear regression, this plot displays the regression line and its confidence interval. If a confidence interval is not shown, the plot is not complete because the viewer can’t visually assess the uncertainty in the regression line, and therefore a simple line without a confidence interval is of little inferential value. Obtaining the line and confidence interval for simple linear regression is very easy, but is not straightforward in a multilevel context, the topic of this post.</p>
-<p>Most of my statistical analyses utilize multilevel modeling, where parameters (means, slopes) are treated as varying between individuals. Because common procedures for estimating these models return point estimates for the regression coefficients at all levels, drawing expected regression lines is easy. However, displaying the confidence limits for the regression lines is not as easily done. Various options exist, and some software packages provide these limits automatically, but in this post I want to highlight a completely general approach to obtaining and drawing confidence limits for regression lines at multiple levels of analysis, and where applicable, show how various packages deliver them automatically. This general approach is inference based on probability, or bayesian statistics. In practice, obtaining random samples from the posterior distribution makes it easy to compute values such as confidence limits for any quantity of interest. Importantly, we can summarize the samples with an interval at each level of the predictor values, yielding the confidence interval for the regression line.</p>
-<p>I will illustrate the procedure first with a maximum likelihood model fitting procedure, using the lme4 package. This procedure requires an additional step where plausible parameter values are simulated from the estimated model, using the arm package. Then, I’ll show how to obtain the limits from models estimated with Bayesian methods, using the brms R package.</p>
-<p>We’ll use the following R packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_fabda9916eb57c579547e866e603c024">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(knitr)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(lme4)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(here)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(arm)</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;">library</span>(broom.mixed)</span>
-<span id="cb1-6"><span class="fu" style="color: #4758AB;">library</span>(kableExtra)</span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;">library</span>(patchwork)</span>
-<span id="cb1-8"><span class="fu" style="color: #4758AB;">library</span>(brms)</span>
-<span id="cb1-9"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span></code></pre></div>
-</div>
-</section>
-<section id="example-data" class="level2">
-<h2 class="anchored" data-anchor-id="example-data">Example Data</h2>
-<p>I will use the <code>sleepstudy</code> data set from the <code>lme4</code> package as an example:</p>
-<blockquote class="blockquote">
-<p>“The average reaction time per day for subjects in a sleep deprivation study. On day 0 the subjects had their normal amount of sleep. Starting that night they were restricted to 3 hours of sleep per night. The observations represent the average reaction time on a series of tests given each day to each subject.”</p>
-</blockquote>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/exdata_4ac3e4078eecfe60c01d65f62b357aac">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">sleepstudy <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as_tibble</span>(sleepstudy)</span></code></pre></div>
-<div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>Example data</caption>
- <thead>
-  <tr>
-   <th style="text-align:right;"> Reaction </th>
-   <th style="text-align:right;"> Days </th>
-   <th style="text-align:left;"> Subject </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 249.56 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 258.70 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 250.80 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 321.44 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 356.85 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 414.69 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 308 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<p>The data is structured in a long format, where each row contains all variables at a single measurement instance.</p>
-</section>
-<section id="fixed-effects-models-and-cis" class="level2">
-<h2 class="anchored" data-anchor-id="fixed-effects-models-and-cis">Fixed Effects Models and CIs</h2>
-<p>Below, I show two kinds of scatterplots from the data. The left one represents a fixed effects regression, where information about individuals is discarded, and all that is left is a lonely band of inference in a sea of scattered observations. The right panel shows fixed effects regressions separately for each individual.</p>
-<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/fig1and2_56d6fbe2e508b6ebfd368d1c8ce937ce">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">p1 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">ggplot</span>(sleepstudy, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> Days, <span class="at" style="color: #657422;">y =</span> Reaction)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-2">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">shape =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">breaks =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">6</span>, <span class="dv" style="color: #AD0000;">9</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;">geom_smooth</span>(<span class="at" style="color: #657422;">method =</span> <span class="st" style="color: #20794D;">"lm"</span>, <span class="at" style="color: #657422;">fill =</span> <span class="st" style="color: #20794D;">"dodgerblue"</span>, <span class="at" style="color: #657422;">level =</span> .<span class="dv" style="color: #AD0000;">95</span>)</span>
-<span id="cb3-5">p2 <span class="ot" style="color: #003B4F;">&lt;-</span> p1 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;">~</span>Subject, <span class="at" style="color: #657422;">nrow =</span> <span class="dv" style="color: #AD0000;">4</span>)</span>
-<span id="cb3-6">p1 <span class="sc" style="color: #5E5E5E;">|</span> p2</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Scatterplots with a completely pooled model (left), and individual specific models (right).</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Obtaining confidence intervals for regression lines using ggplot2 is easy (<code>geom_smooth()</code> gives them by default), but an alternative way is to explicitly use the <code>predict()</code> function (which ggplot2 uses under the hood). For more complicated or esoteric models, explicit prediction becomes necessary, either using <code>predict()</code> or custom code.</p>
-</section>
-<section id="multilevel-model" class="level2">
-<h2 class="anchored" data-anchor-id="multilevel-model">Multilevel model</h2>
-<p>The multilevel model I’ll fit to these data treats the intercept and effect of days as varying between individuals</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cmathsf%7Breaction%7D_%7Bij%7D%20%5Csim%20%5Cmathcal%7BN%7D(%5Cmu_%7Bij%7D,%20%5Csigma)"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bij%7D%20=%20%5Cbeta_%7B0j%7D%20+%20%5Cbeta_%7B1j%7D%20%5C%20%20%5Cmathsf%7Bdays%7D_%7Bij%7D"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bpmatrix%7D%7B%5Cbeta_%7B0j%7D%7D%5C%5C%7B%5Cbeta_%7B1j%7D%7D%5Cend%7Bpmatrix%7D%20%5Csim%0A%5Cmathcal%7BN%7D%20%5Cbegin%7Bpmatrix%7D%7B%5Cgamma_%7B00%7D%7D,%5C%20%7B%5Ctau_%7B00%7D%7D%5C%20%7B%5Crho_%7B01%7D%7D%5C%5C%0A%7B%5Cgamma_%7B10%7D%7D,%5C%20%7B%5Crho_%7B01%7D%7D%5C%20%7B%5Ctau_%7B10%7D%7D%20%5Cend%7Bpmatrix%7D"></p>
-<p>In this post, and the above equations, I’ll omit the discussion of hyperpriors (priors on <img src="https://latex.codecogs.com/png.latex?%5Cgamma">, <img src="https://latex.codecogs.com/png.latex?%5Ctau"> and <img src="https://latex.codecogs.com/png.latex?%5Crho"> parameters.)</p>
-<p>If the above equations baffle the mind, or multilevel models are mysterious to you, <span class="citation" data-cites="bolgerIntensiveLongitudinalMethods2013">Bolger and Laurenceau (2013)</span> and <span class="citation" data-cites="gelmanDataAnalysisUsing2007">Gelman and Hill (2007)</span> are great introductions to the topic.</p>
-</section>
-<section id="maximum-likelihood-estimation" class="level2">
-<h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
-<p>I’ll estimate the multilevel model using the lme4 package.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fitlmer_2b785618fc12cf8cdda49c8e3fec4e58">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">lmerfit <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">lmer</span>(Reaction <span class="sc" style="color: #5E5E5E;">~</span> Days <span class="sc" style="color: #5E5E5E;">+</span> (Days <span class="sc" style="color: #5E5E5E;">|</span> Subject), <span class="at" style="color: #657422;">data =</span> sleepstudy)</span></code></pre></div>
-<div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>Multilevel model summary</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> effect </th>
-   <th style="text-align:left;"> term </th>
-   <th style="text-align:right;"> estimate </th>
-   <th style="text-align:right;"> statistic </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> fixed </td>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:right;"> 251.41 </td>
-   <td style="text-align:right;"> 36.84 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> fixed </td>
-   <td style="text-align:left;"> Days </td>
-   <td style="text-align:right;"> 10.47 </td>
-   <td style="text-align:right;"> 6.77 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<p>The key points here are the estimates and their associated standard errors, the latter of which are missing for the varying effects’ correlations and standard deviations.</p>
-<section id="working-with-point-estimates" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-point-estimates">Working with point estimates</h3>
-<p>Using the model output, we can generate regression lines using the <code>predict()</code> function. Using this method, we can simply add a new column to the existing <code>sleepstudy</code> data frame, giving the fitted value for each row in the data. However, for visualization, it is very useful to generate the fitted values for specific combinations of predictor values, instead of generating a fitted value for every observation. To do this, I simply create dataframes with the relevant predictors, and feed these data frames as data to <code>predict()</code>.</p>
-<p>To get fitted values at the average level, when there is only one predictor, the data frame is simply a column with rows for each level of <code>Days</code>. For the varying effects, I create a data frame where each individual has all levels of <code>Days</code>, using the <code>expand.grid()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/pred_lmer_8da706581dfa545b79ad6d470769cc6e">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;"># Data frame to evaluate average effects predictions on</span></span>
-<span id="cb5-2">newavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">Days =</span> <span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">9</span>)</span>
-<span id="cb5-3">newavg<span class="sc" style="color: #5E5E5E;">$</span>Reaction <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">predict</span>(lmerfit, <span class="at" style="color: #657422;">re.form =</span> <span class="cn" style="color: #8f5902;">NA</span>, newavg)</span>
-<span id="cb5-4"><span class="co" style="color: #5E5E5E;"># Predictors for the varying effect's predictions</span></span>
-<span id="cb5-5">newvary <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">expand.grid</span>(<span class="at" style="color: #657422;">Days =</span> <span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">9</span>, <span class="at" style="color: #657422;">Subject =</span> <span class="fu" style="color: #4758AB;">unique</span>(sleepstudy<span class="sc" style="color: #5E5E5E;">$</span>Subject))</span>
-<span id="cb5-6">newvary<span class="sc" style="color: #5E5E5E;">$</span>Reaction <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">predict</span>(lmerfit, newvary)</span></code></pre></div>
-</div>
-<p>I’ll show these predictions within the previous figures: On the left, a single fixed effects model versus the average regression line from the new multilevel model, and on the right the separate fixed effects models versus the varying regression lines from the multilevel model. Below, I use blue colors to indicate the fixed effects models’ predictions, and black for the multilevel model’s predictions.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plotlmer_85b7c90bd39cb953a81173759eeb874f">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">p1 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> newavg, <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">|</span></span>
-<span id="cb6-2">  p2 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> newvary, <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plotlmer-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>As you can probably tell, the fixed effects regression line (blue), and the multilevel model’s average regression line (black; left panel) are identical, because of the completely balanced design. However, interesting differences are apparent in the right panel: The varying effects’ regression lines are different from the separate fixed effects models’ regression lines. How? They are “shrunk” toward the average-level estimate. Focus on subject 335, an individual whose reaction times got faster with increased sleep deprivation:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plotlmerid9_1d4c8fb4df70af98247367e04bc39647">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">p2 <span class="sc" style="color: #5E5E5E;">%+%</span> <span class="fu" style="color: #4758AB;">filter</span>(sleepstudy, Subject <span class="sc" style="color: #5E5E5E;">==</span> <span class="dv" style="color: #AD0000;">335</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb7-2">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> <span class="fu" style="color: #4758AB;">filter</span>(newvary, Subject <span class="sc" style="color: #5E5E5E;">==</span> <span class="dv" style="color: #AD0000;">335</span>), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plotlmerid9-1.png" class="img-fluid figure-img" width="432"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Estimating each participant’s data in their very own model (separate fixed effects models) resulted in a predicted line suggesting to us that this person’s cognitive performance is enhanced following sleep deprivation (blue line with negative slope).</p>
-<p>However, if we used a model where this individual was treated as a random draw from a population of individuals (the multilevel model; black line in the above figure), the story is different. The point estimate for the slope parameter, for this specific individual, from this model (-0.28) tells us that the estimated decrease in reaction times is quite a bit smaller. But this is just a point estimate, and in order to draw inference, we’ll need standard errors, or some representation of the uncertainty, in the estimated parameters. The appropriate uncertainty representations will also allow us to draw the black lines with their associated confidence intervals. I’ll begin by obtaining a confidence interval for the average regression line.</p>
-</section>
-<section id="cis-using-arm-average-level" class="level3">
-<h3 class="anchored" data-anchor-id="cis-using-arm-average-level">CIs using arm: Average level</h3>
-<p>The method I will illustrate in this post relies on random samples of plausible parameter values, from which we can then generate regression lines–or draw inferences about the parameters themselves. These regression lines can then be used as their own distribution with their own respective summaries, such as an X% interval. First, I’ll show a quick way for obtaining these samples for the lme4 model, using the arm package to generate simulated parameter values.</p>
-<p>The important parts of this code are:</p>
-<ol type="1">
-<li>Simulating plausible parameter values</li>
-<li>Saving the simulated samples (a faux posterior distribution) in a data frame</li>
-<li>Creating a predictor matrix</li>
-<li>Creating a matrix for the fitted values</li>
-<li>Calculating fitted values for each combination of the predictor values, for each plausible combination of the parameter values</li>
-<li>Calculating the desired quantiles of the fitted values</li>
-</ol>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/sim_lmer_0798af5b7cdbb03f041114941331f993">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">sims <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sim</span>(lmerfit, <span class="at" style="color: #657422;">n.sims =</span> <span class="dv" style="color: #AD0000;">1000</span>) <span class="co" style="color: #5E5E5E;"># 1</span></span>
-<span id="cb8-2">fs <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">fixef</span>(sims) <span class="co" style="color: #5E5E5E;"># 2</span></span>
-<span id="cb8-3">newavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">Days =</span> <span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">9</span>)</span>
-<span id="cb8-4">Xmat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">model.matrix</span>(<span class="sc" style="color: #5E5E5E;">~</span> <span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">+</span> Days, <span class="at" style="color: #657422;">data =</span> newavg) <span class="co" style="color: #5E5E5E;"># 3</span></span>
-<span id="cb8-5">fitmat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">matrix</span>(<span class="at" style="color: #657422;">ncol =</span> <span class="fu" style="color: #4758AB;">nrow</span>(fs), <span class="at" style="color: #657422;">nrow =</span> <span class="fu" style="color: #4758AB;">nrow</span>(newavg)) <span class="co" style="color: #5E5E5E;"># 4</span></span>
-<span id="cb8-6"><span class="cf" style="color: #003B4F;">for</span> (i <span class="cf" style="color: #003B4F;">in</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">nrow</span>(fs)) {</span>
-<span id="cb8-7">  fitmat[, i] <span class="ot" style="color: #003B4F;">&lt;-</span> Xmat <span class="sc" style="color: #5E5E5E;">%*%</span> <span class="fu" style="color: #4758AB;">as.matrix</span>(fs)[i, ]</span>
-<span id="cb8-8">} <span class="co" style="color: #5E5E5E;"># 5</span></span>
-<span id="cb8-9">newavg<span class="sc" style="color: #5E5E5E;">$</span>lower <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(fitmat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.05</span>) <span class="co" style="color: #5E5E5E;"># 6</span></span>
-<span id="cb8-10">newavg<span class="sc" style="color: #5E5E5E;">$</span>median <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(fitmat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.5</span>) <span class="co" style="color: #5E5E5E;"># 6</span></span>
-<span id="cb8-11">newavg<span class="sc" style="color: #5E5E5E;">$</span>upper <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(fitmat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.95</span>) <span class="co" style="color: #5E5E5E;"># 6</span></span>
-<span id="cb8-12">p1 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> newavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> median), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb8-13">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> newavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> lower), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb8-14">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> newavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> upper), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/sim_lmer-1.png" class="img-fluid figure-img" width="432"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Again, the multilevel model’s average regression line and the fixed effect model’s regression line are identical, but the former has a wider confidence interval (black dashed lines.)</p>
-<p>The code snippet generalizes well to be used with any two matrices where one contains predictor values (the combinations of predictor values on which you want to predict) and the other samples of parameter values, such as a posterior distribution from a Bayesian model, as we’ll see below. This procedure is described in <span class="citation" data-cites="korner-nievergeltBayesianDataAnalysis2015">Korner-Nievergelt et al. (2015)</span>, who give a detailed explanation of the code and on drawing inference from the results.</p>
-</section>
-<section id="cis-using-arm-individual-level" class="level3">
-<h3 class="anchored" data-anchor-id="cis-using-arm-individual-level">CIs using arm: Individual level</h3>
-<p>The <code>fitted()</code> function in arm returns fitted values at the varying effects level automatically, so we can skip a few lines of code from above to obtain confidence intervals at the individual-level:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_lmer_vary_c47d0020b85ec8172db56c531485a5a2">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">yhat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">fitted</span>(sims, lmerfit)</span>
-<span id="cb9-2">sleepstudy<span class="sc" style="color: #5E5E5E;">$</span>lower <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(yhat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.025</span>)</span>
-<span id="cb9-3">sleepstudy<span class="sc" style="color: #5E5E5E;">$</span>median <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(yhat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.5</span>)</span>
-<span id="cb9-4">sleepstudy<span class="sc" style="color: #5E5E5E;">$</span>upper <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(yhat, <span class="dv" style="color: #AD0000;">1</span>, quantile, <span class="at" style="color: #657422;">prob =</span> <span class="fl" style="color: #AD0000;">0.975</span>)</span>
-<span id="cb9-5">p2 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> sleepstudy, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> median), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb9-6">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> sleepstudy, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> lower), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb9-7">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> sleepstudy, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> upper), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plot_lmer_vary-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A subset of individuals highlights the most interesting differences between the models:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_lmer_vary_id9_3236d149fa262c4f31664b8d2e135b23">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">tmp <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">filter</span>(sleepstudy, Subject <span class="sc" style="color: #5E5E5E;">%in%</span> <span class="fu" style="color: #4758AB;">unique</span>(sleepstudy<span class="sc" style="color: #5E5E5E;">$</span>Subject)[<span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">6</span>, <span class="dv" style="color: #AD0000;">9</span>)])</span>
-<span id="cb10-2">p2 <span class="sc" style="color: #5E5E5E;">%+%</span> tmp <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb10-3">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> tmp, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> median), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb10-4">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> tmp, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> lower), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb10-5">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> tmp, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> upper), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plot_lmer_vary_id9-1.png" class="img-fluid figure-img" width="432"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>In the top panel, the unique fixed effects model’s confidence band is much wider than the confidence band from the multilevel model, highlighting the pooling of information in the latter model. Similarly, the bottom panel (individual 9 discussed above) shows that 95% plausible regression lines for that individual now include lines that increase as a function of days of sleep deprivation, and indeed the expected regression line for this individual is nearly a flat line.</p>
-<p>In the next sections, we’ll apply this method of obtaining regression line confidence intervals for multilevel models estimated with Bayesian methods.</p>
-</section>
-</section>
-<section id="intervals-from-bayesian-models" class="level2">
-<h2 class="anchored" data-anchor-id="intervals-from-bayesian-models">Intervals from Bayesian models</h2>
-<p>Confidence intervals are commonly called credible intervals in the Bayesian context, but I’ll use these terms interchangeably. The reader should be aware that, unlike traditional confidence intervals, credible intervals actually allow statements about credibility. In fact, being allowed to say the things we usually mean when discussing confidence intervals is one of many good reasons for applying bayesian statistics.</p>
-<p>I use brms to specify the model and sample from the posterior distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit_brms_ce72a9721a15de316778223bafa3e38d">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">brmfit <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">brm</span>(</span>
-<span id="cb11-2">  <span class="at" style="color: #657422;">data =</span> sleepstudy,</span>
-<span id="cb11-3">  Reaction <span class="sc" style="color: #5E5E5E;">~</span> Days <span class="sc" style="color: #5E5E5E;">+</span> (Days <span class="sc" style="color: #5E5E5E;">|</span> Subject),</span>
-<span id="cb11-4">  <span class="at" style="color: #657422;">family =</span> gaussian,</span>
-<span id="cb11-5">  <span class="at" style="color: #657422;">iter =</span> <span class="dv" style="color: #AD0000;">2000</span>,</span>
-<span id="cb11-6">  <span class="at" style="color: #657422;">chains =</span> <span class="dv" style="color: #AD0000;">4</span>,</span>
-<span id="cb11-7">  <span class="at" style="color: #657422;">file =</span> <span class="st" style="color: #20794D;">"sleepstudy"</span></span>
-<span id="cb11-8">)</span></code></pre></div>
-</div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/printbrmfit_545a213d0e691b63d585a7677a1ed8dd">
-<div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>Bayesian model estimates (brms)</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Estimate </th>
-   <th style="text-align:right;"> Est.Error </th>
-   <th style="text-align:right;"> l-95% CI </th>
-   <th style="text-align:right;"> u-95% CI </th>
-   <th style="text-align:right;"> Tail_ESS </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 250.96 </td>
-   <td style="text-align:right;"> 7.64 </td>
-   <td style="text-align:right;"> 235.59 </td>
-   <td style="text-align:right;"> 265.13 </td>
-   <td style="text-align:right;"> 1558.74 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Days </td>
-   <td style="text-align:right;"> 10.46 </td>
-   <td style="text-align:right;"> 1.86 </td>
-   <td style="text-align:right;"> 7.07 </td>
-   <td style="text-align:right;"> 13.95 </td>
-   <td style="text-align:right;"> 1391.49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sd(Intercept) </td>
-   <td style="text-align:right;"> 26.82 </td>
-   <td style="text-align:right;"> 7.16 </td>
-   <td style="text-align:right;"> 15.29 </td>
-   <td style="text-align:right;"> 42.38 </td>
-   <td style="text-align:right;"> 1715.64 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sd(Days) </td>
-   <td style="text-align:right;"> 6.61 </td>
-   <td style="text-align:right;"> 1.57 </td>
-   <td style="text-align:right;"> 4.19 </td>
-   <td style="text-align:right;"> 10.16 </td>
-   <td style="text-align:right;"> 1609.65 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> cor(Intercept,Days) </td>
-   <td style="text-align:right;"> 0.10 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> -0.46 </td>
-   <td style="text-align:right;"> 0.70 </td>
-   <td style="text-align:right;"> 1674.70 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<p>Note that now we also have values for the uncertainties associated with the varying effect parameters, without additional code.</p>
-<section id="average-regression-line-ci" class="level4">
-<h4 class="anchored" data-anchor-id="average-regression-line-ci">Average regression line &amp; CI</h4>
-<p>brms has a function for obtaining fitted values (<code>fitted()</code>) and their associated upper and lower bounds, which together constitute the regression line and its confidence interval.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_brm_avg_84f4a41bc5a44ff1852d725af2df4164">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">newavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">Days =</span> <span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">9</span>)</span>
-<span id="cb12-2">fitavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">cbind</span>(</span>
-<span id="cb12-3">  newavg, </span>
-<span id="cb12-4">  <span class="fu" style="color: #4758AB;">fitted</span>(brmfit, <span class="at" style="color: #657422;">newdata =</span> newavg, <span class="at" style="color: #657422;">re_formula =</span> <span class="cn" style="color: #8f5902;">NA</span>)[, <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">2</span>]</span>
-<span id="cb12-5">  )</span>
-<span id="cb12-6">p3 <span class="ot" style="color: #003B4F;">&lt;-</span> p1 <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb12-7">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> fitavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Estimate), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb12-8">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> fitavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Q2<span class="fl" style="color: #AD0000;">.5</span>), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb12-9">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> fitavg, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Q97<span class="fl" style="color: #AD0000;">.5</span>), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"black"</span>, <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>)</span>
-<span id="cb12-10">p3</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plot_brm_avg-1.png" class="img-fluid figure-img" width="432"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The average effects’ estimates in this model have higher uncertainty than in the <code>lmerfit</code> model above, explaining why the average regression line’s CI is also wider.</p>
-</section>
-<section id="alternative-to-cis" class="level4">
-<h4 class="anchored" data-anchor-id="alternative-to-cis">Alternative to CIs</h4>
-<p>Instead of showing summaries of the samples from the posterior distribution, one could also plot the entire distribution–at the risk of overplotting. Overplotting can be avoided by adjusting each regression line’s transparency with the <code>alpha</code> parameter, resulting in a visually attractive–maybe?–display of the uncertainty in the regression line:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_fd71379dca8887cc23ba29c07cc664ec">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">pst <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">posterior_samples</span>(brmfit, <span class="st" style="color: #20794D;">"b"</span>)</span>
-<span id="cb13-2"><span class="fu" style="color: #4758AB;">ggplot</span>(sleepstudy, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> Days, <span class="at" style="color: #657422;">y =</span> Reaction)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb13-3">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">shape =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb13-4">  <span class="fu" style="color: #4758AB;">geom_abline</span>(</span>
-<span id="cb13-5">    <span class="at" style="color: #657422;">data =</span> pst, <span class="at" style="color: #657422;">alpha =</span> .<span class="dv" style="color: #AD0000;">01</span>, <span class="at" style="color: #657422;">size =</span> .<span class="dv" style="color: #AD0000;">4</span>,</span>
-<span id="cb13-6">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">intercept =</span> b_Intercept, <span class="at" style="color: #657422;">slope =</span> b_Days)</span>
-<span id="cb13-7">  )</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="varying-regression-lines-cis" class="level4">
-<h4 class="anchored" data-anchor-id="varying-regression-lines-cis">Varying regression lines &amp; CIs</h4>
-<p>The best part is, brms’ <code>fitted()</code> also gives regression lines with CIs at the individual level.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_brm_vary_eb6ff23721ab439beb9e0fa6a059b3e5">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">X <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">cbind</span>(sleepstudy[, <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">3</span>], <span class="fu" style="color: #4758AB;">fitted</span>(brmfit)[, <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">2</span>]) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="fu" style="color: #4758AB;">as_tibble</span>()</span>
-<span id="cb14-2">p2 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> X, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Estimate), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb14-3">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> X, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Q2<span class="fl" style="color: #AD0000;">.5</span>), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb14-4">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> X, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> Q97<span class="fl" style="color: #AD0000;">.5</span>), <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">2</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/plot_brm_vary-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Working with brms makes it very easy to obtain CIs for regression lines at both levels of analysis.</p>
-</section>
-<section id="an-alternative-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="an-alternative-visualization">An alternative visualization</h3>
-<p>It might be useful, especially for model checking purposes, to display not only the fitted values, but also what the model predicts. To display the 95% prediction interval, I use the same procedure, but replace <code>fitted()</code> with <code>predict()</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_1abd26b1524d35921cf63bc6d8858e52">
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">newavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">Days =</span> <span class="dv" style="color: #AD0000;">0</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">9</span>)</span>
-<span id="cb15-2">predavg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">cbind</span>(</span>
-<span id="cb15-3">  newavg, </span>
-<span id="cb15-4">  <span class="fu" style="color: #4758AB;">predict</span>(brmfit, <span class="at" style="color: #657422;">newdata =</span> newavg, <span class="at" style="color: #657422;">re_formula =</span> <span class="cn" style="color: #8f5902;">NA</span>)[, <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">2</span>]</span>
-<span id="cb15-5">  )</span>
-<span id="cb15-6"><span class="fu" style="color: #4758AB;">names</span>(predavg) <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Days"</span>, <span class="st" style="color: #20794D;">"Reaction"</span>, <span class="st" style="color: #20794D;">"lower"</span>, <span class="st" style="color: #20794D;">"upper"</span>)</span>
-<span id="cb15-7">p3 <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_ribbon</span>(</span>
-<span id="cb15-8">  <span class="at" style="color: #657422;">data =</span> predavg, </span>
-<span id="cb15-9">  <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">ymin =</span> lower, <span class="at" style="color: #657422;">ymax =</span> upper),</span>
-<span id="cb15-10">  <span class="at" style="color: #657422;">col =</span> <span class="cn" style="color: #8f5902;">NA</span>, <span class="at" style="color: #657422;">alpha =</span> .<span class="dv" style="color: #AD0000;">2</span></span>
-<span id="cb15-11">)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="one-liners" class="level3">
-<h3 class="anchored" data-anchor-id="one-liners">One-liners</h3>
-<p>brms also has a function <code>conditional_effects()</code> that makes drawing these plots easy. Here is how to draw the average effect (first), and subject-specific effects (latter).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_a9762d5baf5fcb0084d4494d9ecdc556">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;">conditional_effects</span>(brmfit)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;">conditional_effects</span>(</span>
-<span id="cb17-2">  brmfit, </span>
-<span id="cb17-3">  <span class="at" style="color: #657422;">conditions =</span> <span class="fu" style="color: #4758AB;">distinct</span>(sleepstudy, Subject), </span>
-<span id="cb17-4">  <span class="at" style="color: #657422;">re_formula =</span> <span class="cn" style="color: #8f5902;">NULL</span></span>
-<span id="cb17-5">)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Working with a matrix of plausible parameter values makes it easier to draw regression lines with confidence intervals. Specifically, the brms package provides easy access to CIs in a multilevel modeling context.</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-bolgerIntensiveLongitudinalMethods2013" class="csl-entry">
-Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive <span>Longitudinal Methods</span>: <span>An Introduction</span> to <span>Diary</span> and <span>Experience Sampling Research</span></em>. <span>New York, NY</span>: <span>Guilford Press</span>. <a href="https://www.intensivelongitudinal.com">https://www.intensivelongitudinal.com</a>.
-</div>
-<div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry">
-Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>New York, NY</span>: <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
-</div>
-<div id="ref-korner-nievergeltBayesianDataAnalysis2015" class="csl-entry">
-Korner-Nievergelt, Franzi, Tobias Roth, Stefanie von Felten, Jérôme Guélat, Bettina Almasi, and Pius Korner-Nievergelt. 2015. <em>Bayesian <span>Data Analysis</span> in <span>Ecology Using Linear Models</span> with <span>R</span>, <span>BUGS</span>, and <span>Stan</span></em>. <span>Elsevier Science</span>. <a href="https://www.elsevier.com/books/bayesian-data-analysis-in-ecology-using-linear-models-with-r-bugs-and-stan/korner-nievergelt/978-0-12-801370-0">https://www.elsevier.com/books/bayesian-data-analysis-in-ecology-using-linear-models-with-r-bugs-and-stan/korner-nievergelt/978-0-12-801370-0</a>.
-</div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
-  author = {Matti Vuorre},
-  title = {Confidence Intervals in Multilevel Models},
-  date = {2016-03-06},
-  url = {https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
-Matti Vuorre. 2016. <span>“Confidence Intervals in Multilevel
-Models.”</span> March 6, 2016. <a href="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions">https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions</a>.
-</div></div></section></div> ]]></description>
-  <category>statistics</category>
-  <category>R</category>
-  <category>brms</category>
-  <category>tutorial</category>
-  <guid>https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index.html</guid>
-  <pubDate>Sat, 05 Mar 2016 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,52 @@
+---
+title: Yet another data request email
+description: To what extent does infant screen time predict later psychological outcomes?
+date: 2023-03-24
+categories:
+  - psychology
+draft: false
+execute:
+  cache: true
+  message: false
+  warning: false
+from: markdown+emoji
+reference-location: margin
+execute-dir: file
+format:
+  html:
+    code-fold: show
+    code-summary: "Code"
+    df-print: kable
+bibliography: references.bib
+image: "images/orben-przybylski-2019-fig3.png"
+---
+
+In "Associations Between Infant Screen Use, Electroencephalography Markers, and Cognitive Outcomes" @lawAssociationsInfantScreen2023 write that "Screen time at age 12 months contributed to multiple 9-year attention and executive functioning measures ($\eta^2$, 0.03-0.16; Cohen d, 0.35-0.87)". This is potentially huge news, for at least two reasons:
+
+1. There isn't very much literature on such longitudinal within-person associations between "screen time" [@k.kayeConceptualMethodologicalMayhem2020] and psychosocial outcomes in a time frame spanning infancy to childhood. Studying this association is very important in trying to understand how digital technologies in extremely sensitive developmental periods might affect later life outcomes. So this study potentially provides some really important evidence on the effects of "screen time".
+
+2. The effects are *huge*. $\eta^2$ is a metric assessing the proportion of variability in the outcome that is explained by the predictor. Here, the finding is that infants' screen time can explain up to 16% of variability in cognitive functioning at age 9.
+
+Naturally, scientists studying the effects of digital technologies should be very interested in these findings. As the authors write (emphasis mine):
+
+>In short, increased screen time in infancy is associated with impairments in cognitive processes critical for health, academic achievement, and future work success. However, the findings from this cohort study do not prove causation. Screen time likely represents a measurable contextual characteristic of a family or a proxy for the quality of parent-child interaction. *Replication of this study’s findings* and randomized clinical trials are warranted.
+
+As a first step, I wanted to see and reproduce the computations leading to those effect size estimates. Basic reproduction of analyses is often considered an essential first step in replicating a study. Then, I wanted to extend their analysis by examining the impact of potential measurement error in the infant screen time measure (such self- [or here, parent-] reports are known to be somewhat inaccurate [@parrySystematicReviewMetaanalysis2021]) on the associations. 
+
+I went ahead to the article's website, and looked at Supplement 2. Data sharing statement. It states: 
+
+> Data available: No
+Additional Information
+Explanation for why data not available: This cohort study requires ethics approval for each
+specific research question before data may be shared. The data used in this cohort are
+described in https://gustodatavault.sg/. The data will be made available to researchers who
+provide a methodologically sound proposal.
+
+That's great. I understand that these data are potentially very sensitive, and the people curating these data are right in protecting their participants' privacy. It is also great to see that the data will be shared with serious researchers. I have a clear and methodologically sound proposal for analysing these data:
+
+> Importance: Law et al. (2023) report potentially very consequential results regarding associations between infant screen time and later psychosocial functioning. It is imperative, then, to reproduce the analyses and examine their underlying assumptions.
+Objective: Reproduce the analyses in Law et al. (2023) and examine the impact of assuming no measurement error in the screen time measure at infancy on resulting associations between screen time and psychological functioning at age 9.
+Methodology: Statistical analyses as reported in Law et al. (2023), with a sensitivity analysis with varying levels of measurement error in age 12 months "screen time".
+Proposed outcome: A pre-print deposited on https://psyarxiv.com/ reporting the results and implications of a. the reproduction analysis and b. the sensitivity analysis.
+
+I clicked through to the data website (<https://gustodatavault.sg/about/request-for-data>), and created an account. I am now waiting to have my account approved so that I can proceed with submitting my data request. Stay tuned!

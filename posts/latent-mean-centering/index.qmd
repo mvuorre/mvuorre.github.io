@@ -38,7 +38,7 @@ library(tidyverse)
 
 # Options for sampling
 options(
-  brms.backend = "cmdstanr",
+  brms.backend = "rstan",
   mc.cores = parallel::detectCores(logical = FALSE)
   )
 
@@ -73,7 +73,9 @@ if (!file.exists(path)) {
 }
 ```
 
-:::{.callout-note}
+:::{.callout-warning}
+I am currently studying this model implementation in more detail. It seems that there are some pieces missing, and results regarding some parameters seem unreliable. So **if you want to use this in your own work, please ensure appropriate model performance with a parameter recovery simulation.** Take everything below with a grain of salt. I'll update here once I learn more about this model's performance.
+
 While drafting this entry, I asked for help with coding this up in brms on the Stan forums: <https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424>. I couldn't have figured it out without the help of all those people who answered. Thanks!
 
 The earlier drafts and mistakes I made in coding the brms model up can be found in the [Git history](https://github.com/mvuorre/mvuorre.github.io/commits/main/posts/stan-latent-mean-centering/index.qmd) of this file :smile:
@@ -231,7 +233,6 @@ fit_observed <- brm(
   urge ~ urge_cw1 + dep_cw + (urge_cw1 + dep_cw || person),
   family = gaussian(),
   data = d,
-  cores = 8, chains = 4, threads = 2,
   file = "brm-fit-observed-mean-centered"
 )
 ```
@@ -309,7 +310,6 @@ fit_latent <- brm(
   latent_formula,
   data = d,
   prior = p,
-  cores = 8, chains = 4, threads = 2,
   control = list(adapt_delta = 0.99),
   file = "brm-fit-latent-mean-centered"
 )

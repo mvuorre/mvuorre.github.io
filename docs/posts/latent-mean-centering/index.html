@@ -274,7 +274,7 @@ div.csl-indent {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Options for sampling</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.backend =</span> <span class="st">"cmdstanr"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.backend =</span> <span class="st">"rstan"</span>,</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
@@ -309,16 +309,17 @@ div.csl-indent {
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>I am currently studying this model implementation in more detail. It seems that there are some pieces missing, and results regarding some parameters seem unreliable. So <strong>if you want to use this in your own work, please ensure appropriate model performance with a parameter recovery simulation.</strong> Take everything below with a grain of salt. I’ll update here once I learn more about this model’s performance.</p>
 <p>While drafting this entry, I asked for help with coding this up in brms on the Stan forums: <a href="https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424" class="uri">https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424</a>. I couldn’t have figured it out without the help of all those people who answered. Thanks!</p>
 <p>The earlier drafts and mistakes I made in coding the brms model up can be found in the <a href="https://github.com/mvuorre/mvuorre.github.io/commits/main/posts/stan-latent-mean-centering/index.qmd">Git history</a> of this file <span class="emoji" data-emoji="smile">😄</span></p>
 </div>
@@ -606,7 +607,7 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">b_Intercept ($\alpha$)</td>
-<td style="text-align: left;">0.08 [-0.25, 0.42]</td>
+<td style="text-align: left;">0.08 [-0.25, 0.40]</td>
 <td style="text-align: left;">0.07 [-0.24, 0.39]</td>
 </tr>
 <tr class="even">
@@ -616,12 +617,12 @@ Note
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_dep ($\beta$)</td>
-<td style="text-align: left;">2.44 [2.14, 2.75]</td>
+<td style="text-align: left;">2.43 [2.12, 2.76]</td>
 <td style="text-align: left;">2.43 [2.12, 2.75]</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sigma_sq ($\sigma^2$)</td>
-<td style="text-align: left;">1.34 [0.92, 2.09]</td>
+<td style="text-align: left;">1.34 [0.92, 2.05]</td>
 <td style="text-align: left;">1.36 [0.92, 2.20]</td>
 </tr>
 </tbody><tfoot>
@@ -664,9 +665,8 @@ Note
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  urge <span class="sc">~</span> urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">+</span> (urge_cw1 <span class="sc">+</span> dep_cw <span class="sc">||</span> person),</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">8</span>, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">threads =</span> <span class="dv">2</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-fit-observed-mean-centered"</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-fit-observed-mean-centered"</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors’ Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don’t really know what the data are from the paper). Importantly, we have not estimated the latent depression variable, so that is missing</p>
@@ -715,7 +715,7 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">b_Intercept ($\alpha$)</td>
-<td style="text-align: left;">0.02 [-0.15, 0.19]</td>
+<td style="text-align: left;">0.01 [-0.16, 0.18]</td>
 <td style="text-align: left;">-0.01 [-0.18, 0.16]</td>
 </tr>
 <tr class="even">
@@ -725,12 +725,12 @@ Note
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_dep_cw ($\beta$)</td>
-<td style="text-align: left;">0.79 [0.61, 0.96]</td>
+<td style="text-align: left;">0.78 [0.63, 0.96]</td>
 <td style="text-align: left;">0.80 [0.61, 0.95]</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sd_person__Intercept ($\sigma^2_{\alpha}$)</td>
-<td style="text-align: left;">0.69 [0.52, 0.95]</td>
+<td style="text-align: left;">0.68 [0.52, 0.91]</td>
 <td style="text-align: left;">0.60 [0.44, 0.83]</td>
 </tr>
 <tr class="odd">
@@ -740,7 +740,7 @@ Note
 </tr>
 <tr class="even">
 <td style="text-align: left;">sd_person__dep_cw ($\sigma^2_{\beta})$</td>
-<td style="text-align: left;">0.76 [0.58, 1.04]</td>
+<td style="text-align: left;">0.77 [0.57, 1.01]</td>
 <td style="text-align: left;">0.79 [0.61, 0.95]</td>
 </tr>
 <tr class="odd">
@@ -790,10 +790,9 @@ Note
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  latent_formula,</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> p,</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">8</span>, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">threads =</span> <span class="dv">2</span>,</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-fit-latent-mean-centered"</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-fit-latent-mean-centered"</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can then compare our parameters’ posteriors to those in McNeish and Hamaker:</p>
@@ -854,12 +853,12 @@ Note
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_beta_Intercept ($\beta$)</td>
-<td style="text-align: left;">0.78 [0.60, 0.96]</td>
+<td style="text-align: left;">0.78 [0.61, 0.94]</td>
 <td style="text-align: left;">0.80 [0.61, 0.95]</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_depCB_Intercept (DepB)</td>
-<td style="text-align: left;">-0.10 [-0.23, 0.04]</td>
+<td style="text-align: left;">-0.10 [-0.23, 0.03]</td>
 <td style="text-align: left;">0.01 [-0.02, 0.04]</td>
 </tr>
 <tr class="odd">
@@ -874,12 +873,12 @@ Note
 </tr>
 <tr class="odd">
 <td style="text-align: left;">var_beta_Intercept ($\sigma^2_{\beta})$</td>
-<td style="text-align: left;">0.76 [0.56, 1.02]</td>
+<td style="text-align: left;">0.76 [0.58, 1.03]</td>
 <td style="text-align: left;">0.79 [0.61, 0.95]</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">var_depCB_Intercept ($\sigma^2_{DepB})$</td>
-<td style="text-align: left;">0.01 [0.00, 0.06]</td>
+<td style="text-align: left;">0.01 [0.00, 0.05]</td>
 <td style="text-align: left;">0.01 [0.00, 0.01]</td>
 </tr>
 <tr class="odd">

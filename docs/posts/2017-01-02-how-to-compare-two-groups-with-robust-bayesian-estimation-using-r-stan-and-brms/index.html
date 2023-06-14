@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.321">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,9 +20,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -49,48 +50,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -104,8 +76,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -150,16 +121,17 @@ div.csl-indent {
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Matti’s homepage - How to Compare Two Groups with Robust Bayesian Estimation in R">
-<meta property="og:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST).">
+<meta property="og:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.">
 <meta property="og:image" content="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png">
 <meta property="og:site-name" content="Matti's homepage">
 <meta property="og:image:height" content="614">
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Matti’s homepage - How to Compare Two Groups with Robust Bayesian Estimation in R">
-<meta name="twitter:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST).">
+<meta name="twitter:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.">
 <meta name="twitter:image" content="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png">
 <meta name="twitter:image-height" content="614">
 <meta name="twitter:image-width" content="1344">
@@ -180,33 +152,35 @@ div.csl-indent {
     <span class="navbar-title">Matti’s homepage</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contact.html">
+    <a class="nav-link" href="../../contact.html" rel="" target="">
  <span class="menu-text">Get in touch</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../personal.html">
+    <a class="nav-link" href="../../personal.html" rel="" target="">
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.xml">
+    <a class="nav-link" href="../../blog.xml" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -235,7 +209,7 @@ div.csl-indent {
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
@@ -262,7 +236,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -275,6 +249,7 @@ div.csl-indent {
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -312,9 +287,6 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>“Consider data from two groups of people who take an IQ test. Group 1 (N1=47) consumes a “smart drug,” and Group 2 (N2=42) is a control group that consumes a placebo.”</p>
 </blockquote>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_f2646d19bedbc7dbb647207aea8aa0d2">
-
-</div>
 <p>These data are visualized as histograms, below:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/dataplot1_010c4453c00c39f3c08cce9b1954f2e0">
 <div class="cell-output-display">
@@ -463,38 +435,38 @@ div.csl-indent {
 <p>Notice that the model contains three parameters, one of which is the shared standard deviation <code>sigma</code>. Compare the output of the Bayesian model to the one estimated with <code>lm()</code> (OLS):</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_3baba5f94d16532f646ec82efad7cd81">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Model results, left: OLS, right: brms.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> term </th>
-   <th style="text-align:right;"> estimate </th>
-   <th style="text-align:right;"> std.error </th>
-   <th style="text-align:left;"> brms </th>
-   <th style="text-align:right;"> Estimate </th>
-   <th style="text-align:right;"> Est.Error </th>
-  </tr>
- </thead>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">brms</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Est.Error</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:right;"> 100.36 </td>
-   <td style="text-align:right;"> 0.73 </td>
-   <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 100.36 </td>
-   <td style="text-align:right;"> 0.73 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> GroupTreatment </td>
-   <td style="text-align:right;"> 1.56 </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:left;"> GroupTreatment </td>
-   <td style="text-align:right;"> 1.55 </td>
-   <td style="text-align:right;"> 1.00 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">100.36</td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: right;">100.36</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GroupTreatment</td>
+<td style="text-align: right;">1.56</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">GroupTreatment</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">1.00</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -543,49 +515,49 @@ div.csl-indent {
 <p>The model’s output contains our 4 parameters. <code>Intercept</code> is the mean for group 0, <code>Group 1</code> is the “effect of group 1”. The <code>sigma_Intercept</code> is the standard deviation of Group 0, <code>sigma_Group</code> is the effect of group 1 on the standard deviation (the SD of Group 1 is <code>sigma_Intercept</code> + <code>sigma_Group</code>). The sigmas are implicitly modeled through a log-link (because they must be positive). To convert them back to the scale of the data, they need to be exponentiated. After taking the exponents of the sigmas, the results look like this:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_91a06583cb8e972d7928824c94480c8a">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Posterior summary after transformation</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Parameter </th>
-   <th style="text-align:right;"> Estimate </th>
-   <th style="text-align:right;"> Est.Error </th>
-   <th style="text-align:right;"> Q2.5 </th>
-   <th style="text-align:right;"> Q97.5 </th>
-  </tr>
- </thead>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Parameter</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Est.Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Q2.5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Q97.5</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Intercept </td>
-   <td style="text-align:right;"> 100.36 </td>
-   <td style="text-align:right;"> 0.40 </td>
-   <td style="text-align:right;"> 99.59 </td>
-   <td style="text-align:right;"> 101.13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sigma_Intercept </td>
-   <td style="text-align:right;"> 2.56 </td>
-   <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> 2.06 </td>
-   <td style="text-align:right;"> 3.21 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> GroupTreatment </td>
-   <td style="text-align:right;"> 1.55 </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> -0.38 </td>
-   <td style="text-align:right;"> 3.57 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sigma_GroupTreatment </td>
-   <td style="text-align:right;"> 2.41 </td>
-   <td style="text-align:right;"> 0.38 </td>
-   <td style="text-align:right;"> 1.76 </td>
-   <td style="text-align:right;"> 3.23 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: right;">100.36</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">99.59</td>
+<td style="text-align: right;">101.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sigma_Intercept</td>
+<td style="text-align: right;">2.56</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">3.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GroupTreatment</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">-0.38</td>
+<td style="text-align: right;">3.57</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sigma_GroupTreatment</td>
+<td style="text-align: right;">2.41</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">1.76</td>
+<td style="text-align: right;">3.23</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -649,35 +621,35 @@ div.csl-indent {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-cummingNewStatisticsWhy2014" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cummingNewStatisticsWhy2014" class="csl-entry" role="listitem">
 Cumming, Geoff. 2014. <span>“The <span>New Statistics Why</span> and <span>How</span>.”</span> <em>Psychological Science</em> 25 (1): 7–29. <a href="https://doi.org/10.1177/0956797613504966">https://doi.org/10.1177/0956797613504966</a>.
 </div>
-<div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry" role="listitem">
 Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>.
 </div>
-<div id="ref-gigerenzerMindlessStatistics2004" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gigerenzerMindlessStatistics2004" class="csl-entry" role="listitem">
 Gigerenzer, Gerd. 2004. <span>“Mindless Statistics.”</span> <em>The Journal of Socio-Economics</em>, Statistical <span>Significance</span>, 33 (5): 587–606. <a href="https://doi.org/10.1016/j.socec.2004.09.033">https://doi.org/10.1016/j.socec.2004.09.033</a>.
 </div>
-<div id="ref-kruschkeBayesianEstimationSupersedes2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-kruschkeBayesianEstimationSupersedes2013" class="csl-entry" role="listitem">
 Kruschke, John K. 2013. <span>“Bayesian Estimation Supersedes the t Test.”</span> <em>Journal of Experimental Psychology: General</em> 142 (2): 573–603. <a href="https://doi.org/10.1037/a0029146">https://doi.org/10.1037/a0029146</a>.
 </div>
-<div id="ref-kruschkeDoingBayesianData2014" class="csl-entry" role="doc-biblioentry">
+<div id="ref-kruschkeDoingBayesianData2014" class="csl-entry" role="listitem">
 ———. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>.
 </div>
-<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="listitem">
 McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
-  author = {Matti Vuorre},
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+  author = {Vuorre, Matti},
   title = {How to {Compare} {Two} {Groups} with {Robust} {Bayesian}
     {Estimation} in {R}},
   date = {2017-01-02},
   url = {https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Matti Vuorre. 2017. <span>“How to Compare Two Groups with Robust
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="listitem">
+Vuorre, Matti. 2017. <span>“How to Compare Two Groups with Robust
 Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms">https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -707,9 +679,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -774,6 +760,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -819,6 +891,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

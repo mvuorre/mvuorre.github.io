@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.321">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,9 +20,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -49,48 +50,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -104,8 +76,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -147,16 +118,17 @@ div.csl-indent {
 }</script>
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Matti’s homepage - Bayesian Estimation of Signal Detection Models">
-<meta property="og:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception.">
+<meta property="og:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.">
 <meta property="og:image" content="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png">
 <meta property="og:site-name" content="Matti's homepage">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Matti’s homepage - Bayesian Estimation of Signal Detection Models">
-<meta name="twitter:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception.">
+<meta name="twitter:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.">
 <meta name="twitter:image" content="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png">
 <meta name="twitter:image-height" content="960">
 <meta name="twitter:image-width" content="1344">
@@ -177,33 +149,35 @@ div.csl-indent {
     <span class="navbar-title">Matti’s homepage</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contact.html">
+    <a class="nav-link" href="../../contact.html" rel="" target="">
  <span class="menu-text">Get in touch</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../personal.html">
+    <a class="nav-link" href="../../personal.html" rel="" target="">
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.xml">
+    <a class="nav-link" href="../../blog.xml" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -233,7 +207,7 @@ div.csl-indent {
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
@@ -260,7 +234,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -274,6 +248,7 @@ div.csl-indent {
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -306,7 +281,7 @@ div.csl-indent {
 </div>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_e63342113ab8bdc42ce7f3c97d4b88bc">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Example recognition memory data</caption>
 <thead>
 <tr class="header">
@@ -389,7 +364,7 @@ div.csl-indent {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">crit =</span> <span class="sc">-</span>zfa</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Point estimates of EVSDT parameters</caption>
 <thead>
 <tr class="header">
@@ -664,7 +639,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <p>Above we calculated <em>d’</em> and <em>c</em> for every participant in the sample:</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_2a75f51ae7c79f3a21fb352e39d13798">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Sample participants’ SDT parameters</caption>
 <thead>
 <tr class="header">
@@ -758,7 +733,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate summary statistics for grouping variables</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">mu =</span> <span class="fu">mean</span>(value), <span class="at">sd =</span> <span class="fu">sd</span>(value), <span class="at">se =</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Average EVSDT parameters</caption>
 <thead>
 <tr class="header">
@@ -1009,7 +984,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="fu">c</span>(<span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">104</span>, <span class="dv">92</span>, <span class="dv">41</span>, <span class="dv">8</span>, <span class="dv">46</span>, <span class="dv">57</span>, <span class="dv">66</span>, <span class="dv">101</span>, <span class="dv">154</span>, <span class="dv">173</span>)</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Example rating data from Decarlo (2003)</caption>
 <thead>
 <tr class="header">
@@ -1087,7 +1062,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_50abd354d40ccd0cec041ac4002a1368">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">uncount</span>(dsum, <span class="at">weights =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Example rating data in raw format from Decarlo (2003)</caption>
 <thead>
 <tr class="header">
@@ -1346,7 +1321,7 @@ Link function: Probit.</code></pre>
 <p>In this experiment <span class="citation" data-cites="koen_examining_2013">(<a href="#ref-koen_examining_2013" role="doc-biblioref">Koen et al. 2013</a>)</span>, participants completed a study phase, and were then tested under full attention, or while doing a second task. Here, we focus on the rating data provided in the full attention condition. Below, I reproduce the aggregate rating counts for old and new items from the Table in the article’s appendix. (It is useful to ensure that we are indeed using the same data.)</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-27_591f92c721fcc8d6bfb9ce3aef292f7f">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Example data from Koen et al.&nbsp;(2013)</caption>
 <thead>
 <tr class="header">
@@ -1529,75 +1504,75 @@ Link function: Probit.</code></pre>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-bolger_intensive_2013" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bolger_intensive_2013" class="csl-entry" role="listitem">
 Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive Longitudinal Methods: An Introduction to Diary and Experience Sampling Research</em>. Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
 </div>
-<div id="ref-burkner_brms:_2017" class="csl-entry" role="doc-biblioentry">
+<div id="ref-burkner_brms:_2017" class="csl-entry" role="listitem">
 Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
-<div id="ref-decarlo_signal_1998" class="csl-entry" role="doc-biblioentry">
+<div id="ref-decarlo_signal_1998" class="csl-entry" role="listitem">
 DeCarlo, Lawrence T. 1998. <span>“Signal Detection Theory and Generalized Linear Models.”</span> <em>Psychological Methods</em> 3 (2): 186–205. <a href="https://doi.org/10.1037/1082-989X.3.2.186">https://doi.org/10.1037/1082-989X.3.2.186</a>.
 </div>
-<div id="ref-decarlo_using_2003" class="csl-entry" role="doc-biblioentry">
+<div id="ref-decarlo_using_2003" class="csl-entry" role="listitem">
 Decarlo, Lawrence T. 2003. <span>“Using the <span>PLUM</span> Procedure of <span>SPSS</span> to Fit Unequal Variance and Generalized Signal Detection Models.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 35 (1): 49–56. <a href="https://doi.org/10.3758/BF03195496">https://doi.org/10.3758/BF03195496</a>.
 </div>
-<div id="ref-decarlo_statistical_2010" class="csl-entry" role="doc-biblioentry">
+<div id="ref-decarlo_statistical_2010" class="csl-entry" role="listitem">
 DeCarlo, Lawrence T. 2010. <span>“On the Statistical and Theoretical Basis of Signal Detection Theory and Extensions: <span>Unequal</span> Variance, Random Coefficient, and Mixture Models.”</span> <em>Journal of Mathematical Psychology</em> 54 (3): 304–13. <a href="https://doi.org/10.1016/j.jmp.2010.01.001">https://doi.org/10.1016/j.jmp.2010.01.001</a>.
 </div>
-<div id="ref-estes_problem_1956" class="csl-entry" role="doc-biblioentry">
+<div id="ref-estes_problem_1956" class="csl-entry" role="listitem">
 Estes, W. K. 1956. <span>“The Problem of Inference from Curves Based on Group Data.”</span> <em>Psychological Bulletin</em> 53 (2): 134–40. <a href="https://doi.org/10.1037/h0045156">https://doi.org/10.1037/h0045156</a>.
 </div>
-<div id="ref-gabry_bayesplot:_2017" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gabry_bayesplot:_2017" class="csl-entry" role="listitem">
 Gabry, Jonah. 2017. <em>Bayesplot: <span>Plotting</span> for <span>Bayesian</span> Models</em>. <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
 </div>
-<div id="ref-gelman_data_2007" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gelman_data_2007" class="csl-entry" role="listitem">
 Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>Cambridge University Press</span>.
 </div>
-<div id="ref-koen_examining_2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-koen_examining_2013" class="csl-entry" role="listitem">
 Koen, Joshua D., Mariam Aly, Wei-Chun Wang, and Andrew P. Yonelinas. 2013. <span>“Examining the Causes of Memory Strength Variability: <span>Recollection</span>, Attention Failure, or Encoding Variability?”</span> <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em> 39 (6): 1726–41. <a href="https://doi.org/10.1037/a0033671">https://doi.org/10.1037/a0033671</a>.
 </div>
-<div id="ref-kruschke_doing_2014" class="csl-entry" role="doc-biblioentry">
+<div id="ref-kruschke_doing_2014" class="csl-entry" role="listitem">
 Kruschke, John K. 2014. <em>Doing Bayesian Data Analysis: A Tutorial Introduction with r</em>. 2nd Edition. Burlington, <span>MA</span>: Academic Press.
 </div>
-<div id="ref-macmillan_detection_2005" class="csl-entry" role="doc-biblioentry">
+<div id="ref-macmillan_detection_2005" class="csl-entry" role="listitem">
 Macmillan, Neil A., and C. Douglas Creelman. 2005. <em>Detection Theory: A User’s Guide</em>. 2nd ed. <span>Mahwah, N.J</span>: <span>Lawrence Erlbaum Associates</span>.
 </div>
-<div id="ref-mcelreath_statistical_2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-mcelreath_statistical_2016" class="csl-entry" role="listitem">
 McElreath, Richard. 2016. <em>Statistical Rethinking: A Bayesian Course with Examples in r and Stan</em>. <span>CRC</span> Press.
 </div>
-<div id="ref-r_core_team_r:_2017" class="csl-entry" role="doc-biblioentry">
+<div id="ref-r_core_team_r:_2017" class="csl-entry" role="listitem">
 R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<div id="ref-rouder_introduction_2005" class="csl-entry" role="doc-biblioentry">
+<div id="ref-rouder_introduction_2005" class="csl-entry" role="listitem">
 Rouder, Jeffrey N., and Jun Lu. 2005. <span>“An Introduction to <span>Bayesian</span> Hierarchical Models with an Application in the Theory of Signal Detection.”</span> <em>Psychonomic Bulletin &amp; Review</em> 12 (4): 573–604. <a href="https://doi.org/10.3758/BF03196750">https://doi.org/10.3758/BF03196750</a>.
 </div>
-<div id="ref-rouder_signal_2007" class="csl-entry" role="doc-biblioentry">
+<div id="ref-rouder_signal_2007" class="csl-entry" role="listitem">
 Rouder, Jeffrey N., Jun Lu, Dongchu Sun, Paul Speckman, Richard D. Morey, and Moshe Naveh-Benjamin. 2007. <span>“Signal <span>Detection Models</span> with <span>Random Participant</span> and <span>Item Effects</span>.”</span> <em>Psychometrika</em> 72 (4): 621–42. <a href="https://doi.org/10.1007/s11336-005-1350-6">https://doi.org/10.1007/s11336-005-1350-6</a>.
 </div>
-<div id="ref-singmann_mptinr:_2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-singmann_mptinr:_2013" class="csl-entry" role="listitem">
 Singmann, Henrik, and David Kellen. 2013. <span>“<span>MPTinR</span>: <span>Analysis</span> of Multinomial Processing Tree Models in <span>R</span>.”</span> <em>Behavior Research Methods</em> 45 (2): 560–75. <a href="https://doi.org/10.3758/s13428-012-0259-0">https://doi.org/10.3758/s13428-012-0259-0</a>.
 </div>
-<div id="ref-skagerberg_manipulating_2008" class="csl-entry" role="doc-biblioentry">
+<div id="ref-skagerberg_manipulating_2008" class="csl-entry" role="listitem">
 Skagerberg, Elin M., and Daniel B. Wright. 2008. <span>“Manipulating Power Can Affect Memory Conformity.”</span> <em>Applied Cognitive Psychology</em> 22 (2): 207–16. <a href="https://doi.org/10.1002/acp.1353">https://doi.org/10.1002/acp.1353</a>.
 </div>
-<div id="ref-stan_development_team_rstan:_2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-stan_development_team_rstan:_2016" class="csl-entry" role="listitem">
 Stan Development Team. 2016a. <em><span>RStan</span>: The r Interface to Stan</em>. <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
 </div>
-<div id="ref-stan_development_team_stan:_2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-stan_development_team_stan:_2016" class="csl-entry" role="listitem">
 ———. 2016b. <em>Stan: A c++ Library for Probability and Sampling, Version 2.15.0</em>. <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
 </div>
-<div id="ref-stanislaw_calculation_1999" class="csl-entry" role="doc-biblioentry">
+<div id="ref-stanislaw_calculation_1999" class="csl-entry" role="listitem">
 Stanislaw, Harold, and Natasha Todorov. 1999. <span>“Calculation of Signal Detection Theory Measures.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 31 (1): 137–49. <a href="http://link.springer.com/article/10.3758/BF03207704">http://link.springer.com/article/10.3758/BF03207704</a>.
 </div>
-<div id="ref-ravenzwaaij_simple_2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-ravenzwaaij_simple_2016" class="csl-entry" role="listitem">
 van Ravenzwaaij, Don, Pete Cassey, and Scott D. Brown. 2016. <span>“A Simple Introduction to <span>Markov Chain Monte</span>–<span>Carlo</span> Sampling.”</span> <em>Psychonomic Bulletin &amp; Review</em>, March, 1–12. <a href="https://doi.org/10.3758/s13423-016-1015-8">https://doi.org/10.3758/s13423-016-1015-8</a>.
 </div>
-<div id="ref-wilke_ggridges:_2017" class="csl-entry" role="doc-biblioentry">
+<div id="ref-wilke_ggridges:_2017" class="csl-entry" role="listitem">
 Wilke, Claus O. 2017. <em>Ggridges: <span>Ridgeline Plots</span> in ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggridges">https://CRAN.R-project.org/package=ggridges</a>.
 </div>
-<div id="ref-wright_sdtalt:_2011" class="csl-entry" role="doc-biblioentry">
-Wright, Daniel B. 2011. <em>Sdtalt: <span>Signal</span> Detection Theory and Alternatives</em>. <a href="https://CRAN.R-project.org/package=sdtalt">https://CRAN.R-project.org/package=sdtalt</a>.
+<div id="ref-wright_sdtalt:_2011" class="csl-entry" role="listitem">
+Wright, Daniel B. 2011. <span>“Sdtalt: <span>Signal</span> Detection Theory and Alternatives.”</span> <a href="https://CRAN.R-project.org/package=sdtalt">https://CRAN.R-project.org/package=sdtalt</a>.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
@@ -1607,15 +1582,15 @@ Wright, Daniel B. 2011. <em>Sdtalt: <span>Signal</span> Detection Theory and Alt
 <li id="fn3"><p>Recall that intercepts are automatically included, but can be explicitly included by adding <code>1</code> to the formula’s right hand side.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p><code>0 + ...</code> removes the model’s intercept.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
-  author = {Matti Vuorre},
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+  author = {Vuorre, Matti},
   title = {Bayesian {Estimation} of {Signal} {Detection} {Models}},
   date = {2017-10-09},
   url = {https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Matti Vuorre. 2017. <span>“Bayesian Estimation of Signal Detection
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="listitem">
+Vuorre, Matti. 2017. <span>“Bayesian Estimation of Signal Detection
 Models.”</span> October 9, 2017. <a href="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models">https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1645,9 +1620,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1712,6 +1701,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1757,6 +1832,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

@@ -20,8 +20,6 @@ website:
       reactions-enabled: true
       input-position: top
       theme: light
-  favicon: favicon.png
-  image: favicon.png
   search:
     location: navbar
     type: overlay
@@ -29,7 +27,6 @@ website:
   open-graph: true
   page-navigation: true
   navbar:
-    logo: favicon.png
     pinned: true
     background: primary
     right:
@@ -37,7 +34,6 @@ website:
         href: index.qmd
       - text: Blog
         href: blog.qmd
-      - contact.qmd
       - personal.qmd
       - text: "{{< fa rss >}}"
         href: blog.xml

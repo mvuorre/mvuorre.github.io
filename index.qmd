@@ -3,33 +3,33 @@ title: "Matti Vuorre"
 subtitle: |
   Psychological scientist
 image: /images/profile.png
-about:
-  id: edu-exp
-  template: solana
-  image-width: 12em
-  image-shape: round
-  links:
-    - text: "{{< fa solid envelope >}}"
-      href: "mailto:m.j.vuorre@tilburguniversity.edu"
-      aria-label: "envelope logo for linking to Matti's email"
-    - text: "{{< fa brands orcid >}}"
-      href: "https://orcid.org/0000-0001-5052-066X"
-      aria-label: "ORCID logo linking to Matti's ORCID account"
-    - text: "{{< fa brands mastodon >}}"
-      href: "https://fosstodon.org/@matti"
-      aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
-    - text: "{{< fa brands github >}}"
-      href: "https://github.com/mvuorre"
-      aria-label: "GitHub logo linking to Matti's GitHub page"
-    - text: "CV"
-      href: "https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf"
-      aria-label: "GitHub logo linking to Matti's GitHub page"
-    - text: "{{< fa brands twitter >}}"
-      href: "https://twitter.com/vuorre"
-      aria-label: "Twitter logo linking to Matti's Twitter profile"
-    - text: "{{< fa brands linkedin >}}"
-      href: "https://www.linkedin.com/in/matti-vuorre"
-      aria-label: "LinkedIn logo linking to Matti Vuorre's LinkedIn profile"
+# about:
+#   id: edu-exp
+#   template: solana
+#   image-width: 12em
+#   image-shape: round
+  # links:
+    # - text: "{{< fa solid envelope >}}"
+    #   href: "mailto:m.j.vuorre@tilburguniversity.edu"
+    #   aria-label: "envelope logo for linking to Matti's email"
+    # - text: "{{< fa brands orcid >}}"
+    #   href: "https://orcid.org/0000-0001-5052-066X"
+    #   aria-label: "ORCID logo linking to Matti's ORCID account"
+    # - text: "{{< fa brands mastodon >}}"
+    #   href: "https://fosstodon.org/@matti"
+    #   aria-label: "Mastodon logo linking to Matti's Fosstodon instance account"
+    # - text: "{{< fa brands github >}}"
+    #   href: "https://github.com/mvuorre"
+    #   aria-label: "GitHub logo linking to Matti's GitHub page"
+    # - text: "CV"
+    #   href: "https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf"
+    #   aria-label: "GitHub logo linking to Matti's GitHub page"
+    # - text: "{{< fa brands twitter >}}"
+    #   href: "https://twitter.com/vuorre"
+    #   aria-label: "Twitter logo linking to Matti's Twitter profile"
+    # - text: "{{< fa brands linkedin >}}"
+    #   href: "https://www.linkedin.com/in/matti-vuorre"
+    #   aria-label: "LinkedIn logo linking to Matti Vuorre's LinkedIn profile"
 from: markdown+emoji
 comments: false
 ---

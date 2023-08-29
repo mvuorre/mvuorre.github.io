@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.4.330">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -29,7 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -50,6 +49,9 @@ ul.task-list li input[type="checkbox"] {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    null
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -59,7 +61,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -93,11 +96,12 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="Matti's homepage" href="blog.xml"><meta property="og:title" content="Matti’s homepage - Sometimes I R">
+<link rel="alternate" type="application/rss+xml" title="Matti's homepage" href="blog.xml" data-external="1"><meta property="og:title" content="Matti’s homepage - Sometimes I R">
 <meta property="og:description" content="A blog about statistics, psychology, science, and sometimes R">
-<meta property="og:site-name" content="Matti's homepage">
+<meta property="og:site_name" content="Matti's homepage">
 <meta name="twitter:title" content="Matti’s homepage - Sometimes I R">
 <meta name="twitter:description" content="A blog about statistics, psychology, science, and sometimes R">
 <meta name="twitter:card" content="summary">
@@ -109,42 +113,37 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./favicon.png" alt="" class="navbar-logo">
-    </a>
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Matti’s homepage</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html">
- <span class="menu-text">Get in touch</span></a>
+    <a class="nav-link" href="./personal.html"> 
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./personal.html">
- <span class="menu-text">About me</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./blog.xml">
- <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
+    <a class="nav-link" href="./blog.xml"> 
+<span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -184,9 +183,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="psychology" data-listing-date-sort="1679612400000" data-listing-file-modified-sort="1679657777819" data-listing-reading-time-sort="2.88">
+<div class="quarto-post image-right" data-index="0" data-categories="psychology" data-listing-date-sort="1679612400000" data-listing-file-modified-sort="1693294661078" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="576">
 <div class="thumbnail">
-<p><a href="./posts/yet-another-data-request-email/index.html"> <img src="./posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/yet-another-data-request-email/index.html"> <img src="./posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/yet-another-data-request-email/index.html">
@@ -219,13 +218,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,modelling,bayes,centering,longitudinal,brms" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1674034431840" data-listing-reading-time-sort="11.815">
+<div class="quarto-post image-right" data-index="1" data-categories="R,modelling,bayes,centering,longitudinal,brms" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1693294661073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2408">
 <div class="thumbnail">
-<a href="./posts/latent-mean-centering/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/latent-mean-centering/index.html"></a></p>
+<p><a href="./posts/latent-mean-centering/index.html"> <img src="./posts/latent-mean-centering" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/latent-mean-centering/index.html">
@@ -273,9 +268,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="tips,computers" data-listing-date-sort="1670454000000" data-listing-file-modified-sort="1674034431839" data-listing-reading-time-sort="3.64">
+<div class="quarto-post image-right" data-index="2" data-categories="tips,computers" data-listing-date-sort="1670454000000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="728">
 <div class="thumbnail">
-<p><a href="./posts/computer-setup-dotfiles/index.html"> <img src="./posts/computer-setup-dotfiles/images/terminal.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/computer-setup-dotfiles/index.html"> <img src="./posts/computer-setup-dotfiles/images/terminal.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/computer-setup-dotfiles/index.html">
@@ -311,9 +306,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,statistics,tutorial,multiverse,tidyverse,specr" data-listing-date-sort="1670367600000" data-listing-file-modified-sort="1674034431847" data-listing-reading-time-sort="18.275">
+<div class="quarto-post image-right" data-index="3" data-categories="R,statistics,tutorial,multiverse,tidyverse,specr" data-listing-date-sort="1670367600000" data-listing-file-modified-sort="1693294603299" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3655">
 <div class="thumbnail">
-<p><a href="./posts/parallel-multiverse/index.html"> <img src="./posts/parallel-multiverse/images/undraw-lost-online.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/parallel-multiverse/index.html"> <img src="./posts/parallel-multiverse/images/undraw-lost-online.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/parallel-multiverse/index.html">
@@ -361,9 +356,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,visualization,ggplot2" data-listing-date-sort="1670281200000" data-listing-file-modified-sort="1674034431850" data-listing-reading-time-sort="4.715">
+<div class="quarto-post image-right" data-index="4" data-categories="R,visualization,ggplot2" data-listing-date-sort="1670281200000" data-listing-file-modified-sort="1693294603302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
 <div class="thumbnail">
-<p><a href="./posts/raincloud-plot-alt/index.html"> <img src="https://cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/raincloud-plot-alt/index.html"> <p class="card-img-top"><img src="posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
 <div class="body">
 <a href="./posts/raincloud-plot-alt/index.html">
@@ -402,9 +397,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,RStudio Server,Docker,Tailscale,tutorial" data-listing-date-sort="1670022000000" data-listing-file-modified-sort="1674034431854" data-listing-reading-time-sort="5.34">
+<div class="quarto-post image-right" data-index="5" data-categories="R,RStudio Server,Docker,Tailscale,tutorial" data-listing-date-sort="1670022000000" data-listing-file-modified-sort="1693294603306" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1068">
 <div class="thumbnail">
-<p><a href="./posts/remote-r/index.html"> <img src="./posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/remote-r/index.html"> <img src="./posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/remote-r/index.html">
@@ -449,9 +444,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R" data-listing-date-sort="1656453600000" data-listing-file-modified-sort="1674034431840" data-listing-reading-time-sort="2.34">
+<div class="quarto-post image-right" data-index="6" data-categories="R" data-listing-date-sort="1656453600000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
 <div class="thumbnail">
-<p><a href="./posts/hexsticker-favicon/index.html"> <img src="./posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/hexsticker-favicon/index.html"> <img src="./posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/hexsticker-favicon/index.html">
@@ -484,9 +479,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,tips" data-listing-date-sort="1655244000000" data-listing-file-modified-sort="1674034431840" data-listing-reading-time-sort="0.935">
+<div class="quarto-post image-right" data-index="7" data-categories="R,tips" data-listing-date-sort="1655244000000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
 <div class="thumbnail">
-<p><a href="./posts/easy-notifications-from-r/index.html"> <img src="./posts/easy-notifications-from-r/images/subscribe.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/easy-notifications-from-r/index.html"> <p class="card-img-top"><img src="posts/easy-notifications-from-r/images/subscribe.jpeg" alt="Subscribing to vuorre-r-notifications on ntfy.sh"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
 <div class="body">
 <a href="./posts/easy-notifications-from-r/index.html">
@@ -522,9 +517,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1580943600000" data-listing-file-modified-sort="1674034431834" data-listing-reading-time-sort="7.605">
+<div class="quarto-post image-right" data-index="8" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1580943600000" data-listing-file-modified-sort="1693294603277" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1521">
 <div class="thumbnail">
-<p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"> <img src="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"> <img src="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
@@ -566,9 +561,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1550444400000" data-listing-file-modified-sort="1674034431827" data-listing-reading-time-sort="31.11">
+<div class="quarto-post image-right" data-index="9" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1550444400000" data-listing-file-modified-sort="1693294603269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6222">
 <div class="thumbnail">
-<p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"> <img src="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"> <img src="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
@@ -613,9 +608,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="data science,visualization,ggplot2,R" data-listing-date-sort="1544655600000" data-listing-file-modified-sort="1674034431827" data-listing-reading-time-sort="1.965">
+<div class="quarto-post image-right" data-index="10" data-categories="data science,visualization,ggplot2,R" data-listing-date-sort="1544655600000" data-listing-file-modified-sort="1693294603269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
 <div class="thumbnail">
-<p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"> <img src="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"> <img src="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
@@ -657,13 +652,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="data science,R" data-listing-date-sort="1544569200000" data-listing-file-modified-sort="1674034431827" data-listing-reading-time-sort="2.315">
+<div class="quarto-post image-right" data-index="11" data-categories="data science,R" data-listing-date-sort="1544569200000" data-listing-file-modified-sort="1693294603268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
 <div class="thumbnail">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"></a></p>
+<p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
@@ -699,9 +690,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1507500000000" data-listing-file-modified-sort="1674034431814" data-listing-reading-time-sort="54.935">
+<div class="quarto-post image-right" data-index="12" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1507500000000" data-listing-file-modified-sort="1693294603254" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="55" data-listing-word-count-sort="10987">
 <div class="thumbnail">
-<p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"> <img src="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"> <img src="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
@@ -746,9 +737,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1490050800000" data-listing-file-modified-sort="1674034431811" data-listing-reading-time-sort="11.805">
+<div class="quarto-post image-right" data-index="13" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1490050800000" data-listing-file-modified-sort="1693294603250" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2361">
 <div class="thumbnail">
-<p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"> <img src="./posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"> <img src="./posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
@@ -790,9 +781,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="statistics,tutorial,R,visualization,ggplot2" data-listing-date-sort="1483484400000" data-listing-file-modified-sort="1674034431810" data-listing-reading-time-sort="4.645">
+<div class="quarto-post image-right" data-index="14" data-categories="statistics,tutorial,R,visualization,ggplot2" data-listing-date-sort="1483484400000" data-listing-file-modified-sort="1693294603248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="929">
 <div class="thumbnail">
-<p><a href="./posts/2017-01-04-within-subject-scatter/index.html"> <img src="./posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2017-01-04-within-subject-scatter/index.html"> <img src="./posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2017-01-04-within-subject-scatter/index.html">
@@ -837,9 +828,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1483311600000" data-listing-file-modified-sort="1674034431796" data-listing-reading-time-sort="16.32">
+<div class="quarto-post image-right" data-index="15" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1483311600000" data-listing-file-modified-sort="1693294603225" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3264">
 <div class="thumbnail">
-<p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"> <img src="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"> <img src="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
@@ -881,9 +872,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="data science,R,visualization" data-listing-date-sort="1480978800000" data-listing-file-modified-sort="1674034431794" data-listing-reading-time-sort="3.295">
+<div class="quarto-post image-right" data-index="16" data-categories="data science,R,visualization" data-listing-date-sort="1480978800000" data-listing-file-modified-sort="1693294603223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="659">
 <div class="thumbnail">
-<p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"> <img src="./posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"> <img src="./posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
@@ -922,9 +913,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1475100000000" data-listing-file-modified-sort="1674034431792" data-listing-reading-time-sort="9.4">
+<div class="quarto-post image-right" data-index="17" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1475100000000" data-listing-file-modified-sort="1693294603221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
 <div class="thumbnail">
-<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"> <img src="./posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"> <img src="./posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
@@ -966,9 +957,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="R,visualization,data science,tutorial" data-listing-date-sort="1458774000000" data-listing-file-modified-sort="1674034431791" data-listing-reading-time-sort="3.51">
+<div class="quarto-post image-right" data-index="18" data-categories="R,visualization,data science,tutorial" data-listing-date-sort="1458774000000" data-listing-file-modified-sort="1693294603220" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="702">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-24-github-waffle-plot/index.html"> <img src="./posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2016-03-24-github-waffle-plot/index.html"> <img src="./posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2016-03-24-github-waffle-plot/index.html">
@@ -1010,9 +1001,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="data science,R,visualization,tutorial" data-listing-date-sort="1457996400000" data-listing-file-modified-sort="1674034431790" data-listing-reading-time-sort="5.68">
+<div class="quarto-post image-right" data-index="19" data-categories="data science,R,visualization,tutorial" data-listing-date-sort="1457996400000" data-listing-file-modified-sort="1693294603218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1136">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"> <img src="./posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"> <img src="./posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
@@ -1054,9 +1045,9 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457218800000" data-listing-file-modified-sort="1674034431780" data-listing-reading-time-sort="13.2">
+<div class="quarto-post image-right" data-index="20" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457218800000" data-listing-file-modified-sort="1693294603208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2640">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-06-multilevel-predictions/index.html"> <img src="./posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2016-03-06-multilevel-predictions/index.html"> <img src="./posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2016-03-06-multilevel-predictions/index.html">
@@ -1130,9 +1121,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1168,10 +1173,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1181,8 +1185,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1197,6 +1210,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1239,37 +1441,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-left">
+<p>© Matti Vuorre 2022</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><ul><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a>
+    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu">
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a>
+    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X">
+<p><i class="fa-brands fa-orcid" aria-label="orcid"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://fosstodon.org/@matti"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a>
+    <a class="nav-link" href="https://fosstodon.org/@matti">
+<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre"><i class="fa-brands fa-github" aria-label="github"></i></a>
+    <a class="nav-link" href="https://github.com/mvuorre">
+<p><i class="fa-brands fa-github" aria-label="github"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">CV</a>
+    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
+<p>CV</p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/vuorre"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a>
+    <a class="nav-link" href="https://twitter.com/vuorre">
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre">
+<p><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre"><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></a>
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
+<p><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

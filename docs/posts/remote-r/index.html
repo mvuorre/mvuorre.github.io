@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.4.330">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,9 +20,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -49,43 +50,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -95,7 +66,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,6 +84,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    null
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -123,7 +96,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -132,55 +106,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <meta property="og:title" content="Matti’s homepage - How to run R remotely">
 <meta property="og:description" content="Running R on a remote computer is surprisingly easy">
 <meta property="og:image" content="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
-<meta property="og:site-name" content="Matti's homepage">
+<meta property="og:site_name" content="Matti's homepage">
 <meta name="twitter:title" content="Matti’s homepage - How to run R remotely">
 <meta name="twitter:description" content="Running R on a remote computer is surprisingly easy">
 <meta name="twitter:image" content="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../favicon.png" alt="" class="navbar-logo">
-    </a>
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s homepage</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contact.html">
- <span class="menu-text">Get in touch</span></a>
+    <a class="nav-link" href="../../personal.html"> 
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../personal.html">
- <span class="menu-text">About me</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../blog.xml">
- <span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
+    <a class="nav-link" href="../../blog.xml"> 
+<span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -209,12 +178,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
-              <a href="https://www.oii.ox.ac.uk/people/matti-vuorre/">
-              University of Oxford
+              <a href="https://www.tilburguniversity.edu/staff/m-j-vuorre">
+              Tilburg University
               </a>
             </p>
         </div>
@@ -236,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -247,13 +216,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#computers-on-different-networks" id="toc-computers-on-different-networks" class="nav-link" data-scroll-target="#computers-on-different-networks">Computers on different networks</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -273,37 +243,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The first thing you need to set up is an RStudio Server instance on the fast computer. If your fast computer is running Linux, <a href="https://posit.co/download/rstudio-server/">this is trivial</a>.</p>
 <p>If your fast computer has either MacOS or Windows, you will need to set up the RStudio Server instance using Docker. This is really easy, and we begin here.</p>
 </section>
-<section id="rstudio-server" class="level1 page-columns page-full">
+<section id="rstudio-server" class="level1">
 <h1>RStudio Server</h1>
 <p>We are first going to install RStudio Server on the fast computer. You cannot run RStudio Server on MacOS or Windows, but we can easily fire one up using <a href="https://www.docker.com/">Docker</a>. First, using your fast computer, head over to the Docker website and download the Docker desktop app. Then start it and make sure it is running (you will have a menu bar or taskbar Docker button to indicate that it’s running).</p>
 <p>Then start a terminal session, and use it to start a <a href="https://rocker-project.org/">rocker/rstudio</a> container:</p>
-
-<div class="no-row-height column-margin column-container"><div class="callout-note callout callout-style-default callout-captioned">
+<div class="aside callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The rocker images don’t yet work on M1 Macs. If you, like me, are using an M1 Mac, you can replace <code>rocker/rstudio</code> with <code>amoselb/rstudio-m1</code>.</p>
 </div>
-</div></div><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-ti</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>/work:/home/rstudio <span class="at">-e</span> PASSWORD=yourpassword <span class="at">-p</span> 8787:8787 rocker/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-ti</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>/work:/home/rstudio <span class="at">-e</span> PASSWORD=yourpassword <span class="at">-p</span> 8787:8787 rocker/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This creates a directory in your current working directory called <code>work</code>, and lets the Docker container access files therein (inside the container, the path is <code>/home/rstudio</code> where RStudio Server sessions typically start). This way whatever files you save inside Docker will remain in your disk, and you can use / edit those outside the container as well. (Thanks Kristoffer for pointing this critical point to me!)</p>
-<p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (<a href="#fig-login">Figure&nbsp;1</a>).</p>
+<p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (<a href="#fig-login" class="quarto-xref">Figure&nbsp;1</a>).</p>
 <div id="fig-login" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption>
 </figure>
 </div>
-<p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (<a href="#fig-rstudio-server">Figure&nbsp;2</a>).</p>
+<p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (<a href="#fig-rstudio-server" class="quarto-xref">Figure&nbsp;2</a>).</p>
 <div id="fig-rstudio-server" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption>
 </figure>
 </div>
 <p>Notice how it runs on Ubuntu, although my computer is an M1 Mac. Pretty cool, huh.</p>
@@ -314,11 +284,11 @@ Note
 <p>This is pretty easy! First, find your fast computer’s local IP address. There’s many ways to find this and you could for example query it in the terminal:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipconfig</span> getifaddr en0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Your local IP address will be something like <code>192.168.0.123</code>. My fast computer currently runs on <code>192.168.0.155</code>, and I’ll use it below.</p>
-<p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see <a href="#fig-rstudio-remote-1">Figure&nbsp;3</a>.</p>
+<p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see <a href="#fig-rstudio-remote-1" class="quarto-xref">Figure&nbsp;3</a>.</p>
 <div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption>
 </figure>
 </div>
 <p>It really isn’t more difficult than that.</p>
@@ -327,14 +297,14 @@ Note
 <h1>Computers on different networks</h1>
 <p>OK, so you still have RStudio Server running on your fast computer, but maybe it’s at work and you are now at home with your slow computer and a cold beer. How to connect? There’s many ways to do this, but here we will use <a href="https://tailscale.com/">Tailscale</a>.</p>
 <p>First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point <span class="emoji" data-emoji="smile">😄</span>. [Unless you already have e.g.&nbsp;SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale is running on both and that they are signed in to the same Tailscale account. You can follow the <a href="https://tailscale.com/kb/1017/install/">official instructions</a>. It really is quite easy and that’s why I use Tailscale and not some other SSH or VPN based solution.</p>
-<p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (<a href="#fig-tailscale">Figure&nbsp;4</a>), whether they are active or not.</p>
+<p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (<a href="#fig-tailscale" class="quarto-xref">Figure&nbsp;4</a>), whether they are active or not.</p>
 <div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption>
 </figure>
 </div>
-<p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in <a href="#fig-tailscale">Figure&nbsp;4</a>, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see <a href="#fig-rstudio-remote-1">Figure&nbsp;3</a> again.</p>
+<p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in <a href="#fig-tailscale" class="quarto-xref">Figure&nbsp;4</a>, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see <a href="#fig-rstudio-remote-1" class="quarto-xref">Figure&nbsp;3</a> again.</p>
 <p>I can then use RStudio (server) running on my fast computer on any of my other computers (as clients), by using the Tailscale IP address.</p>
 </section>
 <section id="conclusion" class="level1">
@@ -345,15 +315,15 @@ Note
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
-  author = {Matti Vuorre},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+  author = {Vuorre, Matti},
   title = {How to Run {R} Remotely},
   date = {2022-12-03},
   url = {https://vuorre.netlify.app/posts/remote-r},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Matti Vuorre. 2022. <span>“How to Run R Remotely.”</span> December 3,
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="listitem">
+Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
 2022. <a href="https://vuorre.netlify.app/posts/remote-r">https://vuorre.netlify.app/posts/remote-r</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -383,9 +353,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -421,10 +405,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -434,8 +417,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -450,6 +442,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -491,40 +672,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="mvuorre/mvuorre.github.io" data-repo-id="R_kgDOHk4rRg" data-category="giscus" data-category-id="DIC_kwDOHk4rRs4CQAdF" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="light">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">© Matti Vuorre 2022</div>   
+    <div class="nav-footer-left">
+<p>© Matti Vuorre 2022</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a>
+    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu">
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a>
+    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X">
+<p><i class="fa-brands fa-orcid" aria-label="orcid"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://fosstodon.org/@matti"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a>
+    <a class="nav-link" href="https://fosstodon.org/@matti">
+<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre"><i class="fa-brands fa-github" aria-label="github"></i></a>
+    <a class="nav-link" href="https://github.com/mvuorre">
+<p><i class="fa-brands fa-github" aria-label="github"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">CV</a>
+    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
+<p>CV</p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/vuorre"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a>
+    <a class="nav-link" href="https://twitter.com/vuorre">
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre">
+<p><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre"><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></a>
+    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
+<p><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

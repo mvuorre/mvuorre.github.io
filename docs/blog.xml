@@ -9,14 +9,7 @@
 <link>https://vuorre.netlify.app/blog.html</link>
 <atom:link href="https://vuorre.netlify.app/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on psychology, statistics, and R, sometimes</description>
-<image>
-<url>https://vuorre.netlify.app/favicon.png</url>
-<title>Matti&#39;s homepage</title>
-<link>https://vuorre.netlify.app/blog.html</link>
-<height>167</height>
-<width>144</width>
-</image>
-<generator>quarto-1.3.321</generator>
+<generator>quarto-1.4.330</generator>
 <lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Yet another data request email</title>
@@ -293,8 +286,8 @@ Warning
 </div>
 <section id="introduction" class="level1 page-columns page-full">
 <h1>Introduction</h1>
-<div class="page-columns page-full"><p>Within cluster centering, or <em>person-mean centering</em> (psychologists’ clusters are typically persons), is an easy but essential data processing step. For example consider the example data of 100 people’s ratings of urge to smoke and depression, collected over 50 days with one response per day <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(McNeish and Hamaker 2020)</span> <sup>1</sup>, shown in Table&nbsp;1 and Figure&nbsp;1.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Grab a free copy at <a href="https://osf.io/j56bm/download" class="uri">https://osf.io/j56bm/download</a>. I couldn’t figure if this example data is real or simulated, or what the measurement instruments were.</p></li></div></div>
-<div class="cell">
+<p>Within cluster centering, or <em>person-mean centering</em> (psychologists’ clusters are typically persons), is an easy but essential data processing step. For example consider the example data of 100 people’s ratings of urge to smoke and depression, collected over 50 days with one response per day <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(McNeish and Hamaker 2020)</span> <sup>1</sup>, shown in Table&nbsp;1 and Figure&nbsp;1.</p>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Grab a free copy at <a href="https://osf.io/j56bm/download" class="uri">https://osf.io/j56bm/download</a>. I couldn’t figure if this example data is real or simulated, or what the measurement instruments were.</p></li></div><div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
@@ -687,7 +680,7 @@ font-style: inherit;">labeller =</span> label_both)</span></code></pre></div>
 <div id="fig-data" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Four persons’ depression and urge to smoke over time</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Four persons’ depression and urge to smoke over time</figcaption>
 </figure>
 </div>
 </div>
@@ -698,8 +691,8 @@ font-style: inherit;">labeller =</span> label_both)</span></code></pre></div>
 <section id="single-level-ar1-model" class="level1 page-columns page-full">
 <h1>Single-level AR(1) model</h1>
 <p>To begin with, we replicate the authors’ basic N=1 model predicting the urge to smoke from the urge to smoke on a previous measurement occasion, and the current level of depression. Because we are modelling one person’s data only, there is no need for centering, but this model serves as a useful starting point for our quest.</p>
-<div class="page-columns page-full"><p>Following <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(McNeish and Hamaker 2020)</span>, we assume that Urge at time <img src="https://latex.codecogs.com/png.latex?t"> is normally distributed around a mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_t"> with standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma">. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression<sup>2</sup>:</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’ve used the more common <img src="https://latex.codecogs.com/png.latex?%5Cphi"> (phi) throughout than the <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> used by M&amp;P</p></li></div></div>
-<p><span id="eq-n1"><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%5Ctext%7BUrge%7D_%7Bt%7D%20&amp;%5Csim%20N(%5Cmu_%7Bt%7D,%20%5Csigma%5E2),%20%5C%5C%0A%5Cmu_%7Bt%7D%20&amp;=%20%5Calpha%20+%20%5Cphi%5Ctext%7BUrge%7D_%7B(t-1)%7D%20+%20%5Cbeta%5Ctext%7BDep%7D_%7Bt%7D%0A%5Cend%7Balign*%7D%20%5Ctag%7B1%7D"></span></p>
+<p>Following <span class="citation" data-cites="mcneishPrimerTwolevelDynamic2020">(McNeish and Hamaker 2020)</span>, we assume that Urge at time <img src="https://latex.codecogs.com/png.latex?t"> is normally distributed around a mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_t"> with standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma">. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression<sup>2</sup>:</p>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’ve used the more common <img src="https://latex.codecogs.com/png.latex?%5Cphi"> (phi) throughout than the <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> used by M&amp;P</p></li></div><p><span id="eq-n1"><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%5Ctext%7BUrge%7D_%7Bt%7D%20&amp;%5Csim%20N(%5Cmu_%7Bt%7D,%20%5Csigma%5E2),%20%5C%5C%0A%5Cmu_%7Bt%7D%20&amp;=%20%5Calpha%20+%20%5Cphi%5Ctext%7BUrge%7D_%7B(t-1)%7D%20+%20%5Cbeta%5Ctext%7BDep%7D_%7Bt%7D%0A%5Cend%7Balign*%7D%20%5Ctag%7B1%7D"></span></p>
 <p>This is straightforward. We first create a lagged urge variable, and then fit the model. Notice though that this will lead to one missing data point because the first value doesn’t have a lagged value. We confirm that our estimates are in line with those reported in the paper</p>
 <div class="cell">
 <details open="">
@@ -2100,7 +2093,7 @@ December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfi
 <div id="fig-op3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span>. Reproduced 100% without permission, but I don’t think Dr Orben or Dr Przybylski would mind.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span>. Reproduced 100% without permission, but I don’t think Dr Orben or Dr Przybylski would mind.</figcaption>
 </figure>
 </div>
 </div>
@@ -2631,7 +2624,7 @@ font-style: inherit;">"subsets"</span>)</span>
 <div id="fig-specr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-specr-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Specification curve figure drawn from specr results</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Specification curve figure drawn from specr results</figcaption>
 </figure>
 </div>
 </div>
@@ -4061,7 +4054,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div id="fig-results-sca" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-results-sca-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Specification curve figure example with ggplot().</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Specification curve figure example with ggplot().</figcaption>
 </figure>
 </div>
 </div>
@@ -4105,12 +4098,12 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
 <div id="ref-dplyr" class="csl-entry">
 Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>It first creates a data frame with the specs, then the requested subsets, and then either applies <code>run_spec()</code> to all the datasets and specs using <code>map()</code>, or if no subsets were requested, runs the <code>run_spec()</code> on the specs only. So it wasn’t straightforward to parallelize over both data subsets and specs. Parallelizing over specs <a href="https://github.com/masurp/specr/pull/31/commits/142bdf879b96966b3f4bd1fdf04e886711d827f1">was simple</a>.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+</aside><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
   author = {Vuorre, Matti},
   title = {Tidymultiverse},
   date = {2022-12-07},
@@ -4181,7 +4174,7 @@ font-style: inherit;">'l'</span>)</span></code></pre></div>
 <div id="fig-ggrain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: A raincloud plot using the ggrain package.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: A raincloud plot using the ggrain package.</figcaption>
 </figure>
 </div>
 </div>
@@ -4283,7 +4276,7 @@ font-style: inherit;">NULL</span></span>
 <div id="fig-ggdistrain-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: A raincloud plot made using ‘base’ ggplot2 and ggdist.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: A raincloud plot made using ‘base’ ggplot2 and ggdist.</figcaption>
 </figure>
 </div>
 </div>
@@ -4362,7 +4355,7 @@ font-style: inherit;">99</span>)</span>
 <div id="fig-ggdistrain-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: A raincloud plot made using ‘base’ ggplot2 and ggdist, with different summary geoms (a point interval).</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: A raincloud plot made using ‘base’ ggplot2 and ggdist, with different summary geoms (a point interval).</figcaption>
 </figure>
 </div>
 </div>
@@ -4408,7 +4401,7 @@ font-style: inherit;">1</span>)</span>
 <div id="fig-rain-bee" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-rain-bee-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: A scatterplot where the points are jittered on the x-axis according to a normal density kernel.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4: A scatterplot where the points are jittered on the x-axis according to a normal density kernel.</figcaption>
 </figure>
 </div>
 </div>
@@ -4421,7 +4414,7 @@ font-style: inherit;">1</span>)</span>
 <div id="fig-new-ggrain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/https:/cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: A more complicated raincloud plot courtesy of Rogier Kievit</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;5: A more complicated raincloud plot courtesy of Rogier Kievit</figcaption>
 </figure>
 </div>
 <p>Let’s try a more complicated example similar to Rogier Kievit’s figure (Figure&nbsp;5). I first simulate some data with two groups and four timepoints. There’s also some covariate that I’d like to display.</p>
@@ -4746,7 +4739,7 @@ font-style: inherit;">075</span>)</span>
 <div id="fig-ggdistrain-new" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-new-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: An attempt at a more complicated “raincloud” plot using ggnewscale and ggdist.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6: An attempt at a more complicated “raincloud” plot using ggnewscale and ggdist.</figcaption>
 </figure>
 </div>
 </div>
@@ -4858,14 +4851,14 @@ font-style: inherit;">-p</span> 8787:8787 rocker/rstudio</span></code></pre></di
 <div id="fig-login" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/remote-r/images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption>
 </figure>
 </div>
 <p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (Figure&nbsp;2).</p>
 <div id="fig-rstudio-server" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/remote-r/images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption>
 </figure>
 </div>
 <p>Notice how it runs on Ubuntu, although my computer is an M1 Mac. Pretty cool, huh.</p>
@@ -4882,7 +4875,7 @@ font-style: inherit;">ipconfig</span> getifaddr en0</span></code></pre></div>
 <div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/remote-r/images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption>
 </figure>
 </div>
 <p>It really isn’t more difficult than that.</p>
@@ -4895,7 +4888,7 @@ font-style: inherit;">ipconfig</span> getifaddr en0</span></code></pre></div>
 <div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/remote-r/images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption>
 </figure>
 </div>
 <p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in Figure&nbsp;4, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see Figure&nbsp;3 again.</p>
@@ -5214,7 +5207,7 @@ font-style: inherit;">plot</span>(s)</span></code></pre></div>
 <div id="fig-favicon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Sticker made with ggplot2 and hexSticker.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Sticker made with ggplot2 and hexSticker.</figcaption>
 </figure>
 </div>
 </div>
@@ -5670,7 +5663,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div id="fig-vas" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/vas.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</figcaption>
 </figure>
 </div>
 </div>
@@ -5684,7 +5677,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div id="fig-simulate-example" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-simulate-example-1.png" class="img-fluid figure-img" width="480"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.</figcaption>
 </figure>
 </div>
 </div>
@@ -5704,7 +5697,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/zoidberg.jpg" class="img-fluid figure-img" width="240"></p>
-<p></p><figcaption class="figure-caption">Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption><p></p>
+<figcaption class="figure-caption">Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption>
 </figure>
 </div>
 </div>
@@ -5725,7 +5718,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div id="fig-beta-distributions" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Four examples of the beta density, corresponding to different shape parameters.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Four examples of the beta density, corresponding to different shape parameters.</figcaption>
 </figure>
 </div>
 </div>
@@ -5739,7 +5732,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption><p></p>
+<figcaption class="figure-caption">Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption>
 </figure>
 </div>
 </div>
@@ -5759,7 +5752,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/zoib-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption><p></p>
+<figcaption class="figure-caption">Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption>
 </figure>
 </div>
 </div>
@@ -5782,7 +5775,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div id="fig-zoib-example" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-zoib-example-1.png" class="img-fluid figure-img" width="288"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.</figcaption>
 </figure>
 </div>
 </div>
@@ -6192,7 +6185,7 @@ font-style: inherit;">1</span>)</span>
 <div id="fig-ex-me" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-ex-me-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).</figcaption>
 </figure>
 </div>
 </div>
@@ -6209,7 +6202,7 @@ font-style: inherit;">1</span>)</span>
 <div id="fig-sim-examplesets" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.</figcaption>
 </figure>
 </div>
 </div>
@@ -6222,7 +6215,7 @@ font-style: inherit;">1</span>)</span>
 <div id="fig-sims-compare" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sims-compare-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.</figcaption>
 </figure>
 </div>
 </div>
@@ -6281,12 +6274,12 @@ Verkuilen, Jay, and Michael Smithson. 2012. <span>“Mixed and <span>Mixture</sp
 <div id="ref-YarkoniChoosingPredictionExplanation2017" class="csl-entry">
 Yarkoni, Tal, and Jacob Westfall. 2017. <span>“Choosing <span>Prediction</span> <span>Over</span> <span>Explanation</span> in <span>Psychology</span>: <span>Lessons</span> <span>From</span> <span>Machine</span> <span>Learning</span>.”</span> <em>Perspectives on Psychological Science</em> 12 (6): 1100–1122. <a href="https://doi.org/10.1177/1745691617693393">https://doi.org/10.1177/1745691617693393</a>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Technically, normal models assume that the residuals are normally distributed. I will keep referring to data being normally distributed or not, for clarity.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2019,
+</aside><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2019,
   author = {Vuorre, Matti},
   title = {How to Analyze Visual Analog (Slider) Scale Data?},
   date = {2019-02-18},
@@ -6515,7 +6508,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Tweak this a little bit and throw it in a manuscript.</figcaption><p></p>
+<figcaption class="figure-caption">Tweak this a little bit and throw it in a manuscript.</figcaption>
 </figure>
 </div>
 </div>
@@ -7089,7 +7082,7 @@ font-style: inherit;">-</span>zfa</span>
 <div id="fig-sdtplot-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdtplot-1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d’ is the distance between the peaks of the two distributions.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d’ is the distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
 </div>
@@ -7213,7 +7206,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div id="fig-densityplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: The (approximate) joint posterior density of subject 53’s SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the ‘manually’ calculated MLE point estimate of d’.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: The (approximate) joint posterior density of subject 53’s SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the ‘manually’ calculated MLE point estimate of d’.</figcaption>
 </figure>
 </div>
 </div>
@@ -7457,7 +7450,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div id="fig-densityplot2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53’s SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d’ that was calculated ‘manually’. Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53’s SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d’ that was calculated ‘manually’. Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models.</figcaption>
 </figure>
 </div>
 </div>
@@ -7800,7 +7793,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div id="fig-evsdt-glmm-viz1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Left panel: The (approximate) joint posterior density of the average d’ and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d’s and criteria in the population. In both panels, the red dot indicates the ‘manually’ calculated sample statistics.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Left panel: The (approximate) joint posterior density of the average d’ and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d’s and criteria in the population. In both panels, the red dot indicates the ‘manually’ calculated sample statistics.</figcaption>
 </figure>
 </div>
 </div>
@@ -7814,7 +7807,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div id="fig-evsdt-glmm-viz2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Subject-specific d’s and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says ‘People are different, but not <em>that</em> different’.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Subject-specific d’s and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says ‘People are different, but not <em>that</em> different’.</figcaption>
 </figure>
 </div>
 </div>
@@ -8561,7 +8554,7 @@ Link function: Probit.</code></pre>
 <div id="fig-fit1-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit1-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: The equal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the distance between the peaks of the two distributions.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6: The equal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
 </div>
@@ -8711,7 +8704,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div id="fig-uvsdt-densityplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-uvsdt-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: The (approximate) joint posterior density of two UVSDT parameters (d’ and standard deviation of the signal distribution) fitted to one participant’s data. Lighter yellow colors indicate higher posterior density. Red point shows the maximum likelihood estimates obtained from SPSS’s ordinal regression module.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7: The (approximate) joint posterior density of two UVSDT parameters (d’ and standard deviation of the signal distribution) fitted to one participant’s data. Lighter yellow colors indicate higher posterior density. Red point shows the maximum likelihood estimates obtained from SPSS’s ordinal regression module.</figcaption>
 </figure>
 </div>
 </div>
@@ -8750,7 +8743,7 @@ Link function: Probit.</code></pre>
 <div id="fig-fit2-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit2-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8: The unequal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the scaled distance between the peaks of the two distributions.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8: The unequal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the scaled distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
 </div>
@@ -9262,7 +9255,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div id="fig-population-density" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9: Density plots of UVSDT model’s Population-level Effects’ posterior distributions. Different parameters are indicated on the y-axis, and possible values on the x-axis. Vertical lines are posterior means, and shaded areas are 80% credible intervals.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9: Density plots of UVSDT model’s Population-level Effects’ posterior distributions. Different parameters are indicated on the y-axis, and possible values on the x-axis. Vertical lines are posterior means, and shaded areas are 80% credible intervals.</figcaption>
 </figure>
 </div>
 </div>
@@ -9297,7 +9290,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div id="fig-population-density2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;10: Density plots of the standard deviation and correlation parameters of the UVSDT model’s parameters. Parameter’s appended with ’sd_id__’ are between-id standard deviations, ones with ’cor_id__’ are between-id correlations.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;10: Density plots of the standard deviation and correlation parameters of the UVSDT model’s parameters. Parameter’s appended with ’sd_id__’ are between-id standard deviations, ones with ’cor_id__’ are between-id correlations.</figcaption>
 </figure>
 </div>
 </div>
@@ -9308,7 +9301,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div id="fig-side-by-side" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-side-by-side-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;11: Ridgeline plot of posterior distributions of subject-specific standard deviations (left) and d-primes (right). The ordering of subjects on the y-axis is the same, so as to highlight the relationship between the two variables.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;11: Ridgeline plot of posterior distributions of subject-specific standard deviations (left) and d-primes (right). The ordering of subjects on the y-axis is the same, so as to highlight the relationship between the two variables.</figcaption>
 </figure>
 </div>
 </div>
@@ -9319,7 +9312,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div id="fig-scatterplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12: Scatterplot of posterior means of subject-specific d-primes and signal distribution standard deviations.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12: Scatterplot of posterior means of subject-specific d-primes and signal distribution standard deviations.</figcaption>
 </figure>
 </div>
 </div>
@@ -9407,7 +9400,7 @@ Wilke, Claus O. 2017. <em>Ggridges: <span>Ridgeline Plots</span> in ’Ggplot2�
 <div id="ref-wright_sdtalt:_2011" class="csl-entry">
 Wright, Daniel B. 2011. <span>“Sdtalt: <span>Signal</span> Detection Theory and Alternatives.”</span> <a href="https://CRAN.R-project.org/package=sdtalt">https://CRAN.R-project.org/package=sdtalt</a>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Hierarchical regression is sometimes used to mean the practice of adding predictors to a regression model based on the predictors’ <em>p</em>-values. Whatever you do, don’t do that.↩︎</p></li>
@@ -9415,7 +9408,7 @@ Wright, Daniel B. 2011. <span>“Sdtalt: <span>Signal</span> Detection Theory an
 <li id="fn3"><p>Recall that intercepts are automatically included, but can be explicitly included by adding <code>1</code> to the formula’s right hand side.↩︎</p></li>
 <li id="fn4"><p><code>0 + ...</code> removes the model’s intercept.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+</aside><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
   author = {Vuorre, Matti},
   title = {Bayesian {Estimation} of {Signal} {Detection} {Models}},
   date = {2017-10-09},
@@ -11413,7 +11406,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Histograms of the two groups’ IQ scores.</figcaption><p></p>
+<figcaption class="figure-caption">Histograms of the two groups’ IQ scores.</figcaption>
 </figure>
 </div>
 </div>
@@ -11471,7 +11464,7 @@ font-style: italic;">##                100.3571                101.9149</span></
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
-<p></p><figcaption class="figure-caption">t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.</figcaption><p></p>
+<figcaption class="figure-caption">t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.</figcaption>
 </figure>
 </div>
 </div>
@@ -12609,7 +12602,7 @@ font-style: inherit;">"metaanalysismodel"</span></span>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)</figcaption><p></p>
+<figcaption class="figure-caption">Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)</figcaption>
 </figure>
 </div>
 </div>
@@ -12884,7 +12877,7 @@ font-style: inherit;">1</span> </span>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/draw-forest-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Forest plot of the example model’s results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes.</figcaption><p></p>
+<figcaption class="figure-caption">Forest plot of the example model’s results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes.</figcaption>
 </figure>
 </div>
 </div>

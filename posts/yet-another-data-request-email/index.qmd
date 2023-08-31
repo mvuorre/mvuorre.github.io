@@ -21,6 +21,10 @@ bibliography: references.bib
 image: "images/orben-przybylski-2019-fig3.png"
 ---
 
+::: {.callout-note}
+Latest update: I tried emailing some authors and tried submitting another enquiry through the system but never heard back from anyone. Sigh. I don't have time for this shit.
+:::
+
 In "Associations Between Infant Screen Use, Electroencephalography Markers, and Cognitive Outcomes" @lawAssociationsInfantScreen2023 write that "Screen time at age 12 months contributed to multiple 9-year attention and executive functioning measures ($\eta^2$, 0.03-0.16; Cohen d, 0.35-0.87)". This is potentially huge news, for at least two reasons:
 
 1. There isn't very much literature on such longitudinal within-person associations between "screen time" [@k.kayeConceptualMethodologicalMayhem2020] and psychosocial outcomes in a time frame spanning infancy to childhood. Studying this association is very important in trying to understand how digital technologies in extremely sensitive developmental periods might affect later life outcomes. So this study potentially provides some really important evidence on the effects of "screen time".

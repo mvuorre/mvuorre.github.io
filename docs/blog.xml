@@ -9,7 +9,7 @@
 <link>https://vuorre.netlify.app/blog.html</link>
 <atom:link href="https://vuorre.netlify.app/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on psychology, statistics, and R, sometimes</description>
-<generator>quarto-1.4.330</generator>
+<generator>quarto-1.4.339</generator>
 <lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Yet another data request email</title>
@@ -1824,7 +1824,7 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/latent-mean-centering" medium="image"/>
+  <media:content url="https://vuorre.netlify.app/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>
@@ -5230,7 +5230,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
   <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -6535,7 +6535,7 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>R</category>
   <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>

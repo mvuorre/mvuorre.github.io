@@ -3,6 +3,8 @@ project:
   output-dir: docs
 
 date-format: iso
+execute:
+  freeze: auto
 
 website:
   title: "Matti's homepage"

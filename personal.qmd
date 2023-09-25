@@ -1,7 +1,5 @@
 ---
-title: "About me"
-subtitle: |
-  Pleased to make your acquintance :wave:
+title: "About"
 from: markdown+emoji
 comments: false
 ---
@@ -10,14 +8,17 @@ comments: false
 
 I am a Finn living in the Netherlands. I work at [Tilburg University](https://www.tilburguniversity.edu/staff/m-j-vuorre). Prior to moving to the Netherlands, I studied Psychology and Philosophy in Wellington, New Zealand, at the [Victoria University of Wellington](https://www.wgtn.ac.nz/) Kelburn campus from 2008 to 2013. The hobbits were right, Aotearoa is a wonderful place, and I never really left. 
 
-After NZ I completed a PhD in Psychology at Columbia University in New York City in the spring of 2018. My PhD "*[Using Visual Illusions to Examine Action-Related Perceptual Changes](https://academiccommons.columbia.edu/doi/10.7916/D8W39CRZ)*" is in the area of cognitive psychology, and examined how simple manual movements can distort perception. In New York, I was very busy eating bagels and Trader Joe's "Everything but the bagel" seasoning^[Thanks Andy!]. (We lived right next to Riverside Park so, yeah, it was pretty sweet!) After that I worked as a [post-doc](https://en.wikipedia.org/wiki/Postdoctoral_researcher)[^postdoc] at Columbia and Oxford. In 2023 I moved to the Netherlands and am now an Assistant Professor at Tilburg University.
+I then completed a PhD in Psychology at Columbia University in New York City in the spring of 2018. My PhD "*[Using Visual Illusions to Examine Action-Related Perceptual Changes](https://academiccommons.columbia.edu/doi/10.7916/D8W39CRZ)*" concerned cognitive and perceptual psychology, and examined how volition might distort perception. In New York, I was very busy eating bagels and Trader Joe's "Everything but the bagel" seasoning^[Thanks Andy!]. After finishing my PhD, I remained at Columbia as a [post-doc](https://en.wikipedia.org/wiki/Postdoctoral_researcher)[^postdoc] for a while.
 
-[^postdoc]: If you're not sure what a post-doc is or what they do (I don't think anyone does), I remember someone saying in a tweet ([remember those](https://en.wikipedia.org/wiki/Mastodon_(software))?) that this video is a pretty accurate summary: {{< video https://youtu.be/w1gCW_66zzc >}} Wow, who doesn't love monster trucks?
+I moved from NYC to Oxford in 2020, where I worked again as a post-doc. In 2023 I moved to the Netherlands and am now an Assistant Professor at Tilburg University.
+
 
 When I've some free time, I like hiking, making photographs, rock climbing (mostly crushing V2 problems on plastic---beast mode!), spending time with my family, badminton, eating Korean food, and playing with computers. I'm not very good at any of those things, but hey, life is all about learning. 
 
-During the Global Pandemic of 2020-20xx<sup>©</sup> I mostly read [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) on my phone, watched [quality TV](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki), and enjoyed [Salt Denim IPAs](https://www.saltbeerfactory.co.uk/product/denim/) 🤣.
+My favorite websites are [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) and my favorite TV show is [Sunny](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki).
 
 ## Coda {.appendix}
 
 If you find something particularly silly on this website, [please let me know](https://github.com/mvuorre/homepage/issues)!
+
+[^postdoc]: If you're not sure what a post-doc is or what they do (I don't think anyone does), I remember someone saying in a tweet ([remember those](https://en.wikipedia.org/wiki/Mastodon_(software))?) that this video is a pretty accurate summary: {{< video https://youtu.be/w1gCW_66zzc >}} Wow, who doesn't love monster trucks?

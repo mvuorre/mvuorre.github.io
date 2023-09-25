@@ -20,7 +20,7 @@ format:
     code-summary: "Code"
     code-overflow: wrap
     from: markdown+emoji
-image: ""
+image: "index_files/figure-html/fig-data-1.png"
 draft: false
 bibliography: references.bib
 ---

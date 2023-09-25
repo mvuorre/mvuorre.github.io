@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.330">
+<meta name="generator" content="quarto-1.4.339">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,8 +93,6 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,12 +160,51 @@ div.csl-indent {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About me</span></a>
+<span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../blog.xml"> 
-<span class="menu-text"><i class="fa-solid fa-rss" aria-label="rss"></i></span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Links</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
+        <li>
+    <a class="dropdown-item" href="../../blog.xml">
+ <span class="dropdown-text">RSS</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="mailto:m.j.vuorre@tilburguniversity.edu">
+ <span class="dropdown-text">Email</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://orcid.org/0000-0001-5052-066X">
+ <span class="dropdown-text">ORCID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bayes.club/(matti?)">
+ <span class="dropdown-text">Mastodon</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mvuorre">
+ <span class="dropdown-text">GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
+ <span class="dropdown-text">CV</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/vuorre">
+ <span class="dropdown-text">Twitter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.linkedin.com/in/matti-vuorre">
+ <span class="dropdown-text">LinkedIn</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
+ <span class="dropdown-text">Buy me a coffee</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -247,7 +284,7 @@ div.csl-indent {
   
   
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
@@ -473,6 +510,7 @@ div.csl-indent {
 </div>
 <p>The manuscript reports various analyses with different assumptions and on different subsets of the data, but I focused on their stated primary analysis <span class="citation" data-cites="colesMultilabTestFacial2022">(<a href="#ref-colesMultilabTestFacial2022" role="doc-biblioref">Coles et al. 2022, 3</a>)</span>:</p>
 <blockquote class="blockquote">
+<div class="line-block"></div>
 <p>Participants reported higher levels of happiness in the presence than in the absence of positive images (Mdiff = 0.30; 95% confidence interval (CI), (0.12, 0.48)). Participants also reported more happiness after posing happy versus neutral expressions (<em>M</em><sub>diff</sub> = 0.31; 95% CI, (0.21, 0.40)). Contrary to our hypothesis, the Pose effect was not significantly larger in the presence than in the absence of positive stimuli (F(1, 29.50) = 1.33, P = 0.26). <br> Unexpectedly, there was an interaction between Pose and Facial Movement Task (F(2, 32.95) = 17.11, P &lt; 0.001). The effect of Pose on self-reported happiness was the largest in the facial mimicry task (<em>M</em><sub>diff</sub> = 0.49; 95% CI, (0.36, 0.61)) and the voluntary facial action task (<em>M</em><sub>diff</sub> = 0.40; 95% CI, (0.23, 0.56)). There was moderate support for the null hypothesis in the pen-in-mouth condition (<em>M</em><sub>diff</sub> = 0.04; 95% CI, (−0.07, 0.15)).</p>
 </blockquote>
 <p>In other words, happy poses led to greater happiness ratings than did neutral poses in the mimicry and voluntary expression conditions, but not in the pen-in-mouth condition. (I removed lots of numbers from the quote for clarity.) Positive expressions (vs.&nbsp;neutral) increased happiness ratings when the expressions were produced voluntarily or via mimicry, but not when the expressions resulted from having a pen stuck in your mouth. I illustrate these effects in <a href="#fig-data" class="quarto-xref">Figure&nbsp;1</a>.</p>
@@ -2389,60 +2427,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="light">
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>© Matti Vuorre 2022</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="mailto:m.j.vuorre@tilburguniversity.edu">
-<p><i class="fa-solid fa-envelope" aria-label="envelope"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://orcid.org/0000-0001-5052-066X">
-<p><i class="fa-brands fa-orcid" aria-label="orcid"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://fosstodon.org/@matti">
-<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre">
-<p><i class="fa-brands fa-github" aria-label="github"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
-<p>CV</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/vuorre">
-<p><i class="fa-brands fa-twitter" aria-label="twitter"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/matti-vuorre">
-<p><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://www.buymeacoffee.com/vuorre">
-<p><i class="fa-solid fa-mug-hot" aria-label="mug-hot"></i></p>
-</a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
 
 
 

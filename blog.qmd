@@ -1,6 +1,7 @@
 ---
 title: Sometimes I R
 subtitle: A blog about statistics, psychology, science, and sometimes R
+description: Notes on psychology, statistics, and R, sometimes
 listing:
   contents: posts
   sort: "date desc"

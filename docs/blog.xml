@@ -9,7 +9,7 @@
 <link>https://vuorre.netlify.app/blog.html</link>
 <atom:link href="https://vuorre.netlify.app/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on psychology, statistics, and R, sometimes</description>
-<generator>quarto-1.4.330</generator>
+<generator>quarto-1.4.339</generator>
 <lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Yet another data request email</title>
@@ -1837,7 +1837,7 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <category>brms</category>
   <guid>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/latent-mean-centering" medium="image"/>
+  <media:content url="https://vuorre.netlify.app/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>

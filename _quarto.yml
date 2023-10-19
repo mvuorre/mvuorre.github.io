@@ -8,7 +8,7 @@ execute:
 
 website:
   title: "Matti's homepage"
-  site-url: https://vuorre.netlify.app
+  site-url: https://vuorre.com
   description: Homepage of Matti Vuorre
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   comments:
@@ -35,26 +35,6 @@ website:
       - text: Blog
         href: blog.qmd
       - personal.qmd
-      - text: Links
-        menu:
-          - text: RSS
-            href: blog.xml
-          - text: Email
-            href: "mailto:m.j.vuorre@tilburguniversity.edu"
-          - text: ORCID
-            href: "https://orcid.org/0000-0001-5052-066X"
-          - text: Mastodon
-            href: "https://bayes.club/@matti"
-          - text: GitHub
-            href: "https://github.com/mvuorre"
-          - text: "CV"
-            href: "https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf"
-          - text: Twitter
-            href: "https://twitter.com/vuorre"
-          - text: LinkedIn
-            href: "https://www.linkedin.com/in/matti-vuorre"
-          - text: Buy me a coffee
-            href: https://www.buymeacoffee.com/vuorre
 
 format:
   html:

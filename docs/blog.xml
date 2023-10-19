@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Matti&#39;s homepage</title>
-<link>https://vuorre.netlify.app/blog.html</link>
-<atom:link href="https://vuorre.netlify.app/blog.xml" rel="self" type="application/rss+xml"/>
-<description>Notes on psychology, statistics, and R, sometimes</description>
-<generator>quarto-1.4.339</generator>
+<link>https://vuorre.com/blog.html</link>
+<atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
+<description>Homepage of Matti Vuorre</description>
+<generator>quarto-1.4.424</generator>
 <lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Yet another data request email</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/yet-another-data-request-email/index.html</link>
+  <link>https://vuorre.com/posts/yet-another-data-request-email/</link>
   <description><![CDATA[ 
 
 
@@ -82,14 +82,14 @@ Vuorre, Matti. 2023. <span>“Yet Another Data Request Email.”</span>
 March 24, 2023. <a href="https://vuorre.netlify.app/posts/yet-another-data-request-email">https://vuorre.netlify.app/posts/yet-another-data-request-email</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
-  <guid>https://vuorre.netlify.app/posts/yet-another-data-request-email/index.html</guid>
+  <guid>https://vuorre.com/posts/yet-another-data-request-email/</guid>
   <pubDate>Thu, 23 Mar 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" medium="image" type="image/png" height="113" width="144"/>
+  <media:content url="https://vuorre.com/posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" medium="image" type="image/png" height="113" width="144"/>
 </item>
 <item>
   <title>Latent mean centering with brms</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</link>
+  <link>https://vuorre.com/posts/latent-mean-centering/</link>
   <description><![CDATA[ 
 
 
@@ -692,7 +692,7 @@ font-style: inherit;">labeller =</span> label_both)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-data" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Four persons’ depression and urge to smoke over time</figcaption>
 </figure>
 </div>
@@ -1835,14 +1835,14 @@ January 1, 2023. <a href="https://vuorre.netlify.app/posts/latent-mean-centering
   <category>centering</category>
   <category>longitudinal</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/latent-mean-centering/index.html</guid>
+  <guid>https://vuorre.com/posts/latent-mean-centering/</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
+  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</link>
+  <link>https://vuorre.com/posts/computer-setup-dotfiles/</link>
   <description><![CDATA[ 
 
 
@@ -1942,7 +1942,7 @@ font-style: inherit;">\</span></span>
 <h2 class="anchored" data-anchor-id="terminal">Terminal</h2>
 <p>I then set up my terminal environment. I use <a href="https://iterm2.com/">iTerm2</a> and the <a href="https://starship.rs/">Starship</a> prompt. I also pick up some nice iTerm2 color themes from <a href="https://iterm2colorschemes.com/" class="uri">https://iterm2colorschemes.com/</a>.</p>
 <p>Now I can open up VS Code in the current working directory with <code>code .</code>, or get nice outputs when listing working directory contents (I’ve aliased <code>l</code> to <code>lsd -la</code> in <code>~/.zshrc</code>):</p>
-<p><img src="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" class="img-fluid"></p>
+<p><img src="https://vuorre.com/posts/computer-setup-dotfiles/images/terminal.png" class="img-fluid"></p>
 </section>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
@@ -2084,14 +2084,14 @@ December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfi
 </div></div></section></div> ]]></description>
   <category>tips</category>
   <category>computers</category>
-  <guid>https://vuorre.netlify.app/posts/computer-setup-dotfiles/index.html</guid>
+  <guid>https://vuorre.com/posts/computer-setup-dotfiles/</guid>
   <pubDate>Wed, 07 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
+  <media:content url="https://vuorre.com/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
 </item>
 <item>
   <title>Tidymultiverse</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</link>
+  <link>https://vuorre.com/posts/parallel-multiverse/</link>
   <description><![CDATA[ 
 
 
@@ -2105,7 +2105,7 @@ December 8, 2022. <a href="https://vuorre.netlify.app/posts/computer-setup-dotfi
 <div class="cell-output-display">
 <div id="fig-op3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img"></p>
+<p><img src="https://vuorre.com/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span>. Reproduced 100% without permission, but I don’t think Dr Orben or Dr Przybylski would mind.</figcaption>
 </figure>
 </div>
@@ -2636,7 +2636,7 @@ font-style: inherit;">"subsets"</span>)</span>
 <div class="cell-output-display">
 <div id="fig-specr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-specr-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/parallel-multiverse/index_files/figure-html/fig-specr-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: Specification curve figure drawn from specr results</figcaption>
 </figure>
 </div>
@@ -4066,7 +4066,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-results-sca" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/parallel-multiverse/index_files/figure-html/fig-results-sca-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/parallel-multiverse/index_files/figure-html/fig-results-sca-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: Specification curve figure example with ggplot().</figcaption>
 </figure>
 </div>
@@ -4132,14 +4132,14 @@ Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a hre
   <category>multiverse</category>
   <category>tidyverse</category>
   <category>specr</category>
-  <guid>https://vuorre.netlify.app/posts/parallel-multiverse/index.html</guid>
+  <guid>https://vuorre.com/posts/parallel-multiverse/</guid>
   <pubDate>Tue, 06 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/parallel-multiverse/images/undraw-lost-online.png" medium="image" type="image/png" height="117" width="144"/>
+  <media:content url="https://vuorre.com/posts/parallel-multiverse/images/undraw-lost-online.png" medium="image" type="image/png" height="117" width="144"/>
 </item>
 <item>
   <title>Some alternatives to raincloud plots</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</link>
+  <link>https://vuorre.com/posts/raincloud-plot-alt/</link>
   <description><![CDATA[ 
 
 
@@ -4186,7 +4186,7 @@ font-style: inherit;">'l'</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-ggrain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: A raincloud plot using the ggrain package.</figcaption>
 </figure>
 </div>
@@ -4288,7 +4288,7 @@ font-style: inherit;">NULL</span></span>
 <div class="cell-output-display">
 <div id="fig-ggdistrain-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-1-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: A raincloud plot made using ‘base’ ggplot2 and ggdist.</figcaption>
 </figure>
 </div>
@@ -4367,7 +4367,7 @@ font-style: inherit;">99</span>)</span>
 <div class="cell-output-display">
 <div id="fig-ggdistrain-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: A raincloud plot made using ‘base’ ggplot2 and ggdist, with different summary geoms (a point interval).</figcaption>
 </figure>
 </div>
@@ -4413,7 +4413,7 @@ font-style: inherit;">1</span>)</span>
 <div class="cell-output-display">
 <div id="fig-rain-bee" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-rain-bee-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/raincloud-plot-alt/index_files/figure-html/fig-rain-bee-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;4: A scatterplot where the points are jittered on the x-axis according to a normal density kernel.</figcaption>
 </figure>
 </div>
@@ -4426,7 +4426,7 @@ font-style: inherit;">1</span>)</span>
 <h1>A more complicated example</h1>
 <div id="fig-new-ggrain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/https:/cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" class="img-fluid figure-img"></p>
+<p><img src="https://cdn.fosstodon.org/cache/media_attachments/files/109/460/641/893/080/595/small/0f1dcd129a6b60a5.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;5: A more complicated raincloud plot courtesy of Rogier Kievit</figcaption>
 </figure>
 </div>
@@ -4751,7 +4751,7 @@ font-style: inherit;">075</span>)</span>
 <div class="cell-output-display">
 <div id="fig-ggdistrain-new" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-new-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/raincloud-plot-alt/index_files/figure-html/fig-ggdistrain-new-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;6: An attempt at a more complicated “raincloud” plot using ggnewscale and ggdist.</figcaption>
 </figure>
 </div>
@@ -4792,13 +4792,13 @@ Plots.”</span> December 6, 2022. <a href="https://vuorre.netlify.app/posts/rai
   <category>R</category>
   <category>visualization</category>
   <category>ggplot2</category>
-  <guid>https://vuorre.netlify.app/posts/raincloud-plot-alt/index.html</guid>
+  <guid>https://vuorre.com/posts/raincloud-plot-alt/</guid>
   <pubDate>Mon, 05 Dec 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How to run R remotely</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/remote-r/index.html</link>
+  <link>https://vuorre.com/posts/remote-r/</link>
   <description><![CDATA[ 
 
 
@@ -4863,14 +4863,14 @@ font-style: inherit;">-p</span> 8787:8787 rocker/rstudio</span></code></pre></di
 <p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (Figure&nbsp;1).</p>
 <div id="fig-login" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/remote-r/images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
+<p><img src="https://vuorre.com/posts/remote-r/images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
 <figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption>
 </figure>
 </div>
 <p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (Figure&nbsp;2).</p>
 <div id="fig-rstudio-server" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/remote-r/images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
+<p><img src="https://vuorre.com/posts/remote-r/images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
 <figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption>
 </figure>
 </div>
@@ -4887,7 +4887,7 @@ font-style: inherit;">ipconfig</span> getifaddr en0</span></code></pre></div>
 <p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see Figure&nbsp;3.</p>
 <div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/remote-r/images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
+<p><img src="https://vuorre.com/posts/remote-r/images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
 <figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption>
 </figure>
 </div>
@@ -4900,7 +4900,7 @@ font-style: inherit;">ipconfig</span> getifaddr en0</span></code></pre></div>
 <p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (Figure&nbsp;4), whether they are active or not.</p>
 <div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/remote-r/images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
+<p><img src="https://vuorre.com/posts/remote-r/images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
 <figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption>
 </figure>
 </div>
@@ -4931,14 +4931,14 @@ Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
   <category>Docker</category>
   <category>Tailscale</category>
   <category>tutorial</category>
-  <guid>https://vuorre.netlify.app/posts/remote-r/index.html</guid>
+  <guid>https://vuorre.com/posts/remote-r/</guid>
   <pubDate>Fri, 02 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vuorre.com/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Website favicons with hexSticker</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</link>
+  <link>https://vuorre.com/posts/hexsticker-favicon/</link>
   <description><![CDATA[ 
 
 
@@ -5219,7 +5219,7 @@ font-style: inherit;">plot</span>(s)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-favicon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Sticker made with ggplot2 and hexSticker.</figcaption>
 </figure>
 </div>
@@ -5241,14 +5241,14 @@ Vuorre, Matti. 2022. <span>“Website Favicons with hexSticker.”</span>
 June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">https://vuorre.netlify.app/posts/hexsticker-favicon</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
-  <guid>https://vuorre.netlify.app/posts/hexsticker-favicon/index.html</guid>
+  <guid>https://vuorre.com/posts/hexsticker-favicon/</guid>
   <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/easy-notifications-from-r/index.html</link>
+  <link>https://vuorre.com/posts/easy-notifications-from-r/</link>
   <description><![CDATA[ 
 
 
@@ -5262,7 +5262,7 @@ June 29, 2022. <a href="https://vuorre.netlify.app/posts/hexsticker-favicon">htt
 <section id="subscribe-to-a-topic" class="level2">
 <h2 class="anchored" data-anchor-id="subscribe-to-a-topic">Subscribe to a topic</h2>
 <p>Open the app on your phone and <a href="https://ntfy.sh/docs/subscribe/phone/">subscribe to a topic</a>. Just type in a name that’s both memorable and not likely to already be used by someone else. I use <code>vuorre-r-notifications</code>.</p>
-<p><img src="https://vuorre.netlify.app/posts/easy-notifications-from-r/images/subscribe.jpeg" class="img-fluid" alt="Subscribing to vuorre-r-notifications on ntfy.sh"></p>
+<p><img src="https://vuorre.com/posts/easy-notifications-from-r/images/subscribe.jpeg" class="img-fluid" alt="Subscribing to vuorre-r-notifications on ntfy.sh"></p>
 </section>
 <section id="send-notifications" class="level2">
 <h2 class="anchored" data-anchor-id="send-notifications">Send notifications</h2>
@@ -5288,7 +5288,7 @@ background-color: null;
 font-style: inherit;">"curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-notifications"</span>)</span></code></pre></div>
 </div>
 <p>You’ll get this notification on your phone:</p>
-<p><img src="https://vuorre.netlify.app/posts/easy-notifications-from-r/images/notification.jpeg" class="img-fluid" alt="Notification received on phone"></p>
+<p><img src="https://vuorre.com/posts/easy-notifications-from-r/images/notification.jpeg" class="img-fluid" alt="Notification received on phone"></p>
 <p>This is really useful when you have simulations (mcmc or otherwise 😉) that take a long time, and you’d like to act as soon as they are done. Have fun!</p>
 
 
@@ -5307,13 +5307,13 @@ Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>tips</category>
-  <guid>https://vuorre.netlify.app/posts/easy-notifications-from-r/index.html</guid>
+  <guid>https://vuorre.com/posts/easy-notifications-from-r/</guid>
   <pubDate>Tue, 14 Jun 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How to calculate contrasts from a fitted brms model</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html</link>
+  <link>https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/</link>
   <description><![CDATA[ 
 
 
@@ -5460,7 +5460,7 @@ font-style: inherit;">"intimacymodel"</span></span>
 <p>The first lesson is that most models are simply too complex to interpret by just looking at the numerical parameter estimates. Therefore, we always draw figures to help us interpret what the model thinks is going on. The figure below shows example participants’ data (left) and the model’s estimated effects on the right.</p>
 <div class="cell" data-hash="index_cache/html/figure_4d5407611eca48fecf627589f2b2def4">
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Then, we can begin interpreting the parameters. First, the intercept indicates estimated intimacy when time and treatment were at their respective baseline levels (0). It is always easiest to interpret the parameters by eyeballing the right panel of the figure above and trying to connect the numbers to the figure. This estimate is the left-most point of the red line.</p>
@@ -5508,7 +5508,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 background-color: null;
 font-style: inherit;">plot</span>(q2_answer)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>That figure shows the (samples from the) posterior distribution of the answer to Question 2.</p>
@@ -5573,7 +5573,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 background-color: null;
 font-style: inherit;">plot</span>(q5_answer)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can now return to <code>Evid.Ratio</code> and <code>Post.Prob</code>: The latter indicates the posterior probability that the parameter of interest is greater than zero (<code>&gt; 0</code>). (More accurately, the proportion of samples from the posterior that are greater than zero.) That should correspond to what you see in the figure above. The former is the ratio of the hypothesis and its complement (the ratio of <code>time &gt; 0</code> and <code>time &lt; 0</code>). I find posterior probabilities more intuitive than evidence ratios, but they both return essentially the same information. Perhaps of interest, with uniform priors, posterior probabilities will exactly correspond (numerically, not conceptually) to frequentist one-sided p-values (<a href="https://www.ejwagenmakers.com/2017/MarsmanWagenmakers2017ThreeInsights.pdf">Marsman &amp; Wagenmakers, 2017</a>).</p>
@@ -5625,7 +5625,7 @@ font-style: inherit;">"coef"</span>)</span></code></pre></div>
 <p>The results of this question would be a bit too much information to print on screen, so instead we will draw a figure:</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-10_cf8b682c317093de2857b07a71a22e1c">
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -5652,14 +5652,14 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html</guid>
+  <guid>https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/</guid>
   <pubDate>Wed, 05 Feb 2020 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>How to analyze visual analog (slider) scale data?</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html</link>
+  <link>https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</link>
   <description><![CDATA[ 
 
 
@@ -5675,7 +5675,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div id="fig-vas" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/vas.gif" class="img-fluid figure-img"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/vas.gif" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</figcaption>
 </figure>
 </div>
@@ -5689,7 +5689,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div id="fig-simulate-example" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-simulate-example-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-simulate-example-1.png" class="img-fluid figure-img" width="480"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.</figcaption>
 </figure>
 </div>
@@ -5709,7 +5709,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/zoidberg.jpg" class="img-fluid figure-img" width="240"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/zoidberg.jpg" class="img-fluid figure-img" width="240"></p>
 <figcaption class="figure-caption">Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption>
 </figure>
 </div>
@@ -5730,7 +5730,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div id="fig-beta-distributions" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: Four examples of the beta density, corresponding to different shape parameters.</figcaption>
 </figure>
 </div>
@@ -5744,7 +5744,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption>
 </figure>
 </div>
@@ -5764,7 +5764,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/zoib-distributions-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/zoib-distributions-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption>
 </figure>
 </div>
@@ -5787,7 +5787,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/post
 <div class="cell-output-display">
 <div id="fig-zoib-example" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-zoib-example-1.png" class="img-fluid figure-img" width="288"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-zoib-example-1.png" class="img-fluid figure-img" width="288"></p>
 <figcaption class="figure-caption">Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.</figcaption>
 </figure>
 </div>
@@ -6197,7 +6197,7 @@ font-style: inherit;">1</span>)</span>
 <div class="cell-output-display">
 <div id="fig-ex-me" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-ex-me-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-ex-me-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).</figcaption>
 </figure>
 </div>
@@ -6214,7 +6214,7 @@ font-style: inherit;">1</span>)</span>
 <div class="cell-output-display">
 <div id="fig-sim-examplesets" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.</figcaption>
 </figure>
 </div>
@@ -6227,7 +6227,7 @@ font-style: inherit;">1</span>)</span>
 <div class="cell-output-display">
 <div id="fig-sims-compare" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sims-compare-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-sims-compare-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.</figcaption>
 </figure>
 </div>
@@ -6308,14 +6308,14 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.netlify.app/posts/201
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html</guid>
+  <guid>https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</guid>
   <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
+  <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
 </item>
 <item>
   <title>Combine ggplots with patchwork</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</link>
+  <link>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</link>
   <description><![CDATA[ 
 
 
@@ -6347,7 +6347,7 @@ font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cyl"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>But if you would like to get a figure that consists of multiple panels of unrelated plots—with different variables on the X and Y axes, potentially from different data sources—things become more complicated.</p>
@@ -6460,7 +6460,7 @@ font-style: inherit;">+</span> b <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> c</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Basically, you can add ggplots together as if they were geoms inside a single ggplot. However, there’s more. <code>|</code> specifies side-by-side addition</p>
@@ -6469,7 +6469,7 @@ font-style: inherit;">+</span> c</span></code></pre></div>
 background-color: null;
 font-style: inherit;">|</span> c</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>And <code>/</code> is for adding plots under the previous plot</p>
@@ -6478,7 +6478,7 @@ font-style: inherit;">|</span> c</span></code></pre></div>
 background-color: null;
 font-style: inherit;">/</span> c</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>These operators can be used to flexibly compose figures from multiple components, using parentheses to group plots and <code>+</code>, <code>|</code>, and <code>/</code> to add the groups together</p>
@@ -6489,7 +6489,7 @@ font-style: inherit;">|</span> b) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">/</span> c</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Use <code>plot_annotation()</code> to add tags, and <code>&amp;</code> to pass theme elements to all plot elements in a composition</p>
@@ -6520,7 +6520,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Tweak this a little bit and throw it in a manuscript.</figcaption>
 </figure>
 </div>
@@ -6546,14 +6546,14 @@ December 13, 2018. <a href="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-
   <category>visualization</category>
   <category>ggplot2</category>
   <category>R</category>
-  <guid>https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html</guid>
+  <guid>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html</link>
+  <link>https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/</link>
   <description><![CDATA[ 
 
 
@@ -6755,13 +6755,13 @@ Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
 </div></div></section></div> ]]></description>
   <category>data science</category>
   <category>R</category>
-  <guid>https://vuorre.netlify.app/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html</guid>
+  <guid>https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/</guid>
   <pubDate>Tue, 11 Dec 2018 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bayesian Estimation of Signal Detection Models</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html</link>
+  <link>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</link>
   <description><![CDATA[ 
 
 
@@ -7094,7 +7094,7 @@ font-style: inherit;">-</span>zfa</span>
 <div class="cell-output-display">
 <div id="fig-sdtplot-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdtplot-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdtplot-1-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d’ is the distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
@@ -7218,7 +7218,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div class="cell-output-display">
 <div id="fig-densityplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: The (approximate) joint posterior density of subject 53’s SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the ‘manually’ calculated MLE point estimate of d’.</figcaption>
 </figure>
 </div>
@@ -7462,7 +7462,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div class="cell-output-display">
 <div id="fig-densityplot2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53’s SDT parameters, estimated with the GL model and the nonlinear model. Lighter yellow colors indicate higher posterior density. The red dot indicates the sample mean d’ that was calculated ‘manually’. Bottom row: The marginal posterior densities of c and dprime from GLM (red) and nonlinear (blue) models.</figcaption>
 </figure>
 </div>
@@ -7805,7 +7805,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div class="cell-output-display">
 <div id="fig-evsdt-glmm-viz1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz1-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;4: Left panel: The (approximate) joint posterior density of the average d’ and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d’s and criteria in the population. In both panels, the red dot indicates the ‘manually’ calculated sample statistics.</figcaption>
 </figure>
 </div>
@@ -7819,7 +7819,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div class="cell-output-display">
 <div id="fig-evsdt-glmm-viz2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-glmm-viz2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;5: Subject-specific d’s and criteria as given by the independent models (filled circles), and as estimated by the hierarchical model (empty circles). The hierarchical model shrinks the estimated parameters toward the overall mean parameters (red dot). This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample. As the data points per subject, or the heterogeneity between subjects, increases, this shrinkage will decrease. The hierarchical model essentially says ‘People are different, but not <em>that</em> different’.</figcaption>
 </figure>
 </div>
@@ -8566,7 +8566,7 @@ Link function: Probit.</code></pre>
 <div class="cell-output-display">
 <div id="fig-fit1-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit1-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit1-plot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;6: The equal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
@@ -8716,7 +8716,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <div class="cell-output-display">
 <div id="fig-uvsdt-densityplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-uvsdt-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-uvsdt-densityplot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;7: The (approximate) joint posterior density of two UVSDT parameters (d’ and standard deviation of the signal distribution) fitted to one participant’s data. Lighter yellow colors indicate higher posterior density. Red point shows the maximum likelihood estimates obtained from SPSS’s ordinal regression module.</figcaption>
 </figure>
 </div>
@@ -8755,7 +8755,7 @@ Link function: Probit.</code></pre>
 <div class="cell-output-display">
 <div id="fig-fit2-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit2-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-fit2-plot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;8: The unequal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Dotted vertical lines are response criteria. d’ is the scaled distance between the peaks of the two distributions.</figcaption>
 </figure>
 </div>
@@ -8872,7 +8872,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9267,7 +9267,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-population-density" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;9: Density plots of UVSDT model’s Population-level Effects’ posterior distributions. Different parameters are indicated on the y-axis, and possible values on the x-axis. Vertical lines are posterior means, and shaded areas are 80% credible intervals.</figcaption>
 </figure>
 </div>
@@ -9302,7 +9302,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-population-density2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-population-density2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;10: Density plots of the standard deviation and correlation parameters of the UVSDT model’s parameters. Parameter’s appended with ’sd_id__’ are between-id standard deviations, ones with ’cor_id__’ are between-id correlations.</figcaption>
 </figure>
 </div>
@@ -9313,7 +9313,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-side-by-side" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-side-by-side-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-side-by-side-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;11: Ridgeline plot of posterior distributions of subject-specific standard deviations (left) and d-primes (right). The ordering of subjects on the y-axis is the same, so as to highlight the relationship between the two variables.</figcaption>
 </figure>
 </div>
@@ -9324,7 +9324,7 @@ font-style: inherit;">8</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;12: Scatterplot of posterior means of subject-specific d-primes and signal distribution standard deviations.</figcaption>
 </figure>
 </div>
@@ -9437,14 +9437,14 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.netlify.app/posts/201
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html</guid>
+  <guid>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</guid>
   <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Bayes Factors with brms</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index.html</link>
+  <link>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</link>
   <description><![CDATA[ 
 
 
@@ -9524,7 +9524,7 @@ font-style: inherit;">1</span>)</span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9555,7 +9555,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9795,7 +9795,7 @@ font-style: inherit;">"b"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9849,7 +9849,7 @@ font-style: inherit;">plot</span>(h)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10173,7 +10173,7 @@ font-style: inherit;">"collect"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10463,7 +10463,7 @@ font-style: inherit;">0</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10749,7 +10749,7 @@ font-style: inherit;">plot</span>(h2)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10785,14 +10785,14 @@ Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index.html</guid>
+  <guid>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</guid>
   <pubDate>Mon, 20 Mar 2017 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>How to create within-subject scatter plots in R with ggplot2</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index.html</link>
+  <link>https://vuorre.com/posts/2017-01-04-within-subject-scatter/</link>
   <description><![CDATA[ 
 
 
@@ -11118,7 +11118,7 @@ font-style: inherit;">"Mean RT"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -11321,7 +11321,7 @@ font-style: inherit;">25</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -11360,14 +11360,14 @@ in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.netlify.ap
   <category>R</category>
   <category>visualization</category>
   <category>ggplot2</category>
-  <guid>https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index.html</guid>
+  <guid>https://vuorre.com/posts/2017-01-04-within-subject-scatter/</guid>
   <pubDate>Tue, 03 Jan 2017 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>How to Compare Two Groups with Robust Bayesian Estimation in R</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html</link>
+  <link>https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</link>
   <description><![CDATA[ 
 
 
@@ -11418,7 +11418,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Histograms of the two groups’ IQ scores.</figcaption>
 </figure>
 </div>
@@ -11476,7 +11476,7 @@ font-style: italic;">##                100.3571                101.9149</span></
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
+<p><img src="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
 <figcaption class="figure-caption">t distribution with 87 degrees of freedom, and observed t-value. The dashed vertical lines indicate the extreme 2.5 percentiles. We would reject the null hypothesis of no difference if the observed t-value exceeded these percentiles.</figcaption>
 </figure>
 </div>
@@ -11998,14 +11998,14 @@ Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.net
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html</guid>
+  <guid>https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</guid>
   <pubDate>Sun, 01 Jan 2017 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" medium="image" type="image/png" height="66" width="144"/>
+  <media:content url="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" medium="image" type="image/png" height="66" width="144"/>
 </item>
 <item>
   <title>How to arrange ggplot2 panel plots</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index.html</link>
+  <link>https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</link>
   <description><![CDATA[ 
 
 
@@ -12071,7 +12071,7 @@ font-style: inherit;">labeller =</span> label_both)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -12102,7 +12102,7 @@ font-style: inherit;">reorder</span>(Subject, Reaction, mean)</span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -12195,7 +12195,7 @@ font-style: inherit;">reorder</span>(Subject, Slope)</span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -12219,14 +12219,14 @@ December 6, 2016. <a href="https://vuorre.netlify.app/posts/2016-12-06-order-ggp
   <category>data science</category>
   <category>R</category>
   <category>visualization</category>
-  <guid>https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index.html</guid>
+  <guid>https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</guid>
   <pubDate>Mon, 05 Dec 2016 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Bayesian Meta-Analysis with R, Stan, and brms</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index.html</link>
+  <link>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</link>
   <description><![CDATA[ 
 
 
@@ -12614,7 +12614,7 @@ font-style: inherit;">"metaanalysismodel"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)</figcaption>
 </figure>
 </div>
@@ -12889,7 +12889,7 @@ font-style: inherit;">1</span> </span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/draw-forest-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/draw-forest-plot-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Forest plot of the example model’s results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes.</figcaption>
 </figure>
 </div>
@@ -12931,14 +12931,14 @@ Brms.”</span> September 29, 2016. <a href="https://vuorre.netlify.app/posts/20
   <category>R</category>
   <category>brms</category>
   <category>tutorial</category>
-  <guid>https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index.html</guid>
+  <guid>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</guid>
   <pubDate>Wed, 28 Sep 2016 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>GitHub-style waffle plots in R</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index.html</link>
+  <link>https://vuorre.com/posts/2016-03-24-github-waffle-plot/</link>
   <description><![CDATA[ 
 
 
@@ -13436,7 +13436,7 @@ font-style: inherit;">gh_waffle</span>(d)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13471,14 +13471,14 @@ March 24, 2016. <a href="https://vuorre.netlify.app/posts/2016-03-24-github-waff
   <category>visualization</category>
   <category>data science</category>
   <category>tutorial</category>
-  <guid>https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index.html</guid>
+  <guid>https://vuorre.com/posts/2016-03-24-github-waffle-plot/</guid>
   <pubDate>Wed, 23 Mar 2016 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>How to create plots with subplots in R</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index.html</link>
+  <link>https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/</link>
   <description><![CDATA[ 
 
 
@@ -13638,7 +13638,7 @@ font-style: inherit;">0.05</span>)))</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/first_plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/first_plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13775,7 +13775,7 @@ font-style: inherit;">0.05</span>)))</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13848,7 +13848,7 @@ font-style: inherit;">"education"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13876,7 +13876,7 @@ font-style: inherit;">"free_y"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13905,7 +13905,7 @@ font-style: inherit;">"free_y"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -13996,7 +13996,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -14021,9 +14021,9 @@ R.”</span> March 15, 2016. <a href="https://vuorre.netlify.app/posts/2016-03-1
   <category>R</category>
   <category>visualization</category>
   <category>tutorial</category>
-  <guid>https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index.html</guid>
+  <guid>https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/</guid>
   <pubDate>Mon, 14 Mar 2016 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.netlify.app/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

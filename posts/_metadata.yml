@@ -25,7 +25,7 @@ execute:
 # Default author
 author:
   - name: Matti Vuorre
-    url: https://vuorre.netlify.app
+    url: https://vuorre.com
     affiliation: Tilburg University
     affiliation-url: https://www.tilburguniversity.edu/staff/m-j-vuorre
     orcid: 0000-0001-5052-066X

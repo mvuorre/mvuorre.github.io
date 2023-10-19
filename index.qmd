@@ -1,12 +1,13 @@
 ---
 title: "Matti Vuorre"
 subtitle: |
-  Scientist of the cognitive, behavioral, and social variety
+  Psychological scientist
 from: markdown+emoji
+title-block-banner: false
 comments: false
 ---
 
-I am a scientist at Tilburg University, where I study psychological functioning in the context of digital technologies and online/virtual environments. Much of my most recent research has focused on the roles that digital technologies---particularly video games---play in individuals' well-being. In my work, I apply statistical methods to large-scale datasets and conduct controlled experiments. I also place great emphasis on the transparency and reproduciblity of all my work. For more details, you can take a look at my [vita](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf). You can also check out my Tilburg profile [here](https://www.tilburguniversity.edu/staff/m-j-vuorre/).
+I am a researcher at Tilburg University, where I study psychological functioning in the context of digital technologies and online/virtual environments. Much of my most recent research has focused on the roles that digital technologies---particularly video games---play in individuals' well-being. In my work, I apply statistical methods to large-scale datasets and conduct controlled experiments. I also place great emphasis on the transparency and reproduciblity of all my work. For more details, you can take a look at my [vita](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf). You can also check out my Tilburg profile [here](https://www.tilburguniversity.edu/staff/m-j-vuorre/).
 
 In addition to my current research topics, I have written about [meta-cognition](https://link.springer.com/article/10.1007%2Fs11409-020-09257-1) and have a keen interest in methodology (e.g. [here](https://journals.sagepub.com/doi/10.1177/2515245918754826)) and applied statistics ([here](https://www.tandfonline.com/doi/full/10.1080/21642850.2018.1428102)) within the psychological sciences. I run a very sporadic [blog](blog.html) about statistics, psychology, science and the wonderful R statistical programming environment, and [another blog](https://matti.bearblog.dev/) for rants that probably shouldn't be online.
 
@@ -23,11 +24,11 @@ I believe scientific communication should be available to all, so all these pape
 
 ## Bibliography
 
-You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/my-publications.bib) is a .bib file with references to all the works that I have contributed to :wink:.
+You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/matti-vuorre.bib) is a .bib file with references to all the works that I have contributed to :wink:.
 
 ## Links
 
-[This blog](https://vuorre.netlify.app) | [That blog](https://matti.bearblog.dev/) | [GitHub](https://github.com/mvuorre) | [ORCID](https://orcid.org/0000-0001-5052-066X) | [Mastodon](https://bayes.club/@matti) | [CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) | [Twitter](https://twitter.com/vuorre) | [LinkedIn](https://www.linkedin.com/in/matti-vuorre) | [BlueSky](https://bsky.app/profile/vuorre.bsky.social) | [Electronic mail](mailto:m.j.vuorre@tilburguniversity.edu)
+[My website](https://vuorre.com) | [Bearblog](https://matti.bearblog.dev/) | [GitHub](https://github.com/mvuorre) | [ORCID](https://orcid.org/0000-0001-5052-066X) | [Mastodon](https://bayes.club/@matti) | [CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) | [LinkedIn](https://www.linkedin.com/in/matti-vuorre) | [BlueSky](https://bsky.app/profile/matti.vuorre.com) | [email](mailto:m.j.vuorre@tilburguniversity.edu)
 
 ::: grid
 ::: {.g-col-12 .g-col-md-7 style="text-align: left;"}

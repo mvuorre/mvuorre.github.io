@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,9 +81,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
-    null
+    "f",
+    "/",
+    "s"
   ],
   "language": {
     "search-no-results-text": "No results",
@@ -93,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,13 +108,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Matti’s homepage - How to calculate contrasts from a fitted brms model">
 <meta property="og:description" content="Answer more questions with your estimated parameters, without refitting the model.">
-<meta property="og:image" content="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png">
+<meta property="og:image" content="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png">
 <meta property="og:site_name" content="Matti's homepage">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Matti’s homepage - How to calculate contrasts from a fitted brms model">
 <meta name="twitter:description" content="Answer more questions with your estimated parameters, without refitting the model.">
-<meta name="twitter:image" content="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png">
+<meta name="twitter:image" content="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png">
 <meta name="twitter:image-height" content="960">
 <meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
@@ -120,8 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -146,49 +149,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../personal.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Links</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
-        <li>
-    <a class="dropdown-item" href="../../blog.xml">
- <span class="dropdown-text">RSS</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="mailto:m.j.vuorre@tilburguniversity.edu">
- <span class="dropdown-text">Email</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://orcid.org/0000-0001-5052-066X">
- <span class="dropdown-text">ORCID</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://bayes.club/(matti?)">
- <span class="dropdown-text">Mastodon</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">GitHub</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
- <span class="dropdown-text">CV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.linkedin.com/in/matti-vuorre">
- <span class="dropdown-text">LinkedIn</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
- <span class="dropdown-text">Buy me a coffee</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -220,16 +180,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+      <p class="author"><a href="https://vuorre.com">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               <a href="https://www.tilburguniversity.edu/staff/m-j-vuorre">
               Tilburg University
               </a>
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -247,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -259,12 +219,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -356,7 +317,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The first lesson is that most models are simply too complex to interpret by just looking at the numerical parameter estimates. Therefore, we always draw figures to help us interpret what the model thinks is going on. The figure below shows example participants’ data (left) and the model’s estimated effects on the right.</p>
 <div class="cell" data-hash="index_cache/html/figure_4d5407611eca48fecf627589f2b2def4">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/figure-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/figure-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Then, we can begin interpreting the parameters. First, the intercept indicates estimated intimacy when time and treatment were at their respective baseline levels (0). It is always easiest to interpret the parameters by eyeballing the right panel of the figure above and trying to connect the numbers to the figure. This estimate is the left-most point of the red line.</p>
@@ -390,7 +355,11 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-5_25c0a52c7a787a16b504300fdba1b2a2">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(q2_answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>That figure shows the (samples from the) posterior distribution of the answer to Question 2.</p>
@@ -431,7 +400,11 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(q5_answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can now return to <code>Evid.Ratio</code> and <code>Post.Prob</code>: The latter indicates the posterior probability that the parameter of interest is greater than zero (<code>&gt; 0</code>). (More accurately, the proportion of samples from the posterior that are greater than zero.) That should correspond to what you see in the figure above. The former is the ratio of the hypothesis and its complement (the ratio of <code>time &gt; 0</code> and <code>time &lt; 0</code>). I find posterior probabilities more intuitive than evidence ratios, but they both return essentially the same information. Perhaps of interest, with uniform priors, posterior probabilities will exactly correspond (numerically, not conceptually) to frequentist one-sided p-values (<a href="https://www.ejwagenmakers.com/2017/MarsmanWagenmakers2017ThreeInsights.pdf">Marsman &amp; Wagenmakers, 2017</a>).</p>
@@ -465,7 +438,11 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <p>The results of this question would be a bit too much information to print on screen, so instead we will draw a figure:</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-10_cf8b682c317093de2857b07a71a22e1c">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -477,16 +454,16 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2020,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2020,
   author = {Vuorre, Matti},
   title = {How to Calculate Contrasts from a Fitted Brms Model},
   date = {2020-02-06},
-  url = {https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model},
+  url = {https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2020" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2020. <span>“How to Calculate Contrasts from a Fitted
-Brms Model.”</span> February 6, 2020. <a href="https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model">https://vuorre.netlify.app/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model</a>.
+Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model">https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -616,15 +593,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -633,7 +623,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -675,6 +673,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -750,7 +771,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);

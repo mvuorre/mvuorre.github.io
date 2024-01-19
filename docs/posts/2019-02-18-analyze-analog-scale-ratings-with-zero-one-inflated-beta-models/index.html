@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -61,6 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,9 +101,11 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
-    null
+    "f",
+    "/",
+    "s"
   ],
   "language": {
     "search-no-results-text": "No results",
@@ -112,6 +115,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -122,15 +126,42 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <meta property="og:title" content="Matti’s homepage - How to analyze visual analog (slider) scale data?">
 <meta property="og:description" content="A reasonable choice might be the zero-one-inflated beta model">
-<meta property="og:image" content="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
+<meta property="og:image" content="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
 <meta property="og:site_name" content="Matti's homepage">
 <meta property="og:image:height" content="652">
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Matti’s homepage - How to analyze visual analog (slider) scale data?">
 <meta name="twitter:description" content="A reasonable choice might be the zero-one-inflated beta model">
-<meta name="twitter:image" content="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
+<meta name="twitter:image" content="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
 <meta name="twitter:image-height" content="652">
 <meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
@@ -139,8 +170,8 @@ div.csl-indent {
 <body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -165,49 +196,6 @@ div.csl-indent {
     <a class="nav-link" href="../../personal.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Links</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
-        <li>
-    <a class="dropdown-item" href="../../blog.xml">
- <span class="dropdown-text">RSS</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="mailto:m.j.vuorre@tilburguniversity.edu">
- <span class="dropdown-text">Email</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://orcid.org/0000-0001-5052-066X">
- <span class="dropdown-text">ORCID</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://bayes.club/(matti?)">
- <span class="dropdown-text">Mastodon</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">GitHub</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
- <span class="dropdown-text">CV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.linkedin.com/in/matti-vuorre">
- <span class="dropdown-text">LinkedIn</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
- <span class="dropdown-text">Buy me a coffee</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -240,16 +228,16 @@ div.csl-indent {
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+      <p class="author"><a href="https://vuorre.com">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               <a href="https://www.tilburguniversity.edu/staff/m-j-vuorre">
               Tilburg University
               </a>
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -267,7 +255,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -296,12 +284,13 @@ div.csl-indent {
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -314,10 +303,14 @@ div.csl-indent {
 <p>For example, <a href="#fig-vas" class="quarto-xref">Figure&nbsp;1</a> shows a slider scale in action. (I found this random example with a simple internet search at <a href="https://blog.surveyhero.com/2018/09/03/new-question-type-slider/" class="uri">https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</a>). In experiments using slider scales, subjects are typically instructed to use their mouse to drag a response indicator along a horizontal line, and/or click with a mouse on a point of the scale that matches their subjective impression. Sometimes these responses are provided on paper, where subjects are asked to bisect a line at a point that matches their subjective feeling (e.g.&nbsp;halfway between “Leisure” and “Money” if they are subjectively equally important.)</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-vas_d49fde4a4c4c62f226b259ae88878eb6">
 <div class="cell-output-display">
-<div id="fig-vas" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="vas.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</figcaption>
+<div id="fig-vas" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vas.gif" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/new-question-type-slider/
+</figcaption>
 </figure>
 </div>
 </div>
@@ -328,10 +321,14 @@ div.csl-indent {
 <p>Consider <a href="#fig-simulate-example" class="quarto-xref">Figure&nbsp;2</a>. This figure shows 200 simulated ratings on a [0, 1] slider scale (meaning that any value between 0 and 1, inclusive of the endpoints, is possible). I have also superimposed a blue curve of the best-fitting normal density on the histogram. The two most notable non-normal features of these data are that they are bounded at 0 and 1 where the data appears to “bunch”, and (possibly) skewed. Of course, these data were simulated; experience with slider scales tells me, however, that this histogram is not unrepresentative of such ratings.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-simulate-example_1387ec0834bc4477a1f4ba455cf43422">
 <div class="cell-output-display">
-<div id="fig-simulate-example" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-simulate-example-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.</figcaption>
+<div id="fig-simulate-example" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simulate-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-simulate-example-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simulate-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimposed best-fitting density curve from a normal distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -350,8 +347,8 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="zoidberg.jpg" class="img-fluid figure-img" width="240"></p>
-<figcaption class="figure-caption">Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption>
+<p><img src="zoidberg.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="240"></p>
+<figcaption>Dr.&nbsp;John A. Zoidberg thinks you should try a ZOIB model on your slider scale data.</figcaption>
 </figure>
 </div>
 </div>
@@ -369,10 +366,14 @@ div.csl-indent {
 <p>The beta distribution typically has two parameters, which in R are called <code>shape1</code> and <code>shape2</code>. Together, they determine the location, spread, and skew of the distribution. Four example beta densities are shown in <a href="#fig-beta-distributions" class="quarto-xref">Figure&nbsp;3</a>. Using R’s <code>dbeta()</code>, I drew four curves corresponding to beta densities with different <code>shape1</code> and <code>2</code> parameters.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-beta-distributions_77b48c6794176e948912869205427887">
 <div class="cell-output-display">
-<div id="fig-beta-distributions" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Four examples of the beta density, corresponding to different shape parameters.</figcaption>
+<div id="fig-beta-distributions" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-beta-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-beta-distributions-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beta-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Four examples of the beta density, corresponding to different shape parameters.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -388,8 +389,8 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption>
+<p><img src="index_files/figure-html/beta-reparameterized-distributions-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figcaption>Four examples of the reparameterized beta density (<code>dprop()</code>).</figcaption>
 </figure>
 </div>
 </div>
@@ -408,8 +409,8 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/zoib-distributions-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption>
+<p><img src="index_files/figure-html/zoib-distributions-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figcaption>Four different ZOIB distributions resulting from various combinations of the parameters. (Parameter names are abbreviated; a = alpha, g = gamma, etc.)</figcaption>
 </figure>
 </div>
 </div>
@@ -429,10 +430,14 @@ div.csl-indent {
 <p>To illustrate the ZOIB model in action, I simulated a data set of 100 ratings from two groups, A and B. These data are shown in <a href="#fig-zoib-example" class="quarto-xref">Figure&nbsp;4</a>.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-zoib-example_f89e588e13fec1a98ff7bba3a1fdd2c7">
 <div class="cell-output-display">
-<div id="fig-zoib-example" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-zoib-example-1.png" class="img-fluid figure-img" width="288"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.</figcaption>
+<div id="fig-zoib-example" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-zoib-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-zoib-example-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zoib-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with means and bootstrapped 95% CIs in blue. The ratings are jittered horizontally to reveal overlapping data points.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -591,10 +596,14 @@ div.csl-indent {
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_args =</span> <span class="fu">list</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">shape =</span> <span class="dv">1</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-ex-me" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-ex-me-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).</figcaption>
+<div id="fig-ex-me" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ex-me-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-ex-me-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ex-me-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95% CIs), with the original data (empty circles).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -608,10 +617,14 @@ div.csl-indent {
 <p>To compare the performance of the t-test and ZOIB in a little bit more detail, I conducted a small simulation study. I simulated 100 data sets of 200 ratings from two independent groups, from the ZOIB model (100 ratings per group). I set <span class="math inline">\(\alpha = 0.2, \gamma = 0.7, \mu = 0.6 + 0.1\mbox{groupB}, \phi = 5\)</span>; that is, there was a small effect of group on the mean of the beta distribution, and all other parameters were constant across groups. A sample of the resulting data sets is shown in <a href="#fig-sim-examplesets" class="quarto-xref">Figure&nbsp;6</a>.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sim-examplesets_03586da8508d5d58d42a692663107647">
 <div class="cell-output-display">
-<div id="fig-sim-examplesets" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.</figcaption>
+<div id="fig-sim-examplesets" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sim-examplesets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-sim-examplesets-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim-examplesets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95% CIs.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -621,10 +634,14 @@ div.csl-indent {
 <p>This parameter was significantly greater than zero in 66% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in <a href="#fig-sims-compare" class="quarto-xref">Figure&nbsp;7</a>.</p>
 <div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sims-compare_86473af857a11cf2e39a1f2b4a67b7af">
 <div class="cell-output-display">
-<div id="fig-sims-compare" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-sims-compare-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.</figcaption>
+<div id="fig-sims-compare" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sims-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-sims-compare-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sims-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Results of the simulation study. Top: the estimated mean difference and 95% CI of the two groups’ ratings, as estimated by a t-test. Red = not statistically significant; blue = statistically significant. The data sets are ordered on the x axis on the estimated mean difference. Bottom: simulation results of the ZOIB model. Same as the top panel, but the estimated parameter is the difference between the two group’s mu parameters of the beta distribution. (I back-transformed the mu parameter from the logit scale to the data scale to make the results numerically more comparable across the t-test and ZOIB models.) In both panels, the horizontal green line indicates the true effect used in the simulations.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -652,7 +669,7 @@ div.csl-indent {
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-BurknerBrmsPackageBayesian2017" class="csl-entry" role="listitem">
 Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An</span> <span>R</span> <span>Package</span> for <span>Bayesian</span> <span>Multilevel</span> <span>Models</span> <span>Using</span> <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
@@ -683,21 +700,21 @@ Verkuilen, Jay, and Michael Smithson. 2012. <span>“Mixed and <span>Mixture</sp
 <div id="ref-YarkoniChoosingPredictionExplanation2017" class="csl-entry" role="listitem">
 Yarkoni, Tal, and Jacob Westfall. 2017. <span>“Choosing <span>Prediction</span> <span>Over</span> <span>Explanation</span> in <span>Psychology</span>: <span>Lessons</span> <span>From</span> <span>Machine</span> <span>Learning</span>.”</span> <em>Perspectives on Psychological Science</em> 12 (6): 1100–1122. <a href="https://doi.org/10.1177/1745691617693393">https://doi.org/10.1177/1745691617693393</a>.
 </div>
-</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Technically, normal models assume that the residuals are normally distributed. I will keep referring to data being normally distributed or not, for clarity.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2019,
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2019,
   author = {Vuorre, Matti},
   title = {How to Analyze Visual Analog (Slider) Scale Data?},
   date = {2019-02-18},
-  url = {https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models},
+  url = {https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2019" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2019. <span>“How to Analyze Visual Analog (Slider) Scale
-Data?”</span> February 18, 2019. <a href="https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models">https://vuorre.netlify.app/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</a>.
+Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models">https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -827,15 +844,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -844,7 +874,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -886,6 +924,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -961,7 +1022,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.424">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,9 @@ ul.task-list li input[type="checkbox"] {
   "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
-    null
+    "f",
+    "/",
+    "s"
   ],
   "language": {
     "search-no-results-text": "No results",
@@ -58,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -97,6 +100,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="alternate" type="application/rss+xml" title="Matti's homepage" href="blog.xml" data-external="1"><meta property="og:title" content="Matti’s homepage - Notes on psychology, statistics, and R, sometimes">
 <meta property="og:site_name" content="Matti's homepage">
 <meta name="twitter:title" content="Matti’s homepage - Notes on psychology, statistics, and R, sometimes">
@@ -106,8 +136,8 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -177,16 +207,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="psychology" data-listing-date-sort="1679612400000" data-listing-file-modified-sort="1695818862474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="605">
 <div class="thumbnail">
-<p><a href="./posts/yet-another-data-request-email/index.html"></a></p><a href="./posts/yet-another-data-request-email/index.html">
+<p><a href="./posts/yet-another-data-request-email/index.html" class="no-external"></a></p><a href="./posts/yet-another-data-request-email/index.html" class="no-external">
 <p><img src="./posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/yet-another-data-request-email/index.html"></a></p>
+</a><p><a href="./posts/yet-another-data-request-email/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/yet-another-data-request-email/index.html">Yet another data request email</a>
+<a href="./posts/yet-another-data-request-email/index.html" class="no-external">Yet another data request email</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/yet-another-data-request-email/index.html"></a>
+<a href="./posts/yet-another-data-request-email/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
@@ -194,11 +224,11 @@ psychology
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/yet-another-data-request-email/index.html">To what extent does infant screen time predict later psychological outcomes?</a>
+<a href="./posts/yet-another-data-request-email/index.html" class="no-external">To what extent does infant screen time predict later psychological outcomes?</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/yet-another-data-request-email/index.html">
+<a href="./posts/yet-another-data-request-email/index.html" class="no-external">
 <div class="listing-date">
 2023-03-24
 </div>
@@ -208,18 +238,18 @@ Matti Vuorre
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,modelling,bayes,centering,longitudinal,brms" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1695818862471" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2408">
+<div class="quarto-post image-right" data-index="1" data-categories="R,modelling,bayes,centering,longitudinal,brms" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1705652431863" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2408">
 <div class="thumbnail">
-<p><a href="./posts/latent-mean-centering/index.html"></a></p><a href="./posts/latent-mean-centering/index.html">
+<p><a href="./posts/latent-mean-centering/index.html" class="no-external"></a></p><a href="./posts/latent-mean-centering/index.html" class="no-external">
 <p><img src="./posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/latent-mean-centering/index.html"></a></p>
+</a><p><a href="./posts/latent-mean-centering/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/latent-mean-centering/index.html">Latent mean centering with brms</a>
+<a href="./posts/latent-mean-centering/index.html" class="no-external">Latent mean centering with brms</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/latent-mean-centering/index.html"></a>
+<a href="./posts/latent-mean-centering/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -242,11 +272,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/latent-mean-centering/index.html">Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts <span class="citation" data-cites="endersCenteringPredictorVariables2007">[@endersCenteringPredictorVariables2007]</span>. This within-cluster centering is…</a>
+<a href="./posts/latent-mean-centering/index.html" class="no-external">Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts <span class="citation" data-cites="endersCenteringPredictorVariables2007">[@endersCenteringPredictorVariables2007]</span>. This within-cluster centering is…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/latent-mean-centering/index.html">
+<a href="./posts/latent-mean-centering/index.html" class="no-external">
 <div class="listing-date">
 2023-01-01
 </div>
@@ -258,16 +288,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="2" data-categories="tips,computers" data-listing-date-sort="1670454000000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="728">
 <div class="thumbnail">
-<p><a href="./posts/computer-setup-dotfiles/index.html"></a></p><a href="./posts/computer-setup-dotfiles/index.html">
+<p><a href="./posts/computer-setup-dotfiles/index.html" class="no-external"></a></p><a href="./posts/computer-setup-dotfiles/index.html" class="no-external">
 <p><img src="./posts/computer-setup-dotfiles/images/terminal.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/computer-setup-dotfiles/index.html"></a></p>
+</a><p><a href="./posts/computer-setup-dotfiles/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/computer-setup-dotfiles/index.html">How I like to set up my computer</a>
+<a href="./posts/computer-setup-dotfiles/index.html" class="no-external">How I like to set up my computer</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/computer-setup-dotfiles/index.html"></a>
+<a href="./posts/computer-setup-dotfiles/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('tips'); return false;">
@@ -278,11 +308,11 @@ computers
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/computer-setup-dotfiles/index.html">Some notes (for myself) on how I like to set up my MacOS environment for work (and fun).</a>
+<a href="./posts/computer-setup-dotfiles/index.html" class="no-external">Some notes (for myself) on how I like to set up my MacOS environment for work (and fun).</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/computer-setup-dotfiles/index.html">
+<a href="./posts/computer-setup-dotfiles/index.html" class="no-external">
 <div class="listing-date">
 2022-12-08
 </div>
@@ -294,16 +324,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="3" data-categories="R,statistics,tutorial,multiverse,tidyverse,specr" data-listing-date-sort="1670367600000" data-listing-file-modified-sort="1693294603299" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3655">
 <div class="thumbnail">
-<p><a href="./posts/parallel-multiverse/index.html"></a></p><a href="./posts/parallel-multiverse/index.html">
+<p><a href="./posts/parallel-multiverse/index.html" class="no-external"></a></p><a href="./posts/parallel-multiverse/index.html" class="no-external">
 <p><img src="./posts/parallel-multiverse/images/undraw-lost-online.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/parallel-multiverse/index.html"></a></p>
+</a><p><a href="./posts/parallel-multiverse/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/parallel-multiverse/index.html">Tidymultiverse</a>
+<a href="./posts/parallel-multiverse/index.html" class="no-external">Tidymultiverse</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/parallel-multiverse/index.html"></a>
+<a href="./posts/parallel-multiverse/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -326,11 +356,11 @@ specr
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/parallel-multiverse/index.html">How to conduct multiverse analyses in R with tidy pipelines and parallel processing.</a>
+<a href="./posts/parallel-multiverse/index.html" class="no-external">How to conduct multiverse analyses in R with tidy pipelines and parallel processing.</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/parallel-multiverse/index.html">
+<a href="./posts/parallel-multiverse/index.html" class="no-external">
 <div class="listing-date">
 2022-12-07
 </div>
@@ -342,16 +372,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="4" data-categories="R,visualization,ggplot2" data-listing-date-sort="1670281200000" data-listing-file-modified-sort="1693294603302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
 <div class="thumbnail">
-<p><a href="./posts/raincloud-plot-alt/index.html"></a></p><a href="./posts/raincloud-plot-alt/index.html">
+<p><a href="./posts/raincloud-plot-alt/index.html" class="no-external"></a></p><a href="./posts/raincloud-plot-alt/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/raincloud-plot-alt/index_files/figure-html/fig-ggrain-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/raincloud-plot-alt/index.html"></a></p>
+</a><p><a href="./posts/raincloud-plot-alt/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/raincloud-plot-alt/index.html">Some alternatives to raincloud plots</a>
+<a href="./posts/raincloud-plot-alt/index.html" class="no-external">Some alternatives to raincloud plots</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/raincloud-plot-alt/index.html"></a>
+<a href="./posts/raincloud-plot-alt/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -365,11 +395,11 @@ ggplot2
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/raincloud-plot-alt/index.html">I like raincloud plots, but think that they can duplicate the information a bit, which might have detrimental effects on clarity and comprehension.</a>
+<a href="./posts/raincloud-plot-alt/index.html" class="no-external">I like raincloud plots, but think that they can duplicate the information a bit, which might have detrimental effects on clarity and comprehension.</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/raincloud-plot-alt/index.html">
+<a href="./posts/raincloud-plot-alt/index.html" class="no-external">
 <div class="listing-date">
 2022-12-06
 </div>
@@ -381,16 +411,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="5" data-categories="R,RStudio Server,Docker,Tailscale,tutorial" data-listing-date-sort="1670022000000" data-listing-file-modified-sort="1693294603306" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1068">
 <div class="thumbnail">
-<p><a href="./posts/remote-r/index.html"></a></p><a href="./posts/remote-r/index.html">
+<p><a href="./posts/remote-r/index.html" class="no-external"></a></p><a href="./posts/remote-r/index.html" class="no-external">
 <p><img src="./posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/remote-r/index.html"></a></p>
+</a><p><a href="./posts/remote-r/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/remote-r/index.html">How to run R remotely</a>
+<a href="./posts/remote-r/index.html" class="no-external">How to run R remotely</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/remote-r/index.html"></a>
+<a href="./posts/remote-r/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -410,11 +440,11 @@ tutorial
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/remote-r/index.html">Running R on a remote computer is surprisingly easy</a>
+<a href="./posts/remote-r/index.html" class="no-external">Running R on a remote computer is surprisingly easy</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/remote-r/index.html">
+<a href="./posts/remote-r/index.html" class="no-external">
 <div class="listing-date">
 2022-12-03
 </div>
@@ -426,16 +456,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="6" data-categories="R" data-listing-date-sort="1656453600000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
 <div class="thumbnail">
-<p><a href="./posts/hexsticker-favicon/index.html"></a></p><a href="./posts/hexsticker-favicon/index.html">
+<p><a href="./posts/hexsticker-favicon/index.html" class="no-external"></a></p><a href="./posts/hexsticker-favicon/index.html" class="no-external">
 <p><img src="./posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/hexsticker-favicon/index.html"></a></p>
+</a><p><a href="./posts/hexsticker-favicon/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/hexsticker-favicon/index.html">Website favicons with hexSticker</a>
+<a href="./posts/hexsticker-favicon/index.html" class="no-external">Website favicons with hexSticker</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/hexsticker-favicon/index.html"></a>
+<a href="./posts/hexsticker-favicon/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -443,11 +473,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/hexsticker-favicon/index.html">My journey to make a website favicon with the hexSticker R package</a>
+<a href="./posts/hexsticker-favicon/index.html" class="no-external">My journey to make a website favicon with the hexSticker R package</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/hexsticker-favicon/index.html">
+<a href="./posts/hexsticker-favicon/index.html" class="no-external">
 <div class="listing-date">
 2022-06-29
 </div>
@@ -459,16 +489,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="7" data-categories="R,tips" data-listing-date-sort="1655244000000" data-listing-file-modified-sort="1693294603286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
 <div class="thumbnail">
-<p><a href="./posts/easy-notifications-from-r/index.html"></a></p><a href="./posts/easy-notifications-from-r/index.html">
+<p><a href="./posts/easy-notifications-from-r/index.html" class="no-external"></a></p><a href="./posts/easy-notifications-from-r/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/easy-notifications-from-r/images/subscribe.jpeg" alt="Subscribing to vuorre-r-notifications on ntfy.sh"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/easy-notifications-from-r/index.html"></a></p>
+</a><p><a href="./posts/easy-notifications-from-r/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/easy-notifications-from-r/index.html">Easy notifications from R</a>
+<a href="./posts/easy-notifications-from-r/index.html" class="no-external">Easy notifications from R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/easy-notifications-from-r/index.html"></a>
+<a href="./posts/easy-notifications-from-r/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -479,11 +509,11 @@ tips
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/easy-notifications-from-r/index.html">How to send notifications from R, or any other CLI, to your phone</a>
+<a href="./posts/easy-notifications-from-r/index.html" class="no-external">How to send notifications from R, or any other CLI, to your phone</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/easy-notifications-from-r/index.html">
+<a href="./posts/easy-notifications-from-r/index.html" class="no-external">
 <div class="listing-date">
 2022-06-15
 </div>
@@ -495,16 +525,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="8" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1580943600000" data-listing-file-modified-sort="1693294603277" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1521">
 <div class="thumbnail">
-<p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"></a></p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
+<p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external"></a></p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external">
 <p><img src="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"></a></p>
+</a><p><a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">How to calculate contrasts from a fitted brms model</a>
+<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external">How to calculate contrasts from a fitted brms model</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html"></a>
+<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -521,11 +551,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">Answer more questions with your estimated parameters, without refitting the model. </a>
+<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external">Answer more questions with your estimated parameters, without refitting the model. </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html">
+<a href="./posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html" class="no-external">
 <div class="listing-date">
 2020-02-06
 </div>
@@ -537,16 +567,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="9" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1550444400000" data-listing-file-modified-sort="1693294603269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6222">
 <div class="thumbnail">
-<p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"></a></p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
+<p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external"></a></p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external">
 <p><img src="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"></a></p>
+</a><p><a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">How to analyze visual analog (slider) scale data?</a>
+<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external">How to analyze visual analog (slider) scale data?</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html"></a>
+<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
@@ -566,11 +596,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">A reasonable choice might be the zero-one-inflated beta model </a>
+<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external">A reasonable choice might be the zero-one-inflated beta model </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html">
+<a href="./posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html" class="no-external">
 <div class="listing-date">
 2019-02-18
 </div>
@@ -582,16 +612,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="10" data-categories="data science,visualization,ggplot2,R" data-listing-date-sort="1544655600000" data-listing-file-modified-sort="1693294603269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
 <div class="thumbnail">
-<p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"></a></p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
+<p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external"></a></p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external">
 <p><img src="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"></a></p>
+</a><p><a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">Combine ggplots with patchwork</a>
+<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external">Combine ggplots with patchwork</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html"></a>
+<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
@@ -608,11 +638,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">How to combine arbitrary ggplots </a>
+<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external">How to combine arbitrary ggplots </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html">
+<a href="./posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index.html" class="no-external">
 <div class="listing-date">
 2018-12-13
 </div>
@@ -624,16 +654,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="11" data-categories="data science,R" data-listing-date-sort="1544569200000" data-listing-file-modified-sort="1693294603268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
 <div class="thumbnail">
-<p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"></a></p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
+<p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external"></a></p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"></a></p>
+</a><p><a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">Glue your strings together</a>
+<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external">Glue your strings together</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html"></a>
+<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
@@ -644,11 +674,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">Use the glue R package to join strings. </a>
+<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external">Use the glue R package to join strings. </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html">
+<a href="./posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html" class="no-external">
 <div class="listing-date">
 2018-12-12
 </div>
@@ -660,16 +690,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="12" data-categories="psychology,statistics,tutorial,R,brms" data-listing-date-sort="1507500000000" data-listing-file-modified-sort="1693294603254" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="55" data-listing-word-count-sort="10987">
 <div class="thumbnail">
-<p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"></a></p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
+<p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external"></a></p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external">
 <p><img src="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"></a></p>
+</a><p><a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">Bayesian Estimation of Signal Detection Models</a>
+<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external">Bayesian Estimation of Signal Detection Models</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html"></a>
+<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
@@ -689,11 +719,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known…</a>
+<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external">Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html">
+<a href="./posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html" class="no-external">
 <div class="listing-date">
 2017-10-09
 </div>
@@ -705,16 +735,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="13" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1490050800000" data-listing-file-modified-sort="1693294603250" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2361">
 <div class="thumbnail">
-<p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"></a></p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
+<p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external"></a></p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external">
 <p><img src="./posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"></a></p>
+</a><p><a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">Bayes Factors with brms</a>
+<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external">Bayes Factors with brms</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html"></a>
+<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -731,11 +761,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method. </a>
+<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external">How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method. </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html">
+<a href="./posts/2017-03-21-bayes-factors-with-brms/index.html" class="no-external">
 <div class="listing-date">
 2017-03-21
 </div>
@@ -747,16 +777,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="14" data-categories="statistics,tutorial,R,visualization,ggplot2" data-listing-date-sort="1483484400000" data-listing-file-modified-sort="1693294603248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="929">
 <div class="thumbnail">
-<p><a href="./posts/2017-01-04-within-subject-scatter/index.html"></a></p><a href="./posts/2017-01-04-within-subject-scatter/index.html">
+<p><a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external"></a></p><a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external">
 <p><img src="./posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2017-01-04-within-subject-scatter/index.html"></a></p>
+</a><p><a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">How to create within-subject scatter plots in R with ggplot2</a>
+<a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external">How to create within-subject scatter plots in R with ggplot2</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html"></a>
+<a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -776,11 +806,11 @@ ggplot2
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You’ll often see within-subject data visualized as bar graphs (condition means, and maybe mean…</a>
+<a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external">Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You’ll often see within-subject data visualized as bar graphs (condition means, and maybe mean…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2017-01-04-within-subject-scatter/index.html">
+<a href="./posts/2017-01-04-within-subject-scatter/index.html" class="no-external">
 <div class="listing-date">
 2017-01-04
 </div>
@@ -792,16 +822,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="15" data-categories="statistics,tutorial,R,brms" data-listing-date-sort="1483311600000" data-listing-file-modified-sort="1693294603225" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3264">
 <div class="thumbnail">
-<p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"></a></p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
+<p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external"></a></p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external">
 <p><img src="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"></a></p>
+</a><p><a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">How to Compare Two Groups with Robust Bayesian Estimation in R</a>
+<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external">How to Compare Two Groups with Robust Bayesian Estimation in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html"></a>
+<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -818,11 +848,11 @@ brms
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing…</a>
+<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external">2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html">
+<a href="./posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html" class="no-external">
 <div class="listing-date">
 2017-01-02
 </div>
@@ -834,16 +864,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="16" data-categories="data science,R,visualization" data-listing-date-sort="1480978800000" data-listing-file-modified-sort="1693294603223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="659">
 <div class="thumbnail">
-<p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"></a></p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
+<p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external"></a></p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external">
 <p><img src="./posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"></a></p>
+</a><p><a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">How to arrange ggplot2 panel plots</a>
+<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external">How to arrange ggplot2 panel plots</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html"></a>
+<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
@@ -857,11 +887,11 @@ visualization
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">Arrange your visual display of information to maximize your figures’ impact. </a>
+<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external">Arrange your visual display of information to maximize your figures’ impact. </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html">
+<a href="./posts/2016-12-06-order-ggplot-panel-plots/index.html" class="no-external">
 <div class="listing-date">
 2016-12-06
 </div>
@@ -873,16 +903,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="17" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1475100000000" data-listing-file-modified-sort="1693294603221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
 <div class="thumbnail">
-<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"></a></p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
+<p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external"></a></p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external">
 <p><img src="./posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"></a></p>
+</a><p><a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">Bayesian Meta-Analysis with R, Stan, and brms</a>
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external">Bayesian Meta-Analysis with R, Stan, and brms</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html"></a>
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -899,11 +929,11 @@ tutorial
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">Meta-analysis is a special case of Bayesian multilevel modeling</a>
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external">Meta-analysis is a special case of Bayesian multilevel modeling</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html">
+<a href="./posts/2016-09-29-bayesian-meta-analysis/index.html" class="no-external">
 <div class="listing-date">
 2016-09-29
 </div>
@@ -915,16 +945,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="18" data-categories="R,visualization,data science,tutorial" data-listing-date-sort="1458774000000" data-listing-file-modified-sort="1693294603220" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="702">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-24-github-waffle-plot/index.html"></a></p><a href="./posts/2016-03-24-github-waffle-plot/index.html">
+<p><a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external"></a></p><a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external">
 <p><img src="./posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2016-03-24-github-waffle-plot/index.html"></a></p>
+</a><p><a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">GitHub-style waffle plots in R</a>
+<a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external">GitHub-style waffle plots in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html"></a>
+<a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -941,11 +971,11 @@ tutorial
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">Attractive visualization for plotting activity over time in R with ggplot2. </a>
+<a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external">Attractive visualization for plotting activity over time in R with ggplot2. </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2016-03-24-github-waffle-plot/index.html">
+<a href="./posts/2016-03-24-github-waffle-plot/index.html" class="no-external">
 <div class="listing-date">
 2016-03-24
 </div>
@@ -957,16 +987,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="19" data-categories="data science,R,visualization,tutorial" data-listing-date-sort="1457996400000" data-listing-file-modified-sort="1693294603218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1136">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"></a></p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
+<p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external"></a></p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external">
 <p><img src="./posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"></a></p>
+</a><p><a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">How to create plots with subplots in R</a>
+<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external">How to create plots with subplots in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html"></a>
+<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
@@ -983,11 +1013,11 @@ tutorial
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">Some tips on creating figures with multiple panels in R </a>
+<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external">Some tips on creating figures with multiple panels in R </a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html">
+<a href="./posts/2016-03-15-ggplot-plots-subplots/index.html" class="no-external">
 <div class="listing-date">
 2016-03-15
 </div>
@@ -999,16 +1029,16 @@ Matti Vuorre
 </div>
 <div class="quarto-post image-right" data-index="20" data-categories="statistics,R,brms,tutorial" data-listing-date-sort="1457218800000" data-listing-file-modified-sort="1693294603208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2640">
 <div class="thumbnail">
-<p><a href="./posts/2016-03-06-multilevel-predictions/index.html"></a></p><a href="./posts/2016-03-06-multilevel-predictions/index.html">
+<p><a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external"></a></p><a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external">
 <p><img src="./posts/2016-03-06-multilevel-predictions/index_files/figure-html/fig1and2-1.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/2016-03-06-multilevel-predictions/index.html"></a></p>
+</a><p><a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">Confidence intervals in multilevel models</a>
+<a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external">Confidence intervals in multilevel models</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html"></a>
+<a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
@@ -1025,11 +1055,11 @@ tutorial
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling context</a>
+<a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external">How to obtain average &amp; individual-specific confidence limits for regression lines in a multilevel regression modeling context</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/2016-03-06-multilevel-predictions/index.html">
+<a href="./posts/2016-03-06-multilevel-predictions/index.html" class="no-external">
 <div class="listing-date">
 2016-03-06
 </div>
@@ -1172,38 +1202,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1212,8 +1232,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

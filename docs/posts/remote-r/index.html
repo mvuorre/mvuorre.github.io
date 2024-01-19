@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,9 +81,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
-    null
+    "f",
+    "/",
+    "s"
   ],
   "language": {
     "search-no-results-text": "No results",
@@ -93,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -103,19 +106,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Matti’s homepage - How to run R remotely">
 <meta property="og:description" content="Running R on a remote computer is surprisingly easy">
-<meta property="og:image" content="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
+<meta property="og:image" content="https://vuorre.com/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
 <meta property="og:site_name" content="Matti's homepage">
 <meta name="twitter:title" content="Matti’s homepage - How to run R remotely">
 <meta name="twitter:description" content="Running R on a remote computer is surprisingly easy">
-<meta name="twitter:image" content="https://vuorre.netlify.app/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
+<meta name="twitter:image" content="https://vuorre.com/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -140,49 +143,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../personal.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Links</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-links">    
-        <li>
-    <a class="dropdown-item" href="../../blog.xml">
- <span class="dropdown-text">RSS</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="mailto:m.j.vuorre@tilburguniversity.edu">
- <span class="dropdown-text">Email</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://orcid.org/0000-0001-5052-066X">
- <span class="dropdown-text">ORCID</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://bayes.club/@matti">
- <span class="dropdown-text">Mastodon</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre">
- <span class="dropdown-text">GitHub</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf">
- <span class="dropdown-text">CV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/vuorre">
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.linkedin.com/in/matti-vuorre">
- <span class="dropdown-text">LinkedIn</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.buymeacoffee.com/vuorre">
- <span class="dropdown-text">Buy me a coffee</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -215,16 +175,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://vuorre.netlify.app">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+      <p class="author"><a href="https://vuorre.com">Matti Vuorre</a> <a href="https://orcid.org/0000-0001-5052-066X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               <a href="https://www.tilburguniversity.edu/staff/m-j-vuorre">
               Tilburg University
               </a>
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -242,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
@@ -255,12 +215,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -300,17 +261,25 @@ Note
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-ti</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>/work:/home/rstudio <span class="at">-e</span> PASSWORD=yourpassword <span class="at">-p</span> 8787:8787 rocker/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This creates a directory in your current working directory called <code>work</code>, and lets the Docker container access files therein (inside the container, the path is <code>/home/rstudio</code> where RStudio Server sessions typically start). This way whatever files you save inside Docker will remain in your disk, and you can use / edit those outside the container as well. (Thanks Kristoffer for pointing this critical point to me!)</p>
 <p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (<a href="#fig-login" class="quarto-xref">Figure&nbsp;1</a>).</p>
-<div id="fig-login" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/login.png" class="img-fluid figure-img" alt="RStudio Server login window."></p>
-<figcaption class="figure-caption">Figure&nbsp;1: RStudio Server login window.</figcaption>
+<div id="fig-login" class="quarto-figure quarto-figure-center quarto-float anchored" alt="RStudio Server login window.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/login.png" class="img-fluid figure-img" alt="RStudio Server login window.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: RStudio Server login window.
+</figcaption>
 </figure>
 </div>
 <p>Then use <code>rstudio</code> as the Username, and <code>yourpassword</code> as the password. You’ll then have a fully functioning RStudio session in your browser (<a href="#fig-rstudio-server" class="quarto-xref">Figure&nbsp;2</a>).</p>
-<div id="fig-rstudio-server" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server."></p>
-<figcaption class="figure-caption">Figure&nbsp;2: RStudio Server–RStudio in the browser!.</figcaption>
+<div id="fig-rstudio-server" class="quarto-figure quarto-figure-center quarto-float anchored" alt="RStudio Server.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rstudio-server-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/rstudio-server.png" class="img-fluid figure-img" alt="RStudio Server.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-server-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: RStudio Server–RStudio in the browser!.
+</figcaption>
 </figure>
 </div>
 <p>Notice how it runs on Ubuntu, although my computer is an M1 Mac. Pretty cool, huh.</p>
@@ -322,10 +291,14 @@ Note
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipconfig</span> getifaddr en0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Your local IP address will be something like <code>192.168.0.123</code>. My fast computer currently runs on <code>192.168.0.155</code>, and I’ll use it below.</p>
 <p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see <a href="#fig-rstudio-remote-1" class="quarto-xref">Figure&nbsp;3</a>.</p>
-<div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone."></p>
-<figcaption class="figure-caption">Figure&nbsp;3: RStudio remote session on my phone.</figcaption>
+<div id="fig-rstudio-remote-1" class="quarto-figure quarto-figure-center quarto-float anchored" alt="RStudio remote session on my phone.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rstudio-remote-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/phone-1.jpg" class="img-fluid figure-img" alt="RStudio remote session on my phone.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-remote-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: RStudio remote session on my phone.
+</figcaption>
 </figure>
 </div>
 <p>It really isn’t more difficult than that.</p>
@@ -335,10 +308,14 @@ Note
 <p>OK, so you still have RStudio Server running on your fast computer, but maybe it’s at work and you are now at home with your slow computer and a cold beer. How to connect? There’s many ways to do this, but here we will use <a href="https://tailscale.com/">Tailscale</a>.</p>
 <p>First, create a Tailscale account, and then install it on both computers. (OK so I guess you still need to be physically near both machines at this point <span class="emoji" data-emoji="smile">😄</span>. [Unless you already have e.g.&nbsp;SSH access to the fast computer, in which case you can install Tailscale in the terminal.]) Make sure Tailscale is running on both and that they are signed in to the same Tailscale account. You can follow the <a href="https://tailscale.com/kb/1017/install/">official instructions</a>. It really is quite easy and that’s why I use Tailscale and not some other SSH or VPN based solution.</p>
 <p>Then, you can head to <a href="https://login.tailscale.com/admin/machines" class="uri">https://login.tailscale.com/admin/machines</a> (on either computer). It will show you all the machines that you’ve connected to Tailscale (<a href="#fig-tailscale" class="quarto-xref">Figure&nbsp;4</a>), whether they are active or not.</p>
-<div id="fig-tailscale" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel."></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Tailscale admin panel.</figcaption>
+<div id="fig-tailscale" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Tailscale admin panel.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tailscale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tailscale-1.png" class="img-fluid figure-img" alt="Tailscale admin panel.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tailscale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Tailscale admin panel.
+</figcaption>
 </figure>
 </div>
 <p>Now you can connect between your computers wherever the machines might be, provided that they are connected to the internet and Tailscale. My fast computer’s Tailscale IP, redacted in <a href="#fig-tailscale" class="quarto-xref">Figure&nbsp;4</a>, is <code>xxx.xxx.x.xx</code>. So now I go home with my slow computer, and then use the browser to connect to <code>xxx.xxx.x.xx:8787</code>, and I see <a href="#fig-rstudio-remote-1" class="quarto-xref">Figure&nbsp;3</a> again.</p>
@@ -352,16 +329,16 @@ Note
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2022,
   author = {Vuorre, Matti},
   title = {How to Run {R} Remotely},
   date = {2022-12-03},
-  url = {https://vuorre.netlify.app/posts/remote-r},
+  url = {https://vuorre.com/posts/remote-r},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
-2022. <a href="https://vuorre.netlify.app/posts/remote-r">https://vuorre.netlify.app/posts/remote-r</a>.
+2022. <a href="https://vuorre.com/posts/remote-r">https://vuorre.com/posts/remote-r</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -491,15 +468,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -508,7 +498,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -550,6 +548,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -625,7 +646,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);

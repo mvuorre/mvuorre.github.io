@@ -10,7 +10,116 @@
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
 <generator>quarto-1.4.545</generator>
-<lastBuildDate>Thu, 23 Mar 2023 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 18 Jan 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>A simple statistics syllabus</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/statistics-syllabus/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.</p>
+<p><em>tl;dr</em>:</p>
+<ul>
+<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span></li>
+<li><a href="https://www.john-fox.ca/AppliedRegression/index.html"><em>Applied Regression Analysis and Generalized Linear Models</em></a> <span class="citation" data-cites="foxAppliedRegressionAnalysis2015">(Fox 2015)</span></li>
+<li><a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span></li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span></li>
+</ul>
+<section id="the-basics-regression" class="level2">
+<h2 class="anchored" data-anchor-id="the-basics-regression">The basics: Regression</h2>
+<p>If there is one single concept in applied statistics worth learning, it is that of <em>regression</em>. You’ve probably learned statistics in the context of p-values from hypothesis tests, ANOVAs, t-tests and stuff like that, but the underlying and unifying concept is <em>regression</em>: Modelling (a set of) outcome variables on (a set of) predictor variables. ANOVA is a regression model… Assuming that your data is normally distributed can be a regression model… So I’d advise you to just take a moment and learn what this thing called regression is and what it could do for you.</p>
+<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
+<blockquote class="blockquote">
+<p>Many textbooks on regression focus on theory and the simplest of examples. Real statistical problems, however, are complex and subtle. This is not a book about the theory of regression. It is a book about how to use regression to solve real problems of comparison, estimation, prediction, and causal inference. It focuses on practical issues such as sample size and missing data and a wide range of goals and techniques. It jumps right in to methods and computer code you can use fresh out of the box.</p>
+</blockquote>
+<p>The quote-unquote downside of this book is that it is a bit heterodox in its approach to statistical inference. I believe this to be an entirely good thing, but the orthodox approach focusing on test statistics, p-values, and hypothesis testing gets a bit less attention in this book than you’d find in those orthodox introductions. In fact this is a reason for recommending this book over alternatives, but it is useful to know this nevertheless.</p>
+<p>While we’re at the topic of unorthodox approaches to statistical inference, I’ll mention another book that personally influenced my thinking a lot: <a href="https://sites.google.com/site/doingbayesiandataanalysis/"><em>Doing Bayesian Data Analysis</em></a> by John Kruschke <span class="citation" data-cites="kruschkeDoingBayesianData2014">(Kruschke 2014)</span>. This book includes code examples for conducting bayesian analyses for common scenarios in the behavioral sciences. While much appreciated at the time, modern software options have outpaced those in the book. Nevertheless it is a very well (and whimsically) written book full of educational wisdom, such as “The steps of bayesian data analysis”:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li>Identify the data relevant to the research questions. What are the measurement scales of the data? Which data variables are to be predicted, and which data variables are supposed to act as predictors?</li>
+<li>Define a descriptive model for the relevant data. The mathematical form and its parameters should be meaningful and appropriate to the theoretical purposes of the analysis.</li>
+<li>Specify a prior distribution on the parameters. The prior must pass muster with the audience of the analysis, such as skeptical scientists.</li>
+<li>Use Bayesian inference to re-allocate credibility across parameter values. Interpret the posterior distribution with respect to theoretically meaningful issues (assuming that the model is a reasonable description of the data; see next step).</li>
+<li>Check that the posterior predictions mimic the data with reasonable accuracy (i.e., conduct a “posterior predictive check”). If not, then consider a different descriptive model.</li>
+</ol>
+</blockquote>
+<p>Two other books about regression come to mind: <a href="https://www.john-fox.ca/AppliedRegression/index.html"><em>Applied Regression Analysis and Generalized Linear Models</em></a> <span class="citation" data-cites="foxAppliedRegressionAnalysis2015">(Fox 2015)</span> and <a href="http://irep.ntu.ac.uk/id/eprint/16540/"><em>Serious stats: a guide to advanced statistics for the behavioral sciences</em></a> <span class="citation" data-cites="baguleySeriousStatsGuide2012">(Baguley 2012)</span>. Both are very clear in their treatment of foundational concepts and include just the right amount (in my view) of mathematics. The Fox book is used a lot as a textbook for applied stats courses and I quite like it.</p>
+</section>
+<section id="statistical-rethinking" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-rethinking">Statistical rethinking</h2>
+<p>This book needs its own heading here, it is just that good.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vuorre.com/posts/statistics-syllabus/images/rethinking-fig-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Example decision tree, or flowchart, for selecting an appropri- ate statistical procedure. Beginning at the top, the user answers a series of questions about measurement and intent, arriving eventually at the name of a procedure. Many such decision trees are possible."></p>
+<figcaption>Figure 1.1 from “Statistical rethinking”</figcaption>
+</figure>
+</div>
+<p>This book, <a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span> essentially <em>argues against</em> a view of statistics visualized as a decision-tree like process above. Instead, it makes the–again–heterodox suggestion that researchers should instead <em>critically think</em> about their research problem and design appropriate models that mathematically represent those problems. It also serves as an excellent textbook on bayesian statistics, which is another term for using the rules of probability to make inferences from data. This is a very good candidate for a second textbook on statistics, once you’ve confirmed with a first book that you indeed ever want to read another book on statistics again!</p>
+<p>The author of this book also teaches an amazing course on statistics, and the lectures are all available on YouTube: <a href="https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus" class="uri">https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus</a>. Highly recommended.</p>
+<p>On that topic–Bayesian statistics–the current “bible” is the third edition of <a href="http://www.stat.columbia.edu/~gelman/book/"><em>Bayesian Data Analysis</em></a> by Gelman and colleagues <span class="citation" data-cites="gelmanBayesianDataAnalysis2013">(Gelman et al. 2013)</span>. It is also freely available as a PDF on the book’s website: <a href="http://www.stat.columbia.edu/~gelman/book/" class="uri">http://www.stat.columbia.edu/~gelman/book/</a>.</p>
+</section>
+<section id="bonus-round-actually-doing-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-round-actually-doing-statistics">Bonus round: Actually doing statistics</h2>
+<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
+</section>
+<section id="bonus-round-2-multilevel-regression" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-round-2-multilevel-regression">Bonus round 2: Multilevel regression</h2>
+<p>Generalized Linear <em>Mixed</em> Model. Hierarchical models. Hierarchical <em>Bayesian</em> Models. Multilevel models. Random effect models. Models with models in them. It’s just what we do and let’s call it multilevel regression. For most data analysis problems you will likely want to apply some variation of this theme. Actually the book <em>Statistical rethinking</em> above is a great read on this topic, but I thought I would mention <a href="http://www.stat.columbia.edu/~gelman/arm/"><em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em></a> <span class="citation" data-cites="gelmanDataAnalysisUsing2007">(Gelman and Hill 2007)</span> because it is a damn good book. The only reason I’m leaving it here and not as the second book on this page is that it is somewhat outdated regarding some of the software presented. The upshot is that a completely revised version of this book should be out sometime soon. Once that happens, this will be up there right after <em>Regression and other stories</em>.</p>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="endnotes" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Endnotes</h2><div class="quarto-appendix-contents">
+
+<p>Hello</p>
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-baguleySeriousStatsGuide2012" class="csl-entry">
+Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
+</div>
+<div id="ref-foxAppliedRegressionAnalysis2015" class="csl-entry">
+Fox, John. 2015. <em>Applied <span>Regression Analysis</span> and <span>Generalized Linear Models</span></em>. <span>SAGE Publications</span>. <a href="https://books.google.com?id=cjB3BwAAQBAJ">https://books.google.com?id=cjB3BwAAQBAJ</a>.
+</div>
+<div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry">
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
+</div>
+<div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry">
+Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>New York, NY</span>: <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
+</div>
+<div id="ref-gelmanRegressionOtherStories2020" class="csl-entry">
+Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. <span>Cambridge University Press</span>. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
+</div>
+<div id="ref-kruschkeDoingBayesianData2014" class="csl-entry">
+Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
+</div>
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
+</div>
+<div id="ref-wickhamDataScienceImport2016" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2024,
+  author = {Vuorre, Matti},
+  title = {A Simple Statistics Syllabus},
+  date = {2024-01-19},
+  url = {https://vuorre.com/posts/statistics-syllabus},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2024. <span>“A Simple Statistics Syllabus.”</span>
+January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus">https://vuorre.com/posts/statistics-syllabus</a>.
+</div></div></section></div> ]]></description>
+  <category>statistics</category>
+  <category>education</category>
+  <guid>https://vuorre.com/posts/statistics-syllabus/</guid>
+  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/statistics-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Yet another data request email</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -13725,557 +13834,6 @@ March 24, 2016. <a href="https://vuorre.com/posts/2016-03-24-github-waffle-plot"
   <guid>https://vuorre.com/posts/2016-03-24-github-waffle-plot/</guid>
   <pubDate>Wed, 23 Mar 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" medium="image" type="image/png" height="103" width="144"/>
-</item>
-<item>
-  <title>How to create plots with subplots in R</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Visualizations are great for learning from data and communicating the results of a statistical investigation. In this post, I illustrate how to create <a href="https://en.wikipedia.org/wiki/Small_multiple"><strong>small multiples</strong></a> from data using <strong>R</strong> and <strong>ggplot2</strong>.</p>
-<p>Small multiples display the same basic plot for many different groups simultaneously. For example, a data set might consist of a X ~ Y correlation measured simultaneously in many countries; small multiples display each country’s correlation in its own panel. Similarly, you might have conducted a within-individuals experiment, and would like to display the effects of the repeated-measures factors simultaneously at the average level, and at the individual level—thus showing each individual’s results in a separate panel. Whenever you would like to show the same figure, but separately for many subsets of the data, the appropriate google term is <a href="http://lmgtfy.com/?q=small+multiples">“small multiples”</a>.</p>
-<p>We’ll use the following R packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_b1831f9f2003a74f49738ff6c72abb36">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(knitr)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(scales)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(psych)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
-</div>
-<section id="example-data" class="level2">
-<h2 class="anchored" data-anchor-id="example-data">Example Data</h2>
-<p>The data I’ll use here consist of responses to the Big 5 personality questionnaire from various demographic groups, and is from the psych R package. I’ve computed a mean for each subscale:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/readdata_847cf9e55720c2dee98f92f04dd7d330">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">dat <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as_tibble</span>(bfi)</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Example data (from psych package)</caption>
-<colgroup>
-<col style="width: 7%">
-<col style="width: 17%">
-<col style="width: 4%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 15%">
-<col style="width: 12%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">gender</th>
-<th style="text-align: left;">education</th>
-<th style="text-align: right;">age</th>
-<th style="text-align: right;">Extraversion</th>
-<th style="text-align: right;">Openness</th>
-<th style="text-align: right;">Agreeableness</th>
-<th style="text-align: right;">Neuroticism</th>
-<th style="text-align: right;">Conscientiousness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">5.6</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">4.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">HS</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">3.20</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">3.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">some HS</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">3.75</td>
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">4.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">some HS</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">3.00</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">3.4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">some HS</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">4.20</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">3.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">graduate degree</td>
-<td style="text-align: right;">68</td>
-<td style="text-align: right;">2.40</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">3.6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="univariate-plots" class="level2">
-<h2 class="anchored" data-anchor-id="univariate-plots">Univariate plots</h2>
-<p>I’ll start with displaying histograms of the outcome variables (the individual-specific Big 5 category means). Picking up a variable to plot in <strong>ggplot2</strong> is done by specifying the column to plot, so to select a specific Big 5 category, I just tell <strong>ggplot2</strong> to plot it on the x axis.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/first_plot_8a1e58b3dc8136a92d89b3112fdb96df">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(dat, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> Openness)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_histogram</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-3">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Fix bars to y=0</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">expansion</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.05</span>)))</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/first_plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="long-format-data" class="level2">
-<h2 class="anchored" data-anchor-id="long-format-data">Long format data</h2>
-<p>Next, we’ll be drawing the same figure, but display all Big 5 categories using small multiples. ggplot2 calls small multiples “facets”, and the operation is conceptually to subset the input data frame by values found in one of the data frame’s columns.</p>
-<p>The key to using facets in ggplot2 is to make sure that the data is in long format; I would like to display histograms of each category in separate facets, so I’ll need to reshape the data from wide (each category in its own column) to long form (a column with category labels, and another with the value).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_04666cd1173c15d691a1e37d503c859f">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dat_long <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> dat <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_longer</span>(Extraversion<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span>Conscientiousness, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Scale"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Example data in long format.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">gender</th>
-<th style="text-align: left;">education</th>
-<th style="text-align: right;">age</th>
-<th style="text-align: left;">Scale</th>
-<th style="text-align: right;">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">Extraversion</td>
-<td style="text-align: right;">4.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">Openness</td>
-<td style="text-align: right;">3.8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">Agreeableness</td>
-<td style="text-align: right;">5.6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">Neuroticism</td>
-<td style="text-align: right;">3.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: left;">some college</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">Conscientiousness</td>
-<td style="text-align: right;">4.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: left;">HS</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">Extraversion</td>
-<td style="text-align: right;">3.2</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>The values for each Big 5 categories are now in the same column, called <code>value</code>. Each observation, or row in the data, contains all variables associated with that observation. This is the essence of long form data. We can now use the <code>Scale</code> variable to subset the data to subplots for each category.</p>
-</section>
-<section id="basic-facets" class="level2">
-<h2 class="anchored" data-anchor-id="basic-facets">Basic facets</h2>
-<section id="display-all-scales-in-small-multiples" class="level3">
-<h3 class="anchored" data-anchor-id="display-all-scales-in-small-multiples">Display all scales in small multiples</h3>
-<p>Now that <code>value</code> holds all mean Big 5 category values, asking <code>ggplot()</code> to plot it on the x-axis is not too meaningful. However, because we have another column identifying each observations’ (row) category, we can pass it to <code>facet_wrap()</code> to split the histograms by category. Making use of the long data form with facets is easy:</p>
-<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/unnamed-chunk-2_6f514a4c50f750f46189ec4337bb1a2e">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(dat_long, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> value)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"grey20"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"white"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Scale"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">expansion</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.05</span>)))</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Perfect! The same works for any arbitrary variable that we can think of as a meaningful grouping factor.</p>
-</section>
-<section id="display-different-education-levels-openness-in-small-multiples" class="level3">
-<h3 class="anchored" data-anchor-id="display-different-education-levels-openness-in-small-multiples">Display different education levels’ openness in small multiples</h3>
-<p>Because the <code>value</code> column contains values of all scales, I need to specify which scale to display by subsetting the data. I use data wrangling verbs from the <strong>dplyr</strong> package to subset the data on the fly, and pass the resulting objects to further functions using the pipe operator <code>%&gt;%</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_66242d2e2e0a7ff6a7cd13a9c5e63a53">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Filter out all rows where category is "openness", and pass forward</span></span>
-<span id="cb6-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(dat_long, Scale <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Openness"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-3">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Place value on x-axis</span></span>
-<span id="cb6-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> value)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">expansion</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.05</span>))) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-6">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Histogram</span></span>
-<span id="cb6-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"grey20"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-8">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Facet</span></span>
-<span id="cb6-9">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"education"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>That didn’t quite work, because in an observational study such as this one, the design is far from balanced; each education category has a different number of observations and thus the y-axis scales are different.</p>
-</section>
-<section id="adjusting-facet-scales" class="level3">
-<h3 class="anchored" data-anchor-id="adjusting-facet-scales">Adjusting facet scales</h3>
-<p>I can ask <code>facet_wrap()</code> to use different axis scales for each subplot. Note also that we can access the last plot using a shortcut:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_e81597c68503b34ca272fd9d48ab323a">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">last_plot</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb7-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"education"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">scales =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"free_y"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Brilliant.</p>
-</section>
-</section>
-<section id="grid-of-facets" class="level2">
-<h2 class="anchored" data-anchor-id="grid-of-facets">Grid of facets</h2>
-<p>We repeatedly called <code>facet_wrap("variable")</code> to separate the plot to several facets, based on <code>variable</code>. However, we’re not restricted to one facetting variable, and can enter multiple variables simultaneously. To illustrate, I’ll plot all categories separately for each gender, using <code>facet_grid()</code></p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_977f9e29453c0b9e6bde1b14b6d31af2">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">last_plot</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_grid</span>(gender <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> education, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">scales =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"free_y"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The argument to the left of the tilde in <code>facet_grid()</code> specifies the rows (here <code>gender</code>), the one after the tilde specifies the columns.</p>
-</section>
-<section id="ordering-facets" class="level2">
-<h2 class="anchored" data-anchor-id="ordering-facets">Ordering facets</h2>
-<p>Sometimes it is helpful to convey information through structure. One way to do this with subplots is to arrange the subplots in a meaningful manner, such as a data summary, or even a summary statistic. Ordering subplots allows the observer to quickly learn more from the figure, even though it still presents the same information, only differently arranged.</p>
-<section id="order-facets-by-number-of-observations" class="level3">
-<h3 class="anchored" data-anchor-id="order-facets-by-number-of-observations">Order facets by number of observations</h3>
-<p>To order subplots, we need to add the variable that we would like to order by to the data frame. Here we add a “number of observations” column to the data frame, then order the facetting variable on that variable. The following code snippet takes all openness-rows, calculates the number of observations for each education level, and reorders the education factor based on the number. The result is visible in a figure where the number of observations in each facet increases from top left to bottom right.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_e655a74415b6397ba5421b5df9d5605c">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">dat_long <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(Scale <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Openness"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">add_count</span>(education) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">education =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">reorder</span>(education, n)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># The important bit</span></span>
-<span id="cb9-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> value)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">expansion</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.05</span>))) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"grey20"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"education"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">scales =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"free_y"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">nrow =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-
-
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
-  author = {Vuorre, Matti},
-  title = {How to Create Plots with Subplots in {R}},
-  date = {2016-03-15},
-  url = {https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2016. <span>“How to Create Plots with Subplots in
-R.”</span> March 15, 2016. <a href="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots">https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots</a>.
-</div></div></section></div> ]]></description>
-  <category>data science</category>
-  <category>R</category>
-  <category>visualization</category>
-  <category>tutorial</category>
-  <guid>https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/</guid>
-  <pubDate>Mon, 14 Mar 2016 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2016-03-15-ggplot-plots-subplots/index_files/figure-html/unnamed-chunk-4-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

@@ -6,6 +6,8 @@ date-format: iso
 execute:
   freeze: auto
 
+repo-url: https://github.com/mvuorre/mvuorre.github.io
+
 website:
   title: "Matti's homepage"
   site-url: https://vuorre.com

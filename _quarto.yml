@@ -36,7 +36,8 @@ website:
         href: index.qmd
       - text: Blog
         href: blog.qmd
-      - personal.qmd
+      - text: About
+        href: personal.qmd
       - icon: rss
         href: index.xml
 

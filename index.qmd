@@ -26,25 +26,13 @@ I believe scientific communication should be available to all, so all these pape
 
 You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/matti-vuorre.bib) is a .bib file with references to all the works that I have contributed to :wink:.
 
-## Links
+## My links
 
 [My website](https://vuorre.com) | [Bearblog](https://matti.bearblog.dev/) | [GitHub](https://github.com/mvuorre) | [ORCID](https://orcid.org/0000-0001-5052-066X) | [Mastodon](https://bayes.club/@matti) | [CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) | [LinkedIn](https://www.linkedin.com/in/matti-vuorre) | [BlueSky](https://bsky.app/profile/matti.vuorre.com) | [email](mailto:m.j.vuorre@tilburguniversity.edu)
 
 ::: grid
-::: {.g-col-12 .g-col-md-7 style="text-align: left;"}
-## Education
-
-- PhD (2018)\
-  *Columbia University*
-- MA (2015) & MSc (2017)\
-  *Columbia University*
-- BSc (Hons) in Psychology (2013)\
-  *Victoria University of Wellington*
-:::
-
-::: {.g-col-12 .g-col-md-5 style="text-align: left;"}
+::: {.g-col-6}
 ## Employment
-
 - Tilburg University (2023 - )\
   *Assistant Professor*
 - University of Oxford (2020 - 2022)\
@@ -52,4 +40,17 @@ You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066
 - Columbia University (2018 - 2020)\
   *Postdoctoral Scientist*
 :::
+::: {.g-col-6}
+## Education
+- PhD (2018)\
+  *Columbia University*
+- MA (2015) & MSc (2017)\
+  *Columbia University*
+- BSc (Hons) in Psychology (2013)\
+  *Victoria University of Wellington*
 :::
+:::
+
+## Blogroll
+
+[Statistical Modeling, Causal Inference, and Social Science](https://statmodeling.stat.columbia.edu/) | [The 100% CI](https://www.the100.ci/) | [Dorothy Bishop](https://deevybee.blogspot.com/) | [Andrew Heiss](https://www.andrewheiss.com/blog/) | [A. Solomon Kurz](https://solomonkurz.netlify.app/blog/) | [Ruben C. Arslan](https://rubenarslan.github.io/) | [Computational Psychology](http://haines-lab.com/#posts) | [Tobias Dienlin](https://tobiasdienlin.com/blog/) | [Making it as an early career academic](https://gavinbuckingham.wordpress.com/) | [Jan Vanhove](https://janhove.github.io/) | [Nick Ballou](https://nickballou.com/blog/) | [Steve Haroz](http://steveharoz.com/blog/) | [Tidyverse](https://www.tidyverse.org/blog/) | [*[Suggest a link](https://github.com/mvuorre/mvuorre.github.io/issues)*]

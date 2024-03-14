@@ -51,6 +51,12 @@ You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066
 :::
 :::
 
+## Integrity statement
+
+Academic research is a service conducted in the public interest without biases or hidden agendas. I aim to do so and conduct my work in accordance with [The European Code of Conduct for Research Integrity](https://allea.org/code-of-conduct/) and its four main principles: Reliability, Honesty, Respect, and Accountability.
+
+I list all the sources of my research funding in [my CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf), and all my external (to academic institutions) positions on my Tilburg University [profile page](https://research.tilburguniversity.edu/en/persons/matti-vuorre). My work is or has been funded in the past by Tilburg University, the Economic and Social Research Council, and the University of Oxford's John Fell Fund. I have provided in-kind consultations and served as a non-paid panel member for [Meta](https://about.meta.com/) and [K-Games](http://www.kgames.or.kr/introduction/greetings-eng/).
+
 ## Blogroll
 
 [Statistical Modeling, Causal Inference, and Social Science](https://statmodeling.stat.columbia.edu/) | [The 100% CI](https://www.the100.ci/) | [Dorothy Bishop](https://deevybee.blogspot.com/) | [Andrew Heiss](https://www.andrewheiss.com/blog/) | [A. Solomon Kurz](https://solomonkurz.netlify.app/blog/) | [Ruben C. Arslan](https://rubenarslan.github.io/) | [Computational Psychology](http://haines-lab.com/#posts) | [Tobias Dienlin](https://tobiasdienlin.com/blog/) | [Making it as an early career academic](https://gavinbuckingham.wordpress.com/) | [Jan Vanhove](https://janhove.github.io/) | [Nick Ballou](https://nickballou.com/blog/) | [Steve Haroz](http://steveharoz.com/blog/) | [Tidyverse](https://www.tidyverse.org/blog/) | [*[Suggest a link](https://github.com/mvuorre/mvuorre.github.io/issues)*]

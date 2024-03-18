@@ -1,7 +1,8 @@
 ---
 title: Latent mean centering with brms
-description: 'Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts [@endersCenteringPredictorVariables2007]. This within-cluster centering is usually an easy data-manipulation step. However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering. In this entry, we study how to latent-mean-center variables in multilevel models using brms.'
+description: 'Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts [@endersCenteringPredictorVariables2007]. This within-cluster centering is usually an easy data-manipulation step. However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering, and that is available only in the commercial MPlus software suite (and Stan!). In this entry, I show how to latent-mean-center variables in multilevel models using brms.'
 date: 2023-01-01
+date-modified: now
 categories:
   - R
   - modelling
@@ -9,7 +10,6 @@ categories:
   - centering
   - longitudinal
   - brms
-reference-location: margin
 knitr:
   opts_chunk: 
     message: false
@@ -32,22 +32,8 @@ library(knitr)
 library(brms)
 library(ggthemes)
 library(scales)
-library(kableExtra)
 library(posterior)
 library(tidyverse)
-
-# Options for sampling
-options(
-  brms.backend = "rstan",
-  mc.cores = parallel::detectCores(logical = FALSE)
-  )
-
-# Function for tables
-k2 <- function(x, escape = TRUE) {
-  x %>% 
-    kbl(digits = 2, escape = escape) %>% 
-    kable_classic_2("striped", full_width = FALSE, html_font = "Arial")
-}
 
 # Plotting theme
 theme_set(
@@ -62,6 +48,7 @@ theme_set(
 )
 
 # Download and uncompress McNeish and Hamaker materials if not yet done
+dir.create("cache")
 path <- "materials/materials.zip"
 if (!file.exists(path)) {
   dir.create("materials", showWarnings = FALSE)
@@ -73,62 +60,42 @@ if (!file.exists(path)) {
 }
 ```
 
-:::{.callout-warning}
-I am currently studying this model implementation in more detail. It seems that there are some pieces missing, and results regarding some parameters seem unreliable. So **if you want to use this in your own work, please ensure appropriate model performance with a parameter recovery simulation.** Take everything below with a grain of salt. I'll update here once I learn more about this model's performance.
+## Introduction
 
-While drafting this entry, I asked for help with coding this up in brms on the Stan forums: <https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424>. I couldn't have figured it out without the help of all those people who answered. Thanks!
-
-The earlier drafts and mistakes I made in coding the brms model up can be found in the [Git history](https://github.com/mvuorre/mvuorre.github.io/commits/main/posts/stan-latent-mean-centering/index.qmd) of this file :smile:
-:::
-
-# Introduction
-
-Within cluster centering, or *person-mean centering* (psychologists' clusters are typically persons), is an easy but essential data processing step. For example consider the example data of 100 people's ratings of urge to smoke and depression, collected over 50 days with one response per day [@mcneishPrimerTwolevelDynamic2020] [^1], shown in @tbl-data and @fig-data.
+Within-cluster centering, or *person-mean centering* (psychologists' clusters are typically persons), is an easy data processing step that allows separating within-person from between-person associations. For example, consider the example data of 100 people's ratings of urge to smoke and depression, collected over 50 days with one response per day [@mcneishPrimerTwolevelDynamic2020] [^1], shown in @tbl-data and @fig-data.
 
 [^1]: Grab a free copy at <https://osf.io/j56bm/download>. I couldn't figure if this example data is real or simulated, or what the measurement instruments were.
 
 ```{r}
-d <- read_csv(
+dat <- read_csv(
   "materials/Data/Two-Level Data.csv", 
   col_names = c("urge", "dep", "js", "hs", "person", "time")
-) %>% 
-  select(-hs, -js) %>% 
-  relocate(person, time, 1)
-
-d <- d %>% 
-  # Grand mean center both variables
-  mutate(across(c(urge, dep), list(c = ~ . - mean(.)))) %>% 
-  group_by(person) %>% 
+) |> 
+  select(-hs, -js) |> 
+  relocate(person, time, 1) |> 
   mutate(
-    across(
-      c(urge_c, dep_c), 
-      list(
-        # Between-person center (= person's mean)
-        b = ~ mean(.), 
-        # Within-person center (= deviation from person's mean)
-        w = ~ . - mean(.)
-      ),
-      .names = "{.col}{.fn}"
-    )
-  ) %>% 
-  ungroup()
+    person = factor(person),
+    time = as.integer(time)
+  ) |> 
+  mutate(
+    u_lag = lag(urge),
+    dep_lag = lag(dep),
+    .by = person
+  )
 ```
 
 
 ```{r}
 #| label: tbl-data
 #| echo: false
-#| tbl-cap: Example longitudinal data (McNeish & Hamaker, 2020)
-d %>% 
-  slice(1:5, 51:55) %>% 
-  k2() %>% 
-  footnote(
-    "Only displaying two participants' first five observations. _c: grand mean centered; _cb: between-person centered (ie. person mean); _cw: within-person centered.", 
-    footnote_as_chunk = TRUE
-  )
+#| tbl-cap: Example longitudinal data (McNeish & Hamaker, 2020); first three rows from two random participants.
+
+dat |> 
+  filter(person %in% 1:2, time %in% 1:3) |> 
+  kable(digits = 2)
 ```
 
-The first four variables in @tbl-data are the original data values, indicating the person and timepoint of measurement, urge to smoke, and depression. I've then created the grand-mean, between-person, and within-person variables by simple data transformations. Between-person centered variables are person-specific means, and within-person centered variables are deviations around that person's mean.
+@tbl-data shows the original data values. Those could then be transformed to person-means and person-mean centered deviations with simple data processing. However, the person-mean is an unknown quantity, and centering on the observed value rather than an estimate of the true "latent" quantity can be problematic. Specifically, observed mean centering leads to Nickell's (negative bias in autoregressive effects) and Lüdtke's (bias in other time-varying effects) biases [@mcneishPrimerTwolevelDynamic2020, p. 617-618].
 
 ```{r}
 #| label: fig-data
@@ -136,228 +103,265 @@ The first four variables in @tbl-data are the original data values, indicating t
 #| fig-height: 2.8
 
 set.seed(999)
-d %>% 
-  filter(person %in% sample(1:100, 4)) %>% 
-  select(1:4) %>% 
-  pivot_longer(urge:dep) %>% 
-  rename(Time = time) %>% 
-  mutate(name = factor(name, labels = c("Depression", "Urge"))) %>% 
+pids <- factor(sample(1:100, 4))
+
+dat |> 
+  filter(person %in% pids) |> 
+  pivot_longer(c(urge, dep)) |> 
+  rename(Time = time) |> 
+  mutate(name = factor(name, labels = c("Depression", "Urge"))) |> 
   ggplot(aes(Time, value, col = name)) +
   geom_line(linewidth = .5) +
   facet_wrap("person", nrow = 1, labeller = label_both)
 ```
 
-However, the person-mean is an unknown quantity, and centering on the observed value rather than an estimate of the true "latent" quantity can be problematic. Specifically, observed mean centering leads to Nickell's (negative bias in autoregressive effects) and Lüdtke's (bias in other time-varying effects) biases [@mcneishPrimerTwolevelDynamic2020, p. 617-618]. Essentially these problems arise from not considering that the person means are unobserved, latent quantities, but instead treating them as values known without uncertainty.
+So, what to do? McNeish and Hamaker [-@mcneishPrimerTwolevelDynamic2020] and others discuss latent mean centering, which accounts for uncertainty in the person-means appropriately, and thus debiases the estimated coefficients. Latent mean centering is done inside the model, and means treating the means as estimated parameters. However, I have only been able to find examples that do this latent mean centering in MPlus [@mcneishPrimerTwolevelDynamic2020] and Stan (<https://experienced-sampler.netlify.app/post/stan-hierarchical-ar/>). My goal here is to show how latent mean centering can be done in the [Stan](https://mc-stan.org) front-end R package [brms](https://paul-buerkner.github.io/brms/).
 
-So, what to do? McNeish and Hamaker [-@mcneishPrimerTwolevelDynamic2020] and others discuss latent mean centering, which accounts for uncertainty in the person-means appropriately, and thus debiases the estimated coefficients. Latent mean centering is done inside the model, and means treating the means as estimated parameters. However, I have only been able to find examples that do this latent mean centering in MPlus, such as [@mcneishPrimerTwolevelDynamic2020]. Therefore my goal here is to reproduce their model with the free and open source software [Stan](https://mc-stan.org) front-end [brms](https://paul-buerkner.github.io/brms/).
+## Univariate latent means model
 
-# Single-level AR(1) model
+We begin with a univariate model of the urge to smoke. This model examines the degree of autocorrelation in the urge to smoke and how it varies between people. For individual *i* in 1...I=100 and time point *t* in 1...T=50, we model `urge` (U) as normally distributed. We model the mean on person-specific intercepts $\alpha_i$ and slopes $\phi_i$ of that person's within-person centered `urge` at a previous time point ($U^c_{it-1}$). I model person-specific deviations as multivariate normal but do not model correlations between the intercepts and slopes for consistency with [@mcneishPrimerTwolevelDynamic2020].
 
-To begin with, we replicate the authors' basic N=1 model predicting the urge to smoke from the urge to smoke on a previous measurement occasion, and the current level of depression. Because we are modelling one person's data only, there is no need for centering, but this model serves as a useful starting point for our quest.
+$$
+\begin{align}
+U_{it} &\sim N(\alpha_i + \phi_i U^c_{it-1}, \sigma^2), \\
+U^{c}_{it-1} &= U^{\text{raw}}_{it-1} - \alpha_i, \\
+\alpha_i &= \gamma_{0} + u_{0i}, \\
+\phi_i &= \gamma_{1} + u_{1i}, \\
+\begin{bmatrix}
+  u_{0i} \\ u_{1i}
+\end{bmatrix} &\sim MVN\left(
+  \begin{bmatrix}
+    0 \\ 0
+  \end{bmatrix},
+  \begin{pmatrix}
+  \tau_\alpha \ & \\ 0 \ &\tau_\phi
+  \end{pmatrix}
+\right).
+\end{align}
+$$ {#eq-1}
 
-Following [@mcneishPrimerTwolevelDynamic2020], we assume that Urge at time $t$ is normally distributed around a mean $\mu_t$ with standard deviation $\sigma$. We then model the mean on an intercept, on Urge at the previous measurement occasion, and on the current level of depression^[I've used the more common $\phi$ (phi) throughout than the $\varphi$ used by M&P]:
+Let us pay some attention to the issue of within-person centering in @eq-1. Instead of decomposing urge to smoke into its within- and between-person components before fitting the model, we use "latent mean centering". What this means is that we estimate the person means ($\alpha$) along with other model parameters, and subtract those means from the observed values (line 2 in above). I refer to the latent person-mean centered lagged urge to smoke as $U^c_{it-1}$. 
 
-$$\begin{align*}
-\text{Urge}_{t} &\sim N(\mu_{t}, \sigma^2), \\
-\mu_{t} &= \alpha + \phi\text{Urge}_{(t-1)} + \beta\text{Dep}_{t}
-\end{align*}$$ {#eq-n1}
-
-This is straightforward. We first create a lagged urge variable, and then fit the model. Notice though that this will lead to one missing data point because the first value doesn't have a lagged value. We confirm that our estimates are in line with those reported in the paper
-
-```{r}
-#| code-fold: show
-# Estimate model
-fit_p5 <- brm(
-  urge ~ urge1 + dep,
-  family = gaussian(),
-  data = d %>% 
-    # Pick one individual (same as used in M&H2020)
-    filter(person == 5) %>% 
-    # Create lagged urge
-    mutate(urge1 = lag(urge)),
-  file = "fit_p5"
-)
-```
-
-
-```{r}
-# Show table of coefficients' posterior summaries
-as_draws_df(fit_p5) %>% 
-  select(1:4) %>% 
-  mutate(sigma_sq = sigma^2, .keep = "unused") %>% 
-  summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
-  mutate(
-    variable = str_c(
-      variable, 
-      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)", " ($\\sigma^2$)")
-    ),
-    across(c(median, q2.5, q97.5), ~number(., .01)),
-    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
-    Authors = c(
-      "0.07 [-0.24, 0.39]", 
-      "0.35 [0.25, 0.46]", 
-      "2.43 [2.12, 2.75]", 
-      "1.36 [0.92, 2.20]"
-    )
-  ) %>% 
-  select(-c(median:q97.5)) %>% 
-  k2(escape = FALSE) %>% 
-  footnote("I've no idea how to render the math here, SRY", footnote_as_chunk = TRUE)
-```
-
-# Multilevel AR(1) model {#multilevel-ar1-model}
-
-Above, we modelled a single person's urge to smoke on their previous urge to smoke and current depression. Here, we attempt to model 100 individuals' data in a single multilevel model. Before worrying about latent mean centering, we can estimate this model using the observed mean centered values shown in Table @tbl-data. The authors' model of these data is
-
-$$\begin{align*}
-\text{Urge}_{ti} &\sim N(\mu_{ti}, \sigma^2), \\
-\mu_{ti} &= \bar{\alpha} + \alpha_i + (\bar{\phi}+\phi_i)\text{Urge}^c_{(t-1)i} + (\bar{\beta} + \beta_i)\text{Dep}^c_{ti}, \\
-(\alpha_i, \phi_i, \beta_i) &\sim MVN(\pmb{0}, \Sigma),
-\end{align*}$$ {#eq-ml}
-
-where we now have a subscript $i$ for participants, parameters with bars (population-level) and without (person-specific, with subscripts $i$), and the variance-covariance matrix for the latter, where all covariances are set to zero as in [@mcneishPrimerTwolevelDynamic2020]. Notice that the the subscripted parameters are deviations with a mean of zero, so we can talk about e.g. $\bar{\alpha} + \alpha_2$ as person 2's intercept. $\text{Urge}^c_{(t-1)i}$ and $\text{Dep}^c_{ti}$ are the within-person centered values of urge to smoke on the previous timepoint and depression, respectively (`_cw` values in Table @tbl-data.) We can fit this model with brms with a small modification of the previous model
+I use the R package brms to estimate this model. The following code chunk shows how to specify this model inside brms' `bf()` ("brmsformula") function. In the first line, we specify a regression equation for `urge`. Everything on the right-hand side of this formula (to the right of the tilde) is treated as a regression coefficient to be estimated from data unless it is the exact name of a variable in the data. Thus we will be estimating an `alpha` (intercept) and a `phi` (the autoregressive coefficient). 
 
 ```{r}
 #| code-fold: show
-# Create lagged variable
-d <- d %>% 
-  group_by(person) %>% 
-  mutate(
-    urge1 = lag(urge),
-    urge_cw1 = lag(urge_cw)
-    ) %>% 
-  ungroup()
 
-# Estimate model
-fit_observed <- brm(
-  urge ~ urge_cw1 + dep_cw + (urge_cw1 + dep_cw || person),
-  family = gaussian(),
-  data = d,
-  file = "brm-fit-observed-mean-centered"
-)
-```
-
-We now estimated the model using observed person mean centering. These estimates are very close to the ones reported in authors' Table 4, because there are so many observations per person. (Note this is probably not the best example because of this, and also because I don't really know what the data are from the paper). Importantly, we have not estimated the latent depression variable, so that is missing
-
-```{r}
-# Show table of coefficients' posterior summaries
-as_draws_df(fit_observed) %>% 
-  select(1:7) %>% 
-  mutate(
-    across(c(starts_with("sd_"), "sigma"), ~.^2)
-  ) %>% 
-  # mutate(sigma_sq = sigma^2, .keep = "unused") %>% 
-  summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
-  mutate(
-    variable = str_c(
-      variable, 
-      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)",
-        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\phi)}$", 
-        " ($\\sigma^2_{\\beta})$", " ($\\sigma^2$)")
-      ),
-    across(c(median, q2.5, q97.5), ~number(., .01)),
-    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
-    Authors = c(
-      "-0.01 [-0.18, 0.16]",
-      " 0.21 [0.17, 0.24]",
-      " 0.80 [0.61, 0.95]",
-      " 0.60 [0.44, 0.83]",
-      " 0.02 [0.01, 0.03]",
-      " 0.79 [0.61, 0.95]",
-      " 1.14 [1.09, 1.19]"
-    )
-  ) %>% 
-  select(-c(median:q97.5)) %>% 
-  k2()
-```
-
-The problem then boils down to figuring out how to get the quantities $\text{Urge}^c_{(t-1)i}$ and $\text{Dep}^c_{ti}$. Usually, we calculate them from data as deviations from the person's observed mean, like we did above in Table 1. However, here' we want to use latent-mean centering:
-
-$$\begin{align*}
-\text{Urge}^n_{(t-1)i} &= \text{Urge}^c_{(t-1)i} + \text{Urge}^b_i, \\
-\text{Dep}^n_{ti} &= \text{Dep}^c_{ti} + \text{Dep}^b_i
-\end{align*}$$ {#eq-lmc}
-
-## brms
-
-It turns out that specifying this model with latent mean centering is fairly straightforward with brms. First, we will need to specify a non-linear formula where we name all parameters, and then another one that specifies that one of the predictors is a parameter too. Thanks to Mauricio Garnier-Villarreal, Ethan McCormick, Simon Brauer, Joran Jongerling, and others who helped out with my Stan discourse [question](https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424) to figure out the syntax!
-
-Here goes. We specify a formula of `urge` on the named parameters and predictors, as you do with brms' [nonlinear formulas](https://cran.r-project.org/web/packages/brms/vignettes/brms_nonlinear.html). Then in the subsequent lines, each parameter is specified their own model. The trick is to predict the latent means inside another `nlf()`, and then the predictor there in another model formula. That's it! And because this is a nonlinear formula, we need to assign some priors.
-
-```{r}
-#| code-fold: show
-latent_formula <- bf(
-  urge ~ alpha + phi*(urge1 - alpha) + beta*(dep - depb),
-  alpha ~ 1 + (1 | person),
-  phi ~ 1 + (1 | person),
-  beta ~ 1 + (1 | person),
-  nlf(depb ~ depCB),
-  depCB ~ 1 + (1 | person),
+model <- bf(
+  urge ~ alpha + phi * (u_lag - alpha),
+  alpha + phi ~ 1 + (1 | person),
   nl = TRUE
-) +
-  gaussian()
-
-p <- get_prior(latent_formula, data = d) %>%
-  mutate(
-    prior = case_when(
-      class == "b" & coef == "Intercept" ~ "normal(0, 1)",
-      class == "sd" & coef == "Intercept" ~ "student_t(7, 0, 1)",
-      TRUE ~ prior
-    )
-  )
-
-fit_latent <- brm(
-  latent_formula,
-  data = d,
-  prior = p,
-  control = list(adapt_delta = 0.99),
-  file = "brm-fit-latent-mean-centered"
 )
 ```
 
-We can then compare our parameters' posteriors to those in McNeish and Hamaker:
+One unusual part in this syntax is `(u_lag - alpha)`. It just subtracts `alpha` from each lagged urge value in creating the predictor for `phi`. That is "latent mean centering". This first line can be considered the "level 1" equation or rather the *nonlinear* part of the model.
+
+The second line then specifies the "level 2" equation, or the linear equations to predict the parameters in the above (potentially) nonlinear level 1 model. Both regression parameters are modelled on a population level average (the gamma in @eq-1) and person-specific deviations from it.
+
+The fourth line specifying `nl = TRUE` is critical, because it allows us to specifically name parameters inside `bf()`, and thereby to e.g. construct the latent mean centered variable on the first row. We could also indicate the distribution that we assume for the data. But in this work we model everything as gaussian, which is the software default and thus doesn't need to be separately indicated. We then sample from the model. Everything from here on is standard operating procedure.
 
 ```{r}
-as_draws_df(fit_latent) %>% 
-  select(1:9) %>% 
+#| code-fold: show
+
+fit <- brm(
+  model,
+  data = dat,
+  file = "cache/brm-example-univariate"
+)
+```
+
+The object `fit` now contains the estimated model (the data, posterior samples, and lots of brms-specific information). We can call `summary(fit)` to see a default summary of the model.
+
+```{r}
+summary(fit)
+```
+
+The first few rows above print information about the model (the formulas, data, and number of posterior samples). Then, "Multilevel Hyperparameters" are standard deviations (and correlations, if estimated) of the parameters that we allowed to vary across individuals (as indicated by `~person`). For each of those parameters, one row indicates its posterior summary statistics; "Estimate" is the posterior mean, "Est.Error" is the posterior standard deviation, "l-" and "u-95% CI" are the lower and upper bounds of the 95% credibility interval (so the 2.5 and 97.5 percentiles of the posterior samples). Then, Rhat is the convergence metric which should be smaller than 1.05 (optimally 1.00) to indicate that the estimation algorithm has converged. "Bulk_" and "Tail_ESS" indicate the effective sample sizes of the posterior draws, and should be pretty large.
+
+The "Regression Coefficients" indicate the same information but for the means of the person-specific parameters' distributions; or the "fixed effects". For the average person, there is a positive autocorrelation in these data. Finally, the "Further Distributional Parameters" indicate parameters that are specific to the outcome distribution. We used the default gaussian distribution, and thus get an estimated residual standard deviation.
+
+Going forward we will create a small function to print out model summaries. It will take samples of the population level, group-level, and family-specific parameters, and return their 50th (median), 2.5th, and 97.5th quantiles.
+
+```{r}
+sm <- function(x) {
+  x |> 
+    as_draws_df(variable = c("b_", "sd_", "sigma"), regex = TRUE) |> 
+    summarise_draws(
+      ~quantile2(.x, c(.5, .025, .975))
+    ) |> 
+    mutate(variable = str_remove_all(variable, "_Intercept"))
+}
+```
+
+We show the results in @tbl-model-1.
+
+```{r}
+#| label: tbl-model-1
+#| tbl-cap: Summaries of main parameters from the example univariate model.
+fit |> 
+  sm() |> 
+  kable(digits = 2)
+```
+
+## Multilevel AR(1) Model
+
+We then replicate the two-level AR(1) model in @mcneishPrimerTwolevelDynamic2020 (equations 4a-c) that predicts urge from a time-lagged urge and depression. The model is
+
+$$
+\begin{align}
+U_{it} &\sim N(\alpha_i + \phi_i U^c_{it-1} + \beta_i D^c_{it}, \sigma^2), \\
+U^{c}_{it} &= U^{\text{raw}}_{it} - \alpha^U_i, \\
+D^{c}_{it} &= D^{\text{raw}}_{it} - \alpha^D_i, \\
+\alpha^U_i &= \gamma_{0} + u_{0i}, \\
+\alpha^D_i &= \gamma_{1} + u_{1i}, \\
+\phi_i &= \gamma_{2} + u_{2i}, \\
+\beta_i &= \gamma_{3} + u_{3i}, \\
+\begin{bmatrix}
+  u_{0i} \\ u_{1i} \\ u_{2i} \\ u_{3i}
+\end{bmatrix} &\sim MVN\left(
+  \begin{bmatrix}
+    0 \\ 0 \\ 0 \\ 0
+  \end{bmatrix},
+  \begin{pmatrix}
+    \tau_{\alpha^U} \ & \ & & \\ 
+    0 \ &\tau_{\alpha^D} \ & \ & \\ 
+    0 \ &0 \ &\tau_\phi \ & \\
+    0 \ &0 \ &0 \ &\tau_\beta
+  \end{pmatrix}
+\right)
+\end{align}
+$$ {#eq-2}
+
+We then see from @eq-2 that we need to refer to different outcomes' parameters across model formulas. That is, when predicting the urge to smoke, we need a way to refer to the (latent) mean of depression so that we can appropriately center the depression predictor. Currently brms does not support sharing parameters across formulas for different outcomes, but we can overcome this limitation with a small data wrangling trick
+
+That is, we "stack" our data into the long format with respect to the two different outcomes, urge to smoke and depression. Then, on each row we have all variables from that measurement occasion, in addition to new ones that indicate the value of the outcome, and which outcome it refers to (@tbl-data-2).
+
+```{r}
+#| label: tbl-data-2
+#| tbl-cap: Rearranged data for multivariate models.
+
+dat <- dat |> 
+  pivot_longer(c(urge, dep), names_to = "outcome", values_to = "y") |> 
   mutate(
-    across(c(starts_with("sd_"), "sigma"), ~.^2)
-  ) %>% 
-  summarise_draws(median, ~quantile2(., probs = c(.025, .975))) %>% 
-  mutate(variable = str_replace(variable, "sd_person__", "var_")) %>% 
+    i_urge = if_else(outcome == "urge", 1, 0),
+    i_dep = if_else(outcome == "dep", 1, 0)
+  ) |> 
+  # Include predictors from each row
+  left_join(dat)
+
+dat |> 
+  head() |> 
+  kable(digits = 2)
+```
+
+Given these data, we then reparameterize @eq-2 to also model depression in an otherwise identical model (@eq-3).
+
+$$
+\begin{align}
+Y_{it} &\sim N(\mu, \sigma^2) \\
+\mu &= I_{\text{urge}}(\alpha_{1i} + \phi_i U^c_{it-1} + \beta_i D^c_{it}) + I_{\text{dep}}\alpha_{2i} \\
+\sigma &= \text{exp}(I_{\text{urge}}\sigma_1 + I_{\text{dep}}\sigma_2) \\
+U^{c}_{it} &= U^{\text{raw}}_{it} - \alpha_{1i}, \\
+D^{c}_{it} &= D^{\text{raw}}_{it} - \alpha_{2i}, \\
+\alpha_{1i} &= \gamma_{0} + u_{0i}, \\
+\alpha_{2i} &= \gamma_{1} + u_{1i}, \\
+\phi_i &= \gamma_{2} + u_{2i}, \\
+\beta_i &= \gamma_{3} + u_{3i}, \\
+\begin{bmatrix}
+  u_{0i} \\ u_{1i} \\ u_{2i} \\ u_{3i}
+\end{bmatrix} &\sim MVN\left(
+  \begin{bmatrix}
+    0 \\ 0 \\ 0 \\ 0
+  \end{bmatrix},
+  \begin{pmatrix}
+    \tau_{\alpha1} \ & \ & & \\ 
+    0 \ &\tau_{\alpha2} \ & \ & \\ 
+    0 \ &0 \ &\tau_\phi \ & \\
+    0 \ &0 \ &0 \ &\tau_\beta
+  \end{pmatrix}
+\right)
+\end{align}
+$$ {#eq-3}
+
+That is, I model `y` that is either `urge` or `dep` as indicated by `i_urge` and `i_dep` respectively. So, below `alpha1`, `phi`, and `beta` to apply to `urge`, but `alpha2` to `dep`. 
+
+```{r}
+#| code-fold: show
+
+bform <- bf(
+  y ~ 
+    i_urge * (alpha1 + phi * (u_lag - alpha1) + beta * (dep - alpha2)) + 
+    i_dep * alpha2,
+  nlf(sigma ~ i_urge * sigma1 + i_dep * sigma2),
+  alpha1 + phi + beta + alpha2 ~ 1 + (1 | person),
+  sigma1 + sigma2 ~ 1,
+  nl = TRUE
+)
+```
+
+Notice that essentially there are two models of `y` depending on the values of `i_urge` and `i_dep`. Critically, this also needs to extend to different models of the residual standard deviations. That is accomplished inside `nlf()`, where I model `sigma` on the two indicators. By default, sigmas are modelled through the log-link function, and notice that I only include a global intercept for each `sigma1` and `sigma2`; that is they are not further modelled on covariates. This is not pretty, but as we will see it works.
+
+I then sample from the model.
+
+```{r}
+fit <- brm(
+  bform,
+  data = dat,
+  control = list(adapt_delta = 0.95),
+  file = "cache/brm-example-4"
+)
+```
+
+And then compare the model summary to @mcneishPrimerTwolevelDynamic2020. We can see the estimates match to within differences in priors and MCSE (@tbl-ml). Note in the code below I transform standard deviations by first exponentiating draws of residual standard deviations, and then square to put them on the variance scale as in @mcneishPrimerTwolevelDynamic2020.
+
+```{r}
+#| label: tbl-ml
+#| tbl-cap: Multilevel AR(1) model results.
+
+as_draws_df(fit, variable = c("b_", "sd_"), regex = TRUE) |> 
   mutate(
-    variable = str_c(
-      variable, 
-      c(" ($\\alpha$)", " ($\\phi$)", " ($\\beta$)", " (DepB)",
-        " ($\\sigma^2_{\\alpha}$)", " ($\\sigma^2_{\\phi)}$", 
-        " ($\\sigma^2_{\\beta})$", " ($\\sigma^2_{DepB})$",
-        " ($\\sigma^2$)")
-      ),
-    across(c(median, q2.5, q97.5), ~number(., .01)),
-    `Result (brms)` = str_glue("{median} [{q2.5}, {q97.5}]"),
-    Authors = c(
+    across(starts_with("sd_"), ~.^2),
+    across(starts_with("b_sigma"), ~exp(.)^2)
+  ) |> 
+  summarise_draws(
+    brms = ~quantile2(., probs = c(.5, .025, .975)) |> 
+      number(.01) |> 
+      str_glue_data("{q50} [{q2.5}, {q97.5}]")
+  ) |> 
+  mutate(
+    variable = str_replace(variable, "sd_person__", "var_") |> 
+      str_remove_all("_Intercept"),
+    `M&H (2020)` = c(
       "-0.01 [-0.18, 0.16]",
       " 0.21 [0.17, 0.24]",
       " 0.80 [0.61, 0.95]",
       " 0.01 [-0.02, 0.04]",
+      " 1.14 [1.09, 1.19]",
+      "",
       " 0.60 [0.44, 0.83]",
       " 0.02 [0.01, 0.03]",
       " 0.79 [0.61, 0.95]",
-      " 0.01 [0.00, 0.01]",
-      " 1.14 [1.09, 1.19]"
+      " 0.01 [0.00, 0.01]"
     )
-  ) %>% 
-  select(-c(median:q97.5)) %>% 
-  k2(escape = FALSE)
+  ) |> 
+  kable(digits = 2)
 ```
-
-Looking carefully, there is some small difference in the intercepts of urge and mean depression. Their variances, however, are identical to M&H. I think this might have something to do with how MPlus / brms works and how the priors are specified, so I am not worried about that. Or maybe with how the lagged variable is treated.
 
 # Conclusion
 
-Because it is this easy to specify latent means in brms, I think I will be using them much more often from now on, especially if my sample size per person is small. I don't think this will make much of a difference after that sample size is greater than, say, the magic number 30.
+Because it is easy to specify latent means in brms, I think I will be using them much more often from now on, especially if my sample size per person is small. I don't think this will make much of a difference after that sample size is greater than, say, the magic number 30.
 
 Let me know if you have any comments!
+
+# History {.appendix}
+
+:::{.callout-note}
+Earlier versions of this post contained syntax errors. The data stacking trick was suggested to me by Mauricio Garnier-Villarreal (thanks!)
+
+While drafting this entry, I asked for help with coding this up in brms on the Stan forums: <https://discourse.mc-stan.org/t/latent-mean-centering-latent-covariate-models-in-brms/29424>. I couldn't have figured it out without the help of all those people who answered. Thanks!
+
+The earlier drafts and mistakes I made in coding the brms model up can be found in the [Git history](https://github.com/mvuorre/mvuorre.github.io/commits/main/posts/stan-latent-mean-centering/index.qmd) of this file :smile:
+:::
 
 # See also {.appendix}
 

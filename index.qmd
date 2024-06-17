@@ -2,7 +2,6 @@
 title: "Matti Vuorre"
 subtitle: |
   Psychological scientist
-from: markdown+emoji
 title-block-banner: false
 comments: false
 ---
@@ -24,11 +23,11 @@ I believe scientific communication should be available to all, so all these pape
 
 ## Bibliography
 
-You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/matti-vuorre.bib) is a .bib file with references to all the works that I have contributed to :wink:.
+You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/matti-vuorre.bib) is a .bib file with references to all the works that I have contributed to.
 
 ## My links
 
-[My website](https://vuorre.com) | [Bearblog](https://matti.bearblog.dev/) | [GitHub](https://github.com/mvuorre) | [ORCID](https://orcid.org/0000-0001-5052-066X) | [Mastodon](https://bayes.club/@matti) | [CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) | [LinkedIn](https://www.linkedin.com/in/matti-vuorre) | [BlueSky](https://bsky.app/profile/matti.vuorre.com) | [email](mailto:m.j.vuorre@tilburguniversity.edu)
+[My website](https://vuorre.com) | [Bearblog](https://matti.bearblog.dev/) | [GitHub](https://github.com/mvuorre) | [ORCID](https://orcid.org/0000-0001-5052-066X) | [PREreview](https://prereview.org/profiles/0000-0001-5052-066X) | [Mastodon](https://bayes.club/@matti) | [CV](https://github.com/mvuorre/CV/raw/main/vuorre-matti.pdf) | [LinkedIn](https://www.linkedin.com/in/matti-vuorre) | [BlueSky](https://bsky.app/profile/matti.vuorre.com) | [email](mailto:m.j.vuorre@tilburguniversity.edu)
 
 ::: grid
 ::: {.g-col-6}

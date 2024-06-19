@@ -10,36 +10,110 @@
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
 <generator>quarto-1.5.43</generator>
-<lastBuildDate>Thu, 29 Feb 2024 23:00:00 GMT</lastBuildDate>
-<item>
-  <title></title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/multiple-comparisons-why-probability/</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>R</category>
-  <category>statistics</category>
-  <category>bayes</category>
-  <guid>https://vuorre.com/posts/multiple-comparisons-why-probability/</guid>
-  <pubDate>Thu, 29 Feb 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/multiple-comparisons-why-probability/images/jerry-bayes.png" medium="image" type="image/png" height="82" width="144"/>
-</item>
-<item>
-  <title></title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/workflow/</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>tips</category>
-  <category>computers</category>
-  <category>education</category>
-  <guid>https://vuorre.com/posts/workflow/</guid>
-  <pubDate>Tue, 13 Feb 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/workflow/images/underpants.jpg" medium="image" type="image/jpeg"/>
-</item>
+<lastBuildDate>Thu, 18 Jan 2024 23:00:00 GMT</lastBuildDate>
 <item>
   <title>A simple statistics syllabus</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/statistics-syllabus/</link>
-  <description><![CDATA[ undefined ]]></description>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.</p>
+<p><em>tl;dr</em>:</p>
+<ul>
+<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span></li>
+<li><a href="https://www.john-fox.ca/AppliedRegression/index.html"><em>Applied Regression Analysis and Generalized Linear Models</em></a> <span class="citation" data-cites="foxAppliedRegressionAnalysis2015">(Fox 2015)</span></li>
+<li><a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span></li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span></li>
+</ul>
+<section id="the-basics-regression" class="level2">
+<h2 class="anchored" data-anchor-id="the-basics-regression">The basics: Regression</h2>
+<p>If there is one single concept in applied statistics worth learning, it is that of <em>regression</em>. You’ve probably learned statistics in the context of p-values from hypothesis tests, ANOVAs, t-tests and stuff like that, but the underlying and unifying concept is <em>regression</em>: Modelling (a set of) outcome variables on (a set of) predictor variables. ANOVA is a regression model… Assuming that your data is normally distributed can be a regression model… So I’d advise you to just take a moment and learn what this thing called regression is and what it could do for you.</p>
+<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
+<blockquote class="blockquote">
+<p>Many textbooks on regression focus on theory and the simplest of examples. Real statistical problems, however, are complex and subtle. This is not a book about the theory of regression. It is a book about how to use regression to solve real problems of comparison, estimation, prediction, and causal inference. It focuses on practical issues such as sample size and missing data and a wide range of goals and techniques. It jumps right in to methods and computer code you can use fresh out of the box.</p>
+</blockquote>
+<p>The quote-unquote downside of this book is that it is a bit heterodox in its approach to statistical inference. I believe this to be an entirely good thing, but the orthodox approach focusing on test statistics, p-values, and hypothesis testing gets a bit less attention in this book than you’d find in those orthodox introductions. In fact this is a reason for recommending this book over alternatives, but it is useful to know this nevertheless.</p>
+<p>While we’re at the topic of unorthodox approaches to statistical inference, I’ll mention another book that personally influenced my thinking a lot: <a href="https://sites.google.com/site/doingbayesiandataanalysis/"><em>Doing Bayesian Data Analysis</em></a> by John Kruschke <span class="citation" data-cites="kruschkeDoingBayesianData2014">(Kruschke 2014)</span>. This book includes code examples for conducting bayesian analyses for common scenarios in the behavioral sciences. While much appreciated at the time, modern software options have outpaced those in the book. Nevertheless it is a very well (and whimsically) written book full of educational wisdom, such as “The steps of bayesian data analysis”:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li>Identify the data relevant to the research questions. What are the measurement scales of the data? Which data variables are to be predicted, and which data variables are supposed to act as predictors?</li>
+<li>Define a descriptive model for the relevant data. The mathematical form and its parameters should be meaningful and appropriate to the theoretical purposes of the analysis.</li>
+<li>Specify a prior distribution on the parameters. The prior must pass muster with the audience of the analysis, such as skeptical scientists.</li>
+<li>Use Bayesian inference to re-allocate credibility across parameter values. Interpret the posterior distribution with respect to theoretically meaningful issues (assuming that the model is a reasonable description of the data; see next step).</li>
+<li>Check that the posterior predictions mimic the data with reasonable accuracy (i.e., conduct a “posterior predictive check”). If not, then consider a different descriptive model.</li>
+</ol>
+</blockquote>
+<p>Two other books about regression come to mind: <a href="https://www.john-fox.ca/AppliedRegression/index.html"><em>Applied Regression Analysis and Generalized Linear Models</em></a> <span class="citation" data-cites="foxAppliedRegressionAnalysis2015">(Fox 2015)</span> and <a href="http://irep.ntu.ac.uk/id/eprint/16540/"><em>Serious stats: a guide to advanced statistics for the behavioral sciences</em></a> <span class="citation" data-cites="baguleySeriousStatsGuide2012">(Baguley 2012)</span>. Both are very clear in their treatment of foundational concepts and include just the right amount (in my view) of mathematics. The Fox book is used a lot as a textbook for applied stats courses and I quite like it.</p>
+</section>
+<section id="statistical-rethinking" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-rethinking">Statistical rethinking</h2>
+<p>This book needs its own heading here, it is just that good.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vuorre.com/posts/statistics-syllabus/images/rethinking-fig-1-1.png" class="img-fluid figure-img" alt="Example decision tree, or flowchart, for selecting an appropri- ate statistical procedure. Beginning at the top, the user answers a series of questions about measurement and intent, arriving eventually at the name of a procedure. Many such decision trees are possible."></p>
+<figcaption>Figure 1.1 from “Statistical rethinking”</figcaption>
+</figure>
+</div>
+<p>This book, <a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span> essentially <em>argues against</em> a view of statistics visualized as a decision-tree like process above. Instead, it makes the–again–heterodox suggestion that researchers should instead <em>critically think</em> about their research problem and design appropriate models that mathematically represent those problems. It also serves as an excellent textbook on bayesian statistics, which is another term for using the rules of probability to make inferences from data. This is a very good candidate for a second textbook on statistics, once you’ve confirmed with a first book that you indeed ever want to read another book on statistics again!</p>
+<p>The author of this book also teaches an amazing course on statistics, and the lectures are all available on YouTube: <a href="https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus" class="uri">https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus</a>. Highly recommended.</p>
+<p>On that topic–Bayesian statistics–the current “bible” is the third edition of <a href="http://www.stat.columbia.edu/~gelman/book/"><em>Bayesian Data Analysis</em></a> by Gelman and colleagues <span class="citation" data-cites="gelmanBayesianDataAnalysis2013">(Gelman et al. 2013)</span>. It is also freely available as a PDF on the book’s website: <a href="http://www.stat.columbia.edu/~gelman/book/" class="uri">http://www.stat.columbia.edu/~gelman/book/</a>.</p>
+</section>
+<section id="bonus-round-actually-doing-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-round-actually-doing-statistics">Bonus round: Actually doing statistics</h2>
+<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
+</section>
+<section id="bonus-round-2-multilevel-regression" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-round-2-multilevel-regression">Bonus round 2: Multilevel regression</h2>
+<p>Generalized Linear <em>Mixed</em> Model. Hierarchical models. Hierarchical <em>Bayesian</em> Models. Multilevel models. Random effect models. Models with models in them. It’s just what we do and let’s call it multilevel regression. For most data analysis problems you will likely want to apply some variation of this theme. Actually the book <em>Statistical rethinking</em> above is a great read on this topic, but I thought I would mention <a href="http://www.stat.columbia.edu/~gelman/arm/"><em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em></a> <span class="citation" data-cites="gelmanDataAnalysisUsing2007">(Gelman and Hill 2007)</span> because it is a damn good book. The only reason I’m leaving it here and not as the second book on this page is that it is somewhat outdated regarding some of the software presented. The upshot is that a completely revised version of this book should be out sometime soon. Once that happens, this will be up there right after <em>Regression and other stories</em>.</p>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="endnotes" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Endnotes</h2><div class="quarto-appendix-contents">
+
+<p>Hello</p>
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-baguleySeriousStatsGuide2012" class="csl-entry">
+Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
+</div>
+<div id="ref-foxAppliedRegressionAnalysis2015" class="csl-entry">
+Fox, John. 2015. <em>Applied <span>Regression Analysis</span> and <span>Generalized Linear Models</span></em>. <span>SAGE Publications</span>. <a href="https://books.google.com?id=cjB3BwAAQBAJ">https://books.google.com?id=cjB3BwAAQBAJ</a>.
+</div>
+<div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry">
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
+</div>
+<div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry">
+Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>New York, NY</span>: <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
+</div>
+<div id="ref-gelmanRegressionOtherStories2020" class="csl-entry">
+Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. <span>Cambridge University Press</span>. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
+</div>
+<div id="ref-kruschkeDoingBayesianData2014" class="csl-entry">
+Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
+</div>
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
+</div>
+<div id="ref-wickhamDataScienceImport2016" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2024,
+  author = {Vuorre, Matti},
+  title = {A Simple Statistics Syllabus},
+  date = {2024-01-19},
+  url = {https://vuorre.com/posts/statistics-syllabus},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2024. <span>“A Simple Statistics Syllabus.”</span>
+January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus">https://vuorre.com/posts/statistics-syllabus</a>.
+</div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>education</category>
   <guid>https://vuorre.com/posts/statistics-syllabus/</guid>
@@ -1387,7 +1461,7 @@ January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering">https:
   <category>brms</category>
   <guid>https://vuorre.com/posts/latent-mean-centering/</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>
@@ -4916,7 +4990,7 @@ June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon">https://vuo
   <category>R</category>
   <guid>https://vuorre.com/posts/hexsticker-favicon/</guid>
   <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -6289,7 +6363,7 @@ December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-
   <category>R</category>
   <guid>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Glue your strings together</title>
@@ -12018,6 +12092,1261 @@ December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-pane
   <guid>https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</guid>
   <pubDate>Mon, 05 Dec 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
+</item>
+<item>
+  <title>Bayesian Meta-Analysis with R, Stan, and brms</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Recently, there’s been a lot of talk about meta-analysis, and here I would just like to quickly show that Bayesian multilevel modeling nicely takes care of your meta-analysis needs, and that it is easy to do in R with the rstan and brms packages. As you’ll see, meta-analysis is a special case of Bayesian multilevel modeling when you are unable or unwilling to put a prior distribution on the meta-analytic effect size estimate.</p>
+<p>The idea for this post came from Wolfgang Viechtbauer’s <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>, where he compared results for meta-analytic models fitted with his great (frequentist) package <a href="http://www.metafor-project.org/doku.php/metafor">metafor</a> and the swiss army knife of multilevel modeling, <a href="https://cran.r-project.org/web/packages/lme4/index.html">lme4</a>. It turns out that even though you can fit meta-analytic models with lme4, the results are slightly different from traditional meta-analytic models, because the experiment-wise variances are treated slightly differently.</p>
+<p>Here are the packages we’ll use:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_43e326fa66c64602900a71de6b7ef011">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(kableExtra)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(metafor)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(scales)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lme4)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+</div>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>Here I’ll only focus on a simple random effects meta-analysis of effect sizes, and will use the same example data as in the aforementioned <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>. The data are included in the metafor package, and describe the relationship between conscientiousness and medication adherence. The effect sizes are r to z transformed correlations.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/display-fake-data_7319afe6b279a26ee1374c3d0f0fa4d8">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Example data (dat.molloy2014 in metafor package).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">study</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ni</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ri</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">yi</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">vi</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sei</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Axelsson et al. (2009)</td>
+<td style="text-align: right;">2009</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Axelsson et al. (2011)</td>
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">749</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bruce et al. (2010)</td>
+<td style="text-align: right;">2010</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Christensen et al. (1995)</td>
+<td style="text-align: right;">1995</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Christensen et al. (1999)</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cohen et al. (2004)</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dobbels et al. (2005)</td>
+<td style="text-align: right;">2005</td>
+<td style="text-align: right;">174</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ediger et al. (2007)</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">326</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Insel et al. (2006)</td>
+<td style="text-align: right;">2006</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jerant et al. (2011)</td>
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">771</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Moran et al. (1997)</td>
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">-0.09</td>
+<td style="text-align: right;">-0.09</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O'Cleirigh et al. (2007)</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Penedo et al. (2003)</td>
+<td style="text-align: right;">2003</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quine et al. (2012)</td>
+<td style="text-align: right;">2012</td>
+<td style="text-align: right;">537</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stilley et al. (2004)</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wiebe &amp; Christensen (1997)</td>
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The model</h2>
+<p>We are going to fit a random-effects meta-analysis model to these observed effect sizes and their standard errors. Here’s what this model looks like, loosely following notation from the R package Metafor’s manual (p.6):</p>
+<p><img src="https://latex.codecogs.com/png.latex?y_i%20%5Csim%20N(%5Ctheta_i,%20%5Csigma_i%5E2)"></p>
+<p>where each recorded effect size, <img src="https://latex.codecogs.com/png.latex?y_i"> is a draw from a normal distribution which is centered on that study’s “true” effect size <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i"> and has standard deviation equal to the study’s observed standard error <img src="https://latex.codecogs.com/png.latex?%5Csigma_i">.</p>
+<p>Our next set of assumptions is that the studies’ true effect sizes approximate some underlying effect size in the (hypothetical) population of all studies. We call this underlying population effect size <img src="https://latex.codecogs.com/png.latex?%5Cmu">, and its standard deviation <img src="https://latex.codecogs.com/png.latex?%5Ctau">, such that the true effect sizes are thus distributed:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Ctheta_i%20%5Csim%20N(%5Cmu,%20%5Ctau%5E2)"></p>
+<p>We now have two interesting parameters: <img src="https://latex.codecogs.com/png.latex?%5Cmu"> tells us, all else being equal, what I may expect the “true” effect to be, in the population of similar studies. <img src="https://latex.codecogs.com/png.latex?%5Ctau"> tells us how much individual studies of this effect vary.</p>
+<p>I think it is most straightforward to write this model as yet another mixed-effects model (metafor manual p.6):</p>
+<p><img src="https://latex.codecogs.com/png.latex?y_i%20%5Csim%20N(%5Cmu%20+%20%5Ctheta_i,%20%5Csigma%5E2_i)"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i%20%5Csim%20N(0,%20%5Ctau%5E2)">, studies’ true effects are normally distributed with between-study heterogeneity <img src="https://latex.codecogs.com/png.latex?%5Ctau%5E2">. The reason this is a little confusing (to me at least), is that we know the <img src="https://latex.codecogs.com/png.latex?%5Csigma_i">s (this being the fact that separates meta-analysis from other more common regression modeling).</p>
+<section id="estimation-with-metafor" class="level3">
+<h3 class="anchored" data-anchor-id="estimation-with-metafor">Estimation with metafor</h3>
+<p>Super easy!</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_8de6250d974b12b734b525f2a7880a47">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(metafor)</span>
+<span id="cb2-2">ma_out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rma</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yi =</span> yi, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sei =</span> sei, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">slab =</span> dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>study)</span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(ma_out)</span>
+<span id="cb2-4"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-5"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Random-Effects Model (k = 16; tau^2 estimator: REML)</span></span>
+<span id="cb2-6"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-7"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##   logLik  deviance       AIC       BIC      AICc  ​ </span></span>
+<span id="cb2-8"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##   8.6096  -17.2191  -13.2191  -11.8030  -12.2191   </span></span>
+<span id="cb2-9"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-10"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## tau^2 (estimated amount of total heterogeneity): 0.0081 (SE = 0.0055)</span></span>
+<span id="cb2-11"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## tau (square root of estimated tau^2 value):      0.0901</span></span>
+<span id="cb2-12"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## I^2 (total heterogeneity / total variability):   61.73%</span></span>
+<span id="cb2-13"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## H^2 (total variability / sampling variability):  2.61</span></span>
+<span id="cb2-14"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-15"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Test for Heterogeneity:</span></span>
+<span id="cb2-16"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Q(df = 15) = 38.1595, p-val = 0.0009</span></span>
+<span id="cb2-17"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-18"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Model Results:</span></span>
+<span id="cb2-19"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-20"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## estimate      se    zval    pval   ci.lb   ci.ub     ​ </span></span>
+<span id="cb2-21"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##   0.1499  0.0316  4.7501  &lt;.0001  0.0881  0.2118  *** </span></span>
+<span id="cb2-22"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb2-23"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## ---</span></span>
+<span id="cb2-24"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="bayesian-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-estimation">Bayesian estimation</h2>
+<p>So far so good, we’re strictly in the realm of standard meta-analysis. But I would like to propose that instead of using custom meta-analysis software, we simply consider the above model as just another regression model, and fit it like we would any other (multilevel) regression model. That is, using <a href="http://mc-stan.org/">Stan</a>, usually through the <a href="https://cran.r-project.org/package=brms">brms</a> interface. Going Bayesian allows us to assign prior distributions on the population-level parameters <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Ctau">, and we would usually want to use some very mildly regularizing priors. Here we proceed with brms’ default priors (which I print below with the output)</p>
+<section id="estimation-with-brms" class="level3">
+<h3 class="anchored" data-anchor-id="estimation-with-brms">Estimation with brms</h3>
+<p>Here’s how to fit this model with brms:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit-ma-brms_a697bad10c015e4f6f661029504bf246">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">brm_out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(</span>
+<span id="cb3-2">  yi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">se</span>(sei) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> study), </span>
+<span id="cb3-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat, </span>
+<span id="cb3-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,</span>
+<span id="cb3-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"metaanalysismodel"</span></span>
+<span id="cb3-6">)</span></code></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/results-disp_eba04825fdc1e5e076ce884587958839">
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: yi | se(sei) ~ 1 + (1 | study) 
+##    Data: dat (Number of observations: 16) 
+##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 4000
+## 
+## Priors: 
+## Intercept ~ student_t(3, 0.2, 2.5)
+## &lt;lower=0&gt; sd ~ student_t(3, 0, 2.5)
+## 
+## Group-Level Effects: 
+## ~study (Number of levels: 16) 
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)     0.10      0.04     0.04     0.20 1.00     1256     1887
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept     0.15      0.04     0.08     0.22 1.00     1957     1884
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     0.00      0.00     0.00     0.00   NA       NA       NA
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<p>These results are the same as the ones obtained with metafor. Note the Student’s <em>t</em> prior distributions, which are diffuse enough not to exert influence on the posterior distribution.</p>
+</section>
+</section>
+<section id="comparing-results" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-results">Comparing results</h2>
+<p>We can now compare the results of these two estimation methods. Of course, the Bayesian method has a tremendous advantage, because it results in a full distribution of plausible values.</p>
+<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/unnamed-chunk-2_81877cd9b64032094068d926ebc097f9">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see from the numeric output, and especially the figures, that these modes of inference yield the same numerical results. Keep in mind though, that the Bayesian estimates actually allow you to discuss probabilities, and generally the things that we’d like to discuss when talking about results.</p>
+<p>For example, what is the probability that the average effect size is greater than 0.2? About eight percent:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_ea0fd8b7960792f1a1972b30dabad773">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hypothesis</span>(brm_out, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Intercept &gt; 0.2"</span>)</span>
+<span id="cb5-2"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Hypothesis Tests for class b:</span></span>
+<span id="cb5-3"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
+<span id="cb5-4"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.04    -0.11     0.01       0.08      0.08     </span></span>
+<span id="cb5-5"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## ---</span></span>
+<span id="cb5-6"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
+<span id="cb5-7"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
+<span id="cb5-8"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
+<span id="cb5-9"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
+</div>
+<section id="forest-plot" class="level3">
+<h3 class="anchored" data-anchor-id="forest-plot">Forest plot</h3>
+<p>The forest plot displays the entire posterior distribution of each <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i">. The meta-analytic effect size <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is also displayed in the bottom row. I’ll show a considerable amount of code here so that you can create your own forest plots from brms output:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/draw-forest-plot_c844276a86710c6650f9b1ff4e93672b">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidybayes)</span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggdist)</span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Study-specific effects are deviations + average</span></span>
+<span id="cb6-4">out_r <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">spread_draws</span>(brm_out, r_study[study,term], b_Intercept) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">b_Intercept =</span> r_study <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b_Intercept) </span>
+<span id="cb6-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Average effect</span></span>
+<span id="cb6-7">out_f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">spread_draws</span>(brm_out, b_Intercept) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">study =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Average"</span>)</span>
+<span id="cb6-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Combine average and study-specific effects' data frames</span></span>
+<span id="cb6-10">out_all <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(out_r, out_f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ungroup</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ensure that Average effect is on the bottom of the forest plot</span></span>
+<span id="cb6-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fct_relevel</span>(study, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Average"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-14">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tidybayes garbles names so fix here</span></span>
+<span id="cb6-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace_all</span>(study, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">."</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>))</span>
+<span id="cb6-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Data frame of summary numbers</span></span>
+<span id="cb6-17">out_all_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(out_all, study) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean_qi</span>(b_Intercept)</span>
+<span id="cb6-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Draw plot</span></span>
+<span id="cb6-20">out_all <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span>   </span>
+<span id="cb6-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(b_Intercept, study)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Zero!</span></span>
+<span id="cb6-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xintercept =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-24">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stat_halfeye</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.width =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, .<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">95</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dodgerblue"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-25">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add text labels</span></span>
+<span id="cb6-26">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_text</span>(</span>
+<span id="cb6-27">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate_if</span>(out_all_sum, is.numeric, round, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb6-28">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_glue</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{b_Intercept} [{.lower}, {.upper}]"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>),</span>
+<span id="cb6-29">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"inward"</span></span>
+<span id="cb6-30">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-31">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Observed as empty points</span></span>
+<span id="cb6-32">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(</span>
+<span id="cb6-33">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace_all</span>(study, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">."</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>)), </span>
+<span id="cb6-34">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>yi), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">position_nudge</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">shape =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> </span>
+<span id="cb6-35">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/draw-forest-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Forest plot of the example model’s results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Focus on Moran et al.&nbsp;(1997)’s observed effect size (the empty circle): This is an anomalous result compared to all other studies. One might describe it as <em>incredible</em>, and that is indeed what the bayesian estimation procedure has done, and the resulting posterior distribution is no longer equivalent to the observed effect size. Instead, it is shrunken toward the average effect size. Now look at the table above, this study only had 56 participants, so we should be more skeptical of this study’s observed ES, and perhaps we should then adjust our beliefs about this study in the context of other studies. Therefore, our best guess about this study’s effect size, given all the other studies is no longer the observed mean, but something closer to the average across the studies.</p>
+<p>If this shrinkage business seems radical, consider Quine et al.&nbsp;(2012). This study had a much greater sample size (537), and therefore a smaller SE. It was also generally more in line with the average effect size estimate. Therefore, the observed mean ES and the mean of the posterior distribution are pretty much identical. This is also a fairly desirable feature.</p>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The way these different methods are presented (regression, meta-analysis, ANOVA, …), it is quite easy for a beginner, like me, to lose sight of the forest for the trees. I also feel that this is a general experience for students of applied statistics: Every experiment, situation, and question results in a different statistical method (or worse: “Which test should I use?”), and the student doesn’t see how the methods relate to each other. So I think focusing on the (regression) model is key, but often overlooked in favor of this sort of decision tree model of choosing statistical methods <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span>.</p>
+<p>Accordingly, I think we’ve ended up in a situation where meta-analysis, for example, is seen as somehow separate from all the other modeling we do, such as repeated measures t-tests. In fact I think applied statistics in Psychology may too often appear as an unconnected bunch of tricks and models, leading to confusion and inefficient implementation of appropriate methods.</p>
+<section id="bayesian-multilevel-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-multilevel-modeling">Bayesian multilevel modeling</h3>
+<p>As I’ve been learning more about statistics, I’ve often noticed that some technique, applied in a specific set of situations, turns out to be a special case of a more general modeling approach. I’ll call this approach here <em>Bayesian multilevel modeling</em> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span>. If you are forced to choose one statistical method to learn, it should be Bayesian multilevel modeling, because it allows you to do and understand most things, and allows you to see how similar all these methods are, under the hood.</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
+  author = {Vuorre, Matti},
+  title = {Bayesian {Meta-Analysis} with {R,} {Stan,} and Brms},
+  date = {2016-09-29},
+  url = {https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2016. <span>“Bayesian Meta-Analysis with R, Stan, and
+Brms.”</span> September 29, 2016. <a href="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis">https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis</a>.
+</div></div></section></div> ]]></description>
+  <category>statistics</category>
+  <category>R</category>
+  <category>brms</category>
+  <category>tutorial</category>
+  <guid>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</guid>
+  <pubDate>Wed, 28 Sep 2016 22:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" medium="image" type="image/png" height="103" width="144"/>
+</item>
+<item>
+  <title>GitHub-style waffle plots in R</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/2016-03-24-github-waffle-plot/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In this post, I’ll show how to create GitHub style “waffle” plot in <a href="https://cran.r-project.org/">R</a> with the <a href="http://had.co.nz/ggplot2/book">ggplot2</a> plotting package. We’ll use these packages</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_452551d482c384dfdff76b9a6c31664b">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<section id="simulate-activity-data" class="level2">
+<h2 class="anchored" data-anchor-id="simulate-activity-data">Simulate activity data</h2>
+<p>First, I’ll create a data frame for the simulated data, initializing the data types:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/gen_dataframe_bfdb6d241430e7debad4272af38d6405">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb2-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">date =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">813</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">origin =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2014-01-01"</span>),</span>
+<span id="cb2-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(date, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%Y"</span>),</span>
+<span id="cb2-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">week =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.integer</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(date, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%W"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Week starts at 1</span></span>
+<span id="cb2-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">day =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">weekdays</span>(date, T),</span>
+<span id="cb2-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rev</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb2-7">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mon"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tue"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Wed"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Thu"</span>,</span>
+<span id="cb2-8">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fri"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sat"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sun"</span></span>
+<span id="cb2-9">    ))</span>
+<span id="cb2-10">  ),</span>
+<span id="cb2-11">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hours =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb2-12">)</span></code></pre></div>
+</div>
+<p>And then simulate hours worked for each date. I’ll simulate hours worked separately for weekends and weekdays to make the resulting data a little more realistic, and also simulate missing values to data (that is, days when no work occurred).</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_437e0fa30cf8862bebf8f26bdb6b133a">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Simulate weekends</span></span>
+<span id="cb3-3">weekends <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(d, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"S(at|un)"</span>, day))</span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Hours worked are (might be) poisson distributed</span></span>
+<span id="cb3-5">weekends<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rpois</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(weekends), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lambda =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span>
+<span id="cb3-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Simulate missing days with probability .7</span></span>
+<span id="cb3-7">weekends<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>na <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(weekends), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>)</span>
+<span id="cb3-8">weekends<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(weekends<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>na, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, weekends<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours)</span>
+<span id="cb3-9"></span>
+<span id="cb3-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Simulate weekdays</span></span>
+<span id="cb3-11">weekdays <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(d, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"S(at|un)"</span>, day))</span>
+<span id="cb3-12">weekdays<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rpois</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(weekdays), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lambda =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Greater lambda</span></span>
+<span id="cb3-13">weekdays<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>na <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(weekdays), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Smaller p(missing)</span></span>
+<span id="cb3-14">weekdays<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(weekdays<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>na, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, weekdays<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours)</span>
+<span id="cb3-15"></span>
+<span id="cb3-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Concatenate weekends and weekdays and arrange by date</span></span>
+<span id="cb3-17">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(weekends, weekdays) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(date) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Arrange by date</span></span>
+<span id="cb3-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>na) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Remove na column</span></span></code></pre></div>
+</div>
+</section>
+<section id="waffle-plot-function" class="level2">
+<h2 class="anchored" data-anchor-id="waffle-plot-function">Waffle-plot function</h2>
+<p>Then I’ll create a function that draws the waffle plot. If you have similarly structured data, you can copy-paste the function and use it on your data.</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/viz_func_c3c56ab5a6098105a731ca89cb454830">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">gh_waffle <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(data, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pal =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">dir =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) {</span>
+<span id="cb4-2">  p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(data, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> week, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> day, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> hours)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_viridis_c</span>(</span>
+<span id="cb4-4">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hours"</span>,</span>
+<span id="cb4-5">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">option =</span> pal, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Variable color palette</span></span>
+<span id="cb4-6">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">direction =</span> dir, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Variable color direction</span></span>
+<span id="cb4-7">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.value =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grey90"</span>,</span>
+<span id="cb4-8">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span>(data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>hours))</span>
+<span id="cb4-9">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_tile</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ncol =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-12">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_x_continuous</span>(</span>
+<span id="cb4-13">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">expand =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>),</span>
+<span id="cb4-14">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">52</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>),</span>
+<span id="cb4-15">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb4-16">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Jan"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Feb"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mar"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Apr"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"May"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Jun"</span>,</span>
+<span id="cb4-17">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Jul"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Aug"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sep"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Oct"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nov"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Dec"</span></span>
+<span id="cb4-18">      )</span>
+<span id="cb4-19">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-20">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_linedraw</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">base_family =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Helvetica"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-21">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb4-22">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb4-23">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.ticks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(), </span>
+<span id="cb4-24">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>),</span>
+<span id="cb4-25">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb4-26">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>,</span>
+<span id="cb4-27">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">aspect.ratio =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,</span>
+<span id="cb4-28">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.key.width =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unit</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>),</span>
+<span id="cb4-29">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">strip.text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.00</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb4-30">    )</span>
+<span id="cb4-31"></span>
+<span id="cb4-32">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(p)</span>
+<span id="cb4-33">}</span></code></pre></div>
+</div>
+<section id="using-the-waffle-plot-function" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-waffle-plot-function">Using the waffle plot function</h3>
+<p><code>gh_waffle()</code> takes three arguments, the first, <code>data</code> is a data frame with columns <code>date</code> (type: Date), <code>year</code> (number or character), <code>week</code> (number), <code>day</code> (an ordered factor to make days run from top to bottom on the graph), and <code>hours</code> (number). The second option to <code>gh_waffle()</code>, <code>pal</code> specifies one of four color palettes used by the <code>viridis</code> color scale, and can be <code>"A"</code>, <code>"B"</code>, <code>"C"</code>, or <code>"D"</code>. The default is “D”, which is also what GitHub uses (or something similar at least). The last option, <code>dir</code> specifies the direction of the color scale, and can be either <code>-1</code> or <code>1</code>. The GitHub default is -1.</p>
+<p>Using <code>gh_waffle()</code> with the default settings, only providing the data frame <code>d</code>, gives the following result:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/viz_59bce1585f450aed6c952d85aebe89ba">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gh_waffle</span>(d)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vuorre.com/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="http://rud.is/b/2016/02/14/making-faceted-heatmaps-with-ggplot2/">Faceted heatmaps with ggplot2</a> (Inspiration for this post.)</li>
+<li><a href="https://CRAN.R-project.org/package=dplyr">dplyr</a></li>
+<li><a href="http://had.co.nz/ggplot2/book">ggplot2</a></li>
+<li><a href="https://github.com/sjmgarnier/viridis">viridis</a></li>
+<li><a href="https://github.com/jrnold/ggthemes">ggthemes</a></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
+  author = {Vuorre, Matti},
+  title = {GitHub-Style Waffle Plots in {R}},
+  date = {2016-03-24},
+  url = {https://vuorre.com/posts/2016-03-24-github-waffle-plot},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2016. <span>“GitHub-Style Waffle Plots in R.”</span>
+March 24, 2016. <a href="https://vuorre.com/posts/2016-03-24-github-waffle-plot">https://vuorre.com/posts/2016-03-24-github-waffle-plot</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>visualization</category>
+  <category>data science</category>
+  <category>tutorial</category>
+  <guid>https://vuorre.com/posts/2016-03-24-github-waffle-plot/</guid>
+  <pubDate>Wed, 23 Mar 2016 23:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/2016-03-24-github-waffle-plot/index_files/figure-html/viz-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

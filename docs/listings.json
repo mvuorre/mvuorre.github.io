@@ -2,6 +2,9 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/bibliometrics/index.html",
+      "/posts/multiple-comparisons-why-probability/index.html",
+      "/posts/workflow/index.html",
       "/posts/statistics-syllabus/index.html",
       "/posts/yet-another-data-request-email/index.html",
       "/posts/latent-mean-centering/index.html",

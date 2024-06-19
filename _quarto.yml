@@ -46,7 +46,7 @@ format:
     theme: 
       - zephyr
       - custom.scss
-    mainfont: "Verdana"
+    mainfont: "Atkinson Hyperlegible"
     monofont: "Fira code"
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

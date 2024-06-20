@@ -1,0 +1,66 @@
+---
+title: "Preprints: A Quarto extension and website"
+description: Preprints are pretty, pretty good
+date: 2024-06-20
+categories:
+  - psychology
+  - preprints
+  - science communication
+draft: false
+from: markdown+emoji
+knitr: true
+bibliography: references.bib
+image: "images/undraw_Reviewed_docs_re_9lmr.png"
+---
+
+It turns out that preprints are both important and pretty, [pretty good](https://youtu.be/kRz8-EXlhBo?feature=shared) [@ahmedFutureAcademicPublishing2023; @moshontzGuidePostingManaging2021; @severBiomedicalPublishingHistoric2023; @syedValuingPreprintsMust2024]. In fact in the modern scholarly publishing and communication ecosystem, the word "pre*print*" is a bit of misnomer: "Preprint" can refer to peer-reviewed [e.g. @vuorreThreeObjectionsNovel2022] and non-peer-reviewed [e.g. @ballouHowVideoGames2024] documents that may or may not ever be printed on physical paper. I think many in the community think of them as either (1) non-peer-reviewed documents that communicate scholarly arguments/content, or (2) pre-typeset versions of peer-reviewed (or otherwise "ready for production") documents about to be published in a journal.
+
+Many related issues remain before the community is ready to follow more mature sciences and embrace preprints as bona-fide scholarly outputs [@petrichoweNatureTakeWhat2022; @syedValuingPreprintsMust2024], including discovery (how will I find signal from all this [subjective] noise?), and typesetting ("make papers look not awful") which we so dearly love. Below, I describe my recent efforts on these two fronts.
+
+## Discovery
+
+There are a handful of very popular preprint services, such as [arXiv](https://arxiv.org/), the OG preprint server for hard sciences, and [bioRxiv](https://www.biorxiv.org/) for the biological sciences. [OSF Preprints](https://osf.io/preprints) is a "A scholarly commons to connect the entire research cycle", and home to some two dozen field-specific preprint services such as [MetaArXiv](https://osf.io/preprints/metaarxiv) (metascience) and [PsyArXiv](https://osf.io/preprints/psyarxiv) (psychology). While all these services offer support for categorizing / tagging submissions, it is still often the case that researchers find it difficult to follow the latest (and greatest?) in their chosen area of interest. 
+
+For my areas of interest in the psychological sciences, I try to keep an eye on the Social and Behavioral Sciences [category](https://osf.io/search?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Subject%22%2C%22propertyPathKey%22%3A%22subject%22%2C%22label%22%3A%22Social%20and%20Behavioral%20Sciences%22%2C%22value%22%3A%22https%3A%2F%2Fapi.osf.io%2Fv2%2Fsubjects%2F584240da54be81056cecac48%22%7D%5D&q=&resourceType=Preprint&sort=-relevance&view_only=) on OSF Preprints, and a small handful of more focused categories on the PsyArXiv discovery [feed](https://osf.io/preprints/psyarxiv/discover). These allow me to narrow down the feeds by e.g. author, subject, date, etc, and order them by date. So effectively I can have, say, a [feed](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Subject%22%2C%22propertyPathKey%22%3A%22subject%22%2C%22label%22%3A%22Cognitive%20Psychology%22%2C%22value%22%3A%22https%3A%2F%2Fapi.osf.io%2Fv2%2Fsubjects%2F584240da54be81056cecab7e%22%7D%2C%7B%22propertyVisibleLabel%22%3A%22Has%20related%20resource%22%2C%22propertyPathKey%22%3A%22hasPreregisteredAnalysisPlan%22%2C%22label%22%3A%22Preregistered%20analysis%20plan%22%2C%22value%22%3A%22is-present%22%2C%22suggestedFilterOperator%22%3A%22is-present%22%7D%5D&sort=-dateCreated) for the latest preprints in Cognitive Psychology that have pre-registered analysis plans and refresh it every morning in my browser. This is very cool.
+
+### Psyarxiv Zero
+
+I wanted to build on this service to allow users to subscribe (e.g. via email or website account) to different custom feeds, and to present them in a fast text-based UI. To date I haven't had time to make much progress on the first goal, but have finished a prototype for the latter (fast UI) at <https://psyarxiv.vuorre.com>. This website, Psyarxiv Zero[^hn], at the moment presents a simple feed of recently (users can specify a time-frame) posted or edited preprints from PsyArXiv (@fig-1).
+
+[^hn]: Yes I quite like the look and feel of Hacker News and tried to copy much of it.
+
+![Screenshot of Psyarxiv Zero homepage](images/psyarxiv-zero-home.png){#fig-1}
+
+Clicking on any of the titles on the homepage sends the user to a preprint's page (@fig-2). I tried to make this page display the preprints main summaries (links, authors, keywords, and abstract) in an information-dense manner.
+
+![Screenshot of Psyarxiv Zero preprint page](images/psyarxiv-zero-item.png){#fig-2}
+
+A lot of work remains to make this alternative UI for PsyArXiv (in the future, OSF Preprints more broadly) more useable and feature-rich. But at the moment I am happy with its performance---which is only limited by the speed of responses from the OSF API---and UI. Take it for a spin and give me your worst feedback / bug reports / feature requests at <https://github.com/mvuorre/psyarxiv-ui>.
+
+## Typesetting
+
+I have a hunch that the typesetting of an article plays some non-ignorable role in readers' credibility judgments of manuscripts made under time pressure and without other quality indicators. Moreover, reading a well-typeset document is a more pleasant experience than reading a poorly-typeset one. These (non-?)issues related to typesetting are prominent for readers of preprints, because preprints do not have any formatting standards or requirements. That's probably a good thing, but at least I find reading typeset manuscripts a less onerous task.
+
+I write most of my manuscripts in a computationally reproducible manner---in source documents that combine analysis code, its outputs, and prose---using [Quarto](https://quarto.org/). Quarto already has many [extensions](https://quarto.org/docs/extensions/listing-journals.html) for producing (PDF) documents typeset to several journals' requirements. In my field, the most relevant one is [apaquarto](https://github.com/wjschne/apaquarto) that typesets documents to the American Psychological Association guidelines.
+
+However I think many of these journal- or society-specific typesetting systems have a drawback: They require users to commit to a specific journal's formatting requirements before knowing whether the paper will even end up in that journal; after rejection users will have to change to another format. Using Quarto makes this process easier by promising standard metadata fields for manuscripts, such as the ways in which author information should be formatted. Nevertheless, many format extensions require idiosyncratic settings / metadata, making switching between journal formats not quite the click of a button workflow as promised by Quarto.
+
+Therefore, to add to the existing high-quality, but journal (or society-) specific Quarto formats, I wrote a little Quarto Typst extension called [`quarto-prepint`](https://mvuorre.github.io/quarto-preprint/) ([PDF](https://mvuorre.github.io/quarto-preprint/index.pdf)). My aim with it is to enable fast and not-too-opinionated typesetting for computationally reproducible preprints written with [Quarto](https://quarto.org/). I paste from quarto-preprint's manual below:
+
+### quarto-preprint
+
+[Quarto](https://quarto.org) is an "*An open-source scientific and technical publishing system*". It is both a markup language that extends [pandoc](https://pandoc.org/) [Markdown](https://quarto.org/docs/authoring/markdown-basics.html) and a program that renders source code written in Quarto Markdown to a variety of formats including PDF, MS Word, HTML, ePub, and many [more](https://quarto.org/docs/output-formats/all-formats.html). This source code can include prose (this text), maths ($\sqrt{2}$), code evaluation (`{{r}} sqrt(2)` renders to `{r} round(sqrt(2), digits = 3)`), scholarly [metadata](https://quarto.org/docs/authoring/front-matter.html), and more. In short, Quarto is a language and engine for reproducible manuscripts.
+
+The look and feel of the output documents can be controlled within the source document (e.g. [here](https://quarto.org/docs/output-formats/html-basics.html)), or by using a Quarto [extension](https://quarto.org/docs/extensions/). [`quarto-preprint`](https://github.com/mvuorre/quarto-preprint) is such an extension, designed to produce neat PDF documents quickly with minimum fuss. It is called "preprint" because it provides a basic layout in a Quarto-standards compliant package, allowing users to easily switch to a journal-specific [extension](https://quarto.org/docs/extensions/listing-journals.html) if they so choose. It also produces basic Word .docx documents to facilitate collaboration and/or further WYSIWYG editing. 
+
+Why might one use the `preprint` extension? One, it renders documents from Quarto markdown to PDF using [Typst](https://typst.app/docs)[^typst], and therefore is very fast in doing so. Typst doesn't require complicated TeX installations and so is practically easier to use than other PDF-producing methods. Typst also simplifies the development and codebase of `preprint`, thus making edits, bug fixes, forks, and new features easier. Second, `preprint` aims to be 100% Quarto standards compliant: Users don't need to adapt their source code in any way when they switch to other formats, such as other journal extensions, or completely different output formats such as HTML[^feats].
+
+If this sounds interesting, read more [here](https://github.com/mvuorre/quarto-preprint).
+
+[^feats]: There are a few small features that likely won't show up in other formats, such as `branding` (see below), but their inclusion or exclusion in the metadata doesn't impact how sources are rendered to other formats.
+
+[^typst]: "*[Typst](https://typst.app/docs) is a new markup-based typesetting system for the sciences. It is designed to be an alternative both to advanced tools like LaTeX and simpler tools like Word and Google Docs.*"
+
+## Conclusion
+
+I encourage scholars to think more proactively about the roles that preprints play in the modern scholarly communication landscape [@severBiomedicalPublishingHistoric2023; @syedValuingPreprintsMust2024; @moshontzGuidePostingManaging2021; @ahmedFutureAcademicPublishing2023]. To this end (and to learn web and Quarto extension development :smile:), I put together two (early-stage) resources for preprint authors and readers. If you try them out, feel free to let me know what's wrong with them!

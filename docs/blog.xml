@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.5.45</generator>
+<generator>quarto-1.5.47</generator>
 <lastBuildDate>Wed, 19 Jun 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Preprints: A Quarto extension and website</title>
@@ -110,12 +110,12 @@ Vuorre, Matti, Niklas Johannes, and Andrew K. Przybylski. 2022. <span>“Three O
   author = {Vuorre, Matti},
   title = {Preprints: {A} {Quarto} Extension and Website},
   date = {2024-06-20},
-  url = {https://vuorre.com/posts/quarto-preprint-psyarxiv-zero},
+  url = {https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2024. <span>“Preprints: A Quarto Extension and
-Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero">https://vuorre.com/posts/quarto-preprint-psyarxiv-zero</a>.
+Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/">https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <category>preprints</category>
@@ -220,12 +220,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for 
   author = {Vuorre, Matti},
   title = {A Simple Statistics Syllabus},
   date = {2024-01-19},
-  url = {https://vuorre.com/posts/statistics-syllabus},
+  url = {https://vuorre.com/posts/statistics-syllabus/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2024. <span>“A Simple Statistics Syllabus.”</span>
-January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus">https://vuorre.com/posts/statistics-syllabus</a>.
+January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus/">https://vuorre.com/posts/statistics-syllabus/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>education</category>
@@ -297,12 +297,12 @@ Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T. Fisher, Ha
   author = {Vuorre, Matti},
   title = {Yet Another Data Request Email},
   date = {2023-03-24},
-  url = {https://vuorre.com/posts/yet-another-data-request-email},
+  url = {https://vuorre.com/posts/yet-another-data-request-email/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2023" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2023. <span>“Yet Another Data Request Email.”</span>
-March 24, 2023. <a href="https://vuorre.com/posts/yet-another-data-request-email">https://vuorre.com/posts/yet-another-data-request-email</a>.
+March 24, 2023. <a href="https://vuorre.com/posts/yet-another-data-request-email/">https://vuorre.com/posts/yet-another-data-request-email/</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <guid>https://vuorre.com/posts/yet-another-data-request-email/</guid>
@@ -1559,12 +1559,12 @@ McNeish, Daniel, and Ellen L. Hamaker. 2020. <span>“A Primer on Two-Level Dyna
   author = {Vuorre, Matti},
   title = {Latent Mean Centering with Brms},
   date = {2023-01-01},
-  url = {https://vuorre.com/posts/latent-mean-centering},
+  url = {https://vuorre.com/posts/latent-mean-centering/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2023" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2023. <span>“Latent Mean Centering with Brms.”</span>
-January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering">https://vuorre.com/posts/latent-mean-centering</a>.
+January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering/">https://vuorre.com/posts/latent-mean-centering/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>modelling</category>
@@ -1574,7 +1574,7 @@ January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering">https:
   <category>brms</category>
   <guid>https://vuorre.com/posts/latent-mean-centering/</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>
@@ -1813,12 +1813,12 @@ font-style: inherit;">"gt"</span></span>
   author = {Vuorre, Matti},
   title = {How {I} Like to Set up My Computer},
   date = {2022-12-08},
-  url = {https://vuorre.com/posts/computer-setup-dotfiles},
+  url = {https://vuorre.com/posts/computer-setup-dotfiles/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“How I Like to Set up My Computer.”</span>
-December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles">https://vuorre.com/posts/computer-setup-dotfiles</a>.
+December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">https://vuorre.com/posts/computer-setup-dotfiles/</a>.
 </div></div></section></div> ]]></description>
   <category>tips</category>
   <category>computers</category>
@@ -3931,11 +3931,11 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>D
   author = {Vuorre, Matti},
   title = {Tidymultiverse},
   date = {2022-12-07},
-  url = {https://vuorre.com/posts/parallel-multiverse},
+  url = {https://vuorre.com/posts/parallel-multiverse/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a href="https://vuorre.com/posts/parallel-multiverse">https://vuorre.com/posts/parallel-multiverse</a>.
+Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a href="https://vuorre.com/posts/parallel-multiverse/">https://vuorre.com/posts/parallel-multiverse/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>statistics</category>
@@ -4620,12 +4620,12 @@ Sherrill-Mix, Scott, and Erik Clarke. 2017. <em>Vipor: Plot Categorical Data Usi
   author = {Vuorre, Matti},
   title = {Some Alternatives to Raincloud Plots},
   date = {2022-12-06},
-  url = {https://vuorre.com/posts/raincloud-plot-alt},
+  url = {https://vuorre.com/posts/raincloud-plot-alt/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“Some Alternatives to Raincloud
-Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-plot-alt">https://vuorre.com/posts/raincloud-plot-alt</a>.
+Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-plot-alt/">https://vuorre.com/posts/raincloud-plot-alt/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>visualization</category>
@@ -4774,12 +4774,12 @@ Figure&nbsp;4: Tailscale admin panel.
   author = {Vuorre, Matti},
   title = {How to Run {R} Remotely},
   date = {2022-12-03},
-  url = {https://vuorre.com/posts/remote-r},
+  url = {https://vuorre.com/posts/remote-r/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
-2022. <a href="https://vuorre.com/posts/remote-r">https://vuorre.com/posts/remote-r</a>.
+2022. <a href="https://vuorre.com/posts/remote-r/">https://vuorre.com/posts/remote-r/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>RStudio Server</category>
@@ -5093,17 +5093,17 @@ Figure&nbsp;1: Sticker made with ggplot2 and hexSticker.
   author = {Vuorre, Matti},
   title = {Website Favicons with {hexSticker}},
   date = {2022-06-29},
-  url = {https://vuorre.com/posts/hexsticker-favicon},
+  url = {https://vuorre.com/posts/hexsticker-favicon/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“Website Favicons with hexSticker.”</span>
-June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon">https://vuorre.com/posts/hexsticker-favicon</a>.
+June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vuorre.com/posts/hexsticker-favicon/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <guid>https://vuorre.com/posts/hexsticker-favicon/</guid>
   <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Easy notifications from R</title>
@@ -5159,12 +5159,12 @@ font-style: inherit;">"curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-n
   author = {Vuorre, Matti},
   title = {Easy Notifications from {R}},
   date = {2022-06-15},
-  url = {https://vuorre.com/posts/easy-notifications-from-r},
+  url = {https://vuorre.com/posts/easy-notifications-from-r/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
-2022. <a href="https://vuorre.com/posts/easy-notifications-from-r">https://vuorre.com/posts/easy-notifications-from-r</a>.
+2022. <a href="https://vuorre.com/posts/easy-notifications-from-r/">https://vuorre.com/posts/easy-notifications-from-r/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>tips</category>
@@ -5519,12 +5519,12 @@ font-style: inherit;">"coef"</span>)</span></code></pre></div>
   author = {Vuorre, Matti},
   title = {How to Calculate Contrasts from a Fitted Brms Model},
   date = {2020-02-06},
-  url = {https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model},
+  url = {https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2020" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2020. <span>“How to Calculate Contrasts from a Fitted
-Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model">https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model</a>.
+Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/">https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>tutorial</category>
@@ -6203,12 +6203,12 @@ Yarkoni, Tal, and Jacob Westfall. 2017. <span>“Choosing <span>Prediction</span
   author = {Vuorre, Matti},
   title = {How to Analyze Visual Analog (Slider) Scale Data?},
   date = {2019-02-18},
-  url = {https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models},
+  url = {https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2019" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2019. <span>“How to Analyze Visual Analog (Slider) Scale
-Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models">https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models</a>.
+Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/">https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <category>statistics</category>
@@ -6463,12 +6463,12 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
   author = {Vuorre, Matti},
   title = {Combine Ggplots with Patchwork},
   date = {2018-12-13},
-  url = {https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork},
+  url = {https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2018" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2018. <span>“Combine Ggplots with Patchwork.”</span>
-December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork">https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork</a>.
+December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/">https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</a>.
 </div></div></section></div> ]]></description>
   <category>data science</category>
   <category>visualization</category>
@@ -6476,7 +6476,7 @@ December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-
   <category>R</category>
   <guid>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Glue your strings together</title>
@@ -6675,12 +6675,12 @@ font-style: inherit;">`</span>).</span></code></pre></div>
   author = {Vuorre, Matti},
   title = {Glue Your Strings Together},
   date = {2018-12-12},
-  url = {https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing},
+  url = {https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2018" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
-12, 2018. <a href="https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing">https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing</a>.
+12, 2018. <a href="https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/">https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/</a>.
 </div></div></section></div> ]]></description>
   <category>data science</category>
   <category>R</category>
@@ -9403,12 +9403,12 @@ Wright, Daniel B. 2011. <span>“Sdtalt: <span>Signal</span> Detection Theory an
   author = {Vuorre, Matti},
   title = {Bayesian {Estimation} of {Signal} {Detection} {Models}},
   date = {2017-10-09},
-  url = {https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models},
+  url = {https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“Bayesian Estimation of Signal Detection
-Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models">https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models</a>.
+Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/">https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <category>statistics</category>
@@ -10753,12 +10753,12 @@ Wagenmakers, Eric-Jan, Tom Lodewyckx, Himanshu Kuriyal, and Raoul Grasman. 2010.
   author = {Vuorre, Matti},
   title = {Bayes {Factors} with Brms},
   date = {2017-03-21},
-  url = {https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms},
+  url = {https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
-2017. <a href="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms">https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms</a>.
+2017. <a href="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/">https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>tutorial</category>
@@ -11329,12 +11329,12 @@ Ganis, Giorgio, and Rogier Kievit. 2015. <span>“A New Set of Three-Dimensional
   title = {How to Create Within-Subject Scatter Plots in {R} with
     Ggplot2},
   date = {2017-01-04},
-  url = {https://vuorre.com/posts/2017-01-04-within-subject-scatter},
+  url = {https://vuorre.com/posts/2017-01-04-within-subject-scatter/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“How to Create Within-Subject Scatter Plots
-in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.com/posts/2017-01-04-within-subject-scatter">https://vuorre.com/posts/2017-01-04-within-subject-scatter</a>.
+in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.com/posts/2017-01-04-within-subject-scatter/">https://vuorre.com/posts/2017-01-04-within-subject-scatter/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>tutorial</category>
@@ -11969,12 +11969,12 @@ McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Co
   title = {How to {Compare} {Two} {Groups} with {Robust} {Bayesian}
     {Estimation} in {R}},
   date = {2017-01-02},
-  url = {https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms},
+  url = {https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“How to Compare Two Groups with Robust
-Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms">https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms</a>.
+Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/">https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>tutorial</category>
@@ -12192,12 +12192,12 @@ font-style: inherit;">reorder</span>(Subject, Slope)</span>
   author = {Vuorre, Matti},
   title = {How to Arrange Ggplot2 Panel Plots},
   date = {2016-12-06},
-  url = {https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots},
+  url = {https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2016. <span>“How to Arrange Ggplot2 Panel Plots.”</span>
-December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots">https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots</a>.
+December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/">https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</a>.
 </div></div></section></div> ]]></description>
   <category>data science</category>
   <category>R</category>
@@ -12904,12 +12904,12 @@ McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Co
   author = {Vuorre, Matti},
   title = {Bayesian {Meta-Analysis} with {R,} {Stan,} and Brms},
   date = {2016-09-29},
-  url = {https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis},
+  url = {https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2016. <span>“Bayesian Meta-Analysis with R, Stan, and
-Brms.”</span> September 29, 2016. <a href="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis">https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis</a>.
+Brms.”</span> September 29, 2016. <a href="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/">https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</a>.
 </div></div></section></div> ]]></description>
   <category>statistics</category>
   <category>R</category>

@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.5.47</generator>
+<generator>quarto-1.6.8</generator>
 <lastBuildDate>Wed, 19 Jun 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Preprints: A Quarto extension and website</title>

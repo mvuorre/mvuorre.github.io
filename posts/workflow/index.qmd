@@ -1,0 +1,18 @@
+---
+title: Workflow
+description: 'Step 1: define workflow. Step 2: ???. Step 3: profit.'
+date: 2024-02-14
+categories:
+  - tips
+  - computers
+  - education
+draft: true
+from: markdown+emoji
+image: "images/underpants.jpg"
+---
+
+1. GitHub like linking local and remote
+2. Zenodo
+3. git stuff
+4. collaboration
+5. Zotero

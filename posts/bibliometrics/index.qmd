@@ -1,0 +1,9 @@
+---
+title: "Blog entry"
+draft: true
+---
+
+- Coauthor and citation networks
+- R package bibliometrix seems to suck
+- https://johnmuschelli.com/rscopus/index.html seems ok but old?
+- https://link.springer.com/article/10.1007/s40037-021-00695-4 for some basic "theory"

@@ -11,6 +11,19 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/densityplot-1.png"
+format:
+  html:
+    theme: 
+      - zephyr
+      - custom.scss
+    mainfont: "Atkinson Hyperlegible"
+    monofont: "Fira code"
+    header-includes:
+      - <script data-goatcounter="https://vuorre.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  preprint-typst:
+    fontsize: 11pt
+    mainfont: Libertinus Serif
+    toc: false
 ---
 
 ```{r packages, include = FALSE}
@@ -18,23 +31,39 @@ library(knitr)
 library(scales)
 library(bayesplot)
 library(ggridges)
-library(sdtalt)  # devtools::install_github("cran/sdtalt") (not on CRAN)
+# devtools::install_github("cran/sdtalt") (not on CRAN)
+library(sdtalt)
 library(brms)
 library(tidyverse)
 ```
 
-```{r setup, include = FALSE}
+```{r}
+#| label: setup
+#| include: false
+
 opts_chunk$set(
-  warning = F,
-  message = F,
-  eval = T,
-  cache = T,
-  echo = T,
-  collapse = T,
-  fig.align = "center"
+  warning = FALSE,
+  message = FALSE,
+  cache = TRUE,
+  echo = TRUE,
+  collapse = TRUE,
+  fig.align = "center",
+  fig.asp = 0.618
 )
-options(width = 140)
-theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
+options(
+  width = 140,
+  brms.backend = "cmdstanr",
+  brms.threads = 2,
+  mc.cores = 8
+)
+theme_set(
+  theme_linedraw() + 
+    theme(
+      panel.grid = element_blank(),
+      strip.background = element_blank(),
+      strip.text = element_text(hjust = 0, colour = "black")
+    )
+)
 ```
 
 ## Signal Detection Theory
@@ -99,7 +128,11 @@ For a single subject, *d'* can be calculated as the difference of the standardiz
 
 $$d' = \Phi^{-1}(HR) - \Phi^{-1}(FAR)$$
 
-$\Phi$ is the cumulative normal density function, and is used to convert *z* scores into probabilities. Its inverse, $\Phi^{-1}$, converts a proportion (such as a hit rate or false alarm rate) into a *z* score. From here on, I refer to standardized hit and false alarm rates as *zHR* and *zFAR*, respectively. The response criterion *c* is given by the negative standardized false alarm rate -*zFAR* [@decarlo_signal_1998].
+$\Phi$ is the cumulative normal density function, and is used to convert *z* scores into probabilities. Its inverse, $\Phi^{-1}$, converts a proportion (such as a hit rate or false alarm rate) into a *z* score. From here on, I refer to standardized hit and false alarm rates as *zHR* and *zFAR*, respectively. Response criterion *c* is calculated as:
+
+$$c = -\frac{\Phi^{-1}(HR) + \Phi^{-1}(FAR)}{2}$$
+
+(Note that an earlier version of this write-up used the negative standardized false alarm rate -*zFAR* in line with [@decarlo_signal_1998], but that is not a standard definition of a criterion.)
 
 We can use R's proportion to z-score function ($\Phi^{-1}$), `qnorm()`, to calculate each participant's *d'* and *c* from the counts of hits, false alarms, misses and correct rejections: 
 
@@ -109,31 +142,51 @@ sdt <- sdt %>%
     zhr = qnorm(hit / (hit + miss)),
     zfa = qnorm(fa / (fa + cr)),
     dprime = zhr - zfa,
-    crit = -zfa
+    crit = -(zhr + zfa) / 2
   )
 round(sdt, 2) %>%
   head() %>%
   kable(caption = "Point estimates of EVSDT parameters")
 ```
 
-This data frame now has point estimates of every participant's *d'* and *c*. The implied EVSDT model for participant 53 is shown in @fig-sdtplot-1.
+This data frame now has point estimates of every participant's *d'* and *c*. I show the first six participants' implied EVSDT model in @fig-sdtplot-1.
 
-```{r sdtplot-1, echo = F, fig.cap = "The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter's point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d' is the distance between the peaks of the two distributions."}
+```{r}
 #| label: fig-sdtplot-1
-# Basic plot
-p1 <- ggplot(data.frame(x = seq(-5, 6, by = .01)), aes(x = x)) +
-  coord_cartesian(ylim = c(0, 0.5), xlim = c(-3.5, 4), expand = 0) +
-  labs(x = "Signal strength", y = "Probability")
-# Add noise & signal distributions, and criterion
-p1 + stat_function(
-  fun = dnorm, geom = "line", lty = 2,
-  args = list(mean = 0, sd = 1)
-) +
-  stat_function(
-    fun = dnorm, geom = "line",
-    args = list(mean = sdt$dprime[1], sd = 1)
+#| echo: false
+#| fig-width: 7
+#| fig-asp: 0.28
+#| fig-cap: "The equal variance Gaussian signal detection model for the six first participants, based on manual calculation of the parameter's point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the vertical line represents the response criterion *c*. *d'* is the distance between the peaks of the two distributions."
+
+library(ggdist)
+library(distributional)
+sdt |> 
+  head() |> 
+  ggplot() +
+  stat_slab(
+    aes(xdist = dist_normal(mu = 0, sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33, linetype = "dashed",
+    fill = NA
   ) +
-  geom_vline(xintercept = .5, lty = 3)
+  geom_vline(
+    aes(xintercept = crit),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(xdist = dist_normal(mu = dprime, sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA
+  ) +
+  labs(x = "Signal strength", y = "Density") +
+  facet_wrap("subno", nrow = 1) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
 ```
 
 ### Estimate EVSDT model with a GLM
@@ -191,9 +244,9 @@ In fact, the posterior modes will exactly correspond to the maximum likelihood e
 ```{r densityplot, echo = F, fig.cap = "The (approximate) joint posterior density of subject 53's SDT parameters. Lighter yellow colors indicate higher posterior density. The red dot indicates the 'manually' calculated MLE point estimate of d'."}
 #| label: fig-densityplot
 p1 <- as.data.frame(evsdt_1)[, 1:2] %>%
-  ggplot(aes(b_isold, -b_Intercept)) +
+  ggplot(aes(b_isold1, -b_Intercept)) +
   scale_fill_viridis_c() +
-  stat_density_2d(aes(fill = ..density..),
+  stat_density_2d(aes(fill = after_stat(density)),
     geom = "raster", contour = F, show.legend = FALSE, n = 301
   ) +
   geom_point(data = sdt[1, ], aes(x = dprime, y = crit), col = "red", size = 2) +
@@ -273,15 +326,15 @@ The results are very similar, but note that priors were included only in the non
 p2 <- as.data.frame(evsdt_2)[, 1:2] %>%
   ggplot(aes(b_dprime_Intercept, b_c_Intercept)) +
   scale_fill_viridis_c() +
-  stat_density_2d(aes(fill = ..density..),
+  stat_density_2d(aes(fill = after_stat(density)),
     geom = "raster", contour = F, show.legend = FALSE, n = 301
   ) +
   geom_point(data = sdt[1, ], aes(x = dprime, y = crit), col = "red", size = 2) +
-  coord_cartesian(expand = expansion(0)) +
+  coord_cartesian(expand = 0) +
   labs(x = "d'", y = "Criterion") +
   theme(aspect.ratio = 1)
 pst1 <- posterior_samples(evsdt_1, pars = "b_") %>%
-  rename(c = b_Intercept, dprime = b_isold) %>%
+  rename(c = b_Intercept, dprime = b_isold1) %>%
   mutate(c = -c)
 pst2 <- posterior_samples(evsdt_2, pars = "b_") %>%
   rename(c = b_c_Intercept, dprime = b_dprime_Intercept)
@@ -295,7 +348,7 @@ p3 <- bind_rows(pst1, pst2, .id = "Model") %>%
     geom = "area", position = position_identity(),
     alpha = .4
   ) +
-  coord_cartesian(ylim = c(0, 2.5), expand = 0) +
+  scale_y_continuous(expand = expansion(c(0, .1))) +
   facet_wrap("parameter", strip.position = "bottom") +
   theme(
     legend.position = "none",
@@ -306,10 +359,8 @@ p3 <- bind_rows(pst1, pst2, .id = "Model") %>%
   )
 cowplot::plot_grid(
   cowplot::plot_grid(
-    p1 + labs(title = "GLM") +
-      coord_cartesian(ylim = c(-.2, .8), xlim = c(-.3, 1.2)),
-    p2 + labs(title = "Nonlinear syntax") +
-      coord_cartesian(ylim = c(-.2, .8), xlim = c(-.3, 1.2))
+    p1 + labs(title = "GLM"),
+    p2 + labs(title = "Nonlinear syntax")
   ),
   p3,
   nrow = 2
@@ -439,9 +490,9 @@ The heterogeneity parameters are reported in the "Group-Level Effects"[^2] table
 ```{r evsdt-glmm-viz1, echo=F, fig.cap = "Left panel: The (approximate) joint posterior density of the average d' and criterion. Lighter values indicate higher posterior probability. Right panel: The (approximate) joint posterior density of the standard deviations of d's and criteria in the population. In both panels, the red dot indicates the 'manually' calculated sample statistics.", fig.height = 4}
 #| label: fig-evsdt-glmm-viz1
 x1 <- as.data.frame(evsdt_glmm, pars = "b_") %>%
-  ggplot(aes(b_isold, -b_Intercept)) +
+  ggplot(aes(b_isold1, -b_Intercept)) +
   scale_fill_viridis_c() +
-  stat_density_2d(aes(fill = ..density..),
+  stat_density_2d(aes(fill = after_stat(density)),
     geom = "raster", contour = F, show.legend = FALSE, n = 201
   ) +
   geom_point(
@@ -456,16 +507,16 @@ x1 <- as.data.frame(evsdt_glmm, pars = "b_") %>%
   theme(aspect.ratio = 1)
 x2 <- as.data.frame(evsdt_glmm, pars = "sd") %>%
   rbind(c(0, 0)) %>% # Extend values to zero to fill figure
-  ggplot(aes(sd_subno__isold, sd_subno__Intercept)) +
+  ggplot(aes(sd_subno__isold1, sd_subno__Intercept)) +
   scale_fill_viridis_c() +
-  stat_density_2d(aes(fill = ..density..),
+  stat_density_2d(aes(fill = after_stat(density)),
     geom = "raster", contour = F, show.legend = FALSE, n = 201
   ) +
   geom_point(
     data = spread(select(sdt_sum, parameter, sd), parameter, sd),
     aes(x = dprime, y = crit), col = "red", size = 2
   ) +
-  coord_cartesian(xlim = c(0, .7), ylim = c(0, .5), expand = 0) +
+  coord_cartesian(expand = 0) +
   labs(
     x = "d'", y = "Criterion",
     title = "Standard deviations"
@@ -501,7 +552,7 @@ intercepts <- coef(evsdt_glmm)$subno[, , "Intercept"] %>%
   select(1:2) %>%
   rename(crit_2 = Estimate) %>%
   left_join(select(sdt, subno, dprime, crit))
-slopes <- coef(evsdt_glmm)$subno[, , "isold"] %>%
+slopes <- coef(evsdt_glmm)$subno[, , "isold1"] %>%
   as.data.frame() %>%
   rownames_to_column("subno") %>%
   mutate(subno = as.numeric(subno)) %>%
@@ -517,7 +568,7 @@ left_join(intercepts, slopes, by = "subno") %>%
   ) +
   geom_segment(
     aes(x = dprime, xend = dprime_2, y = crit, yend = crit_2), 
-    size = .3
+    linewidth = .3
   ) +
   geom_point(aes(dprime, crit)) +
   geom_point(aes(dprime_2, crit_2), shape = 21, fill = "white") +
@@ -655,7 +706,8 @@ $$p(y_i \leq k_i) = \Phi(d'\mbox{isold}_i - c_{ki})$$
 This model is also known as an ordinal probit ($\Phi$) model, and can be fit with widely available regression modeling software. [@decarlo_using_2003] showed how to use the PLUM procedure in SPSS to fit it for a single participant. However, we can obtain Bayesian inference for this model by estimating the model with the brms package in R [@burkner_brms:_2017; @stan_development_team_stan:_2016]. Ignoring prior distributions for now, the brms syntax for estimating this model with the above data is:
 
 ```{r}
-fit1 <- brm(y ~ isold,
+fit1 <- brm(
+  y ~ isold,
   family = cumulative(link = "probit"),
   data = d,
   cores = 4,
@@ -757,17 +809,17 @@ $$p(y_i \leq k_i) = \Phi(\mbox{exp}(disc\mbox{isold}_i) * (c_{ki} - d'\mbox{isol
 We can therefore estimate this model with only a small tweak to the EVSDT model's code:
 
 ```{r}
-uvsdt_m <- bf(y ~ isold, disc ~ 0 + isold)
+uvsdt_m <- bf(y ~ isold, disc ~ 0 + isold, cmc = FALSE)
 ```
 
-There are two brms formulas in the model. The first, `y ~ isold` is already familiar to us. In the second formula, we write `disc ~ 0 + isold` to prevent the parameter from being estimated for the noise distribution: Recall that we have set the standard deviation of the noise distribution to be one (achieved by $exp(disc * \mbox{0}) = 1$). In R's (and by extension, brms') modeling syntax `0 + ...` means removing the intercept from the model. By including `isold` only, we achieve the 0/1 predictor as described above. We can then estimate the model:
+There are two brms formulas in the model. The first, `y ~ isold` is already familiar to us. In the second formula, we write `disc ~ 0 + isold` to prevent the parameter from being estimated for the noise distribution: Recall that we have set the standard deviation of the noise distribution to be one (achieved by $exp(disc * \mbox{0}) = 1$). In R's (and by extension, brms') modeling syntax `0 + ...` means removing the intercept from the model. `cmc = FALSE` is needed. By including `isold` only, we achieve the 0/1 predictor as described above. We can then estimate the model:
 
 ```{r, cache = T}
-fit2 <- brm(uvsdt_m,
+fit2 <- brm(
+  uvsdt_m,
   family = cumulative(link = "probit"),
   data = d,
   control = list(adapt_delta = .99),
-  cores = 4,
   file = "sdtmodel3-2"
 )
 ```
@@ -786,7 +838,7 @@ Notice that we need to flip the sign of the `disc` parameter to get $\mbox{log}(
 p2 <- as.data.frame(fit2, pars = "isold") %>%
   ggplot(aes(b_isold, exp(-b_disc_isold))) +
   scale_fill_viridis_c() +
-  stat_density_2d(aes(fill = ..density..),
+  stat_density_2d(aes(fill = after_stat(density)),
     geom = "raster", contour = F, show.legend = FALSE, n = 301
   ) +
   geom_point(aes(x = 1.52, y = exp(.35)), col = "red", size = 2) +
@@ -933,7 +985,7 @@ For complete R code, including pre-processing the data, please refer to the sour
 Here's the brms syntax we used for estimating the model for a single participant:
 
 ```{r, eval=F, echo=T}
-uvsdt_m <- bf(y ~ isold, disc ~ 0 + isold)
+uvsdt_m <- bf(y ~ isold, disc ~ 0 + isold, cmc = FALSE)
 ```
 
 With the above syntax we specifed seven parameters: Five intercepts (aka 'thresholds' in the cumulative probit model) on `y`[^intercept]; the effect of `isold` on `y`; and the effect of `isold` on the discrimination parameter `disc`[^omit-intercept]. There are five intercepts (thresholds), because there are six response categories.
@@ -946,7 +998,8 @@ We extend the code to a hierarchical model by specifying that all these paramete
 ```{r}
 uvsdt_h <- bf(
   y ~ isold + (isold | s | id),
-  disc ~ 0 + isold + (0 + isold | s | id)
+  disc ~ 0 + isold + (0 + isold | s | id),
+  cmc = FALSE
 )
 ```
 
@@ -977,8 +1030,9 @@ fit <- brm(uvsdt_h,
   family = cumulative(link = "probit"),
   data = d,
   prior = Prior,
-  control = list(adapt_delta = .9), inits = 0,
-  cores = 4, iter = 500,
+  control = list(adapt_delta = .9), 
+  init = 0,
+  iter = 500,
   file = "sdtmodel4-1"
 )
 ```

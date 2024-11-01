@@ -138,7 +138,7 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 <p><em>tl;dr</em>:</p>
 <ul>
 <li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span></li>
-<li><a href="https://www.john-fox.ca/AppliedRegression/index.html"><em>Applied Regression Analysis and Generalized Linear Models</em></a> <span class="citation" data-cites="foxAppliedRegressionAnalysis2015">(Fox 2015)</span></li>
+<li><a href="https://openintro-ims.netlify.app/"><em>Introduction to Modern Statistics</em></a> <span class="citation" data-cites="cetinkaya-rundelIntroductionModernStatistics2021">(Çetinkaya-Rundel and Hardin 2021)</span></li>
 <li><a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span></li>
 <li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span></li>
 </ul>
@@ -194,6 +194,9 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 </div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-baguleySeriousStatsGuide2012" class="csl-entry">
 Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
+</div>
+<div id="ref-cetinkaya-rundelIntroductionModernStatistics2021" class="csl-entry">
+Çetinkaya-Rundel, Mine, and Johanna Hardin. 2021. <em>Introduction to <span>Modern Statistics</span></em>. OpenIntro. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
 </div>
 <div id="ref-foxAppliedRegressionAnalysis2015" class="csl-entry">
 Fox, John. 2015. <em>Applied <span>Regression Analysis</span> and <span>Generalized Linear Models</span></em>. <span>SAGE Publications</span>. <a href="https://books.google.com?id=cjB3BwAAQBAJ">https://books.google.com?id=cjB3BwAAQBAJ</a>.
@@ -6705,7 +6708,7 @@ Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
 <section id="example-data" class="level3">
 <h3 class="anchored" data-anchor-id="example-data">Example data</h3>
 <p>We move on to examining a practical example using the R statistical programming environment <span class="citation" data-cites="r_core_team_r:_2017">(R Core Team 2017)</span>. The following R packages were used in this tutorial:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_4da87d835f5dcae23f05ccbc5beabd96">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
@@ -6718,25 +6721,26 @@ font-style: inherit;">library</span>(bayesplot)</span>
 <span id="cb1-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ggridges)</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(sdtalt)  <span class="co" style="color: #5E5E5E;
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># devtools::install_github("cran/sdtalt") (not on CRAN)</span></span>
 <span id="cb1-6"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(brms)</span>
+font-style: inherit;">library</span>(sdtalt)</span>
 <span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <p>The example data is called <code>confcontr</code>, and is provided as a data frame in the sdtalt package <span class="citation" data-cites="wright_sdtalt:_2011">(Wright 2011)</span>: “These are the data from the control group in Skagerberg and Wright’s study of memory conformity. Basically, this is the simplest old/new recognition memory design.” <span class="citation" data-cites="skagerberg_manipulating_2008">(Skagerberg and Wright 2008)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_45a4f5b5867cae54565597549af315e3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data</span>(confcontr)</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_e63342113ab8bdc42ce7f3c97d4b88bc">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Example recognition memory data</caption>
@@ -6792,7 +6796,7 @@ font-style: inherit;">data</span>(confcontr)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="calculate-evsdt-parameters-point-estimates">Calculate EVSDT parameters’ point estimates</h3>
 <p>We begin by calculating the maximum likelihood estimates of the EVSDT parameters, separately for each participant in the data set. Before doing so, I note that this data processing is only required for manual calculation of the point estimates; the modeling methods described below take the raw data and therefore don’t require this step.</p>
 <p>First, we’ll compute for each trial whether the participant’s response was a hit, false alarm, correct rejection, or a miss. We’ll do this by creating a new variable, <code>type</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/sdtcalc-1_b77db132b4043367b024801c8810abdc">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">sdt <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> confcontr <span class="sc" style="color: #5E5E5E;
@@ -6864,7 +6868,7 @@ font-style: inherit;"># False alarm</span></span>
 <span id="cb3-7">  )</span></code></pre></div>
 </div>
 <p>Then we can simply count the numbers of these four types of trials for each participant, and put the counts on one row per participant.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/sdtcalc-2_cffac45810b3280164a4df55e006c34d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">sdt <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> sdt <span class="sc" style="color: #5E5E5E;
@@ -6892,9 +6896,11 @@ font-style: inherit;"># Format data to one row per person</span></span></code></
 </div>
 <p>For a single subject, <em>d’</em> can be calculated as the difference of the standardized hit and false alarm rates <span class="citation" data-cites="stanislaw_calculation_1999">(Stanislaw and Todorov 1999)</span>:</p>
 <p><img src="https://latex.codecogs.com/png.latex?d'%20=%20%5CPhi%5E%7B-1%7D(HR)%20-%20%5CPhi%5E%7B-1%7D(FAR)"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5CPhi"> is the cumulative normal density function, and is used to convert <em>z</em> scores into probabilities. Its inverse, <img src="https://latex.codecogs.com/png.latex?%5CPhi%5E%7B-1%7D">, converts a proportion (such as a hit rate or false alarm rate) into a <em>z</em> score. From here on, I refer to standardized hit and false alarm rates as <em>zHR</em> and <em>zFAR</em>, respectively. The response criterion <em>c</em> is given by the negative standardized false alarm rate -<em>zFAR</em> <span class="citation" data-cites="decarlo_signal_1998">(DeCarlo 1998)</span>.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5CPhi"> is the cumulative normal density function, and is used to convert <em>z</em> scores into probabilities. Its inverse, <img src="https://latex.codecogs.com/png.latex?%5CPhi%5E%7B-1%7D">, converts a proportion (such as a hit rate or false alarm rate) into a <em>z</em> score. From here on, I refer to standardized hit and false alarm rates as <em>zHR</em> and <em>zFAR</em>, respectively. Response criterion <em>c</em> is calculated as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?c%20=%20-%5Cfrac%7B%5CPhi%5E%7B-1%7D(HR)%20+%20%5CPhi%5E%7B-1%7D(FAR)%7D%7B2%7D"></p>
+<p>(Note that an earlier version of this write-up used the negative standardized false alarm rate -<em>zFAR</em> in line with <span class="citation" data-cites="decarlo_signal_1998">(DeCarlo 1998)</span>, but that is not a standard definition of a criterion.)</p>
 <p>We can use R’s proportion to z-score function (<img src="https://latex.codecogs.com/png.latex?%5CPhi%5E%7B-1%7D">), <code>qnorm()</code>, to calculate each participant’s <em>d’</em> and <em>c</em> from the counts of hits, false alarms, misses and correct rejections:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/sdtcalc-3_4c7b2a3c6d0cb0127a02e6f512f8c49c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">sdt <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> sdt <span class="sc" style="color: #5E5E5E;
@@ -6930,7 +6936,13 @@ font-style: inherit;">-</span> zfa,</span>
 background-color: null;
 font-style: inherit;">crit =</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">-</span>zfa</span>
+font-style: inherit;">-</span>(zhr <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> zfa) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
 <span id="cb5-7">  )</span></code></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -6958,7 +6970,7 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.08</td>
 <td style="text-align: right;">-0.31</td>
 <td style="text-align: right;">0.39</td>
-<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.12</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">54</td>
@@ -6969,7 +6981,7 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.24</td>
 <td style="text-align: right;">-0.63</td>
 <td style="text-align: right;">0.87</td>
-<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.19</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">55</td>
@@ -6980,7 +6992,7 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.41</td>
 <td style="text-align: right;">-0.47</td>
 <td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.03</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">56</td>
@@ -6991,7 +7003,7 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.87</td>
 <td style="text-align: right;">-0.88</td>
 <td style="text-align: right;">1.76</td>
-<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.01</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">57</td>
@@ -7002,7 +7014,7 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.30</td>
 <td style="text-align: right;">-0.41</td>
 <td style="text-align: right;">0.71</td>
-<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.06</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">58</td>
@@ -7013,14 +7025,14 @@ font-style: inherit;">-</span>zfa</span>
 <td style="text-align: right;">0.35</td>
 <td style="text-align: right;">-0.75</td>
 <td style="text-align: right;">1.10</td>
-<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.20</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>This data frame now has point estimates of every participant’s <em>d’</em> and <em>c</em>. The implied EVSDT model for participant 53 is shown in Figure&nbsp;1.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sdtplot-1_d95c49654c2fee5ded5a88220f072522">
+<p>This data frame now has point estimates of every participant’s <em>d’</em> and <em>c</em>. I show the first six participants’ implied EVSDT model in Figure&nbsp;1.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-sdtplot-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -7028,7 +7040,7 @@ font-style: inherit;">-</span>zfa</span>
 <img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdtplot-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdtplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The equal variance Gaussian signal detection model for the first participant in the data, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the dotted vertical line represents the response criterion. d’ is the distance between the peaks of the two distributions.
+Figure&nbsp;1: The equal variance Gaussian signal detection model for the six first participants, based on manual calculation of the parameter’s point estimates. The two distributions are the noise distribution (dashed) and the signal distribution (solid); the vertical line represents the response criterion <em>c</em>. <em>d’</em> is the distance between the peaks of the two distributions.
 </figcaption>
 </figure>
 </div>
@@ -7056,7 +7068,7 @@ You are probably familiar with logistic regression models, which are just anothe
 <p>brms’s model syntax uses variable names from the data. We regress the binary <code>sayold</code> responses on the binary <code>isold</code> predictor with the following formula: <code>sayold ~ isold</code>. The distribution of the outcomes is specified with <code>family</code> argument. To specify the bernoulli distribution with a probit link function, we use <code>family = bernoulli(link="probit")</code>. We will only model the first participant’s data (number 53), and therefore specify the data with <code>data = filter(confcontr, subno==53)</code>.</p>
 <p>The <code>brm()</code> function also allows specifying prior distributions on the parameters, but for this introductory discussion we omit discussion of priors. In addition, to run multiple MCMC chains <span class="citation" data-cites="kruschke_doing_2014 ravenzwaaij_simple_2016">(Kruschke 2014; van Ravenzwaaij, Cassey, and Brown 2016)</span> in parallel, we set the <code>cores</code> argument to 4 (this makes the model estimation faster). Finally, we also specify <code>file</code>, to save the model to a file so that we don’t have to re-estimate the model whenever we restart R.</p>
 <p>Putting these pieces together, we estimate the SDT model as a probit GLM, using data stored in <code>confcontr</code>, for subject 53 only, with the following function:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit-glm_d92fc4f3b2d707997e2ff9a89c11210d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">evsdt_1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7096,7 +7108,7 @@ font-style: inherit;">"sdtmodel1-1"</span></span>
 <span id="cb6-7">)</span></code></pre></div>
 </div>
 <p>The estimated model is saved in <code>evsdt_1</code>, whose <code>summary()</code> method returns a numerical summary of the estimated parameters along with some information and diagnostics about the model:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_97959537e15c0c0d1bb5ffcbddd6c3cd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(evsdt_1)</span>
@@ -7123,16 +7135,16 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb7-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb7-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.03 1.00     3528     2413</span></span>
+font-style: italic;">## Intercept    -0.11      0.13    -0.36     0.12 1.00     3650     2786</span></span>
 <span id="cb7-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold         0.39      0.25    -0.11     0.88 1.00     3846     2644</span></span>
+font-style: italic;">## isold1        0.40      0.26    -0.14     0.90 1.00     3706     2265</span></span>
 <span id="cb7-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -7148,7 +7160,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 </div>
 <p>The regression parameters (<code>Intercept</code> (recall, <img src="https://latex.codecogs.com/png.latex?c%20=%20-%5Cbeta_0">) and <code>isold</code> (<img src="https://latex.codecogs.com/png.latex?d'%20=%20%5Cbeta_1">)) are described in the “Population-Level Effects” table in the above output. <code>Estimate</code> reports the posterior means, which are comparable to maximum likelihood point estimates, and <code>Est.Error</code> reports the posterior standard deviations, which are comparable to standard errors. The next two columns report the parameter’s 95% Credible Intervals (CIs). The estimated parameters’ means match the point estimates we calculated by hand (see table above.)</p>
 <p>In fact, the posterior modes will exactly correspond to the maximum likelihood estimates, if we use uniform priors. The posterior density of <em>d’</em> and <em>c</em>, for participant 53, is illustrated in Figure&nbsp;2: The maximum likelihood estimate is spot on the highest peak of the posterior density.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-densityplot_10c0d03bd0871ffdcac96b9475d71636">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-densityplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -7171,7 +7183,7 @@ Figure&nbsp;2: The (approximate) joint posterior density of subject 53’s SDT p
 <p><img src="https://latex.codecogs.com/png.latex?p_i%20=%20%5CPhi(d'%5Cmbox%7Bisold%7D_i%20-%20c)"></p>
 <p>This model gives us direct estimates of <em>c</em> and <em>d’</em>. Writing and estimating nonlinear models can be considerably more involved than fitting GLMs. Accordingly, the code below is a bit more complicated. The key point here is, however, that using brms, we can estimate models that may be nonlinear without deviating too far from the basic formula syntax.</p>
 <p>First, we’ll specify the model using the <code>bf()</code> function:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_ddeb186797d289238f50581a9532828e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">m2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7205,7 +7217,7 @@ font-style: inherit;">TRUE</span></span>
 <p>Let’s walk through this code line by line. On the first line, we specify the model of <code>sayold</code> responses. Recall that we are modeling the responses as Bernoulli distributed (this will be specified as an argument to the estimation function, below). Therefore, the right-hand side of the first line (after ~) is a model of the probability parameter (<img src="https://latex.codecogs.com/png.latex?p_i">) of the Bernoulli distribution.</p>
 <p>The two unknown parameters in the model, <em>d’</em> and <em>c</em>, are estimated from data, as indicated by the second line (i.e.&nbsp;<code>dprime ~ 1</code>). The third line is required to tell brms that the model is nonlinear. To further understand how to write models with brms’ nonlinear modeling syntax, see (<code>vignette("brms_nonlinear", package = "brms")</code>) (or <a href="https://cran.r-project.org/web/packages/brms/vignettes/brms_nonlinear.html">here</a>).</p>
 <p>Because the parameters of nonlinear models can be more difficult to estimate, brms requires the user to set priors when <code>nl = TRUE</code>. We set somewhat arbitrary priors on <code>dprime</code> and <code>c</code> (the scale parameter is standard deviation, not variance):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_31353c58d803019cf0161c6190d725c6">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">Priors <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7240,7 +7252,7 @@ font-style: inherit;">"c"</span>)</span>
 <span id="cb9-4">)</span></code></pre></div>
 </div>
 <p>After specifying the model and priors, fitting the model is done again using <code>brm()</code> with only a few adjustments: because we specified the link function inside <code>bf()</code> (the <code>Phi()</code> function), we should explicitly set <code>link="identity"</code> in the <code>family</code> argument. Because nonlinear models are trickier to estimate, we also adjust the underlying Stan sampler’s <code>adapt_delta</code> parameter (this will make the MCMC a little slower but will return less noisy results).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_6dab2d09b77d8995f25f96981dc790ec">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">evsdt_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7291,7 +7303,7 @@ font-style: inherit;">"sdtmodel1-2"</span></span>
 </div>
 <p>Notice that we now entered <code>m2</code> as the first argument, whereas with the first model, we simply wrote the formula inside the <code>brm()</code> function. These two ways are equivalent, but because this model is more complicated, I saved it into a variable as a separate line of code.</p>
 <p>We can then compare the two models’ estimated parameters. Recall that the latter model directly reports the standardized false alarm rate (<em>c</em>).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-7_1531f7603ccd9f7897d075ed7999107f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(evsdt_1)</span>
@@ -7318,16 +7330,16 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb11-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb11-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb11-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept    -0.31      0.18    -0.66     0.03 1.00     3528     2413</span></span>
+font-style: italic;">## Intercept    -0.11      0.13    -0.36     0.12 1.00     3650     2786</span></span>
 <span id="cb11-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold         0.39      0.25    -0.11     0.88 1.00     3846     2644</span></span>
+font-style: italic;">## isold1        0.40      0.26    -0.14     0.90 1.00     3706     2265</span></span>
 <span id="cb11-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -7372,16 +7384,16 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb11-27"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb11-28"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb11-29"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## dprime_Intercept     0.38      0.25    -0.10     0.87 1.01      871      956</span></span>
+font-style: italic;">## dprime_Intercept     0.40      0.26    -0.11     0.91 1.00     2167     1872</span></span>
 <span id="cb11-30"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## c_Intercept          0.31      0.17    -0.04     0.64 1.00      872     1159</span></span>
+font-style: italic;">## c_Intercept          0.12      0.13    -0.14     0.37 1.00     2081     1546</span></span>
 <span id="cb11-31"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -7396,7 +7408,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>The results are very similar, but note that priors were included only in the nonlinear syntax model. The only real difference is that the MCMC algorithm explored <code>evsdt_2</code>’s posterior less efficiently, as shown by the smaller effective sample sizes (<code>..._ESS</code>) for both parameters. This means that the random draws from the posterior distribution, for <code>evsdt_2</code>, have greater autocorrelation, and therefore we should possibly draw more samples for more accurate inference. The posterior distributions obtained with the 2 methods are shown in Figure&nbsp;3.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-densityplot2_8b34c1b966e590134673e0e04c604233">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-densityplot2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -7438,7 +7450,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <section id="estimation-by-summarizing-subjects-point-estimates" class="level4">
 <h4 class="anchored" data-anchor-id="estimation-by-summarizing-subjects-point-estimates">Estimation by summarizing subjects’ point estimates</h4>
 <p>Above we calculated <em>d’</em> and <em>c</em> for every participant in the sample:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_2a75f51ae7c79f3a21fb352e39d13798">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Sample participants’ SDT parameters</caption>
@@ -7465,7 +7477,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.08</td>
 <td style="text-align: right;">-0.31</td>
 <td style="text-align: right;">0.39</td>
-<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.12</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">54</td>
@@ -7476,7 +7488,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.24</td>
 <td style="text-align: right;">-0.63</td>
 <td style="text-align: right;">0.87</td>
-<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.19</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">55</td>
@@ -7487,7 +7499,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.41</td>
 <td style="text-align: right;">-0.47</td>
 <td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.03</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">56</td>
@@ -7498,7 +7510,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.87</td>
 <td style="text-align: right;">-0.88</td>
 <td style="text-align: right;">1.76</td>
-<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.01</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">57</td>
@@ -7509,7 +7521,7 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.30</td>
 <td style="text-align: right;">-0.41</td>
 <td style="text-align: right;">0.71</td>
-<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.06</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">58</td>
@@ -7520,14 +7532,14 @@ Figure&nbsp;3: Top row: The (approximate) joint posterior density of subject 53�
 <td style="text-align: right;">0.35</td>
 <td style="text-align: right;">-0.75</td>
 <td style="text-align: right;">1.10</td>
-<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.20</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <p>We can therefore calculate sample means and standard errors for both parameters using these individual-specific values. Here’s one way to do it:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_93ea554a72baecf56d3945384768919c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">sdt_sum <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7593,9 +7605,9 @@ font-style: inherit;">sqrt</span>(n))</span></code></pre></div>
 <tr class="odd">
 <td style="text-align: left;">crit</td>
 <td style="text-align: right;">31</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">dprime</td>
@@ -7616,15 +7628,14 @@ font-style: inherit;">sqrt</span>(n))</span></code></pre></div>
 <h4 class="anchored" data-anchor-id="estimation-with-a-hierarchical-model-glmm">Estimation with a hierarchical model (GLMM)</h4>
 <p>We can estimate the EVSDT model’s parameters for every subject and the population average in one step using a Generalized Linear Mixed Model (GLMM). <span class="citation" data-cites="gelman_data_2007">Gelman and Hill (2007)</span> and <span class="citation" data-cites="mcelreath_statistical_2016">McElreath (2016)</span> are good general introductions to hierarchical models. <span class="citation" data-cites="rouder_introduction_2005">Rouder and Lu (2005)</span> and <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (2007)</span> discuss hierarchical modeling in the context of signal detection theory.</p>
 <p>This model is very much like the GLM discussed in Part 1, but now the subject-specific <em>d’</em>s and <em>c</em>s are modeled as draws from a multivariate normal distribution, whose (“hyper”)parameters describe the population-level parameters. We subscript subjects’ parameters with <em>j</em>, rows in data with <em>i</em>, and write the model as:</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_%7Bij%7D%20%5Csim%20Bernoulli(p_%7Bij%7D)"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%5CPhi(p_%7Bij%7D)%20=%20%5Cbeta_%7B0j%7D%20+%20%5Cbeta_%7B1j%7D%5Cmbox%7Bisold%7D_%7Bij%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?y_%7Bij%7D%20%5Csim%20Bernoulli(p_%7Bij%7D)"> <img src="https://latex.codecogs.com/png.latex?%5CPhi(p_%7Bij%7D)%20=%20%5Cbeta_%7B0j%7D%20+%20%5Cbeta_%7B1j%7D%5Cmbox%7Bisold%7D_%7Bij%7D"></p>
 <p>The outcomes <img src="https://latex.codecogs.com/png.latex?y_%7Bij%7D"> are 0 if participant <em>j</em> responded “new!” on trial <em>i</em>, 1 if they responded “old!”. The probability of the “old!” response for row <em>i</em> for subject <em>j</em> is <img src="https://latex.codecogs.com/png.latex?p_%7Bij%7D">. We then write a linear model on the probits (<em>z</em>-scores; <img src="https://latex.codecogs.com/png.latex?%5CPhi">, “Phi”) of <em>p</em>s. The subject-specific intercepts (recall, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_0"> = <em>-zFAR</em>) and slopes (<img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> = <em>d’</em>) are described by multivariate normal with means and a covariance matrix for the parameters.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft%5B%5Cbegin%7Barray%7D%7Bc%7D%0A%5Cbeta_%7B0j%7D%20%5C%5C%20%5Cbeta_%7B1j%7D%0A%5Cend%7Barray%7D%5Cright%5D%0A%5Csim%20MVN(%0A%5Cleft%5B%5Cbegin%7Barray%7D%7Bc%7D%0A%5Cmu_%7B0%7D%20%5C%5C%20%5Cmu_%7B1%7D%0A%5Cend%7Barray%7D%5Cright%5D,%0A%5CSigma%0A)%0A"></p>
 <p>The means <img src="https://latex.codecogs.com/png.latex?%5Cmu_0"> and <img src="https://latex.codecogs.com/png.latex?%5Cmu_1">, i.e.&nbsp;the population-level parameters, can be interpreted as parameters “for the average person” <span class="citation" data-cites="bolger_intensive_2013">(Bolger and Laurenceau 2013)</span>. The covariance matrix <img src="https://latex.codecogs.com/png.latex?%5CSigma"> contains the subject-specific parameters’ (co)variances, but I find it easier to discuss standard deviations (I call them <img src="https://latex.codecogs.com/png.latex?%5Ctau">, “tau”) and correlations. The standard deviations describe the between-person heterogeneities in the population. The correlation term, in turn, describes the covariance of the <em>d’</em>s and <em>c</em>s: Are people with higher <em>d’</em>s more likely to have higher <em>c</em>s?</p>
 <p>This model is therefore more informative than running multiple separate GLMs, because it models the covariances as well, answering important questions about heterogeneity in effects.</p>
 <p>The brms syntax for this model is very similar to the one-subject model. We have five population-level parameters to estimate. The intercept and slope describe the means: In R and brms modeling syntax, an intercept is indicated with <code>1</code> (and can be omitted because it is automatically included, here I include it for clarity), and slope of a variable by including that variable’s name in the data. To include the two regression coefficients, we write <code>sayold ~ 1 + isold</code>.</p>
 <p>However, we also have three (co)variance parameters to estimate. To include subject-specific parameters (recall, subjects are indexed by <code>subno</code> variable in data <code>d</code>), and therefore the (co)variance parameters, we expand the formula to <code>sayold ~ 1 + isold + (1 + isold | subno)</code>. The part in the parentheses describes <code>subno</code> specific intercepts (<code>1</code>) and slopes of <code>isold</code>. Otherwise, the call to <code>brm()</code> is the same as with the GLM in Part 1:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_0670f66759c8a31d8bd8dab7565e03fb">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">evsdt_glmm <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7669,7 +7680,7 @@ font-style: inherit;">"sdtmodel2-1"</span></span>
 <span id="cb13-6">)</span></code></pre></div>
 </div>
 <p>Let’s take a look at the GLMM’s estimated parameters. First, direct your eyes to the “Population-Level Effects” table in the below output. These two parameters are the mean -criterion (<code>Intercept</code>, <img src="https://latex.codecogs.com/png.latex?%5Cmu_0">) and <em>d’</em> (<code>isold</code>, <img src="https://latex.codecogs.com/png.latex?%5Cmu_1">). Recall that we are looking at numerical summaries of (random samples from) the parameters’ posterior distributions: <code>Estimate</code> is the posterior mean.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-11_75a27195df4b9f8ce57ced3253d146c0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(evsdt_glmm)</span>
@@ -7696,37 +7707,37 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb14-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Group-Level Effects: </span></span>
+font-style: italic;">## Multilevel Hyperparameters:</span></span>
 <span id="cb14-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ~subno (Number of levels: 31) </span></span>
 <span id="cb14-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+font-style: italic;">##                       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb14-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(Intercept)            0.26      0.05     0.16     0.37 1.00     1672     2368</span></span>
+font-style: italic;">## sd(Intercept)             0.21      0.04     0.13     0.30 1.00     1635     2594</span></span>
 <span id="cb14-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.56 1.00     1077     2112</span></span>
+font-style: italic;">## sd(isold1)                0.40      0.09     0.25     0.60 1.00     1466     2074</span></span>
 <span id="cb14-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(Intercept,isold)    -0.56      0.19    -0.84    -0.09 1.00      985     1805</span></span>
+font-style: italic;">## cor(Intercept,isold1)     0.11      0.26    -0.41     0.58 1.00     1670     2291</span></span>
 <span id="cb14-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb14-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb14-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb14-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1769     2349</span></span>
+font-style: italic;">## Intercept    -0.13      0.05    -0.22    -0.04 1.00     2378     2565</span></span>
 <span id="cb14-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold         1.06      0.08     0.89     1.22 1.00     1643     2815</span></span>
+font-style: italic;">## isold1        1.06      0.09     0.89     1.24 1.00     2189     2498</span></span>
 <span id="cb14-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -7743,7 +7754,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <p>We can then compare the Population-level mean parameters of this model to the sample summary statistics we calculated above. The posterior means map nicely to the calculated means, and the posterior standard deviations match the calculated standard errors.</p>
 <p>These mean effects are visualized as a colored density in the left panel of Figure&nbsp;4. However, the GLMM also returns estimates of the parameters’ (co)variation in the population. Notice that we also calculated the sample standard deviations, which also provide this information, but we have no estimates of uncertainty in those point estimates. The GLMM, on the other hand, provides full posterior distributions for these parameters.</p>
 <p>The heterogeneity parameters are reported in the “Group-Level Effects”<sup>2</sup> table, above. We find that the criteria are positively correlated with <em>d’</em>s (recall that Intercept = -<em>c</em>). The two standard deviations are visualized in the right panel of Figure&nbsp;4.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-evsdt-glmm-viz1_00c951e00c7769f9e841569d1e56604f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-evsdt-glmm-viz1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -7761,7 +7772,7 @@ Figure&nbsp;4: Left panel: The (approximate) joint posterior density of the aver
 <p>This idea has further implications, revealed by investigating the two methods’ estimates of the subject-specific parameters. Recall that the manual calculation method involved estimating (the point estimates of) a separate model for each participant. A hierarchical model considers all participants’ data simultaneously, and the estimates are allowed to inform each other via the shared prior distribution (right hand side of the equation repeated from above):</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft%5B%5Cbegin%7Barray%7D%7Bc%7D%0A%5Cbeta_%7B0j%7D%20%5C%5C%20%5Cbeta_%7B1j%7D%0A%5Cend%7Barray%7D%5Cright%5D%0A%5Csim%20N(%0A%5Cleft%5B%5Cbegin%7Barray%7D%7Bc%7D%0A%5Cmu_%7B0%7D%20%5C%5C%20%5Cmu_%7B1%7D%0A%5Cend%7Barray%7D%5Cright%5D,%0A%5CSigma%0A)%0A"></p>
 <p>This “partial pooling” of information <span class="citation" data-cites="gelman_data_2007">(Gelman and Hill 2007)</span> is evident when we plot the GLMM’s subject-specific parameters in the same scatterplot with the N models method (calculating point estimates separately for everybody; Figure&nbsp;5).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-evsdt-glmm-viz2_5fe27ab95f00d614025cb0fe7164d02b">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-evsdt-glmm-viz2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -7781,7 +7792,7 @@ Figure&nbsp;5: Subject-specific d’s and criteria as given by the independent m
 <h4 class="anchored" data-anchor-id="including-predictors">Including predictors</h4>
 <p>Do the EVSDT parameters differ between groups of people? How about between conditions, within people? To answer these questions, we would repeat the manual calculation of parameters as many times as needed, and then draw inference by “submitting” the subject-specific parameters to e.g.&nbsp;an ANOVA model. The GLMM approach affords a more straightforward solution to including predictors: We simply add parameters to the regression model.</p>
 <p>For example, if there were two groups of participants, indexed by variable <code>group</code> in data, we could extend the brms GLMM syntax to (the <code>...</code> is a placeholder for other arguments used above, I also dropped the <code>1</code> for clarity because they are implicitly included):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-12_0c52c22740347a1f27173dfe96da2466">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">brm</span>(sayold <span class="sc" style="color: #5E5E5E;
@@ -7795,7 +7806,7 @@ background-color: null;
 font-style: inherit;">|</span> subno), ...)</span></code></pre></div>
 </div>
 <p>This model would have two additional parameters: <code>group</code> would describe the difference in <em>c</em> between groups, and the interaction term <code>isold:group</code> would describe the difference in <em>d’</em> between groups. If, on the other hand, we were interested in the effects of <code>condition</code>, a within-subject manipulation, we would write:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_74be4d2a747c7fa8019ffcf902c90f9c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">brm</span>(sayold <span class="sc" style="color: #5E5E5E;
@@ -7818,7 +7829,7 @@ font-style: inherit;">|</span> subno), ...)</span></code></pre></div>
 <p><img src="https://latex.codecogs.com/png.latex?p_%7Bij%7D%20=%20%5CPhi(d'_j%5Cmbox%7Bisold%7D_%7Bij%7D%20-%20c_%7Bj%7D)"></p>
 <p>The varying d-primes and criteria are modeled as multivariate normal, as with the GLMM. It turns out that this rather complex model is surprisingly easy to fit with brms. The formula is very similar to the single-subject nonlinear model but we tell <code>bf()</code> that the dprimes and criteria should have subject-specific parameters, as well as population-level parameters.</p>
 <p>Above, with the GLMM, subject-specific effects were given by <code>(1 + isold | subno)</code>. With the nonlinear modeling syntax, we specify varying effects across multiple parameters using <code>|s|</code> instead of <code>|</code> to tell brms that these parameters should be within one covariance matrix. This syntax gives us the “correlated random effects signal detection model” discussed in <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (2007)</span>. Apart from the syntax, the model is the same as the GLMM above, but the sign of the intercept is flipped.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_a6a2318c8e167acb1182949512989a58">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">glmm2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7866,7 +7877,7 @@ font-style: inherit;">TRUE</span></span>
 <span id="cb17-5">)</span></code></pre></div>
 </div>
 <p>This time, we’ll set priors on the mean parameters and on the (co)variance parameters. Of note is the <code>lkj(4)</code> parameter which slightly regularizes the <em>d’</em>-<em>criterion</em> correlation toward zero <span class="citation" data-cites="mcelreath_statistical_2016 stan_development_team_stan:_2016">(McElreath 2016; Stan Development Team 2016b)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-15_4060e7795bf57a8697f5a87736a05bd5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">Priors <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -7954,7 +7965,7 @@ font-style: inherit;">"cor"</span>)</span>
 <span id="cb18-7">)</span></code></pre></div>
 </div>
 <p>We fit the model as before, but adjust the <code>control</code> argument, and set <code>inits</code> to zero to improve sampling efficiency (thanks to <a href="https://twitter.com/tsawallis">Tom Wallis</a> for this tip):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-16_6df524d303eda18d8449f507ffa46996">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">evsdt_glmm2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8001,7 +8012,7 @@ font-style: inherit;">"sdtmodel2-2"</span></span>
 <span id="cb19-8">)</span></code></pre></div>
 </div>
 <p>Although this model samples less efficiently than the first GLMM formulation, we (unsurprisingly) observe similar results.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-17_1cfdeac63dfd11906201218690354d3a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(evsdt_glmm)</span>
@@ -8028,37 +8039,37 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb20-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Group-Level Effects: </span></span>
+font-style: italic;">## Multilevel Hyperparameters:</span></span>
 <span id="cb20-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ~subno (Number of levels: 31) </span></span>
 <span id="cb20-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+font-style: italic;">##                       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(Intercept)            0.26      0.05     0.16     0.37 1.00     1672     2368</span></span>
+font-style: italic;">## sd(Intercept)             0.21      0.04     0.13     0.30 1.00     1635     2594</span></span>
 <span id="cb20-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(isold)                0.39      0.08     0.24     0.56 1.00     1077     2112</span></span>
+font-style: italic;">## sd(isold1)                0.40      0.09     0.25     0.60 1.00     1466     2074</span></span>
 <span id="cb20-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(Intercept,isold)    -0.56      0.19    -0.84    -0.09 1.00      985     1805</span></span>
+font-style: italic;">## cor(Intercept,isold1)     0.11      0.26    -0.41     0.58 1.00     1670     2291</span></span>
 <span id="cb20-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb20-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb20-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept    -0.66      0.06    -0.78    -0.54 1.00     1769     2349</span></span>
+font-style: italic;">## Intercept    -0.13      0.05    -0.22    -0.04 1.00     2378     2565</span></span>
 <span id="cb20-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold         1.06      0.08     0.89     1.22 1.00     1643     2815</span></span>
+font-style: italic;">## isold1        1.06      0.09     0.89     1.24 1.00     2189     2498</span></span>
 <span id="cb20-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -8103,7 +8114,7 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb20-34"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Group-Level Effects: </span></span>
+font-style: italic;">## Multilevel Hyperparameters:</span></span>
 <span id="cb20-35"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ~subno (Number of levels: 31) </span></span>
@@ -8112,28 +8123,28 @@ background-color: null;
 font-style: italic;">##                                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-37"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(dprime_Intercept)                  0.36      0.07     0.22     0.52 1.00     1543     2092</span></span>
+font-style: italic;">## sd(dprime_Intercept)                  0.39      0.08     0.25     0.57 1.00     1636     2608</span></span>
 <span id="cb20-38"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(c_Intercept)                       0.24      0.05     0.15     0.35 1.00     1289     2143</span></span>
+font-style: italic;">## sd(c_Intercept)                       0.21      0.04     0.14     0.30 1.00     1783     2655</span></span>
 <span id="cb20-39"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(dprime_Intercept,c_Intercept)     0.43      0.20    -0.01     0.74 1.00     1299     1902</span></span>
+font-style: italic;">## cor(dprime_Intercept,c_Intercept)    -0.08      0.21    -0.48     0.35 1.00     1763     2325</span></span>
 <span id="cb20-40"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb20-41"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb20-42"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb20-43"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## dprime_Intercept     1.05      0.08     0.89     1.22 1.00     1239     1378</span></span>
+font-style: italic;">## dprime_Intercept     1.06      0.09     0.89     1.23 1.00     1977     2337</span></span>
 <span id="cb20-44"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## c_Intercept          0.65      0.06     0.54     0.77 1.00     1217     2071</span></span>
+font-style: italic;">## c_Intercept          0.13      0.05     0.04     0.22 1.00     2188     2293</span></span>
 <span id="cb20-45"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -8164,7 +8175,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <p>We begin with a brief discussion of the rating task, with example data from <span class="citation" data-cites="decarlo_using_2003">Decarlo (2003)</span>. Above, we discussed signal detection experiments where the item was either old or new, and participants provided binary “old!” or “new!” responses. Here, we move to a slight modification of this task, where participants are allowed to express their certainty: On each trial, the presented item is still old or new, but participants now <em>rate their confidence</em> in whether the item was old or new. For example, and in the data below, participants can answer with numbers indicating their confidence that the item is old: 1 = Definitely new, …, 6 = Definitely old.</p>
 <p>One interpretation of the resulting data is that participants set a number of criteria for the confidence ratings, such that greater evidence is required for 6-responses, than 4-responses, for example. That is, there will be different criteria for responding “definitely new”, “maybe new”, and so forth. However, the participant’s underlying discriminability should remain unaffected.</p>
 <p>The example data is shown in a summarised form below (counts of responses for each confidence bin, for both old (<code>isold</code> = 1) and new trial types <span class="citation" data-cites="decarlo_using_2003">(Decarlo 2003)</span>):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-18_d9adb15c8aae9112aabd108f3144d495">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">dsum <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8322,7 +8333,7 @@ font-style: inherit;">173</span>)</span>
 </div>
 </div>
 <p>However, we don’t need to summarise data to counts (or cell means, or the like), but can instead work with raw responses, as provided by the experimental program. Working with such trial-level data is especially useful when we wish to include covariates. Here is the data in the raw trial-level format:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_50abd354d40ccd0cec041ac4002a1368">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">d <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8378,15 +8389,16 @@ font-style: inherit;">weights =</span> count)</span></code></pre></div>
 <p>The EVSDT model for rating responses models the <em>cumulative probability</em> of responding with confidence rating <em>k</em> or less (<img src="https://latex.codecogs.com/png.latex?p(y_i%20%5Cleq%20k_i)">; <span class="citation" data-cites="decarlo_using_2003">Decarlo (2003)</span>):</p>
 <p><img src="https://latex.codecogs.com/png.latex?p(y_i%20%5Cleq%20k_i)%20=%20%5CPhi(d'%5Cmbox%7Bisold%7D_i%20-%20c_%7Bki%7D)"></p>
 <p>This model is also known as an ordinal probit (<img src="https://latex.codecogs.com/png.latex?%5CPhi">) model, and can be fit with widely available regression modeling software. <span class="citation" data-cites="decarlo_using_2003">(Decarlo 2003)</span> showed how to use the PLUM procedure in SPSS to fit it for a single participant. However, we can obtain Bayesian inference for this model by estimating the model with the brms package in R <span class="citation" data-cites="burkner_brms:_2017 stan_development_team_stan:_2016">(Bürkner 2017; Stan Development Team 2016b)</span>. Ignoring prior distributions for now, the brms syntax for estimating this model with the above data is:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-20_05f6df2727c73c3e59916b7fca1b5e5f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">fit1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">brm</span>(y <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">brm</span>(</span>
+<span id="cb23-2">  y <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> isold,</span>
-<span id="cb23-2">  <span class="at" style="color: #657422;
+<span id="cb23-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8395,23 +8407,23 @@ background-color: null;
 font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"probit"</span>),</span>
-<span id="cb23-3">  <span class="at" style="color: #657422;
+<span id="cb23-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> d,</span>
-<span id="cb23-4">  <span class="at" style="color: #657422;
+<span id="cb23-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>,</span>
-<span id="cb23-5">  <span class="at" style="color: #657422;
+<span id="cb23-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"sdtmodel3-1"</span></span>
-<span id="cb23-6">)</span></code></pre></div>
+<span id="cb23-7">)</span></code></pre></div>
 </div>
 <p>This model estimates an intercept (criterion) for each response category, and the effect of <code>isold</code>, which is <em>d’</em>. The model’s posterior distribution is summarised below:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-21_5e5689b4d3f85364c2e22676c6c4408b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(fit1)</span>
@@ -8438,34 +8450,34 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb24-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb24-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb24-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[1]    -0.44      0.05    -0.54    -0.35 1.00     4155     3083</span></span>
+font-style: italic;">## Intercept[1]    -1.07      0.05    -1.16    -0.98 1.00     3127     3037</span></span>
 <span id="cb24-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[2]     0.23      0.05     0.14     0.32 1.00     5584     3151</span></span>
+font-style: italic;">## Intercept[2]    -0.40      0.04    -0.48    -0.32 1.00     4601     3324</span></span>
 <span id="cb24-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[3]     0.67      0.05     0.57     0.77 1.00     5537     3058</span></span>
+font-style: italic;">## Intercept[3]     0.04      0.04    -0.03     0.12 1.00     4992     3310</span></span>
 <span id="cb24-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[4]     1.20      0.06     1.09     1.31 1.00     4292     3495</span></span>
+font-style: italic;">## Intercept[4]     0.57      0.04     0.49     0.66 1.00     4413     3400</span></span>
 <span id="cb24-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[5]     1.88      0.07     1.75     2.01 1.00     3827     3194</span></span>
+font-style: italic;">## Intercept[5]     1.25      0.05     1.16     1.35 1.00     4501     3203</span></span>
 <span id="cb24-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold            1.25      0.07     1.13     1.38 1.00     3899     3026</span></span>
+font-style: italic;">## isold1           1.26      0.07     1.12     1.38 1.00     3901     3138</span></span>
 <span id="cb24-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb24-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Family Specific Parameters: </span></span>
+font-style: italic;">## Further Distributional Parameters:</span></span>
 <span id="cb24-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
@@ -8512,7 +8524,7 @@ Parameter Estimates
 Link function: Probit.</code></pre>
 <p>Unsurprisingly, the numerical results from brms (posterior means and standard deviations, credibility intervals) match the frequentist ones obtained from SPSS under these conditions.</p>
 <p>We can now illustrate graphically how the estimated parameters map to the signal detection model. <em>d’</em> is the separation of the signal and noise distributions’ peaks: It indexes the subject’s ability to discriminate signal from noise trials. The five intercepts are the (z-scored) criteria for responding with the different confidence ratings. If we convert the z-scores to proportions (using R’s <code>pnorm()</code> for example), they measure the (cumulative) area under the noise distribution to the left of that z-score. The model is visualized in Figure&nbsp;6.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-fit1-plot_c2f6f0bec7da8b44557c8a46e5a1090f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-fit1-plot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -8541,7 +8553,7 @@ disc = 1</code></pre>
 <p>Importantly, we can also include predictors on <code>disc</code>. In this case, we want to estimate <code>disc</code> when <code>isold</code> is 1, such that <code>disc</code> is 1 for new items, but estimated from data for old items. This parameter is by default modelled through a log link function, and including a 0/1 predictor (<code>isold</code>) will therefore work fine:</p>
 <p><img src="https://latex.codecogs.com/png.latex?p(y_i%20%5Cleq%20k_i)%20=%20%5CPhi(%5Cmbox%7Bexp%7D(disc%5Cmbox%7Bisold%7D_i)%20*%20(c_%7Bki%7D%20-%20d'%5Cmbox%7Bisold%7D_i))"></p>
 <p>We can therefore estimate this model with only a small tweak to the EVSDT model’s code:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-22_428eaaf877b03a93cbc87b879a318e6b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">uvsdt_m <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8554,16 +8566,21 @@ font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span> isold)</span></code></pre></div>
+font-style: inherit;">+</span> isold, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cmc =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span></code></pre></div>
 </div>
-<p>There are two brms formulas in the model. The first, <code>y ~ isold</code> is already familiar to us. In the second formula, we write <code>disc ~ 0 + isold</code> to prevent the parameter from being estimated for the noise distribution: Recall that we have set the standard deviation of the noise distribution to be one (achieved by <img src="https://latex.codecogs.com/png.latex?exp(disc%20*%20%5Cmbox%7B0%7D)%20=%201">). In R’s (and by extension, brms’) modeling syntax <code>0 + ...</code> means removing the intercept from the model. By including <code>isold</code> only, we achieve the 0/1 predictor as described above. We can then estimate the model:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-23_ec0c905a25f1833be446498c195dfba9">
+<p>There are two brms formulas in the model. The first, <code>y ~ isold</code> is already familiar to us. In the second formula, we write <code>disc ~ 0 + isold</code> to prevent the parameter from being estimated for the noise distribution: Recall that we have set the standard deviation of the noise distribution to be one (achieved by <img src="https://latex.codecogs.com/png.latex?exp(disc%20*%20%5Cmbox%7B0%7D)%20=%201">). In R’s (and by extension, brms’) modeling syntax <code>0 + ...</code> means removing the intercept from the model. <code>cmc = FALSE</code> is needed. By including <code>isold</code> only, we achieve the 0/1 predictor as described above. We can then estimate the model:</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">fit2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">brm</span>(uvsdt_m,</span>
-<span id="cb28-2">  <span class="at" style="color: #657422;
+font-style: inherit;">brm</span>(</span>
+<span id="cb28-2">  uvsdt_m,</span>
+<span id="cb28-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8572,10 +8589,10 @@ background-color: null;
 font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"probit"</span>),</span>
-<span id="cb28-3">  <span class="at" style="color: #657422;
+<span id="cb28-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> d,</span>
-<span id="cb28-4">  <span class="at" style="color: #657422;
+<span id="cb28-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">control =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8584,11 +8601,6 @@ background-color: null;
 font-style: inherit;">adapt_delta =</span> .<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">99</span>),</span>
-<span id="cb28-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,</span>
 <span id="cb28-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
@@ -8597,7 +8609,7 @@ font-style: inherit;">"sdtmodel3-2"</span></span>
 <span id="cb28-7">)</span></code></pre></div>
 </div>
 <p>The model’s estimated parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-24_475e3d1532f1ee1038f6c1cbe17e77ca">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(fit2)</span>
@@ -8627,37 +8639,37 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb29-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb29-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb29-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[1]    -0.54      0.05    -0.64    -0.43 1.00     3023     2786</span></span>
+font-style: italic;">## Intercept[1]    -0.54      0.05    -0.64    -0.43 1.00     2782     2584</span></span>
 <span id="cb29-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[2]     0.20      0.05     0.11     0.30 1.00     5092     3354</span></span>
+font-style: italic;">## Intercept[2]     0.20      0.05     0.11     0.30 1.00     4947     3515</span></span>
 <span id="cb29-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[3]     0.71      0.05     0.61     0.82 1.00     4178     3179</span></span>
+font-style: italic;">## Intercept[3]     0.71      0.05     0.61     0.82 1.00     4493     3393</span></span>
 <span id="cb29-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[4]     1.37      0.07     1.24     1.51 1.00     2477     2738</span></span>
+font-style: italic;">## Intercept[4]     1.37      0.07     1.25     1.50 1.00     2685     2943</span></span>
 <span id="cb29-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[5]     2.31      0.11     2.10     2.54 1.00     1541     2376</span></span>
+font-style: italic;">## Intercept[5]     2.31      0.11     2.10     2.54 1.00     1642     2005</span></span>
 <span id="cb29-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold            1.53      0.10     1.34     1.72 1.00     1701     1866</span></span>
+font-style: italic;">## isold            1.53      0.10     1.35     1.72 1.00     1855     2250</span></span>
 <span id="cb29-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## disc_isold      -0.36      0.06    -0.48    -0.24 1.00     1601     2444</span></span>
+font-style: italic;">## disc_isold      -0.36      0.06    -0.48    -0.24 1.00     1721     2213</span></span>
 <span id="cb29-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb29-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+font-style: italic;">## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS</span></span>
 <span id="cb29-21"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -8666,7 +8678,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>Notice that we need to flip the sign of the <code>disc</code> parameter to get <img src="https://latex.codecogs.com/png.latex?%5Cmbox%7Blog%7D(%5Csigma_%7Bold%7D)">. Exponentiation gives us the standard deviation of the signal distribution, and because we estimated the model in the Bayesian framework, our estimate of this parameter is a posterior distribution, plotted on the y-axis of Figure&nbsp;7.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-uvsdt-densityplot_21e65b4fa9ace85843b0a40f1bbcca5f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-uvsdt-densityplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -8709,7 +8721,7 @@ Parameter Estimates
 |-------------------------------------------------------------------------|
 Link function: Probit.</code></pre>
 <p>Again, the maximum likelihood estimates (SPSS) match our Bayesian quantities numerically, because we used uninformative prior distributions. Plotting the model’s implied distributions illustrates that the signal distribution has greater variance than the noise distribution (Figure&nbsp;8).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-fit2-plot_76f86ab50f55426293f0c4c6ed01e7d6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-fit2-plot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -8725,7 +8737,7 @@ Figure&nbsp;8: The unequal variance Gaussian signal detection model, visualized 
 </div>
 <p>Additional quantities of interest can be calculated from the parameters’ posterior distributions. One benefit of obtaining samples from the posterior is that if we complete these calculations row-wise, we automatically obtain (samples from) the posterior distributions of these additional quantities.</p>
 <p>Here, we calculate one such quantity: The ratio of the noise to signal standard deviations (<img src="https://latex.codecogs.com/png.latex?%5Cmbox%7Bexp%7D(-a)">; notice that our model returns <em>-a</em> as <em>disc_isold</em>), which is also the slope of the z-ROC curve. We’ll first obtain the posterior samples of <em>disc_isold</em>, then calculate the ratio, and summarize the samples from ratio’s posterior distribution with their 2.5%, 50%, and 97.5%iles:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-25_57eef78ec81bae0f3f8c0d412b960854">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.data.frame</span>(fit2, <span class="at" style="color: #657422;
@@ -8767,10 +8779,10 @@ background-color: null;
 font-style: italic;">##      2.5%       50%     97.5% </span></span>
 <span id="cb31-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 0.6175506 0.6991651 0.7894645</span></span></code></pre></div>
+font-style: italic;">## 0.6182448 0.6996214 0.7883016</span></span></code></pre></div>
 </div>
 <p>These summaries are the parameter’s 95% Credible interval and median, and as such can be used to summarize this quantity in a publication. We could also visualize the posterior draws as a histogram:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-26_1b0f82d7300a5119f158604ccb404871">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.data.frame</span>(fit2, <span class="at" style="color: #657422;
@@ -8834,7 +8846,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8848,7 +8860,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="example-data-set">Example data set</h3>
 <p>We’ll use a data set of 48 subjects’ confidence ratings on a 6 point scale: 1 = “sure new”, …, 6 = “sure old” <span class="citation" data-cites="koen_examining_2013">(Koen et al. 2013)</span>. This data set is included in the R package MPTinR <span class="citation" data-cites="singmann_mptinr:_2013">(Singmann and Kellen 2013)</span>.</p>
 <p>In this experiment <span class="citation" data-cites="koen_examining_2013">(Koen et al. 2013)</span>, participants completed a study phase, and were then tested under full attention, or while doing a second task. Here, we focus on the rating data provided in the full attention condition. Below, I reproduce the aggregate rating counts for old and new items from the Table in the article’s appendix. (It is useful to ensure that we are indeed using the same data.)</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-27_591f92c721fcc8d6bfb9ce3aef292f7f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Example data from Koen et al.&nbsp;(2013)</caption>
@@ -8891,7 +8903,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 <section id="model-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="model-syntax">Model syntax</h3>
 <p>Here’s the brms syntax we used for estimating the model for a single participant:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-28_73090bfce94800ef7985638fb3f6720b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">uvsdt_m <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8904,11 +8916,15 @@ font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span> isold)</span></code></pre></div>
+font-style: inherit;">+</span> isold, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cmc =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span></code></pre></div>
 </div>
 <p>With the above syntax we specifed seven parameters: Five intercepts (aka ‘thresholds’ in the cumulative probit model) on <code>y</code><sup>3</sup>; the effect of <code>isold</code> on <code>y</code>; and the effect of <code>isold</code> on the discrimination parameter <code>disc</code><sup>4</sup>. There are five intercepts (thresholds), because there are six response categories.</p>
 <p>We extend the code to a hierarchical model by specifying that all these parameters vary across participants (variable <code>id</code> in the data).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-29_b7e5f4e4ad47bad962b9ba1535013b44">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">uvsdt_h <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8939,8 +8955,13 @@ font-style: inherit;">+</span> isold <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> s <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">|</span> id)</span>
-<span id="cb34-4">)</span></code></pre></div>
+font-style: inherit;">|</span> id),</span>
+<span id="cb34-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cmc =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span></span>
+<span id="cb34-5">)</span></code></pre></div>
 </div>
 <p>Recall from above that using <code>|s|</code> leads to estimating correlations among the varying effects. There will only be one standard deviation associated with the thresholds; that is, the model assumes that subjects vary around the mean threshold similarly for all thresholds.</p>
 </section>
@@ -8948,7 +8969,7 @@ font-style: inherit;">|</span> id)</span>
 <h3 class="anchored" data-anchor-id="prior-distributions">Prior distributions</h3>
 <p>I set a N(1, 3) prior on dprime, just because I know that in these tasks performance is usually pretty good. Perhaps this prior is also influenced by my reading of the paper! I also set a N(0, 1) prior on <em>a</em>: Usually this parameter is found to be around <img src="https://latex.codecogs.com/png.latex?-%5Cfrac%7B1%7D%7B4%7D">, but I’m ignoring that information.</p>
 <p>The <em>t(7, 0, .33)</em> priors on the between-subject standard deviations reflect my assumption that the subjects should be moderately similar to one another, but also allows larger deviations. (They are <em>t</em>-distributions with seven degrees of freedom, zero mean, and .33 standard deviation.)</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-30_feb73d2b76a04449462053ca162d8890">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">Prior <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9043,7 +9064,7 @@ font-style: inherit;">"cor"</span>)</span>
 <section id="estimate-and-summarise-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="estimate-and-summarise-parameters">Estimate and summarise parameters</h3>
 <p>We can then estimate the model as before. Be aware that this model takes quite a bit longer to estimate, so for this example I have set only 500 HMC iterations.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit_9871ea17509b19c4788b33ddc7600127">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1">fit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9072,29 +9093,26 @@ font-style: inherit;">list</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">adapt_delta =</span> .<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">9</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">inits =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,</span>
+font-style: inherit;">9</span>), </span>
 <span id="cb36-6">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+font-style: inherit;">init =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+font-style: inherit;">0</span>,</span>
+<span id="cb36-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">500</span>,</span>
-<span id="cb36-7">  <span class="at" style="color: #657422;
+<span id="cb36-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"sdtmodel4-1"</span></span>
-<span id="cb36-8">)</span></code></pre></div>
+<span id="cb36-9">)</span></code></pre></div>
 </div>
 <p>We then display numerical summaries of the model’s parameters. Note that the effective sample sizes are modest, and Rhats indicate that we would benefit from drawing more samples from the posterior. For real applications, I recommend more than 500 iterations per chain.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-31_5171fd898d61fbf288ddaaef9138d37a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(fit)</span>
@@ -9124,7 +9142,7 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb37-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Group-Level Effects: </span></span>
+font-style: italic;">## Multilevel Hyperparameters:</span></span>
 <span id="cb37-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ~id (Number of levels: 48) </span></span>
@@ -9133,58 +9151,58 @@ background-color: null;
 font-style: italic;">##                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb37-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(Intercept)                 0.34      0.04     0.27     0.43 1.00      187      406</span></span>
+font-style: italic;">## sd(Intercept)                 0.34      0.04     0.28     0.43 1.00      264      418</span></span>
 <span id="cb37-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(isold)                     0.77      0.10     0.60     0.99 1.02      153      270</span></span>
+font-style: italic;">## sd(isold)                     0.78      0.10     0.61     0.99 1.01      191      443</span></span>
 <span id="cb37-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(disc_isold)                0.46      0.05     0.37     0.57 1.00      173      357</span></span>
+font-style: italic;">## sd(disc_isold)                0.46      0.05     0.37     0.56 1.02      233      477</span></span>
 <span id="cb37-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(Intercept,isold)         -0.46      0.12    -0.68    -0.21 1.02      203      359</span></span>
+font-style: italic;">## cor(Intercept,isold)         -0.47      0.12    -0.68    -0.21 1.04      205      325</span></span>
 <span id="cb37-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(Intercept,disc_isold)     0.34      0.13     0.09     0.59 1.03      155      304</span></span>
+font-style: italic;">## cor(Intercept,disc_isold)     0.34      0.13     0.08     0.57 1.02      220      389</span></span>
 <span id="cb37-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## cor(isold,disc_isold)        -0.76      0.07    -0.87    -0.60 1.01      224      487</span></span>
+font-style: italic;">## cor(isold,disc_isold)        -0.76      0.08    -0.87    -0.57 1.02      204      411</span></span>
 <span id="cb37-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb37-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb37-21"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb37-22"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[1]    -0.59      0.05    -0.69    -0.49 1.01      132      323</span></span>
+font-style: italic;">## Intercept[1]    -0.60      0.05    -0.69    -0.50 1.02      149      251</span></span>
 <span id="cb37-23"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[2]     0.20      0.05     0.11     0.30 1.02      129      340</span></span>
+font-style: italic;">## Intercept[2]     0.20      0.05     0.10     0.30 1.02      162      208</span></span>
 <span id="cb37-24"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[3]     0.70      0.05     0.60     0.81 1.02      132      270</span></span>
+font-style: italic;">## Intercept[3]     0.70      0.05     0.60     0.80 1.02      169      227</span></span>
 <span id="cb37-25"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[4]     1.05      0.05     0.94     1.16 1.02      141      334</span></span>
+font-style: italic;">## Intercept[4]     1.04      0.05     0.94     1.15 1.02      176      262</span></span>
 <span id="cb37-26"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept[5]     1.50      0.05     1.39     1.61 1.01      147      216</span></span>
+font-style: italic;">## Intercept[5]     1.49      0.05     1.38     1.60 1.02      188      310</span></span>
 <span id="cb37-27"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## isold            1.88      0.12     1.67     2.12 1.03      115      240</span></span>
+font-style: italic;">## isold            1.86      0.12     1.65     2.12 1.02      156      250</span></span>
 <span id="cb37-28"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## disc_isold      -0.39      0.07    -0.52    -0.26 1.01      139      255</span></span>
+font-style: italic;">## disc_isold      -0.38      0.07    -0.54    -0.24 1.01      186      308</span></span>
 <span id="cb37-29"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb37-30"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+font-style: italic;">## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS</span></span>
 <span id="cb37-31"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -9193,7 +9211,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>Let’s first focus on the “Population-level Effects”: The effects for the “average person”. <code>isold</code> is <em>d’</em>, and is very close to the one reported in the paper (eyeballing Figure 3 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (2013)</span>; this <em>d’</em> is not numerically reported in the paper). <code>disc_isold</code> is, because of the model’s parameterization, <img src="https://latex.codecogs.com/png.latex?-%5Cmbox%7Blog%7D(%5Csigma_%7Bsignal%7D)%20=%20-a">. The paper discusses <img src="https://latex.codecogs.com/png.latex?V_o%20=%20%5Csigma_%7Bsignal%7D">, and therefore we transform each posterior sample of our <em>-a</em> to obtain samples from <img src="https://latex.codecogs.com/png.latex?V_o">’s posterior distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-32_9714f29300e7d7af3182e77f3d775bc3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1">samples <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9214,7 +9232,7 @@ background-color: null;
 font-style: inherit;">-</span>b_disc_isold))</span></code></pre></div>
 </div>
 <p>We can then plot density curves <span class="citation" data-cites="gabry_bayesplot:_2017">(Gabry 2017)</span> for each of the Population-level Effects in our model, including <img src="https://latex.codecogs.com/png.latex?V_o">. Figure&nbsp;9 shows that our estimate of <img src="https://latex.codecogs.com/png.latex?V_o"> corresponds very closely to the one reported in the paper (Figure 3 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (2013)</span>).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-population-density_d3b015c3cd381edc5e137c77214ceda5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mcmc_areas</span>(samples, <span class="at" style="color: #657422;
@@ -9242,7 +9260,7 @@ Figure&nbsp;9: Density plots of UVSDT model’s Population-level Effects’ post
 <section id="heterogeneity-parameters" class="level4">
 <h4 class="anchored" data-anchor-id="heterogeneity-parameters">Heterogeneity parameters</h4>
 <p>Although the “population-level estimates”, which perhaps should be called “average effects”, are usually the main target of inference, they are not the whole story, nor are they necessarily the most interesting part of it. It has been firmly established that, when allowed to vary, the standard deviation of the signal distribution is greater than 1. However, the between-subject variability of this parameter has received less interest. Figure&nbsp;10 reveals that the between-subject heterogeneity of <em>a</em> is quite large: The subject-specific effects have a standard deviation around .5.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-population-density2_c397d659b8d2dd56931013b7c423216b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1">samples_h <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9279,7 +9297,7 @@ Figure&nbsp;10: Density plots of the standard deviation and correlation paramete
 </div>
 </div>
 <p>Figure&nbsp;10 also tells us that the subject-specific <em>d’</em>s and <em>a</em>s are correlated (“cor_id__isold__disc_isold”). We can further investigate this relationship by plotting the subject specific signal-SDs and <em>d’</em>s side by side:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-side-by-side_ea51284d9b5b1488f806ef54211ff4f9">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-side-by-side" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -9294,7 +9312,7 @@ Figure&nbsp;11: Ridgeline plot of posterior distributions of subject-specific st
 </div>
 </div>
 <p>As can be seen in the ridgeline plots <span class="citation" data-cites="wilke_ggridges:_2017">(Wilke 2017)</span> in Figure&nbsp;11, participants with greater <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bsignal%7D"> tend to have greater d’: Increase in recognition sensitivity is accompanied with an increase in the signal distribution’s variability. The density plots also make it clear that we are much less certain about individuals whose values (either one) are greater, as shown by the spread out posterior distributions. Yet another way to visualize this relationship is with a scatterplot of the posterior means Figure&nbsp;12.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-scatterplot_5b3bcda037882f3c42dbe6933ba34e4e">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-scatterplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">

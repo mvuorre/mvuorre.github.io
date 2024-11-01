@@ -18,7 +18,7 @@ Here are some recommended writings on statistics and data analysis for the socia
 *tl;dr*:
 
 -   [*Regression and other stories*](https://avehtari.github.io/ROS-Examples) [@gelmanRegressionOtherStories2020]
--   [*Applied Regression Analysis and Generalized Linear Models*](https://www.john-fox.ca/AppliedRegression/index.html) [@foxAppliedRegressionAnalysis2015]
+-   [*Introduction to Modern Statistics*](https://openintro-ims.netlify.app/) [@cetinkaya-rundelIntroductionModernStatistics2021]
 -   [*Statistical rethinking: a Bayesian course with examples in R and Stan*](https://xcelab.net/rm/statistical-rethinking/) [@mcelreathStatisticalRethinkingBayesian2020]
 -   [*R for Data Science*](https://r4ds.hadley.nz/) [@wickhamDataScienceImport2016]
 

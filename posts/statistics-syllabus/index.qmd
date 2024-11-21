@@ -61,7 +61,3 @@ For this, you will need to make a computer do stuff. There's very little to say 
 ## Bonus round 2: Multilevel regression
 
 Generalized Linear *Mixed* Model. Hierarchical models. Hierarchical *Bayesian* Models. Multilevel models. Random effect models. Models with models in them. It's just what we do and let's call it multilevel regression. For most data analysis problems you will likely want to apply some variation of this theme. Actually the book *Statistical rethinking* above is a great read on this topic, but I thought I would mention [*Data Analysis Using Regression and Multilevel/Hierarchical Models*](http://www.stat.columbia.edu/~gelman/arm/) [@gelmanDataAnalysisUsing2007] because it is a damn good book. The only reason I'm leaving it here and not as the second book on this page is that it is somewhat outdated regarding some of the software presented. The upshot is that a completely revised version of this book should be out sometime soon. Once that happens, this will be up there right after *Regression and other stories*.
-
-## Endnotes {.appendix}
-
-Hello

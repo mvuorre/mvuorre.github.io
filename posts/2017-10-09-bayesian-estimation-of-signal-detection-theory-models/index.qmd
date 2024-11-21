@@ -11,19 +11,6 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/densityplot-1.png"
-format:
-  html:
-    theme: 
-      - zephyr
-      - custom.scss
-    mainfont: "Atkinson Hyperlegible"
-    monofont: "Fira code"
-    header-includes:
-      - <script data-goatcounter="https://vuorre.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  preprint-typst:
-    fontsize: 11pt
-    mainfont: Libertinus Serif
-    toc: false
 ---
 
 ```{r packages, include = FALSE}

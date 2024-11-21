@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.6.8</generator>
+<generator>quarto-1.6.32</generator>
 <lastBuildDate>Wed, 19 Jun 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Preprints: A Quarto extension and website</title>
@@ -182,16 +182,12 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 <section id="bonus-round-2-multilevel-regression" class="level2">
 <h2 class="anchored" data-anchor-id="bonus-round-2-multilevel-regression">Bonus round 2: Multilevel regression</h2>
 <p>Generalized Linear <em>Mixed</em> Model. Hierarchical models. Hierarchical <em>Bayesian</em> Models. Multilevel models. Random effect models. Models with models in them. It’s just what we do and let’s call it multilevel regression. For most data analysis problems you will likely want to apply some variation of this theme. Actually the book <em>Statistical rethinking</em> above is a great read on this topic, but I thought I would mention <a href="http://www.stat.columbia.edu/~gelman/arm/"><em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em></a> <span class="citation" data-cites="gelmanDataAnalysisUsing2007">(Gelman and Hill 2007)</span> because it is a damn good book. The only reason I’m leaving it here and not as the second book on this page is that it is somewhat outdated regarding some of the software presented. The upshot is that a completely revised version of this book should be out sometime soon. Once that happens, this will be up there right after <em>Regression and other stories</em>.</p>
+
+
+
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="endnotes" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Endnotes</h2><div class="quarto-appendix-contents">
-
-<p>Hello</p>
-
-
-
-</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-baguleySeriousStatsGuide2012" class="csl-entry">
 Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
 </div>

@@ -13,6 +13,7 @@ website:
   site-url: https://vuorre.com
   description: Homepage of Matti Vuorre
   repo-url: https://github.com/mvuorre/mvuorre.github.io
+  repo-actions: [edit, source, issue]
   comments:
     giscus:
       repo: mvuorre/mvuorre.github.io
@@ -36,18 +37,17 @@ website:
         href: index.qmd
       - text: Blog
         href: blog.qmd
-      - text: About
-        href: personal.qmd
       - icon: rss
         href: index.xml
+      - icon: github
+        href: "{{<meta repo-url >}}"
 
 format:
   html:
-    theme: 
+    theme:
       - zephyr
       - custom.scss
     mainfont: "Atkinson Hyperlegible"
     monofont: "Fira code"
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-

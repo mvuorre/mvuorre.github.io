@@ -28,11 +28,11 @@ d <- expand_grid(
     m = 0,
     nesting(s = c(1.5, 1.5, 1.5), n1 = factor(1:3)),
     x = seq(-5, 5, by = .01)
-  ) %>% 
+  ) %>%
   mutate(y = dnorm(x, m, s))
 
 # Plot said data
-p <- d %>% 
+p <- d %>%
   ggplot(aes(col = n1, group = n1)) +
   # What's a better / more overused color scale? Nothing.
   scale_color_viridis_d(begin = .2, end = .8, direction = 1) +
@@ -54,14 +54,15 @@ p <- d %>%
   )
 ```
 
-Can you imagine from above what it'll look like 😉? You'll see in a bit. Next I needed to pass the plot object throught `hexSticker::sticker()` to create the hexagonal sticker plot. There are quite a few arguments to that function and it took me a few minutes to figure out what they do. I basically wanted to fill the hexagonal area with the plot, and add a URL to the corner. 
+Can you imagine from above what it'll look like 😉? You'll see in a bit. Next I needed to pass the plot object throught `hexSticker::sticker()` to create the hexagonal sticker plot. There are quite a few arguments to that function and it took me a few minutes to figure out what they do. I basically wanted to fill the hexagonal area with the plot, and add a URL to the corner.
 
 ```{r favicon}
 #| label: fig-favicon
 #| fig.cap: "Sticker made with ggplot2 and hexSticker."
 
+outfile <- tempfile(fileext = ".png")
 s <- sticker(
-  p, 
+  p,
   s_x = 1,
   s_y = 1,
   s_width = 1.9,
@@ -73,8 +74,8 @@ s <- sticker(
   u_color = palette[7],
   u_size = 24,
   dpi = 800,
-  filename = here("favicon.png")
-  )
+  filename = outfile
+)
 plot(s)
 ```
 

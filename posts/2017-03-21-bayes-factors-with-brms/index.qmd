@@ -36,7 +36,7 @@ options(width = 140)
 theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
 ```
 
-Here's a short post on how to calculate Bayes Factors with the R package [brms](http://CRAN.R-project.org/package=brms) using the Savage-Dickey density ratio method [@wagenmakers_bayesian_2010]. 
+Here's a short post on how to calculate Bayes Factors with the R package [brms](http://CRAN.R-project.org/package=brms) using the Savage-Dickey density ratio method [@wagenmakers_bayesian_2010].
 
 To get up to speed with what the Savage-Dickey density ratio method is--or what Bayes Factors are--please read the target article [@wagenmakers_bayesian_2010]. (The paper is available on the [author's webpage](http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf).) Here, I'll only show the R & brms code to do the calculations discussed in @wagenmakers_bayesian_2010. In their paper, they used WinBUGS, which requires quite a bit of code to sample from even a relatively simple model. brms on the other hand uses the familiar R formula syntax, making it easy to use. brms also does the MCMC sampling with [Stan](http://mc-stan.org/) [@stan_development_team_stan:_2016], or rather creates Stan code from a specified R model formula by what can only be described as string processing magic, making the sampling very fast. Let's get straight to the examples. We will use these packages:
 
@@ -85,7 +85,7 @@ ggplot(pdw, aes(x, density, col = Type)) +
   )
 ```
 
-The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a "null hypothesis" value indicating that the person's latent ability is .5, i.e. that they are simply guessing. 
+The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a "null hypothesis" value indicating that the person's latent ability is .5, i.e. that they are simply guessing.
 
 ```{r echo = FALSE}
 filter(pd, x == .5) %>%
@@ -93,7 +93,7 @@ filter(pd, x == .5) %>%
     BF01 = Posterior / Prior,
     BF10 = 1 / BF01
   ) %>%
-  kable(caption = "Bayes Factors for first example.", digits = 3) %>% 
+  kable(caption = "Bayes Factors for first example.", digits = 3) %>%
   kable_styling(full_width = FALSE)
 ```
 
@@ -146,8 +146,8 @@ The Credible Interval matches exactly what's reported in the paper. The point es
 
 ```{r echo = 1}
 samples <- posterior_samples(m, "b")
-head(samples) %>% 
-  kable(digits = 2, caption = "Six first rows of posterior samples.") %>% 
+head(samples) %>%
+  kable(digits = 2, caption = "Six first rows of posterior samples.") %>%
   kable_styling(full_width = FALSE)
 gather(samples, Type, value) %>%
   ggplot(aes(value, col = Type)) +
@@ -174,7 +174,7 @@ OK, so that was a lot of work for such a simple problem, but the real beauty of 
 
 ## Example 1: Equality of Proportions
 
-These are the data from the paper 
+These are the data from the paper
 
 ```{r}
 d <- data.frame(
@@ -198,7 +198,7 @@ get_prior(
 )
 ```
 
-We can set the Beta prior for both groups' rate with one line of code by setting the prior on the `b` class without specifying the `coef`. 
+We can set the Beta prior for both groups' rate with one line of code by setting the prior on the `b` class without specifying the `coef`.
 
 ```{r}
 Prior <- set_prior("beta(1, 1)", class = "b", lb = 0, ub = 1)
@@ -244,7 +244,7 @@ The paper reports BF01 = 0.47, so we're getting the same results (as we should.)
 h1p1 <- plot(h1, plot = F)[[1]]
 h1p2 <- plot(h1, plot = F)[[1]] +
   coord_cartesian(xlim = c(-.05, .05), ylim = c(0, 5))
-  
+
 (h1p1 | h1p2) +
   plot_layout(guides = "collect")
 ```
@@ -270,7 +270,11 @@ group_by(d, primed) %>% summarize(p = sum(correct) / sum(n))
 This data yields a similar t-value as in the paper.
 
 ```{r}
-t.test(correct / n ~ primed, paired = T, data = d)
+tmp <- d |>
+  mutate(p = correct / n) |>
+  select(id, primed, p) |>
+  pivot_wider(names_from = primed, values_from = p)
+t.test(tmp$both, tmp$neither, paired = TRUE, data = .)
 ```
 
 Instead of doing a probit regression, I'm going to do logistic regression. Therefore we define the prior on the log-odds scale. The log odds for the expected probability of .5 is 0. I prefer log-odds because--although complicated--they make sense, unlike standardized effect sizes. Note that the probit scale would also be fine as they are very similar.

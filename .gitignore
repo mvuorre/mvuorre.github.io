@@ -5,8 +5,8 @@
 _freeze/
 *_cache/
 **/*.rds
-_posts/**/*.html
-_posts/**/*_files/
+/posts/**/*.html
+/posts/**/*_files/
 .Rdata
 .httr-oauth
 .DS_Store

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,10 +91,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -157,13 +157,9 @@ window.Quarto = {
 <meta property="og:description" content="A reasonable choice might be the zero-one-inflated beta model">
 <meta property="og:image" content="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
 <meta property="og:site_name" content="Matti's homepage">
-<meta property="og:image:height" content="652">
-<meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="How to analyze visual analog (slider) scale data? – Matti’s homepage">
 <meta name="twitter:description" content="A reasonable choice might be the zero-one-inflated beta model">
 <meta name="twitter:image" content="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png">
-<meta name="twitter:image-height" content="652">
-<meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -191,10 +187,6 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
@@ -306,7 +298,7 @@ window.Quarto = {
 <p>Ordinal scales, of which binary ratings are a special case, provide ordinal data and are thus better analyzed using ordinal models <span class="citation" data-cites="BurknerOrdinalRegressionModels2019 LiddellAnalyzingOrdinalData2018">(<a href="#ref-BurknerOrdinalRegressionModels2019" role="doc-biblioref">Bürkner and Vuorre 2019</a>; <a href="#ref-LiddellAnalyzingOrdinalData2018" role="doc-biblioref">Liddell and Kruschke 2018</a>)</span>.</p>
 <p>Analog scales, also known as slider scales, are also unlikely to provide normally distributed responses because the scale is bounded at the low and high ends. These responses also tend to be skewed. It is common for slider responses to bunch at either end of the slider scale, potentially making the deviation from normality more severe.</p>
 <p>For example, <a href="#fig-vas" class="quarto-xref">Figure&nbsp;1</a> shows a slider scale in action. (I found this random example with a simple internet search at <a href="https://blog.surveyhero.com/2018/09/03/new-question-type-slider/" class="uri">https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</a>). In experiments using slider scales, subjects are typically instructed to use their mouse to drag a response indicator along a horizontal line, and/or click with a mouse on a point of the scale that matches their subjective impression. Sometimes these responses are provided on paper, where subjects are asked to bisect a line at a point that matches their subjective feeling (e.g.&nbsp;halfway between “Leisure” and “Money” if they are subjectively equally important.)</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-vas_d49fde4a4c4c62f226b259ae88878eb6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-vas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -324,7 +316,7 @@ Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/
 <section id="normal-model-of-slider-ratings" class="level2">
 <h2 class="anchored" data-anchor-id="normal-model-of-slider-ratings">Normal model of slider ratings</h2>
 <p>Consider <a href="#fig-simulate-example" class="quarto-xref">Figure&nbsp;2</a>. This figure shows 200 simulated ratings on a [0, 1] slider scale (meaning that any value between 0 and 1, inclusive of the endpoints, is possible). I have also superimposed a blue curve of the best-fitting normal density on the histogram. The two most notable non-normal features of these data are that they are bounded at 0 and 1 where the data appears to “bunch”, and (possibly) skewed. Of course, these data were simulated; experience with slider scales tells me, however, that this histogram is not unrepresentative of such ratings.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-simulate-example_1387ec0834bc4477a1f4ba455cf43422">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-simulate-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -348,7 +340,7 @@ Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimpo
 <p>More generally, if your goal is to predict cognition and behavior <span class="citation" data-cites="YarkoniChoosingPredictionExplanation2017">(<a href="#ref-YarkoniChoosingPredictionExplanation2017" role="doc-biblioref">Yarkoni and Westfall 2017</a>)</span>, a model that is obviously a poor representation of your data—in terms of having such a poor predictive utility—should not be your first choice for data analysis.</p>
 <p>Admittedly, the data in <a href="#fig-simulate-example" class="quarto-xref">Figure&nbsp;2</a> were simulated, and it remains an empirical question as to how common these features are in real data, and how severe these issues are to normal models (t-test, ANOVA, correlation, etc.).</p>
 <p>Nevertheless, it would be desirable to have an accessible data-analytic model for slider scale data, whose assumption better match observed features of the data. Here, I introduce one such model—the zero-one-inflated beta (ZOIB) model—and show how it can be applied to real data using the R package brms <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>. I also compare this model to standard analyses of slider scale data and conclude that the ZOIB can provide more detailed and accurate inferences from data than its conventional counterparts.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/meme_fea791b67312972a519790a812746af9">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -369,7 +361,7 @@ Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimpo
 <h2 class="anchored" data-anchor-id="the-beta-distribution">The beta distribution</h2>
 <p>The beta distribution used in beta regression <span class="citation" data-cites="FerrariBetaRegressionModelling2004">(<a href="#ref-FerrariBetaRegressionModelling2004" role="doc-biblioref">Ferrari and Cribari-Neto 2004</a>)</span> is a model of data in the open (0, 1) interval. (i.e.&nbsp;all values from 0 to 1, but not 0 and 1 themselves, are permitted.)</p>
 <p>The beta distribution typically has two parameters, which in R are called <code>shape1</code> and <code>shape2</code>. Together, they determine the location, spread, and skew of the distribution. Four example beta densities are shown in <a href="#fig-beta-distributions" class="quarto-xref">Figure&nbsp;3</a>. Using R’s <code>dbeta()</code>, I drew four curves corresponding to beta densities with different <code>shape1</code> and <code>2</code> parameters.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-beta-distributions_77b48c6794176e948912869205427887">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-beta-distributions" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -390,7 +382,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 \mbox{shape2} &amp;= (1 - \mu)\phi
 \end{align*}\]</span></p>
 <p>(This parameterization is provided in R in the PropBeta functions from the extraDist package, which calls the precision parameter, or <span class="math inline">\(\phi\)</span>, <code>size</code>.) Redrawing the figure from above with this parameterization using the <code>dprop()</code> function, we get the figure below.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/beta-reparameterized-distributions_6d43416edc798f0ea6ef572070c83111">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -410,7 +402,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 <p>The zero-one-inflated beta (ZOIB) adds a separate discrete process for the {0, 1} values, using two additional parameters. Following convention, we shall call them <span class="math inline">\(\alpha\)</span> (alpha) and <span class="math inline">\(\gamma\)</span> (gamma). These parameters describe the probability of an observation being a 0 or 1 (<span class="math inline">\(\alpha\)</span>), and conditional on that, whether the observation was 1 (<span class="math inline">\(\gamma\)</span>).</p>
 <p>In other words, the model of outcomes under ZOIB is described by four parameters. The first is <span class="math inline">\(\alpha\)</span>, the probability that an observation is either 0 or 1. (Thus, <span class="math inline">\(1-\alpha\)</span> is the probability of a non-boundary observation.) If an observation is not 0 or 1, the datum is described by the beta distribution with some mean <span class="math inline">\(\mu\)</span> and precision <span class="math inline">\(\phi\)</span>. If an observation is 0 or 1, the probability of it being 1 is given by <span class="math inline">\(\gamma\)</span> (just like your usual model of binary outcomes, e.g.&nbsp;logistic regression). So you can think of the model as a kind of mixture of beta and logistic regressions, where the <span class="math inline">\(\alpha\)</span> parameter describes the mixing proportions. The mathematical representation of this model is given in <a href="https://cran.rstudio.com/web/packages/brms/vignettes/brms_families.html#zero-inflated-and-hurdle-models">this vignette</a> <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>.</p>
 <p>To illustrate, I wrote a little function <code>rzoib()</code> that takes these parameters as arguments, and generates <code>n</code> random draws. Here is a histogram of 1k samples from four ZOIB distributions with various combinations of the parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/zoib-distributions_4b0ffacde88a39739a5f0aa829a7ed2f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -433,7 +425,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 <section id="example-data" class="level2">
 <h2 class="anchored" data-anchor-id="example-data">Example data</h2>
 <p>To illustrate the ZOIB model in action, I simulated a data set of 100 ratings from two groups, A and B. These data are shown in <a href="#fig-zoib-example" class="quarto-xref">Figure&nbsp;4</a>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-zoib-example_f89e588e13fec1a98ff7bba3a1fdd2c7">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-zoib-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -460,7 +452,7 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 </div>
 <p>The R formula syntax allows a concise representation of regression models in the form of <code>response ~ predictors</code>. For a simple normal (i.e.&nbsp;gaussian) model of the mean of <code>Ratings</code> as a function of <code>group</code>, you could write <code>Ratings ~ group, family = gaussian</code>. However, we want to predict the four parameters of the ZOIB model, and so will need to expand this notation.</p>
 <p>The brms package allows modeling more than one parameter of an outcome distribution. Specifically, we want to predict so-called “distributional parameters”, and <code>bf()</code> allows predicting them in their own formulas. Implicitly, <code>Ratings ~ group</code> means that you want to model the <em>mean</em> of <code>Ratings</code> on <code>group</code>. Therefore, to model <span class="math inline">\(\phi\)</span>, <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\gamma\)</span>, we will give them their own regression formulas within a call to <code>bf()</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/brms-bf_1852a8e969083f61e39a4efa79ee547a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>zoib_model <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Rating <span class="sc">~</span> group,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> group,</span>
@@ -483,7 +475,7 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>brms estimates the regression model using bayesian methods: It will return random draws from the parameters’ posterior distribution. It takes less than a minute to draw samples from this model. Let’s then interpret the estimated parameters (i.e.&nbsp;the numerical summaries of the posterior distribution):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_b6cba7b5785bbafe900170141d8864ce">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: zero_one_inflated_beta </span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = logit; phi = log; zoi = logit; coi = logit </span></span>
@@ -495,16 +487,16 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##          total post-warmup draws = 4000</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Population-Level Effects: </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Regression Coefficients:</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept         0.33      0.16     0.03     0.64 1.00     7221     2600</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_Intercept     1.50      0.24     1.00     1.94 1.00     6306     3106</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_Intercept    -0.80      0.32    -1.44    -0.18 1.00     7341     2983</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_Intercept     0.62      0.56    -0.40     1.75 1.00     6324     3166</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## groupB            0.91      0.21     0.50     1.32 1.00     6770     2984</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_groupB        0.48      0.33    -0.15     1.14 1.00     5750     2654</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_groupB        0.08      0.43    -0.75     0.91 1.00     7812     3178</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_groupB       -0.87      0.75    -2.35     0.52 1.00     6093     2866</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Intercept         0.33      0.16     0.01     0.63 1.00     6253     3166</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_Intercept     1.49      0.24     1.01     1.94 1.00     5683     3040</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_Intercept    -0.79      0.32    -1.44    -0.18 1.00     6968     2958</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_Intercept     0.62      0.57    -0.46     1.79 1.00     6660     2940</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## groupB            0.91      0.21     0.52     1.33 1.00     5658     2983</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## phi_groupB        0.49      0.33    -0.16     1.14 1.00     5273     3223</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## zoi_groupB        0.08      0.43    -0.76     0.91 1.00     6631     2955</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## coi_groupB       -0.86      0.75    -2.36     0.58 1.00     7174     2930</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -514,7 +506,7 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <p>The first four rows of this describe the parameters for the baseline group (Group A). <code>Intercept</code> is the logit-transformed mean of the beta distribution for Group A’s ratings (the subset of ratings that were (0, 1)). Next, <code>phi_Intercept</code> describes the precision of the beta distribution fitted to Group A’s slider responses, on the scale of the (log) link function. <code>zoi_Intercept</code> is the zero or one inflation of Group A’s data, on the logit scale. <code>coi_Intercept</code> is the conditional one inflation; out of the 0 or 1 ratings in Group A’s data, describing the proportion of ones (out of the 0/1 responses)?</p>
 <p>These parameters are described on the link scale, so for each of them, we can use the inverse link function to transform them to the response scale. Precision (<code>phi_Intercept</code>) was modeled on the log scale. Therefore, we can convert it back to the original scale by exponentiating. For the other parameters, which were modeled on the logit scale, we can use the inverse, which is <code>plogis()</code>.</p>
 <p>However, before converting the parameters, it is important to note that the estimates displayed above are summaries (means, quantiles) of the posterior draws of the parameters on the link function scale. Therefore, we cannot simply convert the summaries. Instead, we must transform each of the posterior samples, and then re-calculate the summaries. The following code accomplishes this “transform-then-summarize” procedure for each of the four parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_5d9fc5fcbfff575b48f050ddbd6a1e8f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_samples</span>(fit, <span class="at">pars =</span> <span class="st">"b_"</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"b_phi_Intercept"</span>), exp) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span><span class="st">"b_phi_Intercept"</span>), plogis) <span class="sc">%&gt;%</span> </span>
@@ -538,19 +530,19 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <td style="text-align: left;">b_Intercept</td>
 <td style="text-align: right;">0.58</td>
 <td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.51</td>
-<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.65</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_phi_Intercept</td>
-<td style="text-align: right;">4.59</td>
-<td style="text-align: right;">1.10</td>
-<td style="text-align: right;">2.72</td>
+<td style="text-align: right;">4.57</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: right;">2.74</td>
 <td style="text-align: right;">6.99</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_zoi_Intercept</td>
-<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.32</td>
 <td style="text-align: right;">0.07</td>
 <td style="text-align: right;">0.19</td>
 <td style="text-align: right;">0.45</td>
@@ -559,8 +551,8 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <td style="text-align: left;">b_coi_Intercept</td>
 <td style="text-align: right;">0.64</td>
 <td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.40</td>
-<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.86</td>
 </tr>
 </tbody>
 </table>
@@ -568,24 +560,24 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 </div>
 <p>We can then interpret these summaries, beginning with <code>b_Intercept</code>. This is the estimated mean of the beta distribution fitted to Group A’s (0, 1) rating scale responses (with its standard error, lower- and upper limits of the 95% CI). Then, <code>b_Phi_Intercept</code> is the precision of the beta distribution. <code>zoi</code> is the zero-one inflation, and <code>coi</code> the conditional one inflation.</p>
 <p>To make <code>b_zoi_Intercept</code> concrete, we should be able to compare its posterior mean to the observed proportion of 0/1 values in the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_d32c7eaac5ed6e62ffc18a46f8f950da">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group<span class="sc">==</span><span class="st">"A"</span>] <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.311</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Above we calculated the proportion of zeros and ones in the data set, and found that it matches the estimated value. Similarly, for <code>coi</code>, we can find the corresponding value from the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_ac6dca96dcaa50a7b9d6ca452b14e19b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group<span class="sc">==</span><span class="st">"A"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>Rating <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.643</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s get back to the model summary output. The following four parameters are the effects of being in group B on these parameters. Most importantly, <code>groupB</code> is the effect of group B (versus group A) on the mean of the ratings’ assumed beta distribution, in the logit scale. Immediately, we can see that the parameter’s 95% Credible Interval does not include zero. Traditionally, this parameter would be called “significant”; group B’s (0, 1) ratings are on average greater than group A’s.</p>
 <p>To transform this effect back to the data scale, we can again use <code>plogis()</code>. However, it is important to keep in mind that the effect’s size on the original scale depends on the intercept, getting smaller as the intercept increases (just like in any other generalized linear model.) The following bit of code transforms this effect and its uncertainty back to the original scale.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_7d26594ef60e0ef3eaed6747388bd71a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B - A"</span> <span class="ot">=</span> <span class="st">"plogis(Intercept + groupB) = plogis(Intercept)"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypothesis</span>(fit, h)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      B - A     0.19      0.05      0.1     0.28         NA        NA    *</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      B - A     0.19      0.04     0.11     0.29         NA        NA    *</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
@@ -594,7 +586,7 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 </div>
 <p>The data were simulated with the <code>rzoib()</code> function, and I set <span class="math inline">\(\alpha = 0.25, \gamma = 0.5, \mu = 0.6 + 0.15\mbox{groupB}, \phi = 5\)</span>. Therefore, the results of the t-tests and nonparametric tests were misses; a true effect was missed. On the other hand, the ZOIB regression model detected the true effect of group on the beta distribution’s mean.</p>
 <p>Finally, let’s visualize this key finding using the <code>conditional_effects()</code> function from brms.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-ex-me_aed1f396fa2dcf093960d34d14e062b2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conditional_effects</span>(fit, <span class="at">dpar =</span> <span class="st">"mu"</span>), </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="cn">TRUE</span>, </span>
@@ -620,7 +612,7 @@ Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled poin
 <section id="simulation-compare-zoib-and-t-test-performances" class="level1">
 <h1>Simulation: Compare ZOIB and t-test performances</h1>
 <p>To compare the performance of the t-test and ZOIB in a little bit more detail, I conducted a small simulation study. I simulated 100 data sets of 200 ratings from two independent groups, from the ZOIB model (100 ratings per group). I set <span class="math inline">\(\alpha = 0.2, \gamma = 0.7, \mu = 0.6 + 0.1\mbox{groupB}, \phi = 5\)</span>; that is, there was a small effect of group on the mean of the beta distribution, and all other parameters were constant across groups. A sample of the resulting data sets is shown in <a href="#fig-sim-examplesets" class="quarto-xref">Figure&nbsp;6</a>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sim-examplesets_03586da8508d5d58d42a692663107647">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-sim-examplesets" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -636,8 +628,8 @@ Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual 
 </div>
 <p>I first conducted an independent samples, unequal variances t-test on each of the 100 simulated data sets, comparing the two groups’ mean ratings. 35% of these t-tests were significantly positive at the .05 level. That is, the power of the t-test in this simulation was about 35%. (Uncertainty in this value is moderate, because I only did 100 simulation runs.)</p>
 <p>I then estimated the ZOIB model for each of the 100 simulated data sets. Statistical significance does not play a role in Bayesian statistics, but to most easily compare the results of these two models, I calculated the proportion of simulations for which the estimated Group on <span class="math inline">\(\mu\)</span> effect’s 95% Credible Interval was entirely above zero. If a 95% CI does not include zero, disrespecting the philosophical differences of bayesian and frequentist statistics, I may say that the estimate is “significant”.</p>
-<p>This parameter was significantly greater than zero in 66% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in <a href="#fig-sims-compare" class="quarto-xref">Figure&nbsp;7</a>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sims-compare_86473af857a11cf2e39a1f2b4a67b7af">
+<p>This parameter was significantly greater than zero in 65% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in <a href="#fig-sims-compare" class="quarto-xref">Figure&nbsp;7</a>.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-sims-compare" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -803,8 +795,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -915,7 +905,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

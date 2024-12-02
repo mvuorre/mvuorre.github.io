@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -168,10 +168,6 @@ window.Quarto = {
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
@@ -257,7 +253,7 @@ window.Quarto = {
 
 <p>We’ve all been there; writing <a href="https://github.com/crsh/papaja">manuscripts</a> with <a href="https://rmarkdown.rstudio.com/">R Markdown</a> and dreaming of easy in-text code bits for reproducible reporting. Say you’ve fit a regression model to your data, and would then like to report the model’s parameters in your text, without writing the values in the text. (If the data or model changes, you’d need to re-type the values again.)</p>
 <p>For example, you can print this model summary easily in the R console:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-1_1d55d8b00819b38a1d9b8a2c4eaba991">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -282,7 +278,7 @@ F-statistic: 76.51 on 1 and 30 DF,  p-value: 9.38e-10</code></pre>
 </div>
 </div>
 <p>And to cite those values in the text body of your manuscript, you can write the text in R Markdown like this:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_b6d07cb8a933e2a8d357be12cdb3788c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>The model intercept was <span class="st">`</span><span class="at">r round(coef(fit)[1], 2)</span><span class="st">`</span>, great.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Which would show up in your manuscript like this:</p>
@@ -290,7 +286,7 @@ F-statistic: 76.51 on 1 and 30 DF,  p-value: 9.38e-10</code></pre>
 <section id="paste" class="level2">
 <h2 class="anchored" data-anchor-id="paste">Paste</h2>
 <p>However, when you want to present more information, such as the parameter estimate with its standard error, you will have to <code>paste()</code> those strings together:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_366835565a5649d76ca7ecbfddb15497">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">summary</span>(fit)<span class="sc">$</span>coefficients, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Estimate Std. Error t value Pr(&gt;|t|)
@@ -300,7 +296,7 @@ disp          -0.041      0.005  -8.747        0</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>intercept <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"b = "</span>, x[<span class="dv">1</span>, <span class="dv">1</span>], <span class="st">", SE = "</span>, x[<span class="dv">1</span>, <span class="dv">2</span>], <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then just cite the <code>intercept</code> object in your text body:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_22c54f4cec02aea840f6173b9f095127">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>The model intercept was very very <span class="fu">significant</span> (<span class="st">`</span><span class="at">r intercept</span><span class="st">`</span>).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Which would render in your PDF or word document as:</p>
@@ -310,7 +306,7 @@ disp          -0.041      0.005  -8.747        0</code></pre>
 <section id="glue" class="level2">
 <h2 class="anchored" data-anchor-id="glue">Glue</h2>
 <p><a href="https://glue.tidyverse.org/">glue</a> is a small R package that allows you to join strings together in a neat, pythonific way. It replaces the need for quoting and separating arguments in <code>paste()</code>, by asking you to wrap variables in curly braces. Here’s how to do the above pasting with glue:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_866bccea6b1abb57c9eda7c96862ed47">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>intercept <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">"b = {x[1, 1]}, SE = {x[1, 2]}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -318,7 +314,7 @@ disp          -0.041      0.005  -8.747        0</code></pre>
 <section id="glue-with-data-frames" class="level3">
 <h3 class="anchored" data-anchor-id="glue-with-data-frames">Glue with data frames</h3>
 <p>Glue has other neat (more advanced) features, such as gluing variables row-by-row in a data frame:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_ef356586f2856edca015da27ea96579b">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(x) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glue_data</span>(</span>
@@ -334,12 +330,12 @@ disp's point estimate was -0.041, with an SE of 0.005.</code></pre>
 <section id="appendix-papaja" class="level2">
 <h2 class="anchored" data-anchor-id="appendix-papaja">Appendix: papaja</h2>
 <p>For some models (like our simple linear model example here), the <a href="https://github.com/crsh/papaja">papaja R package</a> (which deserves its own rpihkal post!) has very useful shortcuts</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_e5b0a3fe2a4d085c9ce4e216c074a105">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>intercept <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(fit)<span class="sc">$</span>estimate<span class="sc">$</span>Intercept</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you now cite <code>intercept</code> in the text body of your manuscript, it renders into <span class="math inline">\(\LaTeX\)</span> (which is interpreted nicely if you are outputting PDF or Word documents; here on this website it looks odd):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_887e8b3d753d5ffa1bf57423ff8600ab">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>The model intercept was rather <span class="fu">significant</span> (<span class="st">`</span><span class="at">r intercept</span><span class="st">`</span>).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The model intercept was rather significant (<span class="math inline">\(b = 29.60\)</span>, 95% CI <span class="math inline">\([27.09, 32.11]\)</span>).</p>
@@ -441,8 +437,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -553,7 +547,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

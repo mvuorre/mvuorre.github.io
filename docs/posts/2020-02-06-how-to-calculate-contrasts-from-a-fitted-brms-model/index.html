@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -144,10 +144,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
@@ -243,14 +239,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-data" class="level3">
 <h3 class="anchored" data-anchor-id="example-data">Example data</h3>
 <p>To make this concrete, let’s consider a hypothetical example data set from <a href="http://intensivelongitudinal.com/ch4/ch4index.html">Bolger and Laurenceau (2013)</a>: Two groups’ (<code>treatment</code>: 0/1) self-reported <code>intimacy</code> was tracked over 16 days (<code>time</code>). The dataset contains data from a total of 50 (simulated) individuals.</p>
-<div class="cell" data-hash="index_cache/html/data_e38f0edea7e5642c6382cafd7401a4d1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">import</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"http://www.intensivelongitudinal.com/ch4/ch4R.zip"</span>, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">setclass =</span> <span class="st">"tibble"</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"factor"</span>, <span class="st">"treatment"</span> <span class="ot">=</span> <span class="st">"factor"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tmpfile <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"http://www.intensivelongitudinal.com/ch4/ch4R.zip"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> tmpfile</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(tmpfile) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.factor</span>(id), <span class="at">treatment =</span> <span class="fu">as.factor</span>(treatment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="model" class="level3">
@@ -271,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="interpreting-the-models-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-models-parameters">Interpreting the model’s parameters</h3>
 <p>Let’s then answer our questions by looking at the model’s summary, and interpreting the estimated population-level parameters (the posterior means and standard deviations).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_67895bf65846db104876335ef0f1317a">
+<div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Summary of the Intimacy model's parameters</caption>
@@ -297,14 +295,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">0.05</td>
 <td style="text-align: right;">0.02</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_treatment1</td>
-<td style="text-align: right;">-0.05</td>
+<td style="text-align: right;">-0.06</td>
 <td style="text-align: right;">0.30</td>
-<td style="text-align: right;">-0.68</td>
-<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">-0.65</td>
+<td style="text-align: right;">0.51</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_time:treatment1</td>
@@ -320,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The first lesson is that most models are simply too complex to interpret by just looking at the numerical parameter estimates. Therefore, we always draw figures to help us interpret what the model thinks is going on. The figure below shows example participants’ data (left) and the model’s estimated effects on the right.</p>
-<div class="cell" data-hash="index_cache/html/figure_4d5407611eca48fecf627589f2b2def4">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -337,11 +335,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="hypothesis">hypothesis()</h2>
 <p><code>hypothesis()</code> truly is an underappreciated method of the brms package. It can be very useful in probing complex models. It allows us to calculate, visualize, and summarize, with full uncertainty estimates, any transformation of the model’s parameters. These transformations are often called “contrasts” or “general linear hypothesis tests”. But really, they are just transformations of the joint posterior distribution of the model’s parameters.</p>
 <p>To answer Q2, then, we encode our question into a combination of the models parameters:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_933d48cfc0613c1b58f413c4aa875c71">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">q2 =</span> <span class="st">"time + time:treatment1 = 0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The slope of group 1 is calculated from the model’s parameters by adding the slope of group 0 (<code>time</code>) and the interaction term <code>time:treatment1</code>. <code>= 0</code> indicates that we are interested in contrasting the resulting estimate the zero (“testing against zero” or even “testing the null hypothesis”). Then, we pass this named string to <code>hypothesis()</code>, and observe the results.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_cf476b65ca6eb7488d02666834f247fc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>q2_answer <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(fit, q2)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>q2_answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -357,7 +355,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 </div>
 <p>The output indicates that the estimated answer to Question 2 is 0.11 with a standard error of 0.02. I will return to <code>Evid.Ratio</code> and <code>Post.Prob</code> shortly.</p>
 <p>The results can also be visualized.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_25c0a52c7a787a16b504300fdba1b2a2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(q2_answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -372,13 +370,13 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="more-contrasts" class="level2">
 <h2 class="anchored" data-anchor-id="more-contrasts">More contrasts</h2>
 <p>With <code>hypothesis()</code> you can answer many additional questions about your model, beyond the parameter estimates. To illustrate, say we are interested in the groups’ difference in intimacy at the end of the study (day 15; Question 4). (The difference at time 0 is reported by the group parameter.)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_ed8dd057638d67ead8434d7c0bfc49eb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>q4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">q4 =</span> <span class="st">"treatment1 + time:treatment1 * 15 = 0"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypothesis</span>(fit, q4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q4     0.88       0.4     0.05     1.66         NA        NA    *
+1         q4     0.87       0.4      0.1     1.66         NA        NA    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -389,14 +387,14 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="directional-hypotheses-and-posterior-probabilities" class="level3">
 <h3 class="anchored" data-anchor-id="directional-hypotheses-and-posterior-probabilities">Directional hypotheses and posterior probabilities</h3>
 <p>We can also ask for directional questions. For example, what is the probability that group 0’s slope is greater than 0 (Q5)?</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_8e4b8c458d4fd63ed7a6f6f26a83ef70">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>q5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">q5 =</span> <span class="st">"time &gt; 0"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>q5_answer <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(fit, q5)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>q5_answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
+1         q5     0.05      0.02     0.01     0.09      57.82      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -417,14 +415,14 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="multiple-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-hypotheses">Multiple hypotheses</h3>
 <p>You can evaluate multiple hypotheses in one function call:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_2a0c2a85503c24ef96fd2b2d908662f6">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hypothesis</span>(fit, <span class="fu">c</span>(q2, q4, q5))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
 1         q2     0.11      0.02     0.06     0.16         NA        NA    *
-2         q4     0.88      0.40     0.05     1.66         NA        NA    *
-3         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
+2         q4     0.87      0.40     0.10     1.66         NA        NA    *
+3         q5     0.05      0.02     0.01     0.09      57.82      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -436,12 +434,12 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="hierarchical-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="hierarchical-hypotheses">Hierarchical hypotheses</h3>
 <p>Up to this point, we have “tested” the model’s population level effects. (Parameters for the average person. “Fixed effects.”) Because we fit a hierarchical model with varying intercepts and slopes of time, we can also test the individual specific parameters. For example, we can look at every individual’s estimated intercept (intimacy at time 0):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_486814e3b005f81a7e064be6ba0663be">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">hypothesis</span>(fit, <span class="st">"Intercept = 0"</span>, <span class="at">group =</span> <span class="st">"id"</span>, <span class="at">scope =</span> <span class="st">"coef"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the above, we asked for the results of the hypothesis test, split by group <code>id</code> (which is the grouping factor in our hierarchical model), and indicated <code>coef</code> as the scope. The latter means that the estimates are the subject-specific deviations with the fixed effect added, as opposed to <code>ranef</code>, which are zero-centered.</p>
 <p>The results of this question would be a bit too much information to print on screen, so instead we will draw a figure:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_cf8b682c317093de2857b07a71a22e1c">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -552,8 +550,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -664,7 +660,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.6.32</generator>
+<generator>quarto-1.6.39</generator>
 <lastBuildDate>Wed, 19 Jun 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Preprints: A Quarto extension and website</title>
@@ -1573,7 +1573,7 @@ January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering/">https
   <category>brms</category>
   <guid>https://vuorre.com/posts/latent-mean-centering/</guid>
   <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
+  <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>How I like to set up my computer</title>
@@ -1844,7 +1844,7 @@ December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">ht
 <div id="fig-op3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-op3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img">
+<img src="https://vuorre.com/posts/parallel-multiverse/images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img" width="944">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-op3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span>. Reproduced 100% without permission, but I don’t think Dr Orben or Dr Przybylski would mind.
@@ -2060,8 +2060,8 @@ background-color: null;
 font-style: inherit;">9</span>)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
-<div id="tbl-data" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
+<div class="cell">
+<div id="tbl-data" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
@@ -2145,7 +2145,7 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 </div>
 </div>
 <p>We can specify a fully crossed multiverse analysis over outcomes, predictors, and covariates, easily with specr. Also, to make the example a bit more interesting (slower!) for later examples, I’ll estimate the model using two functions (<code>lm()</code> and <code>glm()</code> which in this case give the same results, but the latter is much slower). I time the multiverse analysis using tictoc. Table&nbsp;2 shows the first few rows of the results.</p>
-<div class="cell" data-hash="index_cache/html/specr_b0f58f39187fbb67b7dcbb5e8e31587f">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
@@ -2215,10 +2215,10 @@ background-color: null;
 font-style: inherit;">toc</span>()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>28.683 sec elapsed</code></pre>
+<pre><code>27.768 sec elapsed</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">results_specr <span class="sc" style="color: #5E5E5E;
@@ -2261,7 +2261,7 @@ font-style: inherit;">full_width =</span> <span class="cn" style="color: #8f5902
 background-color: null;
 font-style: inherit;">FALSE</span>)</span></code></pre></div>
 </details>
-<div id="tbl-specr" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<div id="tbl-specr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: First six rows of multiverse numerical results from specr
@@ -2366,7 +2366,7 @@ Table&nbsp;2: First six rows of multiverse numerical results from specr
 </div>
 </div>
 <p>Another great thing about this package is that you can easily draw specification curve figures (Figure&nbsp;2)</p>
-<div class="cell" data-hash="index_cache/html/fig-specr_617539ff4398e57bcb4bff2078677e43">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
@@ -2413,7 +2413,7 @@ Figure&nbsp;2: Specification curve figure drawn from specr results
 <p>The first step in a multiverse analysis is defining the grid of specifications.</p>
 <p>The one difficulty here is that the dataset can also be part of the specifications (e.g.&nbsp;different outlier removal thresholds, or more generally any subsets or transformations of the data). If you include the dataset in the table of specifications, you would easily run out of memory (I learned this the hard way). So we will still iterate over the specs table, and pull relevant subsets of the data inside the function that iterates over the specs.</p>
 <p>A flexible and easy way to declare the specifications is <code>expand_grid()</code>. This allows creating tables that cross all the variables declared therein. (There are related functions such as <code>expand()</code>, <code>crossing()</code>, and <code>nesting()</code> that allow for more flexibility.)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_36964913f4bba4a690d472f716503c50">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">specs <span class="ot" style="color: #003B4F;
@@ -2460,8 +2460,8 @@ font-style: inherit;">"glm"</span>)</span>
 <span id="cb6-6">)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
-<div id="tbl-specs-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
+<div class="cell">
+<div id="tbl-specs-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: First six rows of example specifications table.
@@ -2524,7 +2524,7 @@ Table&nbsp;3: First six rows of example specifications table.
 </div>
 </div>
 <p>But we could also just as well create a grid of formulas. Depending on your analysis, this might be a viable option</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_3897713cd6b8874a6d5aa3076331c794">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
@@ -2556,7 +2556,7 @@ font-style: inherit;">"glm"</span>)</span>
 </details>
 </div>
 <p>We will stick with specifying variables instead, for this example. We can include subgroups as well:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_e4da284250d86d0820421a2a5c923055">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">specs <span class="ot" style="color: #003B4F;
@@ -2609,8 +2609,8 @@ font-style: inherit;">distinct</span>(dat, group)</span>
 <span id="cb8-8">)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-2_22b28f4a89f6d74505445d8927f41f37">
-<div id="tbl-specs-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-2_22b28f4a89f6d74505445d8927f41f37">
+<div class="cell">
+<div id="tbl-specs-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: First six rows of example specifications table with subgroups.
@@ -2680,7 +2680,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 </div>
 </div>
 <p>Now each row in the table specifies the modelling function (e.g.&nbsp;<code>lm()</code>), the subgroup, and the left-hand and right-hand side variables of the formula to put in the modelling function. Next, we need a function to also expand the covariates to all their combinations (I lifted much of this from the <a href="https://github.com/masurp/specr/blob/7d5a0c3664dd5d281ecaebb783ce75b638447205/R/setup_specs.r#L41">specr source</a>, I found it surprisingly hard to write):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-12_f6b8ccc8c1fbece0ac913b2765627c42">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
@@ -2763,7 +2763,7 @@ font-style: inherit;">%&gt;%</span></span>
 <section id="the-specification-table" class="level3">
 <h3 class="anchored" data-anchor-id="the-specification-table">The specification table</h3>
 <p>Putting all this together, and creating the formulas from <code>y</code>, <code>x</code>, and <code>c</code> with <code>str_glue()</code>, we have completed the first part of our pipeline, creating the specifications:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_aa54f8f1ed5a42f5ad01434413a3e64a">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">specs <span class="ot" style="color: #003B4F;
@@ -2826,8 +2826,8 @@ background-color: null;
 font-style: inherit;">"{y} ~ {x} + {covariate}"</span>))</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-3_c096a375bc98bc6c166a8bfb7c5f9765">
-<div id="tbl-specs-3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-3_c096a375bc98bc6c166a8bfb7c5f9765">
+<div class="cell">
+<div id="tbl-specs-3" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: First six rows of example specifications table with subgroups and formulas.
@@ -2967,8 +2967,8 @@ background-color: null;
 font-style: inherit;">data =</span> dat)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-lm2-1_2d68e485fd097bd3ec852b9cffc095cb">
-<div id="tbl-lm2-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-lm2-1_2d68e485fd097bd3ec852b9cffc095cb">
+<div class="cell">
+<div id="tbl-lm2-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lm2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6: Output of <code>lm2(y1 ~ x1, data = dat)</code>.
@@ -3038,8 +3038,8 @@ background-color: null;
 font-style: inherit;">data =</span> dat)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-lm2-2_1a2ddb5f59c1b0819d6460580ab7a74c">
-<div id="tbl-lm2-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-lm2-2_1a2ddb5f59c1b0819d6460580ab7a74c">
+<div class="cell">
+<div id="tbl-lm2-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lm2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
@@ -3124,7 +3124,7 @@ font-style: inherit;">0</span>))</span></code></pre></div>
 </details>
 </div>
 <p>Generally, I would have done this before creating the specs table, but I was trying to start easy <span class="emoji" data-emoji="smile">😄</span>. For now, I just replace the model names in specs:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-20_f0d77acc36e29ce181f8132b587020e7">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">specs <span class="ot" style="color: #003B4F;
@@ -3145,7 +3145,7 @@ font-style: inherit;">"2"</span>))</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="iterating-over-specs-with-pmap">Iterating over specs with <code>pmap()</code></h3>
 <p>We are now ready to iterate over specs, and apply <code>model</code> therein to the data and formula specified on each row. To do so, we pipe specs into <code>pmap()</code> (inside <code>mutate()</code>, which means that we are operating inside the specs data frame). <code>pmap()</code> takes a list of arguments, and passes them to a function, <code>pmap(list(a, b, c), ~some_function())</code>. But since we need to pull our function from a string within the list of arguments, our function is in fact the <code>do.call()</code> function caller. We can then pass all our arguments to the function called by <code>do.call()</code>. Freaky.</p>
 <p>We will pass <code>list(model, formula, group)</code> to <code>do.call()</code>, that then uses the shorthand <code>..1</code>, <code>..2</code>, etc to take the first, second, etc, argument from the list. Critically, we can also put in another function (<code>filter()</code>) inside the <code>do.call()</code> argument list that will help us subset the data, based on the original arguments.</p>
-<div class="cell" data-hash="index_cache/html/tidy-multiverse_237f6871fc286ff41e8e369429db4df2">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
@@ -3201,11 +3201,11 @@ background-color: null;
 font-style: inherit;">toc</span>()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>18.178 sec elapsed</code></pre>
+<pre><code>12.878 sec elapsed</code></pre>
 </div>
 </div>
 <p>This then returns a copy of the specs table (<code>results_dplyr</code>) with an additional column <code>out</code>. But <code>out</code> is a data frame column, so to show the values next to our original specs, we can call <code>unnest()</code> (Table&nbsp;8).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-22_653d91cb2403b85ea7735727a97c1ccd">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">results_dplyr <span class="ot" style="color: #003B4F;
@@ -3218,8 +3218,8 @@ background-color: null;
 font-style: inherit;">unnest</span>(out)</span></code></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-mv-1_e4693de5ac20cd6f3873ab07548343d6">
-<div id="tbl-mv-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-mv-1_e4693de5ac20cd6f3873ab07548343d6">
+<div class="cell">
+<div id="tbl-mv-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mv-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;8: First six rows of results from multiverse analysis.
@@ -3504,7 +3504,7 @@ background-color: null;
 font-style: inherit;">toc</span>()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>3.561 sec elapsed</code></pre>
+<pre><code>3.526 sec elapsed</code></pre>
 </div>
 </div>
 <p>This particular parallelization scheme (8 cores working on subsets defined by <code>formula</code> and <code>group</code> in <code>dat</code>) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.</p>
@@ -3513,7 +3513,7 @@ font-style: inherit;">toc</span>()</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="furrr">furrr</h2>
 <p>I like multidplyr a lot because I can manually specify how the data and computations are assigned across the cluster. I also like that you need to explicitly tell what packages and objects to send to the cluster. As a consequence the syntax grows a bit verbose, however.</p>
 <p>As an alternative, the <a href="https://github.com/DavisVaughan/furrr/">furrr</a> package promises drop-in replacements to purrr’s <code>map()</code> functions that parallelize the computations <span class="citation" data-cites="furrr">(Vaughan and Dancho 2022)</span>. To use furrr’s functions, we first need to specify the parallelization scheme with <code>plan()</code>. We can then replace <code>pmap()</code> above with <code>future_pmap()</code>. Also, we need to pass objects from the global environment and packages using <code>furrr_options()</code> as shown below. Otherwise we can keep our <code>%&gt;%</code>line exactly the same.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-26_dc602f7a26f70e9ea9e96507447ef0a2">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
@@ -3623,7 +3623,7 @@ background-color: null;
 font-style: inherit;">toc</span>()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.879 sec elapsed</code></pre>
+<pre><code>4.952 sec elapsed</code></pre>
 </div>
 </div>
 <p>This worked great. While we don’t have to partition our data, and collect the computations afterwards, furrr does require passing stuff using the <code>.options</code> argument. But this is still a bit less verbose than multidplyr, and perhaps therefore preferred. I like it!</p>
@@ -3631,8 +3631,8 @@ font-style: inherit;">toc</span>()</span></code></pre></div>
 <section id="checking-results" class="level2">
 <h2 class="anchored" data-anchor-id="checking-results">Checking results</h2>
 <p>I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation. Table&nbsp;9 shows that everything is as it should be.</p>
-<div class="cell" data-hash="index_cache/html/tbl-results-check_b2c7cb7e2da197d8f0518dac99896e6b">
-<div id="tbl-results-check" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-results-check_b2c7cb7e2da197d8f0518dac99896e6b">
+<div class="cell">
+<div id="tbl-results-check" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-results-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;9: Example results from the four estimation methods.
@@ -4880,7 +4880,7 @@ background-color: null;
 font-style: inherit;">01</span>)</span>
 <span id="cb2-9">  ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb2-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
@@ -4896,7 +4896,7 @@ font-style: inherit;"># Plot said data</span></span>
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb2-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
@@ -4999,76 +4999,81 @@ font-style: inherit;">"none"</span></span>
 </div>
 <p>Can you imagine from above what it’ll look like 😉? You’ll see in a bit. Next I needed to pass the plot object throught <code>hexSticker::sticker()</code> to create the hexagonal sticker plot. There are quite a few arguments to that function and it took me a few minutes to figure out what they do. I basically wanted to fill the hexagonal area with the plot, and add a URL to the corner.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">s <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">outfile <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tempfile</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fileext =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".png"</span>)</span>
+<span id="cb3-2">s <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sticker</span>(</span>
-<span id="cb3-2">  p, </span>
-<span id="cb3-3">  <span class="at" style="color: #657422;
+<span id="cb3-3">  p,</span>
+<span id="cb3-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">s_x =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,</span>
-<span id="cb3-4">  <span class="at" style="color: #657422;
+<span id="cb3-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">s_y =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,</span>
-<span id="cb3-5">  <span class="at" style="color: #657422;
+<span id="cb3-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">s_width =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1.9</span>,</span>
-<span id="cb3-6">  <span class="at" style="color: #657422;
+<span id="cb3-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">s_height =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1.7</span>,</span>
-<span id="cb3-7">  <span class="at" style="color: #657422;
+<span id="cb3-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">h_fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"black"</span>,</span>
-<span id="cb3-8">  <span class="at" style="color: #657422;
+<span id="cb3-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">h_color =</span> palette[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>],</span>
-<span id="cb3-9">  <span class="at" style="color: #657422;
+<span id="cb3-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">package =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">""</span>,</span>
-<span id="cb3-10">  <span class="at" style="color: #657422;
+<span id="cb3-11">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">url =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"sometimes I R"</span>,</span>
-<span id="cb3-11">  <span class="at" style="color: #657422;
+<span id="cb3-12">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">u_color =</span> palette[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">7</span>],</span>
-<span id="cb3-12">  <span class="at" style="color: #657422;
+<span id="cb3-13">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">u_size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">24</span>,</span>
-<span id="cb3-13">  <span class="at" style="color: #657422;
+<span id="cb3-14">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">dpi =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">800</span>,</span>
-<span id="cb3-14">  <span class="at" style="color: #657422;
+<span id="cb3-15">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">filename =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"favicon.png"</span>)</span>
-<span id="cb3-15">  )</span>
-<span id="cb3-16"><span class="fu" style="color: #4758AB;
+font-style: inherit;">filename =</span> outfile</span>
+<span id="cb3-16">)</span>
+<span id="cb3-17"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(s)</span></code></pre></div>
 <div class="cell-output-display">
@@ -5188,44 +5193,44 @@ Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
 <section id="example-data" class="level3">
 <h3 class="anchored" data-anchor-id="example-data">Example data</h3>
 <p>To make this concrete, let’s consider a hypothetical example data set from <a href="http://intensivelongitudinal.com/ch4/ch4index.html">Bolger and Laurenceau (2013)</a>: Two groups’ (<code>treatment</code>: 0/1) self-reported <code>intimacy</code> was tracked over 16 days (<code>time</code>). The dataset contains data from a total of 50 (simulated) individuals.</p>
-<div class="cell" data-hash="index_cache/html/data_e38f0edea7e5642c6382cafd7401a4d1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(rio)</span>
-<span id="cb1-3">dat <span class="ot" style="color: #003B4F;
+<span id="cb1-2"></span>
+<span id="cb1-3">tmpfile <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">import</span>(</span>
-<span id="cb1-4">  <span class="st" style="color: #20794D;
+font-style: inherit;">tempfile</span>()</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">"http://www.intensivelongitudinal.com/ch4/ch4R.zip"</span>, </span>
-<span id="cb1-5">  <span class="at" style="color: #657422;
+font-style: inherit;">download.file</span>(</span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">setclass =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"tibble"</span>, </span>
+font-style: inherit;">"http://www.intensivelongitudinal.com/ch4/ch4R.zip"</span>,</span>
 <span id="cb1-6">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">colClasses =</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">destfile =</span> tmpfile</span>
+<span id="cb1-7">  )</span>
+<span id="cb1-8">dat <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">"id"</span> <span class="ot" style="color: #003B4F;
+font-style: inherit;">read_csv</span>(tmpfile) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">"factor"</span>, <span class="st" style="color: #20794D;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">"treatment"</span> <span class="ot" style="color: #003B4F;
+font-style: inherit;">id =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">as.factor</span>(id), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">"factor"</span>)</span>
-<span id="cb1-7">)</span></code></pre></div>
+font-style: inherit;">treatment =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.factor</span>(treatment))</span></code></pre></div>
 </div>
 </section>
 <section id="model" class="level3">
@@ -5270,7 +5275,7 @@ font-style: inherit;">"intimacymodel"</span></span>
 <section id="interpreting-the-models-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-models-parameters">Interpreting the model’s parameters</h3>
 <p>Let’s then answer our questions by looking at the model’s summary, and interpreting the estimated population-level parameters (the posterior means and standard deviations).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_67895bf65846db104876335ef0f1317a">
+<div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Summary of the Intimacy model's parameters</caption>
@@ -5296,14 +5301,14 @@ font-style: inherit;">"intimacymodel"</span></span>
 <td style="text-align: right;">0.05</td>
 <td style="text-align: right;">0.02</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_treatment1</td>
-<td style="text-align: right;">-0.05</td>
+<td style="text-align: right;">-0.06</td>
 <td style="text-align: right;">0.30</td>
-<td style="text-align: right;">-0.68</td>
-<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">-0.65</td>
+<td style="text-align: right;">0.51</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_time:treatment1</td>
@@ -5319,7 +5324,7 @@ font-style: inherit;">"intimacymodel"</span></span>
 </div>
 </div>
 <p>The first lesson is that most models are simply too complex to interpret by just looking at the numerical parameter estimates. Therefore, we always draw figures to help us interpret what the model thinks is going on. The figure below shows example participants’ data (left) and the model’s estimated effects on the right.</p>
-<div class="cell" data-hash="index_cache/html/figure_4d5407611eca48fecf627589f2b2def4">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5336,7 +5341,7 @@ font-style: inherit;">"intimacymodel"</span></span>
 <h2 class="anchored" data-anchor-id="hypothesis">hypothesis()</h2>
 <p><code>hypothesis()</code> truly is an underappreciated method of the brms package. It can be very useful in probing complex models. It allows us to calculate, visualize, and summarize, with full uncertainty estimates, any transformation of the model’s parameters. These transformations are often called “contrasts” or “general linear hypothesis tests”. But really, they are just transformations of the joint posterior distribution of the model’s parameters.</p>
 <p>To answer Q2, then, we encode our question into a combination of the models parameters:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_933d48cfc0613c1b58f413c4aa875c71">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">q2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5348,7 +5353,7 @@ background-color: null;
 font-style: inherit;">"time + time:treatment1 = 0"</span>)</span></code></pre></div>
 </div>
 <p>The slope of group 1 is calculated from the model’s parameters by adding the slope of group 0 (<code>time</code>) and the interaction term <code>time:treatment1</code>. <code>= 0</code> indicates that we are interested in contrasting the resulting estimate the zero (“testing against zero” or even “testing the null hypothesis”). Then, we pass this named string to <code>hypothesis()</code>, and observe the results.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_cf476b65ca6eb7488d02666834f247fc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">q2_answer <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5368,7 +5373,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 </div>
 <p>The output indicates that the estimated answer to Question 2 is 0.11 with a standard error of 0.02. I will return to <code>Evid.Ratio</code> and <code>Post.Prob</code> shortly.</p>
 <p>The results can also be visualized.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_25c0a52c7a787a16b504300fdba1b2a2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(q2_answer)</span></code></pre></div>
@@ -5385,7 +5390,7 @@ font-style: inherit;">plot</span>(q2_answer)</span></code></pre></div>
 <section id="more-contrasts" class="level2">
 <h2 class="anchored" data-anchor-id="more-contrasts">More contrasts</h2>
 <p>With <code>hypothesis()</code> you can answer many additional questions about your model, beyond the parameter estimates. To illustrate, say we are interested in the groups’ difference in intimacy at the end of the study (day 15; Question 4). (The difference at time 0 is reported by the group parameter.)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_ed8dd057638d67ead8434d7c0bfc49eb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">q4 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5401,7 +5406,7 @@ font-style: inherit;">hypothesis</span>(fit, q4)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q4     0.88       0.4     0.05     1.66         NA        NA    *
+1         q4     0.87       0.4      0.1     1.66         NA        NA    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -5412,7 +5417,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="directional-hypotheses-and-posterior-probabilities" class="level3">
 <h3 class="anchored" data-anchor-id="directional-hypotheses-and-posterior-probabilities">Directional hypotheses and posterior probabilities</h3>
 <p>We can also ask for directional questions. For example, what is the probability that group 0’s slope is greater than 0 (Q5)?</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_8e4b8c458d4fd63ed7a6f6f26a83ef70">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">q5 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5431,7 +5436,7 @@ font-style: inherit;">hypothesis</span>(fit, q5)</span>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
-1         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
+1         q5     0.05      0.02     0.01     0.09      57.82      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -5454,7 +5459,7 @@ font-style: inherit;">plot</span>(q5_answer)</span></code></pre></div>
 <section id="multiple-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-hypotheses">Multiple hypotheses</h3>
 <p>You can evaluate multiple hypotheses in one function call:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_2a0c2a85503c24ef96fd2b2d908662f6">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">hypothesis</span>(fit, <span class="fu" style="color: #4758AB;
@@ -5464,8 +5469,8 @@ font-style: inherit;">c</span>(q2, q4, q5))</span></code></pre></div>
 <pre><code>Hypothesis Tests for class b:
   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star
 1         q2     0.11      0.02     0.06     0.16         NA        NA    *
-2         q4     0.88      0.40     0.05     1.66         NA        NA    *
-3         q5     0.05      0.02     0.01     0.09      47.19      0.98    *
+2         q4     0.87      0.40     0.10     1.66         NA        NA    *
+3         q5     0.05      0.02     0.01     0.09      57.82      0.98    *
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -5477,7 +5482,7 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.</c
 <section id="hierarchical-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="hierarchical-hypotheses">Hierarchical hypotheses</h3>
 <p>Up to this point, we have “tested” the model’s population level effects. (Parameters for the average person. “Fixed effects.”) Because we fit a hierarchical model with varying intercepts and slopes of time, we can also test the individual specific parameters. For example, we can look at every individual’s estimated intercept (intimacy at time 0):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_486814e3b005f81a7e064be6ba0663be">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5496,7 +5501,7 @@ font-style: inherit;">"coef"</span>)</span></code></pre></div>
 </div>
 <p>In the above, we asked for the results of the hypothesis test, split by group <code>id</code> (which is the grouping factor in our hierarchical model), and indicated <code>coef</code> as the scope. The latter means that the estimates are the subject-specific deviations with the fixed effect added, as opposed to <code>ranef</code>, which are zero-centered.</p>
 <p>The results of this question would be a bit too much information to print on screen, so instead we will draw a figure:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_cf8b682c317093de2857b07a71a22e1c">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5549,7 +5554,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/2020-0
 <p>Ordinal scales, of which binary ratings are a special case, provide ordinal data and are thus better analyzed using ordinal models <span class="citation" data-cites="BurknerOrdinalRegressionModels2019 LiddellAnalyzingOrdinalData2018">(Bürkner and Vuorre 2019; Liddell and Kruschke 2018)</span>.</p>
 <p>Analog scales, also known as slider scales, are also unlikely to provide normally distributed responses because the scale is bounded at the low and high ends. These responses also tend to be skewed. It is common for slider responses to bunch at either end of the slider scale, potentially making the deviation from normality more severe.</p>
 <p>For example, Figure&nbsp;1 shows a slider scale in action. (I found this random example with a simple internet search at <a href="https://blog.surveyhero.com/2018/09/03/new-question-type-slider/" class="uri">https://blog.surveyhero.com/2018/09/03/new-question-type-slider/</a>). In experiments using slider scales, subjects are typically instructed to use their mouse to drag a response indicator along a horizontal line, and/or click with a mouse on a point of the scale that matches their subjective impression. Sometimes these responses are provided on paper, where subjects are asked to bisect a line at a point that matches their subjective feeling (e.g.&nbsp;halfway between “Leisure” and “Money” if they are subjectively equally important.)</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-vas_d49fde4a4c4c62f226b259ae88878eb6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-vas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -5567,7 +5572,7 @@ Figure&nbsp;1: Example slider scale from https://blog.surveyhero.com/2018/09/03/
 <section id="normal-model-of-slider-ratings" class="level2">
 <h2 class="anchored" data-anchor-id="normal-model-of-slider-ratings">Normal model of slider ratings</h2>
 <p>Consider Figure&nbsp;2. This figure shows 200 simulated ratings on a [0, 1] slider scale (meaning that any value between 0 and 1, inclusive of the endpoints, is possible). I have also superimposed a blue curve of the best-fitting normal density on the histogram. The two most notable non-normal features of these data are that they are bounded at 0 and 1 where the data appears to “bunch”, and (possibly) skewed. Of course, these data were simulated; experience with slider scales tells me, however, that this histogram is not unrepresentative of such ratings.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-simulate-example_1387ec0834bc4477a1f4ba455cf43422">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-simulate-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -5591,7 +5596,7 @@ Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimpo
 <p>More generally, if your goal is to predict cognition and behavior <span class="citation" data-cites="YarkoniChoosingPredictionExplanation2017">(Yarkoni and Westfall 2017)</span>, a model that is obviously a poor representation of your data—in terms of having such a poor predictive utility—should not be your first choice for data analysis.</p>
 <p>Admittedly, the data in Figure&nbsp;2 were simulated, and it remains an empirical question as to how common these features are in real data, and how severe these issues are to normal models (t-test, ANOVA, correlation, etc.).</p>
 <p>Nevertheless, it would be desirable to have an accessible data-analytic model for slider scale data, whose assumption better match observed features of the data. Here, I introduce one such model—the zero-one-inflated beta (ZOIB) model—and show how it can be applied to real data using the R package brms <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(Bürkner 2017)</span>. I also compare this model to standard analyses of slider scale data and conclude that the ZOIB can provide more detailed and accurate inferences from data than its conventional counterparts.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/meme_fea791b67312972a519790a812746af9">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -5612,7 +5617,7 @@ Figure&nbsp;2: Histogram of 200 simulated slider scale ratings, with a superimpo
 <h2 class="anchored" data-anchor-id="the-beta-distribution">The beta distribution</h2>
 <p>The beta distribution used in beta regression <span class="citation" data-cites="FerrariBetaRegressionModelling2004">(Ferrari and Cribari-Neto 2004)</span> is a model of data in the open (0, 1) interval. (i.e.&nbsp;all values from 0 to 1, but not 0 and 1 themselves, are permitted.)</p>
 <p>The beta distribution typically has two parameters, which in R are called <code>shape1</code> and <code>shape2</code>. Together, they determine the location, spread, and skew of the distribution. Four example beta densities are shown in Figure&nbsp;3. Using R’s <code>dbeta()</code>, I drew four curves corresponding to beta densities with different <code>shape1</code> and <code>2</code> parameters.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-beta-distributions_77b48c6794176e948912869205427887">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-beta-distributions" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -5630,7 +5635,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 <p>However, for our purposes, it is more useful to parameterize the beta distribution with a mean and a precision. To convert the former parameterization to mean (which we’ll call <img src="https://latex.codecogs.com/png.latex?%5Cmu"> (mu)) and precision (<img src="https://latex.codecogs.com/png.latex?%5Cphi"> (phi)), the following formulas can be used</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%5Cmbox%7Bshape1%7D%20&amp;=%20%5Cmu%20%5Cphi%20%5C%5C%0A%5Cmbox%7Bshape2%7D%20&amp;=%20(1%20-%20%5Cmu)%5Cphi%0A%5Cend%7Balign*%7D"></p>
 <p>(This parameterization is provided in R in the PropBeta functions from the extraDist package, which calls the precision parameter, or <img src="https://latex.codecogs.com/png.latex?%5Cphi">, <code>size</code>.) Redrawing the figure from above with this parameterization using the <code>dprop()</code> function, we get the figure below.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/beta-reparameterized-distributions_6d43416edc798f0ea6ef572070c83111">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -5650,7 +5655,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 <p>The zero-one-inflated beta (ZOIB) adds a separate discrete process for the {0, 1} values, using two additional parameters. Following convention, we shall call them <img src="https://latex.codecogs.com/png.latex?%5Calpha"> (alpha) and <img src="https://latex.codecogs.com/png.latex?%5Cgamma"> (gamma). These parameters describe the probability of an observation being a 0 or 1 (<img src="https://latex.codecogs.com/png.latex?%5Calpha">), and conditional on that, whether the observation was 1 (<img src="https://latex.codecogs.com/png.latex?%5Cgamma">).</p>
 <p>In other words, the model of outcomes under ZOIB is described by four parameters. The first is <img src="https://latex.codecogs.com/png.latex?%5Calpha">, the probability that an observation is either 0 or 1. (Thus, <img src="https://latex.codecogs.com/png.latex?1-%5Calpha"> is the probability of a non-boundary observation.) If an observation is not 0 or 1, the datum is described by the beta distribution with some mean <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and precision <img src="https://latex.codecogs.com/png.latex?%5Cphi">. If an observation is 0 or 1, the probability of it being 1 is given by <img src="https://latex.codecogs.com/png.latex?%5Cgamma"> (just like your usual model of binary outcomes, e.g.&nbsp;logistic regression). So you can think of the model as a kind of mixture of beta and logistic regressions, where the <img src="https://latex.codecogs.com/png.latex?%5Calpha"> parameter describes the mixing proportions. The mathematical representation of this model is given in <a href="https://cran.rstudio.com/web/packages/brms/vignettes/brms_families.html#zero-inflated-and-hurdle-models">this vignette</a> <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(Bürkner 2017)</span>.</p>
 <p>To illustrate, I wrote a little function <code>rzoib()</code> that takes these parameters as arguments, and generates <code>n</code> random draws. Here is a histogram of 1k samples from four ZOIB distributions with various combinations of the parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/zoib-distributions_4b0ffacde88a39739a5f0aa829a7ed2f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -5673,7 +5678,7 @@ Figure&nbsp;3: Four examples of the beta density, corresponding to different sha
 <section id="example-data" class="level2">
 <h2 class="anchored" data-anchor-id="example-data">Example data</h2>
 <p>To illustrate the ZOIB model in action, I simulated a data set of 100 ratings from two groups, A and B. These data are shown in Figure&nbsp;4.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-zoib-example_f89e588e13fec1a98ff7bba3a1fdd2c7">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-zoib-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -5702,7 +5707,7 @@ font-style: inherit;">library</span>(brms)</span></code></pre></div>
 </div>
 <p>The R formula syntax allows a concise representation of regression models in the form of <code>response ~ predictors</code>. For a simple normal (i.e.&nbsp;gaussian) model of the mean of <code>Ratings</code> as a function of <code>group</code>, you could write <code>Ratings ~ group, family = gaussian</code>. However, we want to predict the four parameters of the ZOIB model, and so will need to expand this notation.</p>
 <p>The brms package allows modeling more than one parameter of an outcome distribution. Specifically, we want to predict so-called “distributional parameters”, and <code>bf()</code> allows predicting them in their own formulas. Implicitly, <code>Ratings ~ group</code> means that you want to model the <em>mean</em> of <code>Ratings</code> on <code>group</code>. Therefore, to model <img src="https://latex.codecogs.com/png.latex?%5Cphi">, <img src="https://latex.codecogs.com/png.latex?%5Calpha">, and <img src="https://latex.codecogs.com/png.latex?%5Cgamma">, we will give them their own regression formulas within a call to <code>bf()</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/brms-bf_1852a8e969083f61e39a4efa79ee547a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">zoib_model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -5757,7 +5762,7 @@ font-style: inherit;">"brm-zoib"</span></span>
 <span id="cb3-6">)</span></code></pre></div>
 </div>
 <p>brms estimates the regression model using bayesian methods: It will return random draws from the parameters’ posterior distribution. It takes less than a minute to draw samples from this model. Let’s then interpret the estimated parameters (i.e.&nbsp;the numerical summaries of the posterior distribution):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_b6cba7b5785bbafe900170141d8864ce">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(fit)</span>
@@ -5793,34 +5798,34 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb4-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb4-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb4-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept         0.33      0.16     0.03     0.64 1.00     7221     2600</span></span>
+font-style: italic;">## Intercept         0.33      0.16     0.01     0.63 1.00     6253     3166</span></span>
 <span id="cb4-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## phi_Intercept     1.50      0.24     1.00     1.94 1.00     6306     3106</span></span>
+font-style: italic;">## phi_Intercept     1.49      0.24     1.01     1.94 1.00     5683     3040</span></span>
 <span id="cb4-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## zoi_Intercept    -0.80      0.32    -1.44    -0.18 1.00     7341     2983</span></span>
+font-style: italic;">## zoi_Intercept    -0.79      0.32    -1.44    -0.18 1.00     6968     2958</span></span>
 <span id="cb4-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## coi_Intercept     0.62      0.56    -0.40     1.75 1.00     6324     3166</span></span>
+font-style: italic;">## coi_Intercept     0.62      0.57    -0.46     1.79 1.00     6660     2940</span></span>
 <span id="cb4-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## groupB            0.91      0.21     0.50     1.32 1.00     6770     2984</span></span>
+font-style: italic;">## groupB            0.91      0.21     0.52     1.33 1.00     5658     2983</span></span>
 <span id="cb4-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## phi_groupB        0.48      0.33    -0.15     1.14 1.00     5750     2654</span></span>
+font-style: italic;">## phi_groupB        0.49      0.33    -0.16     1.14 1.00     5273     3223</span></span>
 <span id="cb4-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## zoi_groupB        0.08      0.43    -0.75     0.91 1.00     7812     3178</span></span>
+font-style: italic;">## zoi_groupB        0.08      0.43    -0.76     0.91 1.00     6631     2955</span></span>
 <span id="cb4-21"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## coi_groupB       -0.87      0.75    -2.35     0.52 1.00     6093     2866</span></span>
+font-style: italic;">## coi_groupB       -0.86      0.75    -2.36     0.58 1.00     7174     2930</span></span>
 <span id="cb4-22"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -5838,7 +5843,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <p>The first four rows of this describe the parameters for the baseline group (Group A). <code>Intercept</code> is the logit-transformed mean of the beta distribution for Group A’s ratings (the subset of ratings that were (0, 1)). Next, <code>phi_Intercept</code> describes the precision of the beta distribution fitted to Group A’s slider responses, on the scale of the (log) link function. <code>zoi_Intercept</code> is the zero or one inflation of Group A’s data, on the logit scale. <code>coi_Intercept</code> is the conditional one inflation; out of the 0 or 1 ratings in Group A’s data, describing the proportion of ones (out of the 0/1 responses)?</p>
 <p>These parameters are described on the link scale, so for each of them, we can use the inverse link function to transform them to the response scale. Precision (<code>phi_Intercept</code>) was modeled on the log scale. Therefore, we can convert it back to the original scale by exponentiating. For the other parameters, which were modeled on the logit scale, we can use the inverse, which is <code>plogis()</code>.</p>
 <p>However, before converting the parameters, it is important to note that the estimates displayed above are summaries (means, quantiles) of the posterior draws of the parameters on the link function scale. Therefore, we cannot simply convert the summaries. Instead, we must transform each of the posterior samples, and then re-calculate the summaries. The following code accomplishes this “transform-then-summarize” procedure for each of the four parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_5d9fc5fcbfff575b48f050ddbd6a1e8f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">posterior_samples</span>(fit, <span class="at" style="color: #657422;
@@ -5914,19 +5919,19 @@ font-style: inherit;">2</span>) </span></code></pre></div>
 <td style="text-align: left;">b_Intercept</td>
 <td style="text-align: right;">0.58</td>
 <td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.51</td>
-<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.65</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">b_phi_Intercept</td>
-<td style="text-align: right;">4.59</td>
-<td style="text-align: right;">1.10</td>
-<td style="text-align: right;">2.72</td>
+<td style="text-align: right;">4.57</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: right;">2.74</td>
 <td style="text-align: right;">6.99</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">b_zoi_Intercept</td>
-<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.32</td>
 <td style="text-align: right;">0.07</td>
 <td style="text-align: right;">0.19</td>
 <td style="text-align: right;">0.45</td>
@@ -5935,8 +5940,8 @@ font-style: inherit;">2</span>) </span></code></pre></div>
 <td style="text-align: left;">b_coi_Intercept</td>
 <td style="text-align: right;">0.64</td>
 <td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.40</td>
-<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.86</td>
 </tr>
 </tbody>
 </table>
@@ -5944,7 +5949,7 @@ font-style: inherit;">2</span>) </span></code></pre></div>
 </div>
 <p>We can then interpret these summaries, beginning with <code>b_Intercept</code>. This is the estimated mean of the beta distribution fitted to Group A’s (0, 1) rating scale responses (with its standard error, lower- and upper limits of the 95% CI). Then, <code>b_Phi_Intercept</code> is the precision of the beta distribution. <code>zoi</code> is the zero-one inflation, and <code>coi</code> the conditional one inflation.</p>
 <p>To make <code>b_zoi_Intercept</code> concrete, we should be able to compare its posterior mean to the observed proportion of 0/1 values in the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_d32c7eaac5ed6e62ffc18a46f8f950da">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(dat<span class="sc" style="color: #5E5E5E;
@@ -5975,7 +5980,7 @@ background-color: null;
 font-style: italic;">## [1] 0.311</span></span></code></pre></div>
 </div>
 <p>Above we calculated the proportion of zeros and ones in the data set, and found that it matches the estimated value. Similarly, for <code>coi</code>, we can find the corresponding value from the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_ac6dca96dcaa50a7b9d6ca452b14e19b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(dat<span class="sc" style="color: #5E5E5E;
@@ -6016,7 +6021,7 @@ font-style: italic;">## [1] 0.643</span></span></code></pre></div>
 </div>
 <p>Let’s get back to the model summary output. The following four parameters are the effects of being in group B on these parameters. Most importantly, <code>groupB</code> is the effect of group B (versus group A) on the mean of the ratings’ assumed beta distribution, in the logit scale. Immediately, we can see that the parameter’s 95% Credible Interval does not include zero. Traditionally, this parameter would be called “significant”; group B’s (0, 1) ratings are on average greater than group A’s.</p>
 <p>To transform this effect back to the data scale, we can again use <code>plogis()</code>. However, it is important to keep in mind that the effect’s size on the original scale depends on the intercept, getting smaller as the intercept increases (just like in any other generalized linear model.) The following bit of code transforms this effect and its uncertainty back to the original scale.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_7d26594ef60e0ef3eaed6747388bd71a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">h <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -6039,7 +6044,7 @@ background-color: null;
 font-style: italic;">##   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb8-5"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 1      B - A     0.19      0.05      0.1     0.28         NA        NA    *</span></span>
+font-style: italic;">## 1      B - A     0.19      0.04     0.11     0.29         NA        NA    *</span></span>
 <span id="cb8-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ---</span></span>
@@ -6058,7 +6063,7 @@ font-style: italic;">## Posterior probabilities of point hypotheses assume equal
 </div>
 <p>The data were simulated with the <code>rzoib()</code> function, and I set <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.25,%20%5Cgamma%20=%200.5,%20%5Cmu%20=%200.6%20+%200.15%5Cmbox%7BgroupB%7D,%20%5Cphi%20=%205">. Therefore, the results of the t-tests and nonparametric tests were misses; a true effect was missed. On the other hand, the ZOIB regression model detected the true effect of group on the beta distribution’s mean.</p>
 <p>Finally, let’s visualize this key finding using the <code>conditional_effects()</code> function from brms.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-ex-me_aed1f396fa2dcf093960d34d14e062b2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(</span>
@@ -6108,7 +6113,7 @@ Figure&nbsp;5: Estimated mu parameters from the example ZOIB fit, as filled poin
 <section id="simulation-compare-zoib-and-t-test-performances" class="level1">
 <h1>Simulation: Compare ZOIB and t-test performances</h1>
 <p>To compare the performance of the t-test and ZOIB in a little bit more detail, I conducted a small simulation study. I simulated 100 data sets of 200 ratings from two independent groups, from the ZOIB model (100 ratings per group). I set <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.2,%20%5Cgamma%20=%200.7,%20%5Cmu%20=%200.6%20+%200.1%5Cmbox%7BgroupB%7D,%20%5Cphi%20=%205">; that is, there was a small effect of group on the mean of the beta distribution, and all other parameters were constant across groups. A sample of the resulting data sets is shown in Figure&nbsp;6.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sim-examplesets_03586da8508d5d58d42a692663107647">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-sim-examplesets" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -6124,8 +6129,8 @@ Figure&nbsp;6: Six randomly selected simulated data sets. Points are individual 
 </div>
 <p>I first conducted an independent samples, unequal variances t-test on each of the 100 simulated data sets, comparing the two groups’ mean ratings. 35% of these t-tests were significantly positive at the .05 level. That is, the power of the t-test in this simulation was about 35%. (Uncertainty in this value is moderate, because I only did 100 simulation runs.)</p>
 <p>I then estimated the ZOIB model for each of the 100 simulated data sets. Statistical significance does not play a role in Bayesian statistics, but to most easily compare the results of these two models, I calculated the proportion of simulations for which the estimated Group on <img src="https://latex.codecogs.com/png.latex?%5Cmu"> effect’s 95% Credible Interval was entirely above zero. If a 95% CI does not include zero, disrespecting the philosophical differences of bayesian and frequentist statistics, I may say that the estimate is “significant”.</p>
-<p>This parameter was significantly greater than zero in 66% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in Figure&nbsp;7.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fig-sims-compare_86473af857a11cf2e39a1f2b4a67b7af">
+<p>This parameter was significantly greater than zero in 65% of the ZOIB models estimated on the same 100 simulated data sets. That is, the power of this model to detect an effect was much greater than the power of the t-test. These results are illustrated in Figure&nbsp;7.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-sims-compare" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -6216,7 +6221,7 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-
   <category>brms</category>
   <guid>https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</guid>
   <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
+  <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Combine ggplots with patchwork</title>
@@ -6475,7 +6480,7 @@ December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-
   <category>R</category>
   <guid>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
+  <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Glue your strings together</title>
@@ -6489,7 +6494,7 @@ December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-
 
 <p>We’ve all been there; writing <a href="https://github.com/crsh/papaja">manuscripts</a> with <a href="https://rmarkdown.rstudio.com/">R Markdown</a> and dreaming of easy in-text code bits for reproducible reporting. Say you’ve fit a regression model to your data, and would then like to report the model’s parameters in your text, without writing the values in the text. (If the data or model changes, you’d need to re-type the values again.)</p>
 <p>For example, you can print this model summary easily in the R console:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-1_1d55d8b00819b38a1d9b8a2c4eaba991">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">fit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -6524,7 +6529,7 @@ F-statistic: 76.51 on 1 and 30 DF,  p-value: 9.38e-10</code></pre>
 </div>
 </div>
 <p>And to cite those values in the text body of your manuscript, you can write the text in R Markdown like this:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_b6d07cb8a933e2a8d357be12cdb3788c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">The model intercept was <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">`</span><span class="at" style="color: #657422;
@@ -6538,7 +6543,7 @@ font-style: inherit;">`</span>, great.</span></code></pre></div>
 <section id="paste" class="level2">
 <h2 class="anchored" data-anchor-id="paste">Paste</h2>
 <p>However, when you want to present more information, such as the parameter estimate with its standard error, you will have to <code>paste()</code> those strings together:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_366835565a5649d76ca7ecbfddb15497">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">(x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -6578,7 +6583,7 @@ background-color: null;
 font-style: inherit;">""</span>)</span></code></pre></div>
 </div>
 <p>You can then just cite the <code>intercept</code> object in your text body:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_22c54f4cec02aea840f6173b9f095127">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">The model intercept was very very <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">significant</span> (<span class="st" style="color: #20794D;
@@ -6596,7 +6601,7 @@ font-style: inherit;">`</span>).</span></code></pre></div>
 <section id="glue" class="level2">
 <h2 class="anchored" data-anchor-id="glue">Glue</h2>
 <p><a href="https://glue.tidyverse.org/">glue</a> is a small R package that allows you to join strings together in a neat, pythonific way. It replaces the need for quoting and separating arguments in <code>paste()</code>, by asking you to wrap variables in curly braces. Here’s how to do the above pasting with glue:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_866bccea6b1abb57c9eda7c96862ed47">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(glue)</span>
@@ -6612,7 +6617,7 @@ font-style: inherit;">"b = {x[1, 1]}, SE = {x[1, 2]}"</span>)</span></code></pre
 <section id="glue-with-data-frames" class="level3">
 <h3 class="anchored" data-anchor-id="glue-with-data-frames">Glue with data frames</h3>
 <p>Glue has other neat (more advanced) features, such as gluing variables row-by-row in a data frame:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_ef356586f2856edca015da27ea96579b">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dplyr)</span>
@@ -6638,7 +6643,7 @@ disp's point estimate was -0.041, with an SE of 0.005.</code></pre>
 <section id="appendix-papaja" class="level2">
 <h2 class="anchored" data-anchor-id="appendix-papaja">Appendix: papaja</h2>
 <p>For some models (like our simple linear model example here), the <a href="https://github.com/crsh/papaja">papaja R package</a> (which deserves its own rpihkal post!) has very useful shortcuts</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_e5b0a3fe2a4d085c9ce4e216c074a105">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(papaja)</span>
@@ -6653,7 +6658,7 @@ background-color: null;
 font-style: inherit;">$</span>Intercept</span></code></pre></div>
 </div>
 <p>If you now cite <code>intercept</code> in the text body of your manuscript, it renders into <img src="https://latex.codecogs.com/png.latex?%5CLaTeX"> (which is interpreted nicely if you are outputting PDF or Word documents; here on this website it looks odd):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_887e8b3d753d5ffa1bf57423ff8600ab">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">The model intercept was rather <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">significant</span> (<span class="st" style="color: #20794D;
@@ -9431,7 +9436,7 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-
   <category>brms</category>
   <guid>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</guid>
   <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Bayes Factors with brms</title>
@@ -9445,7 +9450,7 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-
 
 <p>Here’s a short post on how to calculate Bayes Factors with the R package <a href="http://CRAN.R-project.org/package=brms">brms</a> using the Savage-Dickey density ratio method <span class="citation" data-cites="wagenmakers_bayesian_2010">(Wagenmakers et al. 2010)</span>.</p>
 <p>To get up to speed with what the Savage-Dickey density ratio method is–or what Bayes Factors are–please read the target article <span class="citation" data-cites="wagenmakers_bayesian_2010">(Wagenmakers et al. 2010)</span>. (The paper is available on the <a href="http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf">author’s webpage</a>.) Here, I’ll only show the R &amp; brms code to do the calculations discussed in <span class="citation" data-cites="wagenmakers_bayesian_2010">Wagenmakers et al. (2010)</span>. In their paper, they used WinBUGS, which requires quite a bit of code to sample from even a relatively simple model. brms on the other hand uses the familiar R formula syntax, making it easy to use. brms also does the MCMC sampling with <a href="http://mc-stan.org/">Stan</a> <span class="citation" data-cites="stan_development_team_stan:_2016">(Stan Development Team 2016)</span>, or rather creates Stan code from a specified R model formula by what can only be described as string processing magic, making the sampling very fast. Let’s get straight to the examples. We will use these packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_50922088949ccc77b1646107a2c1b79c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
@@ -9468,7 +9473,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <section id="example-0" class="level2">
 <h2 class="anchored" data-anchor-id="example-0">Example 0</h2>
 <p>Wagenmakers and colleagues begin with a simple example of 10 true/false questions: We observe a person answering 9 (s) out of 10 (k) questions correctly.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_cc51a5e32633ed7a27a3f660e91e1efd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9485,7 +9490,7 @@ font-style: inherit;">10</span>)</span></code></pre></div>
 </div>
 <p>We are interested in the person’s latent ability to answer similar questions correctly. This ability is represented by <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> (theta), which for us will be the probability parameter (sometimes also called the rate parameter) in a binomial distribution. The maximum likelihood (point) estimate for <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the proportion n/k = .9.</p>
 <p>The first thing we’ll need to specify with respect to our statistical model is the prior probability distribution for <img src="https://latex.codecogs.com/png.latex?%5Ctheta">. As in Wagenmakers et al.&nbsp;2010, we specify a uniform prior, representing no prior information about the person’s ability to aswer the questions. For the binomial probability parameter, <img src="https://latex.codecogs.com/png.latex?Beta(%5Calpha%20=%201,%20%5Cbeta%20=%201)"> is a uniform prior.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_8bab6d1522df9f9ac544afd66105aa74">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">pd <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9523,7 +9528,7 @@ font-style: inherit;">1</span>)</span>
 </div>
 </div>
 <p>The solid line represents the probability density assigned to values of <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> by this prior probability distribution. You can see that it is 1 for all possible parameter values: They are all equally likely a priori. For this simple illustration, we can easily calculate the posterior distribution by adding the number of correct and incorrect answers to the parameters of the prior Beta distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/figure1_3dc4bd868858cf18fe8fa3481b566395">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">pd<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>Posterior <span class="ot" style="color: #003B4F;
@@ -9554,7 +9559,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 </div>
 </div>
 <p>The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a “null hypothesis” value indicating that the person’s latent ability is .5, i.e.&nbsp;that they are simply guessing.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_fb1e118b34bd94a7e42c6bdde6483200">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Bayes Factors for first example.</caption>
@@ -9582,7 +9587,7 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 </div>
 </div>
 <p>OK, so in this example we are able to get to the posterior with simply adding values into the parameters of the Beta distribution, but let’s now see how to get to this problem using brms. First, here’s the brms formula of the model:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_f71290f001916c2673434922a43172c7">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">m0 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9613,7 +9618,7 @@ font-style: inherit;">"identity"</span>)</span>
 <p>Read the first line as “s successes from k trials regressed on intercept”. That’s a little clunky, but bear with it. If you are familiar with R’s modeling syntax, you’ll be wondering why we didn’t simply specify <code>~ 1</code> (R’s default notation for an intercept). The reason is that brms by default uses a little trick in parameterizing the intercept which speeds up the MCMC sampling. In order to specify a prior for the intercept, you’ll have to take the default intercept out (<code>0 +</code>), and use the reserved string <code>intercept</code> to say that you mean the regular intercept. See <code>?brmsformula</code> for details. (For this model, with only one parameter, this complication doesn’t matter, but I wanted to introduce it early on so that you’d be aware of it when estimating multi-parameter models.)</p>
 <p>The next line specifies that the data model is binomial, and that we want to model it’s parameter through an identity link. Usually when you model proportions or binary data, you’d use a logistic (logistic regression!), probit or other similar link function. In fact this is what we’ll do for later examples. Finally, we’ll use the data frame <code>d</code>.</p>
 <p>OK, then we’ll want to specify our priors. Priors are extremo important for Bayes Factors–and probabilistic inference in general. To help set priors, we’ll first call <code>get_priors()</code> with the model information, which is basically like asking brms to tell what are the possible priors, and how to specify then, given this model.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_c86354cd23443caadb4f8ed21559cfb9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_prior</span>(m0, <span class="at" style="color: #657422;
@@ -9630,7 +9635,7 @@ background-color: null;
 font-style: italic;">##  (flat)     b Intercept                             (vectorized)</span></span></code></pre></div>
 </div>
 <p>The first line says that there is only one class of parameters <code>b</code>, think of class <code>b</code> as “betas” or “regression coefficients”. The second line says that the <code>b</code> class has only one parameter, the intercept. So we can set a prior for the intercept, and this prior can be any probability distribution in Stan language. We’ll create this prior using brms’ <code>set_prior()</code>, give it a text string representing the Beta(1, 1) prior for all parameters of class <code>b</code> (shortcut, could also specify that we want it for the intercept specifically), and then say the upper and lower bounds (<img src="https://latex.codecogs.com/png.latex?%5Ctheta"> must be between 0 and 1).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_3fb335effddea5621cb4e2f1865d045c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">Prior <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9652,7 +9657,7 @@ background-color: null;
 font-style: inherit;">1</span>)</span></code></pre></div>
 </div>
 <p>Almost there. Now we’ll actually sample from the model using <code>brm()</code>, give it the model, priors, data, ask it to sample from priors (for the density ratio), and set a few extra MCMC parameters.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-7_284135aafe8234ebf5596ac8a6a2e6d3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">m <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9690,7 +9695,7 @@ font-style: inherit;">"bayesfactormodel"</span></span>
 <span id="cb8-9">)</span></code></pre></div>
 </div>
 <p>We can get the estimated parameter by asking the model summary:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_6c850acdbbc4945d8d9f15801f02e895">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(m)</span>
@@ -9717,13 +9722,13 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb9-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb9-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb9-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept     0.83      0.10     0.59     0.98 1.00     6331     6217</span></span>
+font-style: italic;">## Intercept     0.83      0.10     0.60     0.97 1.00     6332     5915</span></span>
 <span id="cb9-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -9738,7 +9743,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>The Credible Interval matches exactly what’s reported in the paper. The point estimate differs slightly because here we see the posterior mean, whereas in the paper, Wagenmakers et al.&nbsp;report the posterior mode. I’ll draw a line at their posterior mode, below, to show that it matches.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_0579405a8f362975d9015e6982268847">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">samples <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9757,28 +9762,28 @@ font-style: inherit;">"b"</span>)</span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">0.41</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.68</td>
-<td style="text-align: right;">0.23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.73</td>
-<td style="text-align: right;">0.95</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.78</td>
-<td style="text-align: right;">0.60</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">0.80</td>
 <td style="text-align: right;">0.25</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">0.81</td>
-<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">0.43</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.63</td>
 </tr>
 </tbody>
 </table>
@@ -9794,7 +9799,7 @@ font-style: inherit;">"b"</span>)</span></code></pre></div>
 </div>
 </div>
 <p>We can already see the densities, so all that’s left is to obtain the exact values at the value of interest (.5) and take the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bposterior%7D%7Bprior%7D"> ratio. Instead of doing any of this by hand, we’ll use brms’ function <code>hypothesis()</code> that allows us to test point hypotheses using the Dickey Savage density ratio. For this function we’ll need to specify the point of interest, .5, as the point hypothesis to be tested.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_e7d6d29f2b2925eb91836ac3b9071797">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">h <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9817,7 +9822,7 @@ background-color: null;
 font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb11-5"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 1 (Intercept)-(0.5) = 0    0.335    0.1037   0.0892   0.4781     0.1119    0.1006    *</span></span>
+font-style: italic;">## 1 (Intercept)-(0.5) = 0    0.334    0.1011   0.0958    0.475     0.0989      0.09    *</span></span>
 <span id="cb11-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ---</span></span>
@@ -9835,7 +9840,7 @@ background-color: null;
 font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
 </div>
 <p>The <code>Evid.Ratio</code> is our Bayes Factor BF01. Notice that it matches the value 0.107 pretty well. You can also plot this hypothesis object easily with the <code>plot()</code> method:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-11_03064fc0db1b62e777eec8594f967597">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(h)</span></code></pre></div>
@@ -9852,7 +9857,7 @@ font-style: inherit;">plot</span>(h)</span></code></pre></div>
 <section id="example-1-equality-of-proportions" class="level2">
 <h2 class="anchored" data-anchor-id="example-1-equality-of-proportions">Example 1: Equality of Proportions</h2>
 <p>These are the data from the paper</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-12_2bbf7d86300289ec68bc33f532937fbf">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">d <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9898,7 +9903,7 @@ background-color: null;
 font-style: italic;">## 2     no 5416 9072</span></span></code></pre></div>
 </div>
 <p>They use Beta(1, 1) priors for both rate parameters, which we’ll do as well. Notice that usually a regression formula has an intercept and a coefficient (e.g.&nbsp;effect of group.) By taking the intercept out (<code>0 +</code>) we can define two pledger-group proportions instead, and set priors on these. If we used an intercept + effect formula, we could set a prior on the effect itself.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_90d12253ac90d1f3b47323ad5fa115c0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">m1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9947,7 +9952,7 @@ background-color: null;
 font-style: italic;">##  (flat)     b pledgeyes                             (vectorized)</span></span></code></pre></div>
 </div>
 <p>We can set the Beta prior for both groups’ rate with one line of code by setting the prior on the <code>b</code> class without specifying the <code>coef</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_85decd0258db5c981f4bf36b61c6d999">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">Prior <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -9969,7 +9974,7 @@ background-color: null;
 font-style: inherit;">1</span>)</span></code></pre></div>
 </div>
 <p>Like above, let’s estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-15_939f9fe59972232a3315322c9bc988d0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">m1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10005,7 +10010,7 @@ font-style: inherit;">"bayesfactormodel2"</span></span>
 <span id="cb16-9">)</span></code></pre></div>
 </div>
 <p>Our estimates match the MLEs reported in the paper:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-16_1fda04a0f242dafa295451c3f39be1a4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(m1)</span>
@@ -10032,16 +10037,16 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb17-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb17-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb17-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## pledgeno      0.60      0.01     0.59     0.61 1.00    17582    12872</span></span>
+font-style: italic;">## pledgeno      0.60      0.01     0.59     0.61 1.00    16511    13651</span></span>
 <span id="cb17-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## pledgeyes     0.55      0.02     0.51     0.58 1.00    19471    13744</span></span>
+font-style: italic;">## pledgeyes     0.55      0.02     0.51     0.58 1.00    17587    12835</span></span>
 <span id="cb17-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -10056,7 +10061,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>To get the density ratio Bayes Factor, we’ll need to specify a text string as our hypothesis. Our hypothesis is that the rate parameters <img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> and <img src="https://latex.codecogs.com/png.latex?%5Ctheta_2"> are not different: <img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> = <img src="https://latex.codecogs.com/png.latex?%5Ctheta_2">. The alternative, then, is the notion that the parameter values differ.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-17_f3941cb242db1c037d29915016d4e7ad">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">h1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10073,7 +10078,7 @@ background-color: null;
 font-style: italic;">##                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb18-5"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.55      0.36    *</span></span>
+font-style: italic;">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.52      0.34    *</span></span>
 <span id="cb18-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ---</span></span>
@@ -10091,7 +10096,7 @@ background-color: null;
 font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
 </div>
 <p>As noted in the paper, a difference value of 0 is about twice as well supported before seeing the data, i.e.&nbsp;the null hypothesis of no difference is twice less likely after seeing the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-18_ead8dac40605294695c217abdc41dba0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
@@ -10105,10 +10110,10 @@ background-color: null;
 font-style: inherit;"># BF10</span></span>
 <span id="cb19-2"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## [1] 1.808643</span></span></code></pre></div>
+font-style: italic;">## [1] 1.921607</span></span></code></pre></div>
 </div>
 <p>The paper reports BF01 = 0.47, so we’re getting the same results (as we should.) You can also compare this figure to what’s reported in the paper.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-19_fe9d6c85bf18b295d23dd39713de79c2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">h1p1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10150,7 +10155,7 @@ background-color: null;
 font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>))</span>
-<span id="cb20-4">  </span>
+<span id="cb20-4"></span>
 <span id="cb20-5">(h1p1 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span> h1p2) <span class="sc" style="color: #5E5E5E;
@@ -10176,7 +10181,7 @@ font-style: inherit;">"collect"</span>)</span></code></pre></div>
 <section id="example-2-hierarchical-bayesian-one-sample-proportion-test" class="level2">
 <h2 class="anchored" data-anchor-id="example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</h2>
 <p>The data for example 2 is not available, but we’ll simulate similar data. The simulation assumes that the neither-primed condition average correct probability is 50%, and that the both-primed condition benefit is 5%. Obviously, the numbers here won’t match anymore, but the data reported in the paper has an average difference in proportions of about 4%.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-20_f3fee0a30f209fdea026ce047ba0e748">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
@@ -10295,55 +10300,83 @@ background-color: null;
 font-style: italic;">## 2 neither 0.499</span></span></code></pre></div>
 </div>
 <p>This data yields a similar t-value as in the paper.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-21_7cbf84f49d65b19f5829d7e24b4ed4a3">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">tmp <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">t.test</span>(correct <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span> n <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb22-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">~</span> primed, <span class="at" style="color: #657422;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">paired =</span> T, <span class="at" style="color: #657422;
+font-style: inherit;">p =</span> correct <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">data =</span> d)</span>
-<span id="cb22-2"><span class="do" style="color: #5E5E5E;
+font-style: inherit;">/</span> n) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb22-3"><span class="do" style="color: #5E5E5E;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb22-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: italic;">##  Paired t-test</span></span>
-<span id="cb22-4"><span class="do" style="color: #5E5E5E;
+font-style: inherit;">select</span>(id, primed, p) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb22-5"><span class="do" style="color: #5E5E5E;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb22-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: italic;">## data:  correct/n by primed</span></span>
+font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names_from =</span> primed, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values_from =</span> p)</span>
+<span id="cb22-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(tmp<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>both, tmp<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>neither, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">paired =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> .)</span>
 <span id="cb22-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## t = 2.3045, df = 73, p-value = 0.02404</span></span>
+font-style: italic;">## </span></span>
 <span id="cb22-7"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## alternative hypothesis: true difference in means is not equal to 0</span></span>
+font-style: italic;">##  Paired t-test</span></span>
 <span id="cb22-8"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 95 percent confidence interval:</span></span>
+font-style: italic;">## </span></span>
 <span id="cb22-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">##  0.005741069 0.079201016</span></span>
+font-style: italic;">## data:  tmp$both and tmp$neither</span></span>
 <span id="cb22-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sample estimates:</span></span>
+font-style: italic;">## t = 2.3045, df = 73, p-value = 0.02404</span></span>
 <span id="cb22-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## mean of the differences </span></span>
+font-style: italic;">## alternative hypothesis: true mean difference is not equal to 0</span></span>
 <span id="cb22-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">##              0.04247104</span></span></code></pre></div>
+font-style: italic;">## 95 percent confidence interval:</span></span>
+<span id="cb22-13"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##  0.005741069 0.079201016</span></span>
+<span id="cb22-14"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## sample estimates:</span></span>
+<span id="cb22-15"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## mean difference </span></span>
+<span id="cb22-16"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##      0.04247104</span></span></code></pre></div>
 </div>
 <p>Instead of doing a probit regression, I’m going to do logistic regression. Therefore we define the prior on the log-odds scale. The log odds for the expected probability of .5 is 0. I prefer log-odds because–although complicated–they make sense, unlike standardized effect sizes. Note that the probit scale would also be fine as they are very similar.</p>
 <p>Let’s just get a quick intuition about effects in log-odds: The change in log odds from p = .5 to .55 is about 0.2.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-22_4334c2ea6cc77cc282384accbf85d0ea">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tibble</span>(</span>
@@ -10462,7 +10495,7 @@ font-style: inherit;">0</span>)</span></code></pre></div>
 </div>
 </div>
 <p>We are cheating a little because we know these values, having simulated the data. However, log-odds are not straightforward (!), and this knowledge will allow us to specify better priors in this example. Let’s get the possible priors for this model by calling <code>get_prior()</code>. Notice that the model now includes id-varying “random” effects, and we model them from independent Gaussians by specifying <code>||</code> instead of <code>|</code> which would give a multivariate Gaussian on the varying effects.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-23_9b08ef9a3926e03c3b96fbc107b7f821">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">m2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10536,7 +10569,7 @@ background-color: null;
 font-style: italic;">##  student_t(3, 0, 2.5)    sd     prime    id                  0    (vectorized)</span></span></code></pre></div>
 </div>
 <p>The leftmost column gives the pre-specified defaults used by brms. Here are the priors we’ll specify. The most important pertains to <code>prime</code>, which is going to be the effect size in log-odds. Our prior for the log odds of the prime effect is going to be a Gaussian distribution centered on 0, with a standard deviation of .2, which is rather diffuse.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-24_30f40e13ceb271f8eeebda753a8e58c4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">Prior <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10580,7 +10613,7 @@ font-style: inherit;">"prime"</span>)</span>
 <span id="cb25-5">)</span></code></pre></div>
 </div>
 <p>Then we estimate the model using the specified priors.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-25_100bf6f068f10b1720bd39145f877cd9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">m2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10616,7 +10649,7 @@ font-style: inherit;">"bayesfactormodel3"</span></span>
 <span id="cb26-9">)</span></code></pre></div>
 </div>
 <p>OK, so our results here will be different because we didn’t parameterize the prior on a standardized effect size because <strong>a</strong>) I don’t like standardized effect sizes, and <strong>b</strong>) I would have to play around with the Stan code, and this post is about brms. Anyway, here are the estimated parameters:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-26_2121e3c1317d461ed846d6376ac78d19">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(m2)</span>
@@ -10643,7 +10676,7 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb27-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Group-Level Effects: </span></span>
+font-style: italic;">## Multilevel Hyperparameters:</span></span>
 <span id="cb27-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ~id (Number of levels: 74) </span></span>
@@ -10652,25 +10685,25 @@ background-color: null;
 font-style: italic;">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb27-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(Intercept)     0.07      0.05     0.00     0.18 1.00     6289     7595</span></span>
+font-style: italic;">## sd(Intercept)     0.07      0.05     0.00     0.19 1.00     7582     9246</span></span>
 <span id="cb27-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sd(prime)         0.12      0.08     0.01     0.30 1.00     5325     7048</span></span>
+font-style: italic;">## sd(prime)         0.12      0.08     0.01     0.30 1.00     6057     8731</span></span>
 <span id="cb27-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb27-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb27-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb27-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept     0.01      0.05    -0.09     0.11 1.00    15752    13860</span></span>
+font-style: italic;">## Intercept     0.01      0.05    -0.09     0.10 1.00    19816    15086</span></span>
 <span id="cb27-18"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## prime         0.15      0.07     0.01     0.29 1.00    14810    14424</span></span>
+font-style: italic;">## prime         0.15      0.07     0.02     0.28 1.00    20723    16003</span></span>
 <span id="cb27-19"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -10685,7 +10718,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>And our null-hypothesis density ratio:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-27_caf739a0b00834b17c2c7fef7deb118d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">h2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -10702,7 +10735,7 @@ background-color: null;
 font-style: italic;">##    Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb28-5"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 1 (prime) = 0     0.15      0.07     0.01     0.29       0.31      0.23    *</span></span>
+font-style: italic;">## 1 (prime) = 0     0.15      0.07     0.02     0.28       0.28      0.22    *</span></span>
 <span id="cb28-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ---</span></span>
@@ -10720,7 +10753,7 @@ background-color: null;
 font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
 </div>
 <p>Priming effect of zero log-odds is 4 times less likely after seeing the data:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-28_10dd8c444e34a93c2734fec2400567cd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
@@ -10732,10 +10765,10 @@ background-color: null;
 font-style: inherit;">$</span>Evid.Ratio</span>
 <span id="cb29-2"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## [1] 3.267158</span></span></code></pre></div>
+font-style: italic;">## [1] 3.531361</span></span></code></pre></div>
 </div>
 <p>This is best illustrated by plotting the densities:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-29_8bdb9fb111bdedf9ec600ab4a1bb4fc3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(h2)</span></code></pre></div>
@@ -10795,7 +10828,7 @@ Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
 <p>Today, we’ll take a look at creating a specific type of visualization for data from a within-subjects experiment (also known as repeated measures, but that can sometimes be a misleading label). You’ll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you’re lucky.) But alternatives exist, and today we’ll take a look at <strong>within-subjects scatterplots</strong>.</p>
 <p>For example, <span class="citation" data-cites="ganis_new_2015">Ganis and Kievit (2015)</span> asked 54 people to observe, on each trial, two 3-D shapes with various rotations and judge whether the two shapes were the same or not.</p>
 <p>There were 4 angles (0, 50, 100, and 150 degree rotations), but for simplicity, today we’ll only look at items that were not rotated with respect to each other, and items rotated 50 degrees. The data are freely available (thanks!) in Excel format, and the below snippet loads the data and cleans into a useable format:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_ab58bb399171b1182c1049b5e8e1357e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -10917,7 +10950,7 @@ background-color: null;
 font-style: inherit;">`</span>)</span>
 <span id="cb1-21">  )</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_cf960b938fe4dd8cb90a2ff17cd1ee33">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Example data.</caption>
@@ -10976,7 +11009,7 @@ font-style: inherit;">`</span>)</span>
 <section id="subject-means" class="level2">
 <h2 class="anchored" data-anchor-id="subject-means">Subject means</h2>
 <p>We’ll be graphing subjects’ means and standard errors, so we compute both first</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_d02120b959f0a4efa22aaaaa7e78b0ab">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">dat_sum <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11064,7 +11097,7 @@ font-style: inherit;">n</span>())</span>
 
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_798a05dcc1edb14e03a961884b9e19e3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">dat_sum <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
@@ -11123,7 +11156,7 @@ font-style: inherit;">"Mean RT"</span>)</span></code></pre></div>
 <section id="within-subject-scatterplots" class="level2">
 <h2 class="anchored" data-anchor-id="within-subject-scatterplots">Within-subject scatterplots</h2>
 <p>To draw within-subjects scatterplots, we’ll need a slight reorganization of the data, such that it is in wide format with respect to the conditions.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_f90c24d93f3eb5ff5485264bd83b433a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dat_sum_wide <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> dat_sum <span class="sc" style="color: #5E5E5E;
@@ -11200,7 +11233,7 @@ font-style: inherit;">c</span>(m, se))</span></code></pre></div>
 </div>
 </div>
 <p>Then we can simply map the per-subject angle-means and standard errors to the X and Y axes. I think it’s important for these graphs to usually have a 1:1 aspect ratio, an identity line, and identical axes, which we add below.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/scatter_dcb3da38b671bb131b25381bd7d2b20d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(dat_sum_wide, <span class="fu" style="color: #4758AB;
@@ -11382,7 +11415,7 @@ in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.com/posts/
 <p>Understanding the results of Bayesian estimation requires some knowledge of Bayesian statistics, of course, but since I cannot cover everything in this one post, I refer readers to excellent books on the topic: <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">McElreath (2020)</span>, <span class="citation" data-cites="kruschkeDoingBayesianData2014">Kruschke (2014)</span>, <span class="citation" data-cites="gelmanBayesianDataAnalysis2013">Gelman et al. (2013)</span>.</p>
 <p>First, I’ll introduce the basic t-test in some detail, and then focus on understanding them as specific instantiations of <em>linear models</em>. If that sounds familiar, skip ahead to Bayesian Estimation of the t-test, where I introduce the <strong>brms</strong> package for estimating models using Bayesian methods. Following that, we’ll use “distributional regression” to obtain Bayesian estimates of the unequal variances t-test model. Finally, we’ll learn how to estimate the robust unequal variances model using brms.</p>
 <p>We will use the following R packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_c20f80666b7b32871dd0303a15a4e119">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
@@ -11410,7 +11443,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <p>“Consider data from two groups of people who take an IQ test. Group 1 (N1=47) consumes a “smart drug,” and Group 2 (N2=42) is a control group that consumes a placebo.”</p>
 </blockquote>
 <p>These data are visualized as histograms, below:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/dataplot1_010c4453c00c39f3c08cce9b1954f2e0">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -11423,7 +11456,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <section id="equal-variances-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="equal-variances-t-test">Equal variances t-test</h3>
 <p>These two groups’ IQ scores could be compared with a simple <strong>equal variances t-test</strong> (which you shouldn’t use; <a href="https://daniellakens.blogspot.com/2015/01/always-use-welchs-t-test-instead-of.html">Lakens, 2015</a>), also known as Student’s t-test.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_f469487ee80746cfc327c61d952599f2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">t.test</span>(IQ <span class="sc" style="color: #5E5E5E;
@@ -11468,7 +11501,7 @@ background-color: null;
 font-style: italic;">##                100.3571                101.9149</span></span></code></pre></div>
 </div>
 <p>We interpret the t-test in terms of the observed t-value, and whether it exceeds the critical t-value. The critical t-value, in turn, is defined as the extreme <img src="https://latex.codecogs.com/png.latex?%5Calpha%20/%202"> percentiles of a t-distribution with the given degrees of freedom.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_ba309069df0008514dc5ea2c31794b57">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -11483,7 +11516,7 @@ font-style: italic;">##                100.3571                101.9149</span></
 <section id="unequal-variances-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="unequal-variances-t-test">Unequal variances t-test</h3>
 <p>Next, we’ll run the more appropriate, <strong>unequal variances t-test</strong> (also known as Welch’s t-test), which R gives by default:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_fd71ebf594333d99a0dbfd178e16dbe6">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">t.test</span>(IQ <span class="sc" style="color: #5E5E5E;
@@ -11546,7 +11579,7 @@ font-style: italic;">##                100.3571                101.9149</span></
 <p>However, for the models described here, it can be easier to think of the t-test as a specific type of the <strong>general linear model</strong>. We can re-write the t-test in an equivalent way, but instead have a specific parameter for the difference in means by writing it as a linear model. The equal variance model can be written as</p>
 <p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20N(%5Cmu_%7Bk%7D,%20%5Csigma%5E2)"> <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20Group_%7Bik%7D"></p>
 <p>Here, <img src="https://latex.codecogs.com/png.latex?%5Csigma"> is just as before, but we now model the mean with an intercept (control group’s mean, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_0">) and the effect of the treatment (<img src="https://latex.codecogs.com/png.latex?%5Cbeta_1">). With this model, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> directly tells us the estimated difference in the two groups. And because it is a parameter in the model, it has an associated standard error, t-value, degrees of freedom, and a p-value. The model can be estimated in R with the following line of code:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_18e542bb89dbd51bb24090b76bb1aede">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">olsmod <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11560,7 +11593,7 @@ font-style: inherit;">data =</span> d)</span></code></pre></div>
 <p>The key input here is a model formula, which in R is specified as <code>outcome ~ predictor</code> (<code>DV ~ IV</code>). Using the <code>lm()</code> function, we estimated a linear model predicting <code>IQ</code> from an intercept (automatically included) and a Group parameter. I called this object <code>olsmod</code> for Ordinary Least Squares Model.</p>
 <p>R has it’s own model formula syntax, which is well worth learning. The formula in the previous model, <code>IQ ~ Group</code> means that we want to regress IQ on an intercept (which is implicitly included), and group (<code>Group</code>). Besides the formula, we only need to provide the data, which is contained in <code>d</code>.</p>
 <p>You can verify that the results are identical to the equal variances t-test above.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_56682d283cd045c5f2d8eb7777380994">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(olsmod)</span>
@@ -11629,7 +11662,7 @@ font-style: italic;">## F-statistic:  2.43 on 1 and 87 DF,  p-value: 0.1227</spa
 <h3 class="anchored" data-anchor-id="equal-variances-model">Equal variances model</h3>
 <p>Next, I’ll illustrate how to estimate the equal variances t-test using Bayesian methods.</p>
 <p>Estimating this model with R, thanks to the Stan and brms teams, is as easy as the linear regression model we ran above. The most important function in the brms package is <code>brm()</code>, for Bayesian Regression Model(ing). The user needs only to input a model formula, just as above, and a data frame that contains the variables specified in the formula. <code>brm()</code> then translates the model into Stan language, and asks Stan to compile the model into C++ and draw samples from the posterior distribution. The result is an R object with the estimated results. We run the model and save the results to <code>mod_eqvar</code> for equal variances model:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-7_a3c902108e9ee8bf6d8b363294a721b4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">mod_eqvar <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11658,7 +11691,7 @@ font-style: inherit;"># Save results into a file</span></span>
 <span id="cb6-6">)</span></code></pre></div>
 </div>
 <p>The results can be viewed with <code>summary()</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-8_c394c494672e0d2019bfadb8574d6c97">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(mod_eqvar)</span>
@@ -11685,28 +11718,28 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb7-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Population-Level Effects: </span></span>
+font-style: italic;">## Regression Coefficients:</span></span>
 <span id="cb7-10"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Intercept        100.36      0.73    98.93   101.75 1.00     3751     3056</span></span>
+font-style: italic;">## Intercept        100.36      0.70    98.99   101.76 1.00     3395     2667</span></span>
 <span id="cb7-12"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## GroupTreatment     1.55      1.00    -0.38     3.58 1.00     3779     2943</span></span>
+font-style: italic;">## GroupTreatment     1.52      1.02    -0.48     3.49 1.00     3651     2829</span></span>
 <span id="cb7-13"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb7-14"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## Family Specific Parameters: </span></span>
+font-style: italic;">## Further Distributional Parameters:</span></span>
 <span id="cb7-15"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
 <span id="cb7-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## sigma     4.72      0.36     4.09     5.48 1.00     3732     3046</span></span>
+font-style: italic;">## sigma     4.72      0.36     4.09     5.50 1.00     3655     2657</span></span>
 <span id="cb7-17"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## </span></span>
@@ -11721,7 +11754,7 @@ background-color: null;
 font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 </div>
 <p>Notice that the model contains three parameters, one of which is the shared standard deviation <code>sigma</code>. Compare the output of the Bayesian model to the one estimated with <code>lm()</code> (OLS):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-9_3baba5f94d16532f646ec82efad7cd81">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Model results, left: OLS, right: brms.</caption>
@@ -11742,15 +11775,15 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <td style="text-align: right;">0.73</td>
 <td style="text-align: left;">Intercept</td>
 <td style="text-align: right;">100.36</td>
-<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">0.70</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">GroupTreatment</td>
 <td style="text-align: right;">1.56</td>
 <td style="text-align: right;">1.00</td>
 <td style="text-align: left;">GroupTreatment</td>
-<td style="text-align: right;">1.55</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">1.02</td>
 </tr>
 </tbody>
 </table>
@@ -11768,7 +11801,7 @@ font-style: italic;">## scale reduction factor on split chains (at convergence, 
 <p>Notice that we now have subscripts for <img src="https://latex.codecogs.com/png.latex?%5Csigma">, denoting that it varies between groups. In fact, we’ll write out a linear model for the standard deviation parameter.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bk%7D%20=%20%5Cgamma_0%20+%20%5Cgamma_1%20Group_%7Bik%7D"></p>
 <p>The model now includes, instead of a common <img src="https://latex.codecogs.com/png.latex?%5Csigma">, one parameter for Group 0’s standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cgamma_0"> (gamma), and one for the effect of Group 1 on the standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cgamma_1">, such that group 1’s standard deviation is <img src="https://latex.codecogs.com/png.latex?%5Cgamma_0%20+%20%5Cgamma_1">. Therefore, we have 4 free parameters, two means and two standard deviations. (The full specification would include prior distributions for all the parameters, but that topic is outside of the scope of this post.) <code>brm()</code> takes more complicated models by wrapping them inside <code>bf()</code> (short for <code>brmsformula()</code>), which is subsequently entered as the first argument to <code>brm()</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-10_43b399d45de91eceaa16b14fbb3dfc9b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">uneq_var_frm <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11780,7 +11813,7 @@ background-color: null;
 font-style: inherit;">~</span> Group)</span></code></pre></div>
 </div>
 <p>You can see that the formula regresses IQ on Group, such that we’ll have an intercept (implicitly included), and an effect of Group 1. We also model the standard deviation sigma on Group.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-11_1bc91816870236e5afe5de100e0191a9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">mod_uneqvar <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11802,7 +11835,7 @@ background-color: null;
 font-style: inherit;">"iqgroup-uv"</span></span>
 <span id="cb9-6">)</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-12_e22d832a0cddd7bf8395bc7a5d2afaa1">
+<div class="cell" data-layout-align="center">
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = log 
 ## Formula: IQ ~ Group 
@@ -11811,19 +11844,19 @@ font-style: inherit;">"iqgroup-uv"</span></span>
 ##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
 ##          total post-warmup draws = 4000
 ## 
-## Population-Level Effects: 
+## Regression Coefficients:
 ##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept              100.36      0.40    99.59   101.13 1.00     5504     2987
-## sigma_Intercept          0.93      0.11     0.72     1.17 1.00     3359     2430
-## GroupTreatment           1.55      1.00    -0.38     3.57 1.00     3006     2714
-## sigma_GroupTreatment     0.87      0.16     0.56     1.17 1.00     3605     2689
+## Intercept              100.35      0.39    99.57   101.14 1.00     5172     3045
+## sigma_Intercept          0.94      0.11     0.73     1.16 1.00     3646     2566
+## GroupTreatment           1.55      0.97    -0.40     3.42 1.00     2998     2637
+## sigma_GroupTreatment     0.87      0.15     0.56     1.16 1.00     3707     2527
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>The model’s output contains our 4 parameters. <code>Intercept</code> is the mean for group 0, <code>Group 1</code> is the “effect of group 1”. The <code>sigma_Intercept</code> is the standard deviation of Group 0, <code>sigma_Group</code> is the effect of group 1 on the standard deviation (the SD of Group 1 is <code>sigma_Intercept</code> + <code>sigma_Group</code>). The sigmas are implicitly modeled through a log-link (because they must be positive). To convert them back to the scale of the data, they need to be exponentiated. After taking the exponents of the sigmas, the results look like this:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-13_91a06583cb8e972d7928824c94480c8a">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Posterior summary after transformation</caption>
@@ -11839,31 +11872,31 @@ font-style: inherit;">"iqgroup-uv"</span></span>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Intercept</td>
-<td style="text-align: right;">100.36</td>
-<td style="text-align: right;">0.40</td>
-<td style="text-align: right;">99.59</td>
-<td style="text-align: right;">101.13</td>
+<td style="text-align: right;">100.35</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">99.57</td>
+<td style="text-align: right;">101.14</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sigma_Intercept</td>
-<td style="text-align: right;">2.56</td>
+<td style="text-align: right;">2.57</td>
 <td style="text-align: right;">0.29</td>
-<td style="text-align: right;">2.06</td>
-<td style="text-align: right;">3.21</td>
+<td style="text-align: right;">2.07</td>
+<td style="text-align: right;">3.20</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">GroupTreatment</td>
 <td style="text-align: right;">1.55</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">-0.38</td>
-<td style="text-align: right;">3.57</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">-0.40</td>
+<td style="text-align: right;">3.42</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sigma_GroupTreatment</td>
 <td style="text-align: right;">2.41</td>
-<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.36</td>
 <td style="text-align: right;">1.76</td>
-<td style="text-align: right;">3.23</td>
+<td style="text-align: right;">3.18</td>
 </tr>
 </tbody>
 </table>
@@ -11880,7 +11913,7 @@ font-style: inherit;">"iqgroup-uv"</span></span>
 <p><img src="https://latex.codecogs.com/png.latex?y_%7Bik%7D%20%5Csim%20T(%5Cnu,%20%5Cmu_%7Bk%7D,%20%5Csigma_%7Bk%7D)"></p>
 <p>Read the above formula as “Y are random draws from a t-distribution with ‘normality’ parameter <img src="https://latex.codecogs.com/png.latex?%5Cnu">, mean <img src="https://latex.codecogs.com/png.latex?%5Cmu_%7Bk%7D">, and standard deviation <img src="https://latex.codecogs.com/png.latex?%5Csigma_%7Bk%7D">”. We have linear models for the means and standard deviations, as above.</p>
 <p>This model, as you can see, is almost identical to the unequal variances t-test, but instead uses a t distribution (we assume data are t-distributed), and includes the normality parameter. Using <code>brm()</code> we can still use the unequal variances model, but have to specify the t-distribution. We do this by specifying the <code>family</code> argument to be <code>student</code> (as in Student’s t)</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-14_500a9524a8e25806acf32563743df2c1">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">mod_robust <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -11911,7 +11944,7 @@ background-color: null;
 font-style: inherit;">"iqgroup-robust"</span></span>
 <span id="cb11-7">)</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-15_46fb2a1eb497d5e24e38d966dfa06437">
+<div class="cell" data-layout-align="center">
 <pre><code>##  Family: student 
 ##   Links: mu = identity; sigma = log; nu = identity 
 ## Formula: IQ ~ Group 
@@ -11920,16 +11953,16 @@ font-style: inherit;">"iqgroup-robust"</span></span>
 ##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
 ##          total post-warmup draws = 4000
 ## 
-## Population-Level Effects: 
+## Regression Coefficients:
 ##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept              100.52      0.21   100.11   100.96 1.00     5221     2774
-## sigma_Intercept          0.00      0.20    -0.38     0.39 1.00     3936     3069
-## GroupTreatment           1.03      0.43     0.18     1.88 1.00     2918     2756
-## sigma_GroupTreatment     0.67      0.25     0.20     1.16 1.00     4031     2919
+## Intercept              100.52      0.21   100.11   100.94 1.00     4711     2906
+## sigma_Intercept          0.00      0.19    -0.38     0.37 1.00     3962     3193
+## GroupTreatment           1.04      0.43     0.20     1.89 1.00     2950     2679
+## sigma_GroupTreatment     0.67      0.25     0.15     1.14 1.00     4138     2949
 ## 
-## Family Specific Parameters: 
+## Further Distributional Parameters:
 ##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## nu     1.87      0.48     1.15     3.00 1.00     2987     2011
+## nu     1.85      0.48     1.13     2.99 1.00     2540     1537
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -11937,7 +11970,7 @@ font-style: inherit;">"iqgroup-robust"</span></span>
 </div>
 <p>You can compare the results to those in Kruschke’s paper (2013, p.578) to verify that they are nearly identical. There are small discrepancies because of limited number of posterior samples, and because the paper reported posterior modes whereas we focused on means.</p>
 <p>Finally, here is how to estimate the model using the original code (Kruschke &amp; Meredith, 2015):</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-16_596625b05c5126695e0a5854983c1d29">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(BEST)</span>
@@ -12010,7 +12043,7 @@ Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.com
 
 <p>Panel plots are a common name for figures showing every person’s (or whatever your sampling unit is) data in their own panel. This plot is sometimes also known as “small multiples”, although that more commonly refers to plots that illustrate interactions. Here, I’ll illustrate how to add information to a panel plot by arranging the panels according to some meaningful value.</p>
 <p>Here’s an example of a panel plot, using the <code>sleepstudy</code> data set from the <strong>lme4</strong> package.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_2802963cf0a15e6886e81041cbefff9f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
@@ -12021,7 +12054,7 @@ font-style: inherit;">library</span>(scales)</span>
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/image1_a95196f800632ee61020c211b0a6ca35">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data</span>(sleepstudy, <span class="at" style="color: #657422;
@@ -12080,7 +12113,7 @@ font-style: inherit;">labeller =</span> label_both)</span></code></pre></div>
 <p>Step 1 is to add the required information to the data frame used in plotting. For a simple mean, we can actually use a shortcut in step 2, so this isn’t required.</p>
 <p>Step 2: Convert the variable used to separate the panels into a factor, and order it based on the mean reaction time.</p>
 <p>The key here is to use the <code>reorder()</code> function. You’ll first enter the variable that contains the groupings (i.e.&nbsp;the subject ID numbers), and then values that will be used to order the grouping variables. Finally, here you can use a shortcut to base the ordering on a function of the values, such as the mean, by entering it as the third argument.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_dd03fbb642cbaa682ab449fa00e28297">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">sleepstudy <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -12095,7 +12128,7 @@ font-style: inherit;">reorder</span>(Subject, Reaction, mean)</span>
 <span id="cb3-4">)</span></code></pre></div>
 </div>
 <p>Now if we use <code>Subject</code> to create the subplots, they will be ordered on the mean reaction time. I’ll make the illustration clear by also drawing the person-means with small arrows.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_3ea1d9452492798e34e9c1dd4e4e3f3c">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -12108,7 +12141,7 @@ font-style: inherit;">reorder</span>(Subject, Reaction, mean)</span>
 <section id="order-panels-on-other-parameters" class="level1">
 <h1>Order panels on other parameters</h1>
 <p>It might also be useful to order the panels based on a value from a model, such as the slope of a linear regression. This is especially useful in making the heterogeneity in the sample easier to see. For this, you’ll need to fit a model, grab the subject-specific slopes, order the paneling factor, and plot. I’ll illustrate with a multilevel regression using <strong>lme4</strong>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_3459c861c71cdd06220088f192f6fffd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Step 1: Add values to order on into the data frame</span></span>
@@ -12188,7 +12221,7 @@ font-style: inherit;">reorder</span>(Subject, Slope)</span>
 <span id="cb4-15">)</span></code></pre></div>
 </div>
 <p>Then, I’ll plot the data also showing the fitted lines from the multilevel model:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_253dea3c6adcfe0f1fc49531668cd936">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -12235,7 +12268,7 @@ December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-pane
 <p>Recently, there’s been a lot of talk about meta-analysis, and here I would just like to quickly show that Bayesian multilevel modeling nicely takes care of your meta-analysis needs, and that it is easy to do in R with the rstan and brms packages. As you’ll see, meta-analysis is a special case of Bayesian multilevel modeling when you are unable or unwilling to put a prior distribution on the meta-analytic effect size estimate.</p>
 <p>The idea for this post came from Wolfgang Viechtbauer’s <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>, where he compared results for meta-analytic models fitted with his great (frequentist) package <a href="http://www.metafor-project.org/doku.php/metafor">metafor</a> and the swiss army knife of multilevel modeling, <a href="https://cran.r-project.org/web/packages/lme4/index.html">lme4</a>. It turns out that even though you can fit meta-analytic models with lme4, the results are slightly different from traditional meta-analytic models, because the experiment-wise variances are treated slightly differently.</p>
 <p>Here are the packages we’ll use:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_43e326fa66c64602900a71de6b7ef011">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
@@ -12262,7 +12295,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The data</h2>
 <p>Here I’ll only focus on a simple random effects meta-analysis of effect sizes, and will use the same example data as in the aforementioned <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>. The data are included in the metafor package, and describe the relationship between conscientiousness and medication adherence. The effect sizes are r to z transformed correlations.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/display-fake-data_7319afe6b279a26ee1374c3d0f0fa4d8">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Example data (dat.molloy2014 in metafor package).</caption>
@@ -12443,7 +12476,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
 <section id="estimation-with-metafor" class="level3">
 <h3 class="anchored" data-anchor-id="estimation-with-metafor">Estimation with metafor</h3>
 <p>Super easy!</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_8de6250d974b12b734b525f2a7880a47">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(metafor)</span>
@@ -12476,7 +12509,7 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb2-7"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">##   logLik  deviance       AIC       BIC      AICc  ​ </span></span>
+font-style: italic;">##   logLik  deviance       AIC       BIC      AICc   </span></span>
 <span id="cb2-8"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##   8.6096  -17.2191  -13.2191  -11.8030  -12.2191   </span></span>
@@ -12515,7 +12548,7 @@ background-color: null;
 font-style: italic;">## </span></span>
 <span id="cb2-20"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## estimate      se    zval    pval   ci.lb   ci.ub     ​ </span></span>
+font-style: italic;">## estimate      se    zval    pval   ci.lb   ci.ub      </span></span>
 <span id="cb2-21"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">##   0.1499  0.0316  4.7501  &lt;.0001  0.0881  0.2118  *** </span></span>
@@ -12537,7 +12570,7 @@ font-style: italic;">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
 <section id="estimation-with-brms" class="level3">
 <h3 class="anchored" data-anchor-id="estimation-with-brms">Estimation with brms</h3>
 <p>Here’s how to fit this model with brms:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit-ma-brms_a697bad10c015e4f6f661029504bf246">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">brm_out <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -12573,7 +12606,7 @@ background-color: null;
 font-style: inherit;">"metaanalysismodel"</span></span>
 <span id="cb3-6">)</span></code></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/results-disp_eba04825fdc1e5e076ce884587958839">
+<div class="cell" data-layout-align="center">
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: yi | se(sei) ~ 1 + (1 | study) 
@@ -12581,20 +12614,20 @@ font-style: inherit;">"metaanalysismodel"</span></span>
 ##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
 ##          total post-warmup draws = 4000
 ## 
-## Priors: 
+## Priors:
 ## Intercept ~ student_t(3, 0.2, 2.5)
 ## &lt;lower=0&gt; sd ~ student_t(3, 0, 2.5)
 ## 
-## Group-Level Effects: 
+## Multilevel Hyperparameters:
 ## ~study (Number of levels: 16) 
 ##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sd(Intercept)     0.10      0.04     0.04     0.20 1.00     1256     1887
+## sd(Intercept)     0.10      0.04     0.04     0.18 1.00     1398     2247
 ## 
-## Population-Level Effects: 
+## Regression Coefficients:
 ##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept     0.15      0.04     0.08     0.22 1.00     1957     1884
+## Intercept     0.15      0.03     0.08     0.22 1.00     1845     1720
 ## 
-## Family Specific Parameters: 
+## Further Distributional Parameters:
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
 ## sigma     0.00      0.00     0.00     0.00   NA       NA       NA
 ## 
@@ -12608,7 +12641,7 @@ font-style: inherit;">"metaanalysismodel"</span></span>
 <section id="comparing-results" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-results">Comparing results</h2>
 <p>We can now compare the results of these two estimation methods. Of course, the Bayesian method has a tremendous advantage, because it results in a full distribution of plausible values.</p>
-<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/unnamed-chunk-2_81877cd9b64032094068d926ebc097f9">
+<div class="cell" data-layout-align="center" data-preview="true">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -12620,7 +12653,7 @@ font-style: inherit;">"metaanalysismodel"</span></span>
 </div>
 <p>We can see from the numeric output, and especially the figures, that these modes of inference yield the same numerical results. Keep in mind though, that the Bayesian estimates actually allow you to discuss probabilities, and generally the things that we’d like to discuss when talking about results.</p>
 <p>For example, what is the probability that the average effect size is greater than 0.2? About eight percent:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_ea0fd8b7960792f1a1972b30dabad773">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">hypothesis</span>(brm_out, <span class="st" style="color: #20794D;
@@ -12634,7 +12667,7 @@ background-color: null;
 font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
 <span id="cb5-4"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.04    -0.11     0.01       0.08      0.08     </span></span>
+font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.03     -0.1     0.01       0.09      0.08     </span></span>
 <span id="cb5-5"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## ---</span></span>
@@ -12654,7 +12687,7 @@ font-style: italic;">## Posterior probabilities of point hypotheses assume equal
 <section id="forest-plot" class="level3">
 <h3 class="anchored" data-anchor-id="forest-plot">Forest plot</h3>
 <p>The forest plot displays the entire posterior distribution of each <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i">. The meta-analytic effect size <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is also displayed in the bottom row. I’ll show a considerable amount of code here so that you can create your own forest plots from brms output:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/draw-forest-plot_c844276a86710c6650f9b1ff4e93672b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidybayes)</span>

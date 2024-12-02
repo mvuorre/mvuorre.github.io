@@ -18,7 +18,7 @@ In addition to my current research topics, I have written about [meta-cognition]
 
 You can find all my publications on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/matti-vuorre.bib) is a .bib file with references to all the works that I have contributed to.
 
-I believe scientific communication should be freely available to all. All my contributions are openly available: I post all my contributions as "preprints" to [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated). If you find a paper of mine that somehow isn't available online, let me know and I'll fix it ASAP. 
+I believe scientific communication should be freely available to all. All my contributions are openly available: I post all my contributions as "preprints" to [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated). If you find a paper of mine that somehow isn't available online, let me know and I'll fix it ASAP.
 
 ::: grid
 ::: {.g-col-6}
@@ -52,3 +52,7 @@ I list all the sources of my research funding in [my CV](https://github.com/mvuo
 ## Blogroll
 
 [Statistical Modeling, Causal Inference, and Social Science](https://statmodeling.stat.columbia.edu/) | [The 100% CI](https://www.the100.ci/) | [Dorothy Bishop](https://deevybee.blogspot.com/) | [Andrew Heiss](https://www.andrewheiss.com/blog/) | [Elements of Evolutionary Anthropology](https://elevanth.org/) | [A. Solomon Kurz](https://solomonkurz.netlify.app/blog/) | [Ruben C. Arslan](https://rubenarslan.github.io/) | [Computational Psychology](http://haines-lab.com/#posts) | [Tobias Dienlin](https://tobiasdienlin.com/blog/) | [Making it as an early career academic](https://gavinbuckingham.wordpress.com/) | [Jan Vanhove](https://janhove.github.io/) | [Nick Ballou](https://nickballou.com/blog/) | [Steve Haroz](http://steveharoz.com/blog/) | [Lorne Campbell](https://www.lornecampbell.org/) | [Tidyverse](https://www.tidyverse.org/blog/) | [Robert Kubinec](https://www.robertkubinec.com/) | [*[Suggest a link](https://github.com/mvuorre/mvuorre.github.io/issues)*]
+
+## About me
+
+Besides thinking about minds, I like spending time with my family, hiking, making photographs, rock climbing, badminton, eating Korean food, and playing with computers. My favorite websites are [Hacker News](https://news.ycombinator.com/news) and [Gelman's blog](https://statmodeling.stat.columbia.edu/) and my favorite TV show is [Sunny](https://itsalwayssunny.fandom.com/wiki/It%27s_Always_Sunny_in_Philadelphia_Wiki).

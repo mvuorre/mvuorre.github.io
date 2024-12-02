@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -142,10 +142,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
@@ -222,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grid-of-facets" id="toc-grid-of-facets" class="nav-link" data-scroll-target="#grid-of-facets">Grid of facets</a></li>
   <li><a href="#ordering-facets" id="toc-ordering-facets" class="nav-link" data-scroll-target="#ordering-facets">Ordering facets</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/2016-03-15-ggplot-plots-subplots/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/2016-03-15-ggplot-plots-subplots/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -238,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Visualizations are great for learning from data and communicating the results of a statistical investigation. In this post, I illustrate how to create <a href="https://en.wikipedia.org/wiki/Small_multiple"><strong>small multiples</strong></a> from data using <strong>R</strong> and <strong>ggplot2</strong>.</p>
 <p>Small multiples display the same basic plot for many different groups simultaneously. For example, a data set might consist of a X ~ Y correlation measured simultaneously in many countries; small multiples display each country’s correlation in its own panel. Similarly, you might have conducted a within-individuals experiment, and would like to display the effects of the repeated-measures factors simultaneously at the average level, and at the individual level—thus showing each individual’s results in a separate panel. Whenever you would like to show the same figure, but separately for many subsets of the data, the appropriate google term is <a href="http://lmgtfy.com/?q=small+multiples">“small multiples”</a>.</p>
 <p>We’ll use the following R packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_b1831f9f2003a74f49738ff6c72abb36">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
@@ -247,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-data" class="level2">
 <h2 class="anchored" data-anchor-id="example-data">Example Data</h2>
 <p>The data I’ll use here consist of responses to the Big 5 personality questionnaire from various demographic groups, and is from the psych R package. I’ve computed a mean for each subscale:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/readdata_847cf9e55720c2dee98f92f04dd7d330">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(bfi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -343,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="univariate-plots" class="level2">
 <h2 class="anchored" data-anchor-id="univariate-plots">Univariate plots</h2>
 <p>I’ll start with displaying histograms of the outcome variables (the individual-specific Big 5 category means). Picking up a variable to plot in <strong>ggplot2</strong> is done by specifying the column to plot, so to select a specific Big 5 category, I just tell <strong>ggplot2</strong> to plot it on the x axis.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/first_plot_8a1e58b3dc8136a92d89b3112fdb96df">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Openness)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fix bars to y=0</span></span>
@@ -361,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="long-format-data">Long format data</h2>
 <p>Next, we’ll be drawing the same figure, but display all Big 5 categories using small multiples. ggplot2 calls small multiples “facets”, and the operation is conceptually to subset the input data frame by values found in one of the data frame’s columns.</p>
 <p>The key to using facets in ggplot2 is to make sure that the data is in long format; I would like to display histograms of each category in separate facets, so I’ll need to reshape the data from wide (each category in its own column) to long form (a column with category labels, and another with the value).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_04666cd1173c15d691a1e37d503c859f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(Extraversion<span class="sc">:</span>Conscientiousness, <span class="at">names_to =</span> <span class="st">"Scale"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -430,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="display-all-scales-in-small-multiples" class="level3">
 <h3 class="anchored" data-anchor-id="display-all-scales-in-small-multiples">Display all scales in small multiples</h3>
 <p>Now that <code>value</code> holds all mean Big 5 category values, asking <code>ggplot()</code> to plot it on the x-axis is not too meaningful. However, because we have another column identifying each observations’ (row) category, we can pass it to <code>facet_wrap()</code> to split the histograms by category. Making use of the long data form with facets is easy:</p>
-<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/unnamed-chunk-2_6f514a4c50f750f46189ec4337bb1a2e">
+<div class="cell" data-layout-align="center" data-preview="true">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat_long, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"grey20"</span>, <span class="at">col =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">"Scale"</span>) <span class="sc">+</span></span>
@@ -448,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="display-different-education-levels-openness-in-small-multiples" class="level3">
 <h3 class="anchored" data-anchor-id="display-different-education-levels-openness-in-small-multiples">Display different education levels’ openness in small multiples</h3>
 <p>Because the <code>value</code> column contains values of all scales, I need to specify which scale to display by subsetting the data. I use data wrangling verbs from the <strong>dplyr</strong> package to subset the data on the fly, and pass the resulting objects to further functions using the pipe operator <code>%&gt;%</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_66242d2e2e0a7ff6a7cd13a9c5e63a53">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out all rows where category is "openness", and pass forward</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(dat_long, Scale <span class="sc">==</span> <span class="st">"Openness"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Place value on x-axis</span></span>
@@ -471,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="adjusting-facet-scales" class="level3">
 <h3 class="anchored" data-anchor-id="adjusting-facet-scales">Adjusting facet scales</h3>
 <p>I can ask <code>facet_wrap()</code> to use different axis scales for each subplot. Note also that we can access the last plot using a shortcut:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-4_e81597c68503b34ca272fd9d48ab323a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">last_plot</span>() <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">"education"</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -488,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="grid-of-facets" class="level2">
 <h2 class="anchored" data-anchor-id="grid-of-facets">Grid of facets</h2>
 <p>We repeatedly called <code>facet_wrap("variable")</code> to separate the plot to several facets, based on <code>variable</code>. However, we’re not restricted to one facetting variable, and can enter multiple variables simultaneously. To illustrate, I’ll plot all categories separately for each gender, using <code>facet_grid()</code></p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-5_977f9e29453c0b9e6bde1b14b6d31af2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">last_plot</span>() <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(gender <span class="sc">~</span> education, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -507,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="order-facets-by-number-of-observations" class="level3">
 <h3 class="anchored" data-anchor-id="order-facets-by-number-of-observations">Order facets by number of observations</h3>
 <p>To order subplots, we need to add the variable that we would like to order by to the data frame. Here we add a “number of observations” column to the data frame, then order the facetting variable on that variable. The following code snippet takes all openness-rows, calculates the number of observations for each education level, and reorders the education factor based on the number. The result is visible in a figure where the number of observations in each facet increases from top left to bottom right.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-6_e655a74415b6397ba5421b5df9d5605c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Scale <span class="sc">==</span> <span class="st">"Openness"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_count</span>(education) <span class="sc">%&gt;%</span></span>
@@ -622,8 +618,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -734,7 +728,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -969,4 +962,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/2016-03-15-ggplot-plots-subplots/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/2016-03-15-ggplot-plots-subplots/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

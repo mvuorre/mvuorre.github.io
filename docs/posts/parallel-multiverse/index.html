@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,10 +91,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -164,10 +164,6 @@ div.csl-indent {
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
@@ -277,7 +273,7 @@ div.csl-indent {
 <div id="fig-op3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-op3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img">
+<img src="images/orben-przybylski-2019-fig3.png" class="img-fluid figure-img" width="944">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-op3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (<a href="#ref-orbenAssociationAdolescentWellbeing2019" role="doc-biblioref">2019</a>)</span>. Reproduced 100% without permission, but I don’t think Dr Orben or Dr Przybylski would mind.
@@ -340,8 +336,8 @@ Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociation
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">generate_data</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
-<div id="tbl-data" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-data_81ef40ee3969285b1a2f2aa6103198c2">
+<div class="cell">
+<div id="tbl-data" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
@@ -425,7 +421,7 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 </div>
 </div>
 <p>We can specify a fully crossed multiverse analysis over outcomes, predictors, and covariates, easily with specr. Also, to make the example a bit more interesting (slower!) for later examples, I’ll estimate the model using two functions (<code>lm()</code> and <code>glm()</code> which in this case give the same results, but the latter is much slower). I time the multiverse analysis using tictoc. <a href="#tbl-specr" class="quarto-xref">Table&nbsp;2</a> shows the first few rows of the results.</p>
-<div class="cell" data-hash="index_cache/html/specr_b0f58f39187fbb67b7dcbb5e8e31587f">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(specr)</span>
@@ -441,10 +437,10 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>28.683 sec elapsed</code></pre>
+<pre><code>27.768 sec elapsed</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results_specr <span class="sc">%&gt;%</span> </span>
@@ -455,7 +451,7 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="at">html_font =</span> <span class="st">"Arial"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-specr" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specr_44b0265afaa1b420f782ec9a52605473">
+<div id="tbl-specr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: First six rows of multiverse numerical results from specr
@@ -560,7 +556,7 @@ Table&nbsp;2: First six rows of multiverse numerical results from specr
 </div>
 </div>
 <p>Another great thing about this package is that you can easily draw specification curve figures (<a href="#fig-specr" class="quarto-xref">Figure&nbsp;2</a>)</p>
-<div class="cell" data-hash="index_cache/html/fig-specr_617539ff4398e57bcb4bff2078677e43">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_specs</span>(</span>
@@ -591,7 +587,7 @@ Figure&nbsp;2: Specification curve figure drawn from specr results
 <p>The first step in a multiverse analysis is defining the grid of specifications.</p>
 <p>The one difficulty here is that the dataset can also be part of the specifications (e.g.&nbsp;different outlier removal thresholds, or more generally any subsets or transformations of the data). If you include the dataset in the table of specifications, you would easily run out of memory (I learned this the hard way). So we will still iterate over the specs table, and pull relevant subsets of the data inside the function that iterates over the specs.</p>
 <p>A flexible and easy way to declare the specifications is <code>expand_grid()</code>. This allows creating tables that cross all the variables declared therein. (There are related functions such as <code>expand()</code>, <code>crossing()</code>, and <code>nesting()</code> that allow for more flexibility.)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_36964913f4bba4a690d472f716503c50">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
@@ -602,8 +598,8 @@ Figure&nbsp;2: Specification curve figure drawn from specr results
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
-<div id="tbl-specs-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-1_46ac03da110c57ab2b1fc643b55ba679">
+<div class="cell">
+<div id="tbl-specs-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: First six rows of example specifications table.
@@ -666,7 +662,7 @@ Table&nbsp;3: First six rows of example specifications table.
 </div>
 </div>
 <p>But we could also just as well create a grid of formulas. Depending on your analysis, this might be a viable option</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_3897713cd6b8874a6d5aa3076331c794">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_grid</span>(</span>
@@ -676,7 +672,7 @@ Table&nbsp;3: First six rows of example specifications table.
 </details>
 </div>
 <p>We will stick with specifying variables instead, for this example. We can include subgroups as well:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_e4da284250d86d0820421a2a5c923055">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
@@ -689,8 +685,8 @@ Table&nbsp;3: First six rows of example specifications table.
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-2_22b28f4a89f6d74505445d8927f41f37">
-<div id="tbl-specs-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-2_22b28f4a89f6d74505445d8927f41f37">
+<div class="cell">
+<div id="tbl-specs-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: First six rows of example specifications table with subgroups.
@@ -760,7 +756,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 </div>
 </div>
 <p>Now each row in the table specifies the modelling function (e.g.&nbsp;<code>lm()</code>), the subgroup, and the left-hand and right-hand side variables of the formula to put in the modelling function. Next, we need a function to also expand the covariates to all their combinations (I lifted much of this from the <a href="https://github.com/masurp/specr/blob/7d5a0c3664dd5d281ecaebb783ce75b638447205/R/setup_specs.r#L41">specr source</a>, I found it surprisingly hard to write):</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-12_f6b8ccc8c1fbece0ac913b2765627c42">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Expand a vector of covariate names to all their combinations</span></span>
@@ -790,7 +786,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 <section id="the-specification-table" class="level3">
 <h3 class="anchored" data-anchor-id="the-specification-table">The specification table</h3>
 <p>Putting all this together, and creating the formulas from <code>y</code>, <code>x</code>, and <code>c</code> with <code>str_glue()</code>, we have completed the first part of our pipeline, creating the specifications:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_aa54f8f1ed5a42f5ad01434413a3e64a">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
@@ -803,8 +799,8 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">formula =</span> <span class="fu">str_glue</span>(<span class="st">"{y} ~ {x} + {covariate}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-specs-3_c096a375bc98bc6c166a8bfb7c5f9765">
-<div id="tbl-specs-3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-specs-3_c096a375bc98bc6c166a8bfb7c5f9765">
+<div class="cell">
+<div id="tbl-specs-3" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-specs-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: First six rows of example specifications table with subgroups and formulas.
@@ -901,8 +897,8 @@ Table&nbsp;5: First six rows of example specifications table with subgroups and 
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lm2</span>(y1 <span class="sc">~</span> x1, <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-lm2-1_2d68e485fd097bd3ec852b9cffc095cb">
-<div id="tbl-lm2-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-lm2-1_2d68e485fd097bd3ec852b9cffc095cb">
+<div class="cell">
+<div id="tbl-lm2-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lm2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6: Output of <code>lm2(y1 ~ x1, data = dat)</code>.
@@ -952,8 +948,8 @@ Table&nbsp;6: Output of <code>lm2(y1 ~ x1, data = dat)</code>.
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lm2</span>(group <span class="sc">~</span> x1, <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-lm2-2_1a2ddb5f59c1b0819d6460580ab7a74c">
-<div id="tbl-lm2-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-lm2-2_1a2ddb5f59c1b0819d6460580ab7a74c">
+<div class="cell">
+<div id="tbl-lm2-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lm2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
@@ -993,7 +989,7 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 </details>
 </div>
 <p>Generally, I would have done this before creating the specs table, but I was trying to start easy <span class="emoji" data-emoji="smile">😄</span>. For now, I just replace the model names in specs:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-20_f0d77acc36e29ce181f8132b587020e7">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">mutate</span>(specs, <span class="at">model =</span> <span class="fu">paste0</span>(model, <span class="st">"2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1004,7 +1000,7 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 <h3 class="anchored" data-anchor-id="iterating-over-specs-with-pmap">Iterating over specs with <code>pmap()</code></h3>
 <p>We are now ready to iterate over specs, and apply <code>model</code> therein to the data and formula specified on each row. To do so, we pipe specs into <code>pmap()</code> (inside <code>mutate()</code>, which means that we are operating inside the specs data frame). <code>pmap()</code> takes a list of arguments, and passes them to a function, <code>pmap(list(a, b, c), ~some_function())</code>. But since we need to pull our function from a string within the list of arguments, our function is in fact the <code>do.call()</code> function caller. We can then pass all our arguments to the function called by <code>do.call()</code>. Freaky.</p>
 <p>We will pass <code>list(model, formula, group)</code> to <code>do.call()</code>, that then uses the shorthand <code>..1</code>, <code>..2</code>, etc to take the first, second, etc, argument from the list. Critically, we can also put in another function (<code>filter()</code>) inside the <code>do.call()</code> argument list that will help us subset the data, based on the original arguments.</p>
-<div class="cell" data-hash="index_cache/html/tidy-multiverse_237f6871fc286ff41e8e369429db4df2">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
@@ -1024,19 +1020,19 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>18.178 sec elapsed</code></pre>
+<pre><code>12.878 sec elapsed</code></pre>
 </div>
 </div>
 <p>This then returns a copy of the specs table (<code>results_dplyr</code>) with an additional column <code>out</code>. But <code>out</code> is a data frame column, so to show the values next to our original specs, we can call <code>unnest()</code> (<a href="#tbl-mv-1" class="quarto-xref">Table&nbsp;8</a>).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-22_653d91cb2403b85ea7735727a97c1ccd">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>results_dplyr <span class="ot">&lt;-</span> results_dplyr <span class="sc">%&gt;%</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="index_cache/html/tbl-mv-1_e4693de5ac20cd6f3873ab07548343d6">
-<div id="tbl-mv-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-mv-1_e4693de5ac20cd6f3873ab07548343d6">
+<div class="cell">
+<div id="tbl-mv-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mv-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;8: First six rows of results from multiverse analysis.
@@ -1231,7 +1227,7 @@ Note
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>3.561 sec elapsed</code></pre>
+<pre><code>3.526 sec elapsed</code></pre>
 </div>
 </div>
 <p>This particular parallelization scheme (8 cores working on subsets defined by <code>formula</code> and <code>group</code> in <code>dat</code>) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.</p>
@@ -1240,7 +1236,7 @@ Note
 <h2 class="anchored" data-anchor-id="furrr">furrr</h2>
 <p>I like multidplyr a lot because I can manually specify how the data and computations are assigned across the cluster. I also like that you need to explicitly tell what packages and objects to send to the cluster. As a consequence the syntax grows a bit verbose, however.</p>
 <p>As an alternative, the <a href="https://github.com/DavisVaughan/furrr/">furrr</a> package promises drop-in replacements to purrr’s <code>map()</code> functions that parallelize the computations <span class="citation" data-cites="furrr">(<a href="#ref-furrr" role="doc-biblioref">Vaughan and Dancho 2022</a>)</span>. To use furrr’s functions, we first need to specify the parallelization scheme with <code>plan()</code>. We can then replace <code>pmap()</code> above with <code>future_pmap()</code>. Also, we need to pass objects from the global environment and packages using <code>furrr_options()</code> as shown below. Otherwise we can keep our <code>%&gt;%</code>line exactly the same.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-26_dc602f7a26f70e9ea9e96507447ef0a2">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
@@ -1272,7 +1268,7 @@ Note
 <span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.879 sec elapsed</code></pre>
+<pre><code>4.952 sec elapsed</code></pre>
 </div>
 </div>
 <p>This worked great. While we don’t have to partition our data, and collect the computations afterwards, furrr does require passing stuff using the <code>.options</code> argument. But this is still a bit less verbose than multidplyr, and perhaps therefore preferred. I like it!</p>
@@ -1280,8 +1276,8 @@ Note
 <section id="checking-results" class="level2">
 <h2 class="anchored" data-anchor-id="checking-results">Checking results</h2>
 <p>I also spot check that the results are consistent across the methods. I am a bit paranoid with what comes to parallel computation. <a href="#tbl-results-check" class="quarto-xref">Table&nbsp;9</a> shows that everything is as it should be.</p>
-<div class="cell" data-hash="index_cache/html/tbl-results-check_b2c7cb7e2da197d8f0518dac99896e6b">
-<div id="tbl-results-check" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-hash="index_cache/html/tbl-results-check_b2c7cb7e2da197d8f0518dac99896e6b">
+<div class="cell">
+<div id="tbl-results-check" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-results-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;9: Example results from the four estimation methods.
@@ -1519,8 +1515,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1631,7 +1625,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

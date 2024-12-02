@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,10 +91,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f8a294ff19d69bac8391fd39856519e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39c4e6876ffc45aecd8112ac032391ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -194,10 +194,6 @@ window.Quarto = {
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../personal.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
@@ -295,7 +291,7 @@ window.Quarto = {
 <p>Most of my statistical analyses utilize multilevel modeling, where parameters (means, slopes) are treated as varying between individuals. Because common procedures for estimating these models return point estimates for the regression coefficients at all levels, drawing expected regression lines is easy. However, displaying the confidence limits for the regression lines is not as easily done. Various options exist, and some software packages provide these limits automatically, but in this post I want to highlight a completely general approach to obtaining and drawing confidence limits for regression lines at multiple levels of analysis, and where applicable, show how various packages deliver them automatically. This general approach is inference based on probability, or bayesian statistics. In practice, obtaining random samples from the posterior distribution makes it easy to compute values such as confidence limits for any quantity of interest. Importantly, we can summarize the samples with an interval at each level of the predictor values, yielding the confidence interval for the regression line.</p>
 <p>I will illustrate the procedure first with a maximum likelihood model fitting procedure, using the lme4 package. This procedure requires an additional step where plausible parameter values are simulated from the estimated model, using the arm package. Then, I’ll show how to obtain the limits from models estimated with Bayesian methods, using the brms R package.</p>
 <p>We’ll use the following R packages:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/packages_fabda9916eb57c579547e866e603c024">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
@@ -313,7 +309,7 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>“The average reaction time per day for subjects in a sleep deprivation study. On day 0 the subjects had their normal amount of sleep. Starting that night they were restricted to 3 hours of sleep per night. The observations represent the average reaction time on a series of tests given each day to each subject.”</p>
 </blockquote>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/exdata_4ac3e4078eecfe60c01d65f62b357aac">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sleepstudy <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -367,7 +363,7 @@ window.Quarto = {
 <section id="fixed-effects-models-and-cis" class="level2">
 <h2 class="anchored" data-anchor-id="fixed-effects-models-and-cis">Fixed Effects Models and CIs</h2>
 <p>Below, I show two kinds of scatterplots from the data. The left one represents a fixed effects regression, where information about individuals is discarded, and all that is left is a lonely band of inference in a sea of scattered observations. The right panel shows fixed effects regressions separately for each individual.</p>
-<div class="cell" data-layout-align="center" data-preview="true" data-hash="index_cache/html/fig1and2_56d6fbe2e508b6ebfd368d1c8ce937ce">
+<div class="cell" data-layout-align="center" data-preview="true">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>)) <span class="sc">+</span></span>
@@ -399,7 +395,7 @@ window.Quarto = {
 <section id="maximum-likelihood-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
 <p>I’ll estimate the multilevel model using the lme4 package.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fitlmer_2b785618fc12cf8cdda49c8e3fec4e58">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lmerfit <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -436,7 +432,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="working-with-point-estimates">Working with point estimates</h3>
 <p>Using the model output, we can generate regression lines using the <code>predict()</code> function. Using this method, we can simply add a new column to the existing <code>sleepstudy</code> data frame, giving the fitted value for each row in the data. However, for visualization, it is very useful to generate the fitted values for specific combinations of predictor values, instead of generating a fitted value for every observation. To do this, I simply create dataframes with the relevant predictors, and feed these data frames as data to <code>predict()</code>.</p>
 <p>To get fitted values at the average level, when there is only one predictor, the data frame is simply a column with rows for each level of <code>Days</code>. For the varying effects, I create a data frame where each individual has all levels of <code>Days</code>, using the <code>expand.grid()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/pred_lmer_8da706581dfa545b79ad6d470769cc6e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame to evaluate average effects predictions on</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>newavg<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, <span class="at">re.form =</span> <span class="cn">NA</span>, newavg)</span>
@@ -445,7 +441,7 @@ window.Quarto = {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>newvary<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, newvary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I’ll show these predictions within the previous figures: On the left, a single fixed effects model versus the average regression line from the new multilevel model, and on the right the separate fixed effects models versus the varying regression lines from the multilevel model. Below, I use blue colors to indicate the fixed effects models’ predictions, and black for the multilevel model’s predictions.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plotlmer_85b7c90bd39cb953a81173759eeb874f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">|</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newvary, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -457,7 +453,7 @@ window.Quarto = {
 </div>
 </div>
 <p>As you can probably tell, the fixed effects regression line (blue), and the multilevel model’s average regression line (black; left panel) are identical, because of the completely balanced design. However, interesting differences are apparent in the right panel: The varying effects’ regression lines are different from the separate fixed effects models’ regression lines. How? They are “shrunk” toward the average-level estimate. Focus on subject 335, an individual whose reaction times got faster with increased sleep deprivation:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plotlmerid9_1d4c8fb4df70af98247367e04bc39647">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">%+%</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">==</span> <span class="dv">335</span>) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">filter</span>(newvary, Subject <span class="sc">==</span> <span class="dv">335</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -483,7 +479,7 @@ window.Quarto = {
 <li>Calculating fitted values for each combination of the predictor values, for each plausible combination of the parameter values</li>
 <li>Calculating the desired quantiles of the fitted values</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/sim_lmer_0798af5b7cdbb03f041114941331f993">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">sim</span>(lmerfit, <span class="at">n.sims =</span> <span class="dv">1000</span>) <span class="co"># 1</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">fixef</span>(sims) <span class="co"># 2</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
@@ -512,7 +508,7 @@ window.Quarto = {
 <section id="cis-using-arm-individual-level" class="level3">
 <h3 class="anchored" data-anchor-id="cis-using-arm-individual-level">CIs using arm: Individual level</h3>
 <p>The <code>fitted()</code> function in arm returns fitted values at the varying effects level automatically, so we can skip a few lines of code from above to obtain confidence intervals at the individual-level:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_lmer_vary_c47d0020b85ec8172db56c531485a5a2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">fitted</span>(sims, lmerfit)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sleepstudy<span class="sc">$</span>lower <span class="ot">&lt;-</span> <span class="fu">apply</span>(yhat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.025</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sleepstudy<span class="sc">$</span>median <span class="ot">&lt;-</span> <span class="fu">apply</span>(yhat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
@@ -529,7 +525,7 @@ window.Quarto = {
 </div>
 </div>
 <p>A subset of individuals highlights the most interesting differences between the models:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_lmer_vary_id9_3236d149fa262c4f31664b8d2e135b23">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">%in%</span> <span class="fu">unique</span>(sleepstudy<span class="sc">$</span>Subject)[<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>)])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">%+%</span> tmp <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tmp, <span class="fu">aes</span>(<span class="at">y =</span> median), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
@@ -551,7 +547,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="intervals-from-bayesian-models">Intervals from Bayesian models</h2>
 <p>Confidence intervals are commonly called credible intervals in the Bayesian context, but I’ll use these terms interchangeably. The reader should be aware that, unlike traditional confidence intervals, credible intervals actually allow statements about credibility. In fact, being allowed to say the things we usually mean when discussing confidence intervals is one of many good reasons for applying bayesian statistics.</p>
 <p>I use brms to specify the model and sample from the posterior distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/fit_brms_ce72a9721a15de316778223bafa3e38d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>brmfit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sleepstudy,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject),</span>
@@ -561,7 +557,7 @@ window.Quarto = {
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"sleepstudy"</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/printbrmfit_545a213d0e691b63d585a7677a1ed8dd">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Bayesian model estimates (brms)</caption>
@@ -578,43 +574,43 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Intercept</td>
-<td style="text-align: right;">250.96</td>
-<td style="text-align: right;">7.64</td>
-<td style="text-align: right;">235.59</td>
-<td style="text-align: right;">265.13</td>
-<td style="text-align: right;">1558.74</td>
+<td style="text-align: right;">251.23</td>
+<td style="text-align: right;">7.37</td>
+<td style="text-align: right;">236.50</td>
+<td style="text-align: right;">266.08</td>
+<td style="text-align: right;">2437.22</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Days</td>
-<td style="text-align: right;">10.46</td>
-<td style="text-align: right;">1.86</td>
-<td style="text-align: right;">7.07</td>
-<td style="text-align: right;">13.95</td>
-<td style="text-align: right;">1391.49</td>
+<td style="text-align: right;">10.42</td>
+<td style="text-align: right;">1.77</td>
+<td style="text-align: right;">6.80</td>
+<td style="text-align: right;">13.85</td>
+<td style="text-align: right;">1820.54</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">sd(Intercept)</td>
-<td style="text-align: right;">26.82</td>
-<td style="text-align: right;">7.16</td>
-<td style="text-align: right;">15.29</td>
-<td style="text-align: right;">42.38</td>
-<td style="text-align: right;">1715.64</td>
+<td style="text-align: right;">26.66</td>
+<td style="text-align: right;">6.71</td>
+<td style="text-align: right;">15.57</td>
+<td style="text-align: right;">41.47</td>
+<td style="text-align: right;">2215.42</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sd(Days)</td>
-<td style="text-align: right;">6.61</td>
-<td style="text-align: right;">1.57</td>
-<td style="text-align: right;">4.19</td>
-<td style="text-align: right;">10.16</td>
-<td style="text-align: right;">1609.65</td>
+<td style="text-align: right;">6.57</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">10.22</td>
+<td style="text-align: right;">2018.62</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cor(Intercept,Days)</td>
-<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.09</td>
 <td style="text-align: right;">0.30</td>
-<td style="text-align: right;">-0.46</td>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">1674.70</td>
+<td style="text-align: right;">-0.48</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">1455.08</td>
 </tr>
 </tbody>
 </table>
@@ -626,7 +622,7 @@ window.Quarto = {
 <section id="average-regression-line-ci" class="level4">
 <h4 class="anchored" data-anchor-id="average-regression-line-ci">Average regression line &amp; CI</h4>
 <p>brms has a function for obtaining fitted values (<code>fitted()</code>) and their associated upper and lower bounds, which together constitute the regression line and its confidence interval.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_brm_avg_84f4a41bc5a44ff1852d725af2df4164">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fitavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  newavg, </span>
@@ -650,7 +646,7 @@ window.Quarto = {
 <section id="alternative-to-cis" class="level4">
 <h4 class="anchored" data-anchor-id="alternative-to-cis">Alternative to CIs</h4>
 <p>Instead of showing summaries of the samples from the posterior distribution, one could also plot the entire distribution–at the risk of overplotting. Overplotting can be avoided by adjusting each regression line’s transparency with the <code>alpha</code> parameter, resulting in a visually attractive–maybe?–display of the uncertainty in the regression line:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-1_fd71379dca8887cc23ba29c07cc664ec">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pst <span class="ot">&lt;-</span> <span class="fu">posterior_samples</span>(brmfit, <span class="st">"b"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
@@ -670,7 +666,7 @@ window.Quarto = {
 <section id="varying-regression-lines-cis" class="level4">
 <h4 class="anchored" data-anchor-id="varying-regression-lines-cis">Varying regression lines &amp; CIs</h4>
 <p>The best part is, brms’ <code>fitted()</code> also gives regression lines with CIs at the individual level.</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/plot_brm_vary_eb6ff23721ab439beb9e0fa6a059b3e5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sleepstudy[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="fu">fitted</span>(brmfit)[, <span class="sc">-</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Estimate), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Q2<span class="fl">.5</span>), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -688,7 +684,7 @@ window.Quarto = {
 <section id="an-alternative-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="an-alternative-visualization">An alternative visualization</h3>
 <p>It might be useful, especially for model checking purposes, to display not only the fitted values, but also what the model predicts. To display the 95% prediction interval, I use the same procedure, but replace <code>fitted()</code> with <code>predict()</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_1abd26b1524d35921cf63bc6d8858e52">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>predavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  newavg, </span>
@@ -712,7 +708,7 @@ window.Quarto = {
 <section id="one-liners" class="level3">
 <h3 class="anchored" data-anchor-id="one-liners">One-liners</h3>
 <p>brms also has a function <code>conditional_effects()</code> that makes drawing these plots easy. Here is how to draw the average effect (first), and subject-specific effects (latter).</p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-3_a9762d5baf5fcb0084d4494d9ecdc556">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(brmfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -847,8 +843,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -959,7 +953,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

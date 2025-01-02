@@ -1,3 +1,14 @@
 ## Matti's homepage
 
-This repository contains the source for my homepage. Currently at <https://vuorre.netlify.app>. For historical reasons, this website is also accessible at <https://mvuorre.github.io>, but please use the former URL for linking etc. Link rot is real, everyone!
+This repository contains the source of my website <https://vuorre.com>.
+
+## Instructions
+
+Created with Quarto. Render everything with `quarto render`, outputs are in `docs/`.
+
+### Publications
+
+The publications page, and content therein, is programmatically generated from Zotero. Steps are:
+
+1. Export my `bibliography` Zotero collection (Saved Search, "My Publications" can't be exported) as "Better BibLaTeX" (select "Export Files") to `/bibliography/`.
+    - This uses info from Zotero so ensure items have up-to date info, tags, and attachments. `Extra` field can include `tex.data` and `tex.code` which are used to surface publications' `data` and `code`.

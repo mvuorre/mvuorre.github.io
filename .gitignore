@@ -15,3 +15,6 @@ _freeze/
 /.vscode/
 
 /.luarc.json
+
+# Publication PDFs in source (become available in docs/ when rendered)
+bibliography/files/

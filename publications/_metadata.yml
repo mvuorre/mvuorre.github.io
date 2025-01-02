@@ -1,0 +1,15 @@
+# Shared options for posts
+
+comments: false
+
+# Disable banner style title blocks
+title-block-banner: false
+title-block-style: default
+
+date-format: "YYYY"
+
+# Default for table of contents
+toc: false
+
+# Default fields for citation
+citation: true

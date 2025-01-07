@@ -1,14 +1,19 @@
 ---
 title: My publications
+toc: true
+toc-location: left
 listing:
-  template: publications/custom.ejs
-  contents:
-    - publications/items.yml
-  categories: true
-  sort: "date desc"
-  filter-ui: true
-  page-size: 100
-  date-format: "YYYY"
+  - id: journal-articles
+    template: publications/custom.ejs
+    contents:
+      - publications/items.yml
+    include:
+      type: "*"
+    categories: true
+    sort: "date desc"
+    filter-ui: true
+    page-size: 100
+    date-format: "YYYY"
 comments: false
 ---
 
@@ -16,11 +21,15 @@ comments: false
 <!-- {{< fa brands github >}} -->
 <!-- {{< ai google-scholar >}} -->
 
-You can find all my publications on this page, or on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). To make it easier for you to cite my work, [here](/bibliography/bibliography.bib) is a .bib file with references to all the works that I have contributed to. You can also find preprints of most of my work on [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated).
+You can find all my publications on this page, or on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). You can also find preprints of most of my work on [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated).
+
+::: {#journal-articles}
+:::
 
 ```{r}
 #| include: false
-library(bib2df)
+
+library(jsonlite)
 library(janitor)
 library(fs)
 library(tidyverse)
@@ -28,69 +37,70 @@ knitr::opts_chunk$set(
   include = FALSE
 )
 
-# Process my publications from .bib to a table
-dat <- bib2df("bibliography/bibliography.bib", separate_names = TRUE) |>
-  clean_names() |>
-  mutate(date = coalesce(date, year)) |>
-  filter(category %in% c("ARTICLE", "ONLINE")) |>
-  mutate(
-    outlet = coalesce(journaltitle, eprinttype) |> str_remove("\\\\"),
-    title = str_remove_all(title, "[{]") |> str_remove_all("[}]"),
-    abstract = str_remove_all(abstract, "[{]") |> str_remove_all("[}]"),
-    file = str_glue("bibliography/{file}")
-  )
 
-dat <- dat |>
+# Wrangle Zotero-exported Better BibTeX JSON file to a tibble
+dat <- fromJSON("bibliography/bibliography.json")$items |>
+  tibble() |>
+  clean_names() |>
+  filter(item_type %in% c("journalArticle", "preprint")) |>
   mutate(
-    author = map_chr(
-      author,
-      ~knitr::combine_words(.x$last_name, and = " & ")
+    publication = coalesce(library_catalog, publication_title),
+    authors = map_chr(
+      creators,
+      ~ knitr::combine_words(.x$lastName, and = " & ")
+    ),
+    tags = map_chr(
+      tags,
+      ~ knitr::combine_words(.x$tag, and = "") |>
+        str_to_lower()
+    ),
+    file = map_chr(
+      attachments,
+      ~ paste0("bibliography/", filter(.x, !is.na(.x$path))$path)
     )
+  ) |>
+  select(
+    title,
+    type = item_type,
+    abstract = abstract_note,
+    date,
+    publication,
+    url, doi,
+    authors,
+    tags,
+    file,
+    rights,
+    extra
   )
 ```
 
 ```{r}
 #| eval: true
-path <- "publications/items.yml"
-if (file_exists(path)) file_delete(path)
-dat <- dat |>
-  mutate(
-    item = pmap_chr(
-      list(title, url, date, author, doi, outlet, data, file, keywords, abstract, code),
-      ~ str_glue("
-- name: >-
-    {..1}
-  url: {..2}
-  date: {..3}
-  author: |
-    {..4}
-  doi: {..5}
-  outlet: >-
-    {..6}
-  data: {..7}
-  file: {..8}
-  categories: [{..9}]
-  abstract: |
-    {..10}
-  code: >-
-    {..11}
-")
-    ), .keep = "none"
-  )
-map(
-  dat$item,
-  ~cat(.x, file = path, sep = "\n", append = TRUE)
-)
-```
 
-```{r}
-#| eval: false
-
-library(yaml)
 path <- "publications/items.yml"
-if (file_exists(path)) file_delete(path)
+
+# Note the Zotero 'Extra' field must contain items like
+# license: CC-BY
+# data: <URL>
+
 dat |>
-  select(title, url, date, author, doi, outlet, data, file, keywords, abstract, code) |>
-  mutate(keywords = map(keywords, ~str_split_1(.x, ","))) |>
-  write_yaml(path, column.major = FALSE, omap = TRUE)
+  mutate(extra = ifelse(is.na(extra), "extra: ~", extra)) |>
+  str_glue_data("
+- title: >-
+    {title}
+  url: {url}
+  date: {date}
+  type: {type}
+  authors: |
+    {authors}
+  doi: {doi}
+  outlet: >-
+    {publication}
+  file: {file}
+  categories: [{tags}]
+  abstract: |
+    {str_remove_all(abstract, '\\n')}
+  {str_replace(extra, '\\n', '\\n  ')}
+") |>
+  cat(file = path, sep = "\n")
 ```

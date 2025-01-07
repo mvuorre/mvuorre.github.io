@@ -5,19 +5,13 @@ $navbar-fg: #62ff88;
 
 /*-- scss:rules --*/
 
-.navbar-brand > img {
-  max-height: 48px;
+.navbar {
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
-div.quarto-about-solana .about-entity .about-link {
-  font-size: 1.5em;
-  color: $primary;
-  border-style: none;
-  transition: all .35s ease;
-}
-
-div.quarto-about-solana .about-entity .about-link:hover {
-  color: $link-hover-color;
+li.nav-item {
+    font-size: 1.05em;
 }
 
 .listing-categories {
@@ -26,4 +20,13 @@ div.quarto-about-solana .about-entity .about-link:hover {
 
 .listing-abstract {
     font-size: 0.91em;
+}
+
+li.list-item {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+details {
+    margin-bottom: 4px;
 }

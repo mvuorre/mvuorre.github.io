@@ -35,10 +35,10 @@ website:
     right:
       - text: Home
         href: index.qmd
+      - text: Works
+        href: publications.qmd
       - text: Blog
         href: blog.qmd
-      - text: Publications
-        href: publications.qmd
       - icon: rss
         href: index.xml
       - icon: github

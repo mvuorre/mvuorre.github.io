@@ -1,9 +1,9 @@
 ```{=html}
 <ul class="list">
     <% for (const item of items) { %>
-        <li <%=metadataAttrs(item) %>>
+        <li class="list-item" <%=metadataAttrs(item) %>>
             <div class="listing-name">
-                <%= item.author %> (<%= item.date %>): <i><%= item.name %></i>. <a href="<%- item.url %>"><%= item.outlet %></a>.
+                <%= item.authors %> (<%= item.date %>): <i><%= item.title %></i>. <a href="<%- item.url %>"><%= item.outlet %></a>.
             </div>
             <% if(item.categories) { %>
                 <div class="listing-categories">
@@ -22,10 +22,10 @@
                 <% if (item.file != "NA") { %>
                     | <i class="fa-solid fa-file-pdf"></i> <a href="<%- item.file %>">Paper</a>
                 <% } %>
-                <% if (item.data != "NA") { %>
+                <% if (item.data) { %>
                     | <i class="fa-solid fa-chart-simple"></i> <a href="<%- item.data %>">Data</a>
                 <% } %>
-                <% if (item.code != "NA" ) { %>
+                <% if (item.code) { %>
                     | <i class="fa-solid fa-code"></i> <a href="<%- item.code %>">Code</a>
                 <% } %>]
             </div>

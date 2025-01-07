@@ -1,0 +1,3219 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "preferences": {},
+    "options": {
+      "Items": true,
+      "Normalize": false,
+      "Preferences": false,
+      "cache": false,
+      "exportDir": "/Users/matti/Documents/website/bibliography",
+      "exportFileData": true,
+      "exportNotes": false,
+      "exportPath": "/Users/matti/Documents/website/bibliography/bibliography.json",
+      "keepUpdated": false,
+      "worker": false
+    }
+  },
+  "version": {
+    "zotero": "7.0.11",
+    "bbt": "7.0.0"
+  },
+  "collections": {},
+  "items": [
+    {
+      "version": 10656,
+      "itemType": "preprint",
+      "title": "How do video games affect mental health? A narrative review of 13 proposed mechanisms",
+      "abstractNote": "Researchers have proposed a variety of mechanisms through which playing video games might affect mental health: by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms are rarely enumerated, and underlying causal structures are rarely made explicit. Here, we overview 13 proposed effects of gaming on mental health. For each, we attempt to draw out (often implicit) counterfactuals—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs (DAGs). In doing so, we hope to provide a bird’s eye view of the field and encourage more focused and collaborative efforts to propose, falsify, and iterate on (causal) theories. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.",
+      "date": "2024-05-30",
+      "language": "en-us",
+      "shortTitle": "How do video games affect mental health?",
+      "libraryCatalog": "OSF Preprints",
+      "url": "https://osf.io/q2kxg",
+      "accessDate": "2024-12-31T22:06:22Z",
+      "DOI": "10.31234/osf.io/q2kxg",
+      "repository": "OSF",
+      "creators": [
+        {
+          "firstName": "Nick",
+          "lastName": "Ballou",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thomas",
+          "lastName": "Hakman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "causal inference",
+          "type": 1
+        },
+        {
+          "tag": "media use",
+          "type": 1
+        },
+        {
+          "tag": "mental health",
+          "type": 1
+        },
+        {
+          "tag": "video games",
+          "type": 1
+        },
+        {
+          "tag": "wellbeing",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-12-31T22:06:22Z",
+      "dateModified": "2024-12-31T22:06:22Z",
+      "uri": "http://zotero.org/users/2244382/items/ZIWGQCCE",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "OSF Preprint",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-12-31T22:06:24Z",
+          "dateModified": "2024-12-31T22:06:24Z",
+          "uri": "http://zotero.org/users/2244382/items/S5ETTANM",
+          "path": "files/5147/ballou-etal_2024_OSF.pdf",
+          "select": "zotero://select/library/items/S5ETTANM"
+        }
+      ],
+      "notes": [],
+      "citationKey": "ballouHowVideoGames2024",
+      "itemID": 5146,
+      "itemKey": "ZIWGQCCE",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/ZIWGQCCE"
+    },
+    {
+      "version": 10657,
+      "itemType": "preprint",
+      "title": "Perceived value of video games, but not hours played, predicts mental well-being in adult Nintendo players",
+      "abstractNote": "Studies on video games and well-being often rely on self-report measures or data from a single game. Here, we study how 703 US adults’ time spent playing for over 140,000 hours across 150 Nintendo Switch games relates to their life satisfaction, affect, depressive symptoms, and general mental well-being. We replicate previous findings that playtime over the past two weeks does not predict well-being, and extend these findings to a wider range of timescales (one hour to one year). Results suggest that relationships, if present, dissipate within two hours of gameplay. Our non-causal findings suggest substantial confounding would be needed to shift a meaningful true effect to the observed null. Although playtime was not related to well-being, players’ assessments of the value of game time—so called gaming life fit—was. Results emphasise the importance of defining the gaming population of interest, collecting data from more than one game, and focusing on how players integrate gaming into their lives rather than the amount of time spent.",
+      "date": "2024-07-12",
+      "language": "en-us",
+      "libraryCatalog": "OSF Preprints",
+      "url": "https://osf.io/3srcw",
+      "accessDate": "2024-08-14T13:22:06Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/digital-wellbeing/noa-pilot-ms\ndata: https://github.com/digital-wellbeing/noa-pilot-ms",
+      "DOI": "10.31234/osf.io/3srcw",
+      "repository": "OSF",
+      "creators": [
+        {
+          "firstName": "Nick",
+          "lastName": "Ballou",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thomas",
+          "lastName": "Hakman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "digital trace data",
+          "type": 1
+        },
+        {
+          "tag": "industry collaboration",
+          "type": 1
+        },
+        {
+          "tag": "mental health",
+          "type": 1
+        },
+        {
+          "tag": "video games",
+          "type": 1
+        },
+        {
+          "tag": "wellbeing",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-08-14T13:22:06Z",
+      "dateModified": "2025-01-06T18:11:24Z",
+      "uri": "http://zotero.org/users/2244382/items/EIJ8BSJL",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Ballou et al_2024_Perceived value of video games, but not hours played, predicts mental.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-08-14T13:22:42Z",
+          "dateModified": "2024-08-14T13:22:44Z",
+          "uri": "http://zotero.org/users/2244382/items/2YIS7E8G",
+          "path": "files/4586/ballou-etal_2024_OSF.pdf",
+          "select": "zotero://select/library/items/2YIS7E8G"
+        }
+      ],
+      "notes": [],
+      "citationKey": "ballouPerceivedValueVideo2024",
+      "itemID": 4585,
+      "itemKey": "EIJ8BSJL",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/EIJ8BSJL"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "Tip-of-the-tongue states predict enhanced feedback processing and subsequent memory",
+      "abstractNote": "This article investigates the relations among the tip-of-the-tongue (TOT) state, event related potentials (ERPs) to correct feedback to questions, and subsequent memory. ERPs were used to investigate neurocognitive responses to feedback to general information questions for which participants had expressed either being or not being in a TOT state. For questions in which participants were unable to answer within 3 s, they indicated whether they were experiencing a TOT state and then were immediately provided with the correct answer. Feedback during a TOT state, as opposed to not knowing the answer, was associated with enhanced positivity over centro-parietal electrodes 250–700 ms post-feedback, and this enhanced positivity mediated a positive relationship between TOTs and later recall. Although effects of increased semantic access during TOT states cannot be ruled out, these results suggest that information received during TOT states elicits enhanced processing—suggestive of curiosity—leading to enhanced learning of studied material.",
+      "date": "2018-08-01",
+      "libraryCatalog": "ScienceDirect",
+      "url": "http://www.sciencedirect.com/science/article/pii/S1053810018300254",
+      "accessDate": "2018-07-25T13:01:17Z",
+      "rights": "All rights reserved",
+      "volume": "63",
+      "pages": "206-217",
+      "publicationTitle": "Consciousness and Cognition",
+      "DOI": "10.1016/j.concog.2018.05.010",
+      "journalAbbreviation": "Consciousness and Cognition",
+      "ISSN": "1053-8100",
+      "creators": [
+        {
+          "firstName": "Paul A.",
+          "lastName": "Bloom",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "David",
+          "lastName": "Friedman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Judy",
+          "lastName": "Xu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "EEG",
+          "type": 1
+        },
+        {
+          "tag": "ERP",
+          "type": 1
+        },
+        {
+          "tag": "Learning",
+          "type": 1
+        },
+        {
+          "tag": "Memory",
+          "type": 1
+        },
+        {
+          "tag": "Tip-of-the-tongue",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2018-07-25T13:01:17Z",
+      "dateModified": "2024-12-22T13:03:56Z",
+      "uri": "http://zotero.org/users/2244382/items/24KKXJ66",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "bloom_et_al_2018_tip-of-the-tongue_states_predict_enhanced_feedback.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:15:11Z",
+          "dateModified": "2022-04-28T14:15:13Z",
+          "uri": "http://zotero.org/users/2244382/items/5GDBLSS6",
+          "path": "files/2536/bloom-etal_2018_consciousness-and-cognition.pdf",
+          "select": "zotero://select/library/items/5GDBLSS6"
+        }
+      ],
+      "notes": [],
+      "citationKey": "bloomTipofthetongueStatesPredict2018",
+      "itemID": 684,
+      "itemKey": "24KKXJ66",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/24KKXJ66"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "Ordinal Regression Models in Psychology: A Tutorial",
+      "abstractNote": "Ordinal variables, although extremely common in psychology, are almost exclusively analyzed with statistical models that falsely assume them to be metric. This practice can lead to distorted effect-size estimates, inflated error rates, and other problems. We argue for the application of ordinal models that make appropriate assumptions about the variables under study. In this Tutorial, we first explain the three major classes of ordinal models: the cumulative, sequential, and adjacent-category models. We then show how to fit ordinal models in a fully Bayesian framework with the R package brms, using data sets on opinions about stem-cell research and time courses of marriage. The appendices provide detailed mathematical derivations of the models and a discussion of censored ordinal models. Compared with metric models, ordinal models provide better theoretical interpretation and numerical inference from ordinal data, and we recommend their widespread adoption in psychology.",
+      "date": "2019-03-01",
+      "language": "en",
+      "shortTitle": "Ordinal Regression Models in Psychology",
+      "libraryCatalog": "SAGE Journals",
+      "url": "https://doi.org/10.1177/2515245918823199",
+      "accessDate": "2019-12-02T16:23:58Z",
+      "rights": "All rights reserved",
+      "extra": "data: https://osf.io/cu8jv/\ncode: https://osf.io/cu8jv/",
+      "volume": "2",
+      "pages": "77-101",
+      "publicationTitle": "Advances in Methods and Practices in Psychological Science",
+      "DOI": "10.1177/2515245918823199",
+      "issue": "1",
+      "journalAbbreviation": "Advances in Methods and Practices in Psychological Science",
+      "ISSN": "2515-2459",
+      "creators": [
+        {
+          "firstName": "Paul-Christian",
+          "lastName": "Bürkner",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "brms"
+        },
+        {
+          "tag": "Likert items"
+        },
+        {
+          "tag": "open data"
+        },
+        {
+          "tag": "open materials"
+        },
+        {
+          "tag": "ordinal models"
+        },
+        {
+          "tag": "R"
+        }
+      ],
+      "relations": {
+        "dc:replaces": [
+          "http://zotero.org/users/2244382/items/E7IV8K7Q"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2019-02-25T18:27:00Z",
+      "dateModified": "2025-01-06T18:06:43Z",
+      "uri": "http://zotero.org/users/2244382/items/REIUVCDM",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Bürkner_Vuorre_2019_Ordinal Regression Models in Psychology.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:15:33Z",
+          "dateModified": "2024-01-15T07:50:53Z",
+          "uri": "http://zotero.org/users/2244382/items/TH6VUPYX",
+          "path": "files/2554/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf",
+          "select": "zotero://select/library/items/TH6VUPYX"
+        }
+      ],
+      "notes": [],
+      "citationKey": "burknerOrdinalRegressionModels2019",
+      "itemID": 573,
+      "itemKey": "REIUVCDM",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/REIUVCDM"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "Cross domain self-monitoring in anosognosia for memory loss in Alzheimer's disease",
+      "abstractNote": "Anosognosia for memory loss is a common feature of Alzheimer's disease (AD). Recent theories have proposed that anosognosia, a disruption in awareness at a global level, may reflect specific deficits in self-monitoring, or local awareness. Though anosognosia for memory loss has been shown to relate to memory self-monitoring, it is not clear if it relates to self-monitoring deficits in other domains (i.e., motor). The current study examined this question by analyzing the relationship between anosognosia for memory loss, memory monitoring, and motor monitoring in 35 individuals with mild to moderate AD. Anosognosia was assessed via clinical interview before participants completed a metamemory task to measure memory monitoring, and a computerized agency task to measure motor monitoring. Cognitive and psychological measures included memory, executive functions, and mood. Memory monitoring was associated with motor monitoring; however, anosognosia was associated only with memory monitoring, and not motor monitoring. Cognition and mood related differently to each measure of self-awareness. Results are interpreted within a hierarchical model of awareness in which local self-monitoring processes are associated across domain, but appear to only contribute to a global level awareness in a domain-specific fashion.",
+      "date": "2018-04-01",
+      "libraryCatalog": "ScienceDirect",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0010945218300364",
+      "accessDate": "2024-01-15T07:43:09Z",
+      "rights": "All rights reserved",
+      "volume": "101",
+      "pages": "221-233",
+      "publicationTitle": "Cortex",
+      "DOI": "10.1016/j.cortex.2018.01.019",
+      "journalAbbreviation": "Cortex",
+      "ISSN": "0010-9452",
+      "creators": [
+        {
+          "firstName": "Silvia",
+          "lastName": "Chapman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Leigh E.",
+          "lastName": "Colvin",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Gianna",
+          "lastName": "Cocchini",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Edward D.",
+          "lastName": "Huey",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Stephanie",
+          "lastName": "Cosentino",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Agency",
+          "type": 1
+        },
+        {
+          "tag": "Alzheimer's disease",
+          "type": 1
+        },
+        {
+          "tag": "Anosognosia",
+          "type": 1
+        },
+        {
+          "tag": "Cognition",
+          "type": 1
+        },
+        {
+          "tag": "Metacognition",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-01-15T07:43:09Z",
+      "dateModified": "2024-01-15T07:43:09Z",
+      "uri": "http://zotero.org/users/2244382/items/ANRFWQDG",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Chapman et al_2018_Cross domain self-monitoring in anosognosia for memory loss in Alzheimer's.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-01-15T07:43:17Z",
+          "dateModified": "2024-01-15T07:43:18Z",
+          "uri": "http://zotero.org/users/2244382/items/IVDVUCLP",
+          "path": "files/4082/chapman-etal_2018_cortex.pdf",
+          "select": "zotero://select/library/items/IVDVUCLP"
+        }
+      ],
+      "notes": [],
+      "citationKey": "chapmanCrossDomainSelfmonitoring2018",
+      "itemID": 4081,
+      "itemKey": "ANRFWQDG",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/ANRFWQDG"
+    },
+    {
+      "version": 10658,
+      "itemType": "journalArticle",
+      "title": "Bayesian evaluation of behavior change interventions: a brief introduction and a practical example",
+      "abstractNote": "Introduction: Evaluating effects of behavior change interventions is a central interest in health psychology and behavioral medicine. Researchers in these fields routinely use frequentist statistical methods to evaluate the extent to which these interventions impact behavior and the hypothesized mediating processes in the population. However, calls to move beyond the exclusive use of frequentist reasoning are now widespread in psychology and allied fields. We suggest adding Bayesian statistical methods to the researcher’s toolbox of statistical methods.Objectives: We first present the basic principles of the Bayesian approach to statistics and why they are useful for researchers in health psychology. We then provide a practical example on how to evaluate intervention effects using Bayesian methods, with a focus on Bayesian hierarchical modeling. We provide the necessary materials for introductory-level readers to follow the tutorial.Conclusion: Bayesian analytical methods are now available to researchers through easy-to-use software packages, and we recommend using them to evaluate the effectiveness of interventions for their conceptual and practical benefits.",
+      "date": "2018-01-01",
+      "shortTitle": "Bayesian evaluation of behavior change interventions",
+      "libraryCatalog": "Taylor and Francis+NEJM",
+      "url": "https://doi.org/10.1080/21642850.2018.1428102",
+      "accessDate": "2018-04-12T13:05:23Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://doi.org/10.5281/zenodo.1209813\ndata: https://doi.org/10.5281/zenodo.1209813",
+      "volume": "6",
+      "pages": "49-78",
+      "publicationTitle": "Health Psychology and Behavioral Medicine",
+      "DOI": "10.1080/21642850.2018.1428102",
+      "issue": "1",
+      "ISSN": "null",
+      "creators": [
+        {
+          "firstName": "Matti T. J.",
+          "lastName": "Heino",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Nelli",
+          "lastName": "Hankonen",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Bayes",
+          "type": 1
+        },
+        {
+          "tag": "Bayesian estimation",
+          "type": 1
+        },
+        {
+          "tag": "health behavior change",
+          "type": 1
+        },
+        {
+          "tag": "intervention evaluation",
+          "type": 1
+        },
+        {
+          "tag": "tutorial",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2018-04-12T13:05:24Z",
+      "dateModified": "2025-01-06T18:11:33Z",
+      "uri": "http://zotero.org/users/2244382/items/CXXSNVJK",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "heino_et_al_2018_bayesian_evaluation_of_behavior_change_interventions.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:17:25Z",
+          "dateModified": "2022-04-28T14:17:25Z",
+          "uri": "http://zotero.org/users/2244382/items/47HQPJS9",
+          "path": "files/2665/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf",
+          "select": "zotero://select/library/items/47HQPJS9"
+        }
+      ],
+      "notes": [],
+      "citationKey": "heinoBayesianEvaluationBehavior2018",
+      "itemID": 179,
+      "itemKey": "CXXSNVJK",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/CXXSNVJK"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "How should we investigate variation in the relation between social media and well-being?",
+      "abstractNote": "Most researchers studying the relation between social media use and well-being find small to no associations, yet policymakers and public stakeholders keep asking for more evidence. One way the field is reacting is by inspecting the variation around average relations—with the goal of describing individual social media users. Here, we argue that this approach produces findings that are not as informative as they could be. Our analysis begins by describing how the field got to this point. Then, we explain the problems with the current approach of studying variation and how it loses sight of one of the most important goals of a quantitative social science: generalizing from a sample to a population. We propose a principled approach to quantify, interpret, and explain variation in average relations by: (1) conducting model comparisons, (2) defining a region of practical equivalence and testing the theoretical distribution of relations against that region, (3) defining a smallest effect size of interest and comparing it against the theoretical distribution. We close with recommendations to either study moderators as systematic factors that explain variation or to commit to a person-specific approach and conduct N=1 studies and qualitative research.",
+      "date": "2024-07-01",
+      "language": "en",
+      "libraryCatalog": "open.lnu.se",
+      "url": "https://open.lnu.se/index.php/metapsychology/article/view/3322",
+      "accessDate": "2024-08-14T13:26:46Z",
+      "rights": "Copyright (c) 2024 Niklas  Johannes, Philipp K. Masur, Matti Vuorre, Andrew K. Przybylski",
+      "extra": "code: https://osf.io/b7rpx/",
+      "volume": "8",
+      "publicationTitle": "Meta-Psychology",
+      "DOI": "https://doi.org/10.15626/MP.2022.3322",
+      "ISSN": "2003-2714",
+      "creators": [
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Philipp K.",
+          "lastName": "Masur",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "effect heterogeneity",
+          "type": 1
+        },
+        {
+          "tag": "Social media",
+          "type": 1
+        },
+        {
+          "tag": "well-being",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-08-14T13:26:46Z",
+      "dateModified": "2025-01-06T18:03:38Z",
+      "uri": "http://zotero.org/users/2244382/items/FRWJTYDG",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Johannes et al_2024_How should we investigate variation in the relation between social media and.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-08-14T13:26:53Z",
+          "dateModified": "2024-08-14T13:26:54Z",
+          "uri": "http://zotero.org/users/2244382/items/PMGK4MLE",
+          "path": "files/4588/johannes-etal_2024_meta-psychology.pdf",
+          "select": "zotero://select/library/items/PMGK4MLE"
+        }
+      ],
+      "notes": [],
+      "citationKey": "johannesHowShouldWe2024",
+      "itemID": 4587,
+      "itemKey": "FRWJTYDG",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/FRWJTYDG"
+    },
+    {
+      "version": 10659,
+      "itemType": "journalArticle",
+      "title": "Time Spent Playing Two Online Shooters Has No Measurable Effect on Aggressive Affect",
+      "abstractNote": "There is a lively debate whether playing games that feature armed combat and competition (often referred to as violent video games) has measurable effects on aggression. Unfortunately, that debate has produced insights that remain preliminary without accurate behavioral data. Here, we present a secondary analysis of the most authoritative longitudinal data set available on the issue from our previous study (Vuorre et al., 2021). We analyzed objective in-game behavior, provided by video game companies, in 2,580 players over six weeks. Specifically, we asked how time spent playing two popular online shooters, Apex Legends (PEGI 16) and Outriders (PEGI 18), affected self-reported feelings of anger (i.e., aggressive affect). We found that playing these games did not increase aggressive affect; the cross-lagged association between game time and aggressive affect was virtually zero. Our results showcase the value of obtaining accurate industry data as well as an open science of video games and mental health that allows cumulative knowledge building.",
+      "date": "2022-05-01",
+      "libraryCatalog": "Silverchair",
+      "url": "https://doi.org/10.1525/collabra.34606",
+      "accessDate": "2022-05-16T09:44:32Z",
+      "rights": "Creative Commons Attribution 4.0 International Licence (CC-BY)",
+      "extra": "code: https://github.com/digital-wellbeing/gametime-anger/tree/main\ndata: https://github.com/digital-wellbeing/gametime-anger/tree/main",
+      "volume": "8",
+      "pages": "34606",
+      "publicationTitle": "Collabra: Psychology",
+      "DOI": "10.1525/collabra.34606",
+      "issue": "1",
+      "journalAbbreviation": "Collabra: Psychology",
+      "ISSN": "2474-7394",
+      "creators": [
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "anger"
+        },
+        {
+          "tag": "play behavior"
+        },
+        {
+          "tag": "video games"
+        },
+        {
+          "tag": "violence"
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/FQEJJQ7H",
+          "http://zotero.org/groups/5179295/items/5NZZ6DJX",
+          "http://zotero.org/groups/5179295/items/JKL6JKHL"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2022-05-16T09:44:32Z",
+      "dateModified": "2025-01-06T18:11:39Z",
+      "uri": "http://zotero.org/users/2244382/items/MVBH3QT2",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "johannes_et_al_2022_time_spent_playing_two_online_shooters_has_no_measurable.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/9GBP5C2E",
+              "http://zotero.org/groups/5179295/items/2H9XK9PN"
+            ]
+          },
+          "dateAdded": "2022-05-16T09:44:36Z",
+          "dateModified": "2022-05-16T09:44:36Z",
+          "uri": "http://zotero.org/users/2244382/items/4UKFZ26N",
+          "path": "files/2987/johannes-etal_2022_collabra-psychology.pdf",
+          "select": "zotero://select/library/items/4UKFZ26N"
+        }
+      ],
+      "notes": [],
+      "citationKey": "johannesTimeSpentPlaying2022",
+      "itemID": 2986,
+      "itemKey": "MVBH3QT2",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/MVBH3QT2"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "Video game play is positively correlated with well-being",
+      "abstractNote": "People have never played more video games, and many stakeholders are worried that this activity might be bad for players. So far, research has not had adequate data to test whether these worries are justified and if policymakers should act to regulate video game play time. We attempt to provide much-needed evidence with adequate data. Whereas previous research had to rely on self-reported play behaviour, we collaborated with two games companies, Electronic Arts and Nintendo of America, to obtain players' actual play behaviour. We surveyed players of Plantsvs.Zombies: Battle for Neighborville and Animal Crossing: New Horizons for their well-being, motivations and need satisfaction during play, and merged their responses with telemetry data (i.e. logged game play). Contrary to many fears that excessive play time will lead to addiction and poor mental health, we found a small positive relation between game play and affective well-being. Need satisfaction and motivations during play did not interact with play time but were instead independently related to well-being. Our results advance the field in two important ways. First, we show that collaborations with industry partners can be done to high academic standards in an ethical and transparent fashion. Second, we deliver much-needed evidence to policymakers on the link between play and mental health.",
+      "date": "2021-02-17",
+      "libraryCatalog": "royalsocietypublishing.org (Atypon)",
+      "url": "https://doi.org/10.1098/rsos.202049",
+      "accessDate": "2021-02-17T11:08:14Z",
+      "rights": "All rights reserved",
+      "extra": "data: https://osf.io/cjd6z/\ncode: https://github.com/digital-wellbeing/gametime",
+      "volume": "8",
+      "pages": "202049",
+      "publicationTitle": "Royal Society Open Science",
+      "DOI": "10.1098/rsos.202049",
+      "issue": "2",
+      "journalAbbreviation": "Royal Society Open Science",
+      "creators": [
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "human motivation"
+        },
+        {
+          "tag": "video games"
+        },
+        {
+          "tag": "well-being"
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/2480377/items/J8CDQL8T",
+          "http://zotero.org/groups/4675826/items/6UP39RA8",
+          "http://zotero.org/groups/4675826/items/AQDCN5HL",
+          "http://zotero.org/groups/5179295/items/6MUC2YDJ",
+          "http://zotero.org/groups/5179295/items/C2HZR87W"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2021-02-17T11:08:14Z",
+      "dateModified": "2025-01-06T18:06:47Z",
+      "uri": "http://zotero.org/users/2244382/items/VLAUGM8T",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "johannes_et_al_2021_video_game_play_is_positively_correlated_with_well-being.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/C85565SN",
+              "http://zotero.org/groups/4675826/items/JPW6G7M9",
+              "http://zotero.org/groups/5179295/items/8Z44EJMY"
+            ]
+          },
+          "dateAdded": "2022-04-28T14:17:54Z",
+          "dateModified": "2022-04-28T14:17:55Z",
+          "uri": "http://zotero.org/users/2244382/items/CEBJ4I38",
+          "path": "files/2690/johannes-etal_2021_royal-society-open-science.pdf",
+          "select": "zotero://select/library/items/CEBJ4I38"
+        }
+      ],
+      "notes": [],
+      "citationKey": "johannesVideoGamePlay2021",
+      "itemID": 99,
+      "itemKey": "VLAUGM8T",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/VLAUGM8T"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "Curiosity and the desire for agency: wait, wait … don’t tell me!",
+      "abstractNote": "Past research has shown that when people are curious they are willing to wait to get an answer if the alternative is to not get the answer at all—a result that has been taken to mean that people valued the answers, and interpreted as supporting a reinforcement-learning (RL) view of curiosity. An alternative 'need for agency' view is forwarded that proposes that when curious, people are intrinsically motivated to actively seek the answer themselves rather than having it given to them. If answers can be freely obtained at any time, the RL view holds that, because time delay depreciates value, people will not wait to receive the answer. Because they value items that they are curious about more than those about which they are not curious they should seek the former more quickly. In contrast, the need for agency view holds that in order to take advantage of the opportunity to obtain the answer by their own efforts, when curious, people may wait. Consistent with this latter view, three experiments showed that even when the answer could be obtained at any time, people spontaneously waited longer to request the answer when they were curious. Furthermore, rather than requesting the answer itself—a response that would have maximally reduced informational uncertainty—in all three experiments, people asked for partial information in the form of hints, when curious. Such active hint seeking predicted later recall. The 'need for agency' view of curiosity, then, was supported by all three experiments.",
+      "date": "2021-11-03",
+      "language": "en",
+      "shortTitle": "Curiosity and the desire for agency",
+      "libraryCatalog": "Springer Link",
+      "url": "https://doi.org/10.1186/s41235-021-00330-0",
+      "accessDate": "2022-02-05T11:10:05Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://osf.io/nkqd4/\ndata: https://osf.io/nkqd4/",
+      "volume": "6",
+      "pages": "69",
+      "publicationTitle": "Cognitive Research: Principles and Implications",
+      "DOI": "10.1186/s41235-021-00330-0",
+      "issue": "1",
+      "journalAbbreviation": "Cogn. Research",
+      "ISSN": "2365-7464",
+      "creators": [
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Treva",
+          "lastName": "Kennedy-Pyers",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Active learning"
+        },
+        {
+          "tag": "Curiosity"
+        },
+        {
+          "tag": "Need for agency"
+        },
+        {
+          "tag": "Need for control"
+        },
+        {
+          "tag": "Prediction error models"
+        },
+        {
+          "tag": "Region of proximal learning"
+        },
+        {
+          "tag": "Reinforcement learning"
+        },
+        {
+          "tag": "Reward learning"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2022-02-05T11:10:06Z",
+      "dateModified": "2025-01-06T18:06:51Z",
+      "uri": "http://zotero.org/users/2244382/items/2FFPEBVM",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "metcalfe_et_al_2021_curiosity_and_the_desire_for_agency.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:19:09Z",
+          "dateModified": "2022-04-28T14:19:10Z",
+          "uri": "http://zotero.org/users/2244382/items/KL5NXZH5",
+          "path": "files/2775/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf",
+          "select": "zotero://select/library/items/KL5NXZH5"
+        }
+      ],
+      "notes": [],
+      "citationKey": "metcalfeCuriosityDesireAgency2021",
+      "itemID": 2329,
+      "itemKey": "2FFPEBVM",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/2FFPEBVM"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "Curiosity: The effects of feedback and confidence on the desire to know",
+      "abstractNote": "In 10 experiments, we investigated the relations among curiosity and people’s confidence in their answers to general information questions after receiving different kinds of feedback: yes/no feedback, true or false informational feedback under uncertainty, or no feedback. The results showed that when people had given a correct answer, yes/no feedback resulted in a near complete loss of curiosity. Upon learning they had made an error via yes/no feedback, curiosity increased, especially for high-confidence errors. When people were given true feedback under uncertainty (they were given the correct answer but were not told that it was correct), curiosity increased for high-confidence errors but was unchanged for correct responses. In contrast, when people were given false feedback under uncertainty, curiosity increased for high-confidence correct responses but was unchanged for errors. These results, taken as a whole, are consistent with the region of proximal learning model which proposes that while curiosity is minimal when people are completely certain that they know the answer, it is maximal when people believe that they almost know. Manipulations that drew participants toward this region of “almost knowing” resulted in increased curiosity. A serendipitous result was the finding (replicated four times in this study) that when no feedback was given, people were more curious about high-confidence errors than they were about equally high-confidence correct answers. It was as if they had some knowledge, tapped selectively by their feelings of curiosity, that there was something special (and possibly amiss) about high-confidence errors. (PsycInfo Database Record (c) 2022 APA, all rights reserved)",
+      "date": "2022-01-01",
+      "shortTitle": "Curiosity",
+      "libraryCatalog": "APA PsycNet",
+      "rights": "All rights reserved",
+      "extra": "code: https://osf.io/akxs4/\ndata: https://osf.io/akxs4/",
+      "publicationTitle": "Journal of Experimental Psychology: General",
+      "DOI": "10.1037/xge0001284",
+      "ISSN": "1939-2222",
+      "creators": [
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Emily",
+          "lastName": "Towner",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Teal S.",
+          "lastName": "Eich",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Curiosity",
+          "type": 1
+        },
+        {
+          "tag": "Errors",
+          "type": 1
+        },
+        {
+          "tag": "Feedback",
+          "type": 1
+        },
+        {
+          "tag": "Learning",
+          "type": 1
+        },
+        {
+          "tag": "Metacognition",
+          "type": 1
+        },
+        {
+          "tag": "Models",
+          "type": 1
+        },
+        {
+          "tag": "Responses",
+          "type": 1
+        },
+        {
+          "tag": "Self-Confidence",
+          "type": 1
+        },
+        {
+          "tag": "Uncertainty",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2022-09-20T09:41:50Z",
+      "dateModified": "2025-01-06T18:06:55Z",
+      "uri": "http://zotero.org/users/2244382/items/6VUTCSRW",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "PDF",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-10-08T11:41:13Z",
+          "dateModified": "2024-10-08T11:41:13Z",
+          "uri": "http://zotero.org/users/2244382/items/5BQW8WE9",
+          "path": "files/4893/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf",
+          "select": "zotero://select/library/items/5BQW8WE9"
+        }
+      ],
+      "notes": [],
+      "citationKey": "metcalfeCuriosityEffectsFeedback2022",
+      "itemID": 3229,
+      "itemKey": "6VUTCSRW",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/6VUTCSRW"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "Learning from errors versus explicit instruction in preparation for a test that counts",
+      "abstractNote": "Background Although the generation of errors has been thought, traditionally, to impair learning, recent studies indicate that, under particular feedback conditions, the commission of errors may have a beneficial effect. Aims This study investigates the teaching strategies that facilitate learning from errors. Materials and Methods This 2-year study, involving two cohorts of 88 students each, contrasted a learning-from-errors (LFE) with an explicit instruction (EI) teaching strategy in a multi-session implementation directed at improving student performance on the high-stakes New York State Algebra 1 Regents examination. In the LFE condition, instead of receiving instruction on 4 sessions, students took mini-tests. Their errors were isolated to become the focus of 4 teacher-guided feedback sessions. In the EI condition, teachers explicitly taught the mathematical material for all 8 sessions. Results Teacher time-on in the LFE condition produced a higher rate of learning than did teacher time-on in the EI condition. The learning benefit in the LFE condition was, however, inconsistent across teachers. Second-by-second analyses of classroom activities, directed at isolating learning-relevant differences in teaching style revealed that a highly interactive mode of engaging the students in understanding their errors was more conducive to learning than was teaching directed at getting to the correct solution, either by lecturing about corrections or by interaction focused on corrections. Conclusion These results indicate that engaging the students interactively to focus on errors, and the reasons for them, facilitates productive failure and learning from errors.",
+      "date": "2024-01-11",
+      "language": "en",
+      "libraryCatalog": "Wiley Online Library",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/bjep.12651",
+      "accessDate": "2024-01-12T08:37:32Z",
+      "rights": "© 2024 The British Psychological Society.",
+      "volume": "n/a",
+      "publicationTitle": "British Journal of Educational Psychology",
+      "DOI": "10.1111/bjep.12651",
+      "issue": "n/a",
+      "ISSN": "2044-8279",
+      "creators": [
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Judy",
+          "lastName": "Xu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Robert",
+          "lastName": "Siegler",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Dylan",
+          "lastName": "Wiliam",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Robert A.",
+          "lastName": "Bjork",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "discovery learning",
+          "type": 1
+        },
+        {
+          "tag": "interactive feedback",
+          "type": 1
+        },
+        {
+          "tag": "learning from errors",
+          "type": 1
+        },
+        {
+          "tag": "productive failure",
+          "type": 1
+        },
+        {
+          "tag": "test effects",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-01-12T08:37:32Z",
+      "dateModified": "2024-01-15T07:38:51Z",
+      "uri": "http://zotero.org/users/2244382/items/EYKVJW9J",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Metcalfe et al_2024_Learning from errors versus explicit instruction in preparation for a test that.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-01-12T08:37:35Z",
+          "dateModified": "2024-01-15T07:38:58Z",
+          "uri": "http://zotero.org/users/2244382/items/DGAHR964",
+          "path": "files/4078/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf",
+          "select": "zotero://select/library/items/DGAHR964"
+        }
+      ],
+      "notes": [],
+      "citationKey": "metcalfeLearningErrorsExplicit2024",
+      "itemID": 4077,
+      "itemKey": "EYKVJW9J",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/EYKVJW9J"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "Memory, stress, and the hippocampal hypothesis: Firefighters' recollections of the fireground",
+      "abstractNote": "Nadel, Jacobs, and colleagues have postulated that human memory under conditions of extremely high stress is “special.” In particular, episodic memories are thought to be susceptible to impairment, and possibly fragmentation, attributable to hormonally based dysfunction occurring selectively in the hippocampal system. While memory for highly salient and self-relevant events should be better than the memory for less central events, an overall nonmonotonic decrease in spatio/temporal episodic memory as stress approaches traumatic levels is posited. Testing human memory at extremely high levels of stress, however, is difficult and reports are rare. Firefighting is the most stressful civilian occupation in our society. In the present study, we asked New York City firefighters to recall everything that they could upon returning from fires they had just fought. Communications during all fires were recorded, allowing verification of actual events. Our results confirmed that recall was, indeed, impaired with increasing stress. A nonmonotonic relation was observed consistent with the posited inverted u-shaped memory-stress function. Central details about emergency situations were better recalled than were more schematic events, but both kinds of events showed the memory decrement with high stress. There was no evidence of fragmentation. Self-relevant events were recalled nearly five times better than events that were not self-relevant. These results provide confirmation that memories encoded under conditions of extremely high stress are, indeed, special and are impaired in a manner that is consistent with the Nadel/Jacobs hippocampal hypothesis.",
+      "date": "2019-06-29",
+      "language": "en",
+      "shortTitle": "Memory, stress, and the hippocampal hypothesis",
+      "libraryCatalog": "Wiley Online Library",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/hipo.23128",
+      "accessDate": "2019-12-02T16:25:15Z",
+      "rights": "© 2019 Wiley Periodicals, Inc.",
+      "volume": "29",
+      "pages": "1141-1149",
+      "publicationTitle": "Hippocampus",
+      "DOI": "10.1002/hipo.23128",
+      "issue": "12",
+      "ISSN": "1098-1063",
+      "creators": [
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jason C.",
+          "lastName": "Brezler",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "James",
+          "lastName": "McNamara",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Gabriel",
+          "lastName": "Maletta",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "extreme stress",
+          "type": 1
+        },
+        {
+          "tag": "FDNY",
+          "type": 1
+        },
+        {
+          "tag": "human memory",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "dc:replaces": [
+          "http://zotero.org/users/2244382/items/NBR2VY7S"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2019-07-01T13:57:34Z",
+      "dateModified": "2025-01-02T09:57:30Z",
+      "uri": "http://zotero.org/users/2244382/items/4RTB5G3Z",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Metcalfe et al_2019_Memory, stress, and the hippocampal hypothesis.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:19:08Z",
+          "dateModified": "2024-01-15T07:49:30Z",
+          "uri": "http://zotero.org/users/2244382/items/SGGIACJP",
+          "path": "files/2774/metcalfe-etal_2019_hippocampus.pdf",
+          "select": "zotero://select/library/items/SGGIACJP"
+        }
+      ],
+      "notes": [],
+      "citationKey": "metcalfeMemoryStressHippocampal2019",
+      "itemID": 572,
+      "itemKey": "4RTB5G3Z",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/4RTB5G3Z"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "On the (non)persuasive power of a brain image",
+      "abstractNote": "The persuasive power of brain images has captivated scholars in many disciplines. Like others, we too were intrigued by the finding that a brain image makes accompanying information more credible (McCabe & Castel in Cognition 107:343-352, 2008). But when our attempts to build on this effect failed, we instead ran a series of systematic replications of the original study—comprising 10 experiments and nearly 2,000 subjects. When we combined the original data with ours in a meta-analysis, we arrived at a more precise estimate of the effect, determining that a brain image exerted little to no influence. The persistent meme of the influential brain image should be viewed with a critical eye.",
+      "date": "2013-02-12",
+      "language": "en",
+      "libraryCatalog": "link.springer.com",
+      "url": "http://link.springer.com/article/10.3758/s13423-013-0391-6",
+      "accessDate": "2015-12-27T18:49:17Z",
+      "rights": "All rights reserved",
+      "volume": "20",
+      "pages": "720-725",
+      "publicationTitle": "Psychonomic Bulletin & Review",
+      "DOI": "10.3758/s13423-013-0391-6",
+      "issue": "4",
+      "journalAbbreviation": "Psychon Bull Rev",
+      "ISSN": "1069-9384, 1531-5320",
+      "creators": [
+        {
+          "firstName": "Robert B.",
+          "lastName": "Michael",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Eryn J.",
+          "lastName": "Newman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Geoff",
+          "lastName": "Cumming",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Maryanne",
+          "lastName": "Garry",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Cognitive Psychology",
+          "type": 1
+        },
+        {
+          "tag": "Decision making"
+        },
+        {
+          "tag": "neuroimaging",
+          "type": 1
+        },
+        {
+          "tag": "statistics",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2015-12-27T18:49:17Z",
+      "dateModified": "2025-01-02T09:59:23Z",
+      "uri": "http://zotero.org/users/2244382/items/3WVQGVT3",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Michael et al_2013_On the (non)persuasive power of a brain image.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:19:10Z",
+          "dateModified": "2024-01-15T07:50:09Z",
+          "uri": "http://zotero.org/users/2244382/items/D6SWT3LF",
+          "path": "files/2776/michael-etal_2013_psychonomic-bulletin-&-review.pdf",
+          "select": "zotero://select/library/items/D6SWT3LF"
+        }
+      ],
+      "notes": [],
+      "citationKey": "michaelNonpersuasivePowerBrain2013",
+      "itemID": 358,
+      "itemKey": "3WVQGVT3",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/3WVQGVT3"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "Impact of digital screen media activity on functional brain organization in late childhood: Evidence from the ABCD study",
+      "abstractNote": "The idea that the increased ubiquity of digital devices negatively impacts neurodevelopment is as compelling as it is disturbing. This study investigated this concern by systematically evaluating how different profiles of screen-based engagement related to functional brain organization in late childhood. We studied participants from a large and representative sample of young people participating in the first two years of the ABCD study (ages 9–12 years) to investigate the relations between self-reported use of various digital screen media activity (SMA) and functional brain organization. A series of generalized additive mixed models evaluated how these relationships related to functional outcomes associated with health and cognition. Of principal interest were two hypotheses: First, that functional brain organization (assessed through resting state functional connectivity MRI; rs-fcMRI) is related to digital screen engagement; and second, that children with higher rates of engagement will have functional brain organization profiles related to maladaptive functioning. Results did not support either of these predictions for SMA. Further, exploratory analyses predicting how screen media activity impacted neural trajectories showed no significant impact of SMA on neural maturation over a two-year period.",
+      "date": "2023-12-01",
+      "shortTitle": "Impact of digital screen media activity on functional brain organization in late childhood",
+      "libraryCatalog": "ScienceDirect",
+      "url": "https://www.sciencedirect.com/science/article/pii/S001094522300237X",
+      "accessDate": "2023-11-22T08:00:48Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/Miller-Jack/cortex-rsfmri",
+      "volume": "169",
+      "pages": "290-308",
+      "publicationTitle": "Cortex",
+      "DOI": "10.1016/j.cortex.2023.09.009",
+      "journalAbbreviation": "Cortex",
+      "ISSN": "0010-9452",
+      "creators": [
+        {
+          "firstName": "Jack",
+          "lastName": "Miller",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kathryn L.",
+          "lastName": "Mills",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Amy",
+          "lastName": "Orben",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Adolescence",
+          "type": 1
+        },
+        {
+          "tag": "Digital technologies",
+          "type": 1
+        },
+        {
+          "tag": "fMRI",
+          "type": 1
+        },
+        {
+          "tag": "Internet",
+          "type": 1
+        },
+        {
+          "tag": "Social media",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2023-11-22T08:00:48Z",
+      "dateModified": "2025-01-06T18:03:58Z",
+      "uri": "http://zotero.org/users/2244382/items/Q8K4BEU9",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Miller et al_2023_Impact of digital screen media activity on functional brain organization in.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2023-11-22T08:01:15Z",
+          "dateModified": "2023-11-22T08:01:16Z",
+          "uri": "http://zotero.org/users/2244382/items/M356LH9F",
+          "path": "files/4027/miller-etal_2023_cortex.pdf",
+          "select": "zotero://select/library/items/M356LH9F"
+        }
+      ],
+      "notes": [],
+      "citationKey": "millerImpactDigitalScreen2023",
+      "itemID": 4026,
+      "itemKey": "Q8K4BEU9",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/Q8K4BEU9"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "How action selection influences the sense of agency: An ERP study",
+      "abstractNote": "Sense of agency (SoA) refers to the feeling that we are in control of our actions and, through them, of events in the outside world. One influential view claims that the SoA depends on retrospectively matching the expected and actual outcomes of action. However, recent studies have revealed an additional, prospective component to SoA, driven by action selection processes. We used event-related potentials (ERPs) to clarify the neural mechanisms underlying prospective agency. Subliminal priming was used to manipulate the fluency of selecting a left or right hand action in response to a supraliminal target. These actions were followed by one of several coloured circles, after a variable delay. Participants then rated their degree of control over this visual outcome. Incompatible priming impaired action selection, and reduced sense of agency over action outcomes, relative to compatible priming. More negative ERPs immediately after the action, linked to post-decisional action monitoring, were associated with reduced agency ratings over action outcomes. Additionally, feedback-related negativity evoked by the outcome was also associated with reduced agency ratings. These ERP components may reflect brain processes underlying prospective and retrospective components of sense of agency respectively.",
+      "date": "2017-04-15",
+      "shortTitle": "How action selection influences the sense of agency",
+      "libraryCatalog": "ScienceDirect",
+      "url": "http://www.sciencedirect.com/science/article/pii/S1053811917301180",
+      "accessDate": "2017-02-17T15:16:44Z",
+      "rights": "All rights reserved",
+      "volume": "150",
+      "pages": "1-13",
+      "publicationTitle": "NeuroImage",
+      "DOI": "10.1016/j.neuroimage.2017.02.015",
+      "journalAbbreviation": "NeuroImage",
+      "ISSN": "1053-8119",
+      "creators": [
+        {
+          "firstName": "Nura",
+          "lastName": "Sidarus",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Patrick",
+          "lastName": "Haggard",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Action monitoring",
+          "type": 1
+        },
+        {
+          "tag": "Action selection"
+        },
+        {
+          "tag": "Cognitive control",
+          "type": 1
+        },
+        {
+          "tag": "evoked potentials",
+          "type": 1
+        },
+        {
+          "tag": "Metacognition",
+          "type": 1
+        },
+        {
+          "tag": "Sense of agency",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "dc:replaces": [
+          "http://zotero.org/users/2244382/items/4GJIKUK4"
+        ],
+        "owl:sameAs": [
+          "http://zotero.org/groups/931437/items/7539VJR7"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2017-02-17T15:16:44Z",
+      "dateModified": "2025-01-05T12:41:42Z",
+      "uri": "http://zotero.org/users/2244382/items/GH6M4EGN",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "PDF",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2025-01-02T09:59:50Z",
+          "dateModified": "2025-01-02T09:59:50Z",
+          "uri": "http://zotero.org/users/2244382/items/3WY8QZVV",
+          "path": "files/5150/sidarus-etal_2017_neuroimage.pdf",
+          "select": "zotero://select/library/items/3WY8QZVV"
+        }
+      ],
+      "notes": [],
+      "citationKey": "sidarusHowActionSelection2017",
+      "itemID": 357,
+      "itemKey": "GH6M4EGN",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/GH6M4EGN"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "Integrating prospective and retrospective cues to the sense of agency: a multi-study investigation",
+      "date": "2017-04-21",
+      "shortTitle": "Integrating prospective and retrospective cues to the sense of agency",
+      "libraryCatalog": "academic.oup.com",
+      "url": "https://academic.oup.com/nc/article/3/1/nix012/3858560/Integrating-prospective-and-retrospective-cues-to",
+      "accessDate": "2017-05-31T13:18:16Z",
+      "rights": "All rights reserved",
+      "extra": "data: https://osf.io/2qkrh/",
+      "volume": "3",
+      "publicationTitle": "Neuroscience of Consciousness",
+      "DOI": "10.1093/nc/nix012",
+      "issue": "1",
+      "journalAbbreviation": "Neurosci Conscious",
+      "creators": [
+        {
+          "firstName": "Nura",
+          "lastName": "Sidarus",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Patrick",
+          "lastName": "Haggard",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "agency"
+        },
+        {
+          "tag": "intention"
+        },
+        {
+          "tag": "metacognition"
+        },
+        {
+          "tag": "multi-study analysis"
+        },
+        {
+          "tag": "volition"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2017-05-31T13:18:16Z",
+      "dateModified": "2025-01-06T18:07:03Z",
+      "uri": "http://zotero.org/users/2244382/items/972EHZ6U",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Sidarus et al_2017_Integrating prospective and retrospective cues to the sense of agency.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:17Z",
+          "dateModified": "2024-01-15T07:47:04Z",
+          "uri": "http://zotero.org/users/2244382/items/4JCNEF7Z",
+          "path": "files/2874/sidarus-etal_2017_neuroscience-of-consciousness.pdf",
+          "select": "zotero://select/library/items/4JCNEF7Z"
+        }
+      ],
+      "notes": [],
+      "citationKey": "sidarusIntegratingProspectiveRetrospective2017",
+      "itemID": 369,
+      "itemKey": "972EHZ6U",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/972EHZ6U"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "Investigating the Prospective Sense of Agency: Effects of Processing Fluency, Stimulus Ambiguity, and Response Conflict",
+      "abstractNote": "How do we know how much control we have over our environment? The sense of agency refers to the feeling that we are in control of our actions, and that, through them, we can control our external environment. Thus, agency clearly involves matching intentions, actions, and outcomes. The present studies investigated the possibility that processes of action selection, i.e., choosing what action to make, contribute to the sense of agency. Since selection of action necessarily precedes execution of action, such effects must be prospective. In contrast, most literature on sense of agency has focussed on the retrospective computation whether an outcome fits the action performed or intended. This hypothesis was tested in an ecologically rich, dynamic task based on a computer game. Across three experiments, we manipulated three different aspects of action selection processing: visual processing fluency, categorization ambiguity, and response conflict. Additionally, we measured the relative contributions of prospective, action selection-based cues, and retrospective, outcome-based cues to the sense of agency. Manipulations of action selection were orthogonally combined with discrepancy of visual feedback of action. Fluency of action selection had a small but reliable effect on the sense of agency. Additionally, as expected, sense of agency was strongly reduced when visual feedback was discrepant with the action performed. The effects of discrepant feedback were larger than the effects of action selection fluency, and sometimes suppressed them. The sense of agency is highly sensitive to disruptions of action-outcome relations. However, when motor control is successful, and action-outcome relations are as predicted, fluency or dysfluency of action selection provides an important prospective cue to the sense of agency.",
+      "date": "2017-04-13",
+      "shortTitle": "Investigating the Prospective Sense of Agency",
+      "libraryCatalog": "Frontiers",
+      "url": "https://www.frontiersin.org/article/10.3389/fpsyg.2017.00545",
+      "accessDate": "2022-01-04T01:36:44Z",
+      "rights": "All rights reserved",
+      "volume": "8",
+      "pages": "545",
+      "publicationTitle": "Frontiers in Psychology",
+      "DOI": "10.3389/fpsyg.2017.00545",
+      "ISSN": "1664-1078",
+      "creators": [
+        {
+          "firstName": "Nura",
+          "lastName": "Sidarus",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Patrick",
+          "lastName": "Haggard",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Action selection"
+        },
+        {
+          "tag": "fluency"
+        },
+        {
+          "tag": "Metacognition"
+        },
+        {
+          "tag": "motor control"
+        },
+        {
+          "tag": "Sense of agency"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2022-01-04T01:36:44Z",
+      "dateModified": "2025-01-02T09:35:55Z",
+      "uri": "http://zotero.org/users/2244382/items/UDK47MGM",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Sidarus et al_2017_Investigating the Prospective Sense of Agency.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:41:47Z",
+          "dateModified": "2024-01-15T07:48:02Z",
+          "uri": "http://zotero.org/users/2244382/items/XDUUEIQG",
+          "path": "files/2979/sidarus-etal_2017_frontiers-in-psychology.pdf",
+          "select": "zotero://select/library/items/XDUUEIQG"
+        }
+      ],
+      "notes": [],
+      "citationKey": "sidarusInvestigatingProspectiveSense2017",
+      "itemID": 1492,
+      "itemKey": "UDK47MGM",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/UDK47MGM"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "A co-produced online cultural experience compared to a typical museum website for mental health in people aged 16–24: A proof-of-principle randomised controlled trial",
+      "abstractNote": "The mental health of young people (YP) is a major public health concern that has worsened during the COVID-19 pandemic. Whilst engaging with culture and the arts may have mental health benefits there is a dearth of experimental research regarding the impact of online arts and culture on depression and anxiety in YP. In particular online interventions, which may improve accessibility.Objective:We aimed to compare a co-produced online intervention encompassing the diverse human stories behind art and artefacts, named Ways of Being (WoB), with a typical museum website, the Ashmolean (Ash) on negative affect (NA), positive affect (PA) and psychological distress (K10).Methods:In this parallel group RCT, 463 YP aged 16-24 were randomly assigned, 231 to WoB and 232 to Ash.Results:Over the intervention phase (an aggregate score including all post-allocation timepoints to day-five) a group difference was apparent in favour of WoB for NA (WoB-Ash n=448, NA -0.158, p=0.010) but no differences were detected for PA or K10 and differences were not detected at week six. Group differences in NA in favour of WoB were detected in specific subgroups, e.g. ethnic minorities and males. Across participants (from both groups) mean K10 and NA improved between baseline and six weeks despite increased COVID-19 restrictions. Trial recruitment was rapid, retention high and feedback positive with broad geographical, occupational and ethnic diversity.Conclusions:Online engagement with arts and culture has the potential to impact on mental health in a measurable way in YP with high unmet mental health needs.",
+      "date": "2022-09-08",
+      "language": "en",
+      "shortTitle": "A co-produced online cultural experience compared to a typical museum website for mental health in people aged 16–24",
+      "libraryCatalog": "SAGE Journals",
+      "url": "https://doi.org/10.1177/00048674221115648",
+      "accessDate": "2022-09-19T11:04:21Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/digital-wellbeing/O-ACE-POP/tree/main\ndata: https://github.com/digital-wellbeing/O-ACE-POP/tree/main",
+      "pages": "00048674221115648",
+      "publicationTitle": "Australian & New Zealand Journal of Psychiatry",
+      "DOI": "10.1177/00048674221115648",
+      "journalAbbreviation": "Aust N Z J Psychiatry",
+      "ISSN": "0004-8674",
+      "creators": [
+        {
+          "firstName": "Rebecca J",
+          "lastName": "Syed Sheriff",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Evgenia",
+          "lastName": "Riga",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Helen",
+          "lastName": "Adams",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Catherine J",
+          "lastName": "Harmer",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "John R",
+          "lastName": "Geddes",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "anxiety"
+        },
+        {
+          "tag": "depression"
+        },
+        {
+          "tag": "experimental medicine"
+        },
+        {
+          "tag": "youth"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2022-09-19T11:04:21Z",
+      "dateModified": "2025-01-06T18:07:21Z",
+      "uri": "http://zotero.org/users/2244382/items/AE4TNKN7",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "syed_sheriff_et_al_2022_a_co-produced_online_cultural_experience_compared_to_a.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-09-19T11:04:27Z",
+          "dateModified": "2022-09-19T11:04:27Z",
+          "uri": "http://zotero.org/users/2244382/items/QB663WCP",
+          "path": "files/3224/syed-sheriff-etal_2022_australian-&-new-zealand-journal-of-psychiatry.pdf",
+          "select": "zotero://select/library/items/QB663WCP"
+        }
+      ],
+      "notes": [],
+      "citationKey": "syedsheriffCoproducedOnlineCultural2022",
+      "itemID": 3223,
+      "itemKey": "AE4TNKN7",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/AE4TNKN7"
+    },
+    {
+      "version": 10656,
+      "itemType": "journalArticle",
+      "title": "Affective Uplift During Video Game Play: A Naturalistic Case Study",
+      "abstractNote": "Do video games affect players’ well-being? In this case study, we examined 162,325 intensive longitudinal in-game mood reports from 67,328 play sessions of 8,695 players of the popular game PowerWash Simulator. We compared players’ moods at the beginning of play sessions with their moods during play and found that the average player reported 0.034 (0.032, 0.036) visual analog scale (VAS; 0-1) units greater mood during than at the beginning of play sessions. Moreover, we predict that 72.1% (70.8%, 73.5%) of similar players experience this affective uplift during play, and that the bulk of it happens during the first 15 minutes of play. We do not know whether these results indicate causal effects or to what extent they generalize to other games or player populations. Yet, these results based on in-game subjective reports from players of a popular commercially available game suggest good external validity and as such offer a promising glimpse of the scientific value of transparent industry–academia collaborations in understanding the psychological roles of popular digital entertainment.",
+      "date": "2024-08-30",
+      "shortTitle": "Affective Uplift During Video Game Play",
+      "libraryCatalog": "ACM Digital Library",
+      "url": "https://dl.acm.org/doi/10.1145/3659464",
+      "accessDate": "2024-09-02T07:03:51Z",
+      "extra": "data: https://zenodo.org/records/10721210\ncode: https://zenodo.org/records/10721210",
+      "volume": "2",
+      "pages": "23:1–23:14",
+      "publicationTitle": "ACM Games",
+      "DOI": "10.1145/3659464",
+      "issue": "3",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Nick",
+          "lastName": "Ballou",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thomas",
+          "lastName": "Hakman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "digital trace data"
+        },
+        {
+          "tag": "open research"
+        },
+        {
+          "tag": "psychology"
+        },
+        {
+          "tag": "research methods"
+        },
+        {
+          "tag": "video games"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-09-02T07:03:51Z",
+      "dateModified": "2025-01-06T18:07:27Z",
+      "uri": "http://zotero.org/users/2244382/items/PJA4CTSL",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre et al_2024_Affective Uplift During Video Game Play.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-09-02T07:03:53Z",
+          "dateModified": "2024-09-02T07:03:53Z",
+          "uri": "http://zotero.org/users/2244382/items/MRL8MA6Q",
+          "path": "files/4659/vuorre-etal_2024_acm-games.pdf",
+          "select": "zotero://select/library/items/MRL8MA6Q"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreAffectiveUpliftVideo2024",
+      "itemID": 4658,
+      "itemKey": "PJA4CTSL",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/PJA4CTSL"
+    },
+    {
+      "version": 10656,
+      "itemType": "preprint",
+      "title": "Communicating causal effect heterogeneity",
+      "abstractNote": "Advances in experimental, data collection, and analysis methods have brought population variability in psychological phenomena to the fore. Yet, current practices for interpreting such heterogeneity do not appropriately treat the uncertainty inevitable in any statistical summary. Heterogeneity is best thought of as a distribution of features with a mean (average person’s effect) and variance (between-person differences). This expected heterogeneity distribution can be further summarized e.g. as a heterogeneity interval (Bolger et al., 2019). However, because empirical studies estimate the underlying mean and variance parameters with uncertainty, the expected distribution and interval will underestimate the actual range of plausible effects in the population. Using Bayesian hierarchical models, and with the aid of empirical datasets from social and cognitive psychology, we provide a walk-through of effective heterogeneity reporting and display tools that appropriately convey measures of uncertainty. We cover interval, proportion, and ratio measures of heterogeneity and their estimation and interpretation. These tools can be a spur to theory building, allowing researchers to widen their focus from population averages to population heterogeneity in psychological phenomena.",
+      "date": "2024-09-03",
+      "language": "en-us",
+      "libraryCatalog": "OSF Preprints",
+      "url": "https://osf.io/mwg4f",
+      "accessDate": "2024-09-09T11:00:58Z",
+      "extra": "code: https://github.com/mvuorre/heterogeneity-uncertainty\ndata: https://github.com/mvuorre/heterogeneity-uncertainty",
+      "DOI": "10.31234/osf.io/mwg4f",
+      "repository": "OSF",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matthew",
+          "lastName": "Kay",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Niall",
+          "lastName": "Bolger",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "heterogeneity",
+          "type": 1
+        },
+        {
+          "tag": "multilevel model",
+          "type": 1
+        },
+        {
+          "tag": "statistics",
+          "type": 1
+        },
+        {
+          "tag": "uncertainty",
+          "type": 1
+        },
+        {
+          "tag": "variation",
+          "type": 1
+        },
+        {
+          "tag": "visualization",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-09-09T11:00:58Z",
+      "dateModified": "2025-01-06T18:07:43Z",
+      "uri": "http://zotero.org/users/2244382/items/ZSV9XEWE",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "PDF",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-09-11T06:31:56Z",
+          "dateModified": "2024-09-11T06:31:56Z",
+          "uri": "http://zotero.org/users/2244382/items/WZZAADDL",
+          "path": "files/4695/vuorre-etal_2024_OSF.pdf",
+          "select": "zotero://select/library/items/WZZAADDL"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreCommunicatingCausalEffect2024",
+      "itemID": 4694,
+      "itemKey": "ZSV9XEWE",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/ZSV9XEWE"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "Curating Research Assets: A Tutorial on the Git Version Control System",
+      "abstractNote": "Recent calls for improving reproducibility have increased attention to the ways in which researchers curate, share, and collaborate on their research assets. In this Tutorial, we explain how version control systems, such as the popular Git program, support these functions and then show how to use Git with a graphical interface in the RStudio program. This Tutorial is written for researchers with no previous experience using version control systems and covers both single-user and collaborative workflows. The online Supplemental Material provides information on advanced Git command-line functions. Git presents an elegant solution to specific challenges to curating, sharing, and collaborating on research assets and can be implemented in common workflows with little extra effort.",
+      "date": "2018-06-01",
+      "language": "en",
+      "shortTitle": "Curating Research Assets",
+      "libraryCatalog": "SAGE Journals",
+      "url": "https://doi.org/10.1177/2515245918754826",
+      "accessDate": "2018-06-26T12:33:02Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/mvuorre/reproguide-curate",
+      "volume": "1",
+      "pages": "219-236",
+      "publicationTitle": "Advances in Methods and Practices in Psychological Science",
+      "DOI": "10.1177/2515245918754826",
+      "issue": "2",
+      "journalAbbreviation": "Advances in Methods and Practices in Psychological Science",
+      "ISSN": "2515-2459",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "James P.",
+          "lastName": "Curley",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Git"
+        },
+        {
+          "tag": "open materials"
+        },
+        {
+          "tag": "open science"
+        },
+        {
+          "tag": "reproducibility"
+        },
+        {
+          "tag": "research methods"
+        },
+        {
+          "tag": "version control"
+        }
+      ],
+      "relations": {
+        "dc:replaces": [
+          "http://zotero.org/users/2244382/items/JMDIZEKG"
+        ],
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/RKGSFJMQ"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2018-06-26T12:33:02Z",
+      "dateModified": "2025-01-06T18:04:08Z",
+      "uri": "http://zotero.org/users/2244382/items/Z28BS55U",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_Curley_2018_Curating Research Assets.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/NQP2CKEI"
+            ]
+          },
+          "dateAdded": "2022-04-28T14:20:50Z",
+          "dateModified": "2024-01-15T07:44:49Z",
+          "uri": "http://zotero.org/users/2244382/items/QWZLT27G",
+          "path": "files/2919/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf",
+          "select": "zotero://select/library/items/QWZLT27G"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreCuratingResearchAssets2018",
+      "itemID": 692,
+      "itemKey": "Z28BS55U",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/Z28BS55U"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "Estimating the association between Facebook adoption and well-being in 72 countries",
+      "abstractNote": "Social media's potential effects on well-being have received considerable research interest, but much of past work is hampered by an exclusive focus on demographics in the Global North and inaccurate self-reports of social media engagement. We describe associations linking 72 countries' Facebook adoption to the well-being of 946 798 individuals from 2008 to 2019. We found no evidence suggesting that the global penetration of social media is associated with widespread psychological harm: Facebook adoption predicted life satisfaction and positive experiences positively, and negative experiences negatively, both between countries and within countries over time. Nevertheless, the observed associations were small and did not reach a conventional 97.5% one-sided credibility threshold in all cases. Facebook adoption predicted aspects of well-being more positively for younger individuals, but country-specific results were mixed. To move beyond studying aggregates and to better understand social media's roles in people's lives, and their potential causal effects, we need more transparent collaborative research between independent scientists and the technology industry.",
+      "date": "2023-08-09",
+      "libraryCatalog": "royalsocietypublishing.org (Atypon)",
+      "url": "https://doi.org/10.1098/rsos.221451",
+      "accessDate": "2023-08-22T14:07:08Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://zenodo.org/records/8135418\ndata: https://zenodo.org/records/8135418",
+      "volume": "10",
+      "pages": "221451",
+      "publicationTitle": "Royal Society Open Science",
+      "DOI": "10.1098/rsos.221451",
+      "issue": "8",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "life satisfaction",
+          "type": 1
+        },
+        {
+          "tag": "social media",
+          "type": 1
+        },
+        {
+          "tag": "well-being",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2023-08-22T14:07:08Z",
+      "dateModified": "2025-01-06T18:07:58Z",
+      "uri": "http://zotero.org/users/2244382/items/IAXJVPUU",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_Przybylski_2023_Estimating the association between Facebook adoption and well-being in 72.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2023-08-22T14:07:11Z",
+          "dateModified": "2023-08-22T14:07:12Z",
+          "uri": "http://zotero.org/users/2244382/items/VSMEXPGJ",
+          "path": "files/3703/vuorre-and-przybylski_2023_royal-society-open-science.pdf",
+          "select": "zotero://select/library/items/VSMEXPGJ"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreEstimatingAssociationFacebook2023",
+      "itemID": 3702,
+      "itemKey": "IAXJVPUU",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/IAXJVPUU"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "Global Well-Being and Mental Health in the Internet Age",
+      "abstractNote": "In the last 2 decades, the widespread adoption of Internet technologies has inspired concern that they have negatively affected mental health and psychological well-being. However, research on the topic is contested and hampered by methodological shortcomings, leaving the broader consequences of Internet adoption unknown. We show that the past 2 decades have seen only small and inconsistent changes in global well-being and mental health that are not suggestive of the idea that the adoption of Internet and mobile broadband is consistently linked to negative psychological outcomes. Further investigation of this topic requires transparent study of online behaviors where they occur (i.e., on online platforms). We call for increased collaborative efforts between independent scientists and the Internet-technology sector.",
+      "date": "2023-11-27",
+      "language": "en",
+      "libraryCatalog": "SAGE Journals",
+      "url": "https://doi.org/10.1177/21677026231207791",
+      "accessDate": "2023-11-28T08:47:01Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://doi.org/10.5281/zenodo.7004053\ndata: https://doi.org/10.5281/zenodo.7004053",
+      "pages": "21677026231207791",
+      "publicationTitle": "Clinical Psychological Science",
+      "DOI": "10.1177/21677026231207791",
+      "ISSN": "2167-7026",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Internet technology"
+        },
+        {
+          "tag": "mental health"
+        },
+        {
+          "tag": "technology effects"
+        },
+        {
+          "tag": "well-being"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2023-11-28T08:47:01Z",
+      "dateModified": "2025-01-06T18:08:01Z",
+      "uri": "http://zotero.org/users/2244382/items/3FDS7F94",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_Przybylski_2023_Global Well-Being and Mental Health in the Internet Age.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2023-11-28T08:47:03Z",
+          "dateModified": "2023-11-28T08:47:04Z",
+          "uri": "http://zotero.org/users/2244382/items/Z9MJS6QU",
+          "path": "files/4039/vuorre-and-przybylski_2023_clinical-psychological-science.pdf",
+          "select": "zotero://select/library/items/Z9MJS6QU"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreGlobalWellBeingMental2023",
+      "itemID": 4038,
+      "itemKey": "3FDS7F94",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/3FDS7F94"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "An intensive longitudinal dataset of in-game player behaviour and well-being in PowerWash Simulator",
+      "abstractNote": "The potential impacts that video games might have on players’ well-being are under increased scrutiny but poorly understood empirically. Although extensively studied, a level of understanding required to address concerns and advise policy is lacking, at least partly because much of this science has relied on artificial settings and limited self-report data. We describe a large and detailed dataset that addresses these issues by pairing video game play behaviors and events with in-game well-being and motivation reports. 11,080 players (from 39 countries) of the first person PC game PowerWash Simulator volunteered for a research version of the game that logged their play across 10 in-game behaviors and events (e.g. task completion) and 21 variables (e.g. current position), and responses to 6 psychological survey instruments via in-game pop-ups. The data consists of 15,772,514 gameplay events, 726,316 survey item responses, and 21,202,667 additional gameplay status records, and spans 222 days. The data and codebook are publicly available with a permissive CC0 license.",
+      "date": "2023-09-13",
+      "language": "en",
+      "libraryCatalog": "www.nature.com",
+      "url": "https://www.nature.com/articles/s41597-023-02530-3",
+      "accessDate": "2023-09-13T14:47:53Z",
+      "rights": "2023 Springer Nature Limited",
+      "extra": "data: https://osf.io/wpeh6/\ncode: https://github.com/digital-wellbeing/pws-data",
+      "volume": "10",
+      "pages": "622",
+      "publicationTitle": "Scientific Data",
+      "DOI": "10.1038/s41597-023-02530-3",
+      "issue": "1",
+      "journalAbbreviation": "Sci Data",
+      "ISSN": "2052-4463",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "James",
+          "lastName": "Butlin",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Human behaviour",
+          "type": 1
+        },
+        {
+          "tag": "Psychology",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/AUPITK5X"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2023-09-13T14:47:53Z",
+      "dateModified": "2025-01-06T18:07:47Z",
+      "uri": "http://zotero.org/users/2244382/items/96LPN6DH",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre et al_2023_An intensive longitudinal dataset of in-game player behaviour and well-being in.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/DGCGNATQ"
+            ]
+          },
+          "dateAdded": "2023-09-13T14:47:55Z",
+          "dateModified": "2023-09-13T14:47:56Z",
+          "uri": "http://zotero.org/users/2244382/items/KDPRDH7T",
+          "path": "files/3859/vuorre-etal_2023_scientific-data.pdf",
+          "select": "zotero://select/library/items/KDPRDH7T"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreIntensiveLongitudinalDataset2023",
+      "itemID": 3858,
+      "itemKey": "96LPN6DH",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/96LPN6DH"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "A Large-Scale Study of Changes to the Quantity, Quality, and Distribution of Video Game Play During a Global Health Pandemic",
+      "abstractNote": "Video game play has been framed as both protective factor and risk to mental health during the Coronavirus disease (COVID-19) pandemic. We conducted a statistical analysis of changes to video game play during the pandemic to better understand gaming behavior and in doing so provide an empirical foundation to the fractured discourse surrounding play and mental health. Analyses of millions of players’ engagement with the 500 globally most popular games on the Steam platform indicated that the quantity of play had dramatically increased during key points of the pandemic; that those increases were more prominent for multiplayer games, suggesting that gamers were seeking out the social affordances of video game play; and that play had become more equally distributed across days of the week, suggesting increased merging of leisure activities with work and school activities. These results provide a starting point for empirically grounded discussions on video games during the pandemic, their uses, and potential effects.",
+      "date": "2021-11-08",
+      "language": "en",
+      "libraryCatalog": "tmb.apaopen.org",
+      "url": "https://tmb.apaopen.org/pub/5w1p7ttn/release/2",
+      "accessDate": "2021-12-22T01:43:52Z",
+      "rights": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence (CC-BY-NC-ND)",
+      "extra": "code: https://github.com/digital-wellbeing/steam-lockdown\ndata: https://github.com/digital-wellbeing/steam-lockdown",
+      "volume": "2",
+      "publicationTitle": "Technology, Mind, and Behavior",
+      "DOI": "10.1037/tmb0000048",
+      "issue": "4",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "David",
+          "lastName": "Zendle",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Elena",
+          "lastName": "Petrovskaya",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Nick",
+          "lastName": "Ballou",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "COVID-19"
+        },
+        {
+          "tag": "digital trace data"
+        },
+        {
+          "tag": "technology"
+        },
+        {
+          "tag": "video games"
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/AR3YKBKM"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2021-12-22T01:43:52Z",
+      "dateModified": "2025-01-06T18:08:10Z",
+      "uri": "http://zotero.org/users/2244382/items/5CLPT9EM",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre et al_2021_A Large-Scale Study of Changes to the Quantity, Quality, and Distribution of.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/DJPWU3CP"
+            ]
+          },
+          "dateAdded": "2022-04-28T14:20:54Z",
+          "dateModified": "2024-01-15T07:51:56Z",
+          "uri": "http://zotero.org/users/2244382/items/WCIEWNU2",
+          "path": "files/2926/vuorre-etal_2021_technology,-mind,-and-behavior.pdf",
+          "select": "zotero://select/library/items/WCIEWNU2"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreLargeScaleStudyChanges2021",
+      "itemID": 1482,
+      "itemKey": "5CLPT9EM",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/5CLPT9EM"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "Measures of relative metacognitive accuracy are confounded with task performance in tasks that permit guessing",
+      "abstractNote": "This article investigates the concern that assessment of metacognitive resolution (or relative accuracy—often evaluated by gamma correlations or signal detection theoretic measures such as da) is vulnerable to an artifact due to guessing that differentially impacts low as compared to high performers on tasks that involve multiple-choice testing. Metacognitive resolution refers to people’s ability to tell, via confidence judgments, their correct answers apart from incorrect answers, and is theorized to be an important factor in learning. Resolution—the trial-by-trial association between response accuracy and confidence in that response’s accuracy—is a distinct ability from knowledge, or accuracy, and instead indicates a higher-order self-evaluation. It is therefore important that measures of resolution are independent of domain-knowledge accuracy. We conducted six experiments that revealed a positive correlation between metacognitive resolution and performance in multiple-choice mathematics testing. Monte Carlo simulations indicated, however, that resolution metrics are increasingly negatively biased with decreasing performance, because multiple-choice tasks permit correct guessing. We, therefore, argue that the observed positive correlations were probably attributable to an artifact rather than a true correlation between psychological abilities. A final experiment supported the guessing-related confound hypothesis: Resolution and performance were positively correlated in multiple-choice testing, but not in free-response testing. This study brings to light a previously underappreciated limitation in assessing metacognitive resolution and its relation to task performance in criterion tasks that may involve guessing.",
+      "date": "2021-01-11",
+      "language": "en",
+      "libraryCatalog": "Springer Link",
+      "url": "https://doi.org/10.1007/s11409-020-09257-1",
+      "accessDate": "2021-01-11T09:23:49Z",
+      "rights": "All rights reserved",
+      "extra": "data: https://github.com/mvuorre/confPerf\ncode: https://github.com/mvuorre/confPerf",
+      "publicationTitle": "Metacognition and Learning",
+      "DOI": "10.1007/s11409-020-09257-1",
+      "journalAbbreviation": "Metacognition Learning",
+      "ISSN": "1556-1631",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "confidence"
+        },
+        {
+          "tag": "measurement"
+        },
+        {
+          "tag": "metacognition"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2021-01-11T09:23:49Z",
+      "dateModified": "2025-01-06T18:07:54Z",
+      "uri": "http://zotero.org/users/2244382/items/TREAE4US",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_Metcalfe_2021_Measures of relative metacognitive accuracy are confounded with task.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:53Z",
+          "dateModified": "2024-01-15T07:48:37Z",
+          "uri": "http://zotero.org/users/2244382/items/7NK7WAEM",
+          "path": "files/2924/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf",
+          "select": "zotero://select/library/items/7NK7WAEM"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreMeasuresRelativeMetacognitive2021",
+      "itemID": 118,
+      "itemKey": "TREAE4US",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/TREAE4US"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "A Multiverse Analysis of the Associations Between Internet Use and Well-Being",
+      "abstractNote": "Internet technologies’ and platforms’ potential psychological consequences remain debated. While these technologies have spurred new forms of commerce, education, and leisure, many are worried that they might negatively affect individuals by, for example, displacing time spent on other healthy activities. Relevant findings to date have been inconclusive and of limited geographic and demographic scope. We examined whether having (mobile) internet access or actively using the internet predicted eight well-being outcomes from 2006 to 2021 among 2,414,294 individuals across 168 countries. We first queried the extent to which well-being varied as a function of internet connectivity. Then, we examined these associations’ robustness in a multiverse of 33,792 analysis specifications. Of these, 84.9% resulted in positive and statistically significant associations between internet connectivity and well-being. These results indicate that internet access and use predict well-being positively and independently from a set of plausible alternatives.",
+      "date": "2024-06-31",
+      "language": "en",
+      "libraryCatalog": "tmb.apaopen.org",
+      "url": "https://doi.org/10.1037/tmb0000127",
+      "accessDate": "2024-05-14T07:45:26Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://doi.org/10.5281/zenodo.7774923",
+      "volume": "5",
+      "publicationTitle": "Technology, Mind, and Behavior",
+      "DOI": "10.1037/tmb0000127",
+      "issue": "2",
+      "ISSN": "2689-0208,",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Internet technology"
+        },
+        {
+          "tag": "technology effects"
+        },
+        {
+          "tag": "well-being"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-05-14T07:45:26Z",
+      "dateModified": "2025-01-06T18:05:00Z",
+      "uri": "http://zotero.org/users/2244382/items/YK3CID4Y",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_Przybylski_2024_A Multiverse Analysis of the Associations Between Internet Use and Well-Being.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-05-14T07:45:30Z",
+          "dateModified": "2024-05-14T07:45:31Z",
+          "uri": "http://zotero.org/users/2244382/items/Q3TVTGL6",
+          "path": "files/4478/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf",
+          "select": "zotero://select/library/items/Q3TVTGL6"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreMultiverseAnalysisAssociations2024",
+      "itemID": 4477,
+      "itemKey": "YK3CID4Y",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/YK3CID4Y"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "The relation between the sense of agency and the experience of flow",
+      "abstractNote": "This article investigates the relation between people’s feelings of agency and their feelings of flow. In the dominant model describing how people are able to assess their own agency—the comparator model of agency—when the person’s intentions match perfectly to what happens, the discrepancy between intention and outcome is zero, and the person is thought to interpret this lack of discrepancy as being in control. The lack of perceived push back from the external world seems remarkably similar to the state that has been described as a state of flow. However, when we used a computer game paradigm to investigate the relation between people’s feelings of agency and their feelings of flow, we found a dissociation between these two states. Although these two states may, in some ways, seem to be similar, our data indicate that they are governed by different principles and phenomenology.",
+      "date": "2016-06-02",
+      "libraryCatalog": "ScienceDirect",
+      "url": "http://www.sciencedirect.com/science/article/pii/S105381001630126X",
+      "accessDate": "2016-06-09T22:33:25Z",
+      "rights": "All rights reserved",
+      "volume": "43",
+      "pages": "133-142",
+      "publicationTitle": "Consciousness and Cognition",
+      "DOI": "10.1016/j.concog.2016.06.001",
+      "journalAbbreviation": "Consciousness and Cognition",
+      "ISSN": "1053-8100",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Agency"
+        },
+        {
+          "tag": "Flow",
+          "type": 1
+        },
+        {
+          "tag": "Sense of agency",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/931437/items/2B3GPUE6"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2016-06-09T22:33:25Z",
+      "dateModified": "2025-01-02T10:08:17Z",
+      "uri": "http://zotero.org/users/2244382/items/DPWQSZ7J",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_metcalfe_2016_the_relation_between_the_sense_of_agency_and_the_experience.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:51Z",
+          "dateModified": "2022-04-28T14:20:51Z",
+          "uri": "http://zotero.org/users/2244382/items/XN7IZZJL",
+          "path": "files/2921/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf",
+          "select": "zotero://select/library/items/XN7IZZJL"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreRelationSenseAgency2016",
+      "itemID": 351,
+      "itemKey": "DPWQSZ7J",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/DPWQSZ7J"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "Sharing and organizing research products as R packages",
+      "abstractNote": "A consensus on the importance of open data and reproducible code is emerging. How should data and code be shared to maximize the key desiderata of reproducibility, permanence, and accessibility? Research assets should be stored persistently in formats that are not software restrictive, and documented so that others can reproduce and extend the required computations. The sharing method should be easy to adopt by already busy researchers. We suggest the R package standard as a solution for creating, curating, and communicating research assets. The R package standard, with extensions discussed herein, provides a format for assets and metadata that satisfies the above desiderata, facilitates reproducibility, open access, and sharing of materials through online platforms like GitHub and Open Science Framework. We discuss a stack of R resources that help users create reproducible collections of research assets, from experiments to manuscripts, in the RStudio interface. We created an R package, vertical, to help researchers incorporate these tools into their workflows, and discuss its functionality at length in an online supplement. Together, these tools may increase the reproducibility and openness of psychological science.",
+      "date": "2020-09-01",
+      "language": "en",
+      "libraryCatalog": "Springer Link",
+      "url": "https://doi.org/10.3758/s13428-020-01436-x",
+      "accessDate": "2020-09-02T08:35:47Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/CrumpLab/vertical",
+      "publicationTitle": "Behavior Research Methods",
+      "DOI": "10.3758/s13428-020-01436-x",
+      "journalAbbreviation": "Behav Res",
+      "ISSN": "1554-3528",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matthew J. C.",
+          "lastName": "Crump",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "open data"
+        },
+        {
+          "tag": "open science"
+        },
+        {
+          "tag": "r"
+        },
+        {
+          "tag": "reproducibility"
+        },
+        {
+          "tag": "research methods"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2020-09-02T08:35:47Z",
+      "dateModified": "2025-01-06T18:04:05Z",
+      "uri": "http://zotero.org/users/2244382/items/FTZQJ3S9",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_crump_2020_sharing_and_organizing_research_products_as_r_packages.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:49Z",
+          "dateModified": "2022-04-28T14:20:50Z",
+          "uri": "http://zotero.org/users/2244382/items/979HTX3A",
+          "path": "files/2918/vuorre-and-crump_2020_behavior-research-methods.pdf",
+          "select": "zotero://select/library/items/979HTX3A"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreSharingOrganizingResearch2020",
+      "itemID": 176,
+      "itemKey": "FTZQJ3S9",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/FTZQJ3S9"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "There Is No Evidence That Associations Between Adolescents’ Digital Technology Engagement and Mental Health Problems Have Increased",
+      "abstractNote": "Digital technology is ubiquitous in modern adolescence, and researchers are concerned that it has negative impacts on mental health that, furthermore, increase over time. To investigate whether technology is becoming more harmful, we examined changes in associations between technology engagement and mental health in three nationally representative samples. Results were mixed across types of technology and mental health outcomes: Technology engagement had become less strongly associated with depression in the past decade, but social-media use had become more strongly associated with emotional problems. We detected no changes in five other associations or differential associations by sex. There is therefore little evidence for increases in the associations between adolescents’ technology engagement and mental health. Information about new digital media has been collected for a relatively short time; drawing firm conclusions about changes in their associations with mental health may be premature. We urge transparent and credible collaborations between scientists and technology companies.",
+      "date": "2021-05-03",
+      "language": "en",
+      "libraryCatalog": "SAGE Journals",
+      "url": "https://doi.org/10.1177/2167702621994549",
+      "accessDate": "2021-05-04T09:48:43Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/digital-wellbeing/timetrends",
+      "pages": "2167702621994549",
+      "publicationTitle": "Clinical Psychological Science",
+      "DOI": "10.1177/2167702621994549",
+      "journalAbbreviation": "Clinical Psychological Science",
+      "ISSN": "2167-7026",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Amy",
+          "lastName": "Orben",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "adolescents",
+          "type": 1
+        },
+        {
+          "tag": "depression",
+          "type": 1
+        },
+        {
+          "tag": "mental health",
+          "type": 1
+        },
+        {
+          "tag": "open materials",
+          "type": 1
+        },
+        {
+          "tag": "social media",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/NQKQEXPB"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2021-05-04T09:48:43Z",
+      "dateModified": "2025-01-06T18:05:09Z",
+      "uri": "http://zotero.org/users/2244382/items/R79KSD7Q",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_et_al_2021_there_is_no_evidence_that_associations_between_adolescents’.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/VYLMDWU2"
+            ]
+          },
+          "dateAdded": "2022-04-28T14:20:54Z",
+          "dateModified": "2022-04-28T14:20:54Z",
+          "uri": "http://zotero.org/users/2244382/items/VCV7YWAQ",
+          "path": "files/2925/vuorre-etal_2021_clinical-psychological-science.pdf",
+          "select": "zotero://select/library/items/VCV7YWAQ"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreThereNoEvidence2021",
+      "itemID": 499,
+      "itemKey": "R79KSD7Q",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/R79KSD7Q"
+    },
+    {
+      "version": 10627,
+      "itemType": "preprint",
+      "title": "Three objections to a novel paradigm in social media effects research",
+      "abstractNote": "The study of social media effects on psychological well-being has reached an impasse: Popular commentators confidently assert that social media are bad for users but research results are mixed and have had little practical impact. In response, one research group has proposed a path forward for the field that moves beyond studying population averages to find effects that are specific to individuals.\nHere, we outline three objections to that research agenda. On a methodological level, the key empirical results of this programme—proportions of the population of individuals with negative, null, and positive social media effects—are not appropriately estimated and reported. On a theoretical level, these results do little to advance our understanding of social media and its psychological implications. On a paradigmatic level, this “personalized media effects paradigm” (Valkenburg et al., 2021a, p. 74) cannot inform inferences about individuals and therefore does not deliver what it claims.\nIn this work we express our concern that this research approach may be contributing to confusing messaging to both societal stakeholders and scientists investigating how social media and well- being might be related. It is our sincere hope that describing these objections directly will prompt the field to work together in adopting better practices to ultimately develop a better understanding of well-being in the digital age.",
+      "date": "2022-07-15",
+      "language": "en-us",
+      "libraryCatalog": "OSF Preprints",
+      "url": "https://osf.io/dpuya",
+      "accessDate": "2025-01-02T09:37:30Z",
+      "extra": "code: https://doi.org/10.5281/zenodo.6838890",
+      "DOI": "10.31234/osf.io/dpuya",
+      "repository": "OSF",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "media effects",
+          "type": 1
+        },
+        {
+          "tag": "paradigm",
+          "type": 1
+        },
+        {
+          "tag": "social media",
+          "type": 1
+        },
+        {
+          "tag": "statistics",
+          "type": 1
+        },
+        {
+          "tag": "variation",
+          "type": 1
+        },
+        {
+          "tag": "well-being",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2025-01-02T09:37:30Z",
+      "dateModified": "2025-01-06T18:04:15Z",
+      "uri": "http://zotero.org/users/2244382/items/AN954LNL",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "OSF Preprint",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2025-01-02T09:37:32Z",
+          "dateModified": "2025-01-02T09:37:32Z",
+          "uri": "http://zotero.org/users/2244382/items/ERW4VQRG",
+          "path": "files/5149/vuorre-etal_2022_OSF.pdf",
+          "select": "zotero://select/library/items/ERW4VQRG"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreThreeObjectionsNovel2022",
+      "itemID": 5148,
+      "itemKey": "AN954LNL",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/AN954LNL"
+    },
+    {
+      "version": 10653,
+      "itemType": "journalArticle",
+      "title": "On Time, Causation, and the Sense of Agency",
+      "abstractNote": "The experience of controlling events in the external world through voluntary action-- the sense of agency (SoA)-- is a subtle but pervasive feature of human mental life and a constituent part of the sense of self (Gallagher, 2000). However, instead of reflecting an actual connection between conscious thoughts and subsequent outcomes, SoA may be an illusion (Wegner, 2002). Whether this experience is an illusion, indicating no actual causal connection between conscious intention and physical outcome in the world, has been the focus of intense philosophical and scientific debate since the beginnings of these fields of enquiry. More recently, the fields of experimental psychology and cognitive neuroscience have begun to identify specific antecedents of the experience of agency -- whether veridical or not (Haggard, 2008). Similar to the perception of causality, which depends on the temporal structure of the events, humans' experience of their agency is very sensitive to the temporal interval separating bodily actions from the external effects of those actions. Accordingly, just as studies on perception of causality in the outside world have paid much attention to the temporal configuration of events, many contemporary studies have also focused on the contribution of the temporal organization of events giving rise to SoA, and in turn how experienced agency might influence subjective time. Here, I review existing evidence suggesting that subjective time both influences and is influenced by perceived causality in general, and experienced agency in particular. Finally, I briefly speculate that these findings may support predictive coding theories of cognition and perception (e.g. Hohwy, 2013).",
+      "date": "2017-01-01",
+      "libraryCatalog": "IngentaConnect",
+      "url": "https://www.ingentaconnect.com/content/imp/jcs/2017/00000024/f0020003/art00011",
+      "rights": "All rights reserved",
+      "volume": "24",
+      "pages": "203-215",
+      "publicationTitle": "Journal of Consciousness Studies",
+      "issue": "3-4",
+      "journalAbbreviation": "Journal of Consciousness Studies",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "agency"
+        },
+        {
+          "tag": "sense of agency"
+        },
+        {
+          "tag": "time perception"
+        },
+        {
+          "tag": "volition"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2017-04-05T13:43:36Z",
+      "dateModified": "2025-01-02T10:01:59Z",
+      "uri": "http://zotero.org/users/2244382/items/VRXCCDWK",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Vuorre_2017_On Time, Causation, and the Sense of Agency.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-01-15T07:34:32Z",
+          "dateModified": "2024-01-15T07:34:33Z",
+          "uri": "http://zotero.org/users/2244382/items/EGYNMN4I",
+          "path": "files/4080/vuorre_2017_journal-of-consciousness-studies.pdf",
+          "select": "zotero://select/library/items/EGYNMN4I"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreTimeCausationSense2017",
+      "itemID": 589,
+      "itemKey": "VRXCCDWK",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/VRXCCDWK"
+    },
+    {
+      "version": 10654,
+      "itemType": "journalArticle",
+      "title": "Time spent playing video games is unlikely to impact well-being",
+      "abstractNote": "Video games are a massively popular form of entertainment, socializing, cooperation and competition. Games' ubiquity fuels fears that they cause poor mental health, and major health bodies and national governments have made far-reaching policy decisions to address games’ potential risks, despite lacking adequate supporting data. The concern–evidence mismatch underscores that we know too little about games' impacts on well-being. We addressed this disconnect by linking six weeks of 38 935 players’ objective game-behaviour data, provided by seven global game publishers, with three waves of their self-reported well-being that we collected. We found little to no evidence for a causal connection between game play and well-being. However, results suggested that motivations play a role in players' well-being. For good or ill, the average effects of time spent playing video games on players’ well-being are probably very small, and further industry data are required to determine potential risks and supportive factors to health.",
+      "date": "2022-07-27",
+      "libraryCatalog": "royalsocietypublishing.org (Atypon)",
+      "url": "https://doi.org/10.1098/rsos.220411",
+      "accessDate": "2022-08-02T07:49:23Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/digital-wellbeing/gametime-longitudinal\ndata: https://github.com/digital-wellbeing/gametime-longitudinal",
+      "volume": "9",
+      "pages": "220411",
+      "publicationTitle": "Royal Society Open Science",
+      "DOI": "10.1098/rsos.220411",
+      "issue": "7",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Niklas",
+          "lastName": "Johannes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kristoffer",
+          "lastName": "Magnusson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew K.",
+          "lastName": "Przybylski",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "human motivation",
+          "type": 1
+        },
+        {
+          "tag": "play behaviour",
+          "type": 1
+        },
+        {
+          "tag": "video games",
+          "type": 1
+        },
+        {
+          "tag": "well-being",
+          "type": 1
+        }
+      ],
+      "relations": {
+        "owl:sameAs": [
+          "http://zotero.org/groups/4675826/items/5MCBLCUK",
+          "http://zotero.org/groups/4675826/items/6ITVKQA2",
+          "http://zotero.org/groups/5179295/items/UQECY2AF",
+          "http://zotero.org/groups/5179295/items/VPBXRDK6"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2022-08-02T07:49:23Z",
+      "dateModified": "2025-01-06T18:07:37Z",
+      "uri": "http://zotero.org/users/2244382/items/UECUANX7",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_et_al_time_spent_playing_video_games_is_unlikely_to_impact.pdf",
+          "tags": [],
+          "relations": {
+            "owl:sameAs": [
+              "http://zotero.org/groups/4675826/items/2ETBVWWP",
+              "http://zotero.org/groups/4675826/items/YAE8FNWY",
+              "http://zotero.org/groups/5179295/items/NNNPGY48"
+            ]
+          },
+          "dateAdded": "2022-08-02T07:49:25Z",
+          "dateModified": "2022-08-02T07:49:26Z",
+          "uri": "http://zotero.org/users/2244382/items/3K5WXM3G",
+          "path": "files/3195/vuorre-etal_2022_royal-society-open-science.pdf",
+          "select": "zotero://select/library/items/3K5WXM3G"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreTimeSpentPlaying2022",
+      "itemID": 3194,
+      "itemKey": "UECUANX7",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/UECUANX7"
+    },
+    {
+      "version": 10652,
+      "itemType": "thesis",
+      "title": "Using Visual Illusions to Examine Action-Related Perceptual Changes",
+      "abstractNote": "Action has many influences on how and what we perceive. One robust example of the relationship between action and subsequent perception, which has recently received great attention in the cognitive sciences, is the “intentional binding” effect: When people estimate the timing of their actions and those actions’ effects, they judge the actions and effects as having occurred closer together in time than two events that do not involve voluntary action (Haggard, Clark, & Kalogeras, 2002). This dissertation examines the possible mechanisms and consequences of the intentional binding effect. First, in Chapter 1, I discuss previous literature on the relationships between experiences of time, action, and causality. Impressions of time and causality are psychologically related: The perceived timing of events impacts, and is impacted by, perceived causality. Similarly, one’s experience of causing and controlling events with voluntary action, sometimes called the sense of agency, shapes and is shaped by how those events’ timing is perceived—as shown by the intentional binding effect. In Chapter 2 I present a series of experiments investigating a hypothesized mechanism underlying the intentional binding effect: Actions may lead to a slowing of subjective time, which would explain the intentional binding effect by postulating a shorter experienced duration between action and effect. This hypothesis predicts that, following action, durations separating any two stimuli would appear subjectively shorter. We tested this hypothesis in the context of visual motion illusions: Two visual stimuli are presented in short succession and if the duration between the stimuli (inter-stimulus interval; ISI) is short, participants tend to perceive motion such that the first stimulus appears to move to the position of the second stimulus. If actions shorten subjective durations, even in visual perception, people should observe motion at longer ISIs when the stimuli follow voluntary action because the two stimuli would be separated by less subjective time. Three experiments confirmed this prediction. An additional experiment showed that verbal estimates of the ISI are also shorter following action. A control experiment suggested that a shift in the ability to prepare for the stimuli, afforded by the participant initiating the stimuli, is an unlikely alternative explanation of the observed results. In Chapter 3 I further investigate whether temporal contiguity of actions and their effects, which is known to impact intentional binding, affects perceptions of visual motion illusions. Two experiments showed that temporal contiguity modulates perceptions of illusory motion in a manner similar to contiguity’s effect on intentional binding. Together, these results show that actions impact perception of visual motion illusions and suggest that general slowing of subjective time is a plausible mechanism underlying the intentional binding effect.",
+      "date": "2018-05-16",
+      "language": "en",
+      "libraryCatalog": "academiccommons.columbia.edu",
+      "url": "https://academiccommons.columbia.edu/catalog/ac:73n5tb2rdf",
+      "accessDate": "2018-05-21T18:26:24Z",
+      "rights": "All rights reserved",
+      "university": "Columbia University",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "action"
+        },
+        {
+          "tag": "agency"
+        },
+        {
+          "tag": "time perception"
+        },
+        {
+          "tag": "visual perception"
+        },
+        {
+          "tag": "volition"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2018-05-21T18:26:24Z",
+      "dateModified": "2025-01-02T09:35:36Z",
+      "uri": "http://zotero.org/users/2244382/items/WJDTFTIF",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_2018_using_visual_illusions_to_examine_action-related_perceptual.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:47Z",
+          "dateModified": "2022-04-28T14:20:47Z",
+          "uri": "http://zotero.org/users/2244382/items/3ABQ6F3A",
+          "path": "files/2916/vuorre_2018.pdf",
+          "select": "zotero://select/library/items/3ABQ6F3A"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreUsingVisualIllusions2018",
+      "itemID": 178,
+      "itemKey": "WJDTFTIF",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/WJDTFTIF"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "Voluntary action alters the perception of visual illusions",
+      "abstractNote": "“Intentional binding” refers to the finding that people judge voluntary actions and their effects as having occurred closer together in time than two passively observed events. If this effect reflects subjectively compressed time, then time-dependent visual illusions should be altered by voluntary initiation. To test this hypothesis, we showed participants displays that result in particular motion illusions when presented at short interstimulus intervals (ISIs). In Experiment 1 we used apparent motion, which is perceived only at very short ISIs; Experiments 2a and 2b used the Ternus display, which results in different motion illusions depending on the ISI. In support of the time compression hypothesis, when they voluntarily initiated the displays, people persisted in seeing the motion illusions associated with short ISIs at longer ISIs than had been the case during passive viewing. A control experiment indicated that this effect was not due to predictability or increased attention. Instead, voluntary action altered motion illusions, despite their purported cognitive impenetrability.",
+      "date": "2017-07-01",
+      "language": "en",
+      "libraryCatalog": "link.springer.com",
+      "url": "https://link.springer.com/article/10.3758/s13414-017-1321-x",
+      "accessDate": "2017-09-27T19:07:21Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/mvuorre/vmapp2017\ndata: https://github.com/mvuorre/vmapp2017",
+      "volume": "79",
+      "pages": "1495-1505",
+      "publicationTitle": "Attention, Perception, & Psychophysics",
+      "DOI": "10.3758/s13414-017-1321-x",
+      "issue": "5",
+      "journalAbbreviation": "Atten Percept Psychophys",
+      "ISSN": "1943-3921, 1943-393X",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Janet",
+          "lastName": "Metcalfe",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "action"
+        },
+        {
+          "tag": "agency"
+        },
+        {
+          "tag": "time perception"
+        },
+        {
+          "tag": "visual perception"
+        },
+        {
+          "tag": "volition"
+        }
+      ],
+      "relations": {
+        "dc:replaces": [
+          "http://zotero.org/users/2244382/items/NQ32XCDI"
+        ]
+      },
+      "inPublications": true,
+      "dateAdded": "2017-09-27T19:07:21Z",
+      "dateModified": "2025-01-06T18:07:50Z",
+      "uri": "http://zotero.org/users/2244382/items/WZVGCBTD",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_metcalfe_2017_voluntary_action_alters_the_perception_of_visual_illusions.pdf",
+          "tags": [
+            {
+              "tag": "#multiple_attachments_of_same_type"
+            }
+          ],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:52Z",
+          "dateModified": "2023-08-26T18:35:31Z",
+          "uri": "http://zotero.org/users/2244382/items/ZCFSTQM9",
+          "path": "files/2922/vuorre-and-metcalfe_2017_attention,-perception,-&-psychophysics.pdf",
+          "select": "zotero://select/library/items/ZCFSTQM9"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreVoluntaryActionAlters2017",
+      "itemID": 356,
+      "itemKey": "WZVGCBTD",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/WZVGCBTD"
+    },
+    {
+      "version": 10652,
+      "itemType": "journalArticle",
+      "title": "Within-subject mediation analysis for experimental data in cognitive psychology and neuroscience",
+      "abstractNote": "Statistical mediation allows researchers to investigate potential causal effects of experimental manipulations through intervening variables. It is a powerful tool for assessing the presence and strength of postulated causal mechanisms. Although mediation is used in certain areas of psychology, it is rarely applied in cognitive psychology and neuroscience. One reason for the scarcity of applications is that these areas of psychology commonly employ within-subjects designs, and mediation models for within-subjects data are considerably more complicated than for between-subjects data. Here, we draw attention to the importance and ubiquity of mediational hypotheses in within-subjects designs, and we present a general and flexible software package for conducting Bayesian within-subjects mediation analyses in the R programming environment. We use experimental data from cognitive psychology to illustrate the benefits of within-subject mediation for theory testing and comparison.",
+      "date": "2017-12-15",
+      "language": "en",
+      "libraryCatalog": "link.springer.com",
+      "url": "https://link.springer.com/article/10.3758/s13428-017-0980-9",
+      "accessDate": "2017-12-18T18:35:56Z",
+      "rights": "All rights reserved",
+      "extra": "code: https://github.com/mvuorre/bmlm/\ndata: https://github.com/mvuorre/bmlm/",
+      "pages": "1-19",
+      "publicationTitle": "Behavior Research Methods",
+      "DOI": "10.3758/s13428-017-0980-9",
+      "journalAbbreviation": "Behav Res",
+      "ISSN": "1554-3528",
+      "creators": [
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Niall",
+          "lastName": "Bolger",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "bayesian statistics"
+        },
+        {
+          "tag": "causal mechanism"
+        },
+        {
+          "tag": "mediation"
+        },
+        {
+          "tag": "multilevel analysis"
+        },
+        {
+          "tag": "repeated measures"
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2017-12-18T18:35:56Z",
+      "dateModified": "2025-01-06T18:07:30Z",
+      "uri": "http://zotero.org/users/2244382/items/3CMLBA3W",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "vuorre_bolger_2017_within-subject_mediation_analysis_for_experimental_data_in.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2022-04-28T14:20:48Z",
+          "dateModified": "2022-04-28T14:20:49Z",
+          "uri": "http://zotero.org/users/2244382/items/U56FKGFU",
+          "path": "files/2917/vuorre-and-bolger_2017_behavior-research-methods.pdf",
+          "select": "zotero://select/library/items/U56FKGFU"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vuorreWithinsubjectMediationAnalysis2017",
+      "itemID": 354,
+      "itemKey": "3CMLBA3W",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/3CMLBA3W"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "Balance between solitude and socializing: everyday solitude time both benefits and harms well-being",
+      "abstractNote": "Two literatures argue that time alone is harmful (i.e., isolation) and valuable (i.e., positive solitude). We explored whether people benefit from a balance between their daily solitude and social time, such that having ‘right’ quantities of both maximizes well-being. Participants (n = 178) completed a 21-day diary study, which quantified solitude time in hours through reconstructing daily events. This procedure minimized retrospective bias and tested natural variations across time. There was no evidence for a one-size-fits-all ‘optimal balance’ between solitude and social time. Linear effects suggested that people were lonelier and less satisfied on days in which they spent more hours in solitude. These detrimental relations were nullified or reduced when daily solitude was autonomous (choiceful) and did not accumulate across days; those who were generally alone more were not, on the whole, lonelier. On days in which people spent more time alone they felt less stress and greater autonomy satisfaction (volitional, authentic, and free from pressure). These benefits were cumulative; those who spent more time alone across the span of the study were less stressed and more autonomy satisfied overall. Solitude time risks lowering well-being on some metrics but may hold key advantages to other aspects of well-being.",
+      "date": "2023-12-05",
+      "language": "en",
+      "shortTitle": "Balance between solitude and socializing",
+      "libraryCatalog": "www.nature.com",
+      "url": "https://www.nature.com/articles/s41598-023-44507-7",
+      "accessDate": "2023-12-12T13:31:34Z",
+      "rights": "2023 The Author(s)",
+      "extra": "data: https://osf.io/zx7ms/\ncode: https://osf.io/zx7ms/",
+      "volume": "13",
+      "pages": "21160",
+      "publicationTitle": "Scientific Reports",
+      "DOI": "10.1038/s41598-023-44507-7",
+      "issue": "1",
+      "journalAbbreviation": "Sci Rep",
+      "ISSN": "2045-2322",
+      "creators": [
+        {
+          "firstName": "Netta",
+          "lastName": "Weinstein",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Mark",
+          "lastName": "Adams",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thuy-vy",
+          "lastName": "Nguyen",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Human behaviour",
+          "type": 1
+        },
+        {
+          "tag": "Psychology",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2023-12-12T13:31:34Z",
+      "dateModified": "2025-01-06T18:08:13Z",
+      "uri": "http://zotero.org/users/2244382/items/DQMF2XIX",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Weinstein et al_2023_Balance between solitude and socializing.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2023-12-12T13:31:35Z",
+          "dateModified": "2023-12-12T13:31:36Z",
+          "uri": "http://zotero.org/users/2244382/items/PAUD8V8T",
+          "path": "files/4057/weinstein-etal_2023_scientific-reports.pdf",
+          "select": "zotero://select/library/items/PAUD8V8T"
+        }
+      ],
+      "notes": [],
+      "citationKey": "weinsteinBalanceSolitudeSocializing2023",
+      "itemID": 4056,
+      "itemKey": "DQMF2XIX",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/DQMF2XIX"
+    },
+    {
+      "version": 10655,
+      "itemType": "journalArticle",
+      "title": "A Tutorial for Deception Detection Analysis or: How I Learned to Stop Aggregating Veracity Judgments and Embraced Signal Detection Theory Mixed Models",
+      "abstractNote": "Historically, deception detection research has relied on factorial analyses of response accuracy to make inferences. However, this practice overlooks important sources of variability resulting in potentially misleading estimates and may conflate response bias with participants’ underlying sensitivity to detect lies from truths. We showcase an alternative approach using a signal detection theory (SDT) with generalized linear mixed models framework to address these limitations. This SDT approach incorporates individual differences from both judges and senders, which are a principal source of spurious findings in deception research. By avoiding data transformations and aggregations, this methodology outperforms traditional methods and provides more informative and reliable effect estimates. This well-established framework offers researchers a powerful tool for analyzing deception data and advances our understanding of veracity judgments. All code and data are openly available.",
+      "date": "2024-03-01",
+      "language": "en",
+      "shortTitle": "A Tutorial for Deception Detection Analysis or",
+      "libraryCatalog": "Springer Link",
+      "url": "https://doi.org/10.1007/s10919-024-00456-x",
+      "accessDate": "2024-03-01T14:10:37Z",
+      "rights": "All rights reserved",
+      "extra": "license: CC-BY\ncode: https://doi.org/10.5281/zenodo.10200119",
+      "publicationTitle": "Journal of Nonverbal Behavior",
+      "DOI": "10.1007/s10919-024-00456-x",
+      "journalAbbreviation": "J Nonverbal Behav",
+      "ISSN": "1573-3653",
+      "creators": [
+        {
+          "firstName": "Mircea",
+          "lastName": "Zloteanu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Matti",
+          "lastName": "Vuorre",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Bias",
+          "type": 1
+        },
+        {
+          "tag": "Deception detection",
+          "type": 1
+        },
+        {
+          "tag": "Mixed effects models",
+          "type": 1
+        },
+        {
+          "tag": "Signal detection theory",
+          "type": 1
+        },
+        {
+          "tag": "Veracity",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "inPublications": true,
+      "dateAdded": "2024-03-01T14:10:37Z",
+      "dateModified": "2025-01-06T16:07:03Z",
+      "uri": "http://zotero.org/users/2244382/items/KFDHSPEJ",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Zloteanu_Vuorre_2024_A Tutorial for Deception Detection Analysis or.pdf",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-03-01T14:10:39Z",
+          "dateModified": "2024-03-01T14:10:40Z",
+          "uri": "http://zotero.org/users/2244382/items/PXNW5YE9",
+          "path": "files/4190/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf",
+          "select": "zotero://select/library/items/PXNW5YE9"
+        }
+      ],
+      "notes": [],
+      "citationKey": "zloteanuTutorialDeceptionDetection2024",
+      "itemID": 4189,
+      "itemKey": "KFDHSPEJ",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/KFDHSPEJ"
+    }
+  ]
+}

@@ -44,7 +44,11 @@ dat <- fromJSON("bibliography/bibliography.json")$items |>
   clean_names() |>
   filter(item_type %in% c("journalArticle", "preprint")) |>
   mutate(
-    publication = coalesce(library_catalog, publication_title),
+    publication = ifelse(
+      item_type == "preprint",
+      library_catalog,
+      publication_title
+    ),
     authors = map_chr(
       creators,
       ~ knitr::combine_words(.x$lastName, and = " & ")

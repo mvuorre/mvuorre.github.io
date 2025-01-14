@@ -1,0 +1,302 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "preferences": {},
+    "options": {
+      "Items": true,
+      "Normalize": false,
+      "Preferences": false,
+      "cache": true,
+      "exportDir": "/Users/matti/Documents/website/reading",
+      "exportFileData": false,
+      "exportNotes": false,
+      "exportPath": "/Users/matti/Documents/website/reading/readings.json",
+      "keepUpdated": false,
+      "worker": true
+    }
+  },
+  "version": {
+    "zotero": "7.0.11",
+    "bbt": "7.0.5"
+  },
+  "collections": {},
+  "items": [
+    {
+      "key": "V5HWBRHN",
+      "version": 10693,
+      "itemType": "note",
+      "note": "<div data-schema-version=\"9\"><h1>README</h1>\n<p>This collection is a catch-all for websites and academic papers that might be of interest to people reading my website. </p>\n<h2>How to use</h2>\n<ul>\n<li>\n(If on mobile) Send tab to computer\n</li>\n<li>\n<p>Add website / blog post / paper to this collection</p>\n<ul>\n<li>\nIf paywalled, add archive: &lt;url&gt; to the <code>extra</code> field\n</li>\n</ul>\n</li>\n<li>\nPeriodically export collection as better CSL JSON to Quarto and have listing filter the latest to display\n</li>\n</ul>\n<p></p>\n<p></p>\n</div>",
+      "tags": [],
+      "collections": [
+        "4C5A7RQL"
+      ],
+      "relations": {},
+      "dateAdded": "2025-01-14T08:53:37Z",
+      "dateModified": "2025-01-14T10:21:36Z",
+      "uri": "http://zotero.org/users/2244382/items/V5HWBRHN",
+      "itemID": 5164,
+      "itemKey": "V5HWBRHN",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/V5HWBRHN"
+    },
+    {
+      "key": "7XZQ9ETU",
+      "version": 10689,
+      "itemType": "journalArticle",
+      "title": "How to Interpret Statistical Models Using marginaleffects for R and Python",
+      "abstractNote": "The parameters of a statistical model can sometimes be difficult to interpret substantively, especially when that model includes nonlinear components, interactions, or transformations. Analysts who fit such complex models often seek to transform raw parameter estimates into quantities that are easier for domain experts and stakeholders to understand. This article presents a simple conceptual framework to describe a vast array of such quantities of interest, which are reported under imprecise and inconsistent terminology across disciplines: predictions, marginal predictions, marginal means, marginal effects, conditional effects, slopes, contrasts, risk ratios, etc. We introduce marginaleffects, a package for R and Python which offers a simple and powerful interface to compute all of those quantities, and to conduct (non-)linear hypothesis and equivalence tests on them. marginaleffects is lightweight; extensible; it works well in combination with other R and Python packages; and it supports over 100 classes of models, including linear, generalized linear, generalized additive, mixed effects, Bayesian, and several machine learning models.",
+      "date": "2024-11-30",
+      "language": "en",
+      "libraryCatalog": "www.jstatsoft.org",
+      "url": "https://doi.org/10.18637/jss.v111.i09",
+      "accessDate": "2024-12-02T14:50:44Z",
+      "rights": "Copyright (c) 2024 Vincent Arel-Bundock, Noah Greifer, Andrew Heiss",
+      "volume": "111",
+      "pages": "1-32",
+      "publicationTitle": "Journal of Statistical Software",
+      "DOI": "10.18637/jss.v111.i09",
+      "ISSN": "1548-7660",
+      "creators": [
+        {
+          "firstName": "Vincent",
+          "lastName": "Arel-Bundock",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Noah",
+          "lastName": "Greifer",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Andrew",
+          "lastName": "Heiss",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2024-12-02T14:50:44Z",
+      "dateModified": "2024-12-02T14:50:44Z",
+      "uri": "http://zotero.org/users/2244382/items/7XZQ9ETU",
+      "itemID": 4984,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Full Text PDF",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2024-12-02T14:50:45Z",
+          "dateModified": "2024-12-02T14:50:45Z",
+          "uri": "http://zotero.org/users/2244382/items/BVLI4UVD",
+          "path": "/Users/matti/Zotero/storage/BVLI4UVD/Arel-Bundock et al. - 2024 - How to Interpret Statistical Models Using marginal.pdf",
+          "select": "zotero://select/library/items/BVLI4UVD"
+        }
+      ],
+      "notes": [
+        {
+          "key": "35SJVSQG",
+          "version": 10699,
+          "itemType": "note",
+          "parentItem": "7XZQ9ETU",
+          "note": "<div data-schema-version=\"9\"><p>Hmm does <strong>this</strong> work: <a href=\"vuorre.com\" rel=\"noopener noreferrer nofollow\">link</a></p>\n</div>",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2025-01-14T11:47:25Z",
+          "dateModified": "2025-01-14T11:47:40Z",
+          "uri": "http://zotero.org/users/2244382/items/35SJVSQG"
+        }
+      ],
+      "citationKey": "arel-bundockHowInterpretStatistical2024",
+      "itemKey": "7XZQ9ETU",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/7XZQ9ETU"
+    },
+    {
+      "key": "ESFDY9DL",
+      "version": 10691,
+      "itemType": "videoRecording",
+      "title": "Visualizing transformers and attention | Talk for TNG Big Tech Day '24",
+      "abstractNote": "Based on the 3blue1brown deep learning series:    • Neural networks",
+      "date": "2024-11-20",
+      "libraryCatalog": "YouTube",
+      "url": "https://www.youtube.com/watch?v=KJtZARuO3JY",
+      "accessDate": "2025-01-14T09:47:49Z",
+      "runningTime": "57:44",
+      "creators": [
+        {
+          "name": "Grant Sanderson",
+          "creatorType": "director"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-14T09:47:49Z",
+      "dateModified": "2025-01-14T09:47:49Z",
+      "uri": "http://zotero.org/users/2244382/items/ESFDY9DL",
+      "itemID": 5170,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "grantsandersonVisualizingTransformersAttention2024",
+      "itemKey": "ESFDY9DL",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/ESFDY9DL"
+    },
+    {
+      "key": "RLG4BDBS",
+      "version": 10683,
+      "itemType": "webpage",
+      "title": "How to explore your scientific values and develop a vision for your field",
+      "abstractNote": "As a new professor, I was caught off guard by one part of the job: my role as an evaluator.",
+      "date": "2024-05-03T04:00+00:00",
+      "language": "en-US",
+      "url": "https://www.thetransmitter.org/craft-and-careers/how-to-explore-your-scientific-values-and-develop-a-vision-for-your-field/",
+      "accessDate": "2025-01-14T09:01:56Z",
+      "websiteTitle": "The Transmitter: Neuroscience News and Perspectives",
+      "creators": [
+        {
+          "firstName": "Grace",
+          "lastName": "Lindsay",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-14T09:01:56Z",
+      "dateModified": "2025-01-14T09:02:07Z",
+      "uri": "http://zotero.org/users/2244382/items/RLG4BDBS",
+      "itemID": 5167,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "lindsayHowExploreYour2024",
+      "itemKey": "RLG4BDBS",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/RLG4BDBS"
+    },
+    {
+      "key": "Q2PD46V9",
+      "version": 10683,
+      "itemType": "magazineArticle",
+      "title": "The World John von Neumann Built",
+      "abstractNote": "Game theory, computers, the atom bomb—these are just a few of things von Neumann played a role in developing, changing the 20th century for better and worse.",
+      "date": "2022-11-28T10:00:01+00:00",
+      "language": "en-US",
+      "libraryCatalog": "www.thenation.com",
+      "url": "https://www.thenation.com/article/society/john-von-neumann/",
+      "accessDate": "2025-01-14T09:01:40Z",
+      "ISSN": "0027-8378",
+      "creators": [
+        {
+          "firstName": "David",
+          "lastName": "Nirenberg",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-14T09:01:40Z",
+      "dateModified": "2025-01-14T09:01:40Z",
+      "uri": "http://zotero.org/users/2244382/items/Q2PD46V9",
+      "itemID": 5166,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "nirenbergWorldJohnNeumann2022",
+      "itemKey": "Q2PD46V9",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/Q2PD46V9"
+    },
+    {
+      "key": "F3AQFZ2C",
+      "version": 10687,
+      "itemType": "blogPost",
+      "title": "Why it is crucial for scientists to start heeding the lessons of Thomas Bayes",
+      "abstractNote": "Thomas Bayes | Philosophy Essay | David Papineau argues that it is crucial for scientists to start heeding the lessons of Thomas Bayes",
+      "language": "en-GB",
+      "url": "https://www.the-tls.co.uk/regular-features/footnotes-to-plato/thomas-bayes-science-crisis",
+      "accessDate": "2025-01-14T09:03:30Z",
+      "extra": "archive: https://archive.is/d2afM",
+      "blogTitle": "TLS",
+      "creators": [
+        {
+          "firstName": "David",
+          "lastName": "Papineau",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-14T09:03:30Z",
+      "dateModified": "2025-01-14T09:03:54Z",
+      "uri": "http://zotero.org/users/2244382/items/F3AQFZ2C",
+      "itemID": 5169,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "papineauWhyItCrucial",
+      "itemKey": "F3AQFZ2C",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/F3AQFZ2C"
+    },
+    {
+      "key": "AB4WB5JE",
+      "version": 10684,
+      "itemType": "webpage",
+      "title": "The Depths of Wikipedians",
+      "abstractNote": "A conversation about yogurt wars, German hymns, tropical cyclones, and the people who make Wikipedia function.",
+      "date": "2024-11-01",
+      "url": "https://asteriskmag.com/issues/08/the-depths-of-wikipedians",
+      "accessDate": "2025-01-07T12:06:12Z",
+      "websiteTitle": "Asterisk",
+      "creators": [
+        {
+          "firstName": "Anne",
+          "lastName": "Rauwerda",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-07T12:06:12Z",
+      "dateModified": "2025-01-14T09:02:23Z",
+      "uri": "http://zotero.org/users/2244382/items/AB4WB5JE",
+      "itemID": 5159,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "rauwerdaDepthsWikipedians2024",
+      "itemKey": "AB4WB5JE",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/AB4WB5JE"
+    },
+    {
+      "key": "27LWVLCC",
+      "version": 10682,
+      "itemType": "webpage",
+      "title": "What Is Entropy? A Measure of Just How Little We Really Know.",
+      "abstractNote": "Exactly 200 years ago, a French engineer introduced an idea that would quantify the universe’s inexorable slide into decay. But entropy, as it’s currently understood, is less a fact about the world than a reflection of our growing ignorance. Embracing that truth is leading to a rethink of everything from rational decision-making to the limits of machines.",
+      "date": "2024-12-13T15:30:02+00:00",
+      "language": "en",
+      "shortTitle": "What Is Entropy?",
+      "url": "https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/",
+      "accessDate": "2025-01-14T09:01:07Z",
+      "websiteTitle": "Quanta Magazine",
+      "creators": [
+        {
+          "firstName": "Zack",
+          "lastName": "Savitsky",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2025-01-14T09:01:07Z",
+      "dateModified": "2025-01-14T09:01:07Z",
+      "uri": "http://zotero.org/users/2244382/items/27LWVLCC",
+      "itemID": 5165,
+      "attachments": [],
+      "notes": [],
+      "citationKey": "savitskyWhatEntropyMeasure2024",
+      "itemKey": "27LWVLCC",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/27LWVLCC"
+    }
+  ]
+}

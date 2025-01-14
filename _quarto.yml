@@ -39,6 +39,8 @@ website:
         href: publications.qmd
       - text: Blog
         href: blog.qmd
+      - text: Now
+        href: now.qmd
       - icon: rss
         href: index.xml
       - icon: github

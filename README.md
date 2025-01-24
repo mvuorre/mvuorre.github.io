@@ -6,6 +6,13 @@ This repository contains the source of my website <https://vuorre.com>.
 
 Created with Quarto. Render everything with `quarto render`, outputs are in `docs/`.
 
+### Environment variables
+
+In `.env`:
+# Zotero API key for fetching data from my Zotero library
+ZOTERO_API_KEY=""
+
+
 ### Publications
 
 The publications page, and content therein, is programmatically generated from Zotero. Steps are:

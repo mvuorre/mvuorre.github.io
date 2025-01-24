@@ -12,7 +12,7 @@ listing:
       type: "*"
     sort: "date_read desc"
     page-size: 5
-    date-format: "YYYY"
+    date-format: "YYYY-MM-DD"
 comments: false
 ---
 
@@ -32,58 +32,78 @@ This is a short selection of things I've been reading, watching, or listening to
 library(jsonlite)
 library(fs)
 library(tidyverse)
+library(httr2)
 knitr::opts_chunk$set(
   include = FALSE
 )
 
-items <- fromJSON("reading/readings.json")$items |>
-  filter(itemType != "note") |>
-  tibble()
-
-# Wrangle Zotero-exported Better BibTeX JSON file to a tibble
-dat <- items |>
-  # Crazy hack to harmonize different author table formats
-  mutate(
-    creators = map(
-      creators,
-      ~ if ("name" %in% names(.x)) {
-        mutate(
-          .x,
-          lastName = str_split_1(name, " ")[2],
-          firstName = str_split_1(name, " ")[1],
-          name = str_c(firstName, lastName, sep = " ")
-        )
-      } else {
-        mutate(
-          .x,
-          name = str_c(firstName, lastName, sep = " ")
-        )
-      }
-    )
-  ) |>
-  mutate(
-    type = itemType,
-    title = title,
-    abstract = abstractNote,
-    date, dateAdded, dateModified, accessDate,
-    url,
-    authors = map_chr(
-      creators,
-      ~ knitr::combine_words(.x$name, and = " & ")
-    ),
-    extra,
-    .keep = "none"
+# Query data from Zotero API and save JSON into a tibble
+# Read Zotero API key from .Renviron
+# todo better caching
+path <- "reading/readings.csv"
+if (!file.exists(path)) {
+  readRenviron(".env")
+  ZOTERO_API_KEY <- Sys.getenv(
+    "ZOTERO_API_KEY",
+    unset = errorCondition("No ZOTERO_API_KEY in .env")
   )
+
+  req <- request("https://api.zotero.org/users/2244382/collections/4C5A7RQL/items") |>
+    req_headers("Zotero-API-Key" = ZOTERO_API_KEY)
+
+  resp <- req |>
+    req_perform()
+
+  body <- resp |>
+    resp_body_string() |>
+    fromJSON()
+
+  items <- tibble(body$data)
+
+  dat <- items |>
+    filter(!(itemType %in% c("attachment"))) |>
+    # Crazy hack to harmonize different author table formats
+    mutate(
+      creators = map(
+        creators,
+        ~ if ("name" %in% names(.x)) {
+          mutate(
+            .x,
+            lastName = str_split_1(name, " ")[2],
+            firstName = str_split_1(name, " ")[1],
+            name = str_c(firstName, lastName, sep = " ")
+          )
+        } else {
+          mutate(
+            .x,
+            name = str_c(firstName, lastName, sep = " ")
+          )
+        }
+      )
+    ) |>
+    mutate(
+      type = itemType,
+      title = title,
+      abstract = abstractNote,
+      date, dateAdded, dateModified, accessDate,
+      url,
+      authors = map_chr(
+        creators,
+        ~ knitr::combine_words(.x$name, and = " & ")
+      ),
+      extra,
+      .keep = "none"
+    )
+  write_csv(dat, path)
+} else {
+  dat <- read_csv(path)
+}
 ```
 
 ```{r}
 #| eval: true
 
 path <- "reading/items.yml"
-
-# Note the Zotero 'Extra' field must contain items like
-# license: CC-BY
-# data: <URL>
 
 dat |>
   mutate(extra = ifelse(is.na(extra), "extra: ~", extra)) |>
@@ -92,7 +112,7 @@ dat |>
     {title}
   url: {url}
   date: {date}
-  date_read: {dateAdded}
+  date_read: {dateModified}
   type: {type}
   authors: |
     {authors}

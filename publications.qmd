@@ -37,9 +37,10 @@ knitr::opts_chunk$set(
   include = FALSE
 )
 
+path <- "bibliography/bibliography.json"
 
-# Wrangle Zotero-exported Better BibTeX JSON file to a tibble
-dat <- fromJSON("bibliography/bibliography.json")$items |>
+# Wrangle data
+dat <- fromJSON(path)$items |>
   tibble() |>
   clean_names() |>
   filter(item_type %in% c("journalArticle", "preprint")) |>
@@ -68,6 +69,8 @@ dat <- fromJSON("bibliography/bibliography.json")$items |>
     type = item_type,
     abstract = abstract_note,
     date,
+    date_added,
+    date_modified,
     publication,
     url, doi,
     authors,

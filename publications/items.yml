@@ -38,7 +38,7 @@
     Bloom, Friedman, Xu, Vuorre, & Metcalfe
   doi: 10.1016/j.concog.2018.05.010
   outlet: >-
-    ScienceDirect
+    Consciousness and Cognition
   file: bibliography/files/2536/bloom-etal_2018_consciousness-and-cognition.pdf
   categories: [eeg, erp, learning, memory, tip-of-the-tongue]
   abstract: |
@@ -53,9 +53,9 @@
     Bürkner & Vuorre
   doi: 10.1177/2515245918823199
   outlet: >-
-    SAGE Journals
+    Advances in Methods and Practices in Psychological Science
   file: bibliography/files/2554/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf
-  categories: [brms, likert items, open data, open materials, ordinal models, r]
+  categories: [open data, open materials, r, brms, ordinal models, likert items]
   abstract: |
     Ordinal variables, although extremely common in psychology, are almost exclusively analyzed with statistical models that falsely assume them to be metric. This practice can lead to distorted effect-size estimates, inflated error rates, and other problems. We argue for the application of ordinal models that make appropriate assumptions about the variables under study. In this Tutorial, we first explain the three major classes of ordinal models: the cumulative, sequential, and adjacent-category models. We then show how to fit ordinal models in a fully Bayesian framework with the R package brms, using data sets on opinions about stem-cell research and time courses of marriage. The appendices provide detailed mathematical derivations of the models and a discussion of censored ordinal models. Compared with metric models, ordinal models provide better theoretical interpretation and numerical inference from ordinal data, and we recommend their widespread adoption in psychology.
   data: https://osf.io/cu8jv/
@@ -69,7 +69,7 @@
     Chapman, Colvin, Vuorre, Cocchini, Metcalfe, Huey, & Cosentino
   doi: 10.1016/j.cortex.2018.01.019
   outlet: >-
-    ScienceDirect
+    Cortex
   file: bibliography/files/4082/chapman-etal_2018_cortex.pdf
   categories: [agency, alzheimer's disease, anosognosia, cognition, metacognition]
   abstract: |
@@ -84,7 +84,7 @@
     Heino, Vuorre, & Hankonen
   doi: 10.1080/21642850.2018.1428102
   outlet: >-
-    Taylor and Francis+NEJM
+    Health Psychology and Behavioral Medicine
   file: bibliography/files/2665/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf
   categories: [bayes, bayesian estimation, health behavior change, intervention evaluation, tutorial]
   abstract: |
@@ -100,7 +100,7 @@
     Johannes, Masur, Vuorre, & Przybylski
   doi: https://doi.org/10.15626/MP.2022.3322
   outlet: >-
-    open.lnu.se
+    Meta-Psychology
   file: bibliography/files/4588/johannes-etal_2024_meta-psychology.pdf
   categories: [effect heterogeneity, social media, well-being]
   abstract: |
@@ -115,9 +115,9 @@
     Johannes, Vuorre, Magnusson, & Przybylski
   doi: 10.1525/collabra.34606
   outlet: >-
-    Silverchair
+    Collabra: Psychology
   file: bibliography/files/2987/johannes-etal_2022_collabra-psychology.pdf
-  categories: [anger, play behavior, video games, violence]
+  categories: [video games, play behavior, anger, violence]
   abstract: |
     There is a lively debate whether playing games that feature armed combat and competition (often referred to as violent video games) has measurable effects on aggression. Unfortunately, that debate has produced insights that remain preliminary without accurate behavioral data. Here, we present a secondary analysis of the most authoritative longitudinal data set available on the issue from our previous study (Vuorre et al., 2021). We analyzed objective in-game behavior, provided by video game companies, in 2,580 players over six weeks. Specifically, we asked how time spent playing two popular online shooters, Apex Legends (PEGI 16) and Outriders (PEGI 18), affected self-reported feelings of anger (i.e., aggressive affect). We found that playing these games did not increase aggressive affect; the cross-lagged association between game time and aggressive affect was virtually zero. Our results showcase the value of obtaining accurate industry data as well as an open science of video games and mental health that allows cumulative knowledge building.
   code: https://github.com/digital-wellbeing/gametime-anger/tree/main
@@ -131,13 +131,28 @@
     Johannes, Vuorre, & Przybylski
   doi: 10.1098/rsos.202049
   outlet: >-
-    royalsocietypublishing.org (Atypon)
+    Royal Society Open Science
   file: bibliography/files/2690/johannes-etal_2021_royal-society-open-science.pdf
   categories: [human motivation, video games, well-being]
   abstract: |
     People have never played more video games, and many stakeholders are worried that this activity might be bad for players. So far, research has not had adequate data to test whether these worries are justified and if policymakers should act to regulate video game play time. We attempt to provide much-needed evidence with adequate data. Whereas previous research had to rely on self-reported play behaviour, we collaborated with two games companies, Electronic Arts and Nintendo of America, to obtain players' actual play behaviour. We surveyed players of Plantsvs.Zombies: Battle for Neighborville and Animal Crossing: New Horizons for their well-being, motivations and need satisfaction during play, and merged their responses with telemetry data (i.e. logged game play). Contrary to many fears that excessive play time will lead to addiction and poor mental health, we found a small positive relation between game play and affective well-being. Need satisfaction and motivations during play did not interact with play time but were instead independently related to well-being. Our results advance the field in two important ways. First, we show that collaborations with industry partners can be done to high academic standards in an ethical and transparent fashion. Second, we deliver much-needed evidence to policymakers on the link between play and mental health.
   data: https://osf.io/cjd6z/
   code: https://github.com/digital-wellbeing/gametime
+- title: >-
+    From social media to artificial intelligence: improving research on digital harms in youth
+  url: https://www.sciencedirect.com/science/article/pii/S2352464224003328
+  date: 2025-01-21
+  type: journalArticle
+  authors: |
+    Mansfield, Ghai, Hakman, Ballou, Vuorre, & Przybylski
+  doi: 10.1016/S2352-4642(24)00332-8
+  outlet: >-
+    The Lancet Child & Adolescent Health
+  file: bibliography/files/5177/mansfield-etal_2025_the-lancet-child-&-adolescent-health.pdf
+  categories: [artificial intelligence, mental health, technology]
+  abstract: |
+    In this Personal View, we critically evaluate the limitations and underlying challenges of existing research into the negative mental health consequences of internet-mediated technologies on young people. We argue that identifying and proactively addressing consistent shortcomings is the most effective method for building an accurate evidence base for the forthcoming influx of research on the effects of artificial intelligence (AI) on children and adolescents. Basic research, advice for caregivers, and evidence for policy makers should tackle the challenges that led to the misunderstanding of social media harms. The Personal View has four sections: first, we conducted a critical appraisal of recent reviews regarding effects of technology on children and adolescents' mental health, aimed at identifying limitations in the evidence base; second, we discuss what we think are the most pressing methodological challenges underlying those limitations; third, we propose effective ways to address these limitations, building on robust methodology, with reference to emerging applications in the study of AI and children and adolescents' wellbeing; and lastly, we articulate steps for conceptualising and rigorously studying the ever-shifting sociotechnological landscape of digital childhood and adolescence. We outline how the most effective approach to understanding how young people shape, and are shaped by, emerging technologies, is by identifying and directly addressing specific challenges. We present an approach grounded in interpreting findings through a coherent and collaborative evidence-based framework in a measured, incremental, and informative way.
+  extra: ~
 - title: >-
     Curiosity and the desire for agency: wait, wait … don’t tell me!
   url: https://doi.org/10.1186/s41235-021-00330-0
@@ -147,7 +162,7 @@
     Metcalfe, Kennedy-Pyers, & Vuorre
   doi: 10.1186/s41235-021-00330-0
   outlet: >-
-    Springer Link
+    Cognitive Research: Principles and Implications
   file: bibliography/files/2775/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf
   categories: [active learning, curiosity, need for agency, need for control, prediction error models, region of proximal learning, reinforcement learning, reward learning]
   abstract: |
@@ -163,7 +178,7 @@
     Metcalfe, Vuorre, Towner, & Eich
   doi: 10.1037/xge0001284
   outlet: >-
-    APA PsycNet
+    Journal of Experimental Psychology: General
   file: bibliography/files/4893/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf
   categories: [curiosity, errors, feedback, learning, metacognition, models, responses, self-confidence, uncertainty]
   abstract: |
@@ -179,7 +194,7 @@
     Metcalfe, Xu, Vuorre, Siegler, Wiliam, & Bjork
   doi: 10.1111/bjep.12651
   outlet: >-
-    Wiley Online Library
+    British Journal of Educational Psychology
   file: bibliography/files/4078/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf
   categories: [discovery learning, interactive feedback, learning from errors, productive failure, test effects]
   abstract: |
@@ -194,7 +209,7 @@
     Metcalfe, Brezler, McNamara, Maletta, & Vuorre
   doi: 10.1002/hipo.23128
   outlet: >-
-    Wiley Online Library
+    Hippocampus
   file: bibliography/files/2774/metcalfe-etal_2019_hippocampus.pdf
   categories: [extreme stress, fdny, human memory]
   abstract: |
@@ -209,7 +224,7 @@
     Michael, Newman, Vuorre, Cumming, & Garry
   doi: 10.3758/s13423-013-0391-6
   outlet: >-
-    link.springer.com
+    Psychonomic Bulletin & Review
   file: bibliography/files/2776/michael-etal_2013_psychonomic-bulletin-&-review.pdf
   categories: [cognitive psychology, decision making, neuroimaging, statistics]
   abstract: |
@@ -224,7 +239,7 @@
     Miller, Mills, Vuorre, Orben, & Przybylski
   doi: 10.1016/j.cortex.2023.09.009
   outlet: >-
-    ScienceDirect
+    Cortex
   file: bibliography/files/4027/miller-etal_2023_cortex.pdf
   categories: [adolescence, digital technologies, fmri, internet, social media]
   abstract: |
@@ -239,7 +254,7 @@
     Sidarus, Vuorre, & Haggard
   doi: 10.1016/j.neuroimage.2017.02.015
   outlet: >-
-    ScienceDirect
+    NeuroImage
   file: bibliography/files/5150/sidarus-etal_2017_neuroimage.pdf
   categories: [action monitoring, action selection, cognitive control, evoked potentials, metacognition, sense of agency]
   abstract: |
@@ -254,7 +269,7 @@
     Sidarus, Vuorre, & Haggard
   doi: 10.1093/nc/nix012
   outlet: >-
-    academic.oup.com
+    Neuroscience of Consciousness
   file: bibliography/files/2874/sidarus-etal_2017_neuroscience-of-consciousness.pdf
   categories: [agency, intention, metacognition, multi-study analysis, volition]
   abstract: |
@@ -269,7 +284,7 @@
     Sidarus, Vuorre, Metcalfe, & Haggard
   doi: 10.3389/fpsyg.2017.00545
   outlet: >-
-    Frontiers
+    Frontiers in Psychology
   file: bibliography/files/2979/sidarus-etal_2017_frontiers-in-psychology.pdf
   categories: [action selection, fluency, metacognition, motor control, sense of agency]
   abstract: |
@@ -284,7 +299,7 @@
     Syed Sheriff, Vuorre, Riga, Przybylski, Adams, Harmer, & Geddes
   doi: 10.1177/00048674221115648
   outlet: >-
-    SAGE Journals
+    Australian & New Zealand Journal of Psychiatry
   file: bibliography/files/3224/syed-sheriff-etal_2022_australian-&-new-zealand-journal-of-psychiatry.pdf
   categories: [anxiety, depression, experimental medicine, youth]
   abstract: |
@@ -300,7 +315,7 @@
     Vuorre, Ballou, Hakman, Magnusson, & Przybylski
   doi: 10.1145/3659464
   outlet: >-
-    ACM Digital Library
+    ACM Games
   file: bibliography/files/4659/vuorre-etal_2024_acm-games.pdf
   categories: [digital trace data, open research, psychology, research methods, video games]
   abstract: |
@@ -332,7 +347,7 @@
     Vuorre & Curley
   doi: 10.1177/2515245918754826
   outlet: >-
-    SAGE Journals
+    Advances in Methods and Practices in Psychological Science
   file: bibliography/files/2919/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf
   categories: [git, open materials, open science, reproducibility, research methods, version control]
   abstract: |
@@ -347,7 +362,7 @@
     Vuorre & Przybylski
   doi: 10.1098/rsos.221451
   outlet: >-
-    royalsocietypublishing.org (Atypon)
+    Royal Society Open Science
   file: bibliography/files/3703/vuorre-and-przybylski_2023_royal-society-open-science.pdf
   categories: [life satisfaction, social media, well-being]
   abstract: |
@@ -363,7 +378,7 @@
     Vuorre & Przybylski
   doi: 10.1177/21677026231207791
   outlet: >-
-    SAGE Journals
+    Clinical Psychological Science
   file: bibliography/files/4039/vuorre-and-przybylski_2023_clinical-psychological-science.pdf
   categories: [internet technology, mental health, technology effects, well-being]
   abstract: |
@@ -379,7 +394,7 @@
     Vuorre, Magnusson, Johannes, Butlin, & Przybylski
   doi: 10.1038/s41597-023-02530-3
   outlet: >-
-    www.nature.com
+    Scientific Data
   file: bibliography/files/3859/vuorre-etal_2023_scientific-data.pdf
   categories: [human behaviour, psychology]
   abstract: |
@@ -395,7 +410,7 @@
     Vuorre, Zendle, Petrovskaya, Ballou, & Przybylski
   doi: 10.1037/tmb0000048
   outlet: >-
-    tmb.apaopen.org
+    Technology, Mind, and Behavior
   file: bibliography/files/2926/vuorre-etal_2021_technology,-mind,-and-behavior.pdf
   categories: [covid-19, digital trace data, technology, video games]
   abstract: |
@@ -411,7 +426,7 @@
     Vuorre & Metcalfe
   doi: 10.1007/s11409-020-09257-1
   outlet: >-
-    Springer Link
+    Metacognition and Learning
   file: bibliography/files/2924/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf
   categories: [confidence, measurement, metacognition]
   abstract: |
@@ -427,7 +442,7 @@
     Vuorre & Przybylski
   doi: 10.1037/tmb0000127
   outlet: >-
-    tmb.apaopen.org
+    Technology, Mind, and Behavior
   file: bibliography/files/4478/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf
   categories: [internet technology, technology effects, well-being]
   abstract: |
@@ -442,7 +457,7 @@
     Vuorre & Metcalfe
   doi: 10.1016/j.concog.2016.06.001
   outlet: >-
-    ScienceDirect
+    Consciousness and Cognition
   file: bibliography/files/2921/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf
   categories: [agency, flow, sense of agency]
   abstract: |
@@ -457,7 +472,7 @@
     Vuorre & Crump
   doi: 10.3758/s13428-020-01436-x
   outlet: >-
-    Springer Link
+    Behavior Research Methods
   file: bibliography/files/2918/vuorre-and-crump_2020_behavior-research-methods.pdf
   categories: [open data, open science, r, reproducibility, research methods]
   abstract: |
@@ -472,7 +487,7 @@
     Vuorre, Orben, & Przybylski
   doi: 10.1177/2167702621994549
   outlet: >-
-    SAGE Journals
+    Clinical Psychological Science
   file: bibliography/files/2925/vuorre-etal_2021_clinical-psychological-science.pdf
   categories: [adolescents, depression, mental health, open materials, social media]
   abstract: |
@@ -502,7 +517,7 @@
     Vuorre
   doi: NA
   outlet: >-
-    IngentaConnect
+    Journal of Consciousness Studies
   file: bibliography/files/4080/vuorre_2017_journal-of-consciousness-studies.pdf
   categories: [agency, sense of agency, time perception, volition]
   abstract: |
@@ -517,7 +532,7 @@
     Vuorre, Johannes, Magnusson, & Przybylski
   doi: 10.1098/rsos.220411
   outlet: >-
-    royalsocietypublishing.org (Atypon)
+    Royal Society Open Science
   file: bibliography/files/3195/vuorre-etal_2022_royal-society-open-science.pdf
   categories: [human motivation, play behaviour, video games, well-being]
   abstract: |
@@ -533,7 +548,7 @@
     Vuorre & Metcalfe
   doi: 10.3758/s13414-017-1321-x
   outlet: >-
-    link.springer.com
+    Attention, Perception, & Psychophysics
   file: bibliography/files/2922/vuorre-and-metcalfe_2017_attention,-perception,-&-psychophysics.pdf
   categories: [action, agency, time perception, visual perception, volition]
   abstract: |
@@ -549,7 +564,7 @@
     Vuorre & Bolger
   doi: 10.3758/s13428-017-0980-9
   outlet: >-
-    link.springer.com
+    Behavior Research Methods
   file: bibliography/files/2917/vuorre-and-bolger_2017_behavior-research-methods.pdf
   categories: [bayesian statistics, causal mechanism, mediation, multilevel analysis, repeated measures]
   abstract: |
@@ -565,7 +580,7 @@
     Weinstein, Vuorre, Adams, & Nguyen
   doi: 10.1038/s41598-023-44507-7
   outlet: >-
-    www.nature.com
+    Scientific Reports
   file: bibliography/files/4057/weinstein-etal_2023_scientific-reports.pdf
   categories: [human behaviour, psychology]
   abstract: |
@@ -581,7 +596,7 @@
     Zloteanu & Vuorre
   doi: 10.1007/s10919-024-00456-x
   outlet: >-
-    Springer Link
+    Journal of Nonverbal Behavior
   file: bibliography/files/4190/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf
   categories: [bias, deception detection, mixed effects models, signal detection theory, veracity]
   abstract: |

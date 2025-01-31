@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources: 
+    - CNAME
 
 date-format: iso
 execute:

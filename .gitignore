@@ -2,19 +2,21 @@
 .Rhistory
 .RData
 .Ruserdata
-_freeze/
-*_cache/
-**/*.rds
-/posts/**/*.html
-/posts/**/*_files/
 .Rdata
 .httr-oauth
 .DS_Store
 
 /.quarto/
 /.vscode/
-
 /.luarc.json
+
+# Site is published with `quarto publish` to gh-pages branch
+_freeze/
+*_cache/
+/posts/**/*.html
+/posts/**/*_files/
+/posts/**/*.rds
+/docs/
 
 # Publication PDFs in source (become available in docs/ when rendered)
 bibliography/files/

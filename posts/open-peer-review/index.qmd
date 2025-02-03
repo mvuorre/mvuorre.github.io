@@ -97,6 +97,6 @@ Feature image credit: <https://undraw.co/>.
 
 ## Feedback & comments {.appendix}
 
-I'd appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky: [TODO]
+I'd appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky:
 
-<!-- {{< bluesky-comments POST_ID_HERE >}} -->
+{{< bluesky-comments 3lhbko45psk2c >}}

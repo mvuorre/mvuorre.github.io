@@ -129,8 +129,9 @@
 <p>Feature image credit: <a href="https://undraw.co/" class="uri">https://undraw.co/</a>.</p>
 </div></section><section id="feedback-comments" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Feedback &amp; comments</h2><div class="quarto-appendix-contents">
 
-<p>I’d appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky: [TODO]</p>
-<!--  -->
+<p>I’d appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky:</p>
+    <bluesky-comments post="at://did:plc:ai4isl2n4j2h7qcqebj7vu2k/app.bsky.feed.post/3lhbko45psk2c" filter-config="{&quot;filterEmptyReplies&quot;:true,&quot;mutePatterns&quot;:[],&quot;muteUsers&quot;:[]}" profile="did:plc:ai4isl2n4j2h7qcqebj7vu2k"></bluesky-comments>
+  
 
 
 

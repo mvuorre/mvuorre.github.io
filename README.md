@@ -1,11 +1,17 @@
 ## Matti's homepage
 
-This repository contains the source of my website <https://vuorre.com>. Created with Quarto. 
+This repository contains the source of my website <https://vuorre.com>. Created with Quarto.
 
 ## Requirements
 
 - Quarto
 - ZOTERO_API_KEY set in `.env`
+
+## Publish
+
+```bash
+quarto publish gh-pages
+```
 
 ## Publications
 

@@ -10,7 +10,189 @@
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Wed, 19 Jun 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 02 Feb 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>My peer review principles &amp; practices</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/open-peer-review/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In this entry, I outline my approach to evaluating scientific outputs based on the principles of transparency and openness.<sup>1</sup> I also include my template responses to review invitations.</p>
+<section id="background-and-principles" class="level2">
+<h2 class="anchored" data-anchor-id="background-and-principles">Background and principles</h2>
+<p>I signed/joined the <a href="https://www.opennessinitiative.org/the-initiative/">PRO Initiative</a> way back when I was a PhD student, but just to remind myself:</p>
+<blockquote class="blockquote">
+<p>Openness and transparency are core values of science. As a manifestation of those values, a minimum requirement for publication of any scientific results must be the public submission of materials used in generating those results. As reviewers, it is our responsibility to ensure that publications meet certain minimum quality standards.</p>
+<p>We therefore agree that as reviewers, starting 1 January 2017, we will not offer comprehensive review for, nor recommend the publication of, any manuscript that does not meet the following minimum requirements. Once such a manuscript has been certified by the authors to meet these minimum requirements, we will proceed with a more comprehensive review of the manuscript.</p>
+<p>– <a href="https://www.opennessinitiative.org/the-initiative/">PRO Initiative</a>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span></p>
+</blockquote>
+<p>More recently I’ve been entertaining the idea of joining/signing something similar but regarding open assessment—the practice of i. evaluating openly available works and ii. making the evaluations themselves public. For example, I find <a href="https://nikokriegeskorte.org/category/open-review/">Nikolaus Kriegeskorte</a>’s Open Evaluation proposal very agreeable:</p>
+<blockquote class="blockquote">
+<p>“The current system of scientific publishing provides only journal prestige as an indication of the quality of new papers and relies on a non-transparent and noisy pre-publication peer-review process, which delays publication by many months on average. Here I propose an OE [Open Evaluation] system, in which papers are evaluated post-publication in an ongoing fashion by means of open peer review and rating. […] OA [Open Access] and OE together have the power to revolutionize scientific publishing and usher in a new culture of transparency, constructive criticism, and collaboration.</p>
+<p>– <span class="citation" data-cites="kriegeskorteOpenEvaluationVision2012">Kriegeskorte (2012)</span></p>
+</blockquote>
+<p>The scientific enterprise relies on access to accurate information. One of the ways in which scientists have tried to ensure that information is accurate is the process of <strong>peer-review</strong>, where experts look at your work and evaluate whether it’s up to snuff. While the primary fruits of the peer-review process (the manuscripts) are increasingly openly available, the reviews (and editorial notes) are typically not. This creates a situation whereby consumers of the scientific literature must trust the peer-review process without the being able to evaluate and learn from the evaluations themselves.</p>
+<p>Many have suggested that this closed approach to evaluation might be suboptimal <span class="citation" data-cites="kriegeskorteOpenEvaluationVision2012 holcombeScientistsWhatAre2025">(Kriegeskorte 2012; Holcombe 2025)</span>. Moreover, the peer reviews themselves can contain information that could be widely applicable outside the specific review context. Therefore, I am taking the following steps to increase my engagement with open assessment of scientific research:</p>
+</section>
+<section id="practices" class="level2">
+<h2 class="anchored" data-anchor-id="practices">Practices</h2>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>I review (and edit) for outlets that implement open evaluation, such as <a href="https://rr.peercommunityin.org/">PCI: Registered Reports</a></li>
+<li>I make my reviews publicly available (e.g.&nbsp;on <a href="https://prereview.org/profiles/0000-0001-5052-066X">PREreview</a>, my blog, etc.)</li>
+<li>I adhere to the PRO Initiative’s transparency and openness <a href="https://www.opennessinitiative.org/the-initiative/">guidelines</a></li>
+<li>I acknowledge that e.g.&nbsp;privacy reasons may require deviating from these guidelines</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="template-responses" class="level2">
+<h2 class="anchored" data-anchor-id="template-responses">Template responses</h2>
+<p>Here’s some boilerplate text that I use in my responses to review invitations.</p>
+<section id="when-no-preprint-exists" class="level3">
+<h3 class="anchored" data-anchor-id="when-no-preprint-exists">When no preprint exists</h3>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Thank you for considering me as a reviewer. I was not able to find a publicly available version of this manuscript, and so will tentatively decline your request. If you can point me to the publicly available manuscript, or if the authors make the manuscript publicly available, I would be happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.</p>
+<p>This approach aligns with my commitment to rigorous, open, transparent, and citeable peer review of publicly available scientific work. (see e.g.&nbsp;Kriegeskorte, 2012 “Open Evaluation: A Vision for Entirely Transparent Post-Publication Peer Review and Rating for Science”). (If a preprint already exists, I apologize for missing it and would be happy to review it if you can provide a link to it.) Please let me know if you have any questions about this process.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="when-a-preprint-exists" class="level3">
+<h3 class="anchored" data-anchor-id="when-a-preprint-exists">When a preprint exists</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Thank you for considering me as a reviewer. I am happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.</p>
+<p>This approach aligns with my commitment to open science and transparent evaluation (see e.g.&nbsp;Kriegeskorte, 2012 “Open Evaluation: A Vision for Entirely Transparent Post-Publication Peer Review and Rating for Science”). Please let me know if you would prefer to not have me upload a public review, or if have any questions about this process.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="open-datamaterials" class="level3">
+<h3 class="anchored" data-anchor-id="open-datamaterials">Open data/materials</h3>
+<p>When data/materials are not shared or transparently cited (see <a href="https://www.opennessinitiative.org/guidelines-for-action-editors-and-reviews/" class="uri">https://www.opennessinitiative.org/guidelines-for-action-editors-and-reviews/</a>) I will communicate to the editor that</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I believe strongly in the value of openness and transparency. Please ask the authors on my behalf whether they can certify that they have met the standards of the Peer Reviewers’ Openness Initiative (https://opennessinitiative.org/).</p>
+<p>– <a href="https://www.opennessinitiative.org/the-initiative/">PRO Initiative</a>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span></p>
+</div>
+</div>
+</div>
+<p>If a resubmission doesn’t meet the basic PRO requirements, I will communicate that</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I cannot recommend this paper for publication, as it does not meet the minimum quality requirements for an open scientific manuscript (see https://opennessinitiative.org/). I would be happy to review a revision of the manuscript that corrects this critical oversight.</p>
+<p>– <a href="https://www.opennessinitiative.org/the-initiative/">PRO Initiative</a>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>There is no conclusion. How we conduct, communicate, and evaluate scientific research is and always will be a work in progress. This document simply outlines my modest attempts at keeping up with (what I perceive to be) the latest gold-standard practices in transparent communication and evaluation.</p>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="further-reading" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Further reading</h2><div class="quarto-appendix-contents">
+
+<p>Some valuable background reading on these topics can be found in <span class="citation" data-cites="ahmedFutureAcademicPublishing2023">Ahmed et al. (2023)</span>; <span class="citation" data-cites="aleksicOpenSciencePeer2015">Aleksic et al. (2015)</span>; <span class="citation" data-cites="eisenImplementingPublishThen2020">Eisen et al. (2020)</span>; <span class="citation" data-cites="holcombeScientistsWhatAre2025">Holcombe (2025)</span>; <span class="citation" data-cites="kathawallaEasingOpenScience2021">Kathawalla, Silverstein, and Syed (2021)</span>; <span class="citation" data-cites="kriegeskorteOpenEvaluationVision2012">Kriegeskorte (2012)</span>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span>; <span class="citation" data-cites="moshontzGuidePostingManaging2021">Moshontz et al. (2021)</span>; <span class="citation" data-cites="severBiomedicalPublishingHistoric2023">Sever (2023)</span>; <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span>; <span class="citation" data-cites="syedValuingPreprintsMust2024">Syed (2024)</span>. <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span> might be especially relevant when communicating these ideas to editors.</p>
+<p>Feature image credit: <a href="https://undraw.co/" class="uri">https://undraw.co/</a>.</p>
+</div></section><section id="feedback-comments" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Feedback &amp; comments</h2><div class="quarto-appendix-contents">
+
+<p>I’d appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky: [TODO]</p>
+<!--  -->
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-ahmedFutureAcademicPublishing2023" class="csl-entry">
+Ahmed, Abubakari, Aceil Al-Khatib, Yap Boum, Humberto Debat, Alonso Gurmendi Dunkelberg, Lisa Janicke Hinchliffe, Frith Jarrad, et al. 2023. <span>“The Future of Academic Publishing.”</span> <em>Nature Human Behaviour</em>, July, 1–6. <a href="https://doi.org/10.1038/s41562-023-01637-2">https://doi.org/10.1038/s41562-023-01637-2</a>.
+</div>
+<div id="ref-aleksicOpenSciencePeer2015" class="csl-entry">
+Aleksic, Jelena, Adrian Alexa, Teresa K. Attwood, Neil Chue Hong, Martin Dahlö, Robert Davey, Holger Dinkel, et al. 2015. <span>“An <span>Open Science Peer Review Oath</span>.”</span> January 9, 2015. <a href="https://doi.org/10.12688/f1000research.5686.2">https://doi.org/10.12688/f1000research.5686.2</a>.
+</div>
+<div id="ref-eisenImplementingPublishThen2020" class="csl-entry">
+Eisen, Michael B, Anna Akhmanova, Timothy E Behrens, Diane M Harper, Detlef Weigel, and Mone Zaidi. 2020. <span>“Implementing a "Publish, Then Review" Model of Publishing.”</span> <em>eLife</em> 9 (December): e64910. <a href="https://doi.org/10.7554/eLife.64910">https://doi.org/10.7554/eLife.64910</a>.
+</div>
+<div id="ref-holcombeScientistsWhatAre2025" class="csl-entry">
+Holcombe, Alex O. 2025. <span>“Scientists! <span>What</span> Are You Supporting?”</span> Alex Holcombe’s blog. January 31, 2025. <a href="https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/">https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/</a>.
+</div>
+<div id="ref-kathawallaEasingOpenScience2021" class="csl-entry">
+Kathawalla, Ummul-Kiram, Priya Silverstein, and Moin Syed. 2021. <span>“Easing <span>Into Open Science</span>: <span>A Guide</span> for <span>Graduate Students</span> and <span>Their Advisors</span>.”</span> Edited by Eunike Wetzel. <em>Collabra: Psychology</em> 7 (1): 18684. <a href="https://doi.org/10.1525/collabra.18684">https://doi.org/10.1525/collabra.18684</a>.
+</div>
+<div id="ref-kriegeskorteOpenEvaluationVision2012" class="csl-entry">
+Kriegeskorte, Nikolaus. 2012. <span>“Open <span>Evaluation</span>: <span>A Vision</span> for <span>Entirely Transparent Post-Publication Peer Review</span> and <span>Rating</span> for <span>Science</span>.”</span> <em>Frontiers in Computational Neuroscience</em> 6. <a href="https://doi.org/10.3389/fncom.2012.00079">https://doi.org/10.3389/fncom.2012.00079</a>.
+</div>
+<div id="ref-moreyPeerReviewersOpenness2016" class="csl-entry">
+Morey, Richard D., Christopher D. Chambers, Peter J. Etchells, Christine R. Harris, Rink Hoekstra, Daniël Lakens, Stephan Lewandowsky, et al. 2016. <span>“The <span>Peer Reviewers Openness Initiative</span>: Incentivizing Open Research Practices Through Peer Review.”</span> <em>Royal Society Open Science</em> 3 (1): 150547. <a href="https://doi.org/10.1098/rsos.150547">https://doi.org/10.1098/rsos.150547</a>.
+</div>
+<div id="ref-moshontzGuidePostingManaging2021" class="csl-entry">
+Moshontz, Hannah, Grace Binion, Haley Walton, Benjamin T. Brown, and Moin Syed. 2021. <span>“A <span>Guide</span> to <span>Posting</span> and <span>Managing Preprints</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 4 (2): 25152459211019948. <a href="https://doi.org/10.1177/25152459211019948">https://doi.org/10.1177/25152459211019948</a>.
+</div>
+<div id="ref-severBiomedicalPublishingHistoric2023" class="csl-entry">
+Sever, Richard. 2023. <span>“Biomedical Publishing: <span>Past</span> Historic, Present Continuous, Future Conditional.”</span> <em>PLOS Biology</em> 21 (10): e3002234. <a href="https://doi.org/10.1371/journal.pbio.3002234">https://doi.org/10.1371/journal.pbio.3002234</a>.
+</div>
+<div id="ref-silversteinGuideSocialScience2024" class="csl-entry">
+Silverstein, Priya, Colin Elman, Amanda Montoya, Barbara McGillivray, Charlotte R. Pennington, Chase H. Harrison, Crystal N. Steltenpohl, et al. 2024. <span>“A Guide for Social Science Journal Editors on Easing into Open Science.”</span> <em>Research Integrity and Peer Review</em> 9 (1): 2. <a href="https://doi.org/10.1186/s41073-023-00141-5">https://doi.org/10.1186/s41073-023-00141-5</a>.
+</div>
+<div id="ref-syedValuingPreprintsMust2024" class="csl-entry">
+Syed, Moin. 2024. <span>“Valuing <span>Preprints Must</span> Be <span>Part</span> of <span>Responsible Research Assessment</span>.”</span> <em>Meta-Psychology</em> 8 (March). <a href="https://doi.org/10.15626/MP.2023.3758">https://doi.org/10.15626/MP.2023.3758</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Obviously I also review the manuscripts on their content, but that is not the topic of this post.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+  author = {Vuorre, Matti},
+  title = {My Peer Review Principles \&amp; Practices},
+  date = {2025-02-03},
+  url = {https://vuorre.com/posts/open-peer-review/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2025. <span>“My Peer Review Principles &amp;
+Practices.”</span> February 3, 2025. <a href="https://vuorre.com/posts/open-peer-review/">https://vuorre.com/posts/open-peer-review/</a>.
+</div></div></section></div> ]]></description>
+  <category>preprints</category>
+  <category>science communication</category>
+  <category>peer review</category>
+  <category>open review</category>
+  <category>open evaluation</category>
+  <guid>https://vuorre.com/posts/open-peer-review/</guid>
+  <pubDate>Sun, 02 Feb 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/open-peer-review/images/undraw_collaboration_dtwk.png" medium="image" type="image/png" height="133" width="144"/>
+</item>
 <item>
   <title>Preprints: A Quarto extension and website</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -12252,719 +12434,6 @@ December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-pane
   <guid>https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</guid>
   <pubDate>Mon, 05 Dec 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
-</item>
-<item>
-  <title>Bayesian Meta-Analysis with R, Stan, and brms</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Recently, there’s been a lot of talk about meta-analysis, and here I would just like to quickly show that Bayesian multilevel modeling nicely takes care of your meta-analysis needs, and that it is easy to do in R with the rstan and brms packages. As you’ll see, meta-analysis is a special case of Bayesian multilevel modeling when you are unable or unwilling to put a prior distribution on the meta-analytic effect size estimate.</p>
-<p>The idea for this post came from Wolfgang Viechtbauer’s <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>, where he compared results for meta-analytic models fitted with his great (frequentist) package <a href="http://www.metafor-project.org/doku.php/metafor">metafor</a> and the swiss army knife of multilevel modeling, <a href="https://cran.r-project.org/web/packages/lme4/index.html">lme4</a>. It turns out that even though you can fit meta-analytic models with lme4, the results are slightly different from traditional meta-analytic models, because the experiment-wise variances are treated slightly differently.</p>
-<p>Here are the packages we’ll use:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(knitr)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(kableExtra)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(metafor)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(scales)</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(lme4)</span>
-<span id="cb1-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(brms)</span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
-</div>
-</section>
-<section id="the-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-data">The data</h2>
-<p>Here I’ll only focus on a simple random effects meta-analysis of effect sizes, and will use the same example data as in the aforementioned <a href="http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4">website</a>. The data are included in the metafor package, and describe the relationship between conscientiousness and medication adherence. The effect sizes are r to z transformed correlations.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Example data (dat.molloy2014 in metafor package).</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">study</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">ni</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">ri</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">yi</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">vi</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">sei</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Axelsson et al. (2009)</td>
-<td style="text-align: right;">2009</td>
-<td style="text-align: right;">109</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Axelsson et al. (2011)</td>
-<td style="text-align: right;">2011</td>
-<td style="text-align: right;">749</td>
-<td style="text-align: right;">0.16</td>
-<td style="text-align: right;">0.16</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.04</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bruce et al. (2010)</td>
-<td style="text-align: right;">2010</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">0.34</td>
-<td style="text-align: right;">0.35</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Christensen et al. (1995)</td>
-<td style="text-align: right;">1995</td>
-<td style="text-align: right;">72</td>
-<td style="text-align: right;">0.27</td>
-<td style="text-align: right;">0.28</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.12</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Christensen et al. (1999)</td>
-<td style="text-align: right;">1999</td>
-<td style="text-align: right;">107</td>
-<td style="text-align: right;">0.32</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cohen et al. (2004)</td>
-<td style="text-align: right;">2004</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dobbels et al. (2005)</td>
-<td style="text-align: right;">2005</td>
-<td style="text-align: right;">174</td>
-<td style="text-align: right;">0.17</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.08</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ediger et al. (2007)</td>
-<td style="text-align: right;">2007</td>
-<td style="text-align: right;">326</td>
-<td style="text-align: right;">0.05</td>
-<td style="text-align: right;">0.05</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.06</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Insel et al. (2006)</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">0.26</td>
-<td style="text-align: right;">0.27</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jerant et al. (2011)</td>
-<td style="text-align: right;">2011</td>
-<td style="text-align: right;">771</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.04</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Moran et al. (1997)</td>
-<td style="text-align: right;">1997</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">O'Cleirigh et al. (2007)</td>
-<td style="text-align: right;">2007</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.39</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Penedo et al. (2003)</td>
-<td style="text-align: right;">2003</td>
-<td style="text-align: right;">116</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Quine et al. (2012)</td>
-<td style="text-align: right;">2012</td>
-<td style="text-align: right;">537</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.04</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Stilley et al. (2004)</td>
-<td style="text-align: right;">2004</td>
-<td style="text-align: right;">158</td>
-<td style="text-align: right;">0.24</td>
-<td style="text-align: right;">0.24</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.08</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wiebe &amp; Christensen (1997)</td>
-<td style="text-align: right;">1997</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.13</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</section>
-<section id="the-model" class="level2">
-<h2 class="anchored" data-anchor-id="the-model">The model</h2>
-<p>We are going to fit a random-effects meta-analysis model to these observed effect sizes and their standard errors. Here’s what this model looks like, loosely following notation from the R package Metafor’s manual (p.6):</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_i%20%5Csim%20N(%5Ctheta_i,%20%5Csigma_i%5E2)"></p>
-<p>where each recorded effect size, <img src="https://latex.codecogs.com/png.latex?y_i"> is a draw from a normal distribution which is centered on that study’s “true” effect size <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i"> and has standard deviation equal to the study’s observed standard error <img src="https://latex.codecogs.com/png.latex?%5Csigma_i">.</p>
-<p>Our next set of assumptions is that the studies’ true effect sizes approximate some underlying effect size in the (hypothetical) population of all studies. We call this underlying population effect size <img src="https://latex.codecogs.com/png.latex?%5Cmu">, and its standard deviation <img src="https://latex.codecogs.com/png.latex?%5Ctau">, such that the true effect sizes are thus distributed:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Ctheta_i%20%5Csim%20N(%5Cmu,%20%5Ctau%5E2)"></p>
-<p>We now have two interesting parameters: <img src="https://latex.codecogs.com/png.latex?%5Cmu"> tells us, all else being equal, what I may expect the “true” effect to be, in the population of similar studies. <img src="https://latex.codecogs.com/png.latex?%5Ctau"> tells us how much individual studies of this effect vary.</p>
-<p>I think it is most straightforward to write this model as yet another mixed-effects model (metafor manual p.6):</p>
-<p><img src="https://latex.codecogs.com/png.latex?y_i%20%5Csim%20N(%5Cmu%20+%20%5Ctheta_i,%20%5Csigma%5E2_i)"></p>
-<p>where <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i%20%5Csim%20N(0,%20%5Ctau%5E2)">, studies’ true effects are normally distributed with between-study heterogeneity <img src="https://latex.codecogs.com/png.latex?%5Ctau%5E2">. The reason this is a little confusing (to me at least), is that we know the <img src="https://latex.codecogs.com/png.latex?%5Csigma_i">s (this being the fact that separates meta-analysis from other more common regression modeling).</p>
-<section id="estimation-with-metafor" class="level3">
-<h3 class="anchored" data-anchor-id="estimation-with-metafor">Estimation with metafor</h3>
-<p>Super easy!</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(metafor)</span>
-<span id="cb2-2">ma_out <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rma</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> dat, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">yi =</span> yi, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sei =</span> sei, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">slab =</span> dat<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>study)</span>
-<span id="cb2-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(ma_out)</span>
-<span id="cb2-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Random-Effects Model (k = 16; tau^2 estimator: REML)</span></span>
-<span id="cb2-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   logLik  deviance       AIC       BIC      AICc   </span></span>
-<span id="cb2-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   8.6096  -17.2191  -13.2191  -11.8030  -12.2191   </span></span>
-<span id="cb2-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## tau^2 (estimated amount of total heterogeneity): 0.0081 (SE = 0.0055)</span></span>
-<span id="cb2-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## tau (square root of estimated tau^2 value):      0.0901</span></span>
-<span id="cb2-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## I^2 (total heterogeneity / total variability):   61.73%</span></span>
-<span id="cb2-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## H^2 (total variability / sampling variability):  2.61</span></span>
-<span id="cb2-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Test for Heterogeneity:</span></span>
-<span id="cb2-16"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Q(df = 15) = 38.1595, p-val = 0.0009</span></span>
-<span id="cb2-17"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-18"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Model Results:</span></span>
-<span id="cb2-19"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-20"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## estimate      se    zval    pval   ci.lb   ci.ub      </span></span>
-<span id="cb2-21"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   0.1499  0.0316  4.7501  &lt;.0001  0.0881  0.2118  *** </span></span>
-<span id="cb2-22"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb2-23"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ---</span></span>
-<span id="cb2-24"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-</div>
-</section>
-</section>
-<section id="bayesian-estimation" class="level2">
-<h2 class="anchored" data-anchor-id="bayesian-estimation">Bayesian estimation</h2>
-<p>So far so good, we’re strictly in the realm of standard meta-analysis. But I would like to propose that instead of using custom meta-analysis software, we simply consider the above model as just another regression model, and fit it like we would any other (multilevel) regression model. That is, using <a href="http://mc-stan.org/">Stan</a>, usually through the <a href="https://cran.r-project.org/package=brms">brms</a> interface. Going Bayesian allows us to assign prior distributions on the population-level parameters <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Ctau">, and we would usually want to use some very mildly regularizing priors. Here we proceed with brms’ default priors (which I print below with the output)</p>
-<section id="estimation-with-brms" class="level3">
-<h3 class="anchored" data-anchor-id="estimation-with-brms">Estimation with brms</h3>
-<p>Here’s how to fit this model with brms:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">brm_out <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">brm</span>(</span>
-<span id="cb3-2">  yi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">se</span>(sei) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> study), </span>
-<span id="cb3-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> dat, </span>
-<span id="cb3-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,</span>
-<span id="cb3-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"metaanalysismodel"</span></span>
-<span id="cb3-6">)</span></code></pre></div>
-</div>
-<div class="cell" data-layout-align="center">
-<pre><code>##  Family: gaussian 
-##   Links: mu = identity; sigma = identity 
-## Formula: yi | se(sei) ~ 1 + (1 | study) 
-##    Data: dat (Number of observations: 16) 
-##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-##          total post-warmup draws = 4000
-## 
-## Priors:
-## Intercept ~ student_t(3, 0.2, 2.5)
-## &lt;lower=0&gt; sd ~ student_t(3, 0, 2.5)
-## 
-## Multilevel Hyperparameters:
-## ~study (Number of levels: 16) 
-##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sd(Intercept)     0.10      0.04     0.04     0.18 1.00     1398     2247
-## 
-## Regression Coefficients:
-##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept     0.15      0.03     0.08     0.22 1.00     1845     1720
-## 
-## Further Distributional Parameters:
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     0.00      0.00     0.00     0.00   NA       NA       NA
-## 
-## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-## and Tail_ESS are effective sample size measures, and Rhat is the potential
-## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-</div>
-<p>These results are the same as the ones obtained with metafor. Note the Student’s <em>t</em> prior distributions, which are diffuse enough not to exert influence on the posterior distribution.</p>
-</section>
-</section>
-<section id="comparing-results" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-results">Comparing results</h2>
-<p>We can now compare the results of these two estimation methods. Of course, the Bayesian method has a tremendous advantage, because it results in a full distribution of plausible values.</p>
-<div class="cell" data-layout-align="center" data-preview="true">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>We can see from the numeric output, and especially the figures, that these modes of inference yield the same numerical results. Keep in mind though, that the Bayesian estimates actually allow you to discuss probabilities, and generally the things that we’d like to discuss when talking about results.</p>
-<p>For example, what is the probability that the average effect size is greater than 0.2? About eight percent:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypothesis</span>(brm_out, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Intercept &gt; 0.2"</span>)</span>
-<span id="cb5-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Hypothesis Tests for class b:</span></span>
-<span id="cb5-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb5-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1 (Intercept)-(0.2) &gt; 0    -0.05      0.03     -0.1     0.01       0.09      0.08     </span></span>
-<span id="cb5-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ---</span></span>
-<span id="cb5-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
-<span id="cb5-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
-<span id="cb5-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
-<span id="cb5-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
-</div>
-<section id="forest-plot" class="level3">
-<h3 class="anchored" data-anchor-id="forest-plot">Forest plot</h3>
-<p>The forest plot displays the entire posterior distribution of each <img src="https://latex.codecogs.com/png.latex?%5Ctheta_i">. The meta-analytic effect size <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is also displayed in the bottom row. I’ll show a considerable amount of code here so that you can create your own forest plots from brms output:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidybayes)</span>
-<span id="cb6-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggdist)</span>
-<span id="cb6-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Study-specific effects are deviations + average</span></span>
-<span id="cb6-4">out_r <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">spread_draws</span>(brm_out, r_study[study,term], b_Intercept) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">b_Intercept =</span> r_study <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> b_Intercept) </span>
-<span id="cb6-6"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Average effect</span></span>
-<span id="cb6-7">out_f <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">spread_draws</span>(brm_out, b_Intercept) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">study =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Average"</span>)</span>
-<span id="cb6-9"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Combine average and study-specific effects' data frames</span></span>
-<span id="cb6-10">out_all <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bind_rows</span>(out_r, out_f) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-11">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ungroup</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-12">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ensure that Average effect is on the bottom of the forest plot</span></span>
-<span id="cb6-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">fct_relevel</span>(study, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Average"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-14">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># tidybayes garbles names so fix here</span></span>
-<span id="cb6-15">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str_replace_all</span>(study, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">."</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">" "</span>))</span>
-<span id="cb6-16"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Data frame of summary numbers</span></span>
-<span id="cb6-17">out_all_sum <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">group_by</span>(out_all, study) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-18">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean_qi</span>(b_Intercept)</span>
-<span id="cb6-19"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Draw plot</span></span>
-<span id="cb6-20">out_all <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span>   </span>
-<span id="cb6-21">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(b_Intercept, study)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-22">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Zero!</span></span>
-<span id="cb6-23">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xintercept =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-24">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">stat_halfeye</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">.width =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>, .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">95</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"dodgerblue"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-25">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add text labels</span></span>
-<span id="cb6-26">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_text</span>(</span>
-<span id="cb6-27">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate_if</span>(out_all_sum, is.numeric, round, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>),</span>
-<span id="cb6-28">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str_glue</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"{b_Intercept} [{.lower}, {.upper}]"</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.75</span>),</span>
-<span id="cb6-29">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">hjust =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"inward"</span></span>
-<span id="cb6-30">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-31">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Observed as empty points</span></span>
-<span id="cb6-32">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>(</span>
-<span id="cb6-33">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> dat <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">study =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str_replace_all</span>(study, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">."</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">" "</span>)), </span>
-<span id="cb6-34">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>yi), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">position =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">position_nudge</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">shape =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> </span>
-<span id="cb6-35">  )</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/draw-forest-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Forest plot of the example model’s results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Focus on Moran et al.&nbsp;(1997)’s observed effect size (the empty circle): This is an anomalous result compared to all other studies. One might describe it as <em>incredible</em>, and that is indeed what the bayesian estimation procedure has done, and the resulting posterior distribution is no longer equivalent to the observed effect size. Instead, it is shrunken toward the average effect size. Now look at the table above, this study only had 56 participants, so we should be more skeptical of this study’s observed ES, and perhaps we should then adjust our beliefs about this study in the context of other studies. Therefore, our best guess about this study’s effect size, given all the other studies is no longer the observed mean, but something closer to the average across the studies.</p>
-<p>If this shrinkage business seems radical, consider Quine et al.&nbsp;(2012). This study had a much greater sample size (537), and therefore a smaller SE. It was also generally more in line with the average effect size estimate. Therefore, the observed mean ES and the mean of the posterior distribution are pretty much identical. This is also a fairly desirable feature.</p>
-</section>
-</section>
-<section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>The way these different methods are presented (regression, meta-analysis, ANOVA, …), it is quite easy for a beginner, like me, to lose sight of the forest for the trees. I also feel that this is a general experience for students of applied statistics: Every experiment, situation, and question results in a different statistical method (or worse: “Which test should I use?”), and the student doesn’t see how the methods relate to each other. So I think focusing on the (regression) model is key, but often overlooked in favor of this sort of decision tree model of choosing statistical methods <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span>.</p>
-<p>Accordingly, I think we’ve ended up in a situation where meta-analysis, for example, is seen as somehow separate from all the other modeling we do, such as repeated measures t-tests. In fact I think applied statistics in Psychology may too often appear as an unconnected bunch of tricks and models, leading to confusion and inefficient implementation of appropriate methods.</p>
-<section id="bayesian-multilevel-modeling" class="level3">
-<h3 class="anchored" data-anchor-id="bayesian-multilevel-modeling">Bayesian multilevel modeling</h3>
-<p>As I’ve been learning more about statistics, I’ve often noticed that some technique, applied in a specific set of situations, turns out to be a special case of a more general modeling approach. I’ll call this approach here <em>Bayesian multilevel modeling</em> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span>. If you are forced to choose one statistical method to learn, it should be Bayesian multilevel modeling, because it allows you to do and understand most things, and allows you to see how similar all these methods are, under the hood.</p>
-
-
-
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2016,
-  author = {Vuorre, Matti},
-  title = {Bayesian {Meta-Analysis} with {R,} {Stan,} and Brms},
-  date = {2016-09-29},
-  url = {https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2016" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2016. <span>“Bayesian Meta-Analysis with R, Stan, and
-Brms.”</span> September 29, 2016. <a href="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/">https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</a>.
-</div></div></section></div> ]]></description>
-  <category>statistics</category>
-  <category>R</category>
-  <category>brms</category>
-  <category>tutorial</category>
-  <guid>https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/</guid>
-  <pubDate>Wed, 28 Sep 2016 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2016-09-29-bayesian-meta-analysis/index_files/figure-html/unnamed-chunk-2-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

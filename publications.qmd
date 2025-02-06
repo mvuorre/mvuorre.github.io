@@ -79,6 +79,15 @@ dat <- fromJSON(path)$items |>
     rights,
     extra
   )
+
+# Blacklisted DOIs that could lead to legal troubles
+bad_dois <- c(
+  "10.1016/S2352-4642(24)00332-8"
+)
+dat <- dat |>
+  mutate(
+    file = if_else(doi %in% bad_dois, NA, file)
+  )
 ```
 
 ```{r}

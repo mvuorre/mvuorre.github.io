@@ -1,0 +1,92 @@
+// Basic styles
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Navbar
+.navbar {
+    background-color: $navbar-bg;
+    min-height: 3.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    
+    .nav-link {
+        color: $navbar-fg !important;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        
+        &:hover, &.active {
+            color: $navbar-hl !important;
+        }
+    }
+
+    // Style the theme chooser
+    .quarto-navbar-tools {
+        display: flex;
+        align-items: center;
+    }
+
+    .quarto-navigation-tool.quarto-color-scheme-toggle {
+        i.bi::before {
+            height: 1.2rem;
+            width: 1.2rem;
+            background-size: 1.2rem 1.2rem;
+        }
+        
+        &.alternate i.bi::before {
+            height: 1.2rem;
+            width: 1.2rem;
+            background-size: 1.2rem 1.2rem;
+        }
+    }
+}
+
+// Content
+.content {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: $spacer;
+}
+
+// Tables
+table {
+    width: 100%;
+    margin-bottom: $spacer;
+    
+    th {
+        font-weight: 600;
+        border-bottom: 2px solid $border-color;
+    }
+    
+    td, th {
+        padding: 0.75rem;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+// Code
+pre {
+    padding: $spacer;
+    margin-bottom: $spacer;
+    border-radius: $border-radius;
+    background-color: $code-bg !important;
+}
+
+// TOC
+#TOC {
+    padding: $spacer;
+    margin-bottom: $spacer;
+    background-color: $toc-bg;
+    border-radius: $border-radius;
+}
+
+// Cards and callouts
+.card, div.callout {
+    margin-bottom: $spacer;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+} 

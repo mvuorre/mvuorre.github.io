@@ -51,8 +51,9 @@ website:
 format:
   html:
     theme:
-      - zephyr
-      - custom.scss
+      light: [zephyr, custom.scss]
+      dark: [darkly, custom-dark.scss]
+    css: styles.css
     mainfont: "Atkinson Hyperlegible"
     monofont: "Fira code"
     header-includes:

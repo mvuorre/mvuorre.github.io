@@ -9,8 +9,8 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.6.39</generator>
-<lastBuildDate>Mon, 03 Feb 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 02 Feb 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>My peer review principles &amp; practices</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -191,7 +191,7 @@ Practices.”</span> February 3, 2025. <a href="https://vuorre.com/posts/open-pe
   <category>open review</category>
   <category>open evaluation</category>
   <guid>https://vuorre.com/posts/open-peer-review/</guid>
-  <pubDate>Mon, 03 Feb 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 02 Feb 2025 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/open-peer-review/images/undraw_collaboration_dtwk.png" medium="image" type="image/png" height="133" width="144"/>
 </item>
 <item>
@@ -304,7 +304,7 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
   <category>preprints</category>
   <category>science communication</category>
   <guid>https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/</guid>
-  <pubDate>Wed, 19 Jun 2024 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Jun 2024 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/images/undraw_Reviewed_docs_re_9lmr.png" medium="image" type="image/png" height="80" width="144"/>
 </item>
 <item>
@@ -412,7 +412,7 @@ January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus/">https:
   <category>statistics</category>
   <category>education</category>
   <guid>https://vuorre.com/posts/statistics-syllabus/</guid>
-  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/statistics-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -488,7 +488,7 @@ March 24, 2023. <a href="https://vuorre.com/posts/yet-another-data-request-email
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <guid>https://vuorre.com/posts/yet-another-data-request-email/</guid>
-  <pubDate>Fri, 24 Mar 2023 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 23 Mar 2023 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/yet-another-data-request-email/images/orben-przybylski-2019-fig3.png" medium="image" type="image/png" height="113" width="144"/>
 </item>
 <item>
@@ -1755,7 +1755,7 @@ January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering/">https
   <category>longitudinal</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/latent-mean-centering/</guid>
-  <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 31 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/latent-mean-centering/index_files/figure-html/fig-data-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
@@ -2005,7 +2005,7 @@ December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">ht
   <category>tips</category>
   <category>computers</category>
   <guid>https://vuorre.com/posts/computer-setup-dotfiles/</guid>
-  <pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/computer-setup-dotfiles/images/terminal.png" medium="image" type="image/png" height="74" width="144"/>
 </item>
 <item>
@@ -4126,7 +4126,7 @@ Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a hre
   <category>tidyverse</category>
   <category>specr</category>
   <guid>https://vuorre.com/posts/parallel-multiverse/</guid>
-  <pubDate>Wed, 07 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 06 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/parallel-multiverse/images/undraw-lost-online.png" medium="image" type="image/png" height="117" width="144"/>
 </item>
 <item>
@@ -4813,7 +4813,7 @@ Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-p
   <category>visualization</category>
   <category>ggplot2</category>
   <guid>https://vuorre.com/posts/raincloud-plot-alt/</guid>
-  <pubDate>Tue, 06 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 05 Dec 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How to run R remotely</title>
@@ -4969,7 +4969,7 @@ Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
   <category>Tailscale</category>
   <category>tutorial</category>
   <guid>https://vuorre.com/posts/remote-r/</guid>
-  <pubDate>Sat, 03 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 02 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/remote-r/images/christina-wocintechchat-com-glRqyWJgUeY-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5289,7 +5289,7 @@ June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vu
 </div></div></section></div> ]]></description>
   <category>R</category>
   <guid>https://vuorre.com/posts/hexsticker-favicon/</guid>
-  <pubDate>Tue, 28 Jun 2022 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Jun 2022 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/hexsticker-favicon/index_files/figure-html/fig-favicon-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -5356,7 +5356,7 @@ Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
   <category>R</category>
   <category>tips</category>
   <guid>https://vuorre.com/posts/easy-notifications-from-r/</guid>
-  <pubDate>Tue, 14 Jun 2022 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 Jun 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How to calculate contrasts from a fitted brms model</title>
@@ -5718,7 +5718,7 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/2020-0
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/</guid>
-  <pubDate>Thu, 06 Feb 2020 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Feb 2020 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index_files/figure-html/figure-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -6403,7 +6403,7 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</guid>
-  <pubDate>Mon, 18 Feb 2019 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png"/>
 </item>
 <item>
@@ -6662,7 +6662,7 @@ December 13, 2018. <a href="https://vuorre.com/posts/2018-12-13-rpihkal-combine-
   <category>ggplot2</category>
   <category>R</category>
   <guid>https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/</guid>
-  <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2018-12-13-rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
@@ -6872,7 +6872,7 @@ Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
   <category>data science</category>
   <category>R</category>
   <guid>https://vuorre.com/posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/</guid>
-  <pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Dec 2018 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bayesian Estimation of Signal Detection Models</title>
@@ -9618,7 +9618,7 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</guid>
-  <pubDate>Sun, 08 Oct 2017 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png"/>
 </item>
 <item>
@@ -10995,7 +10995,7 @@ Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</guid>
-  <pubDate>Tue, 21 Mar 2017 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 20 Mar 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -11572,7 +11572,7 @@ in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.com/posts/
   <category>visualization</category>
   <category>ggplot2</category>
   <guid>https://vuorre.com/posts/2017-01-04-within-subject-scatter/</guid>
-  <pubDate>Wed, 04 Jan 2017 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 03 Jan 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -12211,7 +12211,7 @@ Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.com
   <category>R</category>
   <category>brms</category>
   <guid>https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</guid>
-  <pubDate>Mon, 02 Jan 2017 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 01 Jan 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png" medium="image" type="image/png" height="66" width="144"/>
 </item>
 <item>
@@ -12433,7 +12433,7 @@ December 6, 2016. <a href="https://vuorre.com/posts/2016-12-06-order-ggplot-pane
   <category>R</category>
   <category>visualization</category>
   <guid>https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/</guid>
-  <pubDate>Tue, 06 Dec 2016 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 05 Dec 2016 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2016-12-06-order-ggplot-panel-plots/index_files/figure-html/image1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>

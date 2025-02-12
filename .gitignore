@@ -21,6 +21,7 @@ _freeze/
 # Publication PDFs in source (become available in docs/ when rendered)
 bibliography/files/
 bibliography/bibliography.json
+reading/readings.csv
 
 # Environment file
 .env

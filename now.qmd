@@ -4,7 +4,16 @@ toc: true
 toc-depth: 2
 toc-location: left
 listing:
-  - id: listing
+  - id: presentations
+    template: presentations/custom.ejs
+    contents:
+      - presentations/items.yml
+    include:
+      type: "*"
+    sort: "date desc"
+    page-size: 5
+    date-format: "MMMM YYYY"
+  - id: readings
     template: reading/custom.ejs
     contents:
       - reading/items.yml
@@ -14,16 +23,22 @@ listing:
     page-size: 5
     date-format: "YYYY-MM-DD"
 comments: false
+bibliography: "bibliography/bibliography.bib"
 ---
 
 <!-- Somehow these are required to make icons work in the EJS template. -->
 <!-- {{< fa brands github >}} -->
 
-## What I've been reading
+## Recent presentations
+
+::: {#presentations}
+:::
+
+## Recent things I've read
 
 This is a short selection of things I've been reading, watching, or listening to.
 
-::: {#listing}
+::: {#readings}
 :::
 
 ```{r}

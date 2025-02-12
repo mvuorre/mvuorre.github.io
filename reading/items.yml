@@ -1,14 +1,47 @@
 - title: >-
+    Are the Internet and AI affecting our memory? What the science says
+  url: https://www.nature.com/articles/d41586-025-00292-z
+  date: 2025-02-05
+  date_read: 2025-02-06 09:08:06
+  type: journalArticle
+  authors: |
+    Helen Pearson
+  abstract: |
+    Search engines, GPS maps and other tech can alter our ability to learn and remember. Now scientists are working out what AI might do.
+  archive: https://archive.is/VlGxx
+- title: >-
+    Antiqua et nova. Note on the Relationship Between Artificial Intelligence and Human Intelligence
+  url: https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html
+  date: 2025-01-28
+  date_read: 2025-01-31 09:42:56
+  type: webpage
+  authors: |
+    DICASTERY FOR THE DOCTRINE OF THE FAITH &  DICASTERY FOR CULTURE AND EDUCATION
+  abstract: |
+    NA
+  archive: https://archive.is/etvMY
+- title: >-
     Inferring latent learning factors in large-scale cognitive training data
   url: https://www.nature.com/articles/s41562-020-00935-3
   date: 2020-08-31
-  date_read: 2025-01-24 15:53:29
+  date_read: 2025-01-31 09:40:58
   type: journalArticle
   authors: |
     Mark Steyvers & Robert J. Schafer
   abstract: |
     The flexibility to learn diverse tasks is a hallmark of human cognition. To improve our understanding of individual differences and dynamics of learning across tasks, we analyse the latent structure of learning trajectories from 36,297 individuals as they learned 51 different tasks on the Lumosity online cognitive training platform. Through a data-driven modelling approach using probabilistic dimensionality reduction, we investigate covariation across learning trajectories with few assumptions about learning curve form or relationships between tasks. Modelling results show substantial covariation across tasks, such that an entirely unobserved learning trajectory can be predicted by observing trajectories on other tasks. The latent learning factors from the model include a general ability factor that is expressed mostly at later stages of practice and additional task-specific factors that carry information capable of accounting for manually defined task features and task domains such as attention, spatial processing, language and math.
-  Publisher: Nature Publishing Group
+  extra: ~
+- title: >-
+    The importance of stupidity in scientific research
+  url: https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research
+  date: 2008-06-01
+  date_read: 2025-01-28 12:19:56
+  type: journalArticle
+  authors: |
+    Martin A. Schwartz
+  abstract: |
+    NA
+  extra: ~
 - title: >-
     Visualizing transformers and attention | Talk for TNG Big Tech Day '24
   url: https://www.youtube.com/watch?v=KJtZARuO3JY

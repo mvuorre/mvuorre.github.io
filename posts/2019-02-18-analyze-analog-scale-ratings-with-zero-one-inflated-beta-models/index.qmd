@@ -10,7 +10,7 @@ categories:
   - R
   - brms
 bibliography: bibliography.bib
-image: "index_files/figure-html/beta-distributions-1.png"
+image: "index_files/figure-html/fig-beta-distributions-1.png"
 ---
 
 ```{r setup, include = FALSE}
@@ -22,12 +22,12 @@ library(tidyverse)
 library(scales)
 library(patchwork)
 opts_chunk$set(
-  warning = F, 
-  message = F, 
-  eval = T, 
-  cache = T, 
-  echo = F, 
-  collapse = T, 
+  warning = F,
+  message = F,
+  eval = T,
+  cache = T,
+  echo = F,
+  collapse = T,
   fig.align = 'center'
 )
 options(width = 140)
@@ -65,8 +65,8 @@ rzoib <- function(n = 1e4, alpha=.1, gamma=.45, mu=.4, phi=3) {
   b <- (1 - mu) * phi
   y <- vector("numeric", n)
   y <- ifelse(
-    rbinom(n, 1, alpha), 
-    rbinom(n, 1, gamma), 
+    rbinom(n, 1, alpha),
+    rbinom(n, 1, gamma),
     rbeta(n, a, b)
   )
   y
@@ -79,11 +79,11 @@ dat <- tibble(
   mu = .7,
   phi = 3
 )
-dat <- dat %>% 
-  rowwise() %>% 
-  mutate(Rating = rzoib(n, alpha, gamma, mu, phi)) %>% 
+dat <- dat %>%
+  rowwise() %>%
+  mutate(Rating = rzoib(n, alpha, gamma, mu, phi)) %>%
   ungroup()
-p1 <- dat %>% 
+p1 <- dat %>%
   ggplot(aes(Rating)) +
   geom_histogram(
     aes(y = stat(ncount)),
@@ -94,15 +94,15 @@ p1 <- dat %>%
   ) +
   scale_x_continuous(breaks = pretty_breaks()) +
   theme(
-    axis.title.y = element_blank(), 
-    axis.text.y = element_blank(), 
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   )
 
 sims <- tibble(
-  x = seq(-0.5, 1.8, by = .01), 
+  x = seq(-0.5, 1.8, by = .01),
   y = dnorm(x, mean(dat$Rating), sd(dat$Rating))
-) %>% 
+) %>%
   mutate(y = y / max(y))
 
 p2 <- p1 +
@@ -157,11 +157,11 @@ tmp <- tibble(
   dbeta(x, shape1 = 2, shape2 = 8),
   dbeta(x, shape1 = 9, shape2 = 1),
   dbeta(x, shape1 = 35, shape2 = 35)
-) %>% 
-  gather(Distribution, Density, -x) %>% 
+) %>%
+  gather(Distribution, Density, -x) %>%
   mutate(Function = fct_inorder(Distribution))
 
-tmp %>% 
+tmp %>%
   ggplot(aes(x, Density)) +
   geom_line(size=1.4, aes(col = Function)) +
   scale_x_continuous(
@@ -169,7 +169,7 @@ tmp %>%
     expand = expansion(mult = 0.005)
   ) +
   scale_y_continuous(
-    breaks = pretty_breaks(), 
+    breaks = pretty_breaks(),
     expand = expansion(mult = c(0.005, .01))
   )
 ```
@@ -179,7 +179,7 @@ This default parameterization is useful, for example, as a prior distribution fo
 However, for our purposes, it is more useful to parameterize the beta distribution with a mean and a precision. To convert the former parameterization to mean (which we'll call $\mu$ (mu)) and precision ($\phi$ (phi)), the following formulas can be used
 
 \begin{align*}
-\mbox{shape1} &= \mu \phi \\ 
+\mbox{shape1} &= \mu \phi \\
 \mbox{shape2} &= (1 - \mu)\phi
 \end{align*}
 
@@ -193,11 +193,11 @@ tmp <- tibble(
   dprop(x, size = 10, mean = .2),
   dprop(x, size = 10, mean = .9),
   dprop(x, size = 70, mean = .5)
-) %>% 
-  gather(Distribution, Density, -x) %>% 
+) %>%
+  gather(Distribution, Density, -x) %>%
   mutate(Function = fct_inorder(Distribution))
 
-tmp %>% 
+tmp %>%
   ggplot(aes(x, Density)) +
   geom_line(size=1.4, aes(col = Function)) +
   scale_x_continuous(
@@ -205,7 +205,7 @@ tmp %>%
     expand = expansion(mult = 0.005)
     ) +
   scale_y_continuous(
-    breaks = pretty_breaks(), 
+    breaks = pretty_breaks(),
     expand = expansion(mult = c(0.005, .01))
     )
 ```
@@ -233,8 +233,8 @@ tmp <- tibble(
   rzoib(a = .1, g = .3, m = .5, p = 3),
   rzoib(a = .15, g = .7, m = .7, p = 4),
   rzoib(a = 1, g = .7, m = .1, p = 12)
-) %>% 
-  gather(distribution, x) %>% 
+) %>%
+  gather(distribution, x) %>%
   mutate(distribution = fct_inorder(distribution))
 
 tmp %>%
@@ -283,18 +283,18 @@ dat <- tibble(
   gamma = .5,
   mu = .6 + x*.15,
   phi = 5
-) %>% 
+) %>%
   rowwise() %>%
   mutate(Rating = rzoib(n, alpha, gamma, mu, phi)) %>%
   ungroup() %>%
   mutate(group = factor(x, levels = 0:1, labels = c("A", "B")))
 dat <- select(dat, group, Rating)
-dat %>% 
+dat %>%
   ggplot(aes(group, Rating)) +
   geom_beeswarm(
-    shape = 21, 
-    fill = "white", 
-    size = 2, 
+    shape = 21,
+    fill = "white",
+    size = 2,
     stroke = .8,
     alpha = .7,
     cex = 2
@@ -305,16 +305,16 @@ dat %>%
 
 ```{r zoib-exampletab, eval = FALSE}
 kable(
-  head(dat), 
-  digits = 2, 
+  head(dat),
+  digits = 2,
   caption = "First six rows of example data of two groups' slider scale ratings."
   )
 ```
 
 ```{r ex-ttest}
 t.ex <- t.test(Rating ~ group, data = dat %>% mutate(group = fct_rev(group)))
-t.ex.out <- tidy(t.ex) %>% 
-  mutate_if(is.numeric, round, 2) %>% 
+t.ex.out <- tidy(t.ex) %>%
+  mutate_if(is.numeric, round, 2) %>%
   glue_data("B - A = {estimate}, 95%CI = [{conf.low}, {conf.high}], {pvalue(p.value, add_p=T)}")
 w.p <- tidy(wilcox.test(Rating ~ group, data = dat))$p.value %>% pvalue(add_p=T)
 k.p <- tidy(kruskal.test(Rating ~ group, data = dat))$p.value %>% pvalue(add_p=T)
@@ -345,7 +345,7 @@ zoib_model <- bf(
   Rating ~ group,
   phi ~ group,
   zoi ~ group,
-  coi ~ group, 
+  coi ~ group,
   family = zero_one_inflated_beta()
 )
 ```
@@ -385,13 +385,13 @@ These parameters are described on the link scale, so for each of them, we can us
 However, before converting the parameters, it is important to note that the estimates displayed above are summaries (means, quantiles) of the posterior draws of the parameters on the link function scale. Therefore, we cannot simply convert the summaries. Instead, we must transform each of the posterior samples, and then re-calculate the summaries. The following code accomplishes this "transform-then-summarize" procedure for each of the four parameters:
 
 ```{r, echo = TRUE}
-posterior_samples(fit, pars = "b_")[,1:4] %>% 
-  mutate_at(c("b_phi_Intercept"), exp) %>% 
-  mutate_at(vars(-"b_phi_Intercept"), plogis) %>% 
-  posterior_summary() %>% 
-  as.data.frame() %>% 
-  rownames_to_column("Parameter") %>% 
-  kable(digits = 2) 
+posterior_samples(fit, pars = "b_")[,1:4] %>%
+  mutate_at(c("b_phi_Intercept"), exp) %>%
+  mutate_at(vars(-"b_phi_Intercept"), plogis) %>%
+  posterior_summary() %>%
+  as.data.frame() %>%
+  rownames_to_column("Parameter") %>%
+  kable(digits = 2)
 ```
 
 We can then interpret these summaries, beginning with `b_Intercept`. This is the estimated mean of the beta distribution fitted to Group A's (0, 1) rating scale responses (with its standard error, lower- and upper limits of the 95% CI). Then, `b_Phi_Intercept` is the precision of the beta distribution. `zoi` is the zero-one inflation, and `coi` the conditional one inflation.
@@ -405,7 +405,7 @@ mean(dat$Rating[dat$group=="A"] %in% 0:1) %>% round(3)
 Above we calculated the proportion of zeros and ones in the data set, and found that it matches the estimated value. Similarly, for `coi`, we can find the corresponding value from the data:
 
 ```{r, echo = TRUE}
-mean(dat$Rating[dat$group=="A" & dat$Rating %in% 0:1] == 1) %>% 
+mean(dat$Rating[dat$group=="A" & dat$Rating %in% 0:1] == 1) %>%
   round(3)
 ```
 
@@ -426,8 +426,8 @@ Finally, let's visualize this key finding using the `conditional_effects()` func
 ```{r ex-me, echo = TRUE, fig.cap = "Estimated mu parameters from the example ZOIB fit, as filled points and error bars (95\\% CIs), with the original data (empty circles)."}
 #| label: fig-ex-me
 plot(
-  conditional_effects(fit, dpar = "mu"), 
-  points = TRUE, 
+  conditional_effects(fit, dpar = "mu"),
+  points = TRUE,
   point_args = list(width = .05, shape = 1)
 )
 ```
@@ -452,7 +452,7 @@ rdata <- function(nsubs = 2e2) {
     gamma = .7,
     mu = .6 + x*.1,
     phi = 5
-  ) %>% 
+  ) %>%
     rowwise() %>%
     mutate(Rating = rzoib(n, alpha, gamma, mu, phi)) %>%
     ungroup() %>%
@@ -460,32 +460,32 @@ rdata <- function(nsubs = 2e2) {
   dat
 }
 out <- tibble(set = 1:K, nsubs = 1e2)
-dat <- out %>% 
+dat <- out %>%
   mutate(data = map(nsubs, rdata))
 
 # Get ttests
-dat <- dat %>% 
+dat <- dat %>%
   mutate(
     ttest = map(
-      data, 
+      data,
       ~t.test(Rating ~ group, data = mutate(., group = fct_rev(group)))
     )
-  ) %>% 
+  ) %>%
   mutate(ttest.out = map(ttest, ~broom::tidy(.)))
 ```
 
 ```{r sim-examplesets, fig.cap = "Six randomly selected simulated data sets. Points are individual ratings (jittered to show overlapping points), while blue symbols indicate the means and bootstrapped 95\\% CIs."}
 #| label: fig-sim-examplesets
-dat %>% 
-  sample_n(6) %>% 
-  unnest(data) %>% 
-  rename(Group = group) %>% 
+dat %>%
+  sample_n(6) %>%
+  unnest(data) %>%
+  rename(Group = group) %>%
   ggplot(aes(Group, Rating)) +
   geom_beeswarm(
-    shape = 21, 
-    fill = "white", 
-    size = 2, 
-    stroke = .8, 
+    shape = 21,
+    fill = "white",
+    size = 2,
+    stroke = .8,
     cex = 2,
     alpha = .5
   ) +
@@ -495,9 +495,9 @@ dat %>%
 ```
 
 ```{r sim-sig-ttests}
-sig.ttests <- dat %>% 
-  unnest(ttest.out) %>% 
-  summarise(sigs = (sum(p.value < 0.05)/K)*100) %>% 
+sig.ttests <- dat %>%
+  unnest(ttest.out) %>%
+  summarise(sigs = (sum(p.value < 0.05)/K)*100) %>%
   pull(sigs)
 ```
 
@@ -521,9 +521,9 @@ if (!file.exists("zoib-sims.rds")) {
   )
   for (i in 2:nrow(dat)) {
     dat$brm[[i]] <- update(
-      dat$brm[[1]], 
-      newdata = dat$data[[i]], 
-      cores = 4, 
+      dat$brm[[1]],
+      newdata = dat$data[[i]],
+      cores = 4,
       iter = 800
     )
   }
@@ -534,14 +534,14 @@ brmout <- function(x) {
   hypothesis(x, "plogis(Intercept + groupB) = plogis(Intercept)")$hypothesis
   # hypothesis(x, "groupB = 0")$hypothesis
 }
-dat <- dat %>% 
+dat <- dat %>%
   mutate(brm.out = map(brm, ~brmout(.)))
 ```
 
 ```{r sim-sig-brms}
-sig.brms <- dat %>% 
-  unnest(brm.out) %>% 
-  summarise(sigs = (sum(Star=="*")/K)*100) %>% 
+sig.brms <- dat %>%
+  unnest(brm.out) %>%
+  summarise(sigs = (sum(Star=="*")/K)*100) %>%
   pull(sigs)
 ```
 
@@ -581,7 +581,7 @@ sims_z <- dat %>%
   ) +
   labs(title = "ZOIB")
 
-(sims_t / sims_z) & 
+(sims_t / sims_z) &
   coord_cartesian(ylim = c(-.15, .3))
 ```
 

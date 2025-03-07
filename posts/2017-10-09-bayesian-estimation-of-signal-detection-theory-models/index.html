@@ -95,8 +95,8 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-66e8484c8467f134323b5a97241973cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3140054b1547a0790355788ae524f4cb.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-ff524da8927d6f2c033456ab5cffb538.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f25a6b13c75e5f500ec4786b45cad294.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -155,14 +155,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Bayesian Estimation of Signal Detection Models – Matti’s homepage">
 <meta property="og:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.">
-<meta property="og:image" content="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png">
+<meta property="og:image" content="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png">
 <meta property="og:site_name" content="Matti's homepage">
+<meta property="og:image:height" content="830">
+<meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Bayesian Estimation of Signal Detection Models – Matti’s homepage">
 <meta name="twitter:description" content="Signal Detection Theory (SDT) is a popular theoretical framework for modeling memory and perception. Calculating point estimates of equal variance Gaussian SDT parameters is easy using widely known formulas. More complex SDT models, such as the unequal variance SDT model, require more complicated modeling techniques. These models can be estimated using Bayesian (nonlinear and/or hierarchical) regression methods, which are illustrated here.">
-<meta name="twitter:image" content="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png">
+<meta name="twitter:image" content="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png">
+<meta name="twitter:image-height" content="830">
+<meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -1252,7 +1255,7 @@ Figure&nbsp;6: The equal variance Gaussian signal detection model, visualized fr
 <p><span class="math display">\[p(y_i \leq k_i) = \Phi(\frac{d'\mbox{isold}_i - c_k}{\mbox{exp}(a\mbox{isold}_i)})\]</span></p>
 <p>It turns out that this nonlinear model—also knows as a probit model with heteroscedastic error (e.g. <span class="citation" data-cites="decarlo_statistical_2010">DeCarlo (<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>)—can be estimated with brms. Initially, I thought that we could write out a nonlinear brms formula for the ordinal probit model, but brms does not support nonlinear cumulative ordinal models. I then proceeded to modify the raw Stan code to estimate this model, but although that worked, it would be less practical for applied work because not everyone wants to go through the trouble of writing Stan code.</p>
 <p>After some back and forth with the creator of brms—Paul Bürkner, who deserves a gold medal for his continuing hard work on this free and open-source software—I found out that brms by default includes a similar parameter in ordinal regression models. If you scroll back up and look at the summary of <code>fit1</code>, at the top you will see that the model’s formula is:</p>
-<pre><code>Formula: y ~ isold 
+<pre><code>Formula: y ~ isold
 disc = 1</code></pre>
 <p>In other words, there is a “discrimination” parameter <code>disc</code>, which is set to 1 by default. Here’s how brms parameterizes the ordinal probit model:</p>
 <p><span class="math display">\[p(y_i \leq k_i) = \Phi(disc * (c_{ki} - d'\mbox{isold}_i))\]</span></p>
@@ -1469,7 +1472,7 @@ Figure&nbsp;8: The unequal variance Gaussian signal detection model, visualized 
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d,</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior =</span> Prior,</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> .<span class="dv">9</span>), </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> .<span class="dv">9</span>),</span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">init =</span> <span class="dv">0</span>,</span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">500</span>,</span>
 <span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"sdtmodel4-1"</span></span>

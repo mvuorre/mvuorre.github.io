@@ -5907,7 +5907,7 @@ background-color: null;
 font-style: inherit;">~</span> group,</span>
 <span id="cb2-5">  coi <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">~</span> group, </span>
+font-style: inherit;">~</span> group,</span>
 <span id="cb2-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
@@ -6041,7 +6041,7 @@ font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>] <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
@@ -6050,7 +6050,7 @@ font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"b_phi_Intercept"</span>), exp) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
@@ -6061,31 +6061,31 @@ font-style: inherit;">-</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"b_phi_Intercept"</span>), plogis) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">posterior_summary</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.data.frame</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rownames_to_column</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Parameter"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>) </span></code></pre></div>
+font-style: inherit;">2</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -6192,7 +6192,7 @@ font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
+font-style: inherit;">%&gt;%</span></span>
 <span id="cb7-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
@@ -6256,12 +6256,12 @@ font-style: inherit;">conditional_effects</span>(fit, <span class="at" style="co
 background-color: null;
 font-style: inherit;">dpar =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"mu"</span>), </span>
+font-style: inherit;">"mu"</span>),</span>
 <span id="cb9-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">points =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>, </span>
+font-style: inherit;">TRUE</span>,</span>
 <span id="cb9-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">point_args =</span> <span class="fu" style="color: #4758AB;
@@ -6404,7 +6404,7 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-
   <category>brms</category>
   <guid>https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</guid>
   <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/beta-distributions-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
 </item>
 <item>
   <title>Combine ggplots with patchwork</title>
@@ -8730,7 +8730,7 @@ Figure&nbsp;6: The equal variance Gaussian signal detection model, visualized fr
 <p><img src="https://latex.codecogs.com/png.latex?p(y_i%20%5Cleq%20k_i)%20=%20%5CPhi(%5Cfrac%7Bd'%5Cmbox%7Bisold%7D_i%20-%20c_k%7D%7B%5Cmbox%7Bexp%7D(a%5Cmbox%7Bisold%7D_i)%7D)"></p>
 <p>It turns out that this nonlinear model—also knows as a probit model with heteroscedastic error (e.g. <span class="citation" data-cites="decarlo_statistical_2010">DeCarlo (2010)</span>)—can be estimated with brms. Initially, I thought that we could write out a nonlinear brms formula for the ordinal probit model, but brms does not support nonlinear cumulative ordinal models. I then proceeded to modify the raw Stan code to estimate this model, but although that worked, it would be less practical for applied work because not everyone wants to go through the trouble of writing Stan code.</p>
 <p>After some back and forth with the creator of brms—Paul Bürkner, who deserves a gold medal for his continuing hard work on this free and open-source software—I found out that brms by default includes a similar parameter in ordinal regression models. If you scroll back up and look at the summary of <code>fit1</code>, at the top you will see that the model’s formula is:</p>
-<pre><code>Formula: y ~ isold 
+<pre><code>Formula: y ~ isold
 disc = 1</code></pre>
 <p>In other words, there is a “discrimination” parameter <code>disc</code>, which is set to 1 by default. Here’s how brms parameterizes the ordinal probit model:</p>
 <p><img src="https://latex.codecogs.com/png.latex?p(y_i%20%5Cleq%20k_i)%20=%20%5CPhi(disc%20*%20(c_%7Bki%7D%20-%20d'%5Cmbox%7Bisold%7D_i))"></p>
@@ -9277,7 +9277,7 @@ font-style: inherit;">list</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">adapt_delta =</span> .<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">9</span>), </span>
+font-style: inherit;">9</span>),</span>
 <span id="cb36-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">init =</span> <span class="dv" style="color: #AD0000;
@@ -9619,7 +9619,7 @@ Models.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-
   <category>brms</category>
   <guid>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</guid>
   <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/densityplot-1.png" medium="image" type="image/png"/>
+  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-densityplot-1.png" medium="image" type="image/png" height="89" width="144"/>
 </item>
 <item>
   <title>Bayes Factors with brms</title>

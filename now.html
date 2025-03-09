@@ -80,10 +80,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-url','listing-location','listing-date','listing-type','listing-abstract',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-url','listing-date','listing-type','listing-authors','listing-doi','listing-outlet','listing-file','listing-place','listing-meeting','listing-categories','listing-abstract','listing-extra',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       page: 5,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-url","listing-location","listing-date","listing-type","listing-abstract"],
+      searchColumns: ["listing-title","listing-url","listing-date","listing-type","listing-authors","listing-doi","listing-outlet","listing-file","listing-place","listing-meeting","listing-categories","listing-abstract","listing-extra"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -109,10 +109,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-url','listing-date','listing-date_read','listing-type','listing-authors','listing-abstract','listing-archive','listing-extra',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-url','listing-date','listing-date_read','listing-type','listing-authors','listing-abstract','listing-extra','listing-archive','listing-ISBN','listing-Publisher',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       page: 5,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-url","listing-date","listing-date_read","listing-type","listing-authors","listing-abstract","listing-archive","listing-extra"],
+      searchColumns: ["listing-title","listing-url","listing-date","listing-date_read","listing-type","listing-authors","listing-abstract","listing-extra","listing-archive","listing-ISBN","listing-Publisher"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -266,12 +266,19 @@ window.Quarto = {
 <div id="listing-presentations" class="quarto-listing quarto-listing-container-custom">
 <ul class="list">
     
-        <li data-index="0" data-listing-date-sort="1739228400000">
+        <li data-index="0" data-categories="" data-listing-date-sort="1739228400000">
             <span class="listing-name">
                 Digital risks and harms: From social media to artificial intelligence (February 2025).
             </span>
             <span class="listing-location">
-                <i>Office for Product Safety and Standards (London, UK)</i>.
+                
+                    <i>Office for Product Safety and Standards</i>,
+                
+                <i>London, UK</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
@@ -285,12 +292,17 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="1" data-listing-date-sort="1738882800000">
+        <li data-index="1" data-categories="" data-listing-date-sort="1738882800000">
             <span class="listing-name">
                 Understanding psychological heterogeneity with Bayesian hierarchical models (February 2025).
             </span>
             <span class="listing-location">
-                <i>Tilburg University (Tilburg, NL)</i>.
+                
+                <i>Tilburg, NL</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
@@ -304,12 +316,13 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="2" data-listing-date-sort="1733871600000">
+        <li data-index="2" data-categories="" data-listing-date-sort="1733871600000">
             <span class="listing-name">
-                Communicating Causal Effect Heterogeneity (December 2024).
+                Communicating causal effect heterogeneity (December 2024).
             </span>
             <span class="listing-location">
-                <i>Department of Psychology, University of Illinois at Urbana-Champaign (Remote)</i>.
+                
+                <i>University of Illinois at Urbana-Champaign (Remote)</i>.
                 
                     <span class="listing-url">
                         [<a href="https://lautsee.website/victorhcervantes/uiuc-quant-brownbag/abstracts/vuorre-2024.html">link</a>]
@@ -320,19 +333,22 @@ window.Quarto = {
                 <details>
                     <summary>Summary</summary>
                     <div class="listing-abstract">
-                        Advances in experimental, data collection, and analysis methods have brought population variability in psychological phenomena to the fore. Yet, current practices for interpreting such heterogeneity do not appropriately treat the uncertainty inevitable in any statistical summary. Heterogeneity is best thought of as a distribution of features with a mean (average person’s effect) and variance (between-person differences). This expected heterogeneity distribution can be further summarized e.g. as a heterogeneity interval (Bolger et al., 2019). However, because empirical studies estimate the underlying mean and variance parameters with uncertainty, the expected distribution and interval will underestimate the actual range of plausible effects in the population. Using Bayesian hierarchical models, and with the aid of empirical datasets from social and cognitive psychology, we provide a walk-through of effective heterogeneity reporting and display tools that appropriately convey measures of uncertainty. We cover interval, proportion, and ratio measures of heterogeneity and their estimation and interpretation. These tools can be a spur to theory building, allowing researchers to widen their focus from population averages to population heterogeneity in psychological phenomena.
+                        Advances in experimental, data collection, and analysis methods have brought population variability in psychological phenomena to the fore. Yet, current practices for interpreting such heterogeneity do not appropriately treat the uncertainty inevitable in any statistical summary. Heterogeneity is best thought of as a distribution of features with a mean (average person's effect) and variance (between-person differences). This expected heterogeneity distribution can be further summarized e.g. as a heterogeneity interval (Bolger et al., 2019). However, because empirical studies estimate the underlying mean and variance parameters with uncertainty, the expected distribution and interval will underestimate the actual range of plausible effects in the population. Using Bayesian hierarchical models, and with the aid of empirical datasets from social and cognitive psychology, we provide a walk-through of effective heterogeneity reporting and display tools that appropriately convey measures of uncertainty. We cover interval, proportion, and ratio measures of heterogeneity and their estimation and interpretation. These tools can be a spur to theory building, allowing researchers to widen their focus from population averages to population heterogeneity in psychological phenomena.
 
                     </div>
                 </details>
             
         </span></span></li>
         
-        <li data-index="3" data-listing-date-sort="1725919200000">
+        <li data-index="3" data-categories="" data-listing-date-sort="1725919200000">
             <span class="listing-name">
                 Understanding psychological heterogeneity with Bayesian hierarchical models using the brms R package (September 2024).
             </span>
             <span class="listing-location">
-                <i>StanCon (Oxford, UK)</i>.
+                
+                    <i>StanCon</i>,
+                
+                <i>Oxford, UK</i>.
                 
                     <span class="listing-url">
                         [<a href="https://www.youtube.com/watch?v=qe7oM9pJpiI&amp;list=PLCrWEzJgSUqzNzh6mjWsWUu-lSK59VXP6&amp;index=7">link</a>]
@@ -350,12 +366,17 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="4" data-listing-date-sort="1723586400000">
+        <li data-index="4" data-categories="" data-listing-date-sort="1723586400000">
             <span class="listing-name">
                 Investigating video game player behavior and well-being (August 2024).
             </span>
             <span class="listing-location">
-                <i>Tilburg University (Tilburg, NL)</i>.
+                
+                <i>Tilburg, NL</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
@@ -369,31 +390,41 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="5" data-listing-date-sort="1720130400000">
+        <li data-index="5" data-categories="" data-listing-date-sort="1720130400000">
             <span class="listing-name">
                 Video games and well-being (July 2024).
             </span>
             <span class="listing-location">
-                <i>Gaming Disorder Global Seminar (Seoul, SK)</i>.
+                
+                    <i>Gaming Disorder Global Seminar</i>,
+                
+                <i>Seoul, SK</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
                 <details>
                     <summary>Summary</summary>
                     <div class="listing-abstract">
-                        In this presentation I review psychological research on video games and how they might affect players' well-being. Many studies have focused on how time spent playing video games predicts individuals' well-being and found that the associations are likely to be very small if they exist at all. Overall, people who play more report similar levels of well-being than individuals who play less. I discuss methodological issues that must be addressed before reliable and generalizable conclusions about video games' effects on well-being and health can be made. These include facilitating independent researchers’ access to game play data from industry sources.
+                        In this presentation I review psychological research on video games and how they might affect players' well-being. Many studies have focused on how time spent playing video games predicts individuals' well-being and found that the associations are likely to be very small if they exist at all. Overall, people who play more report similar levels of well-being than individuals who play less. I discuss methodological issues that must be addressed before reliable and generalizable conclusions about video games' effects on well-being and health can be made. These include facilitating independent researchers' access to game play data from industry sources.
 
                     </div>
                 </details>
             
         </span></span></li>
         
-        <li data-index="6" data-listing-date-sort="1719180000000">
+        <li data-index="6" data-categories="" data-listing-date-sort="1719180000000">
             <span class="listing-name">
                 Big data, small transparency: Limits to understanding, and addressing effectively, concerning behaviors in the online era (June 2024).
             </span>
             <span class="listing-location">
-                <i>International Behavioural Public Policy Conference (Cambridge, UK)</i>.
+                
+                    <i>IBPPC</i>,
+                
+                <i>Cambridge, UK</i>.
                 
                     <span class="listing-url">
                         [<a href="https://www.ibppa.org/ibppc-2024">link</a>]
@@ -401,35 +432,51 @@ window.Quarto = {
                 
             <span>
             
-        </span></span></li>
-        
-        <li data-index="7" data-listing-date-sort="1719180000000">
-            <span class="listing-name">
-                Understanding the roles of digital technologies in psychological functioning (June 2024).
-            </span>
-            <span class="listing-location">
-                <i>Tilburg University (Tilburg, NL)</i>.
-                
-            <span>
-            
                 <details>
                     <summary>Summary</summary>
                     <div class="listing-abstract">
-                        Digital technologies have impacted nearly all domains of human life. Yet, the current state of research does not adequately address hotly debated worries and hopes about how digital technologies might psychologically impact their users. I present results from my attempts at studying how the adoption and use of digital technologies, the internet, and social media are associated with psychological well-being on a global scale. Unlike past negative results from studies' that focused on WEIRD populations, I find little evidence in favor of widespread harms. In many cases, internet adoption and use predict greater psychological well-being.
-
-The current emphasis on digital technologies' effects is best seen in the context of a repeated cycle of technology panics: Opportunistic, myopic, and ineffective research is carried out on novel technologies while inconclusive results regarding prior questions are forgotten. To do better, widespread methodological and theoretical advances are needed. The same technologies that inspire current societal worries might facilitate a more robust understanding of psychological functioning in the digital age, if appropriately used.
+                        NA
 
                     </div>
                 </details>
             
         </span></span></li>
         
-        <li data-index="8" data-listing-date-sort="1716415200000">
+        <li data-index="7" data-categories="" data-listing-date-sort="1719180000000">
             <span class="listing-name">
-                Internet Technology and Well-Being (May 2024).
+                Understanding the roles of digital technologies in psychological functioning (June 2024).
             </span>
             <span class="listing-location">
-                <i>Vrije Universiteit Amsterdam (Amsterdam, NL)</i>.
+                
+                <i>Tilburg, NL</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
+                
+            <span>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        Digital technologies have impacted nearly all domains of human life. Yet, the current state of research does not adequately address hotly debated worries and hopes about how digital technologies might psychologically impact their users. I present results from my attempts at studying how the adoption and use of digital technologies, the internet, and social media are associated with psychological well-being on a global scale. Unlike past negative results from studies' that focused on WEIRD populations, I find little evidence in favor of widespread harms. In many cases, internet adoption and use predict greater psychological well-being. The current emphasis on digital technologies' effects is best seen in the context of a repeated cycle of technology panics: Opportunistic, myopic, and ineffective research is carried out on novel technologies while inconclusive results regarding prior questions are forgotten. To do better, widespread methodological and theoretical advances are needed. The same technologies that inspire current societal worries might facilitate a more robust understanding of psychological functioning in the digital age, if appropriately used.
+
+                    </div>
+                </details>
+            
+        </span></span></li>
+        
+        <li data-index="8" data-categories="" data-listing-date-sort="1716415200000">
+            <span class="listing-name">
+                Internet technology and well-being (May 2024).
+            </span>
+            <span class="listing-location">
+                
+                <i>Amsterdam, NL</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
@@ -443,19 +490,26 @@ The current emphasis on digital technologies' effects is best seen in the contex
             
         </span></span></li>
         
-        <li data-index="9" data-listing-date-sort="1679868000000">
+        <li data-index="9" data-categories="" data-listing-date-sort="1679868000000">
             <span class="listing-name">
                 Understanding the roles of digital technologies in psychological functioning (March 2023).
             </span>
             <span class="listing-location">
-                <i>Tilburg Experience Sampling Center, Tilburg University (Tilburg, NL)</i>.
+                
+                    <i>Tilburg Experience Sampling Center</i>,
+                
+                <i>Tilburg, NL</i>.
+                
+                    <span class="listing-url">
+                        [<a href="NA">link</a>]
+                    </span>
                 
             <span>
             
                 <details>
                     <summary>Summary</summary>
                     <div class="listing-abstract">
-                        Video game play is an extremely popular form of leisure, yet the scientific understanding of games' relations to psychosocial functioning is at its infancy. To better understand games' roles in people's lives, we need not only more experimentation, but critically, more observation and description of play as it occurs naturally. We describe a data set of ~10,000 players, from 39 countries, and ~700,000 responses to psychological instruments within the video game PowerWash Simulator. These data were collected in collaboration with the game's developer FuturLab Inc., who published a modified version of the game. This research edition queried participants' well-being and motivational experiences during play six times each hour using an in-game messaging system, and along with the survey responses, logged detailed telemetry on player behavior, achievements, and other in-game events. The resulting combination of detailed play behavior and event data, and players' high temporal resolution responses to psychological instruments within the game itself is suitable for both detailed desciptive studies and in-depth statistical modelling of video game play and its relations to players' psychological states.
+                        Video game play is an extremely popular form of leisure, yet the scientific understanding of games' relations to psychosocial functioning is at its infancy. To better understand games' roles in people's lives, we need not only more experimentation, but critically, more observation and description of play as it occurs naturally. We describe a data set of  10,000 players, from 39 countries, and  700,000 responses to psychological instruments within the video game PowerWash Simulator. These data were collected in collaboration with the game's developer FuturLab Inc., who published a modified version of the game. This research edition queried participants' well-being and motivational experiences during play six times each hour using an in-game messaging system, and along with the survey responses, logged detailed telemetry on player behavior, achievements, and other in-game events. The resulting combination of detailed play behavior and event data, and players' high temporal resolution responses to psychological instruments within the game itself is suitable for both detailed desciptive studies and in-depth statistical modelling of video game play and its relations to players' psychological states.
 
                     </div>
                 </details>
@@ -477,6 +531,45 @@ No matching items
 <div id="listing-readings" class="quarto-listing quarto-listing-container-custom">
 <ul class="list">
     
+        <li class="list-item">
+            <div class="listing-name">
+                
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    
+                                        <a href="http://stats.org.uk/statistical-inference/Rozeboom1960.pdf">
+                                            The fallacy of the null-hypothesis significance test.
+                                        </a>
+            </div>
+            <div class="listing-meta">
+                
+                    <div class="listing-authors"><strong>Authors:</strong>
+                        William W. Rozeboom
+
+                    </div>
+                    
+                        <span class="listing-date">
+                            <strong>Date:</strong>
+                            
+                                1960-09-01
+                                    
+                                            
+                                                | <strong>Date read:</strong>
+                                                2025-03-09
+                                                    
+                                                        
+                        </span>
+            </div>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        Though several serious objections to the null-hypothesis significance test method are raised, 'its most basic error lies in mistaking the aim of a scientific investigation to be a decision, rather than a cognitive evaluation… . It is further argued that the proper application of statistics to scientific inference is irrevocably committed to extensive consideration of inverse probabilities, and to further this end, certain suggestions are offered.'
+
+                    </div>
+                </details>
+                
+        </li>
+        
         <li class="list-item">
             <div class="listing-name">
                 
@@ -635,6 +728,45 @@ No matching items
                     <summary>Summary</summary>
                     <div class="listing-abstract">
                         NA
+
+                    </div>
+                </details>
+                
+        </li>
+        
+        <li class="list-item">
+            <div class="listing-name">
+                
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    
+                                        <a href="https://www.cambridge.org/core/elements/youtube-apparatus/36600D69788530F805C650B70976A585">
+                                            The YouTube Apparatus
+                                        </a>
+            </div>
+            <div class="listing-meta">
+                
+                    <div class="listing-authors"><strong>Authors:</strong>
+                        Kevin Munger
+
+                    </div>
+                    
+                        <span class="listing-date">
+                            <strong>Date:</strong>
+                            
+                                2024-04-01
+                                    
+                                            
+                                                | <strong>Date read:</strong>
+                                                2025-01-20
+                                                    
+                                                        
+                        </span>
+            </div>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        Cambridge Core - Politics: General Interest - The YouTube Apparatus
 
                     </div>
                 </details>

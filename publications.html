@@ -82,9 +82,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-url','listing-date','listing-type','listing-authors','listing-doi','listing-outlet','listing-file','listing-categories','listing-abstract','listing-extra','listing-code','listing-data','listing-license',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-url","listing-date","listing-type","listing-authors","listing-doi","listing-outlet","listing-file","listing-categories","listing-abstract","listing-extra","listing-code","listing-data","listing-license"],
+      valueNames: ['listing-title','listing-url','listing-date','listing-type','listing-authors','listing-doi','listing-outlet','listing-file','listing-place','listing-meeting','listing-categories','listing-abstract','listing-extra','listing-code','listing-data','listing-license',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      page: 20,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-url","listing-date","listing-type","listing-authors","listing-doi","listing-outlet","listing-file","listing-place","listing-meeting","listing-categories","listing-abstract","listing-extra","listing-code","listing-data","listing-license"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -237,7 +238,7 @@ window.Quarto = {
 </div>
 <ul class="list">
     
-        <li class="list-item" data-index="0" data-categories="bWVudGFsJTIwaGVhbHRoJTJDYXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZSUyQ3RlY2hub2xvZ3k=" data-listing-date-sort="1737414000000">
+        <li class="list-item" data-index="0" data-categories="YXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZSUyQ21lbnRhbCUyMGhlYWx0aCUyQ3RlY2hub2xvZ3k=" data-listing-date-sort="1737414000000">
             <div class="listing-name">
                 Mansfield, Ghai, Hakman, Ballou, Vuorre, &amp; Przybylski
  (2025): <i>From social media to artificial intelligence: improving research on digital harms in youth</i>. <a href="https://www.sciencedirect.com/science/article/pii/S2352464224003328">The Lancet Child &amp; Adolescent Health</a>.
@@ -245,7 +246,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    mental health, artificial intelligence, technology
+                    artificial intelligence, mental health, technology
                 </div>
             
             <div class="listing-extras">
@@ -253,6 +254,8 @@ window.Quarto = {
                     <i class="ai ai-doi"></i>
                     <a href="https://doi.org/10.1016/S2352-4642(24)00332-8">10.1016/S2352-4642(24)00332-8</a>
                 
+                
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/X5Z6RWFD/mansfield-etal_2025_the-lancet-child-&amp;-adolescent-health.pdf">Paper</a>
                 
                 
                 ]
@@ -268,7 +271,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="1" data-categories="bXVsdGlsZXZlbCUyMG1vZGVsJTJDc3RhdGlzdGljcyUyQ3ZhcmlhdGlvbiUyQ2hldGVyb2dlbmVpdHklMkN1bmNlcnRhaW50eSUyQ3Zpc3VhbGl6YXRpb24=" data-listing-date-sort="1725314400000">
+        <li class="list-item" data-index="1" data-categories="aGV0ZXJvZ2VuZWl0eSUyQ211bHRpbGV2ZWwlMjBtb2RlbCUyQ3N0YXRpc3RpY3MlMkN1bmNlcnRhaW50eSUyQ3ZhcmlhdGlvbiUyQ3Zpc3VhbGl6YXRpb24=" data-listing-date-sort="1725314400000">
             <div class="listing-name">
                 Vuorre, Kay, &amp; Bolger
  (2024): <i>Communicating causal effect heterogeneity</i>. <a href="https://osf.io/mwg4f">OSF Preprints</a>.
@@ -276,7 +279,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    multilevel model, statistics, variation, heterogeneity, uncertainty, visualization
+                    heterogeneity, multilevel model, statistics, uncertainty, variation, visualization
                 </div>
             
             <div class="listing-extras">
@@ -285,7 +288,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.31234/osf.io/mwg4f">10.31234/osf.io/mwg4f</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4695/vuorre-etal_2024_OSF.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/WZZAADDL/vuorre-etal_2024_OSF.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/mvuorre/heterogeneity-uncertainty">Data</a>
@@ -305,7 +308,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="2" data-categories="dmlkZW8lMjBnYW1lcyUyQ3Jlc2VhcmNoJTIwbWV0aG9kcyUyQ3BzeWNob2xvZ3klMkNvcGVuJTIwcmVzZWFyY2glMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRh" data-listing-date-sort="1724968800000">
+        <li class="list-item" data-index="2" data-categories="ZGlnaXRhbCUyMHRyYWNlJTIwZGF0YSUyQ29wZW4lMjByZXNlYXJjaCUyQ3BzeWNob2xvZ3klMkNyZXNlYXJjaCUyMG1ldGhvZHMlMkN2aWRlbyUyMGdhbWVz" data-listing-date-sort="1724968800000">
             <div class="listing-name">
                 Vuorre, Ballou, Hakman, Magnusson, &amp; Przybylski
  (2024): <i>Affective Uplift During Video Game Play: A Naturalistic Case Study</i>. <a href="https://dl.acm.org/doi/10.1145/3659464">ACM Games</a>.
@@ -313,7 +316,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    video games, research methods, psychology, open research, digital trace data
+                    digital trace data, open research, psychology, research methods, video games
                 </div>
             
             <div class="listing-extras">
@@ -322,7 +325,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1145/3659464">10.1145/3659464</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4659/vuorre-etal_2024_acm-games.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/MRL8MA6Q/vuorre-etal_2024_acm-games.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://zenodo.org/records/10721210">Data</a>
@@ -342,7 +345,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="3" data-categories="d2VsbC1iZWluZyUyQ3RlY2hub2xvZ3klMjBlZmZlY3RzJTJDaW50ZXJuZXQlMjB0ZWNobm9sb2d5" data-listing-date-sort="1722376800000">
+        <li class="list-item" data-index="3" data-categories="aW50ZXJuZXQlMjB0ZWNobm9sb2d5JTJDdGVjaG5vbG9neSUyMGVmZmVjdHMlMkN3ZWxsLWJlaW5n" data-listing-date-sort="1722376800000">
             <div class="listing-name">
                 Vuorre &amp; Przybylski
  (2024): <i>A Multiverse Analysis of the Associations Between Internet Use and Well-Being</i>. <a href="https://doi.org/10.1037/tmb0000127">Technology, Mind, and Behavior</a>.
@@ -350,7 +353,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, technology effects, internet technology
+                    internet technology, technology effects, well-being
                 </div>
             
             <div class="listing-extras">
@@ -359,7 +362,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1037/tmb0000127">10.1037/tmb0000127</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4478/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/Q3TVTGL6/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf">Paper</a>
                 
                 
                 
@@ -377,7 +380,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="4" data-categories="dmlkZW8lMjBnYW1lcyUyQ3dlbGxiZWluZyUyQ21lbnRhbCUyMGhlYWx0aCUyQ2RpZ2l0YWwlMjB0cmFjZSUyMGRhdGElMkNpbmR1c3RyeSUyMGNvbGxhYm9yYXRpb24=" data-listing-date-sort="1720735200000">
+        <li class="list-item" data-index="4" data-categories="ZGlnaXRhbCUyMHRyYWNlJTIwZGF0YSUyQ2luZHVzdHJ5JTIwY29sbGFib3JhdGlvbiUyQ21lbnRhbCUyMGhlYWx0aCUyQ3ZpZGVvJTIwZ2FtZXMlMkN3ZWxsYmVpbmc=" data-listing-date-sort="1720735200000">
             <div class="listing-name">
                 Ballou, Vuorre, Hakman, Magnusson, &amp; Przybylski
  (2024): <i>Perceived value of video games, but not hours played, predicts mental well-being in adult Nintendo players</i>. <a href="https://osf.io/3srcw">OSF Preprints</a>.
@@ -385,7 +388,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    video games, wellbeing, mental health, digital trace data, industry collaboration
+                    digital trace data, industry collaboration, mental health, video games, wellbeing
                 </div>
             
             <div class="listing-extras">
@@ -394,7 +397,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.31234/osf.io/3srcw">10.31234/osf.io/3srcw</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4586/ballou-etal_2024_OSF.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2YIS7E8G/ballou-etal_2024_OSF.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/digital-wellbeing/noa-pilot-ms">Data</a>
@@ -414,7 +417,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="5" data-categories="d2VsbC1iZWluZyUyQ3NvY2lhbCUyMG1lZGlhJTJDZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eQ==" data-listing-date-sort="1719784800000">
+        <li class="list-item" data-index="5" data-categories="ZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eSUyQ3NvY2lhbCUyMG1lZGlhJTJDd2VsbC1iZWluZw==" data-listing-date-sort="1719784800000">
             <div class="listing-name">
                 Johannes, Masur, Vuorre, &amp; Przybylski
  (2024): <i>How should we investigate variation in the relation between social media and well-being?</i>. <a href="https://open.lnu.se/index.php/metapsychology/article/view/3322">Meta-Psychology</a>.
@@ -422,7 +425,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, social media, effect heterogeneity
+                    effect heterogeneity, social media, well-being
                 </div>
             
             <div class="listing-extras">
@@ -431,7 +434,7 @@ window.Quarto = {
                     <a href="https://doi.org/https://doi.org/10.15626/MP.2022.3322">https://doi.org/10.15626/MP.2022.3322</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4588/johannes-etal_2024_meta-psychology.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/PMGK4MLE/johannes-etal_2024_meta-psychology.pdf">Paper</a>
                 
                 
                 
@@ -449,7 +452,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="6" data-categories="dmlkZW8lMjBnYW1lcyUyQ2NhdXNhbCUyMGluZmVyZW5jZSUyQ3dlbGxiZWluZyUyQ21lZGlhJTIwdXNlJTJDbWVudGFsJTIwaGVhbHRo" data-listing-date-sort="1717020000000">
+        <li class="list-item" data-index="6" data-categories="Y2F1c2FsJTIwaW5mZXJlbmNlJTJDbWVkaWElMjB1c2UlMkNtZW50YWwlMjBoZWFsdGglMkN2aWRlbyUyMGdhbWVzJTJDd2VsbGJlaW5n" data-listing-date-sort="1717020000000">
             <div class="listing-name">
                 Ballou, Hakman, Vuorre, Magnusson, &amp; Przybylski
  (2024): <i>How do video games affect mental health? A narrative review of 13 proposed mechanisms</i>. <a href="https://osf.io/q2kxg">OSF Preprints</a>.
@@ -457,7 +460,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    video games, causal inference, wellbeing, media use, mental health
+                    causal inference, media use, mental health, video games, wellbeing
                 </div>
             
             <div class="listing-extras">
@@ -466,7 +469,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.31234/osf.io/q2kxg">10.31234/osf.io/q2kxg</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/5147/ballou-etal_2024_OSF.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/S5ETTANM/ballou-etal_2024_OSF.pdf">Paper</a>
                 
                 
                 ]
@@ -482,7 +485,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="7" data-categories="c2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5JTJDYmlhcyUyQ2RlY2VwdGlvbiUyMGRldGVjdGlvbiUyQ21peGVkJTIwZWZmZWN0cyUyMG1vZGVscyUyQ3ZlcmFjaXR5" data-listing-date-sort="1709247600000">
+        <li class="list-item" data-index="7" data-categories="YmlhcyUyQ2RlY2VwdGlvbiUyMGRldGVjdGlvbiUyQ21peGVkJTIwZWZmZWN0cyUyMG1vZGVscyUyQ3NpZ25hbCUyMGRldGVjdGlvbiUyMHRoZW9yeSUyQ3ZlcmFjaXR5" data-listing-date-sort="1709247600000">
             <div class="listing-name">
                 Zloteanu &amp; Vuorre
  (2024): <i>A Tutorial for Deception Detection Analysis or: How I Learned to Stop Aggregating Veracity Judgments and Embraced Signal Detection Theory Mixed Models</i>. <a href="https://doi.org/10.1007/s10919-024-00456-x">Journal of Nonverbal Behavior</a>.
@@ -490,7 +493,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    signal detection theory, bias, deception detection, mixed effects models, veracity
+                    bias, deception detection, mixed effects models, signal detection theory, veracity
                 </div>
             
             <div class="listing-extras">
@@ -499,7 +502,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1007/s10919-024-00456-x">10.1007/s10919-024-00456-x</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4190/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf">Paper</a>
                 
                 
                 
@@ -534,7 +537,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1111/bjep.12651">10.1111/bjep.12651</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4078/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/DGAHR964/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf">Paper</a>
                 
                 
                 ]
@@ -550,7 +553,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="9" data-categories="cHN5Y2hvbG9neSUyQ2h1bWFuJTIwYmVoYXZpb3Vy" data-listing-date-sort="1701730800000">
+        <li class="list-item" data-index="9" data-categories="aHVtYW4lMjBiZWhhdmlvdXIlMkNwc3ljaG9sb2d5" data-listing-date-sort="1701730800000">
             <div class="listing-name">
                 Weinstein, Vuorre, Adams, &amp; Nguyen
  (2023): <i>Balance between solitude and socializing: everyday solitude time both benefits and harms well-being</i>. <a href="https://www.nature.com/articles/s41598-023-44507-7">Scientific Reports</a>.
@@ -558,7 +561,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    psychology, human behaviour
+                    human behaviour, psychology
                 </div>
             
             <div class="listing-extras">
@@ -567,7 +570,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1038/s41598-023-44507-7">10.1038/s41598-023-44507-7</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4057/weinstein-etal_2023_scientific-reports.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/PAUD8V8T/weinstein-etal_2023_scientific-reports.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/zx7ms/">Data</a>
@@ -587,7 +590,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="10" data-categories="YWRvbGVzY2VuY2UlMkNzb2NpYWwlMjBtZWRpYSUyQ2ludGVybmV0JTJDZGlnaXRhbCUyMHRlY2hub2xvZ2llcyUyQ2Ztcmk=" data-listing-date-sort="1701385200000">
+        <li class="list-item" data-index="10" data-categories="YWRvbGVzY2VuY2UlMkNkaWdpdGFsJTIwdGVjaG5vbG9naWVzJTJDZm1yaSUyQ2ludGVybmV0JTJDc29jaWFsJTIwbWVkaWE=" data-listing-date-sort="1701385200000">
             <div class="listing-name">
                 Miller, Mills, Vuorre, Orben, &amp; Przybylski
  (2023): <i>Impact of digital screen media activity on functional brain organization in late childhood: Evidence from the ABCD study</i>. <a href="https://www.sciencedirect.com/science/article/pii/S001094522300237X">Cortex</a>.
@@ -595,7 +598,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    adolescence, social media, internet, digital technologies, fmri
+                    adolescence, digital technologies, fmri, internet, social media
                 </div>
             
             <div class="listing-extras">
@@ -604,7 +607,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1016/j.cortex.2023.09.009">10.1016/j.cortex.2023.09.009</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4027/miller-etal_2023_cortex.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/M356LH9F/miller-etal_2023_cortex.pdf">Paper</a>
                 
                 
                 
@@ -622,7 +625,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="11" data-categories="d2VsbC1iZWluZyUyQ21lbnRhbCUyMGhlYWx0aCUyQ3RlY2hub2xvZ3klMjBlZmZlY3RzJTJDaW50ZXJuZXQlMjB0ZWNobm9sb2d5" data-listing-date-sort="1701039600000">
+        <li class="list-item" data-index="11" data-categories="aW50ZXJuZXQlMjB0ZWNobm9sb2d5JTJDbWVudGFsJTIwaGVhbHRoJTJDdGVjaG5vbG9neSUyMGVmZmVjdHMlMkN3ZWxsLWJlaW5n" data-listing-date-sort="1701039600000">
             <div class="listing-name">
                 Vuorre &amp; Przybylski
  (2023): <i>Global Well-Being and Mental Health in the Internet Age</i>. <a href="https://doi.org/10.1177/21677026231207791">Clinical Psychological Science</a>.
@@ -630,7 +633,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, mental health, technology effects, internet technology
+                    internet technology, mental health, technology effects, well-being
                 </div>
             
             <div class="listing-extras">
@@ -639,7 +642,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1177/21677026231207791">10.1177/21677026231207791</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4039/vuorre-and-przybylski_2023_clinical-psychological-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/Z9MJS6QU/vuorre-and-przybylski_2023_clinical-psychological-science.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://doi.org/10.5281/zenodo.7004053">Data</a>
@@ -659,7 +662,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="12" data-categories="cHN5Y2hvbG9neSUyQ2h1bWFuJTIwYmVoYXZpb3Vy" data-listing-date-sort="1694556000000">
+        <li class="list-item" data-index="12" data-categories="aHVtYW4lMjBiZWhhdmlvdXIlMkNwc3ljaG9sb2d5" data-listing-date-sort="1694556000000">
             <div class="listing-name">
                 Vuorre, Magnusson, Johannes, Butlin, &amp; Przybylski
  (2023): <i>An intensive longitudinal dataset of in-game player behaviour and well-being in PowerWash Simulator</i>. <a href="https://www.nature.com/articles/s41597-023-02530-3">Scientific Data</a>.
@@ -667,7 +670,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    psychology, human behaviour
+                    human behaviour, psychology
                 </div>
             
             <div class="listing-extras">
@@ -676,7 +679,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1038/s41597-023-02530-3">10.1038/s41597-023-02530-3</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3859/vuorre-etal_2023_scientific-data.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/KDPRDH7T/vuorre-etal_2023_scientific-data.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/wpeh6/">Data</a>
@@ -696,7 +699,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="13" data-categories="d2VsbC1iZWluZyUyQ3NvY2lhbCUyMG1lZGlhJTJDbGlmZSUyMHNhdGlzZmFjdGlvbg==" data-listing-date-sort="1691532000000">
+        <li class="list-item" data-index="13" data-categories="bGlmZSUyMHNhdGlzZmFjdGlvbiUyQ3NvY2lhbCUyMG1lZGlhJTJDd2VsbC1iZWluZw==" data-listing-date-sort="1691532000000">
             <div class="listing-name">
                 Vuorre &amp; Przybylski
  (2023): <i>Estimating the association between Facebook adoption and well-being in 72 countries</i>. <a href="https://doi.org/10.1098/rsos.221451">Royal Society Open Science</a>.
@@ -704,7 +707,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, social media, life satisfaction
+                    life satisfaction, social media, well-being
                 </div>
             
             <div class="listing-extras">
@@ -713,7 +716,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1098/rsos.221451">10.1098/rsos.221451</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3703/vuorre-and-przybylski_2023_royal-society-open-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/VSMEXPGJ/vuorre-and-przybylski_2023_royal-society-open-science.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://zenodo.org/records/8135418">Data</a>
@@ -733,7 +736,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="14" data-categories="ZGVwcmVzc2lvbiUyQ2FueGlldHklMkN5b3V0aCUyQ2V4cGVyaW1lbnRhbCUyMG1lZGljaW5l" data-listing-date-sort="1662588000000">
+        <li class="list-item" data-index="14" data-categories="YW54aWV0eSUyQ2RlcHJlc3Npb24lMkNleHBlcmltZW50YWwlMjBtZWRpY2luZSUyQ3lvdXRo" data-listing-date-sort="1662588000000">
             <div class="listing-name">
                 Syed Sheriff, Vuorre, Riga, Przybylski, Adams, Harmer, &amp; Geddes
  (2022): <i>A co-produced online cultural experience compared to a typical museum website for mental health in people aged 16–24: A proof-of-principle randomised controlled trial</i>. <a href="https://doi.org/10.1177/00048674221115648">Australian &amp; New Zealand Journal of Psychiatry</a>.
@@ -741,7 +744,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    depression, anxiety, youth, experimental medicine
+                    anxiety, depression, experimental medicine, youth
                 </div>
             
             <div class="listing-extras">
@@ -750,7 +753,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1177/00048674221115648">10.1177/00048674221115648</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3224/syed-sheriff-etal_2022_australian-&amp;-new-zealand-journal-of-psychiatry.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/QB663WCP/syed-sheriff-etal_2022_australian-&amp;-new-zealand-journal-of-psychiatry.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/digital-wellbeing/O-ACE-POP/tree/main">Data</a>
@@ -770,7 +773,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="15" data-categories="d2VsbC1iZWluZyUyQ3ZpZGVvJTIwZ2FtZXMlMkNodW1hbiUyMG1vdGl2YXRpb24lMkNwbGF5JTIwYmVoYXZpb3Vy" data-listing-date-sort="1658872800000">
+        <li class="list-item" data-index="15" data-categories="aHVtYW4lMjBtb3RpdmF0aW9uJTJDcGxheSUyMGJlaGF2aW91ciUyQ3ZpZGVvJTIwZ2FtZXMlMkN3ZWxsLWJlaW5n" data-listing-date-sort="1658872800000">
             <div class="listing-name">
                 Vuorre, Johannes, Magnusson, &amp; Przybylski
  (2022): <i>Time spent playing video games is unlikely to impact well-being</i>. <a href="https://doi.org/10.1098/rsos.220411">Royal Society Open Science</a>.
@@ -778,7 +781,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, video games, human motivation, play behaviour
+                    human motivation, play behaviour, video games, well-being
                 </div>
             
             <div class="listing-extras">
@@ -787,7 +790,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1098/rsos.220411">10.1098/rsos.220411</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3195/vuorre-etal_2022_royal-society-open-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3K5WXM3G/vuorre-etal_2022_royal-society-open-science.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/digital-wellbeing/gametime-longitudinal">Data</a>
@@ -807,7 +810,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="16" data-categories="d2VsbC1iZWluZyUyQ3N0YXRpc3RpY3MlMkNzb2NpYWwlMjBtZWRpYSUyQ21lZGlhJTIwZWZmZWN0cyUyQ3BhcmFkaWdtJTJDdmFyaWF0aW9u" data-listing-date-sort="1657836000000">
+        <li class="list-item" data-index="16" data-categories="bWVkaWElMjBlZmZlY3RzJTJDcGFyYWRpZ20lMkNzb2NpYWwlMjBtZWRpYSUyQ3N0YXRpc3RpY3MlMkN2YXJpYXRpb24lMkN3ZWxsLWJlaW5n" data-listing-date-sort="1657836000000">
             <div class="listing-name">
                 Vuorre, Johannes, &amp; Przybylski
  (2022): <i>Three objections to a novel paradigm in social media effects research</i>. <a href="https://osf.io/dpuya">OSF Preprints</a>.
@@ -815,7 +818,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, statistics, social media, media effects, paradigm, variation
+                    media effects, paradigm, social media, statistics, variation, well-being
                 </div>
             
             <div class="listing-extras">
@@ -824,7 +827,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.31234/osf.io/dpuya">10.31234/osf.io/dpuya</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/5149/vuorre-etal_2022_OSF.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/ERW4VQRG/vuorre-etal_2022_OSF.pdf">Paper</a>
                 
                 
                 
@@ -842,7 +845,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="17" data-categories="dmlkZW8lMjBnYW1lcyUyQ3BsYXklMjBiZWhhdmlvciUyQ2FuZ2VyJTJDdmlvbGVuY2U=" data-listing-date-sort="1651356000000">
+        <li class="list-item" data-index="17" data-categories="YW5nZXIlMkNwbGF5JTIwYmVoYXZpb3IlMkN2aWRlbyUyMGdhbWVzJTJDdmlvbGVuY2U=" data-listing-date-sort="1651356000000">
             <div class="listing-name">
                 Johannes, Vuorre, Magnusson, &amp; Przybylski
  (2022): <i>Time Spent Playing Two Online Shooters Has No Measurable Effect on Aggressive Affect</i>. <a href="https://doi.org/10.1525/collabra.34606">Collabra: Psychology</a>.
@@ -850,7 +853,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    video games, play behavior, anger, violence
+                    anger, play behavior, video games, violence
                 </div>
             
             <div class="listing-extras">
@@ -859,7 +862,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1525/collabra.34606">10.1525/collabra.34606</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2987/johannes-etal_2022_collabra-psychology.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4UKFZ26N/johannes-etal_2022_collabra-psychology.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/digital-wellbeing/gametime-anger/tree/main">Data</a>
@@ -879,7 +882,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="18" data-categories="bWV0YWNvZ25pdGlvbiUyQ21vZGVscyUyQ2ZlZWRiYWNrJTJDbGVhcm5pbmclMkNjdXJpb3NpdHklMkNlcnJvcnMlMkNyZXNwb25zZXMlMkNzZWxmLWNvbmZpZGVuY2UlMkN1bmNlcnRhaW50eQ==" data-listing-date-sort="1640991600000">
+        <li class="list-item" data-index="18" data-categories="Y3VyaW9zaXR5JTJDZXJyb3JzJTJDZmVlZGJhY2slMkNsZWFybmluZyUyQ21ldGFjb2duaXRpb24lMkNtb2RlbHMlMkNyZXNwb25zZXMlMkNzZWxmLWNvbmZpZGVuY2UlMkN1bmNlcnRhaW50eQ==" data-listing-date-sort="1640991600000">
             <div class="listing-name">
                 Metcalfe, Vuorre, Towner, &amp; Eich
  (2022): <i>Curiosity: The effects of feedback and confidence on the desire to know</i>. <a href="NA">Journal of Experimental Psychology: General</a>.
@@ -887,7 +890,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    metacognition, models, feedback, learning, curiosity, errors, responses, self-confidence, uncertainty
+                    curiosity, errors, feedback, learning, metacognition, models, responses, self-confidence, uncertainty
                 </div>
             
             <div class="listing-extras">
@@ -896,7 +899,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1037/xge0001284">10.1037/xge0001284</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4893/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/5BQW8WE9/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/akxs4/">Data</a>
@@ -916,7 +919,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="19" data-categories="dmlkZW8lMjBnYW1lcyUyQ3RlY2hub2xvZ3klMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRhJTJDY292aWQtMTk=" data-listing-date-sort="1636326000000">
+        <li class="list-item" data-index="19" data-categories="Y292aWQtMTklMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRhJTJDdGVjaG5vbG9neSUyQ3ZpZGVvJTIwZ2FtZXM=" data-listing-date-sort="1636326000000">
             <div class="listing-name">
                 Vuorre, Zendle, Petrovskaya, Ballou, &amp; Przybylski
  (2021): <i>A Large-Scale Study of Changes to the Quantity, Quality, and Distribution of Video Game Play During a Global Health Pandemic</i>. <a href="https://tmb.apaopen.org/pub/5w1p7ttn/release/2">Technology, Mind, and Behavior</a>.
@@ -924,7 +927,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    video games, technology, digital trace data, covid-19
+                    covid-19, digital trace data, technology, video games
                 </div>
             
             <div class="listing-extras">
@@ -933,7 +936,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1037/tmb0000048">10.1037/tmb0000048</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2926/vuorre-etal_2021_technology,-mind,-and-behavior.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/WCIEWNU2/vuorre-etal_2021_technology,-mind,-and-behavior.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/digital-wellbeing/steam-lockdown">Data</a>
@@ -953,7 +956,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="20" data-categories="Y3VyaW9zaXR5JTJDbmVlZCUyMGZvciUyMGNvbnRyb2wlMkNuZWVkJTIwZm9yJTIwYWdlbmN5JTJDYWN0aXZlJTIwbGVhcm5pbmclMkNwcmVkaWN0aW9uJTIwZXJyb3IlMjBtb2RlbHMlMkNyZWluZm9yY2VtZW50JTIwbGVhcm5pbmclMkNyZWdpb24lMjBvZiUyMHByb3hpbWFsJTIwbGVhcm5pbmclMkNyZXdhcmQlMjBsZWFybmluZw==" data-listing-date-sort="1635894000000">
+        <li class="list-item" data-index="20" data-categories="YWN0aXZlJTIwbGVhcm5pbmclMkNjdXJpb3NpdHklMkNuZWVkJTIwZm9yJTIwYWdlbmN5JTJDbmVlZCUyMGZvciUyMGNvbnRyb2wlMkNwcmVkaWN0aW9uJTIwZXJyb3IlMjBtb2RlbHMlMkNyZWdpb24lMjBvZiUyMHByb3hpbWFsJTIwbGVhcm5pbmclMkNyZWluZm9yY2VtZW50JTIwbGVhcm5pbmclMkNyZXdhcmQlMjBsZWFybmluZw==" data-listing-date-sort="1635894000000">
             <div class="listing-name">
                 Metcalfe, Kennedy-Pyers, &amp; Vuorre
  (2021): <i>Curiosity and the desire for agency: wait, wait … don’t tell me!</i>. <a href="https://doi.org/10.1186/s41235-021-00330-0">Cognitive Research: Principles and Implications</a>.
@@ -961,7 +964,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    curiosity, need for control, need for agency, active learning, prediction error models, reinforcement learning, region of proximal learning, reward learning
+                    active learning, curiosity, need for agency, need for control, prediction error models, region of proximal learning, reinforcement learning, reward learning
                 </div>
             
             <div class="listing-extras">
@@ -970,7 +973,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1186/s41235-021-00330-0">10.1186/s41235-021-00330-0</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2775/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/KL5NXZH5/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/nkqd4/">Data</a>
@@ -990,7 +993,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="21" data-categories="b3BlbiUyMG1hdGVyaWFscyUyQ2Fkb2xlc2NlbnRzJTJDZGVwcmVzc2lvbiUyQ3NvY2lhbCUyMG1lZGlhJTJDbWVudGFsJTIwaGVhbHRo" data-listing-date-sort="1619992800000">
+        <li class="list-item" data-index="21" data-categories="YWRvbGVzY2VudHMlMkNkZXByZXNzaW9uJTJDbWVudGFsJTIwaGVhbHRoJTJDb3BlbiUyMG1hdGVyaWFscyUyQ3NvY2lhbCUyMG1lZGlh" data-listing-date-sort="1619992800000">
             <div class="listing-name">
                 Vuorre, Orben, &amp; Przybylski
  (2021): <i>There Is No Evidence That Associations Between Adolescents’ Digital Technology Engagement and Mental Health Problems Have Increased</i>. <a href="https://doi.org/10.1177/2167702621994549">Clinical Psychological Science</a>.
@@ -998,7 +1001,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    open materials, adolescents, depression, social media, mental health
+                    adolescents, depression, mental health, open materials, social media
                 </div>
             
             <div class="listing-extras">
@@ -1007,7 +1010,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1177/2167702621994549">10.1177/2167702621994549</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2925/vuorre-etal_2021_clinical-psychological-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/VCV7YWAQ/vuorre-etal_2021_clinical-psychological-science.pdf">Paper</a>
                 
                 
                 
@@ -1025,7 +1028,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="22" data-categories="d2VsbC1iZWluZyUyQ3ZpZGVvJTIwZ2FtZXMlMkNodW1hbiUyMG1vdGl2YXRpb24=" data-listing-date-sort="1613516400000">
+        <li class="list-item" data-index="22" data-categories="aHVtYW4lMjBtb3RpdmF0aW9uJTJDdmlkZW8lMjBnYW1lcyUyQ3dlbGwtYmVpbmc=" data-listing-date-sort="1613516400000">
             <div class="listing-name">
                 Johannes, Vuorre, &amp; Przybylski
  (2021): <i>Video game play is positively correlated with well-being</i>. <a href="https://doi.org/10.1098/rsos.202049">Royal Society Open Science</a>.
@@ -1033,7 +1036,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    well-being, video games, human motivation
+                    human motivation, video games, well-being
                 </div>
             
             <div class="listing-extras">
@@ -1042,7 +1045,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1098/rsos.202049">10.1098/rsos.202049</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2690/johannes-etal_2021_royal-society-open-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/CEBJ4I38/johannes-etal_2021_royal-society-open-science.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/cjd6z/">Data</a>
@@ -1062,7 +1065,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="23" data-categories="bWVhc3VyZW1lbnQlMkNtZXRhY29nbml0aW9uJTJDY29uZmlkZW5jZQ==" data-listing-date-sort="1610319600000">
+        <li class="list-item" data-index="23" data-categories="Y29uZmlkZW5jZSUyQ21lYXN1cmVtZW50JTJDbWV0YWNvZ25pdGlvbg==" data-listing-date-sort="1610319600000">
             <div class="listing-name">
                 Vuorre &amp; Metcalfe
  (2021): <i>Measures of relative metacognitive accuracy are confounded with task performance in tasks that permit guessing</i>. <a href="https://doi.org/10.1007/s11409-020-09257-1">Metacognition and Learning</a>.
@@ -1070,7 +1073,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    measurement, metacognition, confidence
+                    confidence, measurement, metacognition
                 </div>
             
             <div class="listing-extras">
@@ -1079,7 +1082,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1007/s11409-020-09257-1">10.1007/s11409-020-09257-1</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2924/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/7NK7WAEM/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/mvuorre/confPerf">Data</a>
@@ -1099,7 +1102,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="24" data-categories="b3BlbiUyMGRhdGElMkNyZXByb2R1Y2liaWxpdHklMkNyJTJDcmVzZWFyY2glMjBtZXRob2RzJTJDb3BlbiUyMHNjaWVuY2U=" data-listing-date-sort="1598911200000">
+        <li class="list-item" data-index="24" data-categories="b3BlbiUyMGRhdGElMkNvcGVuJTIwc2NpZW5jZSUyQ3IlMkNyZXByb2R1Y2liaWxpdHklMkNyZXNlYXJjaCUyMG1ldGhvZHM=" data-listing-date-sort="1598911200000">
             <div class="listing-name">
                 Vuorre &amp; Crump
  (2020): <i>Sharing and organizing research products as R packages</i>. <a href="https://doi.org/10.3758/s13428-020-01436-x">Behavior Research Methods</a>.
@@ -1107,7 +1110,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    open data, reproducibility, r, research methods, open science
+                    open data, open science, r, reproducibility, research methods
                 </div>
             
             <div class="listing-extras">
@@ -1116,7 +1119,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.3758/s13428-020-01436-x">10.3758/s13428-020-01436-x</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2918/vuorre-and-crump_2020_behavior-research-methods.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/979HTX3A/vuorre-and-crump_2020_behavior-research-methods.pdf">Paper</a>
                 
                 
                 
@@ -1151,7 +1154,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1002/hipo.23128">10.1002/hipo.23128</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2774/metcalfe-etal_2019_hippocampus.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/SGGIACJP/metcalfe-etal_2019_hippocampus.pdf">Paper</a>
                 
                 
                 ]
@@ -1167,7 +1170,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="26" data-categories="b3BlbiUyMGRhdGElMkNvcGVuJTIwbWF0ZXJpYWxzJTJDciUyQ2JybXMlMkNvcmRpbmFsJTIwbW9kZWxzJTJDbGlrZXJ0JTIwaXRlbXM=" data-listing-date-sort="1551394800000">
+        <li class="list-item" data-index="26" data-categories="YnJtcyUyQ2xpa2VydCUyMGl0ZW1zJTJDb3BlbiUyMGRhdGElMkNvcGVuJTIwbWF0ZXJpYWxzJTJDb3JkaW5hbCUyMG1vZGVscyUyQ3I=" data-listing-date-sort="1551394800000">
             <div class="listing-name">
                 Bürkner &amp; Vuorre
  (2019): <i>Ordinal Regression Models in Psychology: A Tutorial</i>. <a href="https://doi.org/10.1177/2515245918823199">Advances in Methods and Practices in Psychological Science</a>.
@@ -1175,7 +1178,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    open data, open materials, r, brms, ordinal models, likert items
+                    brms, likert items, open data, open materials, ordinal models, r
                 </div>
             
             <div class="listing-extras">
@@ -1184,7 +1187,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1177/2515245918823199">10.1177/2515245918823199</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2554/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/TH6VUPYX/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/cu8jv/">Data</a>
@@ -1204,7 +1207,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="27" data-categories="bWVtb3J5JTJDZWVnJTJDdGlwLW9mLXRoZS10b25ndWUlMkNsZWFybmluZyUyQ2VycA==" data-listing-date-sort="1533074400000">
+        <li class="list-item" data-index="27" data-categories="ZWVnJTJDZXJwJTJDbGVhcm5pbmclMkNtZW1vcnklMkN0aXAtb2YtdGhlLXRvbmd1ZQ==" data-listing-date-sort="1533074400000">
             <div class="listing-name">
                 Bloom, Friedman, Xu, Vuorre, &amp; Metcalfe
  (2018): <i>Tip-of-the-tongue states predict enhanced feedback processing and subsequent memory</i>. <a href="http://www.sciencedirect.com/science/article/pii/S1053810018300254">Consciousness and Cognition</a>.
@@ -1212,7 +1215,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    memory, eeg, tip-of-the-tongue, learning, erp
+                    eeg, erp, learning, memory, tip-of-the-tongue
                 </div>
             
             <div class="listing-extras">
@@ -1221,7 +1224,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1016/j.concog.2018.05.010">10.1016/j.concog.2018.05.010</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2536/bloom-etal_2018_consciousness-and-cognition.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/5GDBLSS6/bloom-etal_2018_consciousness-and-cognition.pdf">Paper</a>
                 
                 
                 ]
@@ -1237,7 +1240,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="28" data-categories="b3BlbiUyMG1hdGVyaWFscyUyQ3JlcHJvZHVjaWJpbGl0eSUyQ3Jlc2VhcmNoJTIwbWV0aG9kcyUyQ29wZW4lMjBzY2llbmNlJTJDdmVyc2lvbiUyMGNvbnRyb2wlMkNnaXQ=" data-listing-date-sort="1527804000000">
+        <li class="list-item" data-index="28" data-categories="Z2l0JTJDb3BlbiUyMG1hdGVyaWFscyUyQ29wZW4lMjBzY2llbmNlJTJDcmVwcm9kdWNpYmlsaXR5JTJDcmVzZWFyY2glMjBtZXRob2RzJTJDdmVyc2lvbiUyMGNvbnRyb2w=" data-listing-date-sort="1527804000000">
             <div class="listing-name">
                 Vuorre &amp; Curley
  (2018): <i>Curating Research Assets: A Tutorial on the Git Version Control System</i>. <a href="https://doi.org/10.1177/2515245918754826">Advances in Methods and Practices in Psychological Science</a>.
@@ -1245,7 +1248,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    open materials, reproducibility, research methods, open science, version control, git
+                    git, open materials, open science, reproducibility, research methods, version control
                 </div>
             
             <div class="listing-extras">
@@ -1254,7 +1257,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1177/2515245918754826">10.1177/2515245918754826</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2919/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/QWZLT27G/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf">Paper</a>
                 
                 
                 
@@ -1272,7 +1275,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="29" data-categories="YWdlbmN5JTJDbWV0YWNvZ25pdGlvbiUyQ2NvZ25pdGlvbiUyQ2FsemhlaW1lcidzJTIwZGlzZWFzZSUyQ2Fub3NvZ25vc2lh" data-listing-date-sort="1522533600000">
+        <li class="list-item" data-index="29" data-categories="YWdlbmN5JTJDYWx6aGVpbWVyJ3MlMjBkaXNlYXNlJTJDYW5vc29nbm9zaWElMkNjb2duaXRpb24lMkNtZXRhY29nbml0aW9u" data-listing-date-sort="1522533600000">
             <div class="listing-name">
                 Chapman, Colvin, Vuorre, Cocchini, Metcalfe, Huey, &amp; Cosentino
  (2018): <i>Cross domain self-monitoring in anosognosia for memory loss in Alzheimer's disease</i>. <a href="https://www.sciencedirect.com/science/article/pii/S0010945218300364">Cortex</a>.
@@ -1280,7 +1283,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    agency, metacognition, cognition, alzheimer's disease, anosognosia
+                    agency, alzheimer's disease, anosognosia, cognition, metacognition
                 </div>
             
             <div class="listing-extras">
@@ -1289,7 +1292,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1016/j.cortex.2018.01.019">10.1016/j.cortex.2018.01.019</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4082/chapman-etal_2018_cortex.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/IVDVUCLP/chapman-etal_2018_cortex.pdf">Paper</a>
                 
                 
                 ]
@@ -1322,7 +1325,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1080/21642850.2018.1428102">10.1080/21642850.2018.1428102</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2665/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/47HQPJS9/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://doi.org/10.5281/zenodo.1209813">Data</a>
@@ -1342,7 +1345,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="31" data-categories="bWVkaWF0aW9uJTJDYmF5ZXNpYW4lMjBzdGF0aXN0aWNzJTJDbXVsdGlsZXZlbCUyMGFuYWx5c2lzJTJDcmVwZWF0ZWQlMjBtZWFzdXJlcyUyQ2NhdXNhbCUyMG1lY2hhbmlzbQ==" data-listing-date-sort="1513292400000">
+        <li class="list-item" data-index="31" data-categories="YmF5ZXNpYW4lMjBzdGF0aXN0aWNzJTJDY2F1c2FsJTIwbWVjaGFuaXNtJTJDbWVkaWF0aW9uJTJDbXVsdGlsZXZlbCUyMGFuYWx5c2lzJTJDcmVwZWF0ZWQlMjBtZWFzdXJlcw==" data-listing-date-sort="1513292400000">
             <div class="listing-name">
                 Vuorre &amp; Bolger
  (2017): <i>Within-subject mediation analysis for experimental data in cognitive psychology and neuroscience</i>. <a href="https://link.springer.com/article/10.3758/s13428-017-0980-9">Behavior Research Methods</a>.
@@ -1350,7 +1353,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    mediation, bayesian statistics, multilevel analysis, repeated measures, causal mechanism
+                    bayesian statistics, causal mechanism, mediation, multilevel analysis, repeated measures
                 </div>
             
             <div class="listing-extras">
@@ -1359,7 +1362,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.3758/s13428-017-0980-9">10.3758/s13428-017-0980-9</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2917/vuorre-and-bolger_2017_behavior-research-methods.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/U56FKGFU/vuorre-and-bolger_2017_behavior-research-methods.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/mvuorre/bmlm/">Data</a>
@@ -1379,7 +1382,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="32" data-categories="dGltZSUyMHBlcmNlcHRpb24lMkNhZ2VuY3klMkN2b2xpdGlvbiUyQ3Zpc3VhbCUyMHBlcmNlcHRpb24lMkNhY3Rpb24=" data-listing-date-sort="1498860000000">
+        <li class="list-item" data-index="32" data-categories="YWN0aW9uJTJDYWdlbmN5JTJDdGltZSUyMHBlcmNlcHRpb24lMkN2aXN1YWwlMjBwZXJjZXB0aW9uJTJDdm9saXRpb24=" data-listing-date-sort="1498860000000">
             <div class="listing-name">
                 Vuorre &amp; Metcalfe
  (2017): <i>Voluntary action alters the perception of visual illusions</i>. <a href="https://link.springer.com/article/10.3758/s13414-017-1321-x">Attention, Perception, &amp; Psychophysics</a>.
@@ -1387,7 +1390,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    time perception, agency, volition, visual perception, action
+                    action, agency, time perception, visual perception, volition
                 </div>
             
             <div class="listing-extras">
@@ -1396,7 +1399,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.3758/s13414-017-1321-x">10.3758/s13414-017-1321-x</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2922/vuorre-and-metcalfe_2017_attention,-perception,-&amp;-psychophysics.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/ZCFSTQM9/vuorre-and-metcalfe_2017_attention,-perception,-&amp;-psychophysics.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://github.com/mvuorre/vmapp2017">Data</a>
@@ -1416,7 +1419,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="33" data-categories="YWdlbmN5JTJDaW50ZW50aW9uJTJDdm9saXRpb24lMkNtZXRhY29nbml0aW9uJTJDbXVsdGktc3R1ZHklMjBhbmFseXNpcw==" data-listing-date-sort="1492725600000">
+        <li class="list-item" data-index="33" data-categories="YWdlbmN5JTJDaW50ZW50aW9uJTJDbWV0YWNvZ25pdGlvbiUyQ211bHRpLXN0dWR5JTIwYW5hbHlzaXMlMkN2b2xpdGlvbg==" data-listing-date-sort="1492725600000">
             <div class="listing-name">
                 Sidarus, Vuorre, &amp; Haggard
  (2017): <i>Integrating prospective and retrospective cues to the sense of agency: a multi-study investigation</i>. <a href="https://academic.oup.com/nc/article/3/1/nix012/3858560/Integrating-prospective-and-retrospective-cues-to">Neuroscience of Consciousness</a>.
@@ -1424,7 +1427,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    agency, intention, volition, metacognition, multi-study analysis
+                    agency, intention, metacognition, multi-study analysis, volition
                 </div>
             
             <div class="listing-extras">
@@ -1433,7 +1436,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1093/nc/nix012">10.1093/nc/nix012</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2874/sidarus-etal_2017_neuroscience-of-consciousness.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4JCNEF7Z/sidarus-etal_2017_neuroscience-of-consciousness.pdf">Paper</a>
                 
                 
                     | <i class="fa-solid fa-chart-simple"></i> <a href="https://osf.io/2qkrh/">Data</a>
@@ -1451,7 +1454,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="34" data-categories="bWV0YWNvZ25pdGlvbiUyQ2NvZ25pdGl2ZSUyMGNvbnRyb2wlMkNzZW5zZSUyMG9mJTIwYWdlbmN5JTJDYWN0aW9uJTIwc2VsZWN0aW9uJTJDYWN0aW9uJTIwbW9uaXRvcmluZyUyQ2V2b2tlZCUyMHBvdGVudGlhbHM=" data-listing-date-sort="1492207200000">
+        <li class="list-item" data-index="34" data-categories="YWN0aW9uJTIwbW9uaXRvcmluZyUyQ2FjdGlvbiUyMHNlbGVjdGlvbiUyQ2NvZ25pdGl2ZSUyMGNvbnRyb2wlMkNldm9rZWQlMjBwb3RlbnRpYWxzJTJDbWV0YWNvZ25pdGlvbiUyQ3NlbnNlJTIwb2YlMjBhZ2VuY3k=" data-listing-date-sort="1492207200000">
             <div class="listing-name">
                 Sidarus, Vuorre, &amp; Haggard
  (2017): <i>How action selection influences the sense of agency: An ERP study</i>. <a href="http://www.sciencedirect.com/science/article/pii/S1053811917301180">NeuroImage</a>.
@@ -1459,7 +1462,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    metacognition, cognitive control, sense of agency, action selection, action monitoring, evoked potentials
+                    action monitoring, action selection, cognitive control, evoked potentials, metacognition, sense of agency
                 </div>
             
             <div class="listing-extras">
@@ -1468,7 +1471,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1016/j.neuroimage.2017.02.015">10.1016/j.neuroimage.2017.02.015</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/5150/sidarus-etal_2017_neuroimage.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/3WY8QZVV/sidarus-etal_2017_neuroimage.pdf">Paper</a>
                 
                 
                 ]
@@ -1484,7 +1487,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="35" data-categories="bWV0YWNvZ25pdGlvbiUyQ3NlbnNlJTIwb2YlMjBhZ2VuY3klMkNhY3Rpb24lMjBzZWxlY3Rpb24lMkNtb3RvciUyMGNvbnRyb2wlMkNmbHVlbmN5" data-listing-date-sort="1492034400000">
+        <li class="list-item" data-index="35" data-categories="YWN0aW9uJTIwc2VsZWN0aW9uJTJDZmx1ZW5jeSUyQ21ldGFjb2duaXRpb24lMkNtb3RvciUyMGNvbnRyb2wlMkNzZW5zZSUyMG9mJTIwYWdlbmN5" data-listing-date-sort="1492034400000">
             <div class="listing-name">
                 Sidarus, Vuorre, Metcalfe, &amp; Haggard
  (2017): <i>Investigating the Prospective Sense of Agency: Effects of Processing Fluency, Stimulus Ambiguity, and Response Conflict</i>. <a href="https://www.frontiersin.org/article/10.3389/fpsyg.2017.00545">Frontiers in Psychology</a>.
@@ -1492,7 +1495,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    metacognition, sense of agency, action selection, motor control, fluency
+                    action selection, fluency, metacognition, motor control, sense of agency
                 </div>
             
             <div class="listing-extras">
@@ -1501,7 +1504,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.3389/fpsyg.2017.00545">10.3389/fpsyg.2017.00545</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2979/sidarus-etal_2017_frontiers-in-psychology.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/XDUUEIQG/sidarus-etal_2017_frontiers-in-psychology.pdf">Paper</a>
                 
                 
                 ]
@@ -1517,7 +1520,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="36" data-categories="dGltZSUyMHBlcmNlcHRpb24lMkNhZ2VuY3klMkN2b2xpdGlvbiUyQ3NlbnNlJTIwb2YlMjBhZ2VuY3k=" data-listing-date-sort="1483225200000">
+        <li class="list-item" data-index="36" data-categories="YWdlbmN5JTJDc2Vuc2UlMjBvZiUyMGFnZW5jeSUyQ3RpbWUlMjBwZXJjZXB0aW9uJTJDdm9saXRpb24=" data-listing-date-sort="1483225200000">
             <div class="listing-name">
                 Vuorre
  (2017): <i>On Time, Causation, and the Sense of Agency</i>. <a href="https://www.ingentaconnect.com/content/imp/jcs/2017/00000024/f0020003/art00011">Journal of Consciousness Studies</a>.
@@ -1525,7 +1528,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    time perception, agency, volition, sense of agency
+                    agency, sense of agency, time perception, volition
                 </div>
             
             <div class="listing-extras">
@@ -1534,7 +1537,7 @@ window.Quarto = {
                     <a href="https://www.ingentaconnect.com/content/imp/jcs/2017/00000024/f0020003/art00011">link</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/4080/vuorre_2017_journal-of-consciousness-studies.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/EGYNMN4I/vuorre_2017_journal-of-consciousness-studies.pdf">Paper</a>
                 
                 
                 ]
@@ -1550,7 +1553,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="37" data-categories="YWdlbmN5JTJDc2Vuc2UlMjBvZiUyMGFnZW5jeSUyQ2Zsb3c=" data-listing-date-sort="1464818400000">
+        <li class="list-item" data-index="37" data-categories="YWdlbmN5JTJDZmxvdyUyQ3NlbnNlJTIwb2YlMjBhZ2VuY3k=" data-listing-date-sort="1464818400000">
             <div class="listing-name">
                 Vuorre &amp; Metcalfe
  (2016): <i>The relation between the sense of agency and the experience of flow</i>. <a href="http://www.sciencedirect.com/science/article/pii/S105381001630126X">Consciousness and Cognition</a>.
@@ -1558,7 +1561,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    agency, sense of agency, flow
+                    agency, flow, sense of agency
                 </div>
             
             <div class="listing-extras">
@@ -1567,7 +1570,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.1016/j.concog.2016.06.001">10.1016/j.concog.2016.06.001</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2921/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/XN7IZZJL/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf">Paper</a>
                 
                 
                 ]
@@ -1583,7 +1586,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="38" data-categories="Y29nbml0aXZlJTIwcHN5Y2hvbG9neSUyQ3N0YXRpc3RpY3MlMkNkZWNpc2lvbiUyMG1ha2luZyUyQ25ldXJvaW1hZ2luZw==" data-listing-date-sort="1360623600000">
+        <li class="list-item" data-index="38" data-categories="Y29nbml0aXZlJTIwcHN5Y2hvbG9neSUyQ2RlY2lzaW9uJTIwbWFraW5nJTJDbmV1cm9pbWFnaW5nJTJDc3RhdGlzdGljcw==" data-listing-date-sort="1360623600000">
             <div class="listing-name">
                 Michael, Newman, Vuorre, Cumming, &amp; Garry
  (2013): <i>On the (non)persuasive power of a brain image</i>. <a href="http://link.springer.com/article/10.3758/s13423-013-0391-6">Psychonomic Bulletin &amp; Review</a>.
@@ -1591,7 +1594,7 @@ window.Quarto = {
             
                 <div class="listing-categories">
                     <i class="fa-solid fa-tags"></i>
-                    cognitive psychology, statistics, decision making, neuroimaging
+                    cognitive psychology, decision making, neuroimaging, statistics
                 </div>
             
             <div class="listing-extras">
@@ -1600,7 +1603,7 @@ window.Quarto = {
                     <a href="https://doi.org/10.3758/s13423-013-0391-6">10.3758/s13423-013-0391-6</a>
                 
                 
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/2776/michael-etal_2013_psychonomic-bulletin-&amp;-review.pdf">Paper</a>
+                    | <i class="fa-solid fa-file-pdf"></i> <a href="bibliography/files/D6SWT3LF/michael-etal_2013_psychonomic-bulletin-&amp;-review.pdf">Paper</a>
                 
                 
                 ]
@@ -1620,6 +1623,9 @@ window.Quarto = {
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="journal-articles-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 
 

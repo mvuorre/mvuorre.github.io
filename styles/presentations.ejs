@@ -6,7 +6,10 @@
                 <%= item.title %> (<%= item.date %>).
             </span>
             <span class="listing-location">
-                <i><%- item.location %></i>.
+                <% if (item.meeting!="NA") { %>
+                    <i><%- item.meeting %></i>,
+                <% } %>
+                <i><%- item.place %></i>.
                 <% if (item.url) { %>
                     <span class="listing-url">
                         [<a href="<%- item.url %>">link</a>]

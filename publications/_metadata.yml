@@ -1,6 +1,0 @@
-# Shared options for posts
-comments: false
-
-# Disable banner style title blocks
-title-block-banner: false
-title-block-style: default

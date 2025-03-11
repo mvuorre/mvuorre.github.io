@@ -10,17 +10,17 @@
                     <i><%- item.meeting %></i>,
                 <% } %>
                 <i><%- item.place %></i>.
-                <% if (item.url) { %>
+                <% if (item.url!="NA") { %>
                     <span class="listing-url">
                         [<a href="<%- item.url %>">link</a>]
                     </span>
                 <% } %>
             <span>
-            <% if (item.abstract) { %>
+            <% if (item.abstract!="NA") { %>
                 <details>
                     <summary>Summary</summary>
                     <div class="listing-abstract">
-                        <%= item.abstract %>
+                        <%- item.abstract %>
                     </div>
                 </details>
             <% } %>

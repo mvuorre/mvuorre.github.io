@@ -846,7 +846,7 @@
   file: bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf
   place: NA
   meeting: NA
-  categories: [signal detection theory, bias, deception detection, mixed effects models, veracity]
+  categories: [bias, deception detection, mixed effects models, signal detection theory, veracity]
   abstract: |
     Historically, deception detection research has relied on factorial analyses of response accuracy to make inferences. However, this practice overlooks important sources of variability resulting in potentially misleading estimates and may conflate response bias with participants’ underlying sensitivity to detect lies from truths. We showcase an alternative approach using a signal detection theory (SDT) with generalized linear mixed models framework to address these limitations. This SDT approach incorporates individual differences from both judges and senders, which are a principal source of spurious findings in deception research. By avoiding data transformations and aggregations, this methodology outperforms traditional methods and provides more informative and reliable effect estimates. This well-established framework offers researchers a powerful tool for analyzing deception data and advances our understanding of veracity judgments. All code and data are openly available.
   license: CC-BY

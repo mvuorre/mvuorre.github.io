@@ -1,6 +1,5 @@
 project:
   type: website
-  pre-render: bibliography.R
   output-dir: docs
   resources:
     - CNAME

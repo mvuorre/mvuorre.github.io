@@ -15,7 +15,7 @@ PATH_OUT <- "bibliography/files"
 # `matti-vuorre` -> bibliography/bibliography.bib
 # and repair paths
 # Get data from local Zotero using better bibtex API
-bib <- request(
+request(
   "http://127.0.0.1:23119/better-bibtex/export/collection?/1/Q2IN5TBW.bibtex"
 ) |>
   req_perform() |>
@@ -96,7 +96,7 @@ dat |>
   categories: [{tags}]
   abstract: |
     {str_remove_all(abstract_note, '\\n')}
-  {str_replace(extra, '\\n', '\\n  ')}
+  {str_replace_all(extra, '\\n', '\\n  ')}
 "
   ) |>
   cat(file = "bibliography/items.yml", sep = "\n")

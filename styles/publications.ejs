@@ -11,22 +11,25 @@
                     <%= item.categories.join(", ") %>
                 </div>
             <% } %>
-            <div class="listing-extras">
+            <div class="listing-extras" style="font-size:0.9em;">
                 [<% if (item.doi != "NA") { %>
-                    <i class="ai ai-doi"></i>
-                    <a href="https://doi.org/<%- item.doi %>"><%= item.doi %></a>
+                    <i class="ai ai-doi" style="font-size:0.8em;"></i>
+                    <a href="https://doi.org/<%- item.doi %>">Publication</a>
                 <% } else { %>
-                    <i class="fa-solid fa-globe"></i>
+                    <i class="fa-solid fa-globe" style="font-size:0.8em;"></i>
                     <a href="<%- item.url %>">link</a>
                 <% } %>
                 <% if (item.file != "NA") { %>
-                    | <i class="fa-solid fa-file-pdf"></i> <a href="<%- item.file %>">Paper</a>
+                    (<i class="fa-solid fa-file-pdf" style="font-size:0.8em;"></i> <a href="<%- item.file %>">PDF</a>)
                 <% } %>
+                <% if (item.preprint) { %>
+                    | <i class="ai ai-doi" style="font-size:0.8em;"></i> <a href="<%- item.preprint %>">Preprint</a>
+                    <% } %>
                 <% if (item.data) { %>
-                    | <i class="fa-solid fa-chart-simple"></i> <a href="<%- item.data %>">Data</a>
+                    | <i class="fa-solid fa-chart-simple" style="font-size:0.8em;"></i> <a href="<%- item.data %>">Data</a>
                 <% } %>
                 <% if (item.code) { %>
-                    | <i class="fa-solid fa-code"></i> <a href="<%- item.code %>">Code</a>
+                    | <i class="fa-solid fa-code" style="font-size:0.8em;"></i> <a href="<%- item.code %>">Code</a>
                 <% } %>]
             </div>
             <% if(item.abstract) { %>

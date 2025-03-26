@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  preview:
+    port: 4321
+    browser: false
   resources:
     - CNAME
 
@@ -36,8 +39,6 @@ website:
   navbar:
     pinned: true
     right:
-      - text: Home
-        href: index.qmd
       - text: Works
         href: publications.qmd
       - text: Blog

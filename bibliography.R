@@ -148,7 +148,7 @@ request(
   date: {date}
   date_read: {dateModified}
   type: {type}
-  authors: |
+  authors: >-
     {authors}
   abstract: |
     {str_remove_all(abstract, '\\n')}

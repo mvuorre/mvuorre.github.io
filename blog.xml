@@ -8827,7 +8827,7 @@ Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
 <item>
   <title>Estimating Signal Detection Models with regression using the brms R package</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</link>
+  <link>https://vuorre.com/posts/sdt-regression/</link>
   <description><![CDATA[ 
 <script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -9771,7 +9771,7 @@ font-style: inherit;">"right"</span></span>
 <div id="fig-sdt-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sdt-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdt-example-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-sdt-example-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdt-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Illustration of subjective evidence distributions postulated by Signal Detection Theory. Each stimulus presentation elicits a degree of evidence, which is assumed to be normally distributed as a sum of many unknown sources of noise in the information processing flow from stimulus to consciousness. On noise trials (left; e.g.&nbsp;new items in a memory experiment), the evidence distribution is centered on zero. On signal trials (right; e.g.&nbsp;old items) the distribution has some positive mean if the participant can—on average—distinguish the signal from noise. The vertical line illustrates the decision criterion <em>c</em> which the evidence must exceed for a participant to decide that the trial contained a signal. The distance between the two distributions’ means indicates discriminability <em>d’</em>.
@@ -10728,7 +10728,7 @@ Table&nbsp;3: Four subjects’ SDT parameters and the quantities used to calcula
 <div id="fig-sdt1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdt1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-sdt1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: <strong>Left.</strong> The signal detection model for three participants. The two curves are the noise (dashed) and signal distributions (solid); the vertical line represents the response criterion <em>c</em>. <em>d’</em> is the distance between the two distributions’ means. Of these three participants, 29 has the lowest <em>c</em> and therefore the most liberal response bias. Participant 19 has the smallest <em>d’</em> and therefore the worst ability to discriminate between new and old items. <strong>Right.</strong> Scatterplot of all participants’ criteria and d’, with the three participants shown in the left panel highlighted in bold font.
@@ -11593,7 +11593,7 @@ font-style: inherit;">|</span> pb)</span></code></pre></div>
 <div id="fig-glm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: SDT parameters as estimated with a Generalized Linear Model. <strong>Left.</strong> The (approximate) joint posterior density of subject 1’s SDT parameters. Lighter hues indicate higher posterior density and therefore parameter values in which we are more confident. The red dot indicates the manually calculated point estimate of <em>c</em> and <em>d’</em>. <strong>Right.</strong> Posterior means and 95%CIs of all participants’ parameters (empty circles and intervals) along with manually calculated point estimates (filled circles). The two are in perfect agreement.
@@ -12449,7 +12449,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div id="fig-glmm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glmm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glmm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glmm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glmm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: <strong>Left.</strong> The (approximate) joint posterior density of the average <em>d’</em> and criterion. Lighter values indicate higher posterior probability. <strong>Middle.</strong> The (approximate) joint posterior density of the standard deviations of <em>d’</em> and criterion in the population. In both panels, the red dot indicates sample statistics. <strong>Right.</strong> Subject-specific <em>d’</em>s and criteria as given by the independent models (arrow origins), and as estimated by the hierarchical model (arrow tips). The hierarchical model shrinks the estimated parameters toward the population means. This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject’s data, and other subjects in the sample.
@@ -12975,7 +12975,7 @@ font-style: inherit;">element_blank</span>()</span>
 <div id="fig-glm-rating" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glm-rating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glm-rating-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glm-rating-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glm-rating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Signal detection model of participant 1’s rating data, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the estimated thresholds. d’ is the distance between the peaks of the two distributions.
@@ -13428,7 +13428,7 @@ font-style: inherit;">element_blank</span>()</span>
 <div id="fig-glmm-rating1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glmm-rating1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glmm-rating1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glmm-rating1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glmm-rating1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Implied SDT model from multilevel regression model with by-subject random intercepts and slopes. Density curves indicate latent evidence distributions (dashed line: noise trials; solid line: signal trials). Vertical lines indicate thresholds.
@@ -13897,7 +13897,7 @@ font-style: inherit;">"collect"</span>)</span></code></pre></div>
 <div id="fig-glmm-thresholds1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glmm-thresholds1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glmm-thresholds1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glmm-thresholds1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glmm-thresholds1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: <strong>Top.</strong> As Figure&nbsp;6. <strong>Bottom.</strong> Implied SDT models for three participants, and population, from multilevel model with by-subject random slopes and fixed intercepts.
@@ -14300,7 +14300,7 @@ font-style: inherit;"># )</span></span></code></pre></div>
 <div id="fig-glmm-thresholds2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-glmm-thresholds2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-glmm-thresholds2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-glmm-thresholds2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-glmm-thresholds2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: Comparison of d’ parameters from multilevel rating model with random subject-specific intercepts (blue) and fixed subject-specific thresholds (red). <strong>Left.</strong> Posterior means and 95%CIs of d’ from both models; estimates are comparable and rank orders are reasonably similar. <strong>Right.</strong> Scatterplot of subject-specific d’ from the two models shows they are strongly correlated (r = [.80, .93]). Filled point and intervals indicate the population-level d’ and its 95%CI.
@@ -14659,7 +14659,7 @@ font-style: inherit;">"none"</span></span>
 <div id="fig-evsdt-epred" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-evsdt-epred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-evsdt-epred-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="556">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-evsdt-epred-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="556">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evsdt-epred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: Model-predicted response proportions from multilevel rating model with random subject-specific intercepts (blue) and fixed subject-specific thresholds (red), along with data (gray bars).
@@ -15242,7 +15242,7 @@ font-style: inherit;">element_blank</span>()</span>
 <div id="fig-uvsdt1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-uvsdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-uvsdt1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-uvsdt1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uvsdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10: The unequal variance Gaussian signal detection model, visualized from the parameters’ posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the thresholds, and d’ is indicated by the scaled distance between the peaks of the two distributions.
@@ -15866,7 +15866,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div id="fig-mix-thetas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mix-thetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-mix-thetas-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-mix-thetas-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mix-thetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;11: Mixing proportions for each participant (empty) and the population (filled).
@@ -16765,7 +16765,7 @@ font-style: inherit;">|</span> pb)</span></code></pre></div>
 <div id="fig-roc-data" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-roc-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-roc-data-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-roc-data-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12: Receiver operating characteristic plots in the proportion (left) and z-score scales (right) for three participants and the population. Black symbols and lines are coordinates calculated from data, red symbols are model-predicted rates.
@@ -17623,7 +17623,7 @@ font-style: inherit;">/</span> pb</span></code></pre></div>
 <div id="fig-roc-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-roc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-roc-model-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
+<img src="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-roc-model-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13: Caption.
@@ -17806,7 +17806,7 @@ Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <
   title = {Estimating {Signal} {Detection} {Models} with Regression
     Using the Brms {R} Package},
   date = {2017-10-09},
-  url = {https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/},
+  url = {https://vuorre.com/posts/sdt-regression/},
   langid = {en},
   abstract = {Signal Detection Theory is a widely used framework for
     understanding decisions by distinguishing between response bias and
@@ -17833,7 +17833,7 @@ Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“Estimating Signal Detection Models with
-Regression Using the Brms R Package.”</span> October 9, 2017. <a href="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/">https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</a>.
+Regression Using the Brms R Package.”</span> October 9, 2017. <a href="https://vuorre.com/posts/sdt-regression/">https://vuorre.com/posts/sdt-regression/</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <category>statistics</category>
@@ -17841,9 +17841,9 @@ Regression Using the Brms R Package.”</span> October 9, 2017. <a href="https:/
   <category>tutorial</category>
   <category>R</category>
   <category>brms</category>
-  <guid>https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/</guid>
+  <guid>https://vuorre.com/posts/sdt-regression/</guid>
   <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index_files/figure-html/fig-sdt-example-1.png" medium="image" type="image/png" height="58" width="144"/>
+  <media:content url="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-sdt-example-1.png" medium="image" type="image/png" height="58" width="144"/>
 </item>
 <item>
   <title>Bayes Factors with brms</title>

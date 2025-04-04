@@ -37,6 +37,12 @@ format:
     toc-depth: 1
     wordcount: '{{< words-body >}}'
     authornote: "This write-up first appeared as a blog post at <https://vuorre.com/posts/sdt-regression/>. Read at that URL to view and download the manuscript's source code. This work has not yet been peer reviewed."
+citation:
+  type: article
+  container-title: "PsyArXiv"
+  doi: "10.31234/osf.io/vtfc3_v1"
+  url: https://osf.io/preprints/psyarxiv/vtfc3_v1
+google-scholar: true
 ---
 
 ```{r}

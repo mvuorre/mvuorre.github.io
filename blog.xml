@@ -17801,12 +17801,13 @@ Wickens, Thomas D. 2001. <em>Elementary <span>Signal Detection Theory</span></em
 <div id="ref-zloteanuTutorialDeceptionDetection2024" class="csl-entry">
 Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <span>Deception Detection Analysis</span> or: <span>How I Learned</span> to <span>Stop Aggregating Veracity Judgments</span> and <span>Embraced Signal Detection Theory Mixed Models</span>.”</span> <em>Journal of Nonverbal Behavior</em>, March. <a href="https://doi.org/10.1007/s10919-024-00456-x">https://doi.org/10.1007/s10919-024-00456-x</a>.
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{vuorre2017,
   author = {Vuorre, Matti},
   title = {Estimating {Signal} {Detection} {Models} with Regression
     Using the Brms {R} Package},
   date = {2017-10-09},
-  url = {https://vuorre.com/posts/sdt-regression/},
+  url = {https://osf.io/preprints/psyarxiv/vtfc3_v1},
+  doi = {10.31234/osf.io/vtfc3_v1},
   langid = {en},
   abstract = {Signal Detection Theory is a widely used framework for
     understanding decisions by distinguishing between response bias and
@@ -17833,7 +17834,7 @@ Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2017. <span>“Estimating Signal Detection Models with
-Regression Using the Brms R Package.”</span> October 9, 2017. <a href="https://vuorre.com/posts/sdt-regression/">https://vuorre.com/posts/sdt-regression/</a>.
+Regression Using the Brms R Package.”</span> <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/vtfc3_v1">https://doi.org/10.31234/osf.io/vtfc3_v1</a>.
 </div></div></section></div> ]]></description>
   <category>psychology</category>
   <category>statistics</category>

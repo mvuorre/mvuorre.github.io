@@ -8,7 +8,7 @@ $endif$
 $if(by-author)$
   authors: (
   $for(by-author)$
-      ( 
+      (
         name: [$it.name.literal$],
         affiliation: [$for(it.affiliations)$$it.id$$sep$, $endfor$],
         $if(it.attributes.corresponding)$corresponding: $it.attributes.corresponding$,$endif$
@@ -32,14 +32,20 @@ $endif$
 $if(date)$
   date: [$date$],
 $endif$
-$if(leading)$
-  leading: $leading$,
-$endif$
 $if(branding)$
   branding: "$branding$",
 $endif$
+$if(leading)$
+  leading: $leading$,
+$endif$
 $if(spacing)$
   spacing: $spacing$,
+$endif$
+$if(first-line-indent)$
+  first-line-indent: $first-line-indent$,
+$endif$
+$if(all)$
+  all: $all$,
 $endif$
 $if(linkcolor)$
   linkcolor: $linkcolor$,
@@ -64,8 +70,8 @@ $endif$
 $if(abstract)$
   abstract: [$abstract$],
 $endif$
-$if(keywords)$
-  keywords: [$for(keywords)$$it$$sep$, $endfor$],
+$if(categories)$
+  categories: [$for(categories)$$it$$sep$, $endfor$],
 $endif$
 $if(wordcount)$
   wordcount: [$wordcount$],

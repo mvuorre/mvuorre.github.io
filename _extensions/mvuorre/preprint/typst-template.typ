@@ -1,121 +1,87 @@
+#import "@preview/fontawesome:0.5.0": *
+
 #let preprint(
+  // Document metadata
   title: none,
   running-head: none,
   authors: (),
   affiliations: none,
   abstract: none,
-  keywords: none,
+  categories: none,
   wordcount: none,
   authornote: none,
   citation: none,
   date: none,
   branding: none,
+
+  // Layout settings
   leading: 0.6em,
-  spacing: 1em,
-  first-line-indent: 0cm,
+  spacing: 0.6em,
+  first-line-indent: 1.8em,
+  all: false,
   linkcolor: black,
   margin: (x: 3.2cm, y: 3cm),
   paper: "a4",
+
+  // Typography settings
   lang: "en",
   region: "US",
   font: ("Times", "Times New Roman", "Arial"),
   fontsize: 11pt,
+
+  // Structure settings
   section-numbering: none,
   toc: false,
-  toc-title: "contents",
+  toc-title: none,
   toc-depth: none,
   toc-indent: 1.5em,
   bibliography-title: "References",
   bibliography-style: "apa",
   cols: 1,
   col-gutter: 4.2%,
-  doc,
+
+  doc
 ) = {
 
   /* Document settings */
 
-  // Set link and cite colors
+  // Link and cite colors
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
-
-  let orcidSvg = ```<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"> <path fill="#AECD54" d="M21.8,12c0,5.4-4.4,9.8-9.8,9.8S2.2,17.4,2.2,12S6.6,2.2,12,2.2S21.8,6.6,21.8,12z M8.2,5.8c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8S9,7,9,6.6S8.7,5.8,8.2,5.8z M10.5,15.4h1.2v-6c0,0-0.5,0,1.8,0s3.3,1.4,3.3,3s-1.5,3-3.3,3s-1.9,0-1.9,0H10.5v1.1H9V8.3H7.7v8.2h2.9c0,0-0.3,0,3,0s4.5-2.2,4.5-4.1s-1.2-4.1-4.3-4.1s-3.2,0-3.2,0L10.5,15.4z"/></svg>```.text
 
   // Allow custom title for bibliography section
   set bibliography(title: bibliography-title, style: bibliography-style)
 
   // Bibliography paragraph spacing
-  show bibliography: set par(spacing: spacing, leading: leading) if sys.version >= version(0, 12, 0)
-  show bibliography: set block(spacing: leading) if sys.version < version(0, 12, 0)
+  show bibliography: set par(spacing: spacing, leading: leading)
 
-  // Format author strings here, so can use in author note
-  let author_strings = ()
-  if authors != none {
-    for a in authors {
-      let author_string = box[#{
-        // Solo manuscripts don't have institutional id
-        a.name
-        if authors.len() > 1 {super(a.affiliation)}
-        if a.keys().contains("email") {[\*]}
-        if a.keys().contains("orcid") {
-            box(
-              height: 1em,
-              link(
-                a.orcid,
-                figure(
-                  image.decode(orcidSvg, height: 0.9em)
-                )
-              )
-            )
-          }
-        }
-        ]
-
-      if a.keys().contains("corresponding") {
-        authornote = [\*Send correspondence to: #a.name, #a.email.\ #authornote]
-      }
-      author_strings.push(author_string)
-    }
-  }
+  /* Page layout settings */
 
   // Page settings (including headers & footers)
   set page(
     paper: paper,
     margin: margin,
-    numbering: "1",
+    numbering: none,
     header-ascent: 50%,
-    header: locate(
-        loc => if [#loc.page()] != [1] {
-          // Page >1 header has running head and page number
-          grid(
+    header: context { if(counter(page).get().at(0) > 1) [
+        #grid(
             columns: (1fr, 1fr),
             align(left)[#running-head],
             align(right)[#counter(page).display()]
-          )
-        }
-    ),
-    footer-descent: 24pt,
-    footer: locate(
-        // Page 1 footer has author note
-        loc => if [#loc.page()] == [1] {
-          [#text(size: 0.85em)[#authornote]]
-        } else {
-          []
-        }
-    )
+        )
+    ]},
+    footer-descent: 10%
   )
+
+  /* Typography settings */
 
   // Paragraph settings
   set par(
     justify: true,
     leading: leading,
-    first-line-indent: first-line-indent
+    spacing: spacing,
+    first-line-indent: (amount: first-line-indent, all: all),
   )
-  // Set space between paragraphs
-  if sys.version >= version(0,12,0) {
-    set par(spacing: spacing)
-  } else {
-    show par: set block(spacing: spacing)
-  }
 
   // Text settings
   set text(
@@ -152,17 +118,17 @@
   show heading.where(
     level: 4
   ): it => box(
-    inset: (top: 0em, bottom: 0em, left: 0em, right: 1em),
-    text(size: 1em, weight: "bold", it)
+    inset: (top: 0em, bottom: 0em, left: 0em, right: 0.1em),
+    text(size: 1em, weight: "bold", it.body + [.])
   )
   show heading.where(
     level: 5
   ): it => box(
-    inset: (top: 0em, bottom: 0em, left: 0em, right: 1em),
-    text(size: 1em, weight: "bold", style: "italic", it)
+    inset: (top: 0em, bottom: 0em, left: 0em, right: 0.1em),
+    text(size: 1em, weight: "bold", style: "italic", it.body + [.])
   )
 
-  /* Content front matter */
+  /* Front matter formatting */
 
   let titleblock(
     body,
@@ -180,7 +146,66 @@
   ]
 
   if title != none {
-    titleblock(title)
+    titleblock(title, above: 0em, below: 2em)
+  }
+
+  /* Author formatting */
+
+  // Format author strings here, so can use in author note
+  let author_strings = ()
+  let equal_contributors = ()
+
+  if authors != none {
+    // First pass: collect equal contributors
+    for a in authors {
+      if a.keys().contains("equal-contributor") and a.at("equal-contributor") == true {
+        equal_contributors.push(a.name)
+      }
+    }
+
+    // Create equal contributor note text to reuse
+    let equal_contrib_text = none
+    if equal_contributors.len() > 1 {
+      equal_contrib_text = [#equal_contributors.join(", ", last: " & ") contributed equally to this work.]
+    }
+
+    // Second pass: build author display strings with attached footnotes
+    for a in authors {
+      let author_elements = (a.name,)
+
+      // Add affiliation superscript for multi-author papers
+      if authors.len() > 1 {
+        author_elements.push(super(a.affiliation))
+      }
+
+      // Add equal contributor marker if needed
+      if a.keys().contains("equal-contributor") and a.at("equal-contributor") == true and equal_contributors.len() > 1 {
+        author_elements.push(super[§])
+      }
+
+      // Add corresponding author footnote directly to the author name
+      if a.keys().contains("corresponding") {
+        author_elements.push(
+          footnote(numbering: "*", [
+            Send correspondence to: #a.name, #a.email.
+            #if equal_contrib_text != none [
+              #super[§]#equal_contrib_text
+            ]
+            #if authornote != none [#authornote]
+          ])
+        )
+      }
+
+      // Add ORCID if available
+      if a.keys().contains("orcid") {
+        author_elements.push(
+          link(a.orcid, fa-orcid(fill: rgb("a6ce39"), size: 0.8em))
+        )
+      }
+
+      // Add author string to the list
+      author_strings.push(box(author_elements.join()))
+    }
   }
 
   if authors != none {
@@ -199,14 +224,19 @@
     )
   }
 
-  // Abstract and keywords block
-  block(inset: (top: 2em, bottom: 0em, left: 2.4em, right: 2.4em))[
+  // Reset footnote counter for the main document
+  counter(footnote).update(0)
+
+  /* Abstract and metadata section */
+
+  block(inset: (top: 1em, bottom: 0em, left: 2.4em, right: 2.4em))[
     #set text(size: 0.92em)
+    #set par(first-line-indent: 0em)
     #if abstract != none {
       abstract
     }
-    #if keywords != none {
-      [#v(0.4em)#text(style: "italic")[Keywords:] #keywords]
+    #if categories != none {
+      [#v(0.4em)#text(style: "italic")[Keywords:] #categories]
     }
     #if wordcount != none {
       [\ #text(style: "italic")[Words:] #wordcount]
@@ -215,11 +245,6 @@
 
   // Table of contents
   if toc {
-    let title = if toc-title == none {
-      auto
-    } else {
-      toc-title
-    }
     block(inset: (top: 2em, bottom: 0em, left: 2.4em, right: 2.4em))[
       #outline(
         title: toc-title,
@@ -229,14 +254,7 @@
     ]
   }
 
-  // Center figure, left-align caption.
-  show figure: set block(inset: (top: 0.4em, bottom: 0.2em))
-    show figure: it => {
-      align(center, it.body)
-      align(left, it.caption)
-  }
-
-  /* Content */
+  /* Document content */
 
   // Separate content a bit from front matter
   v(2em)

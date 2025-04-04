@@ -29,6 +29,8 @@ author:
     affiliation: Tilburg University
     affiliation-url: https://www.tilburguniversity.edu/staff/m-j-vuorre
     orcid: 0000-0001-5052-066X
+    email: mjvuorre@uvt.nl
+    corresponding: true
 
 # Default fields for citation
 citation: true

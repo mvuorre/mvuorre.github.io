@@ -54,6 +54,16 @@ body {
     }
 }
 
+.blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #6c757d;
+    background-color: $code-bg;
+    color: $body-color;
+    position: relative;
+    border-radius: 0 4px 4px 0;
+}
+
 // Content
 .content {
     // Smooth page load

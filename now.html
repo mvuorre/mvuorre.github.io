@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,17 +31,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-772f16f1092111b8ed76131bef37b30d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-6bb072e51ab976e338d8fd19b221fbe5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ff524da8927d6f2c033456ab5cffb538.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f25a6b13c75e5f500ec4786b45cad294.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dark-e02010cdede84dc9c1046ad14e8b9c25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-025baf2d0b73e0c8f53e1e7c4c202bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -169,7 +170,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="floating nav-fixed">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -186,10 +187,6 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Works</span></a>
@@ -239,6 +236,136 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    toggleBodyColorPrimary();
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        disableStylesheet(primaryStylesheets)
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const darkModeDefault = false;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -266,7 +393,31 @@ window.Quarto = {
 <div id="listing-presentations" class="quarto-listing quarto-listing-container-custom">
 <ul class="list">
     
-        <li data-index="0" data-categories="" data-listing-date-sort="1739228400000">
+        <li data-index="0" data-categories="" data-listing-date-sort="1742252400000">
+            <span class="listing-name">
+                Collaborative science in the age of software (March 2025).
+            </span>
+            <span class="listing-location">
+                
+                <i>Princeton University</i>.
+                
+                    <span class="listing-url">
+                        [<a href="https://psych.princeton.edu/news-events/2025/matti-vuorre-assistant-professor-tilburg-university">link</a>]
+                    </span>
+                
+            <span>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        Science relies on software. Yet, we don't sufficiently make use of established tools for writing, collaborating on, and validating the software that underlies our empirical claims. Negative consequences of this blind spot manifest most saliently when data analyses go wrong, but also in severe inefficiencies in education, collaboration, knowledge sharing, and reproducibility. I outline ways in which our haphazard approach to software hinders the process of scientific discovery, and, perhaps more importantly, what we can do about it. A professional attitude, use of established tools for version control, collaboration, testing, and documenting, and an appreciation for software's importance to science is central in our quest for reliable, valid, and cumulative science.
+
+                    </div>
+                </details>
+            
+        </span></span></li>
+        
+        <li data-index="1" data-categories="" data-listing-date-sort="1739228400000">
             <span class="listing-name">
                 Digital risks and harms: From social media to artificial intelligence (February 2025).
             </span>
@@ -288,7 +439,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="1" data-categories="" data-listing-date-sort="1738882800000">
+        <li data-index="2" data-categories="" data-listing-date-sort="1738882800000">
             <span class="listing-name">
                 Understanding psychological heterogeneity with Bayesian hierarchical models (February 2025).
             </span>
@@ -308,7 +459,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="2" data-categories="" data-listing-date-sort="1733871600000">
+        <li data-index="3" data-categories="" data-listing-date-sort="1733871600000">
             <span class="listing-name">
                 Communicating causal effect heterogeneity (December 2024).
             </span>
@@ -332,7 +483,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="3" data-categories="" data-listing-date-sort="1725919200000">
+        <li data-index="4" data-categories="" data-listing-date-sort="1725919200000">
             <span class="listing-name">
                 Understanding psychological heterogeneity with Bayesian hierarchical models using the brms R package (September 2024).
             </span>
@@ -358,7 +509,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="4" data-categories="" data-listing-date-sort="1723586400000">
+        <li data-index="5" data-categories="" data-listing-date-sort="1723586400000">
             <span class="listing-name">
                 Investigating video game player behavior and well-being (August 2024).
             </span>
@@ -378,7 +529,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="5" data-categories="" data-listing-date-sort="1720130400000">
+        <li data-index="6" data-categories="" data-listing-date-sort="1720130400000">
             <span class="listing-name">
                 Video games and well-being (July 2024).
             </span>
@@ -400,7 +551,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="6" data-categories="" data-listing-date-sort="1719180000000">
+        <li data-index="7" data-categories="" data-listing-date-sort="1719180000000">
             <span class="listing-name">
                 Big data, small transparency: Limits to understanding, and addressing effectively, concerning behaviors in the online era (June 2024).
             </span>
@@ -426,7 +577,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="7" data-categories="" data-listing-date-sort="1719180000000">
+        <li data-index="8" data-categories="" data-listing-date-sort="1719180000000">
             <span class="listing-name">
                 Understanding the roles of digital technologies in psychological functioning (June 2024).
             </span>
@@ -446,7 +597,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="8" data-categories="" data-listing-date-sort="1716415200000">
+        <li data-index="9" data-categories="" data-listing-date-sort="1716415200000">
             <span class="listing-name">
                 Internet technology and well-being (May 2024).
             </span>
@@ -466,7 +617,7 @@ window.Quarto = {
             
         </span></span></li>
         
-        <li data-index="9" data-categories="" data-listing-date-sort="1679868000000">
+        <li data-index="10" data-categories="" data-listing-date-sort="1679868000000">
             <span class="listing-name">
                 Understanding the roles of digital technologies in psychological functioning (March 2023).
             </span>
@@ -489,9 +640,7 @@ window.Quarto = {
         </span></span></li>
         
 </ul>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 <nav id="presentations-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
@@ -506,30 +655,93 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                            <i class="fa-solid fa-globe"></i>
-                            
-                                        <a href="https://undark.org/2024/07/04/opinion-misplaced-incentives-academic-publishing/">
-                                            The Misplaced Incentives in Academic Publishing
-                                        </a>
+                    <i class="fa-solid fa-globe"></i>
+                
+                    <a href="https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html">Antiqua et nova. Note&nbsp;on the Relationship Between Artificial Intelligence and Human Intelligence</a>
+                    (Dicastery for the doctrine of the faith &amp;  Dicastery for culture and education)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        C. Brandon Ogbunu
+                <span class="listing-date">
+                    <strong>Date:</strong>
+                    
+                        2025-01-28
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-04-01
+                    
+                    
+                        | <strong>Archive:</strong>
+                        <a href="https://archive.is/etvMY">https://archive.is/etvMY</a>
+                    
+                </span>
+            </div>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        NA
 
                     </div>
+                </details>
+                
+        </li>
+        
+        <li class="list-item">
+            <div class="listing-name">
+                
+                    <i class="fa-solid fa-newspaper"></i>
+                
+                    <a href="https://www.wired.com/story/inside-arxiv-most-transformative-code-science/">Inside arXiv—the Most Transformative Platform in All of Science</a>
+                    (Sheon Han)
+            </div>
+            <div class="listing-meta">
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-07-04
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-03-10
-                                                    
-                                                        
-                        </span>
+                        2025-03-27
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-03-31
+                    
+                    
+                        | <strong>Archive:</strong>
+                        <a href="https://archive.is/XVCi7">https://archive.is/XVCi7</a>
+                    
+                </span>
+            </div>
+            
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        Modern science wouldn’t exist without the online research repository known as arXiv. Three decades in, its creator still can’t let it go.
+
+                    </div>
+                </details>
+                
+        </li>
+        
+        <li class="list-item">
+            <div class="listing-name">
+                
+                    <i class="fa-solid fa-globe"></i>
+                
+                    <a href="https://undark.org/2024/07/04/opinion-misplaced-incentives-academic-publishing/">The Misplaced Incentives in Academic Publishing</a>
+                    (C. Brandon Ogbunu)
+            </div>
+            <div class="listing-meta">
+                <span class="listing-date">
+                    <strong>Date:</strong>
+                    
+                        2024-07-04
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-03-10
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -546,29 +758,22 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="http://stats.org.uk/statistical-inference/Rozeboom1960.pdf">
-                                            The fallacy of the null-hypothesis significance test.
-                                        </a>
+                
+                    <a href="http://stats.org.uk/statistical-inference/Rozeboom1960.pdf">The fallacy of the null-hypothesis significance test.</a>
+                    (William W. Rozeboom)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        William W. Rozeboom
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                1960-09-01
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-03-09
-                                                    
-                                                        
-                        </span>
+                        1960-09-01
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-03-09
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -585,33 +790,25 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://www.nature.com/articles/d41586-025-00292-z">
-                                            Are the Internet and AI affecting our memory? What the science says
-                                        </a>
+                
+                    <a href="https://www.nature.com/articles/d41586-025-00292-z">Are the Internet and AI affecting our memory? What the science says</a>
+                    (Helen Pearson)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Helen Pearson
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2025-02-05
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-02-06
-                                                    
-                                                        
-                                                            <div class="listing-archive">
-                                                                | <strong>Archive link:</strong> <a href="https://archive.is/VlGxx">https://archive.is/VlGxx</a>
-                                                            </div>
-                                                            
-                        </span>
+                        2025-02-05
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-02-06
+                    
+                    
+                        | <strong>Archive:</strong>
+                        <a href="https://archive.is/VlGxx">https://archive.is/VlGxx</a>
+                    
+                </span>
             </div>
             
                 <details>
@@ -627,73 +824,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                            <i class="fa-solid fa-globe"></i>
-                            
-                                        <a href="https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html">
-                                            Antiqua et nova. Note&nbsp;on the Relationship Between Artificial Intelligence and Human Intelligence
-                                        </a>
-            </div>
-            <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        DICASTERY FOR THE DOCTRINE OF THE FAITH &amp;  DICASTERY FOR CULTURE AND EDUCATION
-
-                    </div>
-                    
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2025-01-28
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-31
-                                                    
-                                                        
-                                                            <div class="listing-archive">
-                                                                | <strong>Archive link:</strong> <a href="https://archive.is/etvMY">https://archive.is/etvMY</a>
-                                                            </div>
-                                                            
-                        </span>
-            </div>
-            
-                <details>
-                    <summary>Summary</summary>
-                    <div class="listing-abstract">
-                        NA
-
-                    </div>
-                </details>
-                
-        </li>
-        
-        <li class="list-item">
-            <div class="listing-name">
-                
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://www.nature.com/articles/s41562-020-00935-3">
-                                            Inferring latent learning factors in large-scale cognitive training data
-                                        </a>
+                
+                    <a href="https://www.nature.com/articles/s41562-020-00935-3">Inferring latent learning factors in large-scale cognitive training data</a>
+                    (Mark Steyvers &amp; Robert J. Schafer)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Mark Steyvers &amp; Robert J. Schafer
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2020-08-31
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-31
-                                                    
-                                                        
-                        </span>
+                        2020-08-31
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-31
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -710,29 +857,22 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research">
-                                            The importance of stupidity in scientific research
-                                        </a>
+                
+                    <a href="https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research">The importance of stupidity in scientific research</a>
+                    (Martin A. Schwartz)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Martin A. Schwartz
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2008-06-01
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-28
-                                                    
-                                                        
-                        </span>
+                        2008-06-01
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-28
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -749,29 +889,22 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://www.cambridge.org/core/elements/youtube-apparatus/36600D69788530F805C650B70976A585">
-                                            The YouTube Apparatus
-                                        </a>
+                
+                    <a href="https://www.cambridge.org/core/elements/youtube-apparatus/36600D69788530F805C650B70976A585">The YouTube Apparatus</a>
+                    (Kevin Munger)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Kevin Munger
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-04-01
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-20
-                                                    
-                                                        
-                        </span>
+                        2024-04-01
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-20
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -787,30 +920,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                        <i class="fa-solid fa-film"></i>
-                        
-                                        <a href="https://www.youtube.com/watch?v=KJtZARuO3JY">
-                                            Visualizing transformers and attention | Talk for TNG Big Tech Day '24
-                                        </a>
+                    <i class="fa-solid fa-film"></i>
+                
+                    <a href="https://www.youtube.com/watch?v=KJtZARuO3JY">Visualizing transformers and attention | Talk for TNG Big Tech Day '24</a>
+                    (Grant Sanderson)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Grant Sanderson
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-11-20
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                        </span>
+                        2024-11-20
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -826,34 +952,26 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                                    <i class="fa-solid fa-pen"></i>
-                                    
-                                        <a href="https://www.the-tls.co.uk/regular-features/footnotes-to-plato/thomas-bayes-science-crisis">
-                                            Why it is crucial for scientists to start heeding the lessons of Thomas Bayes
-                                        </a>
+                    <i class="fa-solid fa-pen"></i>
+                
+                    <a href="https://www.the-tls.co.uk/regular-features/footnotes-to-plato/thomas-bayes-science-crisis">Why it is crucial for scientists to start heeding the lessons of Thomas Bayes</a>
+                    (David Papineau)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        David Papineau
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                        Unknown
-                                        
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                                                            <div class="listing-archive">
-                                                                | <strong>Archive link:</strong> <a href="https://archive.is/d2afM">https://archive.is/d2afM</a>
-                                                            </div>
-                                                            
-                        </span>
+                                Unknown
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                        | <strong>Archive:</strong>
+                        <a href="https://archive.is/d2afM">https://archive.is/d2afM</a>
+                    
+                </span>
             </div>
             
                 <details>
@@ -869,30 +987,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                            <i class="fa-solid fa-globe"></i>
-                            
-                                        <a href="https://asteriskmag.com/issues/08/the-depths-of-wikipedians">
-                                            The Depths of Wikipedians
-                                        </a>
+                    <i class="fa-solid fa-globe"></i>
+                
+                    <a href="https://asteriskmag.com/issues/08/the-depths-of-wikipedians">The Depths of Wikipedians</a>
+                    (Anne Rauwerda)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Anne Rauwerda
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-11-01
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                        </span>
+                        2024-11-01
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -908,30 +1019,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                            <i class="fa-solid fa-globe"></i>
-                            
-                                        <a href="https://www.thetransmitter.org/craft-and-careers/how-to-explore-your-scientific-values-and-develop-a-vision-for-your-field/">
-                                            How to explore your scientific values and develop a vision for your field
-                                        </a>
+                    <i class="fa-solid fa-globe"></i>
+                
+                    <a href="https://www.thetransmitter.org/craft-and-careers/how-to-explore-your-scientific-values-and-develop-a-vision-for-your-field/">How to explore your scientific values and develop a vision for your field</a>
+                    (Grace Lindsay)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Grace Lindsay
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-05-03
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                        </span>
+                        2024-05-03
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -947,30 +1051,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                                <i class="fa-solid fa-newspaper"></i>
-                                
-                                        <a href="https://www.thenation.com/article/society/john-von-neumann/">
-                                            The World John von Neumann Built
-                                        </a>
+                    <i class="fa-solid fa-newspaper"></i>
+                
+                    <a href="https://www.thenation.com/article/society/john-von-neumann/">The World John von Neumann Built</a>
+                    (David Nirenberg)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        David Nirenberg
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2022-11-28
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                        </span>
+                        2022-11-28
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -986,30 +1083,23 @@ No matching items
         <li class="list-item">
             <div class="listing-name">
                 
-                            <i class="fa-solid fa-globe"></i>
-                            
-                                        <a href="https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/">
-                                            What Is Entropy? A Measure of Just How Little We Really Know.
-                                        </a>
+                    <i class="fa-solid fa-globe"></i>
+                
+                    <a href="https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/">What Is Entropy? A Measure of Just How Little We Really Know.</a>
+                    (Zack Savitsky)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Zack Savitsky
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-12-13
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2025-01-14
-                                                    
-                                                        
-                        </span>
+                        2024-12-13
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2025-01-14
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -1026,29 +1116,22 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://doi.org/10.18637/jss.v111.i09">
-                                            How to Interpret Statistical Models Using marginaleffects for R and Python
-                                        </a>
+                
+                    <a href="https://doi.org/10.18637/jss.v111.i09">How to Interpret Statistical Models Using marginaleffects for R and Python</a>
+                    (Vincent Arel-Bundock, Noah Greifer, &amp; Andrew Heiss)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Vincent Arel-Bundock, Noah Greifer, &amp; Andrew Heiss
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                2024-11-30
-                                    
-                                            
-                                                | <strong>Date read:</strong>
-                                                2024-12-02
-                                                    
-                                                        
-                        </span>
+                        2024-11-30
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2024-12-02
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -1065,29 +1148,22 @@ No matching items
             <div class="listing-name">
                 
                     <i class="fa-solid fa-graduation-cap"></i>
-                    
-                                        <a href="https://linkinghub.elsevier.com/retrieve/pii/S0895435621002407">
-                                            Tutorial on directed acyclic graphs
-                                        </a>
+                
+                    <a href="https://linkinghub.elsevier.com/retrieve/pii/S0895435621002407">Tutorial on directed acyclic graphs</a>
+                    (Jean C. Digitale, Jeffrey N. Martin, &amp; Medellena Maria Glymour)
             </div>
             <div class="listing-meta">
-                
-                    <div class="listing-authors"><strong>Authors:</strong>
-                        Jean C. Digitale, Jeffrey N. Martin, &amp; Medellena Maria Glymour
-
-                    </div>
+                <span class="listing-date">
+                    <strong>Date:</strong>
                     
-                        <span class="listing-date">
-                            <strong>Date:</strong>
-                            
-                                        Unknown
-                                        
-                                            
-                                                | <strong>Date read:</strong>
-                                                2024-10-22
-                                                    
-                                                        
-                        </span>
+                                Unknown
+                    
+                    
+                                        | <strong>Read:</strong>
+                    2024-10-22
+                    
+                    
+                </span>
             </div>
             
                 <details>
@@ -1102,9 +1178,7 @@ No matching items
         
 </ul>
 
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 <nav id="readings-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
@@ -1116,380 +1190,281 @@ No matching items
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(darkModeDefault) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
-        el.classList.add('notransition');
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
       }
     }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vuorre\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
       });
     }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/vuorre\.com");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1497,185 +1472,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

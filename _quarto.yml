@@ -46,7 +46,7 @@ website:
       - text: Now
         href: now.qmd
       - icon: rss
-        href: index.xml
+        href: blog.xml
       - icon: github
         href: "{{<meta repo-url >}}"
 

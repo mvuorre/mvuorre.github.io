@@ -4,15 +4,6 @@ toc: true
 toc-depth: 2
 toc-location: left
 listing:
-  - id: presentations
-    template: styles/presentations.ejs
-    contents:
-      - bibliography/items.yml
-    include:
-      type: "{presentation}"
-    sort: "date desc"
-    page-size: 5
-    date-format: "MMMM YYYY"
   - id: readings
     template: styles/readings.ejs
     contents:
@@ -29,11 +20,6 @@ bibliography: "bibliography/bibliography.bib"
 
 <!-- Somehow these are required to make icons work in the EJS template. -->
 <!-- {{< fa brands github >}} -->
-
-## Recent presentations
-
-::: {#presentations}
-:::
 
 ## Recent things I've read
 

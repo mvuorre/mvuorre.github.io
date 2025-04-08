@@ -3,13 +3,13 @@
     <% for (const item of items) { %>
         <li <%=metadataAttrs(item) %>>
             <span class="listing-name">
-                <%= item.title %> (<%= item.date %>).
+                <b><%= item.title %></b> (<%= item.date %>).
             </span>
             <span class="listing-location">
                 <% if (item.meeting!="NA") { %>
                     <i><%- item.meeting %></i>,
                 <% } %>
-                <i><%- item.place %></i>.
+                <i><%- item.outlet %></i>.
                 <% if (item.url!="NA") { %>
                     <span class="listing-url">
                         [<a href="<%- item.url %>">link</a>]

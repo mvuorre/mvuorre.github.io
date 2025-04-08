@@ -70,6 +70,8 @@ dat <- dat |>
         combine_words(and = "") |>
         str_to_lower()
     ),
+    # Presentation place or publication venue
+    outlet = coalesce(publication, place)
   )
 
 # Note the Zotero 'Extra' field can contain items like
@@ -89,9 +91,8 @@ dat |>
     {authors}
   doi: {doi}
   outlet: >-
-    {publication}
+    {outlet}
   file: {path}
-  place: {place}
   meeting: {meeting_name}
   categories: [{tags}]
   abstract: |

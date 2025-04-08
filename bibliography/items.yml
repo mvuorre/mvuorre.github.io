@@ -9,7 +9,6 @@
   outlet: >-
     OSF Preprints
   file: bibliography/files/S5ETTANM/ballou-etal_2024_OSF.pdf
-  place: NA
   meeting: NA
   categories: [video games, causal inference, wellbeing, media use, mental health]
   abstract: |
@@ -26,7 +25,6 @@
   outlet: >-
     Royal Society Open Science
   file: bibliography/files/S4KGIA5E/ballou-etal_2025_royal-society-open-science.pdf
-  place: NA
   meeting: NA
   categories: [well-being, video games, digital trace data]
   abstract: |
@@ -43,7 +41,6 @@
   outlet: >-
     Consciousness and Cognition
   file: bibliography/files/5GDBLSS6/bloom-etal_2018_consciousness-and-cognition.pdf
-  place: NA
   meeting: NA
   categories: [memory, eeg, tip-of-the-tongue, learning, erp]
   abstract: |
@@ -60,7 +57,6 @@
   outlet: >-
     Advances in Methods and Practices in Psychological Science
   file: bibliography/files/TH6VUPYX/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf
-  place: NA
   meeting: NA
   categories: [open data, open materials, r, brms, ordinal models, likert items]
   abstract: |
@@ -79,7 +75,6 @@
   outlet: >-
     Cortex
   file: bibliography/files/IVDVUCLP/chapman-etal_2018_cortex.pdf
-  place: NA
   meeting: NA
   categories: [agency, metacognition, cognition, alzheimer's disease, anosognosia]
   abstract: |
@@ -96,7 +91,6 @@
   outlet: >-
     Health Psychology and Behavioral Medicine
   file: bibliography/files/47HQPJS9/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf
-  place: NA
   meeting: NA
   categories: [bayes, bayesian estimation, health behavior change, intervention evaluation, tutorial]
   abstract: |
@@ -115,7 +109,6 @@
   outlet: >-
     Meta-Psychology
   file: bibliography/files/PMGK4MLE/johannes-etal_2024_meta-psychology.pdf
-  place: NA
   meeting: NA
   categories: [well-being, social media, effect heterogeneity]
   abstract: |
@@ -133,7 +126,6 @@
   outlet: >-
     Collabra: Psychology
   file: bibliography/files/4UKFZ26N/johannes-etal_2022_collabra-psychology.pdf
-  place: NA
   meeting: NA
   categories: [video games, play behavior, anger, violence]
   abstract: |
@@ -152,7 +144,6 @@
   outlet: >-
     Royal Society Open Science
   file: bibliography/files/CEBJ4I38/johannes-etal_2021_royal-society-open-science.pdf
-  place: NA
   meeting: NA
   categories: [well-being, video games, human motivation]
   abstract: |
@@ -171,7 +162,6 @@
   outlet: >-
     OSF Preprints
   file: bibliography/files/HXP6G7N2/leeuwen-etal_2024_OSF.pdf
-  place: NA
   meeting: NA
   categories: [disgust, face perception, infectious disease, prejudice, signal detection theory]
   abstract: |
@@ -188,7 +178,6 @@
   outlet: >-
     The Lancet Child & Adolescent Health
   file: bibliography/files/X5Z6RWFD/mansfield-etal_2025_the-lancet-child-&-adolescent-health.pdf
-  place: NA
   meeting: NA
   categories: [mental health, artificial intelligence, technology]
   abstract: |
@@ -205,7 +194,6 @@
   outlet: >-
     Cognitive Research: Principles and Implications
   file: bibliography/files/KL5NXZH5/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf
-  place: NA
   meeting: NA
   categories: [curiosity, need for control, need for agency, active learning, prediction error models, reinforcement learning, region of proximal learning, reward learning]
   abstract: |
@@ -223,7 +211,6 @@
   outlet: >-
     Journal of Experimental Psychology: General
   file: bibliography/files/5BQW8WE9/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf
-  place: NA
   meeting: NA
   categories: [metacognition, models, feedback, learning, curiosity, errors, responses, self-confidence, uncertainty]
   abstract: |
@@ -241,7 +228,6 @@
   outlet: >-
     British Journal of Educational Psychology
   file: bibliography/files/DGAHR964/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf
-  place: NA
   meeting: NA
   categories: [discovery learning, interactive feedback, learning from errors, productive failure, test effects]
   abstract: |
@@ -258,7 +244,6 @@
   outlet: >-
     Hippocampus
   file: bibliography/files/SGGIACJP/metcalfe-etal_2019_hippocampus.pdf
-  place: NA
   meeting: NA
   categories: [extreme stress, fdny, human memory]
   abstract: |
@@ -275,7 +260,6 @@
   outlet: >-
     Psychonomic Bulletin & Review
   file: bibliography/files/D6SWT3LF/michael-etal_2013_psychonomic-bulletin-&-review.pdf
-  place: NA
   meeting: NA
   categories: [cognitive psychology, statistics, decision making, neuroimaging]
   abstract: |
@@ -292,7 +276,6 @@
   outlet: >-
     Cortex
   file: bibliography/files/M356LH9F/miller-etal_2023_cortex.pdf
-  place: NA
   meeting: NA
   categories: [adolescence, social media, internet, digital technologies, fmri]
   abstract: |
@@ -309,7 +292,6 @@
   outlet: >-
     NeuroImage
   file: bibliography/files/3WY8QZVV/sidarus-etal_2017_neuroimage.pdf
-  place: NA
   meeting: NA
   categories: [metacognition, cognitive control, sense of agency, action selection, action monitoring, evoked potentials]
   abstract: |
@@ -326,7 +308,6 @@
   outlet: >-
     Neuroscience of Consciousness
   file: bibliography/files/4JCNEF7Z/sidarus-etal_2017_neuroscience-of-consciousness.pdf
-  place: NA
   meeting: NA
   categories: [agency, intention, volition, metacognition, multi-study analysis]
   abstract: |
@@ -343,7 +324,6 @@
   outlet: >-
     Frontiers in Psychology
   file: bibliography/files/XDUUEIQG/sidarus-etal_2017_frontiers-in-psychology.pdf
-  place: NA
   meeting: NA
   categories: [metacognition, sense of agency, action selection, motor control, fluency]
   abstract: |
@@ -360,7 +340,6 @@
   outlet: >-
     Australian & New Zealand Journal of Psychiatry
   file: bibliography/files/QB663WCP/syed-sheriff-etal_2022_australian-&-new-zealand-journal-of-psychiatry.pdf
-  place: NA
   meeting: NA
   categories: [depression, anxiety, youth, experimental medicine]
   abstract: |
@@ -378,7 +357,6 @@
   outlet: >-
     ACM Games
   file: bibliography/files/MRL8MA6Q/vuorre-etal_2024_acm-games.pdf
-  place: NA
   meeting: NA
   categories: [video games, research methods, psychology, open research, digital trace data]
   abstract: |
@@ -395,9 +373,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Cambridge, UK
   file: NA
-  place: Cambridge, UK
   meeting: IBPPC
   categories: []
   abstract: |
@@ -412,9 +389,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Princeton University
   file: NA
-  place: Princeton University
   meeting: NA
   categories: []
   abstract: |
@@ -431,7 +407,6 @@
   outlet: >-
     OSF Preprints
   file: bibliography/files/WZZAADDL/vuorre-etal_2024_OSF.pdf
-  place: NA
   meeting: NA
   categories: [multilevel model, statistics, variation, heterogeneity, uncertainty, visualization]
   abstract: |
@@ -447,9 +422,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    University of Illinois at Urbana-Champaign (Remote)
   file: NA
-  place: University of Illinois at Urbana-Champaign (Remote)
   meeting: NA
   categories: []
   abstract: |
@@ -466,7 +440,6 @@
   outlet: >-
     Advances in Methods and Practices in Psychological Science
   file: bibliography/files/QWZLT27G/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf
-  place: NA
   meeting: NA
   categories: [open materials, reproducibility, research methods, open science, version control, git]
   abstract: |
@@ -482,9 +455,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    London, UK
   file: NA
-  place: London, UK
   meeting: Office for Product Safety and Standards
   categories: []
   abstract: |
@@ -501,7 +473,6 @@
   outlet: >-
     Royal Society Open Science
   file: bibliography/files/VSMEXPGJ/vuorre-and-przybylski_2023_royal-society-open-science.pdf
-  place: NA
   meeting: NA
   categories: [well-being, social media, life satisfaction]
   abstract: |
@@ -520,7 +491,6 @@
   outlet: >-
     OSF Preprints
   file: bibliography/files/7GXPM8U7/vuorre_2025_OSF.pdf
-  place: NA
   meeting: NA
   categories: [brms, psychology, r, signal detection theory, statistics, tutorial]
   abstract: |
@@ -537,7 +507,6 @@
   outlet: >-
     Clinical Psychological Science
   file: bibliography/files/Z9MJS6QU/vuorre-and-przybylski_2023_clinical-psychological-science.pdf
-  place: NA
   meeting: NA
   categories: [well-being, mental health, technology effects, internet technology]
   abstract: |
@@ -556,7 +525,6 @@
   outlet: >-
     Scientific Data
   file: bibliography/files/KDPRDH7T/vuorre-etal_2023_scientific-data.pdf
-  place: NA
   meeting: NA
   categories: [psychology, human behaviour]
   abstract: |
@@ -573,9 +541,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Amsterdam, NL
   file: NA
-  place: Amsterdam, NL
   meeting: NA
   categories: []
   abstract: |
@@ -590,9 +557,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Tilburg, NL
   file: NA
-  place: Tilburg, NL
   meeting: NA
   categories: []
   abstract: |
@@ -609,7 +575,6 @@
   outlet: >-
     Technology, Mind, and Behavior
   file: bibliography/files/WCIEWNU2/vuorre-etal_2021_technology,-mind,-and-behavior.pdf
-  place: NA
   meeting: NA
   categories: [video games, technology, digital trace data, covid-19]
   abstract: |
@@ -628,7 +593,6 @@
   outlet: >-
     Metacognition and Learning
   file: bibliography/files/7NK7WAEM/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf
-  place: NA
   meeting: NA
   categories: [measurement, metacognition, confidence]
   abstract: |
@@ -646,7 +610,6 @@
   outlet: >-
     Technology, Mind, and Behavior
   file: bibliography/files/Q3TVTGL6/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf
-  place: NA
   meeting: NA
   categories: [well-being, technology effects, internet technology]
   abstract: |
@@ -664,7 +627,6 @@
   outlet: >-
     Consciousness and Cognition
   file: bibliography/files/XN7IZZJL/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf
-  place: NA
   meeting: NA
   categories: [agency, sense of agency, flow]
   abstract: |
@@ -681,7 +643,6 @@
   outlet: >-
     Behavior Research Methods
   file: bibliography/files/979HTX3A/vuorre-and-crump_2020_behavior-research-methods.pdf
-  place: NA
   meeting: NA
   categories: [open data, reproducibility, r, research methods, open science]
   abstract: |
@@ -699,7 +660,6 @@
   outlet: >-
     Clinical Psychological Science
   file: bibliography/files/VCV7YWAQ/vuorre-etal_2021_clinical-psychological-science.pdf
-  place: NA
   meeting: NA
   categories: [open materials, adolescents, depression, social media, mental health]
   abstract: |
@@ -717,7 +677,6 @@
   outlet: >-
     OSF Preprints
   file: bibliography/files/ERW4VQRG/vuorre-etal_2022_OSF.pdf
-  place: NA
   meeting: NA
   categories: [well-being, statistics, social media, media effects, paradigm, variation]
   abstract: |
@@ -734,7 +693,6 @@
   outlet: >-
     Journal of Consciousness Studies
   file: bibliography/files/EGYNMN4I/vuorre_2017_journal-of-consciousness-studies.pdf
-  place: NA
   meeting: NA
   categories: [time perception, agency, volition, sense of agency]
   abstract: |
@@ -751,7 +709,6 @@
   outlet: >-
     Royal Society Open Science
   file: bibliography/files/3K5WXM3G/vuorre-etal_2022_royal-society-open-science.pdf
-  place: NA
   meeting: NA
   categories: [well-being, video games, human motivation, play behaviour]
   abstract: |
@@ -768,9 +725,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Oxford, UK
   file: NA
-  place: Oxford, UK
   meeting: StanCon
   categories: []
   abstract: |
@@ -785,9 +741,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Tilburg, NL
   file: NA
-  place: Tilburg, NL
   meeting: NA
   categories: []
   abstract: |
@@ -802,9 +757,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Tilburg, NL
   file: NA
-  place: Tilburg, NL
   meeting: Tilburg Experience Sampling Center
   categories: []
   abstract: |
@@ -819,9 +773,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Tilburg, NL
   file: NA
-  place: Tilburg, NL
   meeting: NA
   categories: []
   abstract: |
@@ -836,9 +789,8 @@
     Vuorre
   doi: NA
   outlet: >-
-    NA
+    Seoul, SK
   file: NA
-  place: Seoul, SK
   meeting: Gaming Disorder Global Seminar
   categories: []
   abstract: |
@@ -855,7 +807,6 @@
   outlet: >-
     Attention, Perception, & Psychophysics
   file: bibliography/files/ZCFSTQM9/vuorre-and-metcalfe_2017_attention,-perception,-&-psychophysics.pdf
-  place: NA
   meeting: NA
   categories: [time perception, agency, volition, visual perception, action]
   abstract: |
@@ -873,7 +824,6 @@
   outlet: >-
     Behavior Research Methods
   file: bibliography/files/U56FKGFU/vuorre-and-bolger_2017_behavior-research-methods.pdf
-  place: NA
   meeting: NA
   categories: [mediation, bayesian statistics, multilevel analysis, repeated measures, causal mechanism]
   abstract: |
@@ -892,7 +842,6 @@
   outlet: >-
     Scientific Reports
   file: bibliography/files/PAUD8V8T/weinstein-etal_2023_scientific-reports.pdf
-  place: NA
   meeting: NA
   categories: [psychology, human behaviour]
   abstract: |
@@ -910,7 +859,6 @@
   outlet: >-
     Journal of Nonverbal Behavior
   file: bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf
-  place: NA
   meeting: NA
   categories: [signal detection theory, bias, deception detection, mixed effects models, veracity]
   abstract: |

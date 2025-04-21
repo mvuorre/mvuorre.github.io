@@ -11,8 +11,6 @@ categories:
   - tutorial
   - R
   - brms
-execute:
-  freeze: false
 bibliography: "bibliography.bib"
 image: "index_files/figure-html/fig-sdt-example-1.png"
 aliases:

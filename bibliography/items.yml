@@ -10,10 +10,26 @@
     OSF Preprints
   file: bibliography/files/S5ETTANM/ballou-etal_2024_OSF.pdf
   meeting: NA
-  categories: [video games, causal inference, wellbeing, media use, mental health]
+  categories: [causal inference, media use, mental health, video games, wellbeing]
   abstract: |
     Researchers have proposed a variety of mechanisms through which playing video games might affect mental health: by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms are rarely enumerated, and underlying causal structures are rarely made explicit. Here, we overview 13 proposed effects of gaming on mental health. For each, we attempt to draw out (often implicit) counterfactuals—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs (DAGs). In doing so, we hope to provide a bird’s eye view of the field and encourage more focused and collaborative efforts to propose, falsify, and iterate on (causal) theories. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.
-  extra: ~
+  publication: https://doi.org/10.1037/tmb0000152
+- title: >-
+    How Do Video Games Affect Mental Health? A Narrative Review of 13 Proposed Mechanisms
+  url: https://tmb.apaopen.org/pub/wyvpykp0/release/1
+  date: 2025-04-30
+  type: journalArticle
+  authors: |
+    Ballou, Hakman, Vuorre, Magnusson, & Przybylski
+  doi: 10.1037/tmb0000152
+  outlet: >-
+    Technology, Mind, and Behavior
+  file: bibliography/files/FZCFXVFG/ballou-etal_2025_technology,-mind,-and-behavior.pdf
+  meeting: NA
+  categories: []
+  abstract: |
+    Researchers have proposed a variety of mechanisms through which playing video games might affect mental health by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms and their underlying causal structures are rarely made explicit. Here, we review 13 proposed effects of gaming on mental health. For each, we specify a counterfactual—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs. In doing so, we hope to encourage more focused efforts to propose, falsify, and iterate on (causal) theories using well-established formal methods of causal inference. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.
+  preprint: https://doi.org/10.31234/osf.io/q2kxg
 - title: >-
     Perceived value of video games, but not hours played, predicts mental well-being in casual adult Nintendo players
   url: https://royalsocietypublishing.org/doi/10.1098/rsos.241174
@@ -58,7 +74,7 @@
     Advances in Methods and Practices in Psychological Science
   file: bibliography/files/TH6VUPYX/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf
   meeting: NA
-  categories: [open data, open materials, r, brms, ordinal models, likert items]
+  categories: [brms, likert items, open data, open materials, ordinal models, r]
   abstract: |
     Ordinal variables, although extremely common in psychology, are almost exclusively analyzed with statistical models that falsely assume them to be metric. This practice can lead to distorted effect-size estimates, inflated error rates, and other problems. We argue for the application of ordinal models that make appropriate assumptions about the variables under study. In this Tutorial, we first explain the three major classes of ordinal models: the cumulative, sequential, and adjacent-category models. We then show how to fit ordinal models in a fully Bayesian framework with the R package brms, using data sets on opinions about stem-cell research and time courses of marriage. The appendices provide detailed mathematical derivations of the models and a discussion of censored ordinal models. Compared with metric models, ordinal models provide better theoretical interpretation and numerical inference from ordinal data, and we recommend their widespread adoption in psychology.
   data: https://osf.io/cu8jv/
@@ -374,7 +390,7 @@
     ACM Games
   file: bibliography/files/MRL8MA6Q/vuorre-etal_2024_acm-games.pdf
   meeting: NA
-  categories: [video games, research methods, psychology, open research, digital trace data]
+  categories: [digital trace data, open research, psychology, research methods, video games]
   abstract: |
     Do video games affect players’ well-being? In this case study, we examined 162,325 intensive longitudinal in-game mood reports from 67,328 play sessions of 8,695 players of the popular game PowerWash Simulator. We compared players’ moods at the beginning of play sessions with their moods during play and found that the average player reported 0.034 (0.032, 0.036) visual analog scale (VAS; 0-1) units greater mood during than at the beginning of play sessions. Moreover, we predict that 72.1% (70.8%, 73.5%) of similar players experience this affective uplift during play, and that the bulk of it happens during the first 15 minutes of play. We do not know whether these results indicate causal effects or to what extent they generalize to other games or player populations. Yet, these results based on in-game subjective reports from players of a popular commercially available game suggest good external validity and as such offer a promising glimpse of the scientific value of transparent industry–academia collaborations in understanding the psychological roles of popular digital entertainment.
   data: https://zenodo.org/records/10721210
@@ -440,7 +456,7 @@
     OSF Preprints
   file: bibliography/files/WZZAADDL/vuorre-etal_2024_OSF.pdf
   meeting: NA
-  categories: [multilevel model, statistics, variation, heterogeneity, uncertainty, visualization]
+  categories: [heterogeneity, multilevel model, statistics, uncertainty, variation, visualization]
   abstract: |
     Advances in experimental, data collection, and analysis methods have brought population variability in psychological phenomena to the fore. Yet, current practices for interpreting such heterogeneity do not appropriately treat the uncertainty inevitable in any statistical summary. Heterogeneity is best thought of as a distribution of features with a mean (average person’s effect) and variance (between-person differences). This expected heterogeneity distribution can be further summarized e.g. as a heterogeneity interval (Bolger et al., 2019). However, because empirical studies estimate the underlying mean and variance parameters with uncertainty, the expected distribution and interval will underestimate the actual range of plausible effects in the population. Using Bayesian hierarchical models, and with the aid of empirical datasets from social and cognitive psychology, we provide a walk-through of effective heterogeneity reporting and display tools that appropriately convey measures of uncertainty. We cover interval, proportion, and ratio measures of heterogeneity and their estimation and interpretation. These tools can be a spur to theory building, allowing researchers to widen their focus from population averages to population heterogeneity in psychological phenomena.
   code: https://github.com/mvuorre/heterogeneity-uncertainty
@@ -608,7 +624,7 @@
     Technology, Mind, and Behavior
   file: bibliography/files/WCIEWNU2/vuorre-etal_2021_technology,-mind,-and-behavior.pdf
   meeting: NA
-  categories: [video games, technology, digital trace data, covid-19]
+  categories: [covid-19, digital trace data, technology, video games]
   abstract: |
     Video game play has been framed as both protective factor and risk to mental health during the Coronavirus disease (COVID-19) pandemic. We conducted a statistical analysis of changes to video game play during the pandemic to better understand gaming behavior and in doing so provide an empirical foundation to the fractured discourse surrounding play and mental health. Analyses of millions of players’ engagement with the 500 globally most popular games on the Steam platform indicated that the quantity of play had dramatically increased during key points of the pandemic; that those increases were more prominent for multiplayer games, suggesting that gamers were seeking out the social affordances of video game play; and that play had become more equally distributed across days of the week, suggesting increased merging of leisure activities with work and school activities. These results provide a starting point for empirically grounded discussions on video games during the pandemic, their uses, and potential effects.
   code: https://github.com/digital-wellbeing/steam-lockdown
@@ -988,7 +1004,7 @@
     Journal of Nonverbal Behavior
   file: bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf
   meeting: NA
-  categories: [signal detection theory, bias, deception detection, mixed effects models, veracity]
+  categories: [bias, deception detection, mixed effects models, signal detection theory, veracity]
   abstract: |
     Historically, deception detection research has relied on factorial analyses of response accuracy to make inferences. However, this practice overlooks important sources of variability resulting in potentially misleading estimates and may conflate response bias with participants’ underlying sensitivity to detect lies from truths. We showcase an alternative approach using a signal detection theory (SDT) with generalized linear mixed models framework to address these limitations. This SDT approach incorporates individual differences from both judges and senders, which are a principal source of spurious findings in deception research. By avoiding data transformations and aggregations, this methodology outperforms traditional methods and provides more informative and reliable effect estimates. This well-established framework offers researchers a powerful tool for analyzing deception data and advances our understanding of veracity judgments. All code and data are openly available.
   license: CC-BY

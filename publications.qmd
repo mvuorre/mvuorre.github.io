@@ -9,6 +9,9 @@ listing:
       - bibliography/items.yml
     include:
       type: "{journalArticle,preprint}"
+    # This excludes items that have a publication (i.e. published preprints)
+    exclude:
+      publication: "**"
     categories: true
     sort: "date desc"
     filter-ui: true

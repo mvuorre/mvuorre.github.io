@@ -9,7 +9,7 @@ This repository contains the source of my website <https://vuorre.com>. Created 
 ## Publish
 
 ```bash
-quarto publish gh-pages
+make publish
 ```
 
 ## Reproducibility

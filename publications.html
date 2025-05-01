@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.22">
+<meta name="generator" content="quarto-1.7.29">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a5cd134f9b40a21b85be3e62cd27a8fe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-748b535e376f14d4692bf2b2e5fd6380.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dark-e02010cdede84dc9c1046ad14e8b9c25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-025baf2d0b73e0c8f53e1e7c4c202bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4cbaa805576b5238193487e3aa494ee4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1b31f30604b6364cc821d1382e39d9ed.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4cbaa805576b5238193487e3aa494ee4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
@@ -83,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-url','listing-date','listing-type','listing-authors','listing-doi','listing-outlet','listing-file','listing-meeting','listing-categories','listing-abstract','listing-extra','listing-preprint','listing-data','listing-code','listing-license',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-url','listing-date','listing-type','listing-authors','listing-doi','listing-outlet','listing-file','listing-meeting','listing-categories','listing-abstract','listing-preprint','listing-extra','listing-data','listing-code','listing-license',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       page: 10,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-url","listing-date","listing-type","listing-authors","listing-doi","listing-outlet","listing-file","listing-meeting","listing-categories","listing-abstract","listing-extra","listing-preprint","listing-data","listing-code","listing-license"],
+      searchColumns: ["listing-title","listing-url","listing-date","listing-type","listing-authors","listing-doi","listing-outlet","listing-file","listing-meeting","listing-categories","listing-abstract","listing-preprint","listing-extra","listing-data","listing-code","listing-license"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -172,7 +174,168 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -235,168 +398,10 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(60)</span></div><div class="category" data-category="YWN0aW9u">action <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWN0aW9uJTIwbW9uaXRvcmluZw==">action monitoring <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWN0aW9uJTIwc2VsZWN0aW9u">action selection <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWN0aXZlJTIwbGVhcm5pbmc=">active learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRvbGVzY2VuY2U=">adolescence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRvbGVzY2VudHM=">adolescents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWdlbmN5">agency <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YWx6aGVpbWVyJ3MlMjBkaXNlYXNl">alzheimer's disease <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5nZXI=">anger <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5vc29nbm9zaWE=">anosognosia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW54aWV0eQ==">anxiety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZQ==">artificial intelligence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXM=">bayes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXNpYW4lMjBlc3RpbWF0aW9u">bayesian estimation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXNpYW4lMjBzdGF0aXN0aWNz">bayesian statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ymlhcw==">bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YnJtcw==">brms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y2F1c2FsJTIwaW5mZXJlbmNl">causal inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F1c2FsJTIwbWVjaGFuaXNt">causal mechanism <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aW9u">cognition <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aXZlJTIwY29udHJvbA==">cognitive control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aXZlJTIwcHN5Y2hvbG9neQ==">cognitive psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uZmlkZW5jZQ==">confidence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y292aWQtMTk=">covid-19 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3VyaW9zaXR5">curiosity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGVjZXB0aW9uJTIwZGV0ZWN0aW9u">deception detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVjaXNpb24lMjBtYWtpbmc=">decision making <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVwcmVzc2lvbg==">depression <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlnaXRhbCUyMHRlY2hub2xvZ2llcw==">digital technologies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlnaXRhbCUyMHRyYWNlJTIwZGF0YQ==">digital trace data <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGlzY292ZXJ5JTIwbGVhcm5pbmc=">discovery learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzZ3VzdA==">disgust <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWVn">eeg <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eQ==">effect heterogeneity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXJw">erp <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXJyb3Jz">errors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZva2VkJTIwcG90ZW50aWFscw==">evoked potentials <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXhwZXJpbWVudGFsJTIwbWVkaWNpbmU=">experimental medicine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0cmVtZSUyMHN0cmVzcw==">extreme stress <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmFjZSUyMHBlcmNlcHRpb24=">face perception <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmRueQ==">fdny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVlZGJhY2s=">feedback <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zmxvdw==">flow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zmx1ZW5jeQ==">fluency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm1yaQ==">fmri <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2l0">git <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGVhbHRoJTIwYmVoYXZpb3IlMjBjaGFuZ2U=">health behavior change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGV0ZXJvZ2VuZWl0eQ==">heterogeneity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVtYW4lMjBiZWhhdmlvdXI=">human behaviour <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aHVtYW4lMjBtZW1vcnk=">human memory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVtYW4lMjBtb3RpdmF0aW9u">human motivation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW5mZWN0aW91cyUyMGRpc2Vhc2U=">infectious disease <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZW50aW9u">intention <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJhY3RpdmUlMjBmZWVkYmFjaw==">interactive feedback <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJuZXQ=">internet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJuZXQlMjB0ZWNobm9sb2d5">internet technology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW50ZXJ2ZW50aW9uJTIwZXZhbHVhdGlvbg==">intervention evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhcm5pbmc=">learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVhcm5pbmclMjBmcm9tJTIwZXJyb3Jz">learning from errors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlmZSUyMHNhdGlzZmFjdGlvbg==">life satisfaction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlrZXJ0JTIwaXRlbXM=">likert items <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVhc3VyZW1lbnQ=">measurement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWElMjBlZmZlY3Rz">media effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWElMjB1c2U=">media use <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWF0aW9u">mediation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtb3J5">memory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVudGFsJTIwaGVhbHRo">mental health <span class="quarto-category-count">(4)</span></div><div class="category" data-category="bWV0YWNvZ25pdGlvbg==">metacognition <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWl4ZWQlMjBlZmZlY3RzJTIwbW9kZWxz">mixed effects models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxz">models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW90b3IlMjBjb250cm9s">motor control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGktc3R1ZHklMjBhbmFseXNpcw==">multi-study analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGlsZXZlbCUyMGFuYWx5c2lz">multilevel analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGlsZXZlbCUyMG1vZGVs">multilevel model <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmVlZCUyMGZvciUyMGFnZW5jeQ==">need for agency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmVlZCUyMGZvciUyMGNvbnRyb2w=">need for control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV1cm9pbWFnaW5n">neuroimaging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbiUyMGRhdGE=">open data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3BlbiUyMG1hdGVyaWFscw==">open materials <span class="quarto-category-count">(3)</span></div><div class="category" data-category="b3BlbiUyMHJlc2VhcmNo">open research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbiUyMHNjaWVuY2U=">open science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3JkaW5hbCUyMG1vZGVscw==">ordinal models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFyYWRpZ20=">paradigm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxheSUyMGJlaGF2aW9y">play behavior <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxheSUyMGJlaGF2aW91cg==">play behaviour <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJlZGljdGlvbiUyMGVycm9yJTIwbW9kZWxz">prediction error models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJlanVkaWNl">prejudice <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZHVjdGl2ZSUyMGZhaWx1cmU=">productive failure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHN5Y2hvbG9neQ==">psychology <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cg==">r <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cmVnaW9uJTIwb2YlMjBwcm94aW1hbCUyMGxlYXJuaW5n">region of proximal learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n">reinforcement learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwZWF0ZWQlMjBtZWFzdXJlcw==">repeated measures <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwcm9kdWNpYmlsaXR5">reproducibility <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVzZWFyY2glMjBtZXRob2Rz">research methods <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cmVzcG9uc2Vz">responses <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV3YXJkJTIwbGVhcm5pbmc=">reward learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VsZi1jb25maWRlbmNl">self-confidence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Vuc2UlMjBvZiUyMGFnZW5jeQ==">sense of agency <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5">signal detection theory <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c29jaWFsJTIwbWVkaWE=">social media <span class="quarto-category-count">(5)</span></div><div class="category" data-category="c3RhdGlzdGljcw==">statistics <span class="quarto-category-count">(4)</span></div><div class="category" data-category="dGVjaG5vbG9neQ==">technology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVjaG5vbG9neSUyMGVmZmVjdHM=">technology effects <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVzdCUyMGVmZmVjdHM=">test effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZSUyMHBlcmNlcHRpb24=">time perception <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGlwLW9mLXRoZS10b25ndWU=">tip-of-the-tongue <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHV0b3JpYWw=">tutorial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dW5jZXJ0YWludHk=">uncertainty <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dmFyaWF0aW9u">variation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dmVyYWNpdHk=">veracity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmVyc2lvbiUyMGNvbnRyb2w=">version control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlkZW8lMjBnYW1lcw==">video games <span class="quarto-category-count">(7)</span></div><div class="category" data-category="dmlvbGVuY2U=">violence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlzdWFsJTIwcGVyY2VwdGlvbg==">visual perception <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlzdWFsaXphdGlvbg==">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dm9saXRpb24=">volition <span class="quarto-category-count">(3)</span></div><div class="category" data-category="d2VsbC1iZWluZw==">well-being <span class="quarto-category-count">(8)</span></div><div class="category" data-category="d2VsbGJlaW5n">wellbeing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eW91dGg=">youth <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(60)</span></div><div class="category" data-category="YWN0aW9u">action <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWN0aW9uJTIwbW9uaXRvcmluZw==">action monitoring <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWN0aW9uJTIwc2VsZWN0aW9u">action selection <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWN0aXZlJTIwbGVhcm5pbmc=">active learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRvbGVzY2VuY2U=">adolescence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRvbGVzY2VudHM=">adolescents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWdlbmN5">agency <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YWx6aGVpbWVyJ3MlMjBkaXNlYXNl">alzheimer's disease <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5nZXI=">anger <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5vc29nbm9zaWE=">anosognosia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW54aWV0eQ==">anxiety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZQ==">artificial intelligence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXM=">bayes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXNpYW4lMjBlc3RpbWF0aW9u">bayesian estimation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmF5ZXNpYW4lMjBzdGF0aXN0aWNz">bayesian statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ymlhcw==">bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YnJtcw==">brms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y2F1c2FsJTIwbWVjaGFuaXNt">causal mechanism <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aW9u">cognition <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aXZlJTIwY29udHJvbA==">cognitive control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29nbml0aXZlJTIwcHN5Y2hvbG9neQ==">cognitive psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uZmlkZW5jZQ==">confidence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y292aWQtMTk=">covid-19 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3VyaW9zaXR5">curiosity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGVjZXB0aW9uJTIwZGV0ZWN0aW9u">deception detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVjaXNpb24lMjBtYWtpbmc=">decision making <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVwcmVzc2lvbg==">depression <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlnaXRhbCUyMHRlY2hub2xvZ2llcw==">digital technologies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlnaXRhbCUyMHRyYWNlJTIwZGF0YQ==">digital trace data <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGlzY292ZXJ5JTIwbGVhcm5pbmc=">discovery learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzZ3VzdA==">disgust <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWVn">eeg <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eQ==">effect heterogeneity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXJw">erp <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXJyb3Jz">errors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZva2VkJTIwcG90ZW50aWFscw==">evoked potentials <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXhwZXJpbWVudGFsJTIwbWVkaWNpbmU=">experimental medicine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0cmVtZSUyMHN0cmVzcw==">extreme stress <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmFjZSUyMHBlcmNlcHRpb24=">face perception <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmRueQ==">fdny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVlZGJhY2s=">feedback <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zmxvdw==">flow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zmx1ZW5jeQ==">fluency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm1yaQ==">fmri <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2l0">git <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGVhbHRoJTIwYmVoYXZpb3IlMjBjaGFuZ2U=">health behavior change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGV0ZXJvZ2VuZWl0eQ==">heterogeneity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVtYW4lMjBiZWhhdmlvdXI=">human behaviour <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aHVtYW4lMjBtZW1vcnk=">human memory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVtYW4lMjBtb3RpdmF0aW9u">human motivation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW5mZWN0aW91cyUyMGRpc2Vhc2U=">infectious disease <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZW50aW9u">intention <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJhY3RpdmUlMjBmZWVkYmFjaw==">interactive feedback <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJuZXQ=">internet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJuZXQlMjB0ZWNobm9sb2d5">internet technology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW50ZXJ2ZW50aW9uJTIwZXZhbHVhdGlvbg==">intervention evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhcm5pbmc=">learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVhcm5pbmclMjBmcm9tJTIwZXJyb3Jz">learning from errors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlmZSUyMHNhdGlzZmFjdGlvbg==">life satisfaction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlrZXJ0JTIwaXRlbXM=">likert items <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVhc3VyZW1lbnQ=">measurement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWElMjBlZmZlY3Rz">media effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWF0aW9u">mediation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtb3J5">memory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVudGFsJTIwaGVhbHRo">mental health <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bWV0YWNvZ25pdGlvbg==">metacognition <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWl4ZWQlMjBlZmZlY3RzJTIwbW9kZWxz">mixed effects models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxz">models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW90b3IlMjBjb250cm9s">motor control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGktc3R1ZHklMjBhbmFseXNpcw==">multi-study analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGlsZXZlbCUyMGFuYWx5c2lz">multilevel analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bXVsdGlsZXZlbCUyMG1vZGVs">multilevel model <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmVlZCUyMGZvciUyMGFnZW5jeQ==">need for agency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmVlZCUyMGZvciUyMGNvbnRyb2w=">need for control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV1cm9pbWFnaW5n">neuroimaging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbiUyMGRhdGE=">open data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3BlbiUyMG1hdGVyaWFscw==">open materials <span class="quarto-category-count">(3)</span></div><div class="category" data-category="b3BlbiUyMHJlc2VhcmNo">open research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbiUyMHNjaWVuY2U=">open science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3JkaW5hbCUyMG1vZGVscw==">ordinal models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFyYWRpZ20=">paradigm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxheSUyMGJlaGF2aW9y">play behavior <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGxheSUyMGJlaGF2aW91cg==">play behaviour <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJlZGljdGlvbiUyMGVycm9yJTIwbW9kZWxz">prediction error models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJlanVkaWNl">prejudice <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZHVjdGl2ZSUyMGZhaWx1cmU=">productive failure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHN5Y2hvbG9neQ==">psychology <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cg==">r <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cmVnaW9uJTIwb2YlMjBwcm94aW1hbCUyMGxlYXJuaW5n">region of proximal learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n">reinforcement learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwZWF0ZWQlMjBtZWFzdXJlcw==">repeated measures <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwcm9kdWNpYmlsaXR5">reproducibility <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVzZWFyY2glMjBtZXRob2Rz">research methods <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cmVzcG9uc2Vz">responses <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV3YXJkJTIwbGVhcm5pbmc=">reward learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VsZi1jb25maWRlbmNl">self-confidence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Vuc2UlMjBvZiUyMGFnZW5jeQ==">sense of agency <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5">signal detection theory <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c29jaWFsJTIwbWVkaWE=">social media <span class="quarto-category-count">(5)</span></div><div class="category" data-category="c3RhdGlzdGljcw==">statistics <span class="quarto-category-count">(4)</span></div><div class="category" data-category="dGVjaG5vbG9neQ==">technology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVjaG5vbG9neSUyMGVmZmVjdHM=">technology effects <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVzdCUyMGVmZmVjdHM=">test effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZSUyMHBlcmNlcHRpb24=">time perception <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGlwLW9mLXRoZS10b25ndWU=">tip-of-the-tongue <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHV0b3JpYWw=">tutorial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dW5jZXJ0YWludHk=">uncertainty <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dmFyaWF0aW9u">variation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dmVyYWNpdHk=">veracity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmVyc2lvbiUyMGNvbnRyb2w=">version control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlkZW8lMjBnYW1lcw==">video games <span class="quarto-category-count">(6)</span></div><div class="category" data-category="dmlvbGVuY2U=">violence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlzdWFsJTIwcGVyY2VwdGlvbg==">visual perception <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmlzdWFsaXphdGlvbg==">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dm9saXRpb24=">volition <span class="quarto-category-count">(3)</span></div><div class="category" data-category="d2VsbC1iZWluZw==">well-being <span class="quarto-category-count">(8)</span></div><div class="category" data-category="eW91dGg=">youth <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    window.setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        disableStylesheet(primaryStylesheets)
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      window.setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    window.hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(darkModeDefault) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const darkModeDefault = false;
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-    };
-    // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -432,7 +437,32 @@ window.Quarto = {
 </div>
 <ul class="list">
     
-        <li class="list-item" data-index="0" data-categories="" data-listing-date-sort="1744495200000">
+        <li class="list-item" data-index="0" data-categories="" data-listing-date-sort="1745964000000">
+            Ballou, Hakman, Vuorre, Magnusson, &amp; Przybylski
+ (2025). <b>How Do Video Games Affect Mental Health? A Narrative Review of 13 Proposed Mechanisms</b>. <a href="https://tmb.apaopen.org/pub/wyvpykp0/release/1">Technology, Mind, and Behavior</a>.
+            <span class="listing-extras">
+                <i class="ai ai-open-access" style="font-size:1.2em;"></i>
+                    
+                        <a href="bibliography/files/FZCFXVFG/ballou-etal_2025_technology,-mind,-and-behavior.pdf">PDF</a>
+                    
+                    
+                        • <a href="https://doi.org/10.31234/osf.io/q2kxg">Preprint</a>
+                    
+                    
+                    
+                </span>
+            
+                <details>
+                    <summary>Abstract</summary>
+                    <div class="listing-abstract">
+                        Researchers have proposed a variety of mechanisms through which playing video games might affect mental health by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms and their underlying causal structures are rarely made explicit. Here, we review 13 proposed effects of gaming on mental health. For each, we specify a counterfactual—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs. In doing so, we hope to encourage more focused efforts to propose, falsify, and iterate on (causal) theories using well-established formal methods of causal inference. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.
+
+                    </div>
+                </details>
+            
+        </li>
+    
+        <li class="list-item" data-index="1" data-categories="" data-listing-date-sort="1744495200000">
             Vries, Laan, Boesveldt, Vuorre, Leeuwen, Verboon, Masterson, &amp; Klippel
  (2025). <b>Smell-e Technology: Bridging the gap between virtual and real-life food responses using an immersive multisensory VR food environment</b>. <a href="https://osf.io/6jwyr_v1">OSF Preprints</a>.
             <span class="listing-extras">
@@ -453,7 +483,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="1" data-categories="dHV0b3JpYWwlMkNyJTJDc3RhdGlzdGljcyUyQ3BzeWNob2xvZ3klMkNicm1zJTJDc2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5" data-listing-date-sort="1743717600000">
+        <li class="list-item" data-index="2" data-categories="dHV0b3JpYWwlMkNyJTJDc3RhdGlzdGljcyUyQ3BzeWNob2xvZ3klMkNicm1zJTJDc2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5" data-listing-date-sort="1743717600000">
             Vuorre
  (2025). <b>Estimating Signal Detection Models with regression using the brms R package</b>. <a href="https://osf.io/vtfc3_v1">OSF Preprints</a>.
             <span class="listing-extras">
@@ -476,7 +506,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="2" data-categories="d2VsbC1iZWluZyUyQ3ZpZGVvJTIwZ2FtZXMlMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRh" data-listing-date-sort="1741734000000">
+        <li class="list-item" data-index="3" data-categories="d2VsbC1iZWluZyUyQ3ZpZGVvJTIwZ2FtZXMlMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRh" data-listing-date-sort="1741734000000">
             Ballou, Vuorre, Hakman, Magnusson, &amp; Przybylski
  (2025). <b>Perceived value of video games, but not hours played, predicts mental well-being in casual adult Nintendo players</b>. <a href="https://royalsocietypublishing.org/doi/10.1098/rsos.241174">Royal Society Open Science</a>.
             <span class="listing-extras">
@@ -501,7 +531,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="3" data-categories="bWVudGFsJTIwaGVhbHRoJTJDYXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZSUyQ3RlY2hub2xvZ3k=" data-listing-date-sort="1737414000000">
+        <li class="list-item" data-index="4" data-categories="bWVudGFsJTIwaGVhbHRoJTJDYXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZSUyQ3RlY2hub2xvZ3k=" data-listing-date-sort="1737414000000">
             Mansfield, Ghai, Hakman, Ballou, Vuorre, &amp; Przybylski
  (2025). <b>From social media to artificial intelligence: improving research on digital harms in youth</b>. <a href="https://www.sciencedirect.com/science/article/pii/S2352464224003328">The Lancet Child &amp; Adolescent Health</a>.
             <span class="listing-extras">
@@ -524,7 +554,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="4" data-categories="ZGlzZ3VzdCUyQ2ZhY2UlMjBwZXJjZXB0aW9uJTJDaW5mZWN0aW91cyUyMGRpc2Vhc2UlMkNwcmVqdWRpY2UlMkNzaWduYWwlMjBkZXRlY3Rpb24lMjB0aGVvcnk=" data-listing-date-sort="1727647200000">
+        <li class="list-item" data-index="5" data-categories="ZGlzZ3VzdCUyQ2ZhY2UlMjBwZXJjZXB0aW9uJTJDaW5mZWN0aW91cyUyMGRpc2Vhc2UlMkNwcmVqdWRpY2UlMkNzaWduYWwlMjBkZXRlY3Rpb24lMjB0aGVvcnk=" data-listing-date-sort="1727647200000">
             Leeuwen, Jaeger, Axelsson, Becker, Hansson, Lasselin, Lekander, Tybur, &amp; Vuorre
  (2024). <b>The smoke-detector principle of pathogen avoidance: A test of how the behavioral immune system gives rise to prejudice (stage 1 registered report)</b>. <a href="https://osf.io/e874s_v1">OSF Preprints</a>.
             <span class="listing-extras">
@@ -547,7 +577,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="5" data-categories="bXVsdGlsZXZlbCUyMG1vZGVsJTJDc3RhdGlzdGljcyUyQ3ZhcmlhdGlvbiUyQ2hldGVyb2dlbmVpdHklMkN1bmNlcnRhaW50eSUyQ3Zpc3VhbGl6YXRpb24=" data-listing-date-sort="1725314400000">
+        <li class="list-item" data-index="6" data-categories="aGV0ZXJvZ2VuZWl0eSUyQ211bHRpbGV2ZWwlMjBtb2RlbCUyQ3N0YXRpc3RpY3MlMkN1bmNlcnRhaW50eSUyQ3ZhcmlhdGlvbiUyQ3Zpc3VhbGl6YXRpb24=" data-listing-date-sort="1725314400000">
             Vuorre, Kay, &amp; Bolger
  (2024). <b>Communicating causal effect heterogeneity</b>. <a href="https://osf.io/mwg4f">OSF Preprints</a>.
             <span class="listing-extras">
@@ -574,7 +604,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="6" data-categories="dmlkZW8lMjBnYW1lcyUyQ3Jlc2VhcmNoJTIwbWV0aG9kcyUyQ3BzeWNob2xvZ3klMkNvcGVuJTIwcmVzZWFyY2glMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRh" data-listing-date-sort="1724968800000">
+        <li class="list-item" data-index="7" data-categories="ZGlnaXRhbCUyMHRyYWNlJTIwZGF0YSUyQ29wZW4lMjByZXNlYXJjaCUyQ3BzeWNob2xvZ3klMkNyZXNlYXJjaCUyMG1ldGhvZHMlMkN2aWRlbyUyMGdhbWVz" data-listing-date-sort="1724968800000">
             Vuorre, Ballou, Hakman, Magnusson, &amp; Przybylski
  (2024). <b>Affective Uplift During Video Game Play: A Naturalistic Case Study</b>. <a href="https://dl.acm.org/doi/10.1145/3659464">ACM Games</a>.
             <span class="listing-extras">
@@ -603,7 +633,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="7" data-categories="d2VsbC1iZWluZyUyQ3NvY2lhbCUyMG1lZGlhJTJDZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eQ==" data-listing-date-sort="1719784800000">
+        <li class="list-item" data-index="8" data-categories="d2VsbC1iZWluZyUyQ3NvY2lhbCUyMG1lZGlhJTJDZWZmZWN0JTIwaGV0ZXJvZ2VuZWl0eQ==" data-listing-date-sort="1719784800000">
             Johannes, Masur, Vuorre, &amp; Przybylski
  (2024). <b>How should we investigate variation in the relation between social media and well-being?</b>. <a href="https://open.lnu.se/index.php/metapsychology/article/view/3322">Meta-Psychology</a>.
             <span class="listing-extras">
@@ -624,29 +654,6 @@ window.Quarto = {
                     <summary>Abstract</summary>
                     <div class="listing-abstract">
                         Most researchers studying the relation between social media use and well-being find small to no associations, yet policymakers and public stakeholders keep asking for more evidence. One way the field is reacting is by inspecting the variation around average relations—with the goal of describing individual social media users. Here, we argue that this approach produces findings that are not as informative as they could be. Our analysis begins by describing how the field got to this point. Then, we explain the problems with the current approach of studying variation and how it loses sight of one of the most important goals of a quantitative social science: generalizing from a sample to a population. We propose a principled approach to quantify, interpret, and explain variation in average relations by: (1) conducting model comparisons, (2) defining a region of practical equivalence and testing the theoretical distribution of relations against that region, (3) defining a smallest effect size of interest and comparing it against the theoretical distribution. We close with recommendations to either study moderators as systematic factors that explain variation or to commit to a person-specific approach and conduct N=1 studies and qualitative research.
-
-                    </div>
-                </details>
-            
-        </li>
-    
-        <li class="list-item" data-index="8" data-categories="dmlkZW8lMjBnYW1lcyUyQ2NhdXNhbCUyMGluZmVyZW5jZSUyQ3dlbGxiZWluZyUyQ21lZGlhJTIwdXNlJTJDbWVudGFsJTIwaGVhbHRo" data-listing-date-sort="1717020000000">
-            Ballou, Hakman, Vuorre, Magnusson, &amp; Przybylski
- (2024). <b>How do video games affect mental health? A narrative review of 13 proposed mechanisms</b>. <a href="https://osf.io/q2kxg">OSF Preprints</a>.
-            <span class="listing-extras">
-                <i class="ai ai-open-access" style="font-size:1.2em;"></i>
-                    
-                        <a href="bibliography/files/S5ETTANM/ballou-etal_2024_OSF.pdf">PDF</a>
-                    
-                    
-                    
-                    
-                </span>
-            
-                <details>
-                    <summary>Abstract</summary>
-                    <div class="listing-abstract">
-                        Researchers have proposed a variety of mechanisms through which playing video games might affect mental health: by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms are rarely enumerated, and underlying causal structures are rarely made explicit. Here, we overview 13 proposed effects of gaming on mental health. For each, we attempt to draw out (often implicit) counterfactuals—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs (DAGs). In doing so, we hope to provide a bird’s eye view of the field and encourage more focused and collaborative efforts to propose, falsify, and iterate on (causal) theories. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.
 
                     </div>
                 </details>
@@ -680,7 +687,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="10" data-categories="c2lnbmFsJTIwZGV0ZWN0aW9uJTIwdGhlb3J5JTJDYmlhcyUyQ2RlY2VwdGlvbiUyMGRldGVjdGlvbiUyQ21peGVkJTIwZWZmZWN0cyUyMG1vZGVscyUyQ3ZlcmFjaXR5" data-listing-date-sort="1709247600000">
+        <li class="list-item" data-index="10" data-categories="YmlhcyUyQ2RlY2VwdGlvbiUyMGRldGVjdGlvbiUyQ21peGVkJTIwZWZmZWN0cyUyMG1vZGVscyUyQ3NpZ25hbCUyMGRldGVjdGlvbiUyMHRoZW9yeSUyQ3ZlcmFjaXR5" data-listing-date-sort="1709247600000">
             Zloteanu &amp; Vuorre
  (2024). <b>A Tutorial for Deception Detection Analysis or: How I Learned to Stop Aggregating Veracity Judgments and Embraced Signal Detection Theory Mixed Models</b>. <a href="https://doi.org/10.1007/s10919-024-00456-x">Journal of Nonverbal Behavior</a>.
             <span class="listing-extras">
@@ -1006,7 +1013,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="22" data-categories="dmlkZW8lMjBnYW1lcyUyQ3RlY2hub2xvZ3klMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRhJTJDY292aWQtMTk=" data-listing-date-sort="1636326000000">
+        <li class="list-item" data-index="22" data-categories="Y292aWQtMTklMkNkaWdpdGFsJTIwdHJhY2UlMjBkYXRhJTJDdGVjaG5vbG9neSUyQ3ZpZGVvJTIwZ2FtZXM=" data-listing-date-sort="1636326000000">
             Vuorre, Zendle, Petrovskaya, Ballou, &amp; Przybylski
  (2021). <b>A Large-Scale Study of Changes to the Quantity, Quality, and Distribution of Video Game Play During a Global Health Pandemic</b>. <a href="https://tmb.apaopen.org/pub/5w1p7ttn/release/2">Technology, Mind, and Behavior</a>.
             <span class="listing-extras">
@@ -1195,7 +1202,7 @@ window.Quarto = {
             
         </li>
     
-        <li class="list-item" data-index="29" data-categories="b3BlbiUyMGRhdGElMkNvcGVuJTIwbWF0ZXJpYWxzJTJDciUyQ2JybXMlMkNvcmRpbmFsJTIwbW9kZWxzJTJDbGlrZXJ0JTIwaXRlbXM=" data-listing-date-sort="1551394800000">
+        <li class="list-item" data-index="29" data-categories="YnJtcyUyQ2xpa2VydCUyMGl0ZW1zJTJDb3BlbiUyMGRhdGElMkNvcGVuJTIwbWF0ZXJpYWxzJTJDb3JkaW5hbCUyMG1vZGVscyUyQ3I=" data-listing-date-sort="1551394800000">
             Bürkner &amp; Vuorre
  (2019). <b>Ordinal Regression Models in Psychology: A Tutorial</b>. <a href="https://doi.org/10.1177/2515245918823199">Advances in Methods and Practices in Psychological Science</a>.
             <span class="listing-extras">
@@ -1968,7 +1975,7 @@ window.Quarto = {
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

@@ -945,6 +945,13 @@
     "text": "Conclusion\nIf you are going to fit the model described in (Vuorre and Bolger 2017), I recommend using the brms R package (Bürkner 2017a) because of its flexibility, how it clearly connects to R regression syntax, and its estimation efficiency."
   },
   {
+    "objectID": "posts/bmlm-multilevel-mediation/index.html#feedback-comments",
+    "href": "posts/bmlm-multilevel-mediation/index.html#feedback-comments",
+    "title": "Bayesian multilevel mediation with brms",
+    "section": "Feedback & comments",
+    "text": "Feedback & comments\nI’d appreciate any feedback or comments you might have. Feel free to le me know what you think either using the comments field (below) or on Bluesky:"
+  },
+  {
     "objectID": "posts/bmlm-multilevel-mediation/index.html#r-environment",
     "href": "posts/bmlm-multilevel-mediation/index.html#r-environment",
     "title": "Bayesian multilevel mediation with brms",

@@ -248,3 +248,9 @@ If you are going to fit the model described in [@vuorreWithinsubjectMediationAna
 library(grateful)
 cite_packages(output = "paragraph", pkgs = "Session", out.dir = getwd())
 ```
+
+## Feedback & comments
+
+I'd appreciate any feedback or comments you might have. Feel free to le me know what you think either using the comments field (below) or on Bluesky:
+
+{{< bluesky-comments 3lo74t2bjpk2l >}}

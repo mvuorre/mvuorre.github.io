@@ -93,7 +93,8 @@ dat |>
   outlet: >-
     {outlet}
   file: {path}
-  meeting: {meeting_name}
+  meeting: >-
+    {meeting_name}
   categories: [{tags}]
   abstract: |
     {str_remove_all(abstract_note, '\\n')}

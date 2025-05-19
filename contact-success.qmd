@@ -1,6 +1,0 @@
----
-title: "Contact"
-comments: false
----
-
-Thanks for getting in touch! I'll get back to you.

@@ -4,16 +4,15 @@
   // Document metadata
   title: none,
   running-head: none,
+  subtitle: none,
   authors: (),
   affiliations: none,
   abstract: none,
   categories: none,
   wordcount: none,
   authornote: none,
-  citation: none,
-  date: none,
-  branding: none,
-
+  citation: none, // Not used currently
+  date: none, // Not used currently
   // Layout settings
   leading: 0.6em,
   spacing: 0.6em,
@@ -22,55 +21,56 @@
   linkcolor: black,
   margin: (x: 3.2cm, y: 3cm),
   paper: "a4",
-
   // Typography settings
   lang: "en",
   region: "US",
-  font: ("Times", "Times New Roman", "Arial"),
+  font: ("Libertinus Serif", "Times", "Times New Roman", "Arial"),
   fontsize: 11pt,
-
+  title-size: 1.5em,
+  subtitle-size: 1.25em,
   // Structure settings
-  section-numbering: none,
+  sectionnumbering: none,
+  pagenumbering: "1",
+  linenumbering: none,
   toc: false,
-  toc-title: none,
-  toc-depth: none,
-  toc-indent: 1.5em,
+  toc_title: none,
+  toc_depth: none,
+  toc_indent: 1.5em,
   bibliography-title: "References",
-  bibliography-style: "apa",
+  bibliographystyle: "apa",
   cols: 1,
   col-gutter: 4.2%,
-
-  doc
+  doc,
 ) = {
-
   /* Document settings */
-
   // Link and cite colors
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
 
   // Allow custom title for bibliography section
-  set bibliography(title: bibliography-title, style: bibliography-style)
+  set bibliography(title: bibliography-title, style: bibliographystyle)
 
   // Bibliography paragraph spacing
   show bibliography: set par(spacing: spacing, leading: leading)
 
-  /* Page layout settings */
+  // Space around figures
+  show figure: f => { [#v(leading * 2) #f #v(leading * 2) ] }
 
-  // Page settings (including headers & footers)
+  /* Page layout settings */
   set page(
     paper: paper,
     margin: margin,
     numbering: none,
     header-ascent: 50%,
-    header: context { if(counter(page).get().at(0) > 1) [
+    header: context {
+      if (counter(page).get().at(0) > 1) [
         #grid(
-            columns: (1fr, 1fr),
-            align(left)[#running-head],
-            align(right)[#counter(page).display()]
+          columns: (1fr, 1fr),
+          align(left)[#running-head], align(right)[#counter(page).display(pagenumbering)],
         )
-    ]},
-    footer-descent: 10%
+      ]
+    },
+    footer-descent: 10%,
   )
 
   /* Typography settings */
@@ -82,50 +82,39 @@
     spacing: spacing,
     first-line-indent: (amount: first-line-indent, all: all),
   )
+  set par.line(numbering: linenumbering)
 
   // Text settings
   set text(
     lang: lang,
     region: region,
     font: font,
-    size: fontsize
+    size: fontsize,
   )
 
   // Headers
-  set heading(
-    numbering: section-numbering
-  )
-  show heading.where(
-    level: 1
-  ): it => block(width: 100%, below: 1em, above: 1.25em)[
+  set heading(numbering: sectionnumbering)
+  show heading.where(level: 1): it => block(width: 100%, below: 1em, above: 1.25em)[
     #set align(center)
-    #set text(size: fontsize*1.1, weight: "bold")
+    #set text(size: fontsize * 1.1, weight: "bold")
     #it
   ]
-  show heading.where(
-    level: 2
-  ): it => block(width: 100%, below: 1em, above: 1.25em)[
-    #set text(size: fontsize*1.05)
+  show heading.where(level: 2): it => block(width: 100%, below: 1em, above: 1.25em)[
+    #set text(size: fontsize * 1.05)
     #it
   ]
-  show heading.where(
-    level: 3
-  ): it => block(width: 100%, below: 0.8em, above: 1.2em)[
+  show heading.where(level: 3): it => block(width: 100%, below: 0.8em, above: 1.2em)[
     #set text(size: fontsize, style: "italic")
     #it
   ]
   // Level 4 & 5 headers are in paragraph
-  show heading.where(
-    level: 4
-  ): it => box(
+  show heading.where(level: 4): it => box(
     inset: (top: 0em, bottom: 0em, left: 0em, right: 0.1em),
-    text(size: 1em, weight: "bold", it.body + [.])
+    text(size: 1em, weight: "bold", it.body + [.]),
   )
-  show heading.where(
-    level: 5
-  ): it => box(
+  show heading.where(level: 5): it => box(
     inset: (top: 0em, bottom: 0em, left: 0em, right: 0.1em),
-    text(size: 1em, weight: "bold", style: "italic", it.body + [.])
+    text(size: 1em, weight: "bold", style: "italic", it.body + [.]),
   )
 
   /* Front matter formatting */
@@ -133,10 +122,10 @@
   let titleblock(
     body,
     width: 100%,
-    size: 1.5em,
+    size: title-size,
     weight: "bold",
     above: 1em,
-    below: 0em
+    below: 0em,
   ) = [
     #align(center)[
       #block(width: width, above: above, below: below)[
@@ -146,7 +135,10 @@
   ]
 
   if title != none {
-    titleblock(title, above: 0em, below: 2em)
+    titleblock(title, above: 0em)
+  }
+  if subtitle != none {
+    titleblock(subtitle, size: subtitle-size)
   }
 
   /* Author formatting */
@@ -186,21 +178,22 @@
       // Add corresponding author footnote directly to the author name
       if a.keys().contains("corresponding") {
         author_elements.push(
-          footnote(numbering: "*", [
-            Send correspondence to: #a.name, #a.email.
-            #if equal_contrib_text != none [
-              #super[§]#equal_contrib_text
-            ]
-            #if authornote != none [#authornote]
-          ])
+          footnote(
+            numbering: "*",
+            [
+              Send correspondence to: #a.name, #a.email.
+              #if equal_contrib_text != none [
+                #super[§]#equal_contrib_text
+              ]
+              #if authornote != none [#authornote]
+            ],
+          ),
         )
       }
 
       // Add ORCID if available
       if a.keys().contains("orcid") {
-        author_elements.push(
-          link(a.orcid, fa-orcid(fill: rgb("a6ce39"), size: 0.8em))
-        )
+        author_elements.push(link(a.orcid, fa-orcid(fill: rgb("a6ce39"), size: 0.8em)))
       }
 
       // Add author string to the list
@@ -210,17 +203,21 @@
 
   if authors != none {
     titleblock(
-      weight: "regular", size: 1.25em,
-      [#author_strings.join(", ", last: " & ")]
+      weight: "regular",
+      size: 1.25em,
+      above: 2.5em,
+      [#author_strings.join(", ", last: " & ")],
     )
   }
 
   if affiliations != none {
     titleblock(
-      weight: "regular", size: 1.1em, below: 2em,
+      weight: "regular",
+      size: 1.1em,
+      below: 2em,
       for a in affiliations [
         #if authors.len() > 1 [#super[#a.id]]#a.name#if a.keys().contains("department") [, #a.department] \
-      ]
+      ],
     )
   }
 
@@ -247,9 +244,9 @@
   if toc {
     block(inset: (top: 2em, bottom: 0em, left: 2.4em, right: 2.4em))[
       #outline(
-        title: toc-title,
-        depth: toc-depth,
-        indent: toc-indent
+        title: toc_title,
+        depth: toc_depth,
+        indent: toc_indent,
       )
     ]
   }
@@ -266,10 +263,9 @@
     columns(
       cols,
       gutter: col-gutter,
-      doc
+      doc,
     )
   }
-
 }
 
 // Remove gridlines from tables

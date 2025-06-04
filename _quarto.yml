@@ -4,6 +4,9 @@ project:
   preview:
     port: 4321
     browser: false
+  render:
+    - "*.qmd"
+    - "!posts/drafts/"
   resources:
     - CNAME
 repo-url: https://github.com/mvuorre/mvuorre.github.io

@@ -26,6 +26,15 @@ listing:
     sort: "date desc"
     page-size: 5
     date-format: "YYYY"
+  - id: software
+    template: styles/software.ejs
+    contents:
+      - bibliography/items.yml
+    include:
+      type: "{computerProgram}"
+    sort: "title"
+    page-size: 5
+    date-format: "YYYY"
 comments: false
 ---
 
@@ -38,6 +47,11 @@ You can find all my publications on this page, or on [ORCID](https://orcid.org/0
 ## Articles
 
 ::: {#papers}
+:::
+
+## Software
+
+::: {#software}
 :::
 
 ## Presentations

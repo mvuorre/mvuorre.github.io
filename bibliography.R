@@ -16,7 +16,7 @@ PATH_OUT <- "bibliography/files"
 # and repair paths
 # Get data from local Zotero using better bibtex API
 request(
-  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/IUWWUPBA.bibtex"
+  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/cv.biblatex"
 ) |>
   req_perform() |>
   resp_body_string() |>
@@ -25,7 +25,7 @@ request(
 
 # Get JSON for listings
 dat <- request(
-  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/IUWWUPBA.jzon"
+  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/cv.jzon"
 ) |>
   req_perform() |>
   resp_body_string() |>
@@ -52,7 +52,8 @@ walk2(
 dat <- dat |>
   clean_names() |>
   filter(
-    item_type %in% c("journalArticle", "preprint", "presentation")
+    item_type %in%
+      c("journalArticle", "preprint", "presentation", "computerProgram")
   ) |>
   mutate(
     publication = ifelse(

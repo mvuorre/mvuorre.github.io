@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/posts/bmlm-multilevel-mediation/index.html",
@@ -28,10 +32,6 @@
       "/posts/2016-03-15-ggplot-plots-subplots/index.html",
       "/posts/2016-03-06-multilevel-predictions/index.html"
     ]
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
   },
   {
     "listing": "/now.html",

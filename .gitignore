@@ -25,5 +25,8 @@ bibliography/files/
 bibliography/bibliography.json
 reading/readings.csv
 
+# Draft posts
+/posts/drafts/
+
 # Environment file
 .env

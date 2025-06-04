@@ -14,7 +14,9 @@ website:
   title: "Matti's homepage"
   site-url: https://vuorre.com
   description: Homepage of Matti Vuorre
-  draft-mode: unlinked
+  drafts:
+    - posts/drafts/
+  draft-mode: gone
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [edit, source, issue]
   comments:

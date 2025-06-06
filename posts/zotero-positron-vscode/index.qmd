@@ -56,3 +56,5 @@ Restart Positron, ensure Zotero is running and that you have installed the [Bett
 Typing anything in the dialog will search for items with that string, and advanced search queries like `author:jaynes` and `author:jaynes theory` work as well. Once you've chosen the desired citation, hit <kbd>Return</kbd> and the in-text citation is added to the document, and its biblatex entry is written to the document's associated `.bib` file.
 
 Done and done.
+
+{{< bluesky-comments 3lqx3refo3c2p >}}

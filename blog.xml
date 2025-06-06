@@ -73,6 +73,8 @@ Probability theory is cool [@jaynesProbabilityTheoryLogic2003].</code></pre>
 </div>
 <p>Typing anything in the dialog will search for items with that string, and advanced search queries like <code>author:jaynes</code> and <code>author:jaynes theory</code> work as well. Once you’ve chosen the desired citation, hit <kbd>Return</kbd> and the in-text citation is added to the document, and its biblatex entry is written to the document’s associated <code>.bib</code> file.</p>
 <p>Done and done.</p>
+    <bluesky-comments post="at://did:plc:ai4isl2n4j2h7qcqebj7vu2k/app.bsky.feed.post/3lqx3refo3c2p" filter-config="{&quot;filterEmptyReplies&quot;:true,&quot;mutePatterns&quot;:[],&quot;muteUsers&quot;:[]}" profile="did:plc:ai4isl2n4j2h7qcqebj7vu2k"></bluesky-comments>
+  
 
 
 </section>

@@ -1,0 +1,42 @@
+# Shared options for posts
+
+# Disable banner style title blocks
+title-block-banner: true
+title-block-style: default
+
+# Enable CC licence appendix
+license: "CC BY"
+
+# Default for table of contents
+toc: true
+toc-title: Contents
+toc-depth: 2
+toc-location: left
+
+# Link sections
+anchor-sections: true
+
+# Default knitr options
+execute:
+  echo: true
+  message: true
+  warning: true
+
+# Default author
+author:
+  - name: Matti Vuorre
+    url: https://vuorre.com
+    affiliation: Tilburg University
+    affiliation-url: https://www.tilburguniversity.edu/staff/m-j-vuorre
+    orcid: 0000-0001-5052-066X
+    email: mjvuorre@uvt.nl
+    corresponding: true
+
+# Default fields for citation
+citation: true
+
+# My permanent Bluesky DID for Bluesky comments
+# https://quarto-ext.github.io/bluesky-comments/
+# Use {{< bluesky-comments POST_ID_HERE >}} in posts
+bluesky-comments:
+  profile: did:plc:ai4isl2n4j2h7qcqebj7vu2k

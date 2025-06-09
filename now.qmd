@@ -1,0 +1,29 @@
+---
+title: What I've been up to
+toc: true
+toc-depth: 2
+toc-location: left
+listing:
+  - id: readings
+    template: styles/readings.ejs
+    contents:
+      - bibliography/readings.yml
+    include:
+      type: "*"
+    sort: "date_read desc"
+    page-size: 5
+    date-format: "YYYY-MM-DD"
+comments: false
+bibliography: "bibliography/bibliography.bib"
+---
+
+
+<!-- Somehow these are required to make icons work in the EJS template. -->
+<!-- {{< fa brands github >}} -->
+
+## Recent things I've read
+
+This is a short selection of things I've been reading, watching, or listening to.
+
+::: {#readings}
+:::

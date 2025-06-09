@@ -1,0 +1,248 @@
+---
+title: Bayesian Meta-Analysis with R, Stan, and brms
+description: Meta-analysis is a special case of Bayesian multilevel modeling
+date: 2016-09-29
+categories:
+  - statistics
+  - R
+  - brms
+  - tutorial
+image: "index_files/figure-html/unnamed-chunk-2-1.png"
+bibliography: bibliography.bib
+---
+
+```{r packages, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(metafor)
+library(scales)
+library(lme4)
+library(brms)
+library(tidyverse)
+```
+
+```{r setup, include = FALSE}
+opts_chunk$set(
+  warning = F,
+  message = F,
+  eval = T,
+  cache = T,
+  echo = T,
+  collapse = T,
+  fig.align = "center"
+)
+options(width = 140)
+theme_set(theme_linedraw() + theme(panel.grid = element_blank()))
+```
+
+## Introduction
+
+Recently, there's been a lot of talk about meta-analysis, and here I would just like to quickly show that Bayesian multilevel modeling nicely takes care of your meta-analysis needs, and that it is easy to do in R with the rstan and brms packages. As you'll see, meta-analysis is a special case of Bayesian multilevel modeling when you are unable or unwilling to put a prior distribution on the meta-analytic effect size estimate.
+
+The idea for this post came from Wolfgang Viechtbauer's [website](http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4), where he compared results for meta-analytic models fitted with his great (frequentist) package [metafor](http://www.metafor-project.org/doku.php/metafor) and the swiss army knife of multilevel modeling, [lme4](https://cran.r-project.org/web/packages/lme4/index.html). It turns out that even though you can fit meta-analytic models with lme4, the results are slightly different from traditional meta-analytic models, because the experiment-wise variances are treated slightly differently.
+
+Here are the packages we'll use:
+
+```{r packages, eval = FALSE}
+```
+
+## The data
+
+Here I'll only focus on a simple random effects meta-analysis of effect sizes, and will use the same example data as in the aforementioned [website](http://www.metafor-project.org/doku.php/tips:rma_vs_lm_lme_lmer?s%5B%5D=lme4). The data are included in the metafor package, and describe the relationship between conscientiousness and medication adherence. The effect sizes are r to z transformed correlations.
+
+```{r obtain-data, echo = F}
+dat <- escalc(measure = "ZCOR", ri = ri, ni = ni, data = dat.molloy2014)
+dat <- dat[, -c(5:10)] %>% as_tibble()
+dat$yi <- as.numeric(dat$yi)
+dat$vi <- as.numeric(dat$vi)
+dat <- as_tibble(dat)
+names(dat) <- c("study", "year", "ni", "ri", "yi", "vi")
+dat$study <- paste0(dat$study, " (", dat$year, ")")
+dat$sei <- as.numeric(sqrt(dat$vi))
+dat$study <- as.character(dat$study)
+# Major pain in reordering
+dat$study[5] <- "Christensen et al. (1995)"
+tmp <- dat[5, ]
+dat[5, ] <- dat[4, ]
+dat[4, ] <- tmp
+```
+
+```{r display-fake-data, echo = F}
+dat %>%
+  kable(
+    digits = 2,
+    caption = "Example data (dat.molloy2014 in metafor package)."
+  ) %>%
+  kable_styling()
+```
+
+## The model
+
+We are going to fit a random-effects meta-analysis model to these observed effect sizes and their standard errors. Here's what this model looks like, loosely following notation from the R package Metafor's manual (p.6):
+
+$$y_i \sim N(\theta_i, \sigma_i^2)$$
+
+where each recorded effect size, $y_i$ is a draw from a normal distribution which is centered on that study's "true" effect size $\theta_i$ and has standard deviation equal to the study's observed standard error $\sigma_i$.
+
+Our next set of assumptions is that the studies' true effect sizes approximate some underlying effect size in the (hypothetical) population of all studies. We call this underlying population effect size $\mu$, and its standard deviation $\tau$, such that the true effect sizes are thus distributed:
+
+$$\theta_i \sim N(\mu, \tau^2)$$
+
+We now have two interesting parameters: $\mu$ tells us, all else being equal, what I may expect the "true" effect to be, in the population of similar studies. $\tau$ tells us how much individual studies of this effect vary.
+
+I think it is most straightforward to write this model as yet another mixed-effects model (metafor manual p.6):
+
+$$y_i \sim N(\mu + \theta_i, \sigma^2_i)$$
+
+where $\theta_i \sim N(0, \tau^2)$, studies' true effects are normally distributed with between-study heterogeneity $\tau^2$. The reason this is a little confusing (to me at least), is that we know the $\sigma_i$s (this being the fact that separates meta-analysis from other more common regression modeling).
+
+### Estimation with metafor
+
+Super easy!
+
+```{r}
+library(metafor)
+ma_out <- rma(data = dat, yi = yi, sei = sei, slab = dat$study)
+summary(ma_out)
+```
+
+## Bayesian estimation
+
+So far so good, we're strictly in the realm of standard meta-analysis. But I would like to propose that instead of using custom meta-analysis software, we simply consider the above model as just another regression model, and fit it like we would any other (multilevel) regression model. That is, using [Stan](http://mc-stan.org/), usually through the [brms](https://cran.r-project.org/package=brms) interface. Going Bayesian allows us to assign prior distributions on the population-level parameters $\mu$ and $\tau$, and we would usually want to use some very mildly regularizing priors. Here we proceed with brms' default priors (which I print below with the output)
+
+### Estimation with brms
+
+Here's how to fit this model with brms:
+
+```{r fit-ma-brms, output = 'hide'}
+brm_out <- brm(
+  yi | se(sei) ~ 1 + (1 | study),
+  data = dat,
+  cores = 4,
+  file = "metaanalysismodel"
+)
+```
+
+```{r results-disp, echo = F}
+options(width = 120)
+summary(brm_out, prior = TRUE)
+```
+
+These results are the same as the ones obtained with metafor. Note the Student's *t* prior distributions, which are diffuse enough not to exert influence on the posterior distribution.
+
+## Comparing results
+
+We can now compare the results of these two estimation methods. Of course, the Bayesian method has a tremendous advantage, because it results in a full distribution of plausible values.
+
+```{r, echo = F, preview = TRUE, fig.cap = "Histogram of samples from the posterior distribution of the average effect size (top left) and the variability (top right). Bottom left displays the multivariate posterior distribution of the average (x-axis) and the standard deviation (y-axis), light colors indicating increased plausibility of values. For each plot, the dashed lines display the maximum likelihood point estimate, and 95% confidence limits (only the point estimate is displayed for the multivariate figure.)"}
+
+ma_tau <- confint(ma_out)$random[2, ]
+ma_mu <- confint(ma_out, fixed = T)$fixed
+posterior <- as.data.frame(brm_out, pars = c("b_", "sd"))
+names(posterior) <- c("mu", "tau")
+gridExtra::grid.arrange(
+  ggplot(posterior, aes(x = mu)) +
+    geom_histogram(binwidth = .01) +
+    geom_vline(xintercept = as.numeric(ma_mu), lty = 2) +
+    scale_x_continuous(expression(mu), limits = c(0, 0.5)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    theme(panel.grid = element_blank(), axis.title.y = element_blank()),
+  ggplot(posterior, aes(x = tau)) +
+    geom_histogram(binwidth = .01) +
+    geom_vline(xintercept = as.numeric(ma_tau), lty = 2) +
+    scale_x_continuous(expression(tau), limits = c(0, 0.5)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    theme(panel.grid = element_blank(), axis.title.y = element_blank()),
+  ggplot(posterior, aes(x = mu, y = tau)) +
+    stat_density_2d(
+      geom = "raster",
+      aes(fill = ..density..),
+      n = 201,
+      contour = FALSE
+    ) +
+    geom_vline(xintercept = as.numeric(ma_mu)[1], col = "red") +
+    geom_hline(yintercept = as.numeric(ma_tau)[1], col = "red") +
+    scale_fill_viridis_c(na.value = "black") +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    labs(x = expression(mu), y = expression(tau)) +
+    theme(legend.position = "none"),
+  ggplot(dat, aes(x = yi, y = study)) +
+    geom_segment(aes(
+      x = yi - sei * 2,
+      xend = yi + sei * 2,
+      y = study,
+      yend = study
+    )) +
+    geom_point() +
+    theme(axis.title.y = element_blank()),
+  ncol = 2
+)
+```
+
+We can see from the numeric output, and especially the figures, that these modes of inference yield the same numerical results. Keep in mind though, that the Bayesian estimates actually allow you to discuss probabilities, and generally the things that we'd like to discuss when talking about results.
+
+For example, what is the probability that the average effect size is greater than 0.2? About eight percent:
+
+```{r echo = -1}
+options(width = 120)
+hypothesis(brm_out, "Intercept > 0.2")
+```
+
+### Forest plot
+
+The forest plot displays the entire posterior distribution of each $\theta_i$. The meta-analytic effect size $\mu$ is also displayed in the bottom row. I'll show a considerable amount of code here so that you can create your own forest plots from brms output:
+
+```{r draw-forest-plot, fig.height = 6, echo = TRUE, fig.cap = "Forest plot of the example model's results. Filled points and intervals are posterior means and 80/95% Credible Intervals. Empty points are observed effect sizes."}
+library(tidybayes)
+library(ggdist)
+# Study-specific effects are deviations + average
+out_r <- spread_draws(brm_out, r_study[study, term], b_Intercept) %>%
+  mutate(b_Intercept = r_study + b_Intercept)
+# Average effect
+out_f <- spread_draws(brm_out, b_Intercept) %>%
+  mutate(study = "Average")
+# Combine average and study-specific effects' data frames
+out_all <- bind_rows(out_r, out_f) %>%
+  ungroup() %>%
+  # Ensure that Average effect is on the bottom of the forest plot
+  mutate(study = fct_relevel(study, "Average")) %>%
+  # tidybayes garbles names so fix here
+  mutate(study = str_replace_all(study, "\\.", " "))
+# Data frame of summary numbers
+out_all_sum <- group_by(out_all, study) %>%
+  mean_qi(b_Intercept)
+# Draw plot
+out_all %>%
+  ggplot(aes(b_Intercept, study)) +
+  # Zero!
+  geom_vline(xintercept = 0, size = .25, lty = 2) +
+  stat_halfeye(.width = c(.8, .95), fill = "dodgerblue") +
+  # Add text labels
+  geom_text(
+    data = mutate_if(out_all_sum, is.numeric, round, 2),
+    aes(label = str_glue("{b_Intercept} [{.lower}, {.upper}]"), x = 0.75),
+    hjust = "inward"
+  ) +
+  # Observed as empty points
+  geom_point(
+    data = dat %>% mutate(study = str_replace_all(study, "\\.", " ")),
+    aes(x = yi),
+    position = position_nudge(y = -.2),
+    shape = 1
+  )
+```
+
+Focus on Moran et al. (1997)'s observed effect size (the empty circle): This is an anomalous result compared to all other studies. One might describe it as *incredible*, and that is indeed what the bayesian estimation procedure has done, and the resulting posterior distribution is no longer equivalent to the observed effect size. Instead, it is shrunken toward the average effect size. Now look at the table above, this study only had 56 participants, so we should be more skeptical of this study's observed ES, and perhaps we should then adjust our beliefs about this study in the context of other studies. Therefore, our best guess about this study's effect size, given all the other studies is no longer the observed mean, but something closer to the average across the studies.
+
+If this shrinkage business seems radical, consider Quine et al. (2012). This study had a much greater sample size (537), and therefore a smaller SE. It was also generally more in line with the average effect size estimate. Therefore, the observed mean ES and the mean of the posterior distribution are pretty much identical. This is also a fairly desirable feature.
+
+## Discussion
+
+The way these different methods are presented (regression, meta-analysis, ANOVA, ...), it is quite easy for a beginner, like me, to lose sight of the forest for the trees. I also feel that this is a general experience for students of applied statistics: Every experiment, situation, and question results in a different statistical method (or worse: "Which test should I use?"), and the student doesn't see how the methods relate to each other. So I think focusing on the (regression) model is key, but often overlooked in favor of this sort of decision tree model of choosing statistical methods [@mcelreathStatisticalRethinkingBayesian2020].
+
+Accordingly, I think we've ended up in a situation where meta-analysis, for example, is seen as somehow separate from all the other modeling we do, such as repeated measures t-tests. In fact I think applied statistics in Psychology may too often appear as an unconnected bunch of tricks and models, leading to confusion and inefficient implementation of appropriate methods.
+
+### Bayesian multilevel modeling
+
+As I've been learning more about statistics, I've often noticed that some technique, applied in a specific set of situations, turns out to be a special case of a more general modeling approach. I'll call this approach here *Bayesian multilevel modeling* [@mcelreathStatisticalRethinkingBayesian2020]. If you are forced to choose one statistical method to learn, it should be Bayesian multilevel modeling, because it allows you to do and understand most things, and allows you to see how similar all these methods are, under the hood.

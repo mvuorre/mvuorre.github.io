@@ -1,0 +1,2210 @@
+---
+title: Estimating Signal Detection Models with regression using the brms R package
+abstract: |
+  Signal Detection Theory is a widely used framework for understanding decisions by distinguishing between response bias and true discriminability in various psychological domains. Manual calculation approaches to estimating SDT models' parameters, while commonly used, can be cumbersome and limited. In this tutorial I connect SDT to regression models that researchers are already familiar with in order to bring the flexibility of modern regression techniques to modeling of SDT data. I begin with a glance at SDT's fundamentals, and then show how to manually calculate basic SDT parameters. In the bulk of the tutorial, I show step-by-step implementations of various SDT models using the brms R package. I progress from analyses of binary Yes/No tasks to rating task models with multilevel structures, unequal variances, and mixtures. Throughout, I highlight benefits of the regression-based approach, such as dealing with missing data, multilevel structures, and quantifying uncertainty. By framing SDT models as regressions, researchers gain access to a powerful set of flexible tools while maintaining the conceptual clarity that makes SDT valuable. A regression-based approach not only simplifies SDT analyses but also extends SDT's utility through flexible parameter estimation with uncertainty measures and the ability to incorporate predictors at multiple levels of analysis.
+date: 2017-10-09
+date-modified: 2025-03-19
+categories:
+  - psychology
+  - statistics
+  - signal detection theory
+  - tutorial
+  - R
+  - brms
+bibliography: "bibliography.bib"
+image: "index_files/figure-html/fig-sdt-example-1.png"
+aliases:
+  - /posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html
+format:
+  html:
+    toc-depth: 3
+    toc-expand: 1
+    code-fold: true
+    code-tools:
+      source: repo
+  preprint-typst:
+    suppress-bibliography: true
+    section-numbering: "1."
+    running-head: "Regression SDT models"
+    fontsize: 11pt
+    mainfont: Libertinus Serif
+    keep-typ: false
+    all: true
+    toc: true
+    linkcolor: blue
+    toc-depth: 1
+    wordcount: '{{< words-body >}}'
+    authornote: "This write-up first appeared as a blog post at <https://vuorre.com/posts/sdt-regression/>. Read at that URL to view and download the manuscript's source code. This work has not yet been peer reviewed."
+citation:
+  type: article
+  container-title: "PsyArXiv"
+  doi: "10.31234/osf.io/vtfc3_v1"
+  url: https://osf.io/preprints/psyarxiv/vtfc3_v1
+google-scholar: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  eval = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  cache = TRUE,
+  echo = knitr::is_html_output(),
+  fig.align = "center",
+  fig.asp = 0.618
+)
+```
+
+
+::: {.content-visible when-format="html"}
+
+```{r}
+#| label: r-setup
+#| code-summary: R setup
+#| output: false
+#| cache: false
+
+library(knitr)
+library(tinytable)
+library(scales)
+library(tidybayes)
+library(ggdist)
+library(ggnewscale)
+library(posterior)
+library(distributional)
+library(patchwork)
+library(latex2exp)
+library(brms)
+library(tidyverse)
+
+dir.create("cache", FALSE)
+options(
+  brms.backend = Sys.getenv("BRMS_BACKEND", "rstan"),
+  brms.threads = as.numeric(Sys.getenv("BRMS_THREADS", 1)),
+  mc.cores = as.numeric(Sys.getenv("MAX_CORES", 4)),
+  brms.short_summary = TRUE,
+  tinytable_tt_digits = 2,
+  tinytable_format_num_fmt = "decimal",
+  tinytable_format_num_zero = TRUE
+)
+theme_set(
+  theme_linedraw(base_size = if_else(knitr::is_html_output(), 10, 12)) +
+    theme(
+      panel.grid = element_blank(),
+      strip.background = element_blank(),
+      strip.text = element_text(hjust = 0, colour = "black")
+    )
+)
+```
+
+:::
+
+## Signal Detection Theory
+
+Signal Detection Theory (SDT) is a framework for studying, understanding, and modeling a wide range of psychological phenomena [@greenSignalDetectionTheory1966]. Its origins are in the psychophysical study of perception, but it has since been used to understand memory, decision making, and other domains. So what is SDT?
+
+>"Detection theory entered psychology as a way to explain detection experiments, in which weak visual or auditory signals must be distinguished from a 'noisy' background." [@macmillan_detection_2005, p.xiii]
+
+To unpack this definition, consider a recognition memory experiment where participants view a series of images, some of which they have not seen before (new items) and some of which they have seen before (old items). For each item, participants decide whether they have seen the item before (and thus give an "old" response) or not (a "new" response).
+
+A straightforward analysis of data from this experiment focuses on accuracy: What percentage of items participants correctly classified as old or new? Such analyses of accuracy, however, are suboptimal because they conflate two critical factors, fundamental to SDT, that plausibly underlie participants' responses: Response bias (commonly termed *c* for *criterion*) and the ability to discriminate old from new items (commonly termed *d'* for *discriminability*). Through directly modeling these two processes, SDT has repeatedly been shown to explain data better than models implied by analyses of accuracy [@macmillan_detection_2005, p.13; @kellenTestingFoundationsSignal2021]. Why?
+
+In this hypothetical experiment, participants might respond "old" for (at least) two reasons: A tendency to respond "old", and an underlying ability to discriminate previously seen items from new items. The conceptual basis of SDT (keeping with a memory task example) is that each stimulus elicits some experience of "familiarity" (commonly termed signal strength or *evidence*). Because of noise in the environment and perceptual, cognitive, and other information processors involved, even for a fixed stimulus the resulting evidence is not constant but instead varies from trial to trial.
+
+
+```{r}
+#| label: fig-sdt-example
+#| fig-cap: "Illustration of subjective evidence distributions postulated by Signal Detection Theory. Each stimulus presentation elicits a degree of evidence, which is assumed to be normally distributed as a sum of many unknown sources of noise in the information processing flow from stimulus to consciousness. On noise trials (left; e.g. new items in a memory experiment), the evidence distribution is centered on zero. On signal trials (right; e.g. old items) the distribution has some positive mean if the participant can---on average---distinguish the signal from noise. The vertical line illustrates the decision criterion *c* which the evidence must exceed for a participant to decide that the trial contained a signal. The distance between the two distributions' means indicates discriminability *d'*."
+#| fig-width: 6
+#| fig-asp: 0.4
+
+# Example data (pid=7)
+maxl <- dnorm(0) # Highest likelihood
+zhr <- 0.866
+zfr <- -0.100
+crit <- -(zhr + zfr) / 2
+dprime <- zhr - zfr
+cl <- dnorm(dprime / 2) # Likelihood at intersection
+ry <- .01 # Response type annotation y-coordinate
+
+pa <- ggplot() +
+  coord_cartesian(
+    ylim = c(0, maxl)
+  ) +
+  scale_x_continuous(
+    "Evidence",
+    breaks = c(-3, -2, -1, crit, 0, 1, 2, 3, 4),
+    labels = c("-3", "-2", "-1", "c", "0", "1", "2", "3", "4"),
+    expand = expansion(0.01)
+  ) +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(c(0, 0.15))
+  ) +
+  # Noise distribution
+  scale_fill_brewer(
+    "Noise trials",
+    palette = "Dark2"
+  ) +
+  stat_slab(
+    aes(
+      xdist = dist_normal(mu = 0, sd = 1),
+      fill = after_stat(
+        ifelse(x > crit, "False alarm", "Correct rejection")
+      )
+    ),
+    p_limits = c(.0001, .9999),
+    alpha = 0.33,
+    linewidth = 0,
+    scale = 1,
+    normalize = "none"
+  ) +
+  new_scale_fill() +
+  scale_fill_brewer(
+    "Signal trials",
+    palette = "Set1",
+    direction = -1
+  ) +
+  # Signal distribution
+  stat_slab(
+    aes(
+      xdist = dist_normal(mu = dprime, sd = 1),
+      fill = after_stat(
+        ifelse(x > crit, "Hit", "Miss")
+      )
+    ),
+    p_limits = c(.0001, .9999),
+    slab_alpha = 0.33,
+    linewidth = 0,
+    scale = 1,
+    normalize = "none"
+  ) +
+  # Annotate dprime
+  annotate(
+    "segment",
+    x = 0,
+    xend = dprime,
+    y = maxl,
+    yend = maxl,
+    arrow = arrow(
+      length = unit(4, "pt"),
+      type = "closed",
+      ends = "both"
+    )
+  ) +
+  annotate(
+    "text",
+    label = "d'",
+    x = dprime / 2,
+    y = maxl,
+    hjust = 0.5,
+    vjust = -0.5
+  ) +
+  # Annotate criterion
+  geom_vline(
+    xintercept = crit,
+    linewidth = 0.33
+  ) +
+  # Annotate response types
+  annotate(
+    "segment",
+    x = crit + 0.2,
+    xend = crit + 1.6,
+    y = ry,
+    yend = ry,
+    linewidth = 0.25,
+    arrow = arrow(length = unit(4, "pt"), type = "closed"),
+  ) +
+  annotate(
+    "text",
+    label = '"Yes"',
+    x = crit + 0.8,
+    y = ry,
+    vjust = -0.5
+  ) +
+  annotate(
+    "segment",
+    x = crit - 0.2,
+    xend = crit - 1.6,
+    y = ry,
+    yend = ry,
+    linewidth = 0.4,
+    arrow = arrow(length = unit(4, "pt"), type = "closed", ends = "last")
+  ) +
+  annotate(
+    "text",
+    label = '"No"',
+    x = crit - 0.8,
+    y = ry,
+    vjust = -0.5
+  ) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank(),
+    legend.position = "right"
+  )
+pa
+```
+
+
+The participants then decide, based on whether current evidence exceeds their criterion, whether they've seen the stimulus previously ("old") or not ("new"). Some individuals might have a liberal bias and report "old" on trials with even modest degrees of evidence. Others might be conservative and require a greater degree of evidence before deciding they've seen the stimulus before. The decision process posited by SDT, based on subjective evidence and thresholds, is visualized in @fig-sdt-example.
+
+Since the introduction of SDT in studies on perception, and its later widespread adoption in e.g. memory research, the conceptual framework and analytic machinery has been applied in a broad range of areas. For example, in one study, we showed participants photographs of individuals who were injected with a bacterial endotoxin or not, and participants' task was to detect whether the individual was ill or not [@leeuwenSmokedetectorPrinciplePathogen2024]. In another, participants viewed videos of individuals that were either lying or not, and their task was to determine whether the individual was lying or not [@zloteanuTutorialDeceptionDetection2024]. The key to SDT's success in such a wide variety of domains lies in its applicability even in the absence of information about the kinds of cues that inform people's decisions:
+
+>"A full understanding of the decision process [...] is difficult, if not impossible. The decisions depend on many particulars: what the decider knows, his or her expectations and beliefs, how later information affects the interpretation of the original observations, and the like. An understanding of much domain-specific knowledge is needed [...]. Fortunately, much can be said about the decision process without going into these details. Some characteristics of a yes-no decision transcend the particular situation in which it is made. The theory discussed here treats these common elements. *This theory, known generally as signal-detection theory, is one of the greatest successes of mathematical psychology.*" [@wickensElementarySignalDetection2001, p. 4]
+
+Our conceptual treatment of SDT, for the purposes of an applied tutorial, was necessarily brief. Readers interested in more complete treatments should consult books such as @wickensElementarySignalDetection2001, @macmillan_detection_2005, or @greenSignalDetectionTheory1966. An accessible article with computational details is @stanislaw_calculation_1999.
+
+### Current work: Estimating SDT models with regression
+
+While SDT posits latent probability distributions as the basis for decision making, it is also widely applicable as a relatively theory-free analytic framework that simply allows separating response biases from latent abilities, as suggested by the examples above. It is therefore often considered a standard tool in any behavioral scientist's toolkit. Subsequently, software packages for calculating SDT metrics and tutorials illustrating their uses are common [@leeBayesSDTSoftwareBayesian2008; @paulewiczBhsdtrPackageGeneralpurpose2020; @cohenSdtluPackageSignal2021].
+
+In this tutorial, I take a different approach: Much of a behavioral scientist's quantitative training focuses on the General(ized) Linear Model (regression) framework. It is therefore useful to draw a direct connection between this class of common cognitive models (SDT) to tools that researchers already know (GLM) [see also @decarlo_signal_1998; @decarlo_using_2003; @decarlo_statistical_2010].
+
+Moreover, rather than focusing on computational methods for obtaining point estimates of SDT metrics, as is commonly done [e.g. @stanislaw_calculation_1999], using the regression framework to estimate them allows quantifying degrees of uncertainty (e.g. standard errors) in the resulting estimates. Finally, by establishing SDT models as regressions, we gain all the benefits of regression, such as including categorical and continuous within- and between-subject predictors, using multilevel structures for crossed item and subject effects [@rouder_introduction_2005; @rouder_signal_2007], model comparison, and support of established software packages.
+
+We first focus on analyses of "Yes/No" tasks, where participants' task is to provide a binary "Yes" or "No" response to a stimulus that either does or does not contain the "signal" that participants attempt to detect. In the ongoing memory example, previously seen (old) items are the signal stimuli, and new items the noise stimuli. I first illustrate how to calculate SDT metrics "manually" using R [@rcoreteamLanguageEnvironmentStatistical2025]. Then, I show the corresponding R syntax for estimating the SDT model as a regression for an individual subject. We then discuss two methods for obtaining estimates of population-level SDT parameters by first aggregating subject-specific estimates, and then by estimating multiple subjects' SDT parameters simultaneously with a multilevel model.
+
+After discussing analyses of the basic Yes/No task, I move to rating tasks where participants provide ordinal responses that indicate their confidence in whether a stimulus contained the signal or not. These rating data allow for richer inference of participant behavior and decision making processes. Correspondingly, after showing how to estimate basic SDT models of rating data with GLMMs, I illustrate more advanced models that include unequal variances and mixtures.
+
+Throughout, I assume readers are familiar with regression models. I refer those in need of a refresher to texts such as @gelmanRegressionOtherStories2020, @mcelreathStatisticalRethinkingBayesian2020, or @cetinkaya-rundelIntroductionModernStatistics2024. I implement analyses in the Bayesian framework due to its flexibility, computational robustness, and conceptual clarity. For reasons of brevity I provide minimal explanations of this framework; interested readers should consult standard texts such as @kruschke_doing_2014, @mcelreathStatisticalRethinkingBayesian2020, and @gelman_bayesian_2013. Accessible introductory articles are, for example, @kruschkeBayesianNewStatistics2017 and @kruschkeBayesianDataAnalysis2017.
+
+Finally, I show additional benefits of estimating SDT models with regression. For one, prior distributions and multilevel models deal elegantly with edge cases where participants have missing data (e.g. no false alarms). Moreover, the estimated parameters seamlessly inform other common SDT metrics, such as Receiver Operating Characteristic (ROC) curves, all of which retain and allow representing the estimation uncertainty associated with the underlying parameters.
+
+## SDT analysis of Yes/No data
+
+The tasks outlined above are typically called "Yes/No" experiments, because the participant's task is to provide a binary "Yes" or "No" response to a stimulus that either does or does not contain the "signal" that participants attempt to detect. In the ongoing memory example, previously seen (old) items are the signal stimuli, and new items the noise stimuli. In this tutorial, we first focus on analyses of data from Yes/No tasks.
+
+### Example Yes/No task and data
+
+To illustrate the most commonly used SDT model, we examine data from the control condition of Experiment 2 in @koen_examining_2013: 48 subjects studied a list of 200 words for 1.5s each. After a filler task, participants were tested with 200 new and 200 old words. In the test phase, participants rated their confidence in whether each word was new or old with a 6-point Likert item (1: "sure new", 2: "maybe new", 3: "guess new", 4: "guess old", 5: "maybe old", 6: "sure old"). This data set is included in the R package MPTinR [@singmann_mptinr:_2013].
+
+For the purposes of the first part of this tutorial, and following the authors' first analysis (Table 1 in @koen_examining_2013), we first bin the rating responses to binary "new" (1-3) and "old" (4-6) responses. The resulting data (@tbl-dat) is then typical of Yes/No tasks.
+
+```{r}
+#| label: dat-wrangle
+#| output: false
+
+# Koen 2013
+data(roc6, package = "MPTinR")
+dat <- tibble(roc6) |>
+  filter(exp == "Koen-2013_immediate") |>
+  separate(id, c("id", "exp2"), sep = ":") |>
+  select(-exp, -exp2) |>
+  pivot_longer(-id, values_to = "n") |>
+  separate(name, into = c("stimulus", "response")) |>
+  mutate(
+    pid = fct_inorder(factor(id)),
+    stimulus = factor(
+      stimulus,
+      levels = c("NEW", "OLD"),
+      labels = c("New", "Old")
+    ),
+    response = factor(
+      response,
+      levels = c("3new", "2new", "1new", "1old", "2old", "3old"),
+      labels = 1:6
+    ) |>
+      as.integer(),
+    .keep = "unused",
+    .before = 1
+  )
+
+# Save ordinal data for part 2
+dat2 <- dat
+
+# Convert to binary responses for part 1
+dat <- dat |>
+  mutate(
+    response = if_else(response %in% 1:3, "New", "Old") |>
+      factor()
+  )
+
+# Unaggregate and add trial number to clarify data structure
+dat <- uncount(dat, n) |>
+  mutate(trial = 1:n(), .by = pid, .after = 1)
+```
+
+```{r}
+#| label: tbl-dat
+#| tbl-cap: "Four rows of example recognition memory data from @koen_examining_2013."
+
+set.seed(11)
+slice_sample(dat, n = 4) |>
+  arrange(pid, trial) |>
+  tt()
+```
+
+### Calculating SDT parameters
+
+It is immediately clear how to calculate a participant's overall accuracy from data in @tbl-dat: Add up the trials where stimulus and response are identical, and divide the sum by the total number of trials. Calculating SDT parameters, to which we now turn, is not much more involved [@stanislaw_calculation_1999].
+
+First, responses from a Yes/No task are divided into four categories: hits (responding "old" to old items), misses (responding "new" to old items), false alarms (responding "old" to new items), and correct rejections (responding "new" to new items). We then calculate hit and false alarm rates by aggregating the response categories, z-score the rates, and either add (to calculate response bias) or subtract (to calculate sensitivity) these z-scores. I first show how to classify trials with R in @lst-sdt1.
+
+```{r}
+#| label: lst-sdt1
+#| lst-label: lst-sdt1
+#| lst-cap: "Classifying Yes/No trials into hits, misses, false alarms, and correct rejections using the `case_when()` function from the dplyr R package."
+#| echo: true
+
+sdt <- dat |>
+  mutate(
+    type = case_when(
+      stimulus == "Old" & response == "Old" ~ "hit",
+      stimulus == "Old" & response == "New" ~ "miss",
+      stimulus == "New" & response == "Old" ~ "fa",
+      stimulus == "New" & response == "New" ~ "cr"
+    )
+  )
+```
+
+After classifying trials, we aggregate participants' data to hit (hits / (hits + misses)) and false alarm rates (false alarms / (false alarms + correct rejections); see @fig-sdt-example) in @lst-sdt2, where we also pivot the data to one row per participant (@tbl-sdt1).
+
+```{r}
+#| label: lst-sdt2
+#| lst-label: lst-sdt2
+#| lst-cap: "Classifying Yes/No experiment trials into hits, misses, false alarms, and correct rejections using the `case_when()` function from the dplyr R package."
+#| echo: true
+
+sdt <- sdt |>
+  count(pid, type) |>
+  pivot_wider(names_from = type, values_from = n) |>
+  mutate(
+    hr = hit / (hit + miss),
+    fr = fa / (fa + cr)
+  )
+```
+
+```{r}
+#| label: tbl-sdt1
+#| tbl-cap: "Aggregated task behavior of each participant."
+
+head(sdt, 4) |>
+  tt() |>
+  format_tt()
+```
+
+We can then calculate the two SDT parameters from the hit and false alarm rates: The decision criterion *c* and discriminability *d'*. *d'* is calculated as the difference of the normal distribution scores, also commonly referred to as "z-scores", of the hit and false alarm rates [@stanislaw_calculation_1999]:
+
+$$
+d' = \Phi^{-1}(HR) - \Phi^{-1}(FAR)
+$${#eq-d}
+
+$\Phi$ is the normal distribution function, and is used to convert *z* scores into probabilities. It is available in R as `pnorm()`. $\Phi^{-1}$, the normal quantile function (available in R as `qnorm()`), converts proportions into *z* scores.
+
+But why do we use a normal distribution? Recall from above that SDT posits that each stimulus leads to a subjective (or "latent") value of evidence. This evidence is not fixed by the stimulus but varies from trial to trial because of noise in the system perceiving the stimulus. We do not know what the myriad sources of this variability might be, so the normal distribution that results from the sum of many independent variations, is a natural choice. Note that other distributions, although rarely used, are possible [@decarlo_signal_1998].
+
+The response criterion *c* is calculated as:
+
+$$
+c = -\frac{\Phi^{-1}(HR) + \Phi^{-1}(FAR)}{2}
+$${#eq-c}
+
+It is important to note that most treatments use a minus sign in the calculation of *c* [e.g. @stanislaw_calculation_1999]. This means that negative values of *c* indicate a "liberal" bias toward responding "yes", and positive values of *c* indicate a "conservative" tendency toward responding "no" (see @fig-sdt1). An alternative parameterization omits the negative sign, in which case positive values of *c* indicate a ("liberal") bias toward responding "yes", and negative values of *c* indicate a ("conservative") bias toward responding "no".
+
+```{r}
+#| label: lst-sdt3
+#| lst-label: lst-sdt3
+#| lst-cap: "Calculating z-scored hit and false alarm rates and the SDT parameters *c* and *d'*."
+#| echo: true
+
+sdt <- sdt |>
+  mutate(
+    zhr = qnorm(hr),
+    zfr = qnorm(fr),
+    crit = -(zhr + zfr) / 2,
+    dprime = zhr - zfr
+  )
+```
+
+I z-score the hit and false alarm rates and then calculate each participant's *c* and *d'* from the z-scores in @lst-sdt3. The resulting data table is shown in @tbl-sdt.
+
+```{r}
+#| label: tbl-sdt
+#| tbl-cap: "Four subjects' SDT parameters and the quantities used to calculate them."
+#| cache: false
+
+sdt |>
+  select(-c(cr, fa, hit, miss)) |>
+  head(4) |>
+  tt() |>
+  format_tt()
+```
+
+(As a side note, *c* is only one of many bias measures. For example, early researchers on SDT, such as J. C. R. Licklider---who incidentally also laid the groundwork for the modern Internet---favored a likelihood ratio measure [@lickliderThreeAuditoryTheories1959; @macmillan_detection_2005, p. 31-36].)
+
+The `sdt` data frame (@tbl-sdt) now has every participant's *d'* and *c*, and the quantities that went into calculating them. I show three participants' implied SDT models, and all participants' SDT parameters, in @fig-sdt1.
+
+```{r}
+#| label: fig-sdt1
+#| echo: false
+#| fig-cap: "**Left.** The signal detection model for three participants. The two curves are the noise (dashed) and signal distributions (solid); the vertical line represents the response criterion *c*. *d'* is the distance between the two distributions' means. Of these three participants, 29 has the lowest *c* and therefore the most liberal response bias. Participant 19 has the smallest *d'* and therefore the worst ability to discriminate between new and old items. **Right.** Scatterplot of all participants' criteria and d', with the three participants shown in the left panel highlighted in bold font."
+#| fig-asp: 0.6
+
+pids <- c(19, 20, 29)
+pa <- sdt |>
+  filter(pid %in% pids) |>
+  ggplot() +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(0.01)
+  ) +
+  scale_x_continuous(
+    "Evidence"
+  ) +
+  stat_slab(
+    data = tibble(m = 0, s = 1),
+    aes(xdist = dist_normal(mu = m, sd = s)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    linetype = "dashed",
+    fill = NA
+  ) +
+  geom_vline(
+    aes(xintercept = crit),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(xdist = dist_normal(mu = dprime, sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA
+  ) +
+  facet_wrap("pid", ncol = 1) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+
+pb <- sdt |>
+  ggplot(aes(crit, dprime)) +
+  geom_text(
+    aes(
+      label = pid,
+      fontface = ifelse(pid %in% pids, "bold", "plain")
+    ),
+    size = 3
+  ) +
+  scale_x_continuous(
+    "Criterion (c)",
+    breaks = pretty_breaks(5)
+  ) +
+  scale_y_continuous(
+    "Sensitivity (d')",
+    breaks = pretty_breaks(5)
+  ) +
+  theme(aspect.ratio = 1)
+(pa | pb) + plot_layout(widths = c(3, 7))
+```
+
+## Estimating SDT parameters with regression
+
+We have now "manully" calculated, rather than statistically estimated, participants' SDT parameters. While standard practice, this approach has at least two potential downsides. First, we have not quantified our uncertainty in the parameters. For example, were we interested in a statistical comparison of participant 19's and 29's criteria, we could only report a point estimate of this difference.
+
+Second, any further questions---estimating (differences in) population means, for example---would require additional models of these point estimates. These further models would ignore the uncertainty inherent in the participant-specific parameters. This point may not matter for perfectly balanced designs, but would be especially important when participants complete different numbers of trials or have missing data.
+
+Moreover, while it is pedagogically useful to go through these calculations, there might also be related downsides: These quantities are naturally estimated in common regression models, and by not making that connection explicit we are not contributing as effectively to further quantitative learning. Because researchers are typically already familiar with regression techniques, using those instead of manual calculations may prove useful in practice as well [@decarlo_using_2003].
+
+Therefore, we now move to the main topic of this tutorial: Estimating SDT models using Generalized Linear Models (GLM).
+
+### Coding categorical variables
+
+We begin by considering the raw data in @tbl-dat. Because the data contains categorical variables, it is first important to understand how a model might use them. In R, this specification is done via "contrasts" (such as dummy variables, contrast codes, etc) that code them into numerical values when used in models.
+
+When binary variables are modeled in R (either as outcomes or predictors), R by default will assign them treatment codes (also known as dummy variables). Therefore `stimulus` and `response` would be coded as "New": 0 and "Old": 1 (from their alphabetical order). For reasons visible to some readers in @eq-c and further elaborated below, we instead sum-to-zero-code `stimulus` as "New": -0.5 and "Old": 0.5 (@tbl-contrasts). This will ensure that our model's intercept will be "halfway between" the (z-scored) hit and false alarm rates (now take another look at @eq-c). I specify this coding scheme in @lst-contrasts.
+
+```{r}
+#| label: lst-contrasts
+#| lst-label: lst-contrasts
+#| lst-cap: "Creating sum to zero contrast codes for the `stimulus` variable."
+#| echo: true
+#| code-fold: show
+
+contrasts(dat$stimulus) <- c(-0.5, 0.5)
+```
+
+```{r}
+#| label: tbl-contrasts
+#| tbl-cap: "Numerical contrast codes of categorical variables when modeled."
+
+cbind(
+  contrasts(dat$stimulus),
+  contrasts(dat$response)
+) |>
+  data.frame() |>
+  setNames(c("stimulus", "response")) |>
+  rownames_to_column("Data value") |>
+  tt() |>
+  group_tt(
+    j = list("Contrast code" = 2:3)
+  )
+```
+
+### Specifying the model
+
+Now that we have prepared our data, we proceed to specifying our regression model. We first consider this model for one participant. We model responses r ("No": 0, "Yes": 1) at row i as Bernoulli distributed with probability $p_i$ that $r_i = 1$ (line 1 below). (Bernoulli distribution is the binomial distribution for binary responses.)
+
+$$
+\begin{aligned}
+r_i &\sim \text{Bernoulli}(p_i) \\
+p_i &= \Phi(\beta_0 + \beta_1\text{s}_i)
+\end{aligned}
+$${#eq-glm}
+
+Because probabilities have lower and upper limits at 0 and 1, we model *p* through a link function. A common choice for a link function for models of binary data is the logistic, leading to the familiar logistic regression model. However, we use the probit link function $\Phi$ which maps the unbounded continuous linear combination of the predictors to probabilities (line 2 above).
+
+Given this parameterization, the intercept of the model ($\beta_0$) will indicate the z-scored probability of responding "old" when all predictors are zero (see @lst-contrasts). When `stimulus`, our predictor, is "sum-to-zero" coded as we have done above, the intercept corresponds to -*c* (see @eq-c). The slope of the model ($\beta_1$) is the difference in z-scored probabilities of saying "old" between old and new items, and therefore $d' = \beta_1$ (see @eq-d). For a more complete treatment of the connection between SDT models and GLM, see @decarlo_signal_1998.
+
+### Estimating the model
+
+We now have a variety of software options for estimating the GLM. For this simple model, we could use base R's `glm()`. Here, we use the Bayesian regression modeling R package [brms](https://github.com/paul-buerkner/brms) [@burkner_brms:_2017], because its model formula syntax extends seamlessly to more complicated models that we will discuss later. We can estimate the GLM with brms's `brm()` function by providing as arguments a model formula in brms syntax (identical to base R model syntax for simple models), an outcome distribution with a link function, and a data frame.
+
+brms's model syntax uses variable names from the data. In @lst-brm, we regress the binary `response` outcome on the binary `stimulus` predictor (`response ~ stimulus`). We then specify that outcomes are bernoulli distributed with a probit link function with `family = bernoulli(link="probit")`. We will only model the first participant's data, and therefore specify the data with `data = filter(dat, pid==1)`.
+
+The `brm()` function also allows specifying prior distributions on the parameters, but for this introductory discussion we omit discussion of priors. Finally, we specify `file` to save the estimated model to a file so that we don't have to re-estimate the model whenever we restart R.
+
+```{r}
+#| label: fit-glm
+#| lst-label: lst-brm
+#| lst-cap: "Fitting the SDT model as a GLM with the `brm()` function"
+#| echo: true
+#| code-fold: show
+#| results: hide
+
+fit_glm <- brm(
+  response ~ stimulus,
+  family = bernoulli(link = "probit"),
+  data = filter(dat, pid == 1),
+  file = "cache/brm-glm"
+)
+```
+
+```{r}
+#| label: fit-glm-everyone
+#| results: hide
+
+# I also fit the model separately to all participants
+path <- "cache/brm-glm-all.rds"
+if (!file.exists(path)) {
+  fit_glm_all <- dat |>
+    nest(.by = pid) |>
+    summarise(
+      fit = map(
+        data,
+        ~ update(
+          fit_glm,
+          newdata = .x,
+          recompile = FALSE
+        )
+      ),
+      .by = pid
+    )
+  saveRDS(fit_glm_all, path)
+} else {
+  fit_glm_all <- readRDS(path)
+}
+```
+
+The estimated model is saved in `fit`, whose `summary()` method returns a numerical summary of the estimated parameters along with some information and diagnostics about the model:
+
+```{r}
+#| label: summary-glm
+#| code-fold: show
+
+summary(fit_glm)
+```
+
+The regression parameters (`Intercept` ($-c = \beta_0$) and `stimulus1` ($d' = \beta_1$)) are described in the "Regression Coefficients" table in the above output. `Estimate` reports the posterior means, which are comparable to maximum likelihood point estimates. `Est.Error` reports the posterior standard deviations, which are comparable to standard errors. The estimated parameters' means match the point estimates we calculated by hand (see @tbl-sdt), but note the reversed sign of *c*. The next two columns report the parameter's 95% Credible Intervals (CIs). Finally, the `Rhat` and `_ESS` values provide diagnostic information (convergence and effective posterior sample size, respectively) about the Bayesian estimation procedure. The former should be close to 1.00, and the latter as large as possible. We do not consider these metrics further, but see e.g. @gelman_bayesian_2013.
+
+### Interpreting the model
+
+We read in the above output that the model intercept, corresponding to -*c*, has a positive posterior mean, but its CI considerably overlaps zero. Therefore, this participant is not strongly biased in favor of responding either "Yes" or "No". The slope coefficient `stimulus1`, corresponding to *d'*, is positive and indicates that the latent evidence distribution of signal trials for this participant is ~1.4 z-scores greater than the noise distribution: The participant has good discriminability and is able to tell old stimuli from new.
+
+We now return to the two shortcomings of manually calculating SDT parameters alluded to above. First, the model assigns credibility to a range of parameter values (the CI), instead of returning only the most likely value (the posterior mean). I illustrate these degrees of certainty in the left panel of @fig-glm. This figure is a smoothed bivariate density of the scatterplot of posterior samples of $p(\beta_0, \beta_1)$, and indicates more credible SDT parameter values in lighter yellow hues. The point estimate shown in red is a poor representation of this more complete picture.
+
+```{r}
+#| label: fig-glm
+#| fig-cap: "SDT parameters as estimated with a Generalized Linear Model. **Left.** The (approximate) joint posterior density of subject 1's SDT parameters. Lighter hues indicate higher posterior density and therefore parameter values in which we are more confident. The red dot indicates the manually calculated point estimate of *c* and *d'*. **Right.** Posterior means and 95%CIs of all participants' parameters (empty circles and intervals) along with manually calculated point estimates (filled circles). The two are in perfect agreement."
+#| fig-width: 6
+#| fig-asp: 0.6
+
+pid1color <- "red"
+s_f_g <- function(...) {
+  scale_fill_viridis_c(
+    direction = 1,
+    ...
+  )
+}
+
+pa <- as_draws_df(fit_glm) |>
+  ggplot(aes(-b_Intercept, b_stimulus1)) +
+  s_f_g() +
+  stat_density_2d(
+    aes(fill = after_stat(ndensity)),
+    geom = "raster",
+    contour = FALSE,
+    n = 201
+  ) +
+  geom_point(
+    data = filter(sdt, pid == 1),
+    aes(x = crit, y = dprime),
+    col = pid1color,
+    size = 2
+  ) +
+  coord_cartesian(expand = 0) +
+  labs(
+    x = TeX(r"(c = $-\beta_{0}$)"),
+    y = TeX(r"(d' = $\beta_{1}$)")
+  ) +
+  theme(
+    aspect.ratio = 1,
+    legend.position = "none",
+    legend.title = element_blank()
+  )
+
+fit_glm_all_pars <- fit_glm_all |>
+  mutate(
+    x = map(
+      fit,
+      ~ as_draws_df(.x) |>
+        mutate(b_Intercept = -b_Intercept) |>
+        summarise_draws(
+          mean,
+          ~ quantile2(.x, probs = c(.025, .1, .9, .975))
+        ) |>
+        slice(1:2)
+    )
+  ) |>
+  select(pid, x) |>
+  unnest(x) |>
+  left_join(
+    sdt |>
+      select(pid, b_Intercept = crit, b_stimulus1 = dprime) |>
+      pivot_longer(-pid, names_to = "variable")
+  ) |>
+  mutate(
+    pid2 = fct_reorder(interaction(pid, variable), value)
+  )
+pb <- fit_glm_all_pars |>
+  ggplot(aes(mean, pid2)) +
+  scale_y_discrete(
+    "Participant"
+  ) +
+  scale_x_continuous(
+    "Parameter value",
+    breaks = extended_breaks(3)
+  ) +
+  scale_color_manual(
+    values = c("grey30", pid1color)
+  ) +
+  scale_size_manual(
+    values = c(1, 2)
+  ) +
+  geom_pointrange(
+    aes(xmin = q2.5, xmax = q97.5),
+    shape = 21,
+    fatten = 3,
+    linewidth = .25,
+    fill = "white",
+    stroke = .5
+  ) +
+  geom_point(
+    aes(x = value, color = pid == 1, size = pid == 1),
+    show.legend = FALSE
+  ) +
+  facet_wrap(
+    "variable",
+    scales = "free",
+    labeller = labeller(
+      variable = c(
+        b_Intercept = "c",
+        b_stimulus1 = "d'"
+      )
+    )
+  ) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+(pa | pb)
+```
+
+Second, consider the bottom and top points in the *c* column of @fig-glm. All we could say based on the point estimates is that the top participant has a far more positive (conservative) criterion than the bottom participant. However, the bayesian estimates would allow directly testing that difference, by virtue of retaining uncertainty in the parameter estimates. Finally, notice how straightforward it was to estimate the SDT parameters with regression: Instead of multiple lines of data wrangling and calculation, the regression model directly returns SDT parameters from the raw data.
+
+## SDT for multiple participants
+
+We have now estimated the SDT model's parameters for one subject's data using two methods: Calculating point estimates manually and estimating them with a GLM. The main difference between these methods is that modeling provided estimates of uncertainty in the parameters, whereas the manual calculation did not. This point leads us directly to multilevel models [@rouder_introduction_2005; @rouder_signal_2007; @gelmanDataAnalysisUsing2007], which we discuss next.
+
+Researchers are usually not primarily interested in the specific subjects that happened to participate in their experiment. Instead the population of potential subjects is the target of inference. Therefore, we are unsatisfied with parameters which describe only the individuals in our sample: The final statistical model should have parameters that estimate features of the population of interest.
+
+Broadly, there are two methods for obtaining these population-level parameters. The most common method is to aggregate manually calculated subject-specific point estimates of *d'* and *c* to their sample means and standard deviations. From these, we can calculate standard errors, t-tests, confidence intervals, and so on. The second method involves fitting one model simultaneously to all participants' data.
+
+### Estimating by summarizing subjects' point estimates
+
+Above we calculated *d'* and *c* for every participant in the sample. We can therefore calculate sample means and standard errors for both parameters using these individual-specific values. I show one way to do this aggregation in R using `summarise()` from the dplyr package in @lst-sdt-agg.
+
+```{r}
+#| label: lst-sdt-agg
+#| lst-label: lst-sdt-agg
+#| lst-cap: "Aggregating a sample's *c* and *d'*."
+#| echo: true
+
+sdt_agg <- sdt |>
+  summarise(
+    across(
+      c(crit, dprime),
+      list(
+        Mean = mean,
+        SD = sd,
+        SE = ~ sd(.x) / sqrt(length(.x))
+      )
+    )
+  )
+```
+
+```{r}
+#| label: tbl-sdt-agg
+#| tbl-cap: "Sample summaries of SDT parameters."
+
+sdt_agg |>
+  tt() |>
+  format_tt()
+```
+
+The sample means are estimates of the population means, and the sample standard deviations divided by square root of the number of subjects are standard deviations of the means' sampling distributions, the standard errors. Note that this method involves calculating point estimates of unknown parameters (the subject-specifc estimates), and then summarizing these parameters with additional models. In other words, we first fit N models with P parameters each (N = number of subjects, P = 2 parameters), and then P more models to summarise the subject-specific models.
+
+### Multilevel model
+
+Another method is to build a multilevel model that simultaneously estimates subject-specific and population-level parameters [@gelmanDataAnalysisUsing2007; @mcelreathStatisticalRethinkingBayesian2020]. @rouder_introduction_2005 and @rouder_signal_2007 discuss multilevel models in the context of Signal Detection Theory. Multilevel models are variously also known as hierarchical, mixed, random-effect, and Generalized (Linear) Mixed Models (GLMMs).
+
+This model is identical to the GLM in @eq-glm, but now the subject-specific *d'*s and -*c*s are modeled as draws from a multivariate normal distribution, whose parameters describe the population. We subscript subjects' parameters $\gamma$ with *j*, rows in data with *i*, and write the model as:
+
+$$
+\begin{aligned}
+r_{ij} &\sim \text{Bernoulli}(p_{ij}) \\
+p_{ij} &= \Phi((\gamma_{0j} + \beta_0) + (\gamma_{1j} + \beta_1)\text{s}_{ij}) \\
+\begin{bmatrix}
+  \gamma_0 \\ \gamma_1
+\end{bmatrix} &\sim
+\operatorname{MVN}\left(
+  \begin{bmatrix} 0 \\ 0 \end{bmatrix},
+  \Sigma
+\right) \\
+\Sigma &=
+  \begin{pmatrix}\tau_0 & 0 \\0 &\tau_1\end{pmatrix}
+  \begin{pmatrix}1 & \rho \\\rho &1\end{pmatrix}
+  \begin{pmatrix}\tau_0 & 0 \\0 &\tau_1\end{pmatrix}
+\end{aligned}
+$${#eq-glmm}
+
+The responses $r_{ij}$ are 0 if participant *j* responded "new" on trial *i* and 1 if they responded "old". The probability of an "old" response on row *i* for subject *j* is $p_{ij}$ (line 1 in @eq-glmm). We then write a linear model on the *p*'s *z*-scores ($\Phi$, line 2). The subject-specific intercepts (recall, $-\gamma_{0j} = c_j$) and slopes ($\gamma_{1j} = d'_j$) are now deviations from population-level parameters $\beta$, which can be interpreted as parameters "for the average person" [@bolger_intensive_2013].
+
+These subject-specific deviations are modeled as draws from a multivariate normal distribution, whose covariance matrix $\Sigma$ contains the (co)variances of the parameters in the population (line 3). The software we use instead estimates standard deviations and correlations, and so the covariance matrix is constructed on line 4. The standard deviations $\tau$ describe the between-person heterogeneities in the population. The correlation term $\rho$ describes the relationship between *d'* and *c*: Are people with a higher *d'* more likely to have a higher *c*? This model is therefore more informative than running multiple separate GLMs, because it allows examining parameters' heterogeneity in the population [e.g. @vuorreCommunicatingCausalEffect2024].
+
+The brms syntax for this model is very similar to the one-subject model. We have five population-level parameters to estimate ($\beta, \tau, \rho$). The intercept and slope describe the means: In R and brms modeling syntax, an intercept is indicated with `1` (it is automatically included, so I omit it), and slope of a variable by including that variable's name in the data.
+
+However, we also have three (co)variance parameters to estimate. To include subject-specific parameters (recall, subjects are indexed by `pid` in the data frame), and therefore their (co)variance parameters, we expand the formula to `response ~ stimulus + (stimulus | pid)`. Otherwise, the call to `brm()` is the same as with the GLM above:
+
+```{r}
+#| label: fit-glmm-unaggregated
+#| results: hide
+#| eval: false
+#| echo: true
+#| code-fold: show
+
+fit_glmm <- brm(
+  response ~ stimulus + (stimulus | pid),
+  family = bernoulli(link = "probit"),
+  data = dat,
+  file = "cache/brm-glmm-1"
+)
+```
+
+However, before proceeding, we introduce a computational shortcut. As the number of trials and participants increases, data in long format (such as `dat` shown in @tbl-dat) quickly grows in size. Because of how Bayesian models are estimated, larger data and more complex models increase the model estimation time. We therefore estimate exactly the same model, but on data that is aggregated to counts of unique response-predictor combinations to speed up the estimation process. We do this in @lst-glmm, where we aggregate the raw data (with `{r} nrow(dat)` rows) to a table of `pid`-`stimulus`-`response` counts (indicated by `n` in the data table that now has `{r} nrow(count(dat, pid, stimulus, response))` rows). We can then reap the speed benefits of this data aggregation by using `weights(n)` to indicate how much weight to give to observation.
+
+```{r}
+#| label: fit-glmm
+#| results: hide
+#| lst-label: lst-glmm
+#| lst-cap: "Fitting the SDT model for multiple participants as a GLMM with `brm()`."
+#| echo: true
+#| code-fold: show
+
+dat_agg <- dat |>
+  count(pid, stimulus, response)
+
+fit_glmm <- brm(
+  response | weights(n) ~ stimulus + (stimulus | pid),
+  family = bernoulli(link = "probit"),
+  data = dat_agg,
+  file = "cache/brm-glmm"
+)
+```
+
+The Regression Coefficients in the output below are -*c* (`Intercept` = $\beta_0$) and *d'* (`stimulus1` = $\beta_1$) for the average person. Recall that we are looking at numerical summaries of (random samples from) the parameters' posterior distributions: `Estimate` is the posterior mean, `Est.Error` the posterior standard deviations, and `l-95% CI` and `u-95% CI` the limits of the 95%CI.
+
+```{r}
+#| label: glmm-summary
+
+# Omit MCMC info in brmsfit.summary
+.summary <- function(x) {
+  out <- summary(x)
+  out$random$pid <- out$random$pid[, 1:4]
+  out$fixed <- out$fixed[, 1:4]
+  out$spec_pars <- out$spec_pars[, 1:4]
+  out
+}
+.summary(fit_glmm)
+```
+
+These estimates tell us that the average person in the population from which our sample was drawn has a somewhat liberal response bias and good ability to discriminate old from new items. To clarify the correspondence between the two estimation methods, we can compare these population-level parameters of this model to the sample summary statistics we calculated above. The posterior means map to the calculated means, and the posterior standard deviations match the calculated standard errors (@tbl-sdt-agg). I also visualize these estimates in @fig-glmm.
+
+However, the GLMM also returns estimates of the parameters' (co)variation in the population. Notice that we also calculated the sample standard deviations, but we have no estimates of uncertainty in those point estimates (@tbl-sdt-agg). The GLMM, on the other hand, provides full posterior distributions for these parameters. The heterogeneity parameters are reported in the Multilevel Hyperparameters section, above. We find that the criteria are positively correlated with *d'*s. The two standard deviations are visualized in the middle panel of @fig-glmm.
+
+```{r}
+#| label: fig-glmm
+#| fig-cap: "**Left.** The (approximate) joint posterior density of the average *d'* and criterion. Lighter values indicate higher posterior probability. **Middle.** The (approximate) joint posterior density of the standard deviations of *d'* and criterion in the population. In both panels, the red dot indicates sample statistics. **Right.** Subject-specific *d'*s and criteria as given by the independent models (arrow origins), and as estimated by the hierarchical model (arrow tips). The hierarchical model shrinks the estimated parameters toward the population means. This shrinkage is greater for more extreme parameter values: Each subject-specific parameter is a compromise between that subject's data, and other subjects in the sample."
+#| fig-width: 8
+#| fig-asp: 0.4
+
+pa <- as_draws_df(fit_glmm, variable = "b_", regex = TRUE) |>
+  mutate(b_Intercept = -b_Intercept) |>
+  ggplot(aes(b_Intercept, b_stimulus1)) +
+  s_f_g() +
+  stat_density_2d(
+    aes(fill = after_stat(ndensity)),
+    geom = "raster",
+    contour = FALSE,
+    n = 201
+  ) +
+  geom_point(
+    data = sdt_agg,
+    aes(x = crit_Mean, y = dprime_Mean),
+    col = pid1color,
+    size = 2
+  ) +
+  labs(
+    x = "Criterion",
+    y = "d'"
+  ) +
+  coord_cartesian(expand = 0) +
+  theme(
+    aspect.ratio = 1,
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+
+pb <- as_draws_df(fit_glmm, variable = "sd_", regex = TRUE) |>
+  ggplot(aes(sd_pid__Intercept, sd_pid__stimulus1)) +
+  s_f_g() +
+  stat_density_2d(
+    aes(fill = after_stat(density)),
+    geom = "raster",
+    contour = F,
+    show.legend = FALSE,
+    n = 201
+  ) +
+  geom_point(
+    data = sdt_agg,
+    aes(x = crit_SD, y = dprime_SD),
+    col = pid1color,
+    size = 2
+  ) +
+  coord_cartesian(expand = 0) +
+  labs(
+    x = "Criterion",
+    y = "d'"
+  ) +
+  theme(aspect.ratio = 1)
+
+intercepts <- coef(fit_glmm)$pid[,, "Intercept"] |>
+  as.data.frame() |>
+  rownames_to_column("pid") |>
+  select(1:2) |>
+  mutate(crit_2 = -Estimate, .keep = "unused") |>
+  left_join(select(sdt, pid, dprime, crit))
+slopes <- coef(fit_glmm)$pid[,, "stimulus1"] |>
+  as.data.frame() |>
+  rownames_to_column("pid") |>
+  select(1:2) |>
+  rename(dprime_2 = Estimate)
+pc <- left_join(intercepts, slopes, by = "pid") |>
+  ggplot() +
+  scale_x_continuous(
+    "Criterion",
+    breaks = pretty_breaks(5)
+  ) +
+  scale_y_continuous(
+    "d'",
+    breaks = pretty_breaks(5)
+  ) +
+  geom_segment(
+    aes(x = crit, xend = crit_2, y = dprime, yend = dprime_2),
+    linewidth = .3,
+    arrow = arrow(length = unit(3, "pt"), type = "closed")
+  ) +
+  theme(aspect.ratio = 1)
+
+((pa | pb | pc) +
+  plot_layout(guides = "collect")) &
+  theme(legend.position = "none")
+```
+
+It is evident in @fig-glmm that the sample means approximately match the posterior mean population means, but less so for the standard deviations, whose sample statistics are not at the peak of the standard deviations' posterior distribution. By ignoring the uncertainty in the subject-specific parameters, the 'manual calculation' method has over-estimated the heterogeneity of *d'* and *c* in the population, in comparison to the GLMM which takes the subject-specific parameters' uncertainty into account.
+
+This deviation has further implications, revealed by investigating the two methods' estimates of the subject-specific parameters. Recall that the manual calculation method involved estimating (the point estimates of) a separate model for each participant. A hierarchical model considers all participants' data simultaneously, and the estimates are allowed to inform each other via a shared prior distribution. This "partial pooling" of information [@gelmanDataAnalysisUsing2007] reduces overfitting and thereby returns estimates with better predictive performance [@efronSteinsParadoxStatistics1977]. The subject-specific effects are pulled toward their means, an effect that is most visible for participants with most extreme values (right panel of @fig-glmm).
+
+## SDT analysis of rating data
+
+Until now, we have considered analyses of a detection task where stimuli were either old or new, and participants provided binary "old" and "new" responses. We now turn to the Rating task where participants instead rate their degree of confidence that the stimulus was old or new.
+
+### Example rating task and data
+
+This, as mentioned above, is exactly what subjects in @koen_examining_2013 did: On each trial, subjects responded with a 6-point Likert item indicating their confidence in the item being new or old (1: "sure new", 2: "maybe new", 3: "guess new", 4: "guess old", 5: "maybe old", 6: "sure old"). I show these data in @tbl-sdt2.
+
+```{r}
+#| label: dat2-check
+#| include: false
+
+# Confirm data matches publication
+dat2 |>
+  summarise(n = sum(n), .by = c(stimulus, response)) |>
+  pivot_wider(names_from = response, values_from = n)
+```
+
+```{r}
+#| label: tbl-sdt2
+#| tbl-cap: "Aggregated example data from subject 1 in the control condition of Koen et al. (2013), Experiment 2. First and last two rows are shown for brevity."
+
+set.seed(1234)
+dat2 |>
+  filter(pid == 1) |>
+  slice(c(1:2, 11:12)) |>
+  mutate(across(everything(), as.character)) |>
+  add_row(
+    tibble(pid = "...", stimulus = "...", response = "...", n = "..."),
+    .after = 2
+  ) |>
+  tt()
+```
+
+A common and plausible interpretation of these data is that participants use a set of criteria, such that greater evidence is required for greater numerical responses. That is, there will be different criteria for responding "definitely new", "maybe new", and so forth. Generally, such data is commonly analyzed with models that assume a continuous (usually normally distributed) outcome. However, this practice can lead to problems when data isn't well-behaved, and therefore models that appropriately account for the responses' ordinal nature are recommended [@liddellAnalyzingOrdinalData2018]. An accessible introduction to such ordinal models can be found in @burknerOrdinalRegressionModels2019, and Chapter 12.3 of @mcelreathStatisticalRethinkingBayesian2020.
+
+Above, we noted that a GLM with a Bernoulli response function and probit link function is a regression formulation of the basic SDT model of Yes/No data. Similarly, one class of ordinal models, called the *cumulative model* in @burknerOrdinalRegressionModels2019, provides a regression formulation of SDT models for data from a Rating task [see also @decarlo_signal_1998; @decarlo_using_2003].
+
+### Model for one subject
+
+For rating data, the SDT model is very similar to the one for Yes/No task data, but now includes multiple intercepts, commonly referred to as thresholds. These thresholds index criteria that subjects use to split their internal experiences (evidence) to the different response categories, and therefore conceptually correspond to *c*. For *k* response options, we need $k - 1$ thresholds. The criteria are ordered: People should be more likely to respond "sure old" rather than "maybe old" when evidence (memory strength) is greater. To connect with the ongoing, we label these thresholds as $c_k$ ($\tau_k$ in @burknerOrdinalRegressionModels2019; $\alpha_k$ or $\kappa_k$ in @mcelreathStatisticalRethinkingBayesian2020, Chapter 12.3.) We then write the probability of a response *r* being in category *k* in @eq-thresholds.
+
+$$
+Pr(r_i = k) = \Phi(c_k - \eta_i) - \Phi(c_{k-1} - \eta_i).
+$${#eq-thresholds}
+
+We can consider @eq-thresholds as a somewhat convoluted link function, after which we specify a regression model on the linear predictor $\eta$:
+
+$$
+\eta_i = \beta_1s_i
+$${#eq-eta}
+
+Note that we conspicuously omitted an intercept in the linear model (@eq-eta), because the intercept*s* are already included as thresholds in @eq-thresholds: The cumulative model estimates intercepts ($c_k$) that partition the latent evidence distribution into response categories (*k*), and a slope parameter that indexes the distance between the noise and signal distribution's means. To connect with the SDT model for Yes/No data, we label the slope ($\beta_1$) again as *d'*. The brms syntax for estimating this model with participant 1's data is shown in @lst-glm-rating.
+
+```{r}
+#| label: fit-glm-rating
+#| results: hide
+#| lst-label: lst-glm-rating
+#| lst-cap: "Estimating one participant's rating data with a cumulative model."
+#| echo: true
+#| code-fold: show
+
+fit_evsdt1 <- brm(
+  response | weights(n) ~ stimulus,
+  family = cumulative(link = "probit"),
+  data = filter(dat2, pid == 1),
+  file = "cache/brm-glm-evsdt"
+)
+```
+
+Note that the only change from the Bernoulli model of Yes/No data (@lst-brm) is that we now used `family = cumulative()`, and the actual rating data (`dat2`). In addition, we have not sum-to-zero coded the `stimulus` predictor for this model. The model's posterior distribution is summarised below:
+
+```{r}
+#| label: summary-evsdt1
+
+summary(fit_evsdt1)
+```
+
+The five intercepts are the five thresholds, and `stimulus1` is *d'*. We can now illustrate graphically how the estimated parameters map to the signal detection model. *d'* is the separation of the signal and noise distributions' peaks: It indexes the subject's ability to discriminate signal from noise trials. The five intercepts are the (z-scored) criteria for responding with the different confidence ratings. If we convert the z-scores to proportions (using R's `pnorm()` for example), they measure the (cumulative) area under the noise distribution to the left of that z-score. The model is visualized in @fig-glm-rating.
+
+```{r}
+#| label: fig-glm-rating
+#| fig-cap: "Signal detection model of participant 1's rating data, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the estimated thresholds. d' is the distance between the peaks of the two distributions."
+#| fig-width: 3
+
+ggplot() +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(c(0.001, 0.01))
+  ) +
+  scale_x_continuous(
+    "Evidence"
+  ) +
+  stat_slab(
+    data = tibble(m = 0, s = 1),
+    aes(
+      xdist = dist_normal(mu = m, sd = s),
+    ),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    linetype = "dashed",
+    fill = NA
+  ) +
+  geom_vline(
+    aes(xintercept = fixef(fit_evsdt1)[1:5, 1]),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(xdist = dist_normal(mu = fixef(fit_evsdt1)[6, 1], sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA
+  ) +
+  labs(x = "Evidence", y = "Density") +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+```
+
+### Model for multiple participants
+
+For a sample of subjects, we could again compute each individual's parameters and summarize them in another model. We won't bother but instead turn immediately to a multilevel model formulation. A multilevel model, however, can take at least two forms. The first, shown now, includes subject-specific deviations in the linear model of $\eta$:
+
+$$
+\begin{aligned}
+\eta_{ij} &= \gamma_{0j} + (\gamma_{1j} + \beta_1)\text{s}_{ij} \\
+\begin{bmatrix}
+  \gamma_0 \\ \gamma_1
+\end{bmatrix} &\sim
+\operatorname{MVN}\left(
+  \begin{bmatrix} 0 \\ 0 \end{bmatrix},
+  \Sigma
+\right)
+\end{aligned}
+$${#eq-eta-glmm}
+
+Notice that we again omit any population-level intercept in @eq-eta-glmm, but include by-subject random intercepts $\gamma_0$. I omit expanding $\Sigma$ here--it is the same as in @eq-glmm. The brms syntax is the same as in @lst-glmm, but instead of a bernoulli outcome distribution, we use `cumulative()` (@lst-glmm-evsdt). Alternatively, the model syntax is identical to that in @lst-glm-rating, but we now include subject-specific random coefficients with `(stimulus | pid)`.
+
+```{r}
+#| label: fit-glmm-evsdt
+#| results: hide
+#| lst-label: lst-glmm-evsdt
+#| lst-cap: "Estimating a cumulative model for multiple participants with `brm()`."
+#| echo: true
+#| code-fold: show
+
+fit_evsdt <- brm(
+  response | weights(n) ~ stimulus + (stimulus | pid),
+  family = cumulative(link = "probit"),
+  data = filter(dat2),
+  file = "cache/brm-glmm-evsdt"
+)
+```
+
+The model summary is printed below
+
+```{r}
+.summary(fit_evsdt)
+```
+
+Draw your attention to the "Multilevel Hyperparameters" section. The standard deviation of the model intercept in the population is approximately 0.3 (posterior mean), and that of the *d'* is ~0.5. However, the link function of the model partitions the latent normal ("evidence") distribution into *k* (6) categories using *k-1* thresholds (5). The latter are estimated for the population and shown above as `Intercept[1-5]`. Why is there only a standard deviation parameter for one intercept?
+
+The answer, in brief, is that it is difficult to estimate subject-specific thresholds as random parameters and simultaneously retain their ordering. Therefore, the brms syntax estimates instead one "slope" parameter for each participant that shifts the entire evidence distribution for that participant, relative to the "average subject". The interpretation of such a shift is interchangeably either that a participant's evidence distribution has shifted, or that their thresholds have shifted by an identical amount. We agree with the latter interpretation---an equal shifting of the thresholds---because it makes little sense to assume that anyone would have a non-zero evidence distribution for noise stimuli.
+
+```{r}
+#| label: fig-glmm-rating1
+#| fig-cap: "Implied SDT model from multilevel regression model with by-subject random intercepts and slopes. Density curves indicate latent evidence distributions (dashed line: noise trials; solid line: signal trials). Vertical lines indicate thresholds."
+#| fig-width: 4
+#| fig-asp: 0.77
+
+coefs_evsdt <- bind_rows(
+  coef(fit_evsdt)$pid |>
+    as.data.frame() |>
+    select(starts_with("Estimate")) |>
+    rownames_to_column("pid") |>
+    tibble() |>
+    rename_with(~ str_remove(.x, "Estimate.")),
+  fixef(fit_evsdt) |>
+    as.data.frame() |>
+    _[, 1, drop = FALSE] |>
+    rownames_to_column("var") |>
+    pivot_wider(names_from = var, values_from = Estimate) |>
+    mutate(pid = "Population")
+)
+
+pids <- c("19", "22", "36")
+
+pa <- coefs_evsdt |>
+  filter(pid %in% c(pids, "Population")) |>
+  ggplot() +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(c(0.001, 0.01))
+  ) +
+  scale_x_continuous(
+    "Evidence"
+  ) +
+  stat_slab(
+    data = tibble(m = 0, s = 1),
+    aes(xdist = dist_normal(mu = m, sd = s)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    linetype = "dashed",
+    fill = NA
+  ) +
+  geom_vline(
+    data = coefs_evsdt |>
+      filter(pid %in% c(pids, "Population")) |>
+      pivot_longer(`Intercept[1]`:`Intercept[5]`),
+    aes(xintercept = value),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(xdist = dist_normal(mu = stimulusOld, sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA
+  ) +
+  labs(x = "Evidence", y = "Density") +
+  facet_wrap("pid", ncol = 2) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+pa
+```
+
+To aid interpretation, I have also visualized the multilevel cumulative model's implied SDT model, for the population average and three subjects, in @fig-glmm-rating1. A close inspection of this figure reveals that the distance between the thresholds (vertical lines) is identical for every participant (and the population average). While this formulation of the model is parsimonius, it is important to note that it could be considered in violation of some SDT assumptions by not allowing these thresholds to flexibly vary between individuals. To address this potential limitation, we now estimate a variation of this model that estimates fixed subject-specific thresholds.
+
+#### A multilevel model with subject-specific thresholds
+
+The syntax for this model is similar to above, but we use `thres(gr = pid)` to specify that the thresholds should be estimated separately for each participant (@lst-evsdt-thresholds). Then, we omit subject-specific random intercepts by `(0 + stimulus | pid)` and `cmc = FALSE`, which ensures that R's default cell-mean coding for models without an intercept is disabled. Finally, we increase the `adapt_delta` control parameter from its default 0.8 to better estimate the model's posterior distribution.
+
+```{r}
+#| label: fit-evsdt-thresholds
+#| results: hide
+#| lst-label: lst-evsdt-thresholds
+#| lst-cap: "Estimating multiple participants' rating data with a cumulative model with fixed subject-specific thresholds."
+#| echo: true
+#| code-fold: show
+
+fit_evsdt_thresholds <- brm(
+  bf(
+    response | weights(n) + thres(gr = pid) ~ stimulus + (0 + stimulus | pid),
+    cmc = FALSE
+  ),
+  family = cumulative(link = "probit"),
+  data = filter(dat2),
+  control = list(adapt_delta = .99),
+  file = "cache/brm-glmm-evsdt-thresholds"
+)
+```
+
+This "fixed thresholds" model is conceptually very similar to the "random intercepts" model above, but instead of estimating one deviation per subject, we have estimated all five thresholds for all participants. To make this clear, I show the model's summary below. Contrast this to summary above, which reported random intercepts (their SD as `sd(Intercept)`) and slopes (`sd(stimulusOld)`), this only includes random slopes and instead fixed ("population level") thresholds for participants, reported as `Intercept[subject, threshold]`, below:
+
+```{r}
+# Prevent printing too much information
+max_print <- getOption("max.print")
+options(max.print = 35)
+.summary(fit_evsdt_thresholds)
+options(max.print = max_print)
+```
+
+To help clarify the difference between these two models, I show the implied latent distributions and thresholds from the "fixed thresholds" model in @fig-glmm-thresholds1 (along with @fig-glmm-rating1). As is shown, the "fixed thresholds" model (bottom) allows for flexible thresholds for each participant, whereas the "random intercepts" model (top) only allows the average location of the thresholds to vary between participants. Also notable is the extremely low first threshold for participant 19: This participant had zero "1 (sure new)" responses (either for new or old items). Therefore the threshold location, when they are treated as fixed, not random, is completely decided by the prior distribution. By default, brms has used a $t^+(3, 0, 2.5)$ prior.
+
+```{r}
+#| label: fig-glmm-thresholds1
+#| fig-cap: '**Top.** As @fig-glmm-rating1. **Bottom.** Implied SDT models for three participants, and population, from multilevel model with by-subject random slopes and fixed intercepts.'
+#| fig-width: 7
+#| fig-asp: 0.5
+
+tmp <- spread_draws(
+  fit_evsdt_thresholds,
+  r_pid[pid, variable],
+  b_stimulusOld
+) |>
+  mutate(r_pid = r_pid + b_stimulusOld) |>
+  mean_qi(r_pid) |>
+  mutate(pid = as.character(pid)) |>
+  filter(pid %in% pids)
+tmp2 <- spread_draws(fit_evsdt_thresholds, b_stimulusOld) |>
+  mean_qi(r_pid = b_stimulusOld) |>
+  mutate(pid = "Population")
+pb <- tmp |>
+  bind_rows(tmp2) |>
+  ggplot() +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(c(0.001, 0.01))
+  ) +
+  scale_x_continuous(
+    "Evidence"
+  ) +
+  stat_slab(
+    data = tibble(m = 0, s = 1),
+    aes(xdist = dist_normal(mu = m, sd = s)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    linetype = "dashed",
+    fill = NA
+  ) +
+  geom_vline(
+    data = spread_draws(fit_evsdt_thresholds, b_Intercept[pid, threshold]) |>
+      mutate(pid = as.character(pid)) |>
+      filter(pid %in% pids) |>
+      mean_qi(),
+    aes(xintercept = b_Intercept),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(xdist = dist_normal(mu = r_pid, sd = 1)),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA
+  ) +
+  labs(x = "Evidence", y = "Density") +
+  facet_wrap("pid", nrow = 1) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+((pa + facet_wrap("pid", nrow = 1)) / pb) +
+  plot_layout(axes = "collect")
+```
+
+Given these two different models for essentially the same analytic problem, it is then critical to compare their key parameters. In @fig-glmm-thresholds2, I show *d'*s from both models for every participant. As shown, while the participant-specific parameters differ between models, the differences are small and their rank-orderings are very similar. Moreover, the population-level *d'* is nearly identical between models.
+
+```{r}
+#| label: fig-glmm-thresholds2
+#| fig-cap: "Comparison of d' parameters from multilevel rating model with random subject-specific intercepts (blue) and fixed subject-specific thresholds (red). **Left.** Posterior means and 95%CIs of d' from both models; estimates are comparable and rank orders are reasonably similar. **Right.** Scatterplot of subject-specific d' from the two models shows they are strongly correlated (r = [.80, .93]). Filled point and intervals indicate the population-level d' and its 95%CI."
+#| fig-asp: 0.5
+
+coef_evsdt <- spread_draws(fit_evsdt, r_pid[pid, variable], b_stimulusOld) |>
+  filter(variable == "stimulusOld") |>
+  mutate(r_pid = r_pid + b_stimulusOld) |>
+  mean_qi(r_pid)
+coef_evsdt_thresholds <- spread_draws(
+  fit_evsdt_thresholds,
+  r_pid[pid, variable],
+  b_stimulusOld
+) |>
+  mutate(r_pid = r_pid + b_stimulusOld) |>
+  mean_qi(r_pid)
+fixef_evsdt <- left_join(
+  mean_qi(gather_draws(fit_evsdt, b_stimulusOld)),
+  mean_qi(gather_draws(fit_evsdt_thresholds, b_stimulusOld)),
+  by = ".variable"
+)
+
+coef_evsdt_both <- bind_rows(
+  "Random intercept" = coef_evsdt,
+  "Fixed thresholds" = coef_evsdt_thresholds,
+  .id = "Model"
+) |>
+  mutate(rank = rank(r_pid), .by = Model)
+
+LIMITS <- c(-0.1, 2.5)
+
+pa <- coef_evsdt_both |>
+  mutate(pid = fct_reorder(factor(pid), r_pid)) |>
+  ggplot(aes(r_pid, pid, color = Model, xmin = .lower, xmax = .upper)) +
+  scale_color_brewer(
+    palette = "Set1"
+  ) +
+  scale_x_continuous(
+    "d'",
+    limits = LIMITS
+  ) +
+  labs(y = "Subject") +
+  geom_pointrange(
+    linewidth = .33,
+    fatten = 2.5,
+    stroke = .5,
+    position = position_dodge(.25),
+    shape = 21,
+    fill = "white"
+  ) +
+  theme(
+    legend.position = "none",
+    legend.direction = "horizontal",
+    legend.title = element_blank(),
+    axis.text.y = element_blank()
+  )
+coef_evsdt_both_wide <- coef_evsdt_both |>
+  select(Model, pid, r_pid) |>
+  pivot_wider(names_from = Model, values_from = r_pid)
+pb <- coef_evsdt_both_wide |>
+  ggplot(aes(`Random intercept`, `Fixed thresholds`)) +
+  geom_abline(
+    linewidth = 0.25
+  ) +
+  geom_point(
+    shape = 21,
+    fill = "white"
+  ) +
+  geom_pointrange(
+    data = fixef_evsdt,
+    aes(x = .value.x, xmin = .lower.x, xmax = .upper.x, y = .value.y)
+  ) +
+  geom_pointrange(
+    data = fixef_evsdt,
+    aes(x = .value.x, y = .value.y, ymin = .lower.y, ymax = .upper.y)
+  ) +
+  coord_cartesian(
+    xlim = LIMITS,
+    ylim = LIMITS
+  ) +
+  theme(
+    aspect.ratio = 1
+  )
+(pa | pb)
+# cor.test(
+#   coef_evsdt_both_wide$`Random intercept`,
+#   coef_evsdt_both_wide$`Fixed thresholds`
+# )
+```
+
+Finally, to conclude this diversion to the two different ways in which the SDT models for rating data can be estimated with regression for multiple subjects, @fig-evsdt-epred shows the predicted proportions in each response category for three subjects, along with the values calculated from data. As shown, the model predictions are notably different for participant 19, who had no responses in the lowest category. The fixed thresholds model predicts this (lack of) data perfectly, whereas the random intercepts model overestimates the proportions. For participants with more well-behaved responses, the predictions are very similar.
+
+```{r}
+#| label: fig-evsdt-epred
+#| fig-cap: "Model-predicted response proportions from multilevel rating model with random subject-specific intercepts (blue) and fixed subject-specific thresholds (red), along with data (gray bars)."
+#| fig-width: 5.8
+#| fig-asp: 0.66
+
+tmp1 <- dat2 |>
+  filter(pid %in% pids) |>
+  distinct(pid, stimulus) |>
+  add_epred_draws(fit_evsdt) |>
+  mean_qi()
+
+tmp1.pop <- dat2 |>
+  distinct(stimulus) |>
+  add_epred_draws(fit_evsdt, re_formula = NA) |>
+  mean_qi() |>
+  mutate(pid = "Population")
+
+tmp1 <- bind_rows(tmp1, tmp1.pop)
+
+tmp2 <- dat2 |>
+  filter(pid %in% pids) |>
+  distinct(pid, stimulus) |>
+  add_epred_draws(fit_evsdt_thresholds) |>
+  mean_qi()
+
+tmp3 <- dat2 |>
+  filter(pid %in% pids) |>
+  summarise(
+    nn = sum(n),
+    .by = c(pid, stimulus, response)
+  ) |>
+  mutate(p = nn / sum(nn), .by = c(pid, stimulus)) |>
+  mutate(.category = factor(response), .epred = p, .keep = "unused")
+
+tmp3.pop <- dat2 |>
+  summarise(
+    nn = sum(n),
+    .by = c(stimulus, response)
+  ) |>
+  mutate(p = nn / sum(nn), .by = c(stimulus)) |>
+  mutate(
+    .category = factor(response),
+    .epred = p,
+    pid = "Population",
+    .keep = "unused"
+  )
+
+tmp3 <- bind_rows(tmp3, tmp3.pop)
+
+bind_rows(
+  "Random intercept" = tmp1,
+  "Fixed thresholds" = tmp2,
+  .id = "Model"
+) |>
+  ggplot(aes(.category, .epred)) +
+  scale_y_continuous(
+    "Proportion",
+    expand = expansion(c(0.001, 0.1))
+  ) +
+  labs(x = "Response category") +
+  scale_color_brewer(
+    palette = "Set1"
+  ) +
+  geom_col(data = tmp3, fill = "grey70") +
+  geom_pointrange(
+    aes(ymin = .lower, ymax = .upper, color = Model),
+    linewidth = 0.33,
+    fatten = 3,
+    position = position_dodge(width = 0.50)
+  ) +
+  facet_grid(stimulus ~ pid) +
+  theme(
+    legend.position = "none"
+  )
+```
+
+Moreover, @fig-evsdt-epred reveals a critical difference between the models. The random-intercepts model is able to make predictions at the population level (which fit reasonably well), while the fixed thresholds does not. This is because the latter model does not estimate population-level thresholds, but instead its estimates are limited to the subjects in the current sample.
+
+We now conclude the tutorial section on estimating basic signal detection theoretic models data using (multilevel) bayesian regression models, and turn toward more advanced SDT models.
+
+```{r}
+#| eval: false
+#| include: false
+
+# Model comparison
+fit_evsdt <- add_criterion(fit_evsdt, "loo")
+fit_evsdt_thresholds <- add_criterion(fit_evsdt_thresholds, "loo")
+loo_compare(fit_evsdt, fit_evsdt_thresholds)
+```
+
+## Advanced SDT models
+
+In this section, we cover the estimation of two generalizations of the SDT model, the unequal variances and finite mixtures models (for both single subjects and multiple individuals using multilevel regression). As above, our focus is on practical application; readers requiring a more theoretical treatment can refer to standard texts [@greenSignalDetectionTheory1966; @macmillan_detection_2005; @wickensElementarySignalDetection2001]; a more complete mathematical treatment is @decarlo_statistical_2010.
+
+### Unequal variances
+
+The models discussed above have all assumed that the latent evidence distributions associated with signal and noise trials have the same variability. Accordingly, in more general treatments, the model above is known as the equal variance SDT (EVSDT) model. However, when tested, this assumption is consistently found inadequate: Experiments have repeatedly shown that the signal distribution has greater variance than the noise distribution in a wide variety of subject domains. For example, @koen_examining_2013 reported increased signal distribution variability across four memory experiments.
+
+A generalization of the EVSDT model, the unequal variance (UVSDT) model adds one parameter to estimate the signal distribution's variance. Recall that it is always assumed that the noise distribution has a standard deviation of 1. Importantly, we cannot estimate this additional parameter for binary outcomes (Yes/No task), and so below focus on the rating data.
+
+The UVSDT model, for one participant's data, is a generalization of @eq-thresholds
+
+$$
+Pr(r_i = k) =
+  \Phi(\frac{c_k - \eta_i}{\sigma_i}) -
+  \Phi(\frac{c_{k-1} - \eta_i}{\sigma_i})
+$${#eq-uvsdt1-original}
+
+This model---also knows as a probit model with heteroscedastic error (e.g. @decarlo_statistical_2010)---can be readily estimated with the brms R package [@burkner_brms:_2017; @burknerOrdinalRegressionModels2019]. Before we do so, we note that brms parameterizes this model with an equivalent formulation using different terminology, in line with conventions in item response theory [@burknerBayesianItemResponse2021]:
+
+$$
+\begin{aligned}
+Pr(r_i = k) =\
+  &\Phi(\text{disc}_i \times (c_k - \eta_i)) - \Phi(\text{disc}_i \times (c_{k-1} - \eta_i)) \\
+\eta_i =\ &\beta_1s_i \\
+\text{log}(\text{disc}_i) =\ &\beta_2s_i
+\end{aligned}
+$${#eq-uvsdt1}
+
+In this parameterization, $\sigma = 1/\text{disc}$. We highlight this conversion below, when post-processing the model's estimates. The brms syntax to estimate this model is similar to that of @lst-glm-rating, but we include an additional regression formula to predict `disc`. To do so, we wrap the main regression formula in `bf()` (used to predict the response distribution's location parameter), and add a regression formula for `disc` using `lf()`:
+
+```{r}
+#| label: fit-uvsdt1
+#| results: hide
+#| lst-label: lst-uvsdt1
+#| lst-cap: "Estimating multiple participants' rating data with an unequal variances cumulative model."
+#| echo: true
+#| code-fold: show
+
+fit_uvsdt1 <- brm(
+  bf(response | weights(n) ~ stimulus) +
+    lf(disc ~ 0 + stimulus, cmc = FALSE),
+  family = cumulative(link = "probit"),
+  data = filter(dat2, pid == 1),
+  control = list(adapt_delta = .99),
+  file = "cache/brm-glm-uvsdt"
+)
+```
+
+We print the model's summary below. Before inspecting it in detail, refer to the model summary of the EVSDT model fitted to one subject's rating data above. Notice that it reports an estimate of `disc`, which is fixed to one if no regression model for it is specified. Below, we obtain `disc_stimulusOld`, which is the discrimination parameter estimated from data.
+
+```{r}
+#| label: summary-uvsdt1
+
+.summary(fit_uvsdt1)
+```
+
+For a standard SDT interpretation, it is then useful to post-process the model parameters to obtain an estimate of the signal distribution's standard deviation (@lst-uvsdt-convert).
+
+```{r}
+#| label: uvsdt-convert
+#| lst-label: lst-uvsdt-convert
+#| lst-cap: "Converting the log-discriminability parameter to a standard deviation."
+#| echo: true
+#| code-fold: show
+
+as_draws_df(fit_uvsdt1, variable = "b_", regex = TRUE) |>
+  mutate(sd_old = exp(-b_disc_stimulusOld)) |>
+  summarise_draws(
+    mean,
+    sd,
+    ~ quantile2(.x, probs = c(.025, .975))
+  ) |>
+  tt()
+```
+
+From above, we find an estimated signal distribution standard deviation of approximately 1.24 (posterior mean). Plotting the model's implied distributions illustrates this graphically (@fig-uvsdt1).
+
+```{r}
+#| label: fig-uvsdt1
+#| fig-cap: "The unequal variance Gaussian signal detection model, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the thresholds, and d' is indicated by the scaled distance between the peaks of the two distributions."
+#| fig-width: 3
+
+ggplot() +
+  scale_y_continuous(
+    "Density",
+    expand = expansion(c(0.001, 0.01))
+  ) +
+  scale_x_continuous(
+    "Evidence"
+  ) +
+  coord_cartesian(
+    ylim = c(0, 0.4),
+  ) +
+  stat_slab(
+    data = tibble(m = 0, s = 1),
+    aes(
+      xdist = dist_normal(mu = m, sd = s),
+    ),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    linetype = "dashed",
+    fill = NA,
+    normalize = "none"
+  ) +
+  geom_vline(
+    aes(xintercept = fixef(fit_uvsdt1)[1:5, 1]),
+    linewidth = 0.25
+  ) +
+  stat_slab(
+    aes(
+      xdist = dist_normal(
+        mu = fixef(fit_uvsdt1)[6, 1],
+        sd = exp(-fixef(fit_uvsdt1)[7, 1])
+      )
+    ),
+    p_limits = c(.0001, .9999),
+    color = "black",
+    linewidth = .33,
+    fill = NA,
+    normalize = "none"
+  ) +
+  labs(x = "Evidence", y = "Density") +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+```
+
+### UVSDT for multiple participants
+
+Above, we fit the UVSDT model for a single subject. However, we typically want to discuss inferences about the population, not individual subjects. Further, if we wish to discuss individual subjects, we should place them in the context of other subjects. A multilevel model accomplishes these goals by including both population- and subject-level parameters. We extend the code from @lst-uvsdt1 to a hierarchical model by specifying varying parameters across participants @lst-uvsdt.
+
+Recall from above that using `|p|` leads to estimating correlations among the varying effects. There will only be one standard deviation associated with the thresholds; that is, the model assumes that subjects vary around the mean threshold similarly for all thresholds. We can then estimate the model as before.
+
+```{r}
+#| label: fit-uvsdt
+#| results: hide
+#| lst-label: lst-uvsdt
+#| lst-cap: "Estimating multiple participants' rating data with an unequal variances cumulative model."
+#| echo: true
+#| code-fold: show
+
+fit_uvsdt <- brm(
+  bf(response | weights(n) ~ stimulus + (stimulus | p | pid)) +
+    lf(disc ~ 0 + stimulus + (0 + stimulus | p | pid), cmc = FALSE),
+  family = cumulative(link = "probit"),
+  data = dat2,
+  control = list(adapt_delta = .9),
+  init = 0,
+  file = "cache/brm-glmm-uvsdt"
+)
+```
+
+We then display numerical summaries of the model's parameters below.
+
+```{r}
+#| label: summary-uvsdt
+
+.summary(fit_uvsdt)
+```
+
+Let's first focus on the Regression Coefficients: The effects for the "average person". Intercepts, again, indicate the thresholds used to partition the latent evidence distribution into response categories. `stimulusOld` is *d'*, `disc_stimulusOld` is $-\text{log}(\sigma_{signal})$. It is typically useful to transform the latter to a standard deviation, as is shown in @lst-uvsdt-convert.
+
+### Mixture SDT model
+
+While the unequal variances SDT model fits observer data better than does the equal variances model, it provides no explanation to why the latent variances might differ. One explanation for this difference is that observers might, on a subset of trials, be inattentive to the task:
+
+>An inattentive observer dozes off, or at least drifts into reverie, on some proportion of trials; because failing to respond is usually discouraged,this leads to an unknown numberof d′=0 trials,ones on which the observer responds despite not having paid attention, mixed in with the others [@macmillan_detection_2005, p. 46]
+
+In this section, I briefly outline how the mixture SDT model discussed in @decarlo_statistical_2010 can be fit with brms. Substituting $\lambda$ in @decarlo_statistical_2010 (eqn. 19, p. 309) with $\theta$, in line with how brms labels it, we can write the model as a mixture of two cumulative models (@eq-mix).
+
+$$
+\begin{align}
+Pr(r_i = k) =\
+  &\theta(\Phi(c_k - \eta_i) - \Phi(c_{k-1} - \eta_i)) + \\
+  &1 - \theta(\Phi(c_k) - \Phi(c_{k-1}))
+\end{align}
+$${#eq-mix}
+
+The above equation is a mixture of two processes. The main process includes a predictor ($\eta$) and thus allows for an effect of stimulus, and the second process omits the predictor: On inattention trials there can be no effect of the stimulus as it was not attended to. We translate this model to brms' syntax in @lst-mix1. The key addition here is the inclusion of two response distributions (`family = mixture(), nmix = 2`), and the inclusion of `stimulus` predictor in modeling only the first of these.
+
+```{r}
+#| label: fit-mix1
+#| results: hide
+#| lst-label: lst-mix1
+#| lst-cap: "Estimating a mixture SDT model for one participant."
+#| echo: true
+#| code-fold: show
+
+fit_mix1 <- brm(
+  bf(
+    response | weights(n) ~ 1,
+    mu1 ~ 1 + stimulus,
+    mu2 ~ 1,
+    family = mixture(cumulative("probit"), nmix = 2, order = "mu")
+  ),
+  data = filter(dat2, pid == 1),
+  control = list(adapt_delta = 0.9),
+  file = "cache/fit-mix1"
+)
+```
+
+I show results of this model below. First, although the summary reports two vectors of thresholds, one for each response distribution in the mixture, they are automatically constrained to equality (`mu1_Intercept[1]` = `mu2_Intercept[1]`; see `?mixture`), as we wanted for this model. Second, `mu1_stimulusOld` is *d'*; the effect of `stimulus` for the first response distribution `mu1`---notice that there is no effect for the second distribution (`mu2`).
+
+```{r}
+.summary(fit_mix1)
+```
+
+By default, this model has fixed the latent variances at 1 (`disc1` = `disc2` = 1). But now we have two additional parameters `theta1` that index the mixture proportions. We see that participant 1's responses are a mixture of ~86% attended trials, and ~14% non-attended trials (posterior means). For more details on interpreting this model, see @decarlo_statistical_2010.
+
+### Multilevel mixture SDT model
+
+After estimating the mixture model for one participant, we now turn to estimating it for a sample of individuals using a multilevel model. The syntax (@lst-mix) is identical to that in @lst-mix1, but we now include by-person random effects on the parameters.
+
+```{r}
+#| label: fit-mix
+#| results: hide
+#| lst-label: lst-mix
+#| lst-cap: "Estimating a mixture SDT model for multiple participants with a multilevel model."
+#| echo: true
+#| code-fold: show
+
+fit_mix <- brm(
+  bf(
+    response | weights(n) ~ 1,
+    mu1 ~ 1 + stimulus + (1 + stimulus | p | pid),
+    mu2 ~ 1,
+    theta2 ~ 1 + (1 | p | pid),
+    family = mixture(cumulative("probit"), nmix = 2, order = "mu")
+  ),
+  data = dat2,
+  control = list(adapt_delta = 0.95),
+  file = "cache/fit-mix"
+)
+```
+
+I print the summary of this model's results below. In addition to Multilevel Hyperparameters (the parameters' heterogeneities in the population), we now have an estimate of the average mixing proportion of the second component `theta2_Intercept`, but this is reported on scale of the link function (logits).
+
+```{r}
+.summary(fit_mix)
+```
+
+Therefore, we transform the population-level and individual-specific mixture proportions from the logit space to proportions, and then display the estimates in @fig-mix-thetas.
+
+```{r}
+#| label: fig-mix-thetas
+#| fig-cap: Mixing proportions for each participant (empty) and the population (filled).
+
+tmp1 <- spread_draws(fit_mix, b_theta2_Intercept) |>
+  mutate(
+    theta2 = plogis(b_theta2_Intercept)
+  ) |>
+  mean_qi(theta2) |>
+  mutate(pid = "Population")
+
+tmp2 <- spread_draws(
+  fit_mix,
+  b_theta2_Intercept,
+  r_pid__theta2[pid, variable]
+) |>
+  mutate(
+    theta2 = plogis(b_theta2_Intercept + r_pid__theta2)
+  ) |>
+  mean_qi(theta2) |>
+  mutate(pid = as.character(pid))
+
+bind_rows(tmp1, tmp2) |>
+  mutate(pid = fct_reorder(pid, theta2)) |>
+  ggplot(aes(theta2, pid)) +
+  scale_y_discrete(
+    "Participant",
+    labels = ~ str_replace_all(.x, "[0-9]+", "")
+  ) +
+  scale_x_continuous(
+    "theta2",
+    sec.axis = sec_axis(~ 1 - ., "theta1")
+  ) +
+  scale_fill_manual(values = c("white", "black")) +
+  geom_pointrange(
+    aes(xmin = .lower, xmax = .upper, fill = pid == "Population"),
+    linewidth = 0.25,
+    fatten = 3,
+    shape = 21
+  ) +
+  theme(legend.position = "none")
+```
+
+## Conclusion
+
+Signal Detection Theory is "one of the greatest successes of mathematical psychology" [@wickensElementarySignalDetection2001]. It is used to guide theorizing and data analyses in a wide variety of research areas in psychology where the experimental tasks involve detecting, or indicating one's confidence in, the presence of a signal. Those "signals" can be previously seen images or words, perceptual stimuli corrupted by noise, marks of illness, and more. The theory itself is established and further made accessible in widely read texts [@greenSignalDetectionTheory1966; @macmillan_detection_2005].
+
+While many SDT models are accessible to researchers via well-known computational formulas [@stanislaw_calculation_1999], those don't always easily generalize to more complex research designs, and can ignore important sources of variability [e.g. due to item heterogeneity @rouder_introduction_2005; see also @rouder_signal_2007]. Moreover, these calculations introduce added complexity to researchers, who do not always recognize that the models can be estimated with standard tools, such as Generalized Linear (Mixed) Models [GLMM; @decarlo_signal_1998; @decarlo_using_2003] that are straightforward to generalize to more complex research designs.
+
+My aim with this tutorial was to provide an introduction to how the GLMM can be used to estimate a variety of SDT models, ranging from single-subject analyses to multilevel mixture models that account for attention lapses, using bayesian regression methods implemented in the brms R package [@rcoreteamLanguageEnvironmentStatistical2025; @burkner_brms:_2017].
+
+## Appendices {.appendix}
+
+### Additional SDT metrics {.appendix}
+
+Above, we discussed the common SDT metrics *c* and *d'* that index a respondent's bias and sensitivity, respectively. Here, we discuss some additional metrics that are commonly used in the SDT literature. The hit and false alarm rates, and their corresponding z-scores, are used in the manual calculation of these metrics, but can be useful in their own right. From the modeling perspective, these rates are outcomes, and we can therefore use methods to predict them from the model. In @lst-calc-rates, we use functions from the tidybayes package [@tidybayes2024]. I show the results of these calculations in @tbl-predicted-rates.
+
+```{r}
+#| label: lst-calc-rates
+#| lst-label: lst-calc-rates
+#| lst-cap: "Calculate predicted rates from a single subject's model."
+#| echo: true
+
+# Predict outcomes for these predictors
+x <- tibble(stimulus = c("New", "Old"))
+
+# Predicted rates
+rates <- epred_draws(fit_glm, x, value = "rate") |>
+  mean_qi()
+
+# Predicted z-scored rates
+z_rates <- linpred_draws(fit_glm, x, value = "rate") |>
+  mean_qi()
+```
+
+```{r}
+#| label: tbl-predicted-rates
+#| tbl-cap: "Model-predicted hit (stimulus=Old) and false alarm (stimulus=New) rates of responding 'Old'."
+
+bind_rows(
+  "Rates" = rates,
+  "zRates" = z_rates,
+  .id = "Type"
+) |>
+  select(Type, stimulus, rate, .lower, .upper) |>
+  tt()
+```
+
+### Including predictors {.appendix}
+
+Do the EVSDT parameters differ between groups of people? How about between conditions, within people? To answer these questions, we would repeat the manual calculation of parameters as many times as needed, and then draw inference by "submitting" the subject-specific parameters to e.g. an ANOVA model. The GLMM approach affords a more straightforward solution to including predictors: We simply add parameters to the regression model.
+
+For example, if there were two groups of participants, indexed by variable `group` in data, we could extend the brms GLMM syntax to:
+
+```r
+brm(response ~ stimulus * group + (stimulus | pid), ...)
+```
+
+This model would have two additional parameters: `group` would describe the difference in *c* between groups, and the interaction term `stimulus:group` would describe the difference in *d'* between groups. If we were additionally interested in the effects of `condition`, a within-subject manipulation, we could write:
+
+```r
+brm(response ~ stimulus * group * condition + (stimulus * condition | pid), ...)
+```
+
+### Receiver operating characteristic {.appendix}
+
+The Receiving Operator Characteristic (ROC) curve displays hits as a function of false alarms, for possibly multiple criteria, and is a useful description of detection data in its own right. As such, it is useful to be able to generate ROC curves implied by the model. Here, we illustrate how to obtain ROC curves from fitted models with uncertainty estimates and overlay them on raw data.
+
+First, I show code for calculating (z-scored) hit and false alarm rates both from data, and as predicted from the multilevel equal variances cumulative model (@lst-roc-data).
+
+```{r}
+#| label: roc-data
+#| lst-label: lst-roc-data
+#| lst-cap: Calculating (z-scored) hit and false alarm rates from data and model predictions, at the population level and that of individual subjects.
+#| echo: true
+#| code-fold: show
+
+# Population level rates
+roc_dat <- left_join(
+  # From model (posterior means)
+  dat2 |>
+    distinct(stimulus) |>
+    add_epred_draws(fit_evsdt, re_formula = NA) |>
+    mean_qi() |>
+    mutate(
+      response = as.integer(.category),
+      pid = "Population"
+    ) |>
+    select(pid, stimulus, response, .epred),
+  # From data
+  dat2 |>
+    summarise(
+      pid = "Population",
+      n = sum(n),
+      .by = c(stimulus, response)
+    ) |>
+    mutate(p = n / sum(n), .by = stimulus),
+  by = c("pid", "stimulus", "response")
+)
+
+# Subject-level rates
+roc_sub <- left_join(
+  # From model
+  dat2 |>
+    distinct(pid, stimulus) |>
+    add_epred_draws(fit_evsdt) |>
+    mean_qi() |>
+    mutate(response = as.integer(.category)) |>
+    select(pid, stimulus, response, .epred),
+  # From data
+  dat2 |>
+    summarise(
+      n = sum(n),
+      .by = c(pid, stimulus, response)
+    ) |>
+    mutate(p = n / sum(n), .by = c(pid, stimulus)),
+  by = c("pid", "stimulus", "response")
+)
+
+# Combine population- and subject level data, and calculate cumulative rates
+roc_dat <- bind_rows(
+  roc_dat,
+  roc_sub
+) |>
+  select(-n) |>
+  pivot_longer(c(.epred, p)) |>
+  pivot_wider(names_from = stimulus, values_from = value) |>
+  # Cumulate proportions from high to low response category
+  arrange(pid, desc(response)) |>
+  mutate(
+    hr = cumsum(Old),
+    fr = cumsum(New),
+    zhr = qnorm(hr),
+    zfr = qnorm(fr),
+    .by = c(pid, name)
+  )
+```
+
+Having calculated the hit and false alarm rates in both their natural and probit scales, all that is left to do is to plot them. In @fig-roc-data, we show these rates for a sample of participants, and the population. While interpreting these figures, it is important to keep in mind that the data-based coordinates have error in both the x- and y-axes.
+
+```{r}
+#| label: fig-roc-data
+#| fig-cap: "Receiver operating characteristic plots in the proportion (left) and z-score scales (right) for three participants and the population. Black symbols and lines are coordinates calculated from data, red symbols are model-predicted rates."
+#| fig-width: 7
+#| fig-asp: 0.6
+
+set.seed(12)
+pids <- c(sample(unique(roc_dat$pid), 3), "Population")
+pa <- roc_dat |>
+  filter(
+    name == "p",
+    response > 1,
+    pid %in% pids
+  ) |>
+  ggplot(aes(fr, hr, group = pid)) +
+  geom_abline(lty = 2, linewidth = .25) +
+  geom_line(linewidth = .25) +
+  geom_point(
+    size = 3,
+    color = "white"
+  ) +
+  geom_text(
+    aes(label = response),
+    size = 3
+  ) +
+  geom_text(
+    data = roc_dat |>
+      filter(
+        name == ".epred",
+        response > 1,
+        pid %in% pids
+      ),
+    aes(label = response),
+    size = 3,
+    color = "red"
+  ) +
+  facet_wrap("pid", nrow = 2) +
+  theme(
+    legend.position = "none",
+    aspect.ratio = 1
+  )
+pb <- pa +
+  aes(zfr, zhr) +
+  coord_cartesian(xlim = c(-3, 3), ylim = c(-3, 3)) +
+  labs(x = "zFR", y = "zHR")
+pa <- pa +
+  scale_x_continuous(
+    breaks = c(0, .5, 1),
+    labels = c("0", "0.5", "1")
+  ) +
+  scale_y_continuous(
+    breaks = c(0, .5, 1),
+    labels = c("0", "0.5", "1")
+  ) +
+  coord_cartesian(xlim = 0:1, ylim = 0:1) +
+  labs(x = "False alarm rate", y = "Hit rate")
+(pa | pb)
+```
+
+Next, we draw a more complete picture by using the model to predict (z-scored) hit rates for the entire range of hypothetical false alarm rates. We obtain the predicted ROC curves from the multilevel EVSDT, UVSDT, and mixture models at both the population- and participant-specific levels.
+
+```{r}
+#| label: roc-model
+#| lst-label: lst-roc-model
+#| lst-cap: Calculating predicted ROC curves from multilevel EVSDT, UVSDT, and mixture models.
+#| echo: true
+#| code-fold: show
+
+grid <- tibble(
+  x = seq(-2, 2, length.out = 31),
+  fr = pnorm(x, lower = FALSE),
+  zfr = qnorm(fr)
+)
+WIDTHS <- seq(.1, .9, by = .1)
+
+# EVSDT ROC estimates
+# Stack population-level and subject-specific estimates
+roc_evsdt <- bind_rows(
+  spread_draws(
+    fit_evsdt,
+    b_stimulusOld
+  ) |>
+    mutate(pid = "Population"),
+  spread_draws(
+    fit_evsdt,
+    r_pid[pid, parameter],
+    b_stimulusOld
+  ) |>
+    filter(parameter == "stimulusOld", pid %in% pids) |>
+    ungroup() |>
+    mutate(
+      # Calculate subject-specific estimate from mean and deviation
+      b_stimulusOld = b_stimulusOld + r_pid,
+      pid = as.character(pid)
+    )
+) |>
+  # Cross with ROC data grid
+  crossing(grid) |>
+  # Calculate hit rate from parameters and fixed false-alarm rate from grid
+  mutate(
+    hr = pnorm(x, b_stimulusOld, 1, lower = FALSE),
+    zhr = qnorm(hr)
+  ) |>
+  group_by(pid, fr, zfr) |>
+  mean_qi(hr, zhr, .width = WIDTHS)
+
+# UVSDT
+roc_uvsdt <- bind_rows(
+  spread_draws(
+    fit_uvsdt,
+    b_stimulusOld,
+    b_disc_stimulusOld
+  ) |>
+    mutate(
+      b_sd = exp(-b_disc_stimulusOld),
+      pid = "Population"
+    ),
+  spread_draws(
+    fit_uvsdt,
+    r_pid[pid, parameter],
+    r_pid__disc[pid, parameter],
+    b_stimulusOld,
+    b_disc_stimulusOld
+  ) |>
+    filter(parameter == "stimulusOld", pid %in% pids) |>
+    ungroup() |>
+    mutate(
+      b_stimulusOld = b_stimulusOld + r_pid,
+      b_disc_stimulusOld = b_disc_stimulusOld + r_pid__disc,
+      b_sd = exp(-b_disc_stimulusOld),
+      pid = as.character(pid)
+    ),
+) |>
+  crossing(grid) |>
+  mutate(
+    hr = pnorm(x, b_stimulusOld, b_sd, lower = FALSE),
+    zhr = qnorm(hr),
+    zfr = qnorm(fr)
+  ) |>
+  group_by(pid, fr, zfr) |>
+  mean_qi(hr, zhr, .width = WIDTHS) |>
+  tibble()
+
+# Mixture ROC
+roc_mix <- bind_rows(
+  spread_draws(
+    fit_mix,
+    b_mu1_stimulusOld,
+    b_theta2_Intercept
+  ) |>
+    mutate(
+      pid = "Population",
+      b_theta2_Intercept = plogis(b_theta2_Intercept)
+    ) |>
+    select(pid, .draw, starts_with("b_")),
+  spread_draws(
+    fit_mix,
+    b_mu1_stimulusOld,
+    b_theta2_Intercept,
+    r_pid__mu1[pid, parameter] | parameter,
+    r_pid__theta2[pid, parameter]
+  ) |>
+    filter(pid %in% pids) |>
+    mutate(
+      b_mu1_stimulusOld = b_mu1_stimulusOld + stimulusOld,
+      b_theta2_Intercept = plogis(b_theta2_Intercept + r_pid__theta2),
+      pid = as.character(pid)
+    ) |>
+    ungroup() |>
+    select(pid, .draw, starts_with("b_"))
+) |>
+  crossing(grid) |>
+  mutate(
+    hr = (1 - b_theta2_Intercept) *
+      pnorm(x, b_mu1_stimulusOld, 1, lower = F) +
+      b_theta2_Intercept * pnorm(x, 0, 1, lower = FALSE),
+    zhr = qnorm(hr)
+  ) |>
+  group_by(pid, fr, zfr) |>
+  mean_qi(hr, zhr, .width = WIDTHS) |>
+  tibble()
+```
+
+```{r}
+#| label: fig-roc-model
+#| fig-cap: "Caption."
+#| fig-width: 8
+#| fig-asp: 1.2
+
+# All ROCs
+tmp <- bind_rows(
+  "EVSDT" = roc_evsdt,
+  "UVSDT" = roc_uvsdt,
+  "Mix" = roc_mix,
+  .id = "Model"
+) |>
+  tibble() |>
+  mutate(Model = factor(Model, levels = c("EVSDT", "UVSDT", "Mix")))
+
+pa <- roc_dat |>
+  filter(
+    pid %in% pids,
+    response > 1,
+    name == "p"
+  ) |>
+  ggplot() +
+  aes(x = fr, y = hr, ymin = hr.lower, ymax = hr.upper) +
+  scale_x_continuous(
+    breaks = pretty_breaks(3),
+    labels = ~ number(.x, .1)
+  ) +
+  scale_y_continuous(
+    breaks = pretty_breaks(3),
+    labels = ~ number(.x, .1)
+  ) +
+  geom_abline(linetype = 2, linewidth = .25) +
+  s_f_g(begin = 0.0, option = "G") +
+  geom_point(shape = 21, aes(ymin = NULL, ymax = NULL)) +
+  geom_lineribbon(
+    data = tmp,
+    aes(fill = .width, group = Model),
+    linewidth = .25,
+    alpha = .25
+  ) +
+  facet_grid(Model ~ pid) +
+  labs(x = "FR", y = "HR") +
+  theme(
+    legend.position = "none",
+    aspect.ratio = 1
+  )
+
+pb <- pa +
+  aes(x = zfr, y = zhr, ymin = zhr.lower, ymax = zhr.upper) +
+  coord_cartesian(
+    ylim = c(-2, 3),
+    xlim = c(-2, 3)
+  ) +
+  labs(x = "zFR", y = "zHR")
+
+pa <- pa +
+  scale_x_continuous(
+    breaks = c(0, .5, 1),
+    labels = c("0", "0.5", "1")
+  ) +
+  scale_y_continuous(
+    breaks = c(0, .5, 1),
+    labels = c("0", "0.5", "1")
+  )
+
+pa / pb
+```
+
+### Tips for estimating models with brm() {.appendix}
+
+Above, we made use of the `file` argument in `brm()` to save estimated models to a file. Throughout, I have also used other options to speed up sampling, specified in a special `.Renviron` file:
+
+```bash
+# Contents of .Renviron
+MAX_CORES=8
+BRMS_BACKEND="cmdstanr"
+BRMS_THREADS=2
+```
+
+Then, on the top of my R code, I have specified
+
+```r
+options(
+  brms.backend = Sys.getenv("BRMS_BACKEND", "rstan"),
+  brms.threads = as.numeric(Sys.getenv("BRMS_THREADS", 1)),
+  mc.cores = as.numeric(Sys.getenv("MAX_CORES", 4))
+)
+```
+
+With these settings, every call to `brm()` uses the variables I have specified in `.Renviron` to speed up model estimation with values that work well on my local machine (that has eight CPU cores.) For more information, see `?brm` and `?Sys.getenv`.
+
+```{r}
+#| label: replicate-decarlo2003-plum
+#| eval: false
+#| include: false
+
+d <- tribble(
+  ~x, ~y, ~n,
+  0, 1, 174,
+  0, 2, 172,
+  0, 3, 104,
+  0, 4, 92,
+  0, 5, 41,
+  0, 6, 8,
+  1, 1, 46,
+  1, 2, 57,
+  1, 3, 66,
+  1, 4, 101,
+  1, 5, 154,
+  1, 6, 173
+) |>
+  mutate(x = factor(x))
+f <- brm(
+  bf(y | resp_weights(n) ~ x) + lf(disc ~ 0 + x, cmc = FALSE),
+  family = cumulative("probit"),
+  data = d,
+  iter = 4000
+)
+as_draws_df(f, variable = "b_", regex = TRUE) |>
+  mutate(sigma_old = exp(-b_disc_x1)) |>
+  summarise_draws(mean, sd)
+```

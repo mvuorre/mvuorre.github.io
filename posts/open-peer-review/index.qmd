@@ -1,0 +1,102 @@
+---
+title: My peer review principles & practices
+description: Commitment to transparent, open, and credible peer review
+date: 2025-02-03
+categories:
+  - preprints
+  - science communication
+  - peer review
+  - open review
+  - open evaluation
+draft: false
+reference-location: document
+execute-dir: file
+bibliography: bibliography.bib
+image: "images/undraw_collaboration_dtwk.png"
+---
+
+In this entry, I outline my approach to evaluating scientific outputs based on the principles of transparency and openness.[^1] I also include my template responses to review invitations.
+
+[^1]: Obviously I also review the manuscripts on their content, but that is not the topic of this post.
+
+## Background and principles
+
+I signed/joined the [PRO Initiative](https://www.opennessinitiative.org/the-initiative/) way back when I was a PhD student, but just to remind myself:
+
+>Openness and transparency are core values of science. As a manifestation of those values, a minimum requirement for publication of any scientific results must be the public submission of materials used in generating those results. As reviewers, it is our responsibility to ensure that publications meet certain minimum quality standards.
+>
+>We therefore agree that as reviewers, starting 1 January 2017, we will not offer comprehensive review for, nor recommend the publication of, any manuscript that does not meet the following minimum requirements. Once such a manuscript has been certified by the authors to meet these minimum requirements, we will proceed with a more comprehensive review of the manuscript.
+>
+>-- [PRO Initiative](https://www.opennessinitiative.org/the-initiative/); @moreyPeerReviewersOpenness2016
+
+More recently I've been entertaining the idea of joining/signing something similar but regarding open assessment---the practice of i. evaluating openly available works and ii. making the evaluations themselves public. For example, I find [Nikolaus Kriegeskorte](https://nikokriegeskorte.org/category/open-review/)'s Open Evaluation proposal very agreeable:
+
+>"The current system of scientific publishing provides only journal prestige as an indication of the quality of new papers and relies on a non-transparent and noisy pre-publication peer-review process, which delays publication by many months on average. Here I propose an OE [Open Evaluation] system, in which papers are evaluated post-publication in an ongoing fashion by means of open peer review and rating. [...] OA [Open Access] and OE together have the power to revolutionize scientific publishing and usher in a new culture of transparency, constructive criticism, and collaboration.
+>
+>-- @kriegeskorteOpenEvaluationVision2012
+
+The scientific enterprise relies on access to accurate information. One of the ways in which scientists have tried to ensure that information is accurate is the process of **peer-review**, where experts look at your work and evaluate whether it's up to snuff. While the primary fruits of the peer-review process (the manuscripts) are increasingly openly available, the reviews (and editorial notes) are typically not. This creates a situation whereby consumers of the scientific literature must trust the peer-review process without the being able to evaluate and learn from the evaluations themselves.
+
+Many have suggested that this closed approach to evaluation might be suboptimal [@kriegeskorteOpenEvaluationVision2012; @holcombeScientistsWhatAre2025]. Moreover, the peer reviews themselves can contain information that could be widely applicable outside the specific review context. Therefore, I am taking the following steps to increase my engagement with open assessment of scientific research:
+
+## Practices
+
+:::{.callout-tip appearance="simple"}
+- I review (and edit) for outlets that implement open evaluation, such as [PCI: Registered Reports](https://rr.peercommunityin.org/)
+- I make my reviews publicly available (e.g. on [PREreview](https://prereview.org/profiles/0000-0001-5052-066X), my blog, etc.)
+- I adhere to the PRO Initiative's transparency and openness [guidelines](https://www.opennessinitiative.org/the-initiative/)
+- I acknowledge that e.g. privacy reasons may require deviating from these guidelines
+:::
+## Template responses
+
+Here's some boilerplate text that I use in my responses to review invitations.
+
+### When no preprint exists
+
+:::{.callout-warning appearance="simple"}
+Thank you for considering me as a reviewer. I was not able to find a publicly available version of this manuscript, and so will tentatively decline your request. If you can point me to the publicly available manuscript, or if the authors make the manuscript publicly available, I would be happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.
+
+This approach aligns with my commitment to rigorous, open, transparent, and citeable peer review of publicly available scientific work. (see e.g. Kriegeskorte, 2012 "Open Evaluation: A Vision for Entirely Transparent Post-Publication Peer Review and Rating for Science"). (If a preprint already exists, I apologize for missing it and would be happy to review it if you can provide a link to it.) Please let me know if you have any questions about this process.
+:::
+
+### When a preprint exists
+
+:::{.callout-note appearance="simple"}
+Thank you for considering me as a reviewer. I am happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.
+
+This approach aligns with my commitment to open science and transparent evaluation (see e.g. Kriegeskorte, 2012 "Open Evaluation: A Vision for Entirely Transparent Post-Publication Peer Review and Rating for Science"). Please let me know if you would prefer to not have me upload a public review, or if have any questions about this process.
+:::
+
+### Open data/materials
+
+When data/materials are not shared or transparently cited (see <https://www.opennessinitiative.org/guidelines-for-action-editors-and-reviews/>) I will communicate to the editor that
+
+:::{.callout-warning appearance="simple"}
+I believe strongly in the value of openness and transparency. Please ask the authors on my behalf whether they can certify that they have met the standards of the Peer Reviewers’ Openness Initiative (https://opennessinitiative.org/).
+
+-- [PRO Initiative](https://www.opennessinitiative.org/the-initiative/); @moreyPeerReviewersOpenness2016
+:::
+
+If a resubmission doesn't meet the basic PRO requirements, I will communicate that
+
+:::{.callout-important appearance="simple"}
+I cannot recommend this paper for publication, as it does not meet the minimum quality requirements for an open scientific manuscript (see https://opennessinitiative.org/). I would be happy to review a revision of the manuscript that corrects this critical oversight.
+
+-- [PRO Initiative](https://www.opennessinitiative.org/the-initiative/); @moreyPeerReviewersOpenness2016
+:::
+
+## Conclusion
+
+There is no conclusion. How we conduct, communicate, and evaluate scientific research is and always will be a work in progress. This document simply outlines my modest attempts at keeping up with (what I perceive to be) the latest gold-standard practices in transparent communication and evaluation.
+
+## Further reading {.appendix}
+
+Some valuable background reading on these topics can be found in @ahmedFutureAcademicPublishing2023; @aleksicOpenSciencePeer2015; @eisenImplementingPublishThen2020; @holcombeScientistsWhatAre2025; @kathawallaEasingOpenScience2021; @kriegeskorteOpenEvaluationVision2012; @moreyPeerReviewersOpenness2016; @moshontzGuidePostingManaging2021; @severBiomedicalPublishingHistoric2023; @silversteinGuideSocialScience2024; @syedValuingPreprintsMust2024. @silversteinGuideSocialScience2024 might be especially relevant when communicating these ideas to editors.
+
+Feature image credit: <https://undraw.co/>.
+
+## Feedback & comments {.appendix}
+
+I'd appreciate any feedback on these ideas/practices; feel free to le me know what you think either using the comments field (below) or on Bluesky:
+
+{{< bluesky-comments 3lhbko45psk2c >}}

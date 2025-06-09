@@ -1,0 +1,177 @@
+- title: >-
+    How to Interpret Statistical Models Using marginaleffects for R and Python
+  url: https://doi.org/10.18637/jss.v111.i09
+  date: 2024-11-30
+  date_read: 2024-12-02T14:50:44Z
+  type: journalArticle
+  authors: >-
+    Vincent Arel-Bundock, Noah Greifer, & Andrew Heiss
+  abstract: |
+    The parameters of a statistical model can sometimes be difficult to interpret substantively, especially when that model includes nonlinear components, interactions, or transformations. Analysts who fit such complex models often seek to transform raw parameter estimates into quantities that are easier for domain experts and stakeholders to understand. This article presents a simple conceptual framework to describe a vast array of such quantities of interest, which are reported under imprecise and inconsistent terminology across disciplines: predictions, marginal predictions, marginal means, marginal effects, conditional effects, slopes, contrasts, risk ratios, etc. We introduce marginaleffects, a package for R and Python which offers a simple and powerful interface to compute all of those quantities, and to conduct (non-)linear hypothesis and equivalence tests on them. marginaleffects is lightweight; extensible; it works well in combination with other R and Python packages; and it supports over 100 classes of models, including linear, generalized linear, generalized additive, mixed effects, Bayesian, and several machine learning models.
+  extra: ~
+- title: >-
+    Antiqua et nova. Note on the Relationship Between Artificial Intelligence and Human Intelligence
+  url: https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html
+  date: 2025-01-28
+  date_read: 2025-04-01T15:55:32Z
+  type: webpage
+  authors: >-
+     Dicastery for the doctrine of the faith &  Dicastery for culture and education
+  abstract: |
+    NA
+  archive: https://archive.is/etvMY
+- title: >-
+    Tutorial on directed acyclic graphs
+  url: https://linkinghub.elsevier.com/retrieve/pii/S0895435621002407
+  date: 02/2022
+  date_read: 2024-10-22T09:16:16Z
+  type: journalArticle
+  authors: >-
+    Jean C. Digitale, Jeffrey N. Martin, & Medellena Maria Glymour
+  abstract: |
+    Directed acyclic graphs (DAGs) are an intuitive yet rigorous tool to communicate about causal questions in clinical and epidemiologic research and inform study design and statistical analysis. DAGs are constructed to depict prior knowledge about biological and behavioral systems related to speciﬁc causal research questions. DAG components portray who receives treatment or experiences exposures; mechanisms by which treatments and exposures operate; and other factors that inﬂuence the outcome of interest or which persons are included in an analysis. Once assembled, DAGs — via a few simple rules — guide the researcher in identifying whether the causal effect of interest can be identiﬁed without bias and, if so, what must be done either in study design or data analysis to achieve this. Speciﬁcally, DAGs can identify variables that, if controlled for in the design or analysis phase, are sufﬁcient to eliminate confounding and some forms of selection bias. DAGs also help recognize variables that, if controlled for, bias the analysis (e.g., mediators or factors inﬂuenced by both exposure and outcome). Finally, DAGs help researchers recognize insidious sources of bias introduced by selection of individuals into studies or failure to completely observe all individuals until study outcomes are reached. DAGs, however, are not infallible, largely owing to limitations in prior knowledge about the system in question. In such instances, several alternative DAGs are plausible, and researchers should assess whether results differ meaningfully across analyses guided by different DAGs and be forthright about uncertainty. DAGs are powerful tools to guide the conduct of clinical research. © 2021 Elsevier Inc. All rights reserved.
+  extra: ~
+- title: >-
+    Visualizing transformers and attention | Talk for TNG Big Tech Day '24
+  url: https://www.youtube.com/watch?v=KJtZARuO3JY
+  date: 2024-11-20
+  date_read: 2025-01-14T09:47:49Z
+  type: videoRecording
+  authors: >-
+    Grant Sanderson
+  abstract: |
+    Based on the 3blue1brown deep learning series:    • Neural networks
+  extra: ~
+- title: >-
+    Inside arXiv—the Most Transformative Platform in All of Science
+  url: https://www.wired.com/story/inside-arxiv-most-transformative-code-science/
+  date: 2025-03-27
+  date_read: 2025-03-31T12:49:16Z
+  type: magazineArticle
+  authors: >-
+    Sheon Han
+  abstract: |
+    Modern science wouldn’t exist without the online research repository known as arXiv. Three decades in, its creator still can’t let it go.
+  archive: https://archive.is/XVCi7
+- title: >-
+    How to explore your scientific values and develop a vision for your field
+  url: https://www.thetransmitter.org/craft-and-careers/how-to-explore-your-scientific-values-and-develop-a-vision-for-your-field/
+  date: 2024-05-03T04:00+00:00
+  date_read: 2025-01-14T09:02:07Z
+  type: webpage
+  authors: >-
+    Grace Lindsay
+  abstract: |
+    As a new professor, I was caught off guard by one part of the job: my role as an evaluator.
+  extra: ~
+- title: >-
+    The YouTube Apparatus
+  url: https://www.cambridge.org/core/elements/youtube-apparatus/36600D69788530F805C650B70976A585
+  date: 2024/04
+  date_read: 2025-01-20T08:19:12Z
+  type: journalArticle
+  authors: >-
+    Kevin Munger
+  abstract: |
+    Cambridge Core - Politics: General Interest - The YouTube Apparatus
+  ISBN: 9781009359795 9781009486002 9781009359757
+  Publisher: Cambridge University Press
+- title: >-
+    The World John von Neumann Built
+  url: https://www.thenation.com/article/society/john-von-neumann/
+  date: 2022-11-28T10:00:01+00:00
+  date_read: 2025-01-14T09:01:40Z
+  type: magazineArticle
+  authors: >-
+    David Nirenberg
+  abstract: |
+    Game theory, computers, the atom bomb—these are just a few of things von Neumann played a role in developing, changing the 20th century for better and worse.
+  extra: ~
+- title: >-
+    The Misplaced Incentives in Academic Publishing
+  url: https://undark.org/2024/07/04/opinion-misplaced-incentives-academic-publishing/
+  date: 2024-07-04T07:51:00+00:00
+  date_read: 2025-03-10T20:13:08Z
+  type: webpage
+  authors: >-
+    C. Brandon Ogbunu
+  abstract: |
+    Opinion | Scientists who spend time peer-reviewing manuscripts don’t get rewarded for their efforts. It’s time to change that.
+  extra: ~
+- title: >-
+    Why it is crucial for scientists to start heeding the lessons of Thomas Bayes
+  url: https://www.the-tls.co.uk/regular-features/footnotes-to-plato/thomas-bayes-science-crisis
+  date: NA
+  date_read: 2025-01-14T09:03:54Z
+  type: blogPost
+  authors: >-
+    David Papineau
+  abstract: |
+    Thomas Bayes | Philosophy Essay | David Papineau argues that it is crucial for scientists to start heeding the lessons of Thomas Bayes
+  archive: https://archive.is/d2afM
+- title: >-
+    Are the Internet and AI affecting our memory? What the science says
+  url: https://www.nature.com/articles/d41586-025-00292-z
+  date: 2025-02-05
+  date_read: 2025-02-06T09:08:06Z
+  type: journalArticle
+  authors: >-
+    Helen Pearson
+  abstract: |
+    Search engines, GPS maps and other tech can alter our ability to learn and remember. Now scientists are working out what AI might do.
+  archive: https://archive.is/VlGxx
+- title: >-
+    The Depths of Wikipedians
+  url: https://asteriskmag.com/issues/08/the-depths-of-wikipedians
+  date: 2024-11-01
+  date_read: 2025-01-14T09:02:23Z
+  type: webpage
+  authors: >-
+    Anne Rauwerda
+  abstract: |
+    A conversation about yogurt wars, German hymns, tropical cyclones, and the people who make Wikipedia function.
+  extra: ~
+- title: >-
+    The fallacy of the null-hypothesis significance test.
+  url: http://stats.org.uk/statistical-inference/Rozeboom1960.pdf
+  date: 1960-09-01
+  date_read: 2025-03-09T12:16:19Z
+  type: journalArticle
+  authors: >-
+    William W. Rozeboom
+  abstract: |
+    Though several serious objections to the null-hypothesis significance test method are raised, 'its most basic error lies in mistaking the aim of a scientific investigation to be a decision, rather than a cognitive evaluation… . It is further argued that the proper application of statistics to scientific inference is irrevocably committed to extensive consideration of inverse probabilities, and to further this end, certain suggestions are offered.'
+  Publisher: American Psychological Association
+- title: >-
+    What Is Entropy? A Measure of Just How Little We Really Know.
+  url: https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/
+  date: 2024-12-13T15:30:02+00:00
+  date_read: 2025-01-14T09:01:07Z
+  type: webpage
+  authors: >-
+    Zack Savitsky
+  abstract: |
+    Exactly 200 years ago, a French engineer introduced an idea that would quantify the universe’s inexorable slide into decay. But entropy, as it’s currently understood, is less a fact about the world than a reflection of our growing ignorance. Embracing that truth is leading to a rethink of everything from rational decision-making to the limits of machines.
+  extra: ~
+- title: >-
+    The importance of stupidity in scientific research
+  url: https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research
+  date: 2008-06-01
+  date_read: 2025-01-28T12:19:56Z
+  type: journalArticle
+  authors: >-
+    Martin A. Schwartz
+  abstract: |
+    NA
+  extra: ~
+- title: >-
+    Inferring latent learning factors in large-scale cognitive training data
+  url: https://www.nature.com/articles/s41562-020-00935-3
+  date: 2020-08-31
+  date_read: 2025-01-31T09:40:58Z
+  type: journalArticle
+  authors: >-
+    Mark Steyvers & Robert J. Schafer
+  abstract: |
+    The flexibility to learn diverse tasks is a hallmark of human cognition. To improve our understanding of individual differences and dynamics of learning across tasks, we analyse the latent structure of learning trajectories from 36,297 individuals as they learned 51 different tasks on the Lumosity online cognitive training platform. Through a data-driven modelling approach using probabilistic dimensionality reduction, we investigate covariation across learning trajectories with few assumptions about learning curve form or relationships between tasks. Modelling results show substantial covariation across tasks, such that an entirely unobserved learning trajectory can be predicted by observing trajectories on other tasks. The latent learning factors from the model include a general ability factor that is expressed mostly at later stages of practice and additional task-specific factors that carry information capable of accounting for manually defined task features and task domains such as attention, spatial processing, language and math.
+  extra: ~

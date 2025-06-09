@@ -1,0 +1,50 @@
+```{=html}
+<ul class="list">
+    <% items.forEach(item=> { %>
+        <li class="list-item">
+            <div class="listing-name">
+                <% if (item.type==="journalArticle" ) { %>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                <% } else if (item.type==="videoRecording" ) { %>
+                    <i class="fa-solid fa-film"></i>
+                <% } else if (item.type==="webpage" ) { %>
+                    <i class="fa-solid fa-globe"></i>
+                <% } else if (item.type==="magazineArticle" ) { %>
+                    <i class="fa-solid fa-newspaper"></i>
+                <% } else if (item.type==="blogPost" ) { %>
+                    <i class="fa-solid fa-pen"></i>
+                <% } %>
+                    <a href="<%- item.url %>"><%= item.title %></a>
+                    <% if (item.authors) { %>(<%= item.authors %>)<% } %>
+            </div>
+            <div class="listing-meta">
+                <span class="listing-date">
+                    <strong>Date:</strong>
+                    <% if (item.date && !isNaN(new Date(item.date).getTime())) { %>
+                        <%= new Date(item.date).toISOString().slice(0, 10) %>
+                    <% } else { %>
+                                Unknown
+                    <% } %>
+                    <% if (item.date_read && !isNaN(new Date(item.date_read).getTime())) { %>
+                                        | <strong>Read:</strong>
+                    <%= new Date(item.date_read).toISOString().slice(0, 10) %>
+                    <% } %>
+                    <% if (item.archive) { %>
+                        | <strong>Archive:</strong>
+                        <a href="<%- item.archive %>"><%- item.archive %></a>
+                    <% } %>
+                </span>
+            </div>
+            <% if (item.abstract) { %>
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        <%= item.abstract %>
+                    </div>
+                </details>
+                <% } %>
+        </li>
+        <% }); %>
+</ul>
+
+```

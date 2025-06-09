@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+@import '_variables.scss';
+
+// Colors
+$light: #f7fafc;
+$dark: #1a365d;
+$body-bg: #ffffff;
+$body-color: #2d3748;
+$link-color: $primary;
+$border-color: darken($light, 10%);
+$code-bg: $light;
+$toc-bg: $light;
+
+// Navbar colors
+$navbar-bg: $dark;
+$navbar-fg: $light;
+$navbar-hl: $secondary;
+$dropdown-bg: $navbar-bg;
+
+/*-- scss:rules --*/
+
+@import '_common.scss';

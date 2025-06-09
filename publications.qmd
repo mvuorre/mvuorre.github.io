@@ -1,0 +1,60 @@
+---
+title: My publications
+toc: true
+toc-location: left
+listing:
+  - id: papers
+    template: styles/publications.ejs
+    contents:
+      - bibliography/items.yml
+    include:
+      type: "{journalArticle,preprint}"
+    # This excludes items that have a publication (i.e. published preprints)
+    exclude:
+      publication: "**"
+    categories: true
+    sort: "date desc"
+    filter-ui: true
+    page-size: 10
+    date-format: "YYYY"
+  - id: talks
+    template: styles/presentations.ejs
+    contents:
+      - bibliography/items.yml
+    include:
+      type: "{presentation}"
+    sort: "date desc"
+    page-size: 5
+    date-format: "YYYY"
+  - id: software
+    template: styles/software.ejs
+    contents:
+      - bibliography/items.yml
+    include:
+      type: "{computerProgram}"
+    sort: "title"
+    page-size: 5
+    date-format: "YYYY"
+comments: false
+---
+
+<!-- Somehow these are required to make icons work in the EJS template. -->
+<!-- {{< fa brands github >}} -->
+<!-- {{< ai google-scholar >}} -->
+
+You can find all my publications on this page, or on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). You can also find preprints of most of my work on [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated).
+
+## Articles
+
+::: {#papers}
+:::
+
+## Software
+
+::: {#software}
+:::
+
+## Presentations
+
+::: {#talks}
+:::

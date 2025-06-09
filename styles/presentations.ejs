@@ -1,0 +1,30 @@
+```{=html}
+<ul class="list">
+    <% for (const item of items) { %>
+        <li <%=metadataAttrs(item) %>>
+            <span class="listing-name">
+                <b><%= item.title %></b> (<%= item.date %>).
+            </span>
+            <span class="listing-location">
+                <% if (item.meeting!="NA") { %>
+                    <i><%- item.meeting %></i>,
+                <% } %>
+                <i><%- item.outlet %></i>.
+                <% if (item.url!="NA") { %>
+                    <span class="listing-url">
+                        [<a href="<%- item.url %>">link</a>]
+                    </span>
+                <% } %>
+            <span>
+            <% if (item.abstract!="NA") { %>
+                <details>
+                    <summary>Summary</summary>
+                    <div class="listing-abstract">
+                        <%- item.abstract %>
+                    </div>
+                </details>
+            <% } %>
+        </li>
+        <% } %>
+</ul>
+```

@@ -1,0 +1,256 @@
+---
+title: Bayesian multilevel mediation with brms
+abstract: |
+  This post shows how to fit a three-variable multilevel mediation model with brms.
+date: 2025-05-02
+categories:
+  - statistics
+  - tutorial
+  - R
+  - brms
+bibliography: [bibliography.bib, grateful-refs.bib]
+# image: "index_files/figure-html/fig-sdt-example-1.png"
+format:
+  html:
+    toc-depth: 3
+    toc-expand: 1
+    code-fold: show
+    code-tools:
+      source: repo
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  eval = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  cache = TRUE,
+  echo = knitr::is_html_output(),
+  fig.align = "center",
+  fig.asp = 0.618
+)
+```
+
+```{r}
+#| label: r-setup
+#| code-summary: R setup
+#| code-fold: true
+#| output: false
+#| cache: false
+
+library(knitr)
+library(bmlm)
+library(tinytable)
+library(ggdist)
+library(posterior)
+library(patchwork)
+library(brms)
+library(tidyverse)
+
+dir.create("cache", FALSE)
+options(
+  brms.backend = Sys.getenv("BRMS_BACKEND", "rstan"),
+  brms.threads = as.numeric(Sys.getenv("BRMS_THREADS", 1)),
+  mc.cores = as.numeric(Sys.getenv("MAX_CORES", 4)),
+  brms.short_summary = TRUE,
+  tinytable_tt_digits = 2,
+  tinytable_format_num_fmt = "decimal",
+  tinytable_format_num_zero = TRUE,
+  tinytable_tt_theme = "spacing"
+)
+theme_set(
+  theme_linedraw(base_size = if_else(knitr::is_html_output(), 10, 12)) +
+    theme(
+      panel.grid = element_blank(),
+      strip.background = element_blank(),
+      strip.text = element_text(hjust = 0, colour = "black")
+    )
+)
+# Omit MCMC info in brmsfit.summary
+.summary <- function(x) {
+  out <- summary(x)
+  out$random$id <- out$random$id[, 1:4]
+  out$fixed <- out$fixed[, 1:4]
+  out$spec_pars <- out$spec_pars[, 1:4]
+  out
+}
+```
+
+## bmlm
+
+Back in 2016 I wrote an R package for bayesian estimation of a multivariate multilevel model for assessing a three-variable causal mediation model [@vuorreBmlmBayesianMultilevel2024]. In the abstract to the article that discussed the methodology, Niall Bolger and I wrote
+
+>"Statistical mediation allows researchers to investigate potential causal effects of experimental manipulations through intervening variables. It is a powerful tool for assessing the presence and strength of postulated causal mechanisms. Although mediation is used in certain areas of psychology, it is rarely applied in cognitive psychology and neuroscience. One reason for the scarcity of applications is that these areas of psychology commonly employ within-subjects designs, and mediation models for within-subjects data is considerably more complicated than for between-subjects data. Here, we draw attention to the importance and ubiquity of mediational hypotheses in within-subjects designs, and we present a general and flexible software package for conducting Bayesian within-subjects mediation analyses in the R programming environment. We use experimental data from cognitive psychology to illustrate the benefits of within-subject mediation for theory testing and comparison." [@vuorreWithinsubjectMediationAnalysis2017]
+
+I wrote the R package as an interface to a Stan [@standevelopmentteamStanModelingLanguage2024] model because brms [@burkner_brms:_2017]---still in its early days---did not implement the kind of multivariate structure required by the model. Shortly afterwards, probably within a few months actually, Paul updated brms to fit the required model structure and bmlm as a standalone package lost much of its value. So whenever people email me about bmlm, I keep suggesting them to estimate their models with brms instead because it can do this, and so much more. (I've had a tutorial for this up at <https://vuorre.com/brms-workshop/posts/mediation/> but it's difficult to find.)
+
+So in this post I'll briefly show how to fit bmlm's multilevel mediation model with brms, along with the required post-processing for computing the indirect effects, figures, etc.
+
+## Mediation---a word of caution
+
+Mediation models are used to make causal claims from observational data. This is a complex and difficult endeavor, and all uses of mediation must appropriately wrestle with the implications and assumptions behind the models and claims that are being made. See @greenEnoughAlreadyBlack2010 and @rohrerThatsLotProcess2022.
+
+## Analysis
+
+In one of bmlm's [vignettes](https://vuorre.com/bmlm/articles/bmlm-blch9/bmlm-blch9.html) we analyse an example data set from [Intensive Longitudinal Methods: An Introduction to Diary and Experience Sampling Research](http://www.intensivelongitudinal.com/index.html) [@bolgerIntensiveLongitudinalMethods2013]. The data, shown in @tbl-data and included in the bmlm package, indicate several (hypothetical) participants' (`id`) work stressors (`fwkstrs`), work dissatisfaction (`fwkdis`), and relationship dissatisfaction (`freldis`) over several days of study.
+
+```{r}
+#| label: tbl-data
+#| tbl-cap: Six rows of example data.
+
+dat <- tibble(BLch9)[, c(1, 3:5)]
+tt(head(dat))
+```
+
+To see how the full analysis is conducted with bmlm, please see the vignette (<https://vuorre.com/bmlm/articles/bmlm-blch9/bmlm-blch9.html>). Here, we implement the analysis without the use of bmlm's functions.
+
+### Data preparation
+
+First, we must isolate the within-person deviations of the key variables. We consider work stressors to be the independent variable, work dissatisfaction the mediator, and relationship dissatisfaction the outcome variable, and label them accordingly as `x`, `m`, and `y` for brevity.
+
+```{r}
+#| label: tbl-data-centered
+#| tbl-cap: Subject-mean centered variables.
+
+dat <- dat |>
+  mutate(
+    x = fwkstrs - mean(fwkstrs, na.rm = TRUE),
+    m = fwkdis - mean(fwkdis, na.rm = TRUE),
+    y = freldis - mean(freldis, na.rm = TRUE),
+    .by = id,
+    .keep = "unused"
+  )
+tt(head(dat))
+```
+
+### Model fitting
+
+The model comprises of two regression formulas that share a variance-covariance matrix for the random effects (the `| p |` syntax). Notice that I have optimized my MCMC sampler options in an environment files and using `options()` as [shown here](https://vuorre.com/posts/sdt-regression/#tips-for-estimating-models-with-brm-1). In addition to directly connecting this model to the underlying regressions, brms estimates the model faster than bmlm (and allows using better priors, omitted here).
+
+```{r}
+path_m <- bf(
+  m ~ x + (x | p | id)
+)
+path_y <- bf(
+  y ~ x + m + (x + m | p | id)
+)
+fit <- brm(
+  path_m + path_y + set_rescor(FALSE),
+  data = dat,
+  file = "cache/fit"
+)
+```
+
+### Model summary
+
+The model parameters directly gives us the x -> m (`m_x`, called `a` in bmlm), x -> y (`y_m`, called `c'` or `cp` in bmlm) and m -> y (`y_m`, called `b` in bmlm) path coefficients. These precisely match [bmlm's estimates](https://vuorre.com/bmlm/articles/bmlm-blch9/bmlm-blch9.html#summarize-fitted-model).
+
+```{r}
+#| echo: false
+.summary(fit)
+```
+
+### Mediation parameters
+
+To get the additional mediation metrics (the indirect effect, the total effect, and others), we simply wrangle the model's posterior samples. The indirect effect, or "mediated effect" is $me = ab + \sigma_{{a_j}{b_j}}$, or the population-level `m_x` times the population-level `y_m` plus the covariance of the person-level `m_x` and `y_m`s. The total effect is then $c = me + c'$. The proportion of the total effect that is mediated is $me / c$. While wrangling the variables below, I rename them for clarity.
+
+```{r}
+draws <- as_draws_df(
+  fit,
+  variable = c(
+    "b_m_x",
+    "b_y_x",
+    "b_y_m",
+    "sd_id__m_x",
+    "sd_id__y_m",
+    "cor_id__m_x__y_m"
+  )
+) |>
+  mutate(
+    a = b_m_x,
+    b = b_y_m,
+    cp = b_y_x,
+    covab = cor_id__m_x__y_m * sd_id__m_x * sd_id__y_m,
+    me = a * b + covab,
+    c = me + cp,
+    pme = me / c,
+    .keep = "unused"
+  )
+```
+
+`draws` now contains the posterior draws of the key population-level effects, which we summarize below.
+
+```{r}
+#| label: tbl-draws
+#| tbl-cap: Summaries of key quantities posterior draws.
+
+draws |>
+  summarise_draws(
+    mean,
+    sd,
+    ~ quantile2(.x, probs = c(.025, .975))
+  ) |>
+  tt()
+```
+
+These parameter estimates directly reproduce the values obtained by bmlm.
+
+### Graphics
+
+brms has a number of excellent built-in visualization facilities, such as drawing conditional effects with ggplot2 [@ggplot] (@fig-ce).
+
+```{r}
+#| label: fig-ce
+#| fig-cap: Conditional population-level regression of m on x (left) and y on m (right).
+#| fig-asp: 0.3
+
+ce1 <- conditional_effects(
+  fit,
+  effects = "x",
+  resp = "m",
+  robust = FALSE
+)
+ce1 <- plot(ce1, plot = FALSE)[[1]]
+ce2 <- conditional_effects(
+  fit,
+  effects = "m",
+  resp = "y",
+  robust = FALSE
+)
+ce2 <- plot(ce2, plot = FALSE)[[1]]
+ce1 | ce2
+```
+
+And the resulting objects and posterior samples are easily visualized with e.g. functions from the `ggdist` package [@ggdist] (@fig-pars).
+
+```{r}
+#| label: fig-pars
+#| fig-cap: Approximate posterior distributions of key mediation parameters.
+#| fig-asp: 0.48
+
+draws |>
+  select(!starts_with(".")) |>
+  pivot_longer(everything()) |>
+  ggplot(aes(x = value, y = name)) +
+  stat_slabinterval(normalize = "xy")
+```
+
+## Conclusion
+
+If you are going to fit the model described in [@vuorreWithinsubjectMediationAnalysis2017], I recommend using the brms R package [@burkner_brms:_2017] because of its flexibility, how it clearly connects to R regression syntax, and its estimation efficiency.
+
+## R environment {.appendix}
+
+```{r}
+library(grateful)
+cite_packages(output = "paragraph", pkgs = "Session", out.dir = getwd())
+```
+
+## Feedback & comments
+
+I'd appreciate any feedback or comments you might have. Feel free to le me know what you think either using the comments field (below) or on Bluesky:
+
+{{< bluesky-comments 3lo74t2bjpk2l >}}

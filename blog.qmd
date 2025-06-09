@@ -1,0 +1,13 @@
+---
+title: Notes on psychology, statistics, and R, sometimes
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+  max-description-length: 200
+page-layout: full
+title-block-banner: true
+comments: false
+---

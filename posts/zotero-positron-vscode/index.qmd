@@ -1,0 +1,60 @@
+---
+title: How to add citations from Zotero to Quarto documents
+description: The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation's biblatex entry. Here's how to install and use it.
+date: 2025-06-06
+categories:
+  - Quarto
+  - Zotero
+  - science communication
+bibliography: bibliography.bib
+image: "images/zotero.png"
+---
+
+## What?
+
+We like writing all our scientific outputs with [Quarto](https://quarto.org/docs/authoring/front-matter.html) using the [Positron](https://positron.posit.co/) IDE. We also manage our references/library with [Zotero](https://www.zotero.org/), and want to insert references directly from Zotero to the Quarto documents. What does that mean?
+
+It means that you fire up Positron, write a document like `manuscript.qmd`:
+
+````
+---
+title: Science!
+author: Matti Vuorre
+date: 2025-06-06
+bibliography: bibliography.bib
+---
+
+Probability theory is cool [@jaynesProbabilityTheoryLogic2003].
+````
+
+and then run `quarto render manuscript.qmd` in your terminal. By default this creates a HTML document (but can be a PDF, Word document, or whatever) that will look like this:
+
+![Screenshot of a Quarto HTML document.](images/shot.png)
+
+Notice how the Jaynes reference is nicely dealt with both in-text and in the references section. While Positron allows easily adding citations from Zotero when editing documents in [visual mode](https://quarto.org/docs/tools/positron/visual-editor.html#zotero-citations), this was less easy in source mode (which I much prefer).
+
+## How?
+
+The [vscode-zotero](https://github.com/mblode/vscode-zotero) extension makes it easy to add in-text references to Quarto documents, and can be installed through Positron's "Extensions" panel:
+
+![Screenshot of Positron's "Extensions" panel.](images/extension.png)
+
+Critically, the extension does not add the entry in the document's associated .bib file (`bibliography: bibliography.bib` in the document's YAML front matter.)
+
+## How? An improved answer
+
+So what I did was fork the extension, add this functionality, and submit a [pull request](https://github.com/mblode/vscode-zotero/pull/38). So once/if the pull request is merged you can install it as above. For now, to install the extension, go to <https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0> and download the `.vsix` file.
+
+Then, in Positron, install the extension by clicking "Install from VSIX..." and select the downloaded `.vsix` file.
+
+![Another screenshot of Positron's "Extensions" panel.](images/extension2.png)
+
+Restart Positron, ensure Zotero is running and that you have installed the [Better BibTex](https://retorque.re/zotero-better-bibtex/) Zotero plugin. Then, in Positron, open up your source document and ensure its frontmatter contains a reference to a [bibliography file](https://quarto.org/docs/authoring/citations.html). Then place your cursor where you want the citation to appear in your document, and launch the extension's citation picker function. On a Mac the hotkey for launching the function is <kbd>Shift+Option+Z</kbd> and Windows probably has one too. This brings up the citation picker UI dialog:
+
+![Positron's UI citation picker.](images/jaynes.png)
+
+Typing anything in the dialog will search for items with that string, and advanced search queries like `author:jaynes` and `author:jaynes theory` work as well. Once you've chosen the desired citation, hit <kbd>Return</kbd> and the in-text citation is added to the document, and its biblatex entry is written to the document's associated `.bib` file.
+
+Done and done.
+
+{{< bluesky-comments 3lqx3refo3c2p >}}

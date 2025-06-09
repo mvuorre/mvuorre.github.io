@@ -1,0 +1,32 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Rdata
+.httr-oauth
+.DS_Store
+
+/.quarto/
+/.vscode/
+/.luarc.json
+
+# Site is published with `quarto publish` to gh-pages branch
+_freeze/
+*_cache/
+/posts/**/*.html
+/posts/**/*.pdf
+/posts/**/*.docx
+/posts/**/*_files/
+/posts/**/*.rds
+/docs/
+
+# Publication PDFs in source (become available in docs/ when rendered)
+bibliography/files/
+bibliography/bibliography.json
+reading/readings.csv
+
+# Draft posts
+/posts/drafts/
+
+# Environment file
+.env

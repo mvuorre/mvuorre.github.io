@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 4321
+    browser: false
+  render:
+    - "*.qmd"
+    - "!posts/drafts/"
+  resources:
+    - CNAME
+repo-url: https://github.com/mvuorre/mvuorre.github.io
+date-format: iso
+execute:
+  freeze: auto
+website:
+  title: "Matti's homepage"
+  site-url: https://vuorre.com
+  description: Homepage of Matti Vuorre
+  drafts:
+    - posts/drafts/
+  draft-mode: gone
+  repo-url: https://github.com/mvuorre/mvuorre.github.io
+  repo-actions: [edit, source, issue]
+  comments:
+    giscus:
+      repo: mvuorre/mvuorre.github.io
+      repo-id: R_kgDOHk4rRg
+      category: giscus
+      category-id: DIC_kwDOHk4rRs4CQAdF
+      mapping: pathname
+      reactions-enabled: true
+      input-position: top
+      theme: light
+  search:
+    location: navbar
+    type: overlay
+  twitter-card: true
+  open-graph: true
+  page-navigation: true
+  navbar:
+    pinned: true
+    right:
+      - text: Works
+        href: publications.qmd
+      - text: Blog
+        href: blog.qmd
+      - text: Now
+        href: now.qmd
+      - icon: rss
+        href: blog.xml
+      - icon: github
+        href: "{{<meta repo-url >}}"
+format:
+  html:
+    theme:
+      light: [zephyr, _common.scss, custom.scss]
+      dark: [darkly, _common.scss, custom-dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    header-includes:
+      - <script defer src="https://analytics.vuorre.com/script.js" data-website-id="c125a7d5-bf09-4603-85a8-4cebcbe0b30e"></script>

@@ -800,7 +800,7 @@ Figure&nbsp;1: Illustration of subjective evidence distributions postulated by S
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> <span class="fu">if_else</span>(response <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"New"</span>, <span class="st">"Old"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">factor</span>()</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Unaggregate and add trial number to clarify data structure</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">uncount</span>(dat, n) <span class="sc">|&gt;</span></span>
@@ -1725,7 +1725,7 @@ Listing&nbsp;6: Aggregating a sample’s <em>c</em> and <em>d’</em>.
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">Mean =</span> mean,</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">SD =</span> sd,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">SE =</span> <span class="sc">~</span><span class="fu">sd</span>(.x) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(.x))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">SE =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(.x))</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      )</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3342,7 +3342,7 @@ disc2     1.00      0.00     1.00     1.00</code></pre>
 <span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(theta2, pid)) <span class="sc">+</span></span>
 <span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(</span>
 <span id="cb54-23"><a href="#cb54-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Participant"</span>,</span>
-<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="sc">~</span><span class="fu">str_replace_all</span>(.x, <span class="st">"[0-9]+"</span>, <span class="st">""</span>)</span>
+<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="sc">~</span> <span class="fu">str_replace_all</span>(.x, <span class="st">"[0-9]+"</span>, <span class="st">""</span>)</span>
 <span id="cb54-25"><a href="#cb54-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb54-26"><a href="#cb54-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb54-27"><a href="#cb54-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"theta2"</span>,</span>

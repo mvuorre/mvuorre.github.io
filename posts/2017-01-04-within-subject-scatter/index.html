@@ -439,21 +439,22 @@ div.csl-indent {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"data.zip"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Behavioural_data/"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"sub[0-9]+.xlsx"</span>, <span class="at">full.names =</span> T</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">map</span>(</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  files,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> <span class="fu">read_xlsx</span>(.x, <span class="at">range =</span> <span class="st">"A4:G100"</span>, <span class="at">col_types =</span> <span class="fu">rep</span>(<span class="st">"text"</span>, <span class="dv">7</span>))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"id"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(angle <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"50"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">factor</span>(id),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">factor</span>(angle),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">rt =</span> <span class="fu">as.numeric</span>(Time),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">accuracy =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">correct/incorrect</span><span class="st">`</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"sub[0-9]+.xlsx"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">full.names =</span> T</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">map</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  files,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> <span class="fu">read_xlsx</span>(.x, <span class="at">range =</span> <span class="st">"A4:G100"</span>, <span class="at">col_types =</span> <span class="fu">rep</span>(<span class="st">"text"</span>, <span class="dv">7</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"id"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(angle <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"50"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">factor</span>(id),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">factor</span>(angle),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">rt =</span> <span class="fu">as.numeric</span>(Time),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">accuracy =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">correct/incorrect</span><span class="st">`</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -574,10 +575,11 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat_sum <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> m)) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fun.data =</span> mean_cl_normal, <span class="at">size =</span> <span class="dv">1</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_quasirandom</span>(<span class="at">width =</span> .<span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Mean RT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fun.data =</span> mean_cl_normal,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">1</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_quasirandom</span>(<span class="at">width =</span> .<span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Mean RT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -592,7 +594,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="within-subject-scatterplots">Within-subject scatterplots</h2>
 <p>To draw within-subjects scatterplots, we’ll need a slight reorganization of the data, such that it is in wide format with respect to the conditions.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat_sum_wide <span class="ot">&lt;-</span> dat_sum <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat_sum_wide <span class="ot">&lt;-</span> dat_sum <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> angle, <span class="at">values_from =</span> <span class="fu">c</span>(m, se))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -665,8 +667,8 @@ div.csl-indent {
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Points and errorbars</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> m_50<span class="sc">-</span>se_50, <span class="at">ymax =</span> m_50<span class="sc">+</span>se_50), <span class="at">size =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> m_0<span class="sc">-</span>se_0, <span class="at">xmax =</span> m_0<span class="sc">+</span>se_0), <span class="at">size =</span> .<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> m_50 <span class="sc">-</span> se_50, <span class="at">ymax =</span> m_50 <span class="sc">+</span> se_50), <span class="at">size =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> m_0 <span class="sc">-</span> se_0, <span class="at">xmax =</span> m_0 <span class="sc">+</span> se_0), <span class="at">size =</span> .<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

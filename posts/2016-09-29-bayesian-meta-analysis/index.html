@@ -693,8 +693,8 @@ window.Quarto = {
 <p>Here’s how to fit this model with brms:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>brm_out <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  yi <span class="sc">|</span> <span class="fu">se</span>(sei) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> study), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  yi <span class="sc">|</span> <span class="fu">se</span>(sei) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> study),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"metaanalysismodel"</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -764,23 +764,23 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdist)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Study-specific effects are deviations + average</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>out_r <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(brm_out, r_study[study,term], b_Intercept) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">b_Intercept =</span> r_study <span class="sc">+</span> b_Intercept) </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>out_r <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(brm_out, r_study[study, term], b_Intercept) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">b_Intercept =</span> r_study <span class="sc">+</span> b_Intercept)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Average effect</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>out_f <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(brm_out, b_Intercept) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>out_f <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(brm_out, b_Intercept) <span class="sc">%&gt;%</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">study =</span> <span class="st">"Average"</span>)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine average and study-specific effects' data frames</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>out_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out_r, out_f) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>out_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out_r, out_f) <span class="sc">%&gt;%</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure that Average effect is on the bottom of the forest plot</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">study =</span> <span class="fu">fct_relevel</span>(study, <span class="st">"Average"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">study =</span> <span class="fu">fct_relevel</span>(study, <span class="st">"Average"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tidybayes garbles names so fix here</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">study =</span> <span class="fu">str_replace_all</span>(study, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">" "</span>))</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame of summary numbers</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>out_all_sum <span class="ot">&lt;-</span> <span class="fu">group_by</span>(out_all, study) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>out_all_sum <span class="ot">&lt;-</span> <span class="fu">group_by</span>(out_all, study) <span class="sc">%&gt;%</span></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_qi</span>(b_Intercept)</span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw plot</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>out_all <span class="sc">%&gt;%</span>   </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>out_all <span class="sc">%&gt;%</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(b_Intercept, study)) <span class="sc">+</span></span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Zero!</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">size =</span> .<span class="dv">25</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -793,9 +793,11 @@ window.Quarto = {
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Observed as empty points</span></span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">study =</span> <span class="fu">str_replace_all</span>(study, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">" "</span>)), </span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>yi), <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> <span class="sc">-</span>.<span class="dv">2</span>), <span class="at">shape =</span> <span class="dv">1</span> </span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">study =</span> <span class="fu">str_replace_all</span>(study, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">" "</span>)),</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> yi),</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> <span class="sc">-</span>.<span class="dv">2</span>),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">1</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

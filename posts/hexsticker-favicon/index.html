@@ -409,10 +409,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data for the density curves</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">m =</span> <span class="dv">0</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nesting</span>(<span class="at">s =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="fl">1.5</span>, <span class="fl">1.5</span>), <span class="at">n1 =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">m =</span> <span class="dv">0</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nesting</span>(<span class="at">s =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="fl">1.5</span>, <span class="fl">1.5</span>), <span class="at">n1 =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">dnorm</span>(x, m, s))</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot said data</span></span>

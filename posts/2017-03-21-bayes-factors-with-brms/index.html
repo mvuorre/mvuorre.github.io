@@ -491,7 +491,7 @@ window.Quarto = {
 </div>
 <p>The solid line represents the probability density assigned to values of <span class="math inline">\(\theta\)</span> by this prior probability distribution. You can see that it is 1 for all possible parameter values: They are all equally likely a priori. For this simple illustration, we can easily calculate the posterior distribution by adding the number of correct and incorrect answers to the parameters of the prior Beta distribution.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pd<span class="sc">$</span>Posterior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(pd<span class="sc">$</span>x, <span class="dv">9</span><span class="sc">+</span><span class="dv">1</span>, <span class="dv">1</span><span class="sc">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pd<span class="sc">$</span>Posterior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(pd<span class="sc">$</span>x, <span class="dv">9</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -811,22 +811,21 @@ window.Quarto = {
 <p>We are cheating a little because we know these values, having simulated the data. However, log-odds are not straightforward (!), and this knowledge will allow us to specify better priors in this example. Let’s get the possible priors for this model by calling <code>get_prior()</code>. Notice that the model now includes id-varying “random” effects, and we model them from independent Gaussians by specifying <code>||</code> instead of <code>|</code> which would give a multivariate Gaussian on the varying effects.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  correct <span class="sc">|</span> <span class="fu">trials</span>(n) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">+</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">||</span> id),</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  m2,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                 prior class      coef group resp dpar nlpar lb ub       source</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b                                            default</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b Intercept                             (vectorized)</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b     prime                             (vectorized)</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd                                  0         default</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd              id                  0    (vectorized)</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd Intercept    id                  0    (vectorized)</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd     prime    id                  0    (vectorized)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  correct <span class="sc">|</span> <span class="fu">trials</span>(n) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">+</span> (<span class="dv">0</span> <span class="sc">+</span> Intercept <span class="sc">+</span> prime <span class="sc">||</span> id),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  m2,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> d</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                 prior class      coef group resp dpar nlpar lb ub       source</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b                                            default</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b Intercept                             (vectorized)</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                (flat)     b     prime                             (vectorized)</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd                                  0         default</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd              id                  0    (vectorized)</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd Intercept    id                  0    (vectorized)</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  student_t(3, 0, 2.5)    sd     prime    id                  0    (vectorized)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The leftmost column gives the pre-specified defaults used by brms. Here are the priors we’ll specify. The most important pertains to <code>prime</code>, which is going to be the effect size in log-odds. Our prior for the log odds of the prime effect is going to be a Gaussian distribution centered on 0, with a standard deviation of .2, which is rather diffuse.</p>
 <div class="cell" data-layout-align="center">

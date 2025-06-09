@@ -419,14 +419,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">813</span>, <span class="at">origin =</span> <span class="st">"2014-01-01"</span>),</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">format</span>(date, <span class="st">"%Y"</span>),</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">week =</span> <span class="fu">as.integer</span>(<span class="fu">format</span>(date, <span class="st">"%W"</span>)) <span class="sc">+</span> <span class="dv">1</span>, <span class="co"># Week starts at 1</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">day =</span> <span class="fu">factor</span>(<span class="fu">weekdays</span>(date, T),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Mon"</span>, <span class="st">"Tue"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Fri"</span>, <span class="st">"Sat"</span>, <span class="st">"Sun"</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ))</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> <span class="dv">0</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">day =</span> <span class="fu">factor</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">weekdays</span>(date, T),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Mon"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Tue"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Wed"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Thu"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Fri"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Sat"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Sun"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> <span class="dv">0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then simulate hours worked for each date. I’ll simulate hours worked separately for weekends and weekdays to make the resulting data a little more realistic, and also simulate missing values to data (that is, days when no work occurred).</p>
 <div class="cell" data-layout-align="center">
@@ -470,24 +476,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">52</span>, <span class="at">length =</span> <span class="dv">12</span>),</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_linedraw</span>(<span class="at">base_family =</span> <span class="st">"Helvetica"</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">aspect.ratio =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>),</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.00</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Jan"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Feb"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Mar"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Apr"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"May"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Jun"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Jul"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Aug"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Sep"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Oct"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Nov"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Dec"</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_linedraw</span>(<span class="at">base_family =</span> <span class="st">"Helvetica"</span>) <span class="sc">+</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>),</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">aspect.ratio =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">7</span>,</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>),</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.00</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="using-the-waffle-plot-function" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-waffle-plot-function">Using the waffle plot function</h3>

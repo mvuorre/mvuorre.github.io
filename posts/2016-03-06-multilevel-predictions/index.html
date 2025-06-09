@@ -797,7 +797,7 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fitavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  newavg, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  newavg,</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fitted</span>(brmfit, <span class="at">newdata =</span> newavg, <span class="at">re_formula =</span> <span class="cn">NA</span>)[, <span class="sc">-</span><span class="dv">2</span>]</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
@@ -859,12 +859,12 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>predavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  newavg, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  newavg,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(brmfit, <span class="at">newdata =</span> newavg, <span class="at">re_formula =</span> <span class="cn">NA</span>)[, <span class="sc">-</span><span class="dv">2</span>]</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(predavg) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Days"</span>, <span class="st">"Reaction"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>p3 <span class="sc">+</span> <span class="fu">geom_ribbon</span>(</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> predavg, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> predavg,</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper),</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> .<span class="dv">2</span></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -890,8 +890,8 @@ window.Quarto = {
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  brmfit, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">conditions =</span> <span class="fu">distinct</span>(sleepstudy, Subject), </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  brmfit,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">conditions =</span> <span class="fu">distinct</span>(sleepstudy, Subject),</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">re_formula =</span> <span class="cn">NULL</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

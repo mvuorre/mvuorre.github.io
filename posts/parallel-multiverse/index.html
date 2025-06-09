@@ -482,36 +482,38 @@ Figure&nbsp;1: Figure 3 from <span class="citation" data-cites="orbenAssociation
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty plots</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">base_family =</span> <span class="st">"Comic Sans MS"</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">base_family =</span> <span class="st">"Comic Sans MS"</span>,</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">base_size =</span> <span class="dv">12</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty tables</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">full_width =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span> </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_classic_2</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">html_font =</span> <span class="st">"Arial"</span>, </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">lightable_options =</span> <span class="st">"striped"</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">html_font =</span> <span class="st">"Arial"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">lightable_options =</span> <span class="st">"striped"</span>,</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">full_width =</span> full_width</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Data generation</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>generate_data <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">seed =</span> <span class="cn">NA</span>, <span class="at">n =</span> <span class="fl">1e5</span>) {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(seed)) <span class="fu">set.seed</span>(seed)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">x1 =</span> <span class="fu">rnorm</span>(n),</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">x2 =</span> <span class="fu">rnorm</span>(n),</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">y1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">1</span>,</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y2 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">2</span>,</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">c1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1<span class="sc">*</span>.<span class="dv">3</span>,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">c2 =</span> <span class="fu">rnorm</span>(n),</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">generate_data</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(seed)) {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set.seed</span>(seed)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x1 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x2 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1 <span class="sc">*</span> .<span class="dv">1</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y2 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1 <span class="sc">*</span> .<span class="dv">2</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">c1 =</span> <span class="fu">rnorm</span>(n) <span class="sc">+</span> x1 <span class="sc">*</span> .<span class="dv">3</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">c2 =</span> <span class="fu">rnorm</span>(n),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">generate_data</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -603,28 +605,28 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(specr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>results_specr <span class="ot">&lt;-</span> <span class="fu">run_specs</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">df =</span> dat, </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>), </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>), </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>), </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>), </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">df =</span> dat,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>),</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">subsets =</span> <span class="fu">list</span>(<span class="at">group =</span> <span class="fu">unique</span>(dat<span class="sc">$</span>group))</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>27.768 sec elapsed</code></pre>
+<pre><code>29.142 sec elapsed</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results_specr <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  .[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results_specr <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  .[, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="sc">%&gt;%</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="at">html_font =</span> <span class="st">"Arial"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-specr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -734,7 +736,7 @@ Table&nbsp;2: First six rows of multiverse numerical results from specr
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_specs</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  results_specr, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  results_specr,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"model"</span>, <span class="st">"controls"</span>, <span class="st">"subsets"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -943,13 +945,14 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"c"</span>,</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">seq_along</span>(covariate), </span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span><span class="fu">combn</span>(covariate, .x, <span class="at">FUN =</span> list))</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(<span class="sc">~</span><span class="fu">paste</span>(.x, <span class="at">collapse =</span> <span class="st">" + "</span>))</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    unlist</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">seq_along</span>(covariate),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span> <span class="fu">combn</span>(covariate, .x, <span class="at">FUN =</span> list)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">paste</span>(.x, <span class="at">collapse =</span> <span class="st">" + "</span>))</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    unlist</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Do let me know if you come up with something easier!</p>
@@ -965,7 +968,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">covariate =</span> <span class="fu">expand_covariate</span>(<span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>)),</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"lm"</span>, <span class="st">"glm"</span>),</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(dat, group)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">formula =</span> <span class="fu">str_glue</span>(<span class="st">"{y} ~ {x} + {covariate}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -1168,14 +1171,14 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>results_dplyr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>results_dplyr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">out =</span> <span class="fu">pmap</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group), </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span><span class="fu">do.call</span>(</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        ..<span class="dv">1</span>, </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">do.call</span>(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        ..<span class="dv">1</span>,</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>,</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> <span class="fu">filter</span>(dat, group <span class="sc">==</span> ..<span class="dv">3</span>)</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>      )</span>
@@ -1184,14 +1187,14 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>12.878 sec elapsed</code></pre>
+<pre><code>13.51 sec elapsed</code></pre>
 </div>
 </div>
 <p>This then returns a copy of the specs table (<code>results_dplyr</code>) with an additional column <code>out</code>. But <code>out</code> is a data frame column, so to show the values next to our original specs, we can call <code>unnest()</code> (<a href="#tbl-mv-1" class="quarto-xref">Table&nbsp;8</a>).</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>results_dplyr <span class="ot">&lt;-</span> results_dplyr <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>results_dplyr <span class="ot">&lt;-</span> results_dplyr <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -1368,28 +1371,28 @@ Note
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>results_multidplyr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(formula, group) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>results_multidplyr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(formula, group) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">partition</span>(cluster) <span class="sc">%&gt;%</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">out =</span> <span class="fu">pmap</span>(</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group), </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span><span class="fu">do.call</span>(</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        ..<span class="dv">1</span>, </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">do.call</span>(</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        ..<span class="dv">1</span>,</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>, </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>,</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> <span class="fu">filter</span>(dat, group <span class="sc">==</span> ..<span class="dv">3</span>)</span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>      )</span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.319 sec elapsed</code></pre>
+<pre><code>3.446 sec elapsed</code></pre>
 </div>
 </div>
 <p>This particular parallelization scheme (8 cores working on subsets defined by <code>formula</code> and <code>group</code> in <code>dat</code>) sped up our computations about 8 times compared to the original implementation, and about 4 times compared to the non-parallelized equivalent. Good stuff.</p>
@@ -1412,25 +1415,25 @@ Note
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>results_furrr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span> </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>results_furrr <span class="ot">&lt;-</span> specs <span class="sc">%&gt;%</span></span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">out =</span> <span class="fu">future_pmap</span>(</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group), </span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span><span class="fu">do.call</span>(</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">what =</span> ..<span class="dv">1</span>, </span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(model, formula, group),</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">do.call</span>(</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">what =</span> ..<span class="dv">1</span>,</span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">args =</span> <span class="fu">list</span>(</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>, </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">formula =</span> ..<span class="dv">2</span>,</span>
 <span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> <span class="fu">filter</span>(dat, group <span class="sc">==</span> ..<span class="dv">3</span>)</span>
 <span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>      ),</span>
 <span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">.options =</span> opts</span>
 <span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(out)</span>
 <span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.952 sec elapsed</code></pre>
+<pre><code>5.623 sec elapsed</code></pre>
 </div>
 </div>
 <p>This worked great. While we don’t have to partition our data, and collect the computations afterwards, furrr does require passing stuff using the <code>.options</code> argument. But this is still a bit less verbose than multidplyr, and perhaps therefore preferred. I like it!</p>
@@ -1507,9 +1510,9 @@ Table&nbsp;9: Example results from the four estimation methods.
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">arrange</span>(results_furrr, estimate) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">spec =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>p_dash <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(spec, p.value, x<span class="sc">:</span>group) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(spec, p.value), <span class="at">values_transform =</span> as.character) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>p_dash <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(spec, p.value, x<span class="sc">:</span>group) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(spec, p.value), <span class="at">values_transform =</span> as.character) <span class="sc">%&gt;%</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(spec, value, <span class="at">col =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
@@ -1518,7 +1521,7 @@ Table&nbsp;9: Example results from the four estimation methods.
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(name), <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>p_curve <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>p_curve <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span></span>
 <span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(spec, estimate, <span class="at">col =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high), <span class="at">size =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>

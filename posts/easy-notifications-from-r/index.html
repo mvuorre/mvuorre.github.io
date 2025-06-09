@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can now include variations of <code>system("curl -d 'Notification text' ntfy.sh/vuorre-r-notifications")</code> in your R code. For example, to send a notification after a long running code</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long running code here</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(.<span class="dv">1</span>)  <span class="co"># Sleep for .1 second</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(.<span class="dv">1</span>) <span class="co"># Sleep for .1 second</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Send notification</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-notifications"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

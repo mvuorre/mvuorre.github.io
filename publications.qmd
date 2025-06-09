@@ -33,7 +33,6 @@ listing:
     include:
       type: "{computerProgram}"
     sort: "title"
-    page-size: 5
     date-format: "YYYY"
 comments: false
 ---

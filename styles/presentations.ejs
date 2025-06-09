@@ -1,29 +1,31 @@
 ```{=html}
-<ul class="list">
+<ul class="list" style="line-height: 1.2;">
     <% for (const item of items) { %>
-        <li <%=metadataAttrs(item) %>>
+        <li class="list-item" style="margin-bottom: -10px;" <%=metadataAttrs(item) %>>
             <span class="listing-name">
-                <b><%= item.title %></b> (<%= item.date %>).
+                <b>
+                    <%= item.title %>
+                </b> (<%= item.date %>).
             </span>
             <span class="listing-location">
-                <% if (item.meeting!="NA") { %>
+                <% if (item.meeting!="NA" ) { %>
                     <i><%- item.meeting %></i>,
-                <% } %>
-                <i><%- item.outlet %></i>.
-                <% if (item.url!="NA") { %>
-                    <span class="listing-url">
-                        [<a href="<%- item.url %>">link</a>]
-                    </span>
-                <% } %>
-            <span>
-            <% if (item.abstract!="NA") { %>
-                <details>
-                    <summary>Summary</summary>
-                    <div class="listing-abstract">
-                        <%- item.abstract %>
-                    </div>
-                </details>
-            <% } %>
+                    <% } %>
+                        <i><%- item.outlet %></i>.
+                        <% if (item.url!="NA" ) { %>
+                            <span class="listing-url">
+                                [<a href="<%- item.url %>">link</a>]
+                            </span>
+                            <% } %>
+                                <span>
+                                    <% if (item.abstract!="NA" ) { %>
+                                        <details>
+                                            <summary>Summary</summary>
+                                            <div class="listing-abstract">
+                                                <%- item.abstract %>
+                                            </div>
+                                        </details>
+                                        <% } %>
         </li>
         <% } %>
 </ul>

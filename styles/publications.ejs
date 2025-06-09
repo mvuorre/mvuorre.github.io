@@ -1,32 +1,34 @@
 ```{=html}
-<ul class="list">
+<ul class="list" style="line-height: 1.2;">
     <% for (const item of items) { %>
-        <li class="list-item" <%=metadataAttrs(item) %>>
-            <%= item.authors %> (<%= item.date %>). <b><%= item.title %></b>. <a href="<%- item.url %>"><%= item.outlet %></a>.
-            <span class="listing-extras">
-                <i class="ai ai-open-access" style="font-size:1.2em;"></i>
-                    <% if (item.file != "NA") { %>
-                        <a href="<%-item.file %>">PDF</a>
-                    <% } %>
-                    <% if (item.preprint) { %>
-                        &#x2022 <a href="<%- item.preprint %>">Preprint</a>
-                    <% } %>
-                    <% if (item.data) { %>
-                        &#x2022 <a href="<%- item.data %>">Data</a>
-                    <% } %>
-                    <% if (item.code) { %>
-                        &#x2022 <a href="<%- item.code %>">Code</a>
-                    <% } %>
-                </span>
-            <% if(item.abstract) { %>
-                <details>
-                    <summary>Abstract</summary>
-                    <div class="listing-abstract">
-                        <%= item.abstract %>
-                    </div>
-                </details>
-            <% } %>
+        <li class="list-item" style="margin-bottom: -10px;" <%=metadataAttrs(item) %>>
+            <%= item.authors %> (<%= item.date %>). <b>
+                        <%= item.title %>
+                    </b> <a href="<%= item.url %>"><%= item.outlet %></a>
+                    <span class="listing-extras">
+                        <i class="ai ai-open-access" style="font-size:1.2em;"></i>
+                        <% if (item.file !="NA" ) { %>
+                            <a href="<%-item.file %>">PDF</a>
+                            <% } %>
+                                <% if (item.preprint) { %>
+                                    &#x2022 <a href="<%- item.preprint %>">Preprint</a>
+                                    <% } %>
+                                        <% if (item.data) { %>
+                                            &#x2022 <a href="<%- item.data %>">Data</a>
+                                            <% } %>
+                                                <% if (item.code) { %>
+                                                    &#x2022 <a href="<%- item.code %>">Code</a>
+                                                    <% } %>
+                    </span>
+                    <% if(item.abstract) { %>
+                        <details>
+                            <summary>Abstract</summary>
+                            <div class="listing-abstract">
+                                <%= item.abstract %>
+                            </div>
+                        </details>
+                        <% } %>
         </li>
-    <% } %>
+        <% } %>
 </ul>
 ```

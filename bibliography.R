@@ -16,7 +16,7 @@ PATH_OUT <- "bibliography/files"
 # and repair paths
 # Get data from local Zotero using better bibtex API
 request(
-  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/cv.biblatex"
+  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/cv/cv.biblatex"
 ) |>
   req_perform() |>
   resp_body_string() |>
@@ -25,7 +25,7 @@ request(
 
 # Get JSON for listings
 dat <- request(
-  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/cv.jzon"
+  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/cv/cv.jzon"
 ) |>
   req_perform() |>
   resp_body_string() |>
@@ -106,7 +106,7 @@ dat |>
 
 # Readings
 request(
-  "http://127.0.0.1:23119/better-bibtex/export/collection?/1/4C5A7RQL.jzon"
+  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/readings.jzon"
 ) |>
   req_perform() |>
   resp_body_string() |>

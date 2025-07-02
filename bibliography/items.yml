@@ -790,6 +790,23 @@
     NA
   extra: ~
 - title: >-
+    Preprints Are All You Need
+  url: NA
+  date: 2025-06-27
+  type: presentation
+  authors: |
+    Vuorre
+  doi: NA
+  outlet: >-
+    Budapest
+  file: NA
+  meeting: >-
+    SIPS 2025
+  categories: []
+  abstract: |
+    “Preprints”—scholarly manuscripts not yet captured by the publication industry—have greatly facilitated science communication speed and accessibility. Yet, the “intellectual perestroika” of online prepublications (Harnad, 1990) hasn’t been realized: Preprints continue to be treated as less authoritative versions of their “published” counterparts. Moreover, the services that underlie this gap in perceived authoritativeness—editorship, peer-review, publicizing, discovery, etc.—can be provided for preprints but commonly aren’t, and are provided by academics but incorrectly credited to the publishing industry. Why? To answer, we will conduct thematic discussions to identify and examine factors that hinder the appeal and adoption of preprints as the primary objects of scholarly communication. We will then develop methods for overcoming these obstacles. By doing so we hope to move towards Harnad’s (1998) vision of the “final state toward which the learned journal literature is evolving”: Preprints are all we need.
+  extra: ~
+- title: >-
     quarto-preprint: A Quarto extension for preprints using Typst
   url: https://github.com/mvuorre/quarto-preprint
   date: 2025
@@ -859,6 +876,23 @@
     Digital technology is ubiquitous in modern adolescence, and researchers are concerned that it has negative impacts on mental health that, furthermore, increase over time. To investigate whether technology is becoming more harmful, we examined changes in associations between technology engagement and mental health in three nationally representative samples. Results were mixed across types of technology and mental health outcomes: Technology engagement had become less strongly associated with depression in the past decade, but social-media use had become more strongly associated with emotional problems. We detected no changes in five other associations or differential associations by sex. There is therefore little evidence for increases in the associations between adolescents’ technology engagement and mental health. Information about new digital media has been collected for a relatively short time; drawing firm conclusions about changes in their associations with mental health may be premature. We urge transparent and credible collaborations between scientists and technology companies.
   code: https://github.com/digital-wellbeing/timetrends
   preprint: https://doi.org/10.31234/osf.io/nv5qj
+- title: >-
+    Three objections to a novel paradigm in social media effects research
+  url: https://osf.io/dpuya_v2
+  date: 2025-05-28
+  type: preprint
+  authors: |
+    Vuorre, Johannes, & Przybylski
+  doi: 10.31234/osf.io/dpuya_v2
+  outlet: >-
+    OSF Preprints
+  file: bibliography/files/NYRWTIA2/vuorre-etal_2025_OSF.pdf
+  meeting: >-
+    NA
+  categories: [media effects, meta-psychology, paradigm, social media, statistics, variation, well-being]
+  abstract: |
+    The study of social media effects on psychological well-being has reached an impasse: Popular commentators confidently assert that social media are bad for users but research results are mixed and have had little practical impact. In response, one research group has proposed a path forward for the field that moves beyond studying population averages to find effects that are specific to individuals.Here, we outline three objections to that research agenda. On a methodological level, the key empirical results of this programme—proportions of the population of individuals with negative, null, and positive social media effects—are not appropriately estimated and reported. On a theoretical level, these results do little to advance our understanding of social media and its psychological implications. On a paradigmatic level, this “personalized media effects paradigm” (Valkenburg et al., 2021a, p. 74) cannot inform inferences about individuals and therefore does not deliver what it claims.In this work we express our concern that this research approach may be contributing to confusing messaging to both societal stakeholders and scientists investigating how social media and well- being might be related. It is our sincere hope that describing these objections directly will prompt the field to work together in adopting better practices to ultimately develop a better understanding of well-being in the digital age.
+  extra: ~
 - title: >-
     On Time, Causation, and the Sense of Agency
   url: https://www.ingentaconnect.com/content/imp/jcs/2017/00000024/f0020003/art00011

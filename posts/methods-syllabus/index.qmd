@@ -1,17 +1,27 @@
 ---
-title: A simple statistics syllabus
-description: Here's a list of some recommended statistics readings for behavioral and social scientists so I don't have to keep sending the same email out over and over again.
+title: A quantitative methods syllabus
+description: Recommended readings in quantitative methods
 date: 2024-01-19
+date-modified: 2025-06-19
 categories:
+  - methods
   - statistics
   - education
-draft: false
-from: markdown+emoji
-reference-location: margin
-execute-dir: file
 bibliography: bibliography.bib
 image: "images/edge2edge-media-uKlneQRwaxY-unsplash.jpg"
+aliases:
+  - /posts/statistics-syllabus/index.html
 ---
+
+# How to use a computer
+
+- The Unix Shell:
+  - <https://swcarpentry.github.io/shell-novice/>
+  - <https://laihoconsulting.com/blog/2025-06-basics-of-linux-shell-and-shell-scripts/>
+- Version control and collaboration with Git: <https://swcarpentry.github.io/git-novice>
+- Automating things with GNU Make: <https://swcarpentry.github.io/make-novice>
+
+# Statistics
 
 Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.
 

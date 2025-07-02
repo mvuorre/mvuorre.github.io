@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
-<generator>quarto-1.7.29</generator>
+<generator>quarto-1.7.32</generator>
 <lastBuildDate>Thu, 05 Jun 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>How to add citations from Zotero to Quarto documents</title>
@@ -1716,9 +1716,9 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
   <media:content url="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/images/undraw_Reviewed_docs_re_9lmr.png" medium="image" type="image/png" height="80" width="144"/>
 </item>
 <item>
-  <title>A simple statistics syllabus</title>
+  <title>A quantitative methods syllabus</title>
   <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/statistics-syllabus/</link>
+  <link>https://vuorre.com/posts/methods-syllabus/</link>
   <description><![CDATA[ 
 
 
@@ -1726,6 +1726,20 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 
 
 
+<section id="how-to-use-a-computer" class="level1">
+<h1>How to use a computer</h1>
+<ul>
+<li>The Unix Shell:
+<ul>
+<li><a href="https://swcarpentry.github.io/shell-novice/" class="uri">https://swcarpentry.github.io/shell-novice/</a></li>
+<li><a href="https://laihoconsulting.com/blog/2025-06-basics-of-linux-shell-and-shell-scripts/" class="uri">https://laihoconsulting.com/blog/2025-06-basics-of-linux-shell-and-shell-scripts/</a></li>
+</ul></li>
+<li>Version control and collaboration with Git: <a href="https://swcarpentry.github.io/git-novice" class="uri">https://swcarpentry.github.io/git-novice</a></li>
+<li>Automating things with GNU Make: <a href="https://swcarpentry.github.io/make-novice" class="uri">https://swcarpentry.github.io/make-novice</a></li>
+</ul>
+</section>
+<section id="statistics" class="level1">
+<h1>Statistics</h1>
 <p>Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.</p>
 <p><em>tl;dr</em>:</p>
 <ul>
@@ -1759,7 +1773,7 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 <p>This book needs its own heading here, it is just that good.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vuorre.com/posts/statistics-syllabus/images/rethinking-fig-1-1.png" class="img-fluid figure-img" alt="Example decision tree, or flowchart, for selecting an appropri- ate statistical procedure. Beginning at the top, the user answers a series of questions about measurement and intent, arriving eventually at the name of a procedure. Many such decision trees are possible."></p>
+<p><img src="https://vuorre.com/posts/methods-syllabus/images/rethinking-fig-1-1.png" class="img-fluid figure-img" alt="Example decision tree, or flowchart, for selecting an appropri- ate statistical procedure. Beginning at the top, the user answers a series of questions about measurement and intent, arriving eventually at the name of a procedure. Many such decision trees are possible."></p>
 <figcaption>Figure 1.1 from “Statistical rethinking”</figcaption>
 </figure>
 </div>
@@ -1777,6 +1791,7 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
@@ -1809,20 +1824,21 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for 
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2024,
   author = {Vuorre, Matti},
-  title = {A Simple Statistics Syllabus},
+  title = {A Quantitative Methods Syllabus},
   date = {2024-01-19},
-  url = {https://vuorre.com/posts/statistics-syllabus/},
+  url = {https://vuorre.com/posts/methods-syllabus/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2024. <span>“A Simple Statistics Syllabus.”</span>
-January 19, 2024. <a href="https://vuorre.com/posts/statistics-syllabus/">https://vuorre.com/posts/statistics-syllabus/</a>.
+Vuorre, Matti. 2024. <span>“A Quantitative Methods Syllabus.”</span>
+January 19, 2024. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.com/posts/methods-syllabus/</a>.
 </div></div></section></div> ]]></description>
+  <category>methods</category>
   <category>statistics</category>
   <category>education</category>
-  <guid>https://vuorre.com/posts/statistics-syllabus/</guid>
+  <guid>https://vuorre.com/posts/methods-syllabus/</guid>
   <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/statistics-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vuorre.com/posts/methods-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Yet another data request email</title>

@@ -4,17 +4,13 @@
     "items": []
   },
   {
-    "listing": "/now.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/zotero-positron-vscode/index.html",
       "/posts/bmlm-multilevel-mediation/index.html",
       "/posts/open-peer-review/index.html",
       "/posts/quarto-preprint-psyarxiv-zero/index.html",
-      "/posts/statistics-syllabus/index.html",
+      "/posts/methods-syllabus/index.html",
       "/posts/yet-another-data-request-email/index.html",
       "/posts/latent-mean-centering/index.html",
       "/posts/computer-setup-dotfiles/index.html",
@@ -37,5 +33,9 @@
       "/posts/2016-03-15-ggplot-plots-subplots/index.html",
       "/posts/2016-03-06-multilevel-predictions/index.html"
     ]
+  },
+  {
+    "listing": "/now.html",
+    "items": []
   }
 ]

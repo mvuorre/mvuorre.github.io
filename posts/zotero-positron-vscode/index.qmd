@@ -1,5 +1,6 @@
 ---
-title: How to add citations from Zotero to Quarto documents
+title: |
+  How to add citations from Zotero to Quarto documents
 description: The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation's biblatex entry. Here's how to install and use it.
 date: 2025-06-06
 categories:
@@ -9,6 +10,14 @@ categories:
 bibliography: bibliography.bib
 image: "images/zotero.png"
 ---
+
+## tl;dr
+
+My version of the [Citation Picker for Zotero](https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0) VS Code (and Positron, etc) extension allows inserting references from Zotero to source documents and their .bib files. Here is what using it in [Positron](https://positron.posit.co/) looks like:
+
+:::{.column-page-right}
+![Improved Citation Picker for Zotero VS Code extension in action.](images/extension.gif)
+:::
 
 ## What?
 

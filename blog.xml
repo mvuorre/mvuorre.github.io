@@ -10,7 +10,76 @@
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Homepage of Matti Vuorre</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Thu, 05 Jun 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 02 Jul 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>PDF-direct</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/pdf-direct/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>When you browse to an academic journal article’s website, for example <a href="https://journals.sagepub.com/doi/10.1177/2515245918770963">this one</a><sup>1</sup>, if you are lucky and the manuscript is not <a href="https://astro.theoj.org/post/168-">paywalled</a>, you can read the HTML version of the article which usually looks something like the one shown in Figure&nbsp;1.</p>
+<div id="fig-page" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-page-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/pdf-direct/images/article-page2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-page-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A scholarly manuscript’s website.
+</figcaption>
+</figure>
+</div>
+<p>Vintage technophiles like myself still prefer reading (and archiving) the manuscript’s PDF version. But these publishers are smart and have implemented new <a href="https://doi.org/10.4000/proceedings.elpub.2018.30"><del>data-harvesting</del></a> accessibility features such as “fancy online PDF readers”. So when you click on the PDF/EPUB link on the page, instead of just getting the PDF, you see Figure&nbsp;2 instead.</p>
+<div id="fig-epdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-epdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/pdf-direct/images/article-epdf.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-epdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A scholarly manuscript’s PDF in the publisher’s “fancy online PDF reader”.
+</figcaption>
+</figure>
+</div>
+<p>This bugs me: I just want the PDF and every additional click and UI idiosynchracy adds friction to my daily work. So I did what any reasonable person would do and wrote a little <a href="https://github.com/mvuorre/pdf-direct">Firefox extension</a> that skips journals’ “enhanced” PDF viewers to direct PDF downloads. You can get it here: <a href="https://addons.mozilla.org/en-US/firefox/addon/pdf-direct/" class="uri">https://addons.mozilla.org/en-US/firefox/addon/pdf-direct/</a>. After installing PDF-Direct, clicking on the PDF/EPUB link will immediately just download the darn PDF (Figure&nbsp;3).</p>
+<div id="fig-pdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/pdf-direct/images/article-pdf.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: A scholarly manuscript’s actual PDF in MacOS’s Preview.
+</figcaption>
+</figure>
+</div>
+<p>An additional problem with these “fancy online PDF readers” is that they seem to break <a href="https://www.zotero.org/">Zotero</a>’s ability to download PDF files, though I am not sure if that is the reason. I’m quite busy and don’t actually know/care about how these Firefox extensions work: PDF-direct is 99% vibe-coded but seems to work well. It is also simple enough that I am able to see that it probably doesn’t have any real security implications. I might be wrong though, so send your reports to <a href="https://github.com/mvuorre/pdf-direct" class="uri">https://github.com/mvuorre/pdf-direct</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Goes without saying that this particular (quite nice) article has nothing to do with the topic of this post, I just happened to be reading it and since it was open access I was able to show how this works in practice.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+  author = {Vuorre, Matti},
+  title = {PDF-Direct},
+  date = {2025-07-03},
+  url = {https://vuorre.com/posts/pdf-direct/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3, 2025. <a href="https://vuorre.com/posts/pdf-direct/">https://vuorre.com/posts/pdf-direct/</a>.
+</div></div></section></div> ]]></description>
+  <category>science communication</category>
+  <guid>https://vuorre.com/posts/pdf-direct/</guid>
+  <pubDate>Wed, 02 Jul 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/pdf-direct/images/pdf.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
 <item>
   <title>How to add citations from Zotero to Quarto documents</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -22,6 +91,18 @@
 
 
 
+<section id="tldr" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="tldr">tl;dr</h2>
+<p>My version of the <a href="https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0">Citation Picker for Zotero</a> VS Code (and Positron, etc) extension allows inserting references from Zotero to source documents and their .bib files. Here is what using it in <a href="https://positron.posit.co/">Positron</a> looks like:</p>
+<div class="page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="https://vuorre.com/posts/zotero-positron-vscode/images/extension.gif" class="img-fluid figure-img column-page-right"></p>
+<figcaption>Improved Citation Picker for Zotero VS Code extension in action.</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="what" class="level2">
 <h2 class="anchored" data-anchor-id="what">What?</h2>
 <p>We like writing all our scientific outputs with <a href="https://quarto.org/docs/authoring/front-matter.html">Quarto</a> using the <a href="https://positron.posit.co/">Positron</a> IDE. We also manage our references/library with <a href="https://www.zotero.org/">Zotero</a>, and want to insert references directly from Zotero to the Quarto documents. What does that mean?</p>
@@ -88,7 +169,7 @@ Probability theory is cool [@jaynesProbabilityTheoryLogic2003].</code></pre>
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“How to Add Citations from Zotero to Quarto
-Documents.”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-positron-vscode/">https://vuorre.com/posts/zotero-positron-vscode/</a>.
+Documents .”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-positron-vscode/">https://vuorre.com/posts/zotero-positron-vscode/</a>.
 </div></div></section></div> ]]></description>
   <category>Quarto</category>
   <category>Zotero</category>
@@ -18527,580 +18608,6 @@ Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
   <guid>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</guid>
   <pubDate>Mon, 20 Mar 2017 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
-</item>
-<item>
-  <title>How to create within-subject scatter plots in R with ggplot2</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/2017-01-04-within-subject-scatter/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Today, we’ll take a look at creating a specific type of visualization for data from a within-subjects experiment (also known as repeated measures, but that can sometimes be a misleading label). You’ll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you’re lucky.) But alternatives exist, and today we’ll take a look at <strong>within-subjects scatterplots</strong>.</p>
-<p>For example, <span class="citation" data-cites="ganis_new_2015">Ganis and Kievit (2015)</span> asked 54 people to observe, on each trial, two 3-D shapes with various rotations and judge whether the two shapes were the same or not.</p>
-<p>There were 4 angles (0, 50, 100, and 150 degree rotations), but for simplicity, today we’ll only look at items that were not rotated with respect to each other, and items rotated 50 degrees. The data are freely available (thanks!) in Excel format, and the below snippet loads the data and cleans into a useable format:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">file.exists</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"data.zip"</span>)) {</span>
-<span id="cb1-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">download.file</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"https://ndownloader.figshare.com/files/1878093"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"data.zip"</span>)</span>
-<span id="cb1-3">}</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">unzip</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"data.zip"</span>)</span>
-<span id="cb1-5">files <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list.files</span>(</span>
-<span id="cb1-6">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Behavioural_data/"</span>,</span>
-<span id="cb1-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sub[0-9]+.xlsx"</span>,</span>
-<span id="cb1-8">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">full.names =</span> T</span>
-<span id="cb1-9">)</span>
-<span id="cb1-10">dat <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span>(</span>
-<span id="cb1-11">  files,</span>
-<span id="cb1-12">  <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">read_xlsx</span>(.x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">range =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A4:G100"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">col_types =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"text"</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>))</span>
-<span id="cb1-13">) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb1-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bind_rows</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">.id =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"id"</span>)</span>
-<span id="cb1-15">dat <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> dat <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb1-16">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(angle <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"0"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"50"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb1-17">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">transmute</span>(</span>
-<span id="cb1-18">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">id =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">factor</span>(id),</span>
-<span id="cb1-19">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">angle =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">factor</span>(angle),</span>
-<span id="cb1-20">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">rt =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as.numeric</span>(Time),</span>
-<span id="cb1-21">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">accuracy =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as.numeric</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">correct/incorrect</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span>)</span>
-<span id="cb1-22">  )</span></code></pre></div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Example data.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">id</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">angle</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">rt</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">accuracy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1355</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">1685</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">1237</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1275</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">2238</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1524</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>We’ll focus on comparing the reaction times between the 0 degree and 50 degree rotation trials.</p>
-<section id="subject-means" class="level2">
-<h2 class="anchored" data-anchor-id="subject-means">Subject means</h2>
-<p>We’ll be graphing subjects’ means and standard errors, so we compute both first</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">dat_sum <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">group_by</span>(dat, id, angle) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb2-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summarize</span>(</span>
-<span id="cb2-3">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">m =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(rt, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">na.rm =</span> T),</span>
-<span id="cb2-4">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sd</span>(rt, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">n</span>())</span>
-<span id="cb2-5">  )</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary data</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">id</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">angle</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">m</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1512.12</td>
-<td style="text-align: right;">146.50</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">2039.42</td>
-<td style="text-align: right;">133.74</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">2784.39</td>
-<td style="text-align: right;">301.94</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">3766.58</td>
-<td style="text-align: right;">337.51</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">3546.30</td>
-<td style="text-align: right;">388.03</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: right;">4639.84</td>
-<td style="text-align: right;">281.78</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">dat_sum <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb3-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> angle, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> m)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">stat_summary</span>(</span>
-<span id="cb3-4">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fun.data =</span> mean_cl_normal,</span>
-<span id="cb3-5">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="cb3-6">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_quasirandom</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">width =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">shape =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Mean RT"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This figure shows quite clearly that the mean reaction time in the 50 degree angle condition was higher than in the 0 degree angle condition, and the spread across individuals in each condition. However, we often are specifically interested in the <em>within-subject effect</em> of condition, which would be difficult to visually display in this image. We could draw lines to connect each point, and the effect would then be visible as a “spaghetti plot”, but while useful, these plots may sometimes be a little overwhelming especially if there’s too many people (spaghetti is great but nobody likes too much of it!)</p>
-</section>
-<section id="within-subject-scatterplots" class="level2">
-<h2 class="anchored" data-anchor-id="within-subject-scatterplots">Within-subject scatterplots</h2>
-<p>To draw within-subjects scatterplots, we’ll need a slight reorganization of the data, such that it is in wide format with respect to the conditions.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dat_sum_wide <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> dat_sum <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">names_from =</span> angle, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">values_from =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(m, se))</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary data in wide format.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">id</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">m_0</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">m_50</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">se_0</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">se_50</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">1512.12</td>
-<td style="text-align: right;">2039.42</td>
-<td style="text-align: right;">146.50</td>
-<td style="text-align: right;">133.74</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">2784.39</td>
-<td style="text-align: right;">3766.58</td>
-<td style="text-align: right;">301.94</td>
-<td style="text-align: right;">337.51</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">3546.30</td>
-<td style="text-align: right;">4639.84</td>
-<td style="text-align: right;">388.03</td>
-<td style="text-align: right;">281.78</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">1251.04</td>
-<td style="text-align: right;">1767.54</td>
-<td style="text-align: right;">125.10</td>
-<td style="text-align: right;">211.44</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">1372.54</td>
-<td style="text-align: right;">2037.67</td>
-<td style="text-align: right;">86.25</td>
-<td style="text-align: right;">167.52</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">1231.92</td>
-<td style="text-align: right;">1666.25</td>
-<td style="text-align: right;">84.09</td>
-<td style="text-align: right;">126.10</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Then we can simply map the per-subject angle-means and standard errors to the X and Y axes. I think it’s important for these graphs to usually have a 1:1 aspect ratio, an identity line, and identical axes, which we add below.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(dat_sum_wide, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> m_0, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> m_50)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-2">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Equalize axes</span></span>
-<span id="cb5-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_x_continuous</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"RT (0 degrees)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">500</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5000</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_continuous</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"RT (50 degrees)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">500</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5000</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-5">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Identity line</span></span>
-<span id="cb5-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_abline</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-7">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 1:1 aspect ratio</span></span>
-<span id="cb5-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">aspect.ratio =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-9">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Points and errorbars</span></span>
-<span id="cb5-10">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-11">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_linerange</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ymin =</span> m_50 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> se_50, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ymax =</span> m_50 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> se_50), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb5-12">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_linerange</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmin =</span> m_0 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> se_0, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmax =</span> m_0 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> se_0), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This plot shows each person (mean) as a point and their SEs as thin lines. The difference between conditions can be directly seen by how far from the diagonal line the points are. Were we to use CIs, we could also see subject-specific significant differences. Points above the diagonal indicate that the person’s (mean) RT was greater in the 50 degrees condition. <em>All</em> of the points lie below the identity line, indicating that the effect was as we predicted, and robust across individuals.</p>
-<p>This is a very useful diagnostic plot that simultaneously shows the population- (or group-) level trend (are the points, on average, below or above the identity line?) and the expectation (mean) for every person (roughly, how far apart the points are from each other?). The points are naturally connected by their location, unlike in a bar graph where they would be connected by lines. Maybe you think it’s an informative graph; it’s certainly very easy to do in R with ggplot2. Also, I think it is visually very convincing, and doesn’t necessarily lead one to focus unjustly just on the group means: I am both convinced and informed by the graph.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Within-subject scatter plots are pretty common in some fields (psychophysics), but underutilized in many fields where they might have a positive impact on statistical inference. Why not try them out on your own data, especially when they’re this easy to do with R and ggplot2?</p>
-<p>Recall that for real applications, it’s better to transform or model reaction times with a skewed distribution. Here we used normal distributions just for convenience.</p>
-<p>Finally, this post was made possible by the <span class="citation" data-cites="ganis_new_2015">Ganis and Kievit (2015)</span> who generously have shared their data online.</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-ganis_new_2015" class="csl-entry">
-Ganis, Giorgio, and Rogier Kievit. 2015. <span>“A New Set of Three-Dimensional Shapes for Investigating Mental Rotation Processes: Validation Data and Stimulus Set.”</span> <em>Journal of Open Psychology Data</em> 3 (1). <a href="https://doi.org/10.5334/jopd.ai">https://doi.org/10.5334/jopd.ai</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
-  author = {Vuorre, Matti},
-  title = {How to Create Within-Subject Scatter Plots in {R} with
-    Ggplot2},
-  date = {2017-01-04},
-  url = {https://vuorre.com/posts/2017-01-04-within-subject-scatter/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2017. <span>“How to Create Within-Subject Scatter Plots
-in R with Ggplot2.”</span> January 4, 2017. <a href="https://vuorre.com/posts/2017-01-04-within-subject-scatter/">https://vuorre.com/posts/2017-01-04-within-subject-scatter/</a>.
-</div></div></section></div> ]]></description>
-  <category>statistics</category>
-  <category>tutorial</category>
-  <category>R</category>
-  <category>visualization</category>
-  <category>ggplot2</category>
-  <guid>https://vuorre.com/posts/2017-01-04-within-subject-scatter/</guid>
-  <pubDate>Tue, 03 Jan 2017 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2017-01-04-within-subject-scatter/index_files/figure-html/scatter-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

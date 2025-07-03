@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Matti Vuorre">
-<meta name="dcterms.date" content="2025-06-06">
-<meta name="description" content="The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation’s biblatex entry. Here’s how to install and use it.">
+<meta name="dcterms.date" content="2025-07-03">
+<meta name="description" content="PDF-direct is a Firefox extension that skips academic journals’ “enhanced” PDF viewers to direct PDF downloads.">
 
-<title>How to add citations from Zotero to Quarto documents – Matti's homepage</title>
+<title>PDF-direct – Matti’s homepage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,8 +46,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-dd6bf81a2ea8bb47352f0ee4f4b7426f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/bluesky-comments-1.0.0/bluesky-comments.js"></script>
-<link href="../../site_libs/quarto-contrib/bluesky-comments-1.0.0/styles.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,17 +75,17 @@ ul.task-list li input[type="checkbox"] {
 <script defer="" src="https://analytics.vuorre.com/script.js" data-website-id="c125a7d5-bf09-4603-85a8-4cebcbe0b30e"></script>
 
 
-<meta property="og:title" content="How to add citations from Zotero to Quarto documents – Matti’s homepage">
-<meta property="og:description" content="The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation’s biblatex entry. Here’s how to install and use it.">
-<meta property="og:image" content="https://vuorre.com/posts/zotero-positron-vscode/images/zotero.png">
+<meta property="og:title" content="PDF-direct – Matti’s homepage">
+<meta property="og:description" content="PDF-direct is a Firefox extension that skips academic journals’ “enhanced” PDF viewers to direct PDF downloads.">
+<meta property="og:image" content="https://vuorre.com/posts/pdf-direct/images/pdf.png">
 <meta property="og:site_name" content="Matti's homepage">
-<meta property="og:image:height" content="234">
-<meta property="og:image:width" content="583">
-<meta name="twitter:title" content="How to add citations from Zotero to Quarto documents – Matti’s homepage">
-<meta name="twitter:description" content="The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation’s biblatex entry. Here’s how to install and use it.">
-<meta name="twitter:image" content="https://vuorre.com/posts/zotero-positron-vscode/images/zotero.png">
-<meta name="twitter:image-height" content="234">
-<meta name="twitter:image-width" content="583">
+<meta property="og:image:height" content="154">
+<meta property="og:image:width" content="154">
+<meta name="twitter:title" content="PDF-direct – Matti’s homepage">
+<meta name="twitter:description" content="PDF-direct is a Firefox extension that skips academic journals’ “enhanced” PDF viewers to direct PDF downloads.">
+<meta name="twitter:image" content="https://vuorre.com/posts/pdf-direct/images/pdf.png">
+<meta name="twitter:image-height" content="154">
+<meta name="twitter:image-width" content="154">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -304,15 +302,13 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><p>How to add citations from Zotero to Quarto documents</p></h1>
+      <h1 class="title">PDF-direct</h1>
                   <div>
         <div class="description">
-          The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation’s biblatex entry. Here’s how to install and use it.
+          <p>PDF-direct is a Firefox extension that skips academic journals’ “enhanced” PDF viewers to direct PDF downloads.</p>
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Quarto</div>
-                <div class="quarto-category">Zotero</div>
                 <div class="quarto-category">science communication</div>
               </div>
                   </div>
@@ -340,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2025-06-06</p>
+        <p class="date">2025-07-03</p>
       </div>
     </div>
     
@@ -351,108 +347,72 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul class="collapse">
-  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">tl;dr</a></li>
-  <li><a href="#what" id="toc-what" class="nav-link" data-scroll-target="#what">What?</a></li>
-  <li><a href="#how" id="toc-how" class="nav-link" data-scroll-target="#how">How?</a></li>
-  <li><a href="#how-an-improved-answer" id="toc-how-an-improved-answer" class="nav-link" data-scroll-target="#how-an-improved-answer">How? An improved answer</a></li>
-  </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/zotero-positron-vscode/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/zotero-positron-vscode/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
 
-<section id="tldr" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="tldr">tl;dr</h2>
-<p>My version of the <a href="https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0">Citation Picker for Zotero</a> VS Code (and Positron, etc) extension allows inserting references from Zotero to source documents and their .bib files. Here is what using it in <a href="https://positron.posit.co/">Positron</a> looks like:</p>
-<div class="page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="images/extension.gif" class="img-fluid figure-img column-page-right"></p>
-<figcaption>Improved Citation Picker for Zotero VS Code extension in action.</figcaption>
+<p>When you browse to an academic journal article’s website, for example <a href="https://journals.sagepub.com/doi/10.1177/2515245918770963">this one</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, if you are lucky and the manuscript is not <a href="https://astro.theoj.org/post/168-">paywalled</a>, you can read the HTML version of the article which usually looks something like the one shown in <a href="#fig-page" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="fig-page" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-page-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/article-page2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-page-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A scholarly manuscript’s website.
+</figcaption>
 </figure>
 </div>
+<p>Vintage technophiles like myself still prefer reading (and archiving) the manuscript’s PDF version. But these publishers are smart and have implemented new <a href="https://doi.org/10.4000/proceedings.elpub.2018.30"><del>data-harvesting</del></a> accessibility features such as “fancy online PDF readers”. So when you click on the PDF/EPUB link on the page, instead of just getting the PDF, you see <a href="#fig-epdf" class="quarto-xref">Figure&nbsp;2</a> instead.</p>
+<div id="fig-epdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-epdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/article-epdf.png" class="img-fluid figure-img">
 </div>
-</section>
-<section id="what" class="level2">
-<h2 class="anchored" data-anchor-id="what">What?</h2>
-<p>We like writing all our scientific outputs with <a href="https://quarto.org/docs/authoring/front-matter.html">Quarto</a> using the <a href="https://positron.posit.co/">Positron</a> IDE. We also manage our references/library with <a href="https://www.zotero.org/">Zotero</a>, and want to insert references directly from Zotero to the Quarto documents. What does that mean?</p>
-<p>It means that you fire up Positron, write a document like <code>manuscript.qmd</code>:</p>
-<pre><code>---
-title: Science!
-author: Matti Vuorre
-date: 2025-06-06
-bibliography: bibliography.bib
----
-
-Probability theory is cool [@jaynesProbabilityTheoryLogic2003].</code></pre>
-<p>and then run <code>quarto render manuscript.qmd</code> in your terminal. By default this creates a HTML document (but can be a PDF, Word document, or whatever) that will look like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/shot.png" class="img-fluid figure-img"></p>
-<figcaption>Screenshot of a Quarto HTML document.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-epdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A scholarly manuscript’s PDF in the publisher’s “fancy online PDF reader”.
+</figcaption>
 </figure>
 </div>
-<p>Notice how the Jaynes reference is nicely dealt with both in-text and in the references section. While Positron allows easily adding citations from Zotero when editing documents in <a href="https://quarto.org/docs/tools/positron/visual-editor.html#zotero-citations">visual mode</a>, this was less easy in source mode (which I much prefer).</p>
-</section>
-<section id="how" class="level2">
-<h2 class="anchored" data-anchor-id="how">How?</h2>
-<p>The <a href="https://github.com/mblode/vscode-zotero">vscode-zotero</a> extension makes it easy to add in-text references to Quarto documents, and can be installed through Positron’s “Extensions” panel:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/extension.png" class="img-fluid figure-img"></p>
-<figcaption>Screenshot of Positron’s “Extensions” panel.</figcaption>
+<p>This bugs me: I just want the PDF and every additional click and UI idiosynchracy adds friction to my daily work. So I did what any reasonable person would do and wrote a little <a href="https://github.com/mvuorre/pdf-direct">Firefox extension</a> that skips journals’ “enhanced” PDF viewers to direct PDF downloads. You can get it here: <a href="https://addons.mozilla.org/en-US/firefox/addon/pdf-direct/" class="uri">https://addons.mozilla.org/en-US/firefox/addon/pdf-direct/</a>. After installing PDF-Direct, clicking on the PDF/EPUB link will immediately just download the darn PDF (<a href="#fig-pdf" class="quarto-xref">Figure&nbsp;3</a>).</p>
+<div id="fig-pdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/article-pdf.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: A scholarly manuscript’s actual PDF in MacOS’s Preview.
+</figcaption>
 </figure>
 </div>
-<p>Critically, the extension does not add the entry in the document’s associated .bib file (<code>bibliography: bibliography.bib</code> in the document’s YAML front matter.)</p>
-</section>
-<section id="how-an-improved-answer" class="level2">
-<h2 class="anchored" data-anchor-id="how-an-improved-answer">How? An improved answer</h2>
-<p>So what I did was fork the extension, add this functionality, and submit a <a href="https://github.com/mblode/vscode-zotero/pull/38">pull request</a>. So once/if the pull request is merged you can install it as above. For now, to install the extension, go to <a href="https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0" class="uri">https://github.com/mvuorre/vscode-zotero/releases/tag/v0.2.0</a> and download the <code>.vsix</code> file.</p>
-<p>Then, in Positron, install the extension by clicking “Install from VSIX…” and select the downloaded <code>.vsix</code> file.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/extension2.png" class="img-fluid figure-img"></p>
-<figcaption>Another screenshot of Positron’s “Extensions” panel.</figcaption>
-</figure>
-</div>
-<p>Restart Positron, ensure Zotero is running and that you have installed the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTex</a> Zotero plugin. Then, in Positron, open up your source document and ensure its frontmatter contains a reference to a <a href="https://quarto.org/docs/authoring/citations.html">bibliography file</a>. Then place your cursor where you want the citation to appear in your document, and launch the extension’s citation picker function. On a Mac the hotkey for launching the function is <kbd>Shift+Option+Z</kbd> and Windows probably has one too. This brings up the citation picker UI dialog:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/jaynes.png" class="img-fluid figure-img"></p>
-<figcaption>Positron’s UI citation picker.</figcaption>
-</figure>
-</div>
-<p>Typing anything in the dialog will search for items with that string, and advanced search queries like <code>author:jaynes</code> and <code>author:jaynes theory</code> work as well. Once you’ve chosen the desired citation, hit <kbd>Return</kbd> and the in-text citation is added to the document, and its biblatex entry is written to the document’s associated <code>.bib</code> file.</p>
-<p>Done and done.</p>
-    <bluesky-comments post="at://did:plc:ai4isl2n4j2h7qcqebj7vu2k/app.bsky.feed.post/3lqx3refo3c2p" filter-config="{&quot;filterEmptyReplies&quot;:true,&quot;mutePatterns&quot;:[],&quot;muteUsers&quot;:[]}" profile="did:plc:ai4isl2n4j2h7qcqebj7vu2k"></bluesky-comments>
-  
+<p>An additional problem with these “fancy online PDF readers” is that they seem to break <a href="https://www.zotero.org/">Zotero</a>’s ability to download PDF files, though I am not sure if that is the reason. I’m quite busy and don’t actually know/care about how these Firefox extensions work: PDF-direct is 99% vibe-coded but seems to work well. It is also simple enough that I am able to see that it probably doesn’t have any real security implications. I might be wrong though, so send your reports to <a href="https://github.com/mvuorre/pdf-direct" class="uri">https://github.com/mvuorre/pdf-direct</a>.</p>
 
 
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Goes without saying that this particular (quite nice) article has nothing to do with the topic of this post, I just happened to be reading it and since it was open access I was able to show how this works in practice.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
   author = {Vuorre, Matti},
-  title = {How to Add Citations from {Zotero} to {Quarto} Documents},
-  date = {2025-06-06},
-  url = {https://vuorre.com/posts/zotero-positron-vscode/},
+  title = {PDF-Direct},
+  date = {2025-07-03},
+  url = {https://vuorre.com/posts/pdf-direct/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Vuorre, Matti. 2025. <span>“How to Add Citations from Zotero to Quarto
-Documents .”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-positron-vscode/">https://vuorre.com/posts/zotero-positron-vscode/</a>.
+Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3, 2025. <a href="https://vuorre.com/posts/pdf-direct/">https://vuorre.com/posts/pdf-direct/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -903,4 +863,4 @@ Documents .”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-pos
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/zotero-positron-vscode/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/zotero-positron-vscode/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/pdf-direct/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/pdf-direct/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

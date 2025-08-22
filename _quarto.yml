@@ -14,12 +14,9 @@ date-format: iso
 execute:
   freeze: auto
 website:
-  title: "Matti's homepage"
+  title: "Matti's website"
   site-url: https://vuorre.com
-  description: Homepage of Matti Vuorre
-  drafts:
-    - posts/drafts/
-  draft-mode: gone
+  description: Matti's website
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [edit, source, issue]
   comments:

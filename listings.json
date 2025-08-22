@@ -4,10 +4,6 @@
     "items": []
   },
   {
-    "listing": "/now.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/pdf-direct/index.html",
@@ -38,5 +34,9 @@
       "/posts/2016-03-15-ggplot-plots-subplots/index.html",
       "/posts/2016-03-06-multilevel-predictions/index.html"
     ]
+  },
+  {
+    "listing": "/now.html",
+    "items": []
   }
 ]

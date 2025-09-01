@@ -5,12 +5,360 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Matti&#39;s homepage</title>
+<title>Matti&#39;s website</title>
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
-<description>Homepage of Matti Vuorre</description>
+<description>Matti&#39;s website</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Wed, 02 Jul 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 21 Aug 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>How I work on computationally reproducible academic projects</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/workflow/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Figure&nbsp;1 outlines an ideal but not fully fleshed out workflow in academic psychology: You receive an idea from divine inspiration, do <strong>?</strong>, and science comes out the other end.</p>
+<div id="fig-underpants" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-underpants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/workflow/images/underpants.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-underpants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Underpant gnomes and the ideal scientific workflow. From <a href="https://en.wikipedia.org/wiki/Gnomes_(South_Park)">South Park</a>.
+</figcaption>
+</figure>
+</div>
+<p>There are loosely speaking <a href="https://plato.stanford.edu/entries/feyerabend/#AgaiMeth1970">as many answers</a> to what <strong>?</strong> signifies as there are practising scientists, and that might be fine, maybe, according to some prominent writers <span class="citation" data-cites="oberheimPaulFeyerabend2025">(Oberheim and Preston 2025)</span>.</p>
+<p>But instead of philosophizing, here I talk about the day-to-day activities that fill the space between receiving an idea and science: What do I do after receiving an idea? How do I read and write scholarly works? How do I organize my materials and collaborate with others? How do I make my computations and manuscripts reproducible? Where do I put my materials such that they don’t just tick an “open data” checkbox but are actually <a href="https://www.go-fair.org/fair-principles/">findable and useable</a> by others? What kinds of tools fill my workshop and what programs do I run on my computers? And how do I (want to) publish the resulting write-ups?</p>
+<p>This post is about providing my current answers to these kinds of questions. It is not really about teaching the tools (<a href="https://vuorre.com/posts/methods-syllabus/">here’s some links</a>), platforms, and methods I use. Instead, I outline the things I have to deal with, and how I bring them together to a workflow where tools (mostly) get out of my way to let work happen. The guiding principle here is to accept that a lot of science these days can be considered “amateur software development” (Figure&nbsp;2). So while some of this will be technical, ignoring the technical aspects of scientific work is counterproductive. Instead we might as well learn the tools of the trade.</p>
+<div id="fig-dev" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8qzVV7eEiaI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Richard McElreath: “Software is both a cause of unreliable research and part of the solution. The bulk of scientific research relies upon specialized software for data management and analysis. The bad news is that much of this software is poorly tested and documented, and researchers often use software in unreliable ways. Part of the problem is that researchers are being asked to perform a job they have not been trained for: software development. The good news is that borrowing simple habits and open tools from software engineering brings huge benefits. Even more good news: Specialized curricula already exist to train scientists to develop and use these habits in their own research.”
+</figcaption>
+</figure>
+</div>
+<section id="curating-a-library" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="curating-a-library"><span class="header-section-number">1</span> Curating a library</h2>
+<p>First, my idea is probably related to something that someone else has already written about. I collect those writings in my <a href="https://www.zotero.org/">Zotero</a> library. There are alternatives to Zotero but many of them, like Endnote, suck. Zotero is free, open source (extensible), and works well. What I do is I collect all the works I know about the topic into a Zotero collection (or <a href="https://www.zotero.org/groups/6037273/preprints-all-you-need/library">group library</a>). I then use online search engines to find more works. Most search engines suck, but <a href="https://scholar.google.com/">Google Scholar</a> sucks the least. When I’m on a website that has some relevant writing (books, articles), I click the little Zotero button in Firefox (requires the Zotero Connector <a href="https://www.zotero.org/download/">add-on</a>) and the piece is saved to my Zotero library.</p>
+<p>If I intend to write a document, I have a related Zotero collection with probably around a hundred works, but this varies a lot depending on how much I know about the topic already. Since all the previous works were wrong, when I read and re-read them my aim is to figure out exactly how they were wrong and why, so I can be a little less wrong this time around: I will also be wrong but hopefully in a useful and transparent way <span class="citation" data-cites="scheelWhyMostPsychological2022">(Scheel 2022)</span>.</p>
+</section>
+<section id="reading" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="reading"><span class="header-section-number">2</span> Reading</h2>
+<p>I then semirandomly find time—on trains, buses, and aeroplanes—to read and understand what others have thought and done about the topic. It’s important to keep in mind that they are all wrong—that’s the point of research; nobody knows what they’re doing—but you still need to know what others have done in order to stand on their shoulders: What are some common methods and ideas, how have people approached this idea in the past?</p>
+<p>If you ask people whether they know how to read, most will answer “yes”. Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist <span class="citation" data-cites="savageHowWhyRead2024 careyTenSimpleRules2020">(Savage 2024; Carey, Steiner, and Petri 2020)</span> and I’d recommend looking into those.</p>
+<section id="peer-review" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="peer-review"><span class="header-section-number">2.1</span> Peer review</h3>
+<p>Reviewing others’ work is a common purpose for reading and a key part of the scientific workflow. I think most people aren’t trained in this at all, and based on a casual memory search of the reviews I’ve received, it really shows. I try to follow advice put forth in <span class="citation" data-cites="davisPeerReviewGuidelinesPromoting2018">Davis et al. (2018)</span>, <span class="citation" data-cites="roedigerTwelveTipsReviewers2007">Roediger (2007)</span>, and <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (2017)</span>:</p>
+<blockquote class="blockquote">
+<p>“Remember the Golden Rule. Treat authors the way you’d want to be treated. Be respectful and remember that you can easily demoralize authors, especially students and young scholars. Keep insults and snide comments to yourself. Don’t hide behind a veil of anonymity to lob mean-spirited critiques that you wouldn’t share with the authors face to face.”</p>
+<p>–Scott Lilienfeld in <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (2017)</span></p>
+</blockquote>
+<p>I also try <a href="../open-peer-review/">not to review</a> works that aren’t openly available online. It’s probably a good idea to openly license your reviews, so the publication industry can’t steal and subsequently hide/suppress your words, and make them <a href="https://prereview.org/profiles/0000-0001-5052-066X">available</a> online so all can learn from them.</p>
+</section>
+</section>
+<section id="writing" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="writing"><span class="header-section-number">3</span> Writing</h2>
+<p>After developing a sufficient understanding of what I’m doing and what others have thought about the topic, I start writing some words into a <a href="https://plain-text.co/">plain text</a> <span class="citation" data-cites="healyPlainPersonsGuide2019">(Healy 2019)</span> file. This file may or may not build toward an early version of a manuscript.</p>
+<p>My buddy Niklas once told me to write more like we speak and not in jargon-filled academese. I try to follow this advice as best as I can, but have a fondness for sentences that flow long like the Amazon river—through forests, mountainous valleys, flatlands, and human settlements—and thus become incomprehensible to readers who long ago have forgotten the point once they reach the sentence’s final punctuation mark. I guess we now have <a href="https://thebullshitmachines.com/">LLMs to help us write</a>, but these words are mine, and I take pleasure in crafting them and the process of discovery through writing.</p>
+<blockquote class="blockquote">
+<p>“Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way.”</p>
+<p>–<a href="https://www.newyorker.com/culture/the-weekend-essay/why-ai-isnt-going-to-make-art">Ted Chiang</a></p>
+</blockquote>
+<p>If you need some examples to improve your writing, go read some <a href="https://edyong.me/writing">Ed Yong</a>.</p>
+<p>One way in which I make writing more enjoyable for myself is to use the right tool. For me this tool is an integrated development environment (IDE), which is a fancy text editor that allows me to write documents that weave together human and computer words. I currently use <a href="https://positron.posit.co/">Positron</a>, because I like it and it allows writing human words (“prose”, sometimes I don’t know what those words mean so I use <a href="https://onelook.com/">onelook.com</a>) and computer words (“code”, sometimes I have no idea what I’m doing so I read the <a href="https://paulbuerkner.com/brms/">documentation</a>) together into computationally reproducible documents (<a href="https://quarto.org/">more</a> on this in Section&nbsp;4).</p>
+<p>Many people use Microsoft Word and that’s fine too, but one should not be surprised that there are alternatives. And if you use Word, do yourself a favor and use the Styles panel.</p>
+<section id="positron-or-rstudio-vs-code-or-any-ide" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="positron-or-rstudio-vs-code-or-any-ide"><span class="header-section-number">3.1</span> Positron (or RStudio, VS Code, or any IDE)</h3>
+<p>Figure&nbsp;3 shows what Positron looks like as I am writing this document. It’s confusing but you get used to it. On the left, I have a source file open called <code>index.qmd</code> (I’ll talk more about this below in Section&nbsp;4). Below it, there’s a terminal into which I can write commands that do things on my computer. On the left is a preview of what the rendered document will look like, which updates every time I save the source document.</p>
+<div id="fig-ide" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/workflow/images/ide.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Screenshot of my IDE (Positron) as I write this document.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-docs" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-docs"><span class="header-section-number">4</span> Computationally reproducible documents</h2>
+<p>Computationally reproducible documents are <a href="https://plain-text.co/">plain text</a> <span class="citation" data-cites="healyPlainPersonsGuide2019">(Healy 2019)</span> files into which I write prose, such as this, and code, such as the colored text in Figure&nbsp;3. (You can see the plain text source file of this very document <a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/workflow/index.qmd">here</a>). This source file is then “rendered” into a typeset document using a computer program. The code languages in that figure are <a href="https://quarto.org/docs/authoring/front-matter.html">YAML</a> at the top, which I use to specify metadata (the document’s title, for example) and <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown</a>, which I use to format text (<code>**bold**</code> source turns into <strong>bold</strong> output).</p>
+<p>Other languages I commonly use in these documents are <a href="https://quarto.org/docs/computations/r.html">R</a>, which is a statistics language (<code>`{r} sqrt(2)`</code> in source turns into 1.41 in the output), and <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">LaTeX</a>, used to typeset maths from <code>$y = \alpha + \beta x$</code> in the source file to <img src="https://latex.codecogs.com/png.latex?y%20=%20%5Calpha%20+%20%5Cbeta%20x"> in the output document.</p>
+<section id="quarto" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="quarto"><span class="header-section-number">4.1</span> Quarto</h3>
+<p>To combine prose with all these languages and their outputs, a computer program is needed. I use <a href="https://quarto.org/">Quarto</a>. The source document “index.qmd” in Figure&nbsp;3 is a Quarto document, and this is how I write all of my computationally reproducible documents. What this means is that I might write a file like <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e">this</a>, run a command (<code>quarto render index.qmd</code>) in the terminal, and get <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e?permalink_comment_id=5659871#gistcomment-5659871">this</a>.</p>
+<p>Many choose to write in MS Word (or LaTeX) instead, which is fine, but you cannot create reproducible documents with Word. With Word I need to copy-paste my computational results to the Word file. When they or data supporting them change, I must copy-paste again. Mistakes happen!</p>
+<p>Reproducible documents typically require a project with many files: data, bibliographies, supplementary code, and so on. Here is the basic file structure common to many of my projects:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❯</span> eza <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--tree</span> my-project <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--level</span> 2</span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">my-project</span></span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> _quarto.yml</span>
+<span id="cb1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> bibliography.bib</span>
+<span id="cb1-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> data-raw</span>
+<span id="cb1-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>   └── data.csv</span>
+<span id="cb1-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> index.qmd</span>
+<span id="cb1-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> README.md</span></code></pre></div>
+<p>The most important file there is “README.md”, which must describe what the project is, who is involved, and how to reproduce all the computations and the manuscript itself. The computations and manuscript content are all in “index.qmd”. Here are two example manuscripts’ Quarto source files: <a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/sdt-regression/index.qmd">Estimating Signal Detection Models with regression using the brms R package</a> &amp; <a href="https://github.com/mvuorre/heterogeneity-uncertainty/blob/main/index.qmd">Communicating causal effect heterogeneity</a>. Here are what they look like when “rendered” with Quarto: <a href="https://osf.io/preprints/psyarxiv/vtfc3_v1" class="uri">https://osf.io/preprints/psyarxiv/vtfc3_v1</a> &amp; <a href="https://osf.io/preprints/psyarxiv/mwg4f_v1" class="uri">https://osf.io/preprints/psyarxiv/mwg4f_v1</a>.</p>
+<p>“_quarto.yml” contains Quarto <a href="https://quarto.org/docs/projects/quarto-projects.html">metadata</a>, such as what the output should look like. “bibliography.bib” is a <a href="https://quarto.org/docs/authoring/citations.html">bibliography file</a> that contains all the references and their information used in the document.</p>
+</section>
+<section id="bibliography-management" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="bibliography-management"><span class="header-section-number">4.2</span> Bibliography management</h3>
+<p>Since I use Zotero to manage my library and Positron to write my Quarto documents, I use <a href="../zotero-positron-vscode/">this extension</a> to easily insert references in the document. In Positron, I call “Zotero Citation Picker”, find a reference, hit return which inserts something like <code>[@healyPlainPersonsGuide2019]</code> into the text and the associated entry in the bibliography file. When the document is rendered, the citation is automatically formatted as an in-text reference and in the bibliography section.</p>
+</section>
+</section>
+<section id="version-control" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="version-control"><span class="header-section-number">5</span> Version control</h2>
+<p>While tools like MS Word’s “track changes” can be nice when you’re writing prose, they don’t work with computationally reproducible documents. So we end up with version control systems, such as <a href="https://swcarpentry.github.io/git-novice/">Git</a>.</p>
+<section id="git" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="git"><span class="header-section-number">5.1</span> Git</h3>
+<p>So what is Git, and version control systems more generally? This is a <em>whole thing</em> that you should learn about on <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry’s</a> or <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Atlassian’s</a> websites. It is mainly used by programmers, but as Richard McElreath puts in <a href="https://youtu.be/8qzVV7eEiaI?si=CNJ_cnGj2BpECdvX">Science as Amateur Software Development</a> today’s research involves a lot of programming, and we ignore that fact at our peril.</p>
+<p>After I’ve established what idea I’m working on and how, I’m going to start tracking the state of the project with Git <span class="citation" data-cites="vuorreCuratingResearchAssets2018">(Vuorre and Curley 2018)</span>. I create a local Git repo, and link it to a remote GitHub repository (more on that in Section&nbsp;6.1). I commit my changes whenever it makes sense but am not religious about it: Version control is a tool to get stuff done, not the stuff itself. Figure&nbsp;4 shows how an example project might unfold over time.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-git" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-git-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-git">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryBorderColor': '#666',
+    'commitLabelFontSize': '12px',
+    'commitLabelBackground': '#ffffff',
+    'git0': '#4a90e2',
+    'git1': '#7b68ee'
+  }
+}}%%
+
+gitGraph
+    commit id: "Initial project"
+    commit id: "Add data collection script"
+    commit id: "Add statistical analysis"
+    commit id: "First draft complete" tag: "v0.1.0"
+    branch modeling
+    checkout modeling
+    commit id: "Try alternative model"
+    commit id: "Add sensitivity analysis"
+    commit id: "Robustness checks"
+    checkout main
+    commit id: "Update documentation"
+    commit id: "Fix data processing"
+    merge modeling
+    commit id: "Finalize results"
+    commit id: "Analysis complete" tag: "v0.2.0"
+    commit id: "Add publication plots"
+    commit id: "Ready for submission" tag: "v1.0.0"
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-git-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Schematic of a project versioned with Git. ‘main’ is the branch where most of the work happens, but I switched to ‘modeling’ when I was working on a large feature. Diagonal texts are Git ‘commit messages’ that give descriptive labels of changes that occurred at that time. I use ‘v0.1.0’ tags to indicate “versions” of the project that are associated with a rendered output document or project milestone.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If I’m working alone on a project, I often don’t bother with branches. If I’m working with others, I’m more careful and try to keep the main branch clean and working, so it is easier for others to maintain a working version without my possibly temporary and breaking changes. In Figure&nbsp;4 I switched to a “modeling” branch to work on a large feature, and didn’t want to put incomplete work into the ‘main’ branch, but still keep track of checkpoints on that work using commits. This probably makes no sense, but should after you’ve read <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry’s</a> tutorial on Git.</p>
+</section>
+</section>
+<section id="collaboration" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="collaboration"><span class="header-section-number">6</span> Collaboration</h2>
+<p>Version control systems are mistakenly interpreted, as I suggest above, to be about version control. They do that too, but their main benefits become apparent when collaborating. Just like the “track changes” feature in MS Word, they allow you to see what’s changed in your document(s) and review &amp; undo edits, but more importantly they help <em>others</em> with that. It doesn’t matter if that “other” is another person or the selfsame you later in time.</p>
+<div id="fig-github" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-github-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/workflow/images/git.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-github-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Schematic of a collaborative workflow using GitHub (Software Carpentries).
+</figcaption>
+</figure>
+</div>
+<p>If I’m just writing prose, I’ll probably collaborate on a Google Docs or MS Word (on OneDrive or some similar abomination), because these cloud platforms minimize friction in getting changes from person A to person B. As soon as we’re working together on a computationally reproducible projet, I encourage people to collaborate on the Git repo whose remote is on <a href="https://github.com/mvuorre">GitHub</a>. Figure&nbsp;5 (<a href="https://carpentries-incubator.github.io/open-science-with-r/09-collaborating/index.html">source</a>) shows a schematic of a collaborative workflow.</p>
+<section id="sec-github" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="sec-github"><span class="header-section-number">6.1</span> GitHub</h3>
+<p>GitHub is a Git repository hosting and collaboration platform. It is a for-profit enterprise owned by Microsoft, and while I use it I’m prepared to abandon ship as soon as enshittification begins. Right now it is the best tool for collaborating on Git repositories, but others exist.</p>
+<p>After I’ve connected my local Git repo to a GitHub remote, I’ll send a link to my collaborators so they can clone their local version, work on it, commit, push, and send pull requests for me to review. There’s a lot of weird words there but they’re quick to learn (from <a href="https://happygitwithr.com/">here</a> or <a href="https://swcarpentry.github.io/git-novice/">here</a>, for example).</p>
+</section>
+<section id="fallback-options" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="fallback-options"><span class="header-section-number">6.2</span> Fallback options</h3>
+<p>So it is clearly unrealistic to demand that all collaborators are on board with this workflow. That’s fine. For me it is important to manage a single source of truth—the reproducible Quarto plain text file that includes all the computations. But many others prefer Word or Google Docs. In those cases I read others’ revisions / comments / suggestions in the Word document, and based on my judgment edit the source Quarto document. I then render it into Word along with PDF (which will be the version I’ll submit). Going between Word and Positron is not optimal, but the goal is to go from “Receive idea” to “Science” (Figure&nbsp;1) with the least friction. I’ve found it is not that painful—with Word track changes someone still needs to evaluate revisions and modify accordingly. Here there’s just the extra step of doing that in a separate file.</p>
+<p>If I’m not the lead author but maybe just working on the analyses or Results section, I write a Quarto file for just the Results section. That usually works okay as well.</p>
+</section>
+</section>
+<section id="depositing-materials" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="depositing-materials"><span class="header-section-number">7</span> Depositing materials</h2>
+<p>Many folks in my field drag and drop their files from their local filesystem to the <a href="https://osf.io/">Open Science Framework</a>. I prefer a simpler (to me) workflow, where <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">GitHub releases</a> are automatically archived (with citation metadata, a DOI, etc) to <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">Zenodo</a>. Here is a <a href="https://zenodo.org/records/15533999">Zenodo</a> archive of <a href="https://github.com/digital-wellbeing/paradigm-comments">this GitHub</a> repository that contains a computationally reproducible manuscript project for <a href="https://osf.io/dpuya_v2">this manuscript</a>.</p>
+</section>
+<section id="showing-my-work-to-others" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="showing-my-work-to-others"><span class="header-section-number">8</span> Showing my work to others</h2>
+<p>In academia, we typically call the process of showing our work to others “publishing”. Although the goal is pretty clear—make publicly funded common goods, or science, freely available for anyone to read—publishing is a byzantine process (Figure&nbsp;6).</p>
+<div id="fig-publish" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-publish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://vuorre.com/posts/workflow/images/syed.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-publish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Moin Syed’s <a href="https://bsky.app/profile/syeducation.bsky.social/post/3logkez7hsk25">Blyesky post</a> about academic publishing.
+</figcaption>
+</figure>
+</div>
+<p>I am increasingly against how the current “publishing” system works, and for me a near-final milestone for an academic document is the PDF file I post to <a href="https://osf.io/preprints/psyarxiv">PsyArXiv Preprints</a>, a popular document-sharing platform for the psychological sciences. Optimally I would receive peer feedback on those documents to incorporate into the write-up, but sadly this is not how things work yet. So we go through some of the worst web portals known to humanity to “submit”, “revise and resubmit”, and “publish” the words and pictures in other kinds of websites called “journals”. It’s all a bit silly.</p>
+<p>Surprisingly, my thoughts on this topic are not universally shared. For some context, take a look <a href="https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html">here</a> and <a href="https://web-archive.southampton.ac.uk/cogprints.org/1642/1/nature4.htm">here</a> <span class="citation" data-cites="harnadScholarlySkywritingPrepublication1990 harnadSelfarchivingInitiative2001">(Harnad 1990, 2001)</span>.</p>
+</section>
+<section id="overview-of-tools" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="overview-of-tools"><span class="header-section-number">9</span> Overview of tools</h2>
+<div id="tbl-letters" class="bordered responsive info quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: An overview of tools used in my workflow, in rough order of appearance.
+</figcaption>
+<div aria-describedby="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="table-responsive">
+<table class="table-bordered table-info caption-top table">
+<thead>
+<tr class="header">
+<th>Tool/Platform</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://zotero.org">Zotero</a></td>
+<td>Library and reference manager. (See also <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a>.)</td>
+</tr>
+<tr class="even">
+<td><a href="https://positron.posit.co/">Positron</a></td>
+<td>Integrated Development Enviroment for writing reproducible computational documents. (See also <a href="https://vuorre.com/posts/zotero-positron-vscode/">Zotero citation picker</a>, &amp; <a href="https://posit-dev.github.io/air/editor-vscode.html">Air formatter</a>.)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://quarto.org/">Quarto</a></td>
+<td>A program for writing reproducible documents with multiple output formats.</td>
+</tr>
+<tr class="even">
+<td><a href="https://git-scm.com/">Git</a></td>
+<td>Version control system: Tracks the history of a folder on your computer.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/mvuorre">GitHub</a></td>
+<td>Collaboration platform for projects tracked with Git.</td>
+</tr>
+<tr class="even">
+<td><a href="https://zenodo.org/">Zenodo</a></td>
+<td>An open-source, CERN-backed archiving and sharing platform. Automatically archives my projects’ GitHub releases and assigns each a citeable DOI.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a></td>
+<td>Document sharing platform for the psychological sciences.</td>
+</tr>
+<tr class="even">
+<td><a href="https://prereview.org/">PREreview</a></td>
+<td>Peer-review platform.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</section>
+<section id="end" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="end"><span class="header-section-number">10</span> End</h2>
+<p>The central ideas in the ongoing can be boiled down to this:</p>
+<ol type="1">
+<li>Decide and define early on what you’re doing / the anticipated “product”. Usually this is a scholarly manuscript available for others to read and criticize.</li>
+<li>Put all the things related to that thing into as few places as possible. Then track that with Git, and collaborate on GitHub.</li>
+<li>Ensure that anyone can get the source of the project, click a button, and create the manuscript you share on PsyArXiv.</li>
+</ol>
+<p>Maybe that goes between collecting the underpants and profit?</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-careyTenSimpleRules2020" class="csl-entry">
+Carey, Maureen A., Kevin L. Steiner, and William A. Jr Petri. 2020. <span>“Ten Simple Rules for Reading a Scientific Paper.”</span> <em>PLOS Computational Biology</em> 16 (7): e1008032. <a href="https://doi.org/10.1371/journal.pcbi.1008032">https://doi.org/10.1371/journal.pcbi.1008032</a>.
+</div>
+<div id="ref-davisPeerReviewGuidelinesPromoting2018" class="csl-entry">
+Davis, William E., Roger Giner-Sorolla, D. Stephen Lindsay, Jessica P. Lougheed, Matthew C. Makel, Matt E. Meier, Jessie Sun, Leigh Ann Vaughn, and John M. Zelenski. 2018. <span>“Peer-<span>Review Guidelines Promoting Replicability</span> and <span>Transparency</span> in <span>Psychological Science</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 556–73. <a href="https://doi.org/10.1177/2515245918806489">https://doi.org/10.1177/2515245918806489</a>.
+</div>
+<div id="ref-harnadScholarlySkywritingPrepublication1990" class="csl-entry">
+Harnad, Stevan. 1990. <span>“Scholarly <span>Skywriting</span> and the <span>Prepublication Continuum</span> of <span>Scientific Inquiry</span>.”</span> <em>Psychological Science</em> 1 (6): 342–44. <a href="https://doi.org/10.1111/j.1467-9280.1990.tb00234.x">https://doi.org/10.1111/j.1467-9280.1990.tb00234.x</a>.
+</div>
+<div id="ref-harnadSelfarchivingInitiative2001" class="csl-entry">
+———. 2001. <span>“The Self-Archiving Initiative.”</span> <em>Nature</em> 410 (April): 1024. <a href="https://doi.org/10.1038/35074210">https://doi.org/10.1038/35074210</a>.
+</div>
+<div id="ref-healyPlainPersonsGuide2019" class="csl-entry">
+Healy, Kieran. 2019. <em>The <span>Plain Person</span>’s <span>Guide</span> to <span>Plain Text Social Science</span></em>. <a href="https://plain-text.co/">https://plain-text.co/</a>.
+</div>
+<div id="ref-lindsayDigestTipsReviewerspdf2017" class="csl-entry">
+Lindsay, D., Roger Giner-Sorolla, and Jessie Sun. 2017. <span>“Digest of <span>Tips</span> for <span>Reviewers</span>.pdf,”</span> July. <a href="https://osf.io/https://osf.io/hbyu2">https://osf.io/https://osf.io/hbyu2</a>.
+</div>
+<div id="ref-oberheimPaulFeyerabend2025" class="csl-entry">
+Oberheim, Eric, and John Preston. 2025. <span>“Paul <span>Feyerabend</span>.”</span> In <em>The <span>Stanford Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta and Uri Nodelman, Spring 2025. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/spr2025/entries/feyerabend/">https://plato.stanford.edu/archives/spr2025/entries/feyerabend/</a>.
+</div>
+<div id="ref-roedigerTwelveTipsReviewers2007" class="csl-entry">
+Roediger, Henry L. 2007. <span>“Twelve <span>Tips</span> for <span>Reviewers</span>.”</span> <em>APS Observer</em> 20 (April). <a href="https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers">https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers</a>.
+</div>
+<div id="ref-savageHowWhyRead2024" class="csl-entry">
+Savage, Patrick E. 2024. <span>“How and Why to Read (and Write and Publish) Academic Research.”</span> OSF. <a href="https://doi.org/10.31234/osf.io/p37zj">https://doi.org/10.31234/osf.io/p37zj</a>.
+</div>
+<div id="ref-scheelWhyMostPsychological2022" class="csl-entry">
+Scheel, Anne M. 2022. <span>“Why Most Psychological Research Findings Are Not Even Wrong.”</span> <em>Infant and Child Development</em> 31 (1): e2295. <a href="https://doi.org/10.1002/icd.2295">https://doi.org/10.1002/icd.2295</a>.
+</div>
+<div id="ref-vuorreCuratingResearchAssets2018" class="csl-entry">
+Vuorre, Matti, and James P. Curley. 2018. <span>“Curating <span>Research Assets</span>: <span>A Tutorial</span> on the <span>Git Version Control System</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (2): 219–36. <a href="https://doi.org/10.1177/2515245918754826">https://doi.org/10.1177/2515245918754826</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+  author = {Vuorre, Matti},
+  title = {How {I} Work on Computationally Reproducible Academic
+    Projects},
+  date = {2025-08-22},
+  url = {https://vuorre.com/posts/workflow/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2025. <span>“How I Work on Computationally Reproducible
+Academic Projects.”</span> August 22, 2025. <a href="https://vuorre.com/posts/workflow/">https://vuorre.com/posts/workflow/</a>.
+</div></div></section></div> ]]></description>
+  <category>tips</category>
+  <category>computers</category>
+  <category>education</category>
+  <guid>https://vuorre.com/posts/workflow/</guid>
+  <pubDate>Thu, 21 Aug 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://vuorre.com/posts/workflow/images/underpants.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>PDF-direct</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -17235,1379 +17583,6 @@ Regression Using the Brms R Package.”</span> <em>PsyArXiv</em>. <a href="https
   <guid>https://vuorre.com/posts/sdt-regression/</guid>
   <pubDate>Sun, 08 Oct 2017 22:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/sdt-regression/index_files/figure-html/fig-sdt-example-1.png" medium="image" type="image/png" height="58" width="144"/>
-</item>
-<item>
-  <title>Bayes Factors with brms</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Here’s a short post on how to calculate Bayes Factors with the R package <a href="http://CRAN.R-project.org/package=brms">brms</a> using the Savage-Dickey density ratio method <span class="citation" data-cites="wagenmakers_bayesian_2010">(Wagenmakers et al. 2010)</span>.</p>
-<p>To get up to speed with what the Savage-Dickey density ratio method is–or what Bayes Factors are–please read the target article <span class="citation" data-cites="wagenmakers_bayesian_2010">(Wagenmakers et al. 2010)</span>. (The paper is available on the <a href="http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf">author’s webpage</a>.) Here, I’ll only show the R &amp; brms code to do the calculations discussed in <span class="citation" data-cites="wagenmakers_bayesian_2010">Wagenmakers et al. (2010)</span>. In their paper, they used WinBUGS, which requires quite a bit of code to sample from even a relatively simple model. brms on the other hand uses the familiar R formula syntax, making it easy to use. brms also does the MCMC sampling with <a href="http://mc-stan.org/">Stan</a> <span class="citation" data-cites="stan_development_team_stan:_2016">(Stan Development Team 2016)</span>, or rather creates Stan code from a specified R model formula by what can only be described as string processing magic, making the sampling very fast. Let’s get straight to the examples. We will use these packages:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(knitr)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(kableExtra)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(scales)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(brms)</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span>
-<span id="cb1-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
-</div>
-<section id="example-0" class="level2">
-<h2 class="anchored" data-anchor-id="example-0">Example 0</h2>
-<p>Wagenmakers and colleagues begin with a simple example of 10 true/false questions: We observe a person answering 9 (s) out of 10 (k) questions correctly.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">s =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">k =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>)</span></code></pre></div>
-</div>
-<p>We are interested in the person’s latent ability to answer similar questions correctly. This ability is represented by <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> (theta), which for us will be the probability parameter (sometimes also called the rate parameter) in a binomial distribution. The maximum likelihood (point) estimate for <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the proportion n/k = .9.</p>
-<p>The first thing we’ll need to specify with respect to our statistical model is the prior probability distribution for <img src="https://latex.codecogs.com/png.latex?%5Ctheta">. As in Wagenmakers et al.&nbsp;2010, we specify a uniform prior, representing no prior information about the person’s ability to aswer the questions. For the binomial probability parameter, <img src="https://latex.codecogs.com/png.latex?Beta(%5Calpha%20=%201,%20%5Cbeta%20=%201)"> is a uniform prior.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">pd <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span>(</span>
-<span id="cb3-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">by =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">01</span>),</span>
-<span id="cb3-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Prior =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">dbeta</span>(x, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
-<span id="cb3-4">)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The solid line represents the probability density assigned to values of <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> by this prior probability distribution. You can see that it is 1 for all possible parameter values: They are all equally likely a priori. For this simple illustration, we can easily calculate the posterior distribution by adding the number of correct and incorrect answers to the parameters of the prior Beta distribution.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">pd<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Posterior <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">dbeta</span>(pd<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The Savage-Dickey density ratio is calculated by dividing the posterior density by the prior density at a specific parameter value. Here, we are interested in .5, a “null hypothesis” value indicating that the person’s latent ability is .5, i.e.&nbsp;that they are simply guessing.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Bayes Factors for first example.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Prior</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Posterior</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">BF01</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">BF10</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.5</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.107</td>
-<td style="text-align: right;">0.107</td>
-<td style="text-align: right;">9.309</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>OK, so in this example we are able to get to the posterior with simply adding values into the parameters of the Beta distribution, but let’s now see how to get to this problem using brms. First, here’s the brms formula of the model:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">m0 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bf</span>(</span>
-<span id="cb5-2">  s <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">trials</span>(k) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> Intercept,</span>
-<span id="cb5-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">binomial</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"identity"</span>)</span>
-<span id="cb5-4">)</span></code></pre></div>
-</div>
-<p>Read the first line as “s successes from k trials regressed on intercept”. That’s a little clunky, but bear with it. If you are familiar with R’s modeling syntax, you’ll be wondering why we didn’t simply specify <code>~ 1</code> (R’s default notation for an intercept). The reason is that brms by default uses a little trick in parameterizing the intercept which speeds up the MCMC sampling. In order to specify a prior for the intercept, you’ll have to take the default intercept out (<code>0 +</code>), and use the reserved string <code>intercept</code> to say that you mean the regular intercept. See <code>?brmsformula</code> for details. (For this model, with only one parameter, this complication doesn’t matter, but I wanted to introduce it early on so that you’d be aware of it when estimating multi-parameter models.)</p>
-<p>The next line specifies that the data model is binomial, and that we want to model it’s parameter through an identity link. Usually when you model proportions or binary data, you’d use a logistic (logistic regression!), probit or other similar link function. In fact this is what we’ll do for later examples. Finally, we’ll use the data frame <code>d</code>.</p>
-<p>OK, then we’ll want to specify our priors. Priors are extremo important for Bayes Factors–and probabilistic inference in general. To help set priors, we’ll first call <code>get_priors()</code> with the model information, which is basically like asking brms to tell what are the possible priors, and how to specify then, given this model.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">get_prior</span>(m0, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d)</span>
-<span id="cb6-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   prior class      coef group resp dpar nlpar lb ub       source</span></span>
-<span id="cb6-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  (flat)     b                                            default</span></span>
-<span id="cb6-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  (flat)     b Intercept                             (vectorized)</span></span></code></pre></div>
-</div>
-<p>The first line says that there is only one class of parameters <code>b</code>, think of class <code>b</code> as “betas” or “regression coefficients”. The second line says that the <code>b</code> class has only one parameter, the intercept. So we can set a prior for the intercept, and this prior can be any probability distribution in Stan language. We’ll create this prior using brms’ <code>set_prior()</code>, give it a text string representing the Beta(1, 1) prior for all parameters of class <code>b</code> (shortcut, could also specify that we want it for the intercept specifically), and then say the upper and lower bounds (<img src="https://latex.codecogs.com/png.latex?%5Ctheta"> must be between 0 and 1).</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">Prior <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set_prior</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"beta(1, 1)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">class =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">lb =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ub =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-</div>
-<p>Almost there. Now we’ll actually sample from the model using <code>brm()</code>, give it the model, priors, data, ask it to sample from priors (for the density ratio), and set a few extra MCMC parameters.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">m <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">brm</span>(</span>
-<span id="cb8-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">formula =</span> m0,</span>
-<span id="cb8-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">prior =</span> Prior,</span>
-<span id="cb8-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d,</span>
-<span id="cb8-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sample_prior =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,</span>
-<span id="cb8-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">iter =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1e4</span>,</span>
-<span id="cb8-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,</span>
-<span id="cb8-8">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"bayesfactormodel"</span></span>
-<span id="cb8-9">)</span></code></pre></div>
-</div>
-<p>We can get the estimated parameter by asking the model summary:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(m)</span>
-<span id="cb9-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  Family: binomial </span></span>
-<span id="cb9-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Links: mu = identity </span></span>
-<span id="cb9-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Formula: s | trials(k) ~ 0 + Intercept </span></span>
-<span id="cb9-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##    Data: d (Number of observations: 1) </span></span>
-<span id="cb9-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
-<span id="cb9-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##          total post-warmup draws = 20000</span></span>
-<span id="cb9-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb9-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Regression Coefficients:</span></span>
-<span id="cb9-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb9-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Intercept     0.83      0.10     0.60     0.97 1.00     6332     5915</span></span>
-<span id="cb9-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb9-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
-<span id="cb9-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
-<span id="cb9-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-</div>
-<p>The Credible Interval matches exactly what’s reported in the paper. The point estimate differs slightly because here we see the posterior mean, whereas in the paper, Wagenmakers et al.&nbsp;report the posterior mode. I’ll draw a line at their posterior mode, below, to show that it matches.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">samples <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">posterior_samples</span>(m, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Six first rows of posterior samples.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">b_Intercept</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">prior_b</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.25</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.82</td>
-<td style="text-align: right;">0.49</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.83</td>
-<td style="text-align: right;">0.03</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.91</td>
-<td style="text-align: right;">0.43</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.92</td>
-<td style="text-align: right;">0.86</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.59</td>
-<td style="text-align: right;">0.63</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We can already see the densities, so all that’s left is to obtain the exact values at the value of interest (.5) and take the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bposterior%7D%7Bprior%7D"> ratio. Instead of doing any of this by hand, we’ll use brms’ function <code>hypothesis()</code> that allows us to test point hypotheses using the Dickey Savage density ratio. For this function we’ll need to specify the point of interest, .5, as the point hypothesis to be tested.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">h <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypothesis</span>(m, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Intercept = 0.5"</span>)</span>
-<span id="cb11-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">print</span>(h, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span>
-<span id="cb11-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Hypothesis Tests for class b:</span></span>
-<span id="cb11-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##              Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb11-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1 (Intercept)-(0.5) = 0    0.334    0.1011   0.0958    0.475     0.0989      0.09    *</span></span>
-<span id="cb11-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ---</span></span>
-<span id="cb11-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
-<span id="cb11-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
-<span id="cb11-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
-<span id="cb11-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
-</div>
-<p>The <code>Evid.Ratio</code> is our Bayes Factor BF01. Notice that it matches the value 0.107 pretty well. You can also plot this hypothesis object easily with the <code>plot()</code> method:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot</span>(h)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>OK, so that was a lot of work for such a simple problem, but the real beauty of brms (and Stan) is the scalability: We can easily solve a problem with one row of data and one parameter, and it won’t take much more to solve a problem with tens of thousands of rows of data, and hundreds of parameters. Let’s move on to the next example from <span class="citation" data-cites="wagenmakers_bayesian_2010">Wagenmakers et al. (2010)</span>.</p>
-</section>
-<section id="example-1-equality-of-proportions" class="level2">
-<h2 class="anchored" data-anchor-id="example-1-equality-of-proportions">Example 1: Equality of Proportions</h2>
-<p>These are the data from the paper</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(</span>
-<span id="cb13-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pledge =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"yes"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"no"</span>),</span>
-<span id="cb13-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">s =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">424</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5416</span>),</span>
-<span id="cb13-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">n =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">777</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9072</span>)</span>
-<span id="cb13-5">)</span>
-<span id="cb13-6">d</span>
-<span id="cb13-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   pledge    s    n</span></span>
-<span id="cb13-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1    yes  424  777</span></span>
-<span id="cb13-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 2     no 5416 9072</span></span></code></pre></div>
-</div>
-<p>They use Beta(1, 1) priors for both rate parameters, which we’ll do as well. Notice that usually a regression formula has an intercept and a coefficient (e.g.&nbsp;effect of group.) By taking the intercept out (<code>0 +</code>) we can define two pledger-group proportions instead, and set priors on these. If we used an intercept + effect formula, we could set a prior on the effect itself.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">m1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bf</span>(</span>
-<span id="cb14-2">  s <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">trials</span>(n) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> pledge,</span>
-<span id="cb14-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">binomial</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"identity"</span>)</span>
-<span id="cb14-4">)</span>
-<span id="cb14-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">get_prior</span>(</span>
-<span id="cb14-6">  m1,</span>
-<span id="cb14-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d</span>
-<span id="cb14-8">)</span>
-<span id="cb14-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   prior class      coef group resp dpar nlpar lb ub       source</span></span>
-<span id="cb14-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  (flat)     b                                            default</span></span>
-<span id="cb14-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  (flat)     b  pledgeno                             (vectorized)</span></span>
-<span id="cb14-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  (flat)     b pledgeyes                             (vectorized)</span></span></code></pre></div>
-</div>
-<p>We can set the Beta prior for both groups’ rate with one line of code by setting the prior on the <code>b</code> class without specifying the <code>coef</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">Prior <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set_prior</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"beta(1, 1)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">class =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">lb =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ub =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-</div>
-<p>Like above, let’s estimate.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">m1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">brm</span>(</span>
-<span id="cb16-2">  m1,</span>
-<span id="cb16-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">prior =</span> Prior,</span>
-<span id="cb16-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sample_prior =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,</span>
-<span id="cb16-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">iter =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1e4</span>,</span>
-<span id="cb16-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d,</span>
-<span id="cb16-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,</span>
-<span id="cb16-8">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"bayesfactormodel2"</span></span>
-<span id="cb16-9">)</span></code></pre></div>
-</div>
-<p>Our estimates match the MLEs reported in the paper:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(m1)</span>
-<span id="cb17-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  Family: binomial </span></span>
-<span id="cb17-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Links: mu = identity </span></span>
-<span id="cb17-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Formula: s | trials(n) ~ 0 + pledge </span></span>
-<span id="cb17-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##    Data: d (Number of observations: 2) </span></span>
-<span id="cb17-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
-<span id="cb17-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##          total post-warmup draws = 20000</span></span>
-<span id="cb17-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb17-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Regression Coefficients:</span></span>
-<span id="cb17-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb17-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## pledgeno      0.60      0.01     0.59     0.61 1.00    16511    13651</span></span>
-<span id="cb17-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## pledgeyes     0.55      0.02     0.51     0.58 1.00    17587    12835</span></span>
-<span id="cb17-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb17-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
-<span id="cb17-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
-<span id="cb17-16"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-</div>
-<p>To get the density ratio Bayes Factor, we’ll need to specify a text string as our hypothesis. Our hypothesis is that the rate parameters <img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> and <img src="https://latex.codecogs.com/png.latex?%5Ctheta_2"> are not different: <img src="https://latex.codecogs.com/png.latex?%5Ctheta_1"> = <img src="https://latex.codecogs.com/png.latex?%5Ctheta_2">. The alternative, then, is the notion that the parameter values differ.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">h1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypothesis</span>(m1, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pledgeyes = pledgeno"</span>)</span>
-<span id="cb18-2">h1</span>
-<span id="cb18-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Hypothesis Tests for class b:</span></span>
-<span id="cb18-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb18-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1 (pledgeyes)-(pled... = 0    -0.05      0.02    -0.09    -0.02       0.52      0.34    *</span></span>
-<span id="cb18-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ---</span></span>
-<span id="cb18-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
-<span id="cb18-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
-<span id="cb18-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
-<span id="cb18-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
-</div>
-<p>As noted in the paper, a difference value of 0 is about twice as well supported before seeing the data, i.e.&nbsp;the null hypothesis of no difference is twice less likely after seeing the data:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> h1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>hypothesis<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Evid.Ratio <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># BF10</span></span>
-<span id="cb19-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## [1] 1.921607</span></span></code></pre></div>
-</div>
-<p>The paper reports BF01 = 0.47, so we’re getting the same results (as we should.) You can also compare this figure to what’s reported in the paper.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">h1p1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot</span>(h1, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">plot =</span> F)[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>]]</span>
-<span id="cb20-2">h1p2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot</span>(h1, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">plot =</span> F)[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>]] <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb20-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">05</span>, .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">05</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>))</span>
-<span id="cb20-4"></span>
-<span id="cb20-5">(h1p1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> h1p2) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb20-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot_layout</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">guides =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"collect"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Moving right on to Example 2, skipping the section on “order restricted analysis”.</p>
-</section>
-<section id="example-2-hierarchical-bayesian-one-sample-proportion-test" class="level2">
-<h2 class="anchored" data-anchor-id="example-2-hierarchical-bayesian-one-sample-proportion-test">Example 2: Hierarchical Bayesian one-sample proportion test</h2>
-<p>The data for example 2 is not available, but we’ll simulate similar data. The simulation assumes that the neither-primed condition average correct probability is 50%, and that the both-primed condition benefit is 5%. Obviously, the numbers here won’t match anymore, but the data reported in the paper has an average difference in proportions of about 4%.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>)</span>
-<span id="cb21-2">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span>(</span>
-<span id="cb21-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">id =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">74</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)),</span>
-<span id="cb21-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">primed =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"neither"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"both"</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">74</span>),</span>
-<span id="cb21-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">prime =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">74</span>), <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Dummy coded</span></span>
-<span id="cb21-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">21</span>,</span>
-<span id="cb21-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">correct =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rbinom</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">74</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">21</span>, .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> prime <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">05</span>)</span>
-<span id="cb21-8">)</span>
-<span id="cb21-9"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">group_by</span>(d, primed) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">p =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sum</span>(correct) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sum</span>(n))</span>
-<span id="cb21-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## # A tibble: 2 × 2</span></span>
-<span id="cb21-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   primed      p</span></span>
-<span id="cb21-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   &lt;chr&gt;   &lt;dbl&gt;</span></span>
-<span id="cb21-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1 both    0.542</span></span>
-<span id="cb21-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 2 neither 0.499</span></span></code></pre></div>
-</div>
-<p>This data yields a similar t-value as in the paper.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">tmp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span></span>
-<span id="cb22-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">p =</span> correct <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> n) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span></span>
-<span id="cb22-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">select</span>(id, primed, p) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span></span>
-<span id="cb22-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">names_from =</span> primed, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">values_from =</span> p)</span>
-<span id="cb22-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">t.test</span>(tmp<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>both, tmp<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>neither, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">paired =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> .)</span>
-<span id="cb22-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb22-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  Paired t-test</span></span>
-<span id="cb22-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb22-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## data:  tmp$both and tmp$neither</span></span>
-<span id="cb22-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## t = 2.3045, df = 73, p-value = 0.02404</span></span>
-<span id="cb22-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## alternative hypothesis: true mean difference is not equal to 0</span></span>
-<span id="cb22-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 95 percent confidence interval:</span></span>
-<span id="cb22-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  0.005741069 0.079201016</span></span>
-<span id="cb22-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## sample estimates:</span></span>
-<span id="cb22-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## mean difference </span></span>
-<span id="cb22-16"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##      0.04247104</span></span></code></pre></div>
-</div>
-<p>Instead of doing a probit regression, I’m going to do logistic regression. Therefore we define the prior on the log-odds scale. The log odds for the expected probability of .5 is 0. I prefer log-odds because–although complicated–they make sense, unlike standardized effect sizes. Note that the probit scale would also be fine as they are very similar.</p>
-<p>Let’s just get a quick intuition about effects in log-odds: The change in log odds from p = .5 to .55 is about 0.2.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span>(</span>
-<span id="cb23-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">rate =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">by =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">01</span>),</span>
-<span id="cb23-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">logit =</span> arm<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">logit</span>(rate)</span>
-<span id="cb23-4">) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb23-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(rate, logit)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb23-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_line</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb23-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_segment</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xend =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.55</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">yend =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb23-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_segment</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xend =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">yend =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> .<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb23-9">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We are cheating a little because we know these values, having simulated the data. However, log-odds are not straightforward (!), and this knowledge will allow us to specify better priors in this example. Let’s get the possible priors for this model by calling <code>get_prior()</code>. Notice that the model now includes id-varying “random” effects, and we model them from independent Gaussians by specifying <code>||</code> instead of <code>|</code> which would give a multivariate Gaussian on the varying effects.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">m2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bf</span>(</span>
-<span id="cb24-2">  correct <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">trials</span>(n) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> Intercept <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> prime <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> Intercept <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> prime <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">||</span> id),</span>
-<span id="cb24-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">binomial</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"logit"</span>)</span>
-<span id="cb24-4">)</span>
-<span id="cb24-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">get_prior</span>(</span>
-<span id="cb24-6">  m2,</span>
-<span id="cb24-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d</span>
-<span id="cb24-8">)</span>
-<span id="cb24-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##                 prior class      coef group resp dpar nlpar lb ub       source</span></span>
-<span id="cb24-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##                (flat)     b                                            default</span></span>
-<span id="cb24-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##                (flat)     b Intercept                             (vectorized)</span></span>
-<span id="cb24-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##                (flat)     b     prime                             (vectorized)</span></span>
-<span id="cb24-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  student_t(3, 0, 2.5)    sd                                  0         default</span></span>
-<span id="cb24-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  student_t(3, 0, 2.5)    sd              id                  0    (vectorized)</span></span>
-<span id="cb24-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  student_t(3, 0, 2.5)    sd Intercept    id                  0    (vectorized)</span></span>
-<span id="cb24-16"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  student_t(3, 0, 2.5)    sd     prime    id                  0    (vectorized)</span></span></code></pre></div>
-</div>
-<p>The leftmost column gives the pre-specified defaults used by brms. Here are the priors we’ll specify. The most important pertains to <code>prime</code>, which is going to be the effect size in log-odds. Our prior for the log odds of the prime effect is going to be a Gaussian distribution centered on 0, with a standard deviation of .2, which is rather diffuse.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">Prior <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(</span>
-<span id="cb25-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set_prior</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"normal(0, 10)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">class =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">coef =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Intercept"</span>),</span>
-<span id="cb25-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set_prior</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cauchy(0, 10)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">class =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sd"</span>),</span>
-<span id="cb25-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">set_prior</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"normal(0, .2)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">class =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">coef =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"prime"</span>)</span>
-<span id="cb25-5">)</span></code></pre></div>
-</div>
-<p>Then we estimate the model using the specified priors.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">m2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">brm</span>(</span>
-<span id="cb26-2">  m2,</span>
-<span id="cb26-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">prior =</span> Prior,</span>
-<span id="cb26-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sample_prior =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,</span>
-<span id="cb26-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">iter =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1e4</span>,</span>
-<span id="cb26-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> d,</span>
-<span id="cb26-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,</span>
-<span id="cb26-8">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"bayesfactormodel3"</span></span>
-<span id="cb26-9">)</span></code></pre></div>
-</div>
-<p>OK, so our results here will be different because we didn’t parameterize the prior on a standardized effect size because <strong>a</strong>) I don’t like standardized effect sizes, and <strong>b</strong>) I would have to play around with the Stan code, and this post is about brms. Anyway, here are the estimated parameters:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(m2)</span>
-<span id="cb27-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##  Family: binomial </span></span>
-<span id="cb27-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Links: mu = logit </span></span>
-<span id="cb27-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Formula: correct | trials(n) ~ 0 + Intercept + prime + (0 + Intercept + prime || id) </span></span>
-<span id="cb27-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##    Data: d (Number of observations: 148) </span></span>
-<span id="cb27-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##   Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;</span></span>
-<span id="cb27-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##          total post-warmup draws = 20000</span></span>
-<span id="cb27-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb27-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Multilevel Hyperparameters:</span></span>
-<span id="cb27-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ~id (Number of levels: 74) </span></span>
-<span id="cb27-11"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb27-12"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## sd(Intercept)     0.07      0.05     0.00     0.19 1.00     7582     9246</span></span>
-<span id="cb27-13"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## sd(prime)         0.12      0.08     0.01     0.30 1.00     6057     8731</span></span>
-<span id="cb27-14"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb27-15"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Regression Coefficients:</span></span>
-<span id="cb27-16"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span id="cb27-17"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Intercept     0.01      0.05    -0.09     0.10 1.00    19816    15086</span></span>
-<span id="cb27-18"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## prime         0.15      0.07     0.02     0.28 1.00    20723    16003</span></span>
-<span id="cb27-19"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## </span></span>
-<span id="cb27-20"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
-<span id="cb27-21"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
-<span id="cb27-22"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-</div>
-<p>And our null-hypothesis density ratio:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">h2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypothesis</span>(m2, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"prime = 0"</span>)</span>
-<span id="cb28-2">h2</span>
-<span id="cb28-3"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Hypothesis Tests for class b:</span></span>
-<span id="cb28-4"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">##    Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
-<span id="cb28-5"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 1 (prime) = 0     0.15      0.07     0.02     0.28       0.28      0.22    *</span></span>
-<span id="cb28-6"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## ---</span></span>
-<span id="cb28-7"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
-<span id="cb28-8"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
-<span id="cb28-9"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
-<span id="cb28-10"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div>
-</div>
-<p>Priming effect of zero log-odds is 4 times less likely after seeing the data:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> h2<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>hypothesis<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Evid.Ratio</span>
-<span id="cb29-2"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## [1] 3.531361</span></span></code></pre></div>
-</div>
-<p>This is best illustrated by plotting the densities:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot</span>(h2)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Read the paper! Hopefully you’ll be able to use brms’ <code>hypothesis()</code> function to calculate bayes factors when needed.</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-stan_development_team_stan:_2016" class="csl-entry">
-Stan Development Team. 2016. <em>Stan: A c++ Library for Probability and Sampling, Version 2.15.0</em>. <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
-</div>
-<div id="ref-wagenmakers_bayesian_2010" class="csl-entry">
-Wagenmakers, Eric-Jan, Tom Lodewyckx, Himanshu Kuriyal, and Raoul Grasman. 2010. <span>“Bayesian Hypothesis Testing for Psychologists: A Tutorial on the Savage–Dickey Method.”</span> <em>Cognitive Psychology</em> 60 (3): 158–89. <a href="https://doi.org/10.1016/j.cogpsych.2009.12.001">https://doi.org/10.1016/j.cogpsych.2009.12.001</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
-  author = {Vuorre, Matti},
-  title = {Bayes {Factors} with Brms},
-  date = {2017-03-21},
-  url = {https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2017. <span>“Bayes Factors with Brms.”</span> March 21,
-2017. <a href="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/">https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</a>.
-</div></div></section></div> ]]></description>
-  <category>statistics</category>
-  <category>tutorial</category>
-  <category>R</category>
-  <category>brms</category>
-  <guid>https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/</guid>
-  <pubDate>Mon, 20 Mar 2017 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/2017-03-21-bayes-factors-with-brms/index_files/figure-html/figure1-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 </channel>
 </rss>

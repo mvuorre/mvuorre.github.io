@@ -6,6 +6,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/workflow/index.html",
       "/posts/pdf-direct/index.html",
       "/posts/zotero-positron-vscode/index.html",
       "/posts/bmlm-multilevel-mediation/index.html",

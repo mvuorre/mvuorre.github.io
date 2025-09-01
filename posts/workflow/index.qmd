@@ -1,0 +1,223 @@
+---
+title: How I work on computationally reproducible academic projects
+description: |
+  Stubborn opinions, lessons learned, and other esoterica on the minutiae of day-to-day workflows in academic psychology.
+date: 2025-08-22
+date-modified: 2025-08-22
+categories:
+  - tips
+  - computers
+  - education
+draft: false
+toc: true
+toc-depth: 3
+number-sections: true
+bibliography: bibliography.bib
+image: "images/underpants.jpg"
+---
+
+```{r}
+#| include: false
+
+options(digits = 2)
+```
+
+@fig-underpants outlines an ideal but not fully fleshed out workflow in academic psychology: You receive an idea from divine inspiration, do **?**, and science comes out the other end.
+
+![Underpant gnomes and the ideal scientific workflow. From [South Park](https://en.wikipedia.org/wiki/Gnomes_(South_Park)).](images/underpants.jpg){#fig-underpants width=80%}
+
+There are loosely speaking [as many answers](https://plato.stanford.edu/entries/feyerabend/#AgaiMeth1970) to what **?** signifies as there are practising scientists, and that might be fine, maybe, according to some prominent writers [@oberheimPaulFeyerabend2025].
+
+But instead of philosophizing, here I talk about the day-to-day activities that fill the space between receiving an idea and science: What do I do after receiving an idea? How do I read and write scholarly works? How do I organize my materials and collaborate with others? How do I make my computations and manuscripts reproducible? Where do I put my materials such that they don't just tick an "open data" checkbox but are actually [findable and useable](https://www.go-fair.org/fair-principles/) by others? What kinds of tools fill my workshop and what programs do I run on my computers? And how do I (want to) publish the resulting write-ups?
+
+This post is about providing my current answers to these kinds of questions. It is not really about teaching the tools ([here's some links](https://vuorre.com/posts/methods-syllabus/)), platforms, and methods I use. Instead, I outline the things I have to deal with, and how I bring them together to a workflow where tools (mostly) get out of my way to let work happen. The guiding principle here is to accept that a lot of science these days can be considered "amateur software development" (@fig-dev). So while some of this will be technical, ignoring the technical aspects of scientific work is counterproductive. Instead we might as well learn the tools of the trade.
+
+::: {#fig-dev}
+{{< video https://www.youtube.com/embed/8qzVV7eEiaI >}}
+
+Richard McElreath: "Software is both a cause of unreliable research and part of the solution. The bulk of scientific research relies upon specialized software for data management and analysis. The bad news is that much of this software is poorly tested and documented, and researchers often use software in unreliable ways. Part of the problem is that researchers are being asked to perform a job they have not been trained for: software development. The good news is that borrowing simple habits and open tools from software engineering brings huge benefits. Even more good news: Specialized curricula already exist to train scientists to develop and use these habits in their own research."
+:::
+
+## Curating a library
+
+First, my idea is probably related to something that someone else has already written about. I collect those writings in my [Zotero](https://www.zotero.org/) library. There are alternatives to Zotero but many of them, like Endnote, suck. Zotero is free, open source (extensible), and works well. What I do is I collect all the works I know about the topic into a Zotero collection (or [group library](https://www.zotero.org/groups/6037273/preprints-all-you-need/library)). I then use online search engines to find more works. Most search engines suck, but [Google Scholar](https://scholar.google.com/) sucks the least. When I'm on a website that has some relevant writing (books, articles), I click the little Zotero button in Firefox (requires the Zotero Connector [add-on](https://www.zotero.org/download/)) and the piece is saved to my Zotero library.
+
+If I intend to write a document, I have a related Zotero collection with probably around a hundred works, but this varies a lot depending on how much I know about the topic already. Since all the previous works were wrong, when I read and re-read them my aim is to figure out exactly how they were wrong and why, so I can be a little less wrong this time around: I will also be wrong but hopefully in a useful and transparent way [@scheelWhyMostPsychological2022].
+
+## Reading
+
+I then semirandomly find time---on trains, buses, and aeroplanes---to read and understand what others have thought and done about the topic. It's important to keep in mind that they are all wrong---that's the point of research; nobody knows what they're doing---but you still need to know what others have done in order to stand on their shoulders: What are some common methods and ideas, how have people approached this idea in the past?
+
+If you ask people whether they know how to read, most will answer "yes". Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist [@savageHowWhyRead2024; @careyTenSimpleRules2020] and I'd recommend looking into those.
+
+### Peer review
+
+Reviewing others' work is a common purpose for reading and a key part of the scientific workflow. I think most people aren't trained in this at all, and based on a casual memory search of the reviews I've received, it really shows. I try to follow advice put forth in @davisPeerReviewGuidelinesPromoting2018, @roedigerTwelveTipsReviewers2007, and @lindsayDigestTipsReviewerspdf2017:
+
+>"Remember the Golden Rule. Treat authors the way you’d want to be treated. Be respectful and remember that you can easily demoralize authors, especially students and young scholars. Keep insults and snide comments to yourself. Don't hide behind a veil of anonymity to lob mean-spirited critiques that you wouldn’t share with the authors face to face."
+>
+>--Scott Lilienfeld in @lindsayDigestTipsReviewerspdf2017
+
+I also try [not to review](../open-peer-review/) works that aren't openly available online. It's probably a good idea to openly license your reviews, so the publication industry can't steal and subsequently hide/suppress your words, and make them [available](https://prereview.org/profiles/0000-0001-5052-066X) online so all can learn from them.
+
+## Writing
+
+After developing a sufficient understanding of what I'm doing and what others have thought about the topic, I start writing some words into a [plain text](https://plain-text.co/) [@healyPlainPersonsGuide2019] file. This file may or may not build toward an early version of a manuscript.
+
+My buddy Niklas once told me to write more like we speak and not in jargon-filled academese. I try to follow this advice as best as I can, but have a fondness for sentences that flow long like the Amazon river---through forests, mountainous valleys, flatlands, and human settlements---and thus become incomprehensible to readers who long ago have forgotten the point once they reach the sentence's final punctuation mark. I guess we now have [LLMs to help us write](https://thebullshitmachines.com/), but these words are mine, and I take pleasure in crafting them and the process of discovery through writing.
+
+>"Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way."
+>
+>--[Ted Chiang](https://www.newyorker.com/culture/the-weekend-essay/why-ai-isnt-going-to-make-art)
+
+If you need some examples to improve your writing, go read some [Ed Yong](https://edyong.me/writing).
+
+One way in which I make writing more enjoyable for myself is to use the right tool. For me this tool is an integrated development environment (IDE), which is a fancy text editor that allows me to write documents that weave together human and computer words. I currently use [Positron](https://positron.posit.co/), because I like it and it allows writing human words ("prose", sometimes I don't know what those words mean so I use [onelook.com](https://onelook.com/)) and computer words ("code", sometimes I have no idea what I'm doing so I read the [documentation](https://paulbuerkner.com/brms/)) together into computationally reproducible documents ([more](https://quarto.org/) on this in @sec-docs).
+
+Many people use Microsoft Word and that's fine too, but one should not be surprised that there are alternatives. And if you use Word, do yourself a favor and use the Styles panel.
+
+### Positron (or RStudio, VS Code, or any IDE)
+
+@fig-ide shows what Positron looks like as I am writing this document. It's confusing but you get used to it. On the left, I have a source file open called `index.qmd` (I'll talk more about this below in @sec-docs). Below it, there's a terminal into which I can write commands that do things on my computer. On the left is a preview of what the rendered document will look like, which updates every time I save the source document.
+
+![Screenshot of my IDE (Positron) as I write this document.](images/ide.png){#fig-ide}
+
+## Computationally reproducible documents {#sec-docs}
+
+Computationally reproducible documents are [plain text](https://plain-text.co/) [@healyPlainPersonsGuide2019] files into which I write prose, such as this, and code, such as the colored text in @fig-ide. (You can see the plain text source file of this very document [here](https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/workflow/index.qmd)). This source file is then "rendered" into a typeset document using a computer program. The code languages in that figure are [YAML](https://quarto.org/docs/authoring/front-matter.html) at the top, which I use to specify metadata (the document's title, for example) and [markdown](https://quarto.org/docs/authoring/markdown-basics.html), which I use to format text (`**bold**` source turns into **bold** output).
+
+Other languages I commonly use in these documents are [R](https://quarto.org/docs/computations/r.html), which is a statistics language (`` `{{r}} sqrt(2)` `` in source turns into `r sqrt(2)` in the output), and [LaTeX](https://quarto.org/docs/authoring/markdown-basics.html#equations), used to typeset maths from `$y = \alpha + \beta x$` in the source file to $y = \alpha + \beta x$ in the output document.
+
+### Quarto
+
+To combine prose with all these languages and their outputs, a computer program is needed. I use [Quarto](https://quarto.org/). The source document "index.qmd" in @fig-ide is a Quarto document, and this is how I write all of my computationally reproducible documents. What this means is that I might write a file like [this](https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e), run a command (`quarto render index.qmd`) in the terminal, and get [this](https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e?permalink_comment_id=5659871#gistcomment-5659871).
+
+Many choose to write in MS Word (or LaTeX) instead, which is fine, but you cannot create reproducible documents with Word. With Word I need to copy-paste my computational results to the Word file. When they or data supporting them change, I must copy-paste again. Mistakes happen!
+
+Reproducible documents typically require a project with many files: data, bibliographies, supplementary code, and so on. Here is the basic file structure common to many of my projects:
+
+```bash
+❯ eza --tree my-project --level 2
+my-project
+├── _quarto.yml
+├── bibliography.bib
+├── data-raw
+│   └── data.csv
+├── index.qmd
+└── README.md
+```
+
+The most important file there is "README.md", which must describe what the project is, who is involved, and how to reproduce all the computations and the manuscript itself. The computations and manuscript content are all in "index.qmd". Here are two example manuscripts' Quarto source files: [Estimating Signal Detection Models with regression using the brms R package](https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/sdt-regression/index.qmd) & [Communicating causal effect heterogeneity](https://github.com/mvuorre/heterogeneity-uncertainty/blob/main/index.qmd). Here are what they look like when "rendered" with Quarto: <https://osf.io/preprints/psyarxiv/vtfc3_v1> & <https://osf.io/preprints/psyarxiv/mwg4f_v1>.
+
+"_quarto.yml" contains Quarto [metadata](https://quarto.org/docs/projects/quarto-projects.html), such as what the output should look like. "bibliography.bib" is a [bibliography file](https://quarto.org/docs/authoring/citations.html) that contains all the references and their information used in the document.
+
+### Bibliography management
+
+Since I use Zotero to manage my library and Positron to write my Quarto documents, I use [this extension](../zotero-positron-vscode/) to easily insert references in the document. In Positron, I call "Zotero Citation Picker", find a reference, hit return which inserts something like `[@healyPlainPersonsGuide2019]` into the text and the associated entry in the bibliography file. When the document is rendered, the citation is automatically formatted as an in-text reference and in the bibliography section.
+
+## Version control
+
+While tools like MS Word's "track changes" can be nice when you're writing prose, they don't work with computationally reproducible documents. So we end up with version control systems, such as [Git](https://swcarpentry.github.io/git-novice/).
+
+### Git
+
+So what is Git, and version control systems more generally? This is a *whole thing* that you should learn about on [Software Carpentry's](https://swcarpentry.github.io/git-novice/) or [Atlassian's](https://www.atlassian.com/git/tutorials/what-is-version-control) websites. It is mainly used by programmers, but as Richard McElreath puts in [Science as Amateur Software Development](https://youtu.be/8qzVV7eEiaI?si=CNJ_cnGj2BpECdvX) today's research involves a lot of programming, and we ignore that fact at our peril.
+
+After I've established what idea I'm working on and how, I'm going to start tracking the state of the project with Git [@vuorreCuratingResearchAssets2018]. I create a local Git repo, and link it to a remote GitHub repository (more on that in @sec-github). I commit my changes whenever it makes sense but am not religious about it: Version control is a tool to get stuff done, not the stuff itself. @fig-git shows how an example project might unfold over time.
+
+```{mermaid}
+%%| label: fig-git
+%%| fig-cap: Schematic of a project versioned with Git. 'main' is the branch where most of the work happens, but I switched to 'modeling' when I was working on a large feature. Diagonal texts are Git 'commit messages' that give descriptive labels of changes that occurred at that time. I use 'v0.1.0' tags to indicate "versions" of the project that are associated with a rendered output document or project milestone.
+%%| echo: false
+
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryBorderColor': '#666',
+    'commitLabelFontSize': '12px',
+    'commitLabelBackground': '#ffffff',
+    'git0': '#4a90e2',
+    'git1': '#7b68ee'
+  }
+}}%%
+
+gitGraph
+    commit id: "Initial project"
+    commit id: "Add data collection script"
+    commit id: "Add statistical analysis"
+    commit id: "First draft complete" tag: "v0.1.0"
+    branch modeling
+    checkout modeling
+    commit id: "Try alternative model"
+    commit id: "Add sensitivity analysis"
+    commit id: "Robustness checks"
+    checkout main
+    commit id: "Update documentation"
+    commit id: "Fix data processing"
+    merge modeling
+    commit id: "Finalize results"
+    commit id: "Analysis complete" tag: "v0.2.0"
+    commit id: "Add publication plots"
+    commit id: "Ready for submission" tag: "v1.0.0"
+```
+
+If I'm working alone on a project, I often don't bother with branches. If I'm working with others, I'm more careful and try to keep the main branch clean and working, so it is easier for others to maintain a working version without my possibly temporary and breaking changes. In @fig-git I switched to a "modeling" branch to work on a large feature, and didn't want to put incomplete work into the 'main' branch, but still keep track of checkpoints on that work using commits. This probably makes no sense, but should after you've read [Software Carpentry's](https://swcarpentry.github.io/git-novice/) tutorial on Git.
+
+## Collaboration
+
+Version control systems are mistakenly interpreted, as I suggest above, to be about version control. They do that too, but their main benefits become apparent when collaborating. Just like the "track changes" feature in MS Word, they allow you to see what's changed in your document(s) and review & undo edits, but more importantly they help *others* with that. It doesn't matter if that "other" is another person or the selfsame you later in time.
+
+![Schematic of a collaborative workflow using GitHub (Software Carpentries).](images/git.png){#fig-github width=80%}
+
+If I'm just writing prose, I'll probably collaborate on a Google Docs or MS Word (on OneDrive or some similar abomination), because these cloud platforms minimize friction in getting changes from person A to person B. As soon as we're working together on a computationally reproducible projet, I encourage people to collaborate on the Git repo whose remote is on [GitHub](https://github.com/mvuorre). @fig-github ([source](https://carpentries-incubator.github.io/open-science-with-r/09-collaborating/index.html)) shows a schematic of a collaborative workflow.
+
+### GitHub {#sec-github}
+
+GitHub is a Git repository hosting and collaboration platform. It is a for-profit enterprise owned by Microsoft, and while I use it I'm prepared to abandon ship as soon as enshittification begins. Right now it is the best tool for collaborating on Git repositories, but others exist.
+
+After I've connected my local Git repo to a GitHub remote, I'll send a link to my collaborators so they can clone their local version, work on it, commit, push, and send pull requests for me to review. There's a lot of weird words there but they're quick to learn (from [here](https://happygitwithr.com/) or [here](https://swcarpentry.github.io/git-novice/), for example).
+
+### Fallback options
+
+So it is clearly unrealistic to demand that all collaborators are on board with this workflow. That's fine. For me it is important to manage a single source of truth---the reproducible Quarto plain text file that includes all the computations. But many others prefer Word or Google Docs. In those cases I read others' revisions / comments / suggestions in the Word document, and based on my judgment edit the source Quarto document. I then render it into Word along with PDF (which will be the version I'll submit). Going between Word and Positron is not optimal, but the goal is to go from "Receive idea" to "Science" (@fig-underpants) with the least friction. I've found it is not that painful---with Word track changes someone still needs to evaluate revisions and modify accordingly. Here there's just the extra step of doing that in a separate file.
+
+If I'm not the lead author but maybe just working on the analyses or Results section, I write a Quarto file for just the Results section. That usually works okay as well.
+
+## Depositing materials
+
+Many folks in my field drag and drop their files from their local filesystem to the [Open Science Framework](https://osf.io/). I prefer a simpler (to me) workflow, where [GitHub releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are automatically archived (with citation metadata, a DOI, etc) to [Zenodo](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content). Here is a [Zenodo](https://zenodo.org/records/15533999) archive of [this GitHub](https://github.com/digital-wellbeing/paradigm-comments) repository that contains a computationally reproducible manuscript project for [this manuscript](https://osf.io/dpuya_v2).
+
+## Showing my work to others
+
+In academia, we typically call the process of showing our work to others "publishing". Although the goal is pretty clear---make publicly funded common goods, or science, freely available for anyone to read---publishing is a byzantine process (@fig-publish).
+
+![Moin Syed's [Blyesky post](https://bsky.app/profile/syeducation.bsky.social/post/3logkez7hsk25) about academic publishing.](images/syed.png){#fig-publish width=80%}
+
+I am increasingly against how the current "publishing" system works, and for me a near-final milestone for an academic document is the PDF file I post to [PsyArXiv Preprints](https://osf.io/preprints/psyarxiv), a popular document-sharing platform for the psychological sciences. Optimally I would receive peer feedback on those documents to incorporate into the write-up, but sadly this is not how things work yet. So we go through some of the worst web portals known to humanity to "submit", "revise and resubmit", and "publish" the words and pictures in other kinds of websites called "journals". It's all a bit silly.
+
+Surprisingly, my thoughts on this topic are not universally shared. For some context, take a look [here](https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html) and [here](https://web-archive.southampton.ac.uk/cogprints.org/1642/1/nature4.htm) [@harnadScholarlySkywritingPrepublication1990; @harnadSelfarchivingInitiative2001].
+
+## Overview of tools
+
+| Tool/Platform | Purpose |
+|-|-|
+| [Zotero](https://zotero.org) | Library and reference manager. (See also [Better BibTeX](https://retorque.re/zotero-better-bibtex/).) |
+| [Positron](https://positron.posit.co/) | Integrated Development Enviroment for writing reproducible computational documents. (See also [Zotero citation picker](https://vuorre.com/posts/zotero-positron-vscode/), & [Air formatter](https://posit-dev.github.io/air/editor-vscode.html).) |
+| [Quarto](https://quarto.org/) | A program for writing reproducible documents with multiple output formats. |
+| [Git](https://git-scm.com/) | Version control system: Tracks the history of a folder on your computer. |
+| [GitHub](https://github.com/mvuorre) | Collaboration platform for projects tracked with Git. |
+| [Zenodo](https://zenodo.org/) | An open-source, CERN-backed archiving and sharing platform. Automatically archives my projects' GitHub releases and assigns each a citeable DOI. |
+| [PsyArXiv](https://osf.io/preprints/psyarxiv) | Document sharing platform for the psychological sciences. |
+| [PREreview](https://prereview.org/) | Peer-review platform. |
+
+: An overview of tools used in my workflow, in rough order of appearance. {#tbl-letters .bordered .responsive .info}
+
+## End
+
+The central ideas in the ongoing can be boiled down to this:
+
+1. Decide and define early on what you're doing / the anticipated "product". Usually this is a scholarly manuscript available for others to read and criticize.
+2. Put all the things related to that thing into as few places as possible. Then track that with Git, and collaborate on GitHub.
+3. Ensure that anyone can get the source of the project, click a button, and create the manuscript you share on PsyArXiv.
+
+Maybe that goes between collecting the underpants and profit?

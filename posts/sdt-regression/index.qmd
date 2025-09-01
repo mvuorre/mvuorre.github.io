@@ -33,7 +33,7 @@ format:
     toc: true
     linkcolor: blue
     toc-depth: 1
-    wordcount: '{{< words-body >}}'
+    wordcount: true
     authornote: "This write-up first appeared as a blog post at <https://vuorre.com/posts/sdt-regression/>. Read at that URL to view and download the manuscript's source code. This work has not yet been peer reviewed."
 citation:
   type: article

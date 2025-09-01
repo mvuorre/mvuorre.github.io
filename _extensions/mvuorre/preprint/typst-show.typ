@@ -45,9 +45,6 @@ $endif$
 $if(abstract)$
   abstract: [$abstract$],
 $endif$
-$if(margin)$
-  margin: ($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$),
-$endif$
 $if(papersize)$
   paper: "$papersize$",
 $endif$
@@ -56,10 +53,8 @@ $if(mainfont)$
 $elseif(brand.typography.base.family)$
   font: $brand.typography.base.family$,
 $endif$
-$if(fontsize)$
-  fontsize: $fontsize$,
-$elseif(brand.typography.base.size)$
-  fontsize: $brand.typography.base.size$,
+$if(number-sections)$
+  sectionnumbering: "1.1.1.1.",
 $endif$
 $if(section-numbering)$
   sectionnumbering: "$section-numbering$",
@@ -112,7 +107,7 @@ $elseif(keywords)$
   categories: [$for(keywords)$$it$$sep$, $endfor$],
 $endif$
 $if(wordcount)$
-  wordcount: [$wordcount$],
+  wordcount: $wordcount$,
 $endif$
 $if(col-gutter)$
   col-gutter: $col-gutter$,
@@ -123,6 +118,17 @@ $endif$
 $if(bibliography-title)$
   bibliography-title: [$bibliography-title$],
 $endif$
+// Theme-based settings - simplified conditional logic
+$if(theme-jou)$
+  // Journal theme: compact 2-column layout
+  margin: $if(margin)$($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$)$else$(x: 2.2cm, y: 2.6cm)$endif$,
+  fontsize: $if(fontsize)$$fontsize$$else$10pt$endif$,
+  cols: $if(columns)$$columns$$else$2$endif$,
+$else$
+  // Default theme: single-column layout
+  $if(margin)$margin: ($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$),$endif$
+  $if(fontsize)$fontsize: $fontsize$,$elseif(brand.typography.base.size)$fontsize: $brand.typography.base.size$,$endif$
   cols: $if(columns)$$columns$$else$1$endif$,
+$endif$
   doc,
 )

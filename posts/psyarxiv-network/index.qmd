@@ -1,0 +1,236 @@
+---
+title: My PsyArXiv coauthorship network
+description: |
+  Using PsyArXiv preprint metadata (provided in the [psyarxivr](https://github.com/mvuorre/psyarxivr) package) to create a single author's coauthorship network in R.
+date: 2025-09-24
+categories:
+  - preprints
+draft: false
+toc: true
+code-fold: show
+knitr:
+  opts_chunk:
+    echo: true
+    message: false
+    warning: false
+    cache: true
+    collapse: true
+---
+
+```{r}
+#| include: false
+options(
+  pillar.print_max = 3,
+  pillar.print_min = 3
+)
+```
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(tidyverse)
+library(patchwork)
+library(jsonlite)
+library(psyarxivr)
+```
+
+```{r}
+#| label: data-clean-contributors
+#| echo: false
+
+# Parse contributors JSON variable into its own table with preprint ids
+contributors <- preprints |>
+  # Remove preprints with no contributor data and non-latest versions
+  filter(contributors != "[]", is_latest_version == 1) |>
+  # Select required variables only
+  select(id, contributors) |>
+  # Convert JSON into data frames in a list-column
+  mutate(
+    contributors = map(
+      contributors,
+      fromJSON
+    )
+  )
+
+# Unnest into a table of contributors and clean
+contributors <- contributors |>
+  unnest(contributors) |>
+  # Only include bibliographic authors
+  filter(bibliographic) |>
+  # Remove some other contributor variables and rename
+  select(id, name = full_name) |>
+  # Take out unnamed contributors
+  filter(name != "")
+
+# Calculate total number of contributors
+contributors_total <- nrow(contributors)
+```
+
+[PsyArXiv](https://osf.io/preprints/psyarxiv) is the leading free preprint service for the psychological sciences, maintained by [The Society for the Improvement of Psychological Science](http://improvingpsych.org/) and powered by [OSF Preprints](https://osf.io/preprints). Today, PsyArXiv hosts `{r} nrow(filter(preprints, is_latest_version == 1))` preprints from `{r} contributors_total` contributors[^1]. Beyond these basic statistics, the OSF API ([link to documentation](https://developer.osf.io/#tag/Preprints)) makes a wealth of data available, but interacting with the API can be cumbersome and slow.
+
+[^1]: Numbers here refer to preprints' latest versions and bibliographic authors only.
+
+To make PsyArXiv data more accessible, [psyarxivr](https://github.com/mvuorre/psyarxivr) provides metadata for all PsyArXiv preprints in a single table as an R package. In this post, I show how to use data from psyarxivr to create a single person's second-degree coauthorship network.
+
+## Getting started
+
+I first load the required packages: [tidyverse](https://github.com/tidyverse/tidyverse) for general purpose wrangling, [patchwork](https://github.com/thomasp85/patchwork/) for combining plots, [jsonlite](https://github.com/jeroen/jsonlite) for processing JSON data, and [psyarxivr](https://github.com/mvuorre/psyarxivr) for the data.
+
+```{r}
+#| label: setup
+#| echo: true
+#| code-fold: false
+```
+
+## Data wrangling
+
+The psyarxivr package, when loaded as above, provides access to the `preprints` table. Below, we take our focal variables `id` (for each preprint) and `contributors`, which contains the contributor data as JSON strings.
+
+```{r}
+#| label: data-clean-contributors
+#| echo: true
+#| eval: false
+#| code-summary: Click to show/hide code
+```
+
+In this post I'm only interested in my own coauthorship network. The `contributors` table now has rows for each preprint's contributors. I first filter it to only include preprints on which I was a coauthor (retaining all authors of the preprints):
+
+```{r}
+#| code-fold: show
+
+my_coauthors <- contributors |>
+  # Retain all preprints where any of the authors was me
+  filter(any(name == "Matti Vuorre"), .by = id)
+
+my_coauthors
+```
+
+Above, `id` is the preprint's OSF ID, and each has one or more `name`s of the preprints' contributors.
+
+If I created a graph from these data, it would only show my immediate collaborators, but I wish to expand it to show their other collaborators as well. To do so, I filter the original contributor data to include only preprints that have one or more authors who appear as contributors on any of my preprints:
+
+```{r}
+#| code-fold: show
+
+my_coauthors_coauthors <- contributors |>
+  # Retain all preprints where any author was my coauthor
+  filter(any(name %in% unique(my_coauthors$name)), .by = id)
+
+my_coauthors_coauthors
+```
+
+There are `{r} nrow(my_coauthors_coauthors)` individual contributions to preprints that were either coauthored by me, or any of my coauthors. This is the data I'll use to construct what I call my second-degree PsyArXiv coauthor network graph.
+
+### Creating the graph
+
+Here's the graph-related packages I'll use. Most of the actual network analysis functionality comes from the [igraph](https://github.com/igraph/rigraph/) package, but [tidygraph](https://github.com/thomasp85/tidygraph) wraps those into syntax that I find easier to understand. [ggraph](https://github.com/thomasp85/ggraph) allows plotting the data with [ggplot2](https://github.com/tidyverse/ggplot2).
+
+```{r}
+library(tidygraph)
+library(ggraph)
+```
+
+I then need to convert the table of (my 2nd degree) coauthors to a suitable format for creating graphs. To do so I first expand the long-format table to a table of edges:
+
+```{r}
+# Get all pairs of co-authors for each paper and count collaborations
+edges <- my_coauthors_coauthors |>
+  group_by(id) |>
+  # Create all pairwise combinations within each paper
+  reframe(expand.grid(
+    author1 = name,
+    author2 = name,
+    stringsAsFactors = FALSE
+  )) |>
+  # Remove self-loops and order pairs for undirected edges
+  filter(author1 < author2) |>
+  rename(from = author1, to = author2)
+
+edges
+```
+
+In this table, all contributors co-occurring in a preprint are represented as `from`-`to` pairs. As you can see from the roughness of that code, it took me some hacking around to accomplish this.
+
+Then, I use convenience functions from [tidygraph](https://github.com/thomasp85/tidygraph) to convert the `edges` data frame to a graph, and calculate each coauthors' ("nodes") distance from me. I took a social network analysis about a decade ago so details & code below are likely to be a bit dodgy: Let me know if you see room for improvement.
+
+```{r}
+# Create graph with key metrics
+graph <- edges |>
+  as_tbl_graph(directed = FALSE) |>
+  mutate(
+    distance = factor(node_distance_from(name == "Matti Vuorre"))
+  )
+
+graph
+```
+
+## Visualizing the graph
+
+With the data prepared we can now start constructing the plot. First, I'll sketch a no-frills version that shows just the data with default settings. Perhaps the most critical option is `ggraph(layout = "fr")` which determines the layout algorithm. I recall "fr" being okay for these and it seems to work okay, but there are probably other better ones.
+
+```{r}
+#| label: fig-1
+#| fig-cap: My 2nd degree network, first take.
+#| fig-width: 12
+#| fig-asp: 0.8
+#| eval: false
+
+set.seed(999)
+graph |>
+  # Create a ggplot with appropriate mappings for graph data
+  ggraph(layout = "fr") +
+  # Show edges
+  geom_edge_link() +
+  # Show nodes
+  geom_node_point() +
+  # A blank theme
+  theme_graph()
+```
+
+This figure would display the data all right, but the plot would be ugly and uninformative. To improve, I'll specify and map more aesthetics (size et cetera) to variables in the data, highlight myself, add text labels to my coauthors, and adjust the colors and sizes of the elements.
+
+```{r}
+#| label: fig-2
+#| fig-cap: My 2nd degree PsyArXiv coauthor network.
+#| fig-width: 10
+#| fig-asp: 0.8
+#| column: screen-inset
+
+set.seed(999)
+graph |>
+  ggraph(layout = "fr") +
+  # Make edges less prominent
+  geom_edge_link(
+    linewidth = 0.2,
+    alpha = 0.4,
+    color = "gray70"
+  ) +
+  # Nodes further from me are smaller
+  geom_node_point(
+    aes(size = distance, color = distance)
+  ) +
+  # Add text to my (bold) & coauthors' (plain) nodes
+  geom_node_text(
+    data = . %>% filter(distance != 2),
+    aes(
+      label = name,
+      fontface = ifelse(name == "Matti Vuorre", "bold", "plain")
+    ),
+    repel = TRUE,
+    size = 3.1
+  ) +
+  # Specify sizes, colors, and theme options
+  scale_size_manual(values = c(2, 1, 0.5)) +
+  scale_color_manual(
+    values = c("dodgerblue4", "dodgerblue2", "dodgerblue1")
+  ) +
+  theme_graph() +
+  theme(legend.position = "none")
+```
+
+Looking at this graph, keep in mind that this is not my (or any of my coauthors, etc.) coauthorship network in the literature as a whole, but that of (the latest versions of) preprints posted on PsyArXiv. Having said that, it's interesting to note that several of my 2nd-degree coauthors from two different 1st-degree coauthors connect through a third 1st-degree coauthor (Paul---no surprise; everyone wants to work with him!)
+
+## Conclusion
+
+I wrote this post to take the [psyarxivr](https://github.com/mvuorre/psyarxivr) R package for a test drive. I only looked at one variable from the preprints' metadata table---although probably the richest one---and as such hope that others might find the data interesting and valuable. [psyarxivr](https://github.com/mvuorre/psyarxivr/issues) if you have any issues with it.

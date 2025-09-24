@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,18 +69,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5c100e26c2f679eb5846062828a69460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5c77590cf6a5f2eaac145a7abe1ac8ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -289,6 +290,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s website</span>
     </a>
@@ -438,7 +441,7 @@ Note
 <p>The rocker images don’t yet work on M1 Macs. If you, like me, are using an M1 Mac, you can replace <code>rocker/rstudio</code> with <code>amoselb/rstudio-m1</code>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-ti</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>/work:/home/rstudio <span class="at">-e</span> PASSWORD=yourpassword <span class="at">-p</span> 8787:8787 rocker/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-ti</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>/work:/home/rstudio <span class="at">-e</span> PASSWORD=yourpassword <span class="at">-p</span> 8787:8787 rocker/rstudio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This creates a directory in your current working directory called <code>work</code>, and lets the Docker container access files therein (inside the container, the path is <code>/home/rstudio</code> where RStudio Server sessions typically start). This way whatever files you save inside Docker will remain in your disk, and you can use / edit those outside the container as well. (Thanks Kristoffer for pointing this critical point to me!)</p>
 <p>Now your fast computer is running an RStudio Server session. You can verify this by opening a browser tab on the fast computer, and typing <code>localhost:8787</code> in the address bar. You should see the RStudio Server login window pop up (<a href="#fig-login" class="quarto-xref">Figure&nbsp;1</a>).</p>
 <div id="fig-login" class="quarto-float quarto-figure quarto-figure-center anchored" alt="RStudio Server login window.">
@@ -468,7 +471,7 @@ Figure&nbsp;2: RStudio Server–RStudio in the browser!.
 <section id="computers-on-the-same-local-network" class="level1">
 <h1>Computers on the same local network</h1>
 <p>This is pretty easy! First, find your fast computer’s local IP address. There’s many ways to find this and you could for example query it in the terminal:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipconfig</span> getifaddr en0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipconfig</span> getifaddr en0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Your local IP address will be something like <code>192.168.0.123</code>. My fast computer currently runs on <code>192.168.0.155</code>, and I’ll use it below.</p>
 <p>Fire up a browser in your slow computer, and navigate to <code>192.168.0.155:8787</code>. I’m using my phone as the slow computer here, and after logging in with the same credentials as above, I see <a href="#fig-rstudio-remote-1" class="quarto-xref">Figure&nbsp;3</a>.</p>
 <div id="fig-rstudio-remote-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="RStudio remote session on my phone.">
@@ -584,13 +587,14 @@ Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

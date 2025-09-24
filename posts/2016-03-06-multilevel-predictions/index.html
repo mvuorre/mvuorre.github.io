@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,18 +89,19 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5c100e26c2f679eb5846062828a69460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5c77590cf6a5f2eaac145a7abe1ac8ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -145,7 +146,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -344,6 +345,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s website</span>
     </a>
@@ -471,7 +474,7 @@ window.Quarto = {
 <p>I will illustrate the procedure first with a maximum likelihood model fitting procedure, using the lme4 package. This procedure requires an additional step where plausible parameter values are simulated from the estimated model, using the arm package. Then, I’ll show how to obtain the limits from models estimated with Bayesian methods, using the brms R package.</p>
 <p>We’ll use the following R packages:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm)</span>
@@ -479,7 +482,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-data" class="level2">
@@ -489,9 +492,9 @@ window.Quarto = {
 <p>“The average reaction time per day for subjects in a sleep deprivation study. On day 0 the subjects had their normal amount of sleep. Starting that night they were restricted to 3 hours of sleep per night. The observations represent the average reaction time on a series of tests given each day to each subject.”</p>
 </blockquote>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sleepstudy <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sleepstudy <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(sleepstudy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table caption-top table-sm table-striped small">
 <caption>Example data</caption>
 <thead>
 <tr class="header">
@@ -541,12 +544,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="fixed-effects-models-and-cis">Fixed Effects Models and CIs</h2>
 <p>Below, I show two kinds of scatterplots from the data. The left one represents a fixed effects regression, where information about individuals is discarded, and all that is left is a lonely band of inference in a sea of scattered observations. The right panel shows fixed effects regressions separately for each individual.</p>
 <div class="cell" data-layout-align="center" data-preview="true">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>)) <span class="sc">+</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">level =</span> .<span class="dv">95</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Subject, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">|</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -573,9 +576,9 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
 <p>I’ll estimate the multilevel model using the lme4 package.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lmerfit <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lmerfit <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table caption-top table-sm table-striped small">
 <caption>Multilevel model summary</caption>
 <thead>
 <tr class="header">
@@ -608,17 +611,17 @@ window.Quarto = {
 <p>Using the model output, we can generate regression lines using the <code>predict()</code> function. Using this method, we can simply add a new column to the existing <code>sleepstudy</code> data frame, giving the fitted value for each row in the data. However, for visualization, it is very useful to generate the fitted values for specific combinations of predictor values, instead of generating a fitted value for every observation. To do this, I simply create dataframes with the relevant predictors, and feed these data frames as data to <code>predict()</code>.</p>
 <p>To get fitted values at the average level, when there is only one predictor, the data frame is simply a column with rows for each level of <code>Days</code>. For the varying effects, I create a data frame where each individual has all levels of <code>Days</code>, using the <code>expand.grid()</code> function.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame to evaluate average effects predictions on</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame to evaluate average effects predictions on</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>newavg<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, <span class="at">re.form =</span> <span class="cn">NA</span>, newavg)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictors for the varying effect's predictions</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>newvary <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">Subject =</span> <span class="fu">unique</span>(sleepstudy<span class="sc">$</span>Subject))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>newvary<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, newvary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>newvary<span class="sc">$</span>Reaction <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmerfit, newvary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>I’ll show these predictions within the previous figures: On the left, a single fixed effects model versus the average regression line from the new multilevel model, and on the right the separate fixed effects models versus the varying regression lines from the multilevel model. Below, I use blue colors to indicate the fixed effects models’ predictions, and black for the multilevel model’s predictions.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">|</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newvary, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">|</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newvary, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -629,8 +632,8 @@ window.Quarto = {
 </div>
 <p>As you can probably tell, the fixed effects regression line (blue), and the multilevel model’s average regression line (black; left panel) are identical, because of the completely balanced design. However, interesting differences are apparent in the right panel: The varying effects’ regression lines are different from the separate fixed effects models’ regression lines. How? They are “shrunk” toward the average-level estimate. Focus on subject 335, an individual whose reaction times got faster with increased sleep deprivation:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">%+%</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">==</span> <span class="dv">335</span>) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">filter</span>(newvary, Subject <span class="sc">==</span> <span class="dv">335</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">%+%</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">==</span> <span class="dv">335</span>) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">filter</span>(newvary, Subject <span class="sc">==</span> <span class="dv">335</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -655,7 +658,7 @@ window.Quarto = {
 <li>Calculating the desired quantiles of the fitted values</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">sim</span>(lmerfit, <span class="at">n.sims =</span> <span class="dv">1000</span>) <span class="co"># 1</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">sim</span>(lmerfit, <span class="at">n.sims =</span> <span class="dv">1000</span>) <span class="co"># 1</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">fixef</span>(sims) <span class="co"># 2</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Xmat <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Days, <span class="at">data =</span> newavg) <span class="co"># 3</span></span>
@@ -668,7 +671,7 @@ window.Quarto = {
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>newavg<span class="sc">$</span>upper <span class="ot">&lt;-</span> <span class="fu">apply</span>(fitmat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.95</span>) <span class="co"># 6</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="fu">aes</span>(<span class="at">y =</span> median), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="fu">aes</span>(<span class="at">y =</span> lower), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> newavg, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -684,13 +687,13 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="cis-using-arm-individual-level">CIs using arm: Individual level</h3>
 <p>The <code>fitted()</code> function in arm returns fitted values at the varying effects level automatically, so we can skip a few lines of code from above to obtain confidence intervals at the individual-level:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">fitted</span>(sims, lmerfit)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">fitted</span>(sims, lmerfit)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sleepstudy<span class="sc">$</span>lower <span class="ot">&lt;-</span> <span class="fu">apply</span>(yhat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.025</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sleepstudy<span class="sc">$</span>median <span class="ot">&lt;-</span> <span class="fu">apply</span>(yhat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sleepstudy<span class="sc">$</span>upper <span class="ot">&lt;-</span> <span class="fu">apply</span>(yhat, <span class="dv">1</span>, quantile, <span class="at">prob =</span> <span class="fl">0.975</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> median), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> lower), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -701,11 +704,11 @@ window.Quarto = {
 </div>
 <p>A subset of individuals highlights the most interesting differences between the models:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">%in%</span> <span class="fu">unique</span>(sleepstudy<span class="sc">$</span>Subject)[<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>)])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">filter</span>(sleepstudy, Subject <span class="sc">%in%</span> <span class="fu">unique</span>(sleepstudy<span class="sc">$</span>Subject)[<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>)])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">%+%</span> tmp <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tmp, <span class="fu">aes</span>(<span class="at">y =</span> median), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tmp, <span class="fu">aes</span>(<span class="at">y =</span> lower), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tmp, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tmp, <span class="fu">aes</span>(<span class="at">y =</span> upper), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -723,18 +726,18 @@ window.Quarto = {
 <p>Confidence intervals are commonly called credible intervals in the Bayesian context, but I’ll use these terms interchangeably. The reader should be aware that, unlike traditional confidence intervals, credible intervals actually allow statements about credibility. In fact, being allowed to say the things we usually mean when discussing confidence intervals is one of many good reasons for applying bayesian statistics.</p>
 <p>I use brms to specify the model and sample from the posterior distribution.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>brmfit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>brmfit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sleepstudy,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject),</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> gaussian,</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">2000</span>,</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"sleepstudy"</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table caption-top table-sm table-striped small">
 <caption>Bayesian model estimates (brms)</caption>
 <thead>
 <tr class="header">
@@ -796,7 +799,7 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="average-regression-line-ci">Average regression line &amp; CI</h4>
 <p>brms has a function for obtaining fitted values (<code>fitted()</code>) and their associated upper and lower bounds, which together constitute the regression line and its confidence interval.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fitavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  newavg,</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fitted</span>(brmfit, <span class="at">newdata =</span> newavg, <span class="at">re_formula =</span> <span class="cn">NA</span>)[, <span class="sc">-</span><span class="dv">2</span>]</span>
@@ -805,7 +808,7 @@ window.Quarto = {
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> fitavg, <span class="fu">aes</span>(<span class="at">y =</span> Estimate), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> fitavg, <span class="fu">aes</span>(<span class="at">y =</span> Q2<span class="fl">.5</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> fitavg, <span class="fu">aes</span>(<span class="at">y =</span> Q97<span class="fl">.5</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -820,13 +823,13 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="alternative-to-cis">Alternative to CIs</h4>
 <p>Instead of showing summaries of the samples from the posterior distribution, one could also plot the entire distribution–at the risk of overplotting. Overplotting can be avoided by adjusting each regression line’s transparency with the <code>alpha</code> parameter, resulting in a visually attractive–maybe?–display of the uncertainty in the regression line:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pst <span class="ot">&lt;-</span> <span class="fu">posterior_samples</span>(brmfit, <span class="st">"b"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pst <span class="ot">&lt;-</span> <span class="fu">posterior_samples</span>(brmfit, <span class="st">"b"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pst, <span class="at">alpha =</span> .<span class="dv">01</span>, <span class="at">size =</span> .<span class="dv">4</span>,</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">intercept =</span> b_Intercept, <span class="at">slope =</span> b_Days)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -840,10 +843,10 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="varying-regression-lines-cis">Varying regression lines &amp; CIs</h4>
 <p>The best part is, brms’ <code>fitted()</code> also gives regression lines with CIs at the individual level.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sleepstudy[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="fu">fitted</span>(brmfit)[, <span class="sc">-</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sleepstudy[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="fu">fitted</span>(brmfit)[, <span class="sc">-</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Estimate), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Q2<span class="fl">.5</span>), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Q97<span class="fl">.5</span>), <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> X, <span class="fu">aes</span>(<span class="at">y =</span> Q97<span class="fl">.5</span>), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -858,7 +861,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="an-alternative-visualization">An alternative visualization</h3>
 <p>It might be useful, especially for model checking purposes, to display not only the fitted values, but also what the model predicts. To display the 95% prediction interval, I use the same procedure, but replace <code>fitted()</code> with <code>predict()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>newavg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Days =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>predavg <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  newavg,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(brmfit, <span class="at">newdata =</span> newavg, <span class="at">re_formula =</span> <span class="cn">NA</span>)[, <span class="sc">-</span><span class="dv">2</span>]</span>
@@ -868,7 +871,7 @@ window.Quarto = {
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> predavg,</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper),</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> .<span class="dv">2</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -882,7 +885,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="one-liners">One-liners</h3>
 <p>brms also has a function <code>conditional_effects()</code> that makes drawing these plots easy. Here is how to draw the average effect (first), and subject-specific effects (latter).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(brmfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(brmfit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -890,11 +893,11 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  brmfit,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">conditions =</span> <span class="fu">distinct</span>(sleepstudy, Subject),</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">re_formula =</span> <span class="cn">NULL</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -998,13 +1001,14 @@ Models.”</span> March 6, 2016. <a href="https://vuorre.com/posts/2016-03-06-mu
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

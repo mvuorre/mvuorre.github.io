@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,18 +89,19 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5c100e26c2f679eb5846062828a69460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5c77590cf6a5f2eaac145a7abe1ac8ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,7 +144,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -342,6 +343,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s website</span>
     </a>
@@ -631,18 +634,18 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <p>It might not come as a surprise that we estimate the model with bayesian methods, using the R package brms <span class="citation" data-cites="BurknerBrmsPackageBayesian2017">(<a href="#ref-BurknerBrmsPackageBayesian2017" role="doc-biblioref">Bürkner 2017</a>)</span>. Previously, I have discussed how to estimate signal detection theoretic models, “robust models”, and other multilevel models using this package. I’m a big fan of brms because of its modeling flexibility and post-processing functions: With concise syntax, you can fit a wide variety of possibly nonlinear, multivariate, and multilevel models, and analyze and visualize the models’ results.</p>
 <p>Let’s load the package, and start building our model.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The R formula syntax allows a concise representation of regression models in the form of <code>response ~ predictors</code>. For a simple normal (i.e.&nbsp;gaussian) model of the mean of <code>Ratings</code> as a function of <code>group</code>, you could write <code>Ratings ~ group, family = gaussian</code>. However, we want to predict the four parameters of the ZOIB model, and so will need to expand this notation.</p>
 <p>The brms package allows modeling more than one parameter of an outcome distribution. Specifically, we want to predict so-called “distributional parameters”, and <code>bf()</code> allows predicting them in their own formulas. Implicitly, <code>Ratings ~ group</code> means that you want to model the <em>mean</em> of <code>Ratings</code> on <code>group</code>. Therefore, to model <span class="math inline">\(\phi\)</span>, <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\gamma\)</span>, we will give them their own regression formulas within a call to <code>bf()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>zoib_model <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>zoib_model <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Rating <span class="sc">~</span> group,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  phi <span class="sc">~</span> group,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  zoi <span class="sc">~</span> group,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  coi <span class="sc">~</span> group,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">zero_one_inflated_beta</span>()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The four sub-models of our model are, in order of appearance: 1. the model of the beta distribution’s mean (read, “predict <code>Rating</code>’s mean from <code>group</code>”). Then, 2. the model of <code>phi</code>; the beta distribution’s precision. 3. <code>zoi</code> is the zero-one inflation (<span class="math inline">\(\alpha\)</span>); that is, we model the probability of a binary rating as a function of <code>group</code>. 4. <code>coi</code> is the conditional one-inflation: Given that a response was {0, 1}, the probability of it being 1 is modelled on <code>group</code>.</p>
 <p>As is usual in R’s formula syntax, the intercepts of each of these formulas are implicitly included. (To make intercepts explicit, use e.g.&nbsp;<code>Rating ~ 1 + group</code>.) Therefore, this model will have 8 parameters; the intercepts are Group A’s mean, <code>phi</code>, <code>zoi</code>, and <code>coi</code>. Then, there will be a Group B parameter for each of them, indicating the extent to which the parameters differ for Group B versus Group A.</p>
@@ -650,16 +653,16 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <p>Finally, we specified <code>family = zero_one_inflated_beta()</code>. Just like logistic regression, ZOIB regression is a type of generalized linear model. Therefore, each distributional parameter is modeled through a link function. The mean, zoi, and coi parameters are modeled through a logit link function. Phi is modeled through a log link function. These link functions can be changed by giving named arguments to <code>zero_one_inflated_beta()</code>. It is important to keep in mind the specific link functions, we will need them when interpreting the model’s parameters.</p>
 <p>To estimate this model, we pass the resulting <code>zoib_model</code> to <code>brm()</code>, with a data frame from the current R environment, 4 CPU cores for speed, and a file argument to save the resulting model to disk. The last two arguments are optional.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> zoib_model,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"brm-zoib"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>brms estimates the regression model using bayesian methods: It will return random draws from the parameters’ posterior distribution. It takes less than a minute to draw samples from this model. Let’s then interpret the estimated parameters (i.e.&nbsp;the numerical summaries of the posterior distribution):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Family: zero_one_inflated_beta </span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Links: mu = logit; phi = log; zoi = logit; coi = logit </span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Formula: Rating ~ group </span></span>
@@ -683,20 +686,20 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">## scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>First, the summary of this model prints a paragraph of information about the model, such as the outcome family (ZOIB), link functions, etc. The regression coefficients are found under the “Population-Level Effects:” header. The columns of this section are “Estimate”, the posterior mean or point estimate of the parameter. “Est.Error”, the posterior standard deviation, or so called standard error of the parameter. Then, the lower and upper limit of the 95% Credible Interval. The two last columns are diagnostics of the model fitting procedure.</p>
 <p>The first four rows of this describe the parameters for the baseline group (Group A). <code>Intercept</code> is the logit-transformed mean of the beta distribution for Group A’s ratings (the subset of ratings that were (0, 1)). Next, <code>phi_Intercept</code> describes the precision of the beta distribution fitted to Group A’s slider responses, on the scale of the (log) link function. <code>zoi_Intercept</code> is the zero or one inflation of Group A’s data, on the logit scale. <code>coi_Intercept</code> is the conditional one inflation; out of the 0 or 1 ratings in Group A’s data, describing the proportion of ones (out of the 0/1 responses)?</p>
 <p>These parameters are described on the link scale, so for each of them, we can use the inverse link function to transform them to the response scale. Precision (<code>phi_Intercept</code>) was modeled on the log scale. Therefore, we can convert it back to the original scale by exponentiating. For the other parameters, which were modeled on the logit scale, we can use the inverse, which is <code>plogis()</code>.</p>
 <p>However, before converting the parameters, it is important to note that the estimates displayed above are summaries (means, quantiles) of the posterior draws of the parameters on the link function scale. Therefore, we cannot simply convert the summaries. Instead, we must transform each of the posterior samples, and then re-calculate the summaries. The following code accomplishes this “transform-then-summarize” procedure for each of the four parameters:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_samples</span>(fit, <span class="at">pars =</span> <span class="st">"b_"</span>)[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_samples</span>(fit, <span class="at">pars =</span> <span class="st">"b_"</span>)[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">%&gt;%</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"b_phi_Intercept"</span>), exp) <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span><span class="st">"b_phi_Intercept"</span>), plogis) <span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">posterior_summary</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Parameter"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -744,19 +747,19 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <p>We can then interpret these summaries, beginning with <code>b_Intercept</code>. This is the estimated mean of the beta distribution fitted to Group A’s (0, 1) rating scale responses (with its standard error, lower- and upper limits of the 95% CI). Then, <code>b_Phi_Intercept</code> is the precision of the beta distribution. <code>zoi</code> is the zero-one inflation, and <code>coi</code> the conditional one inflation.</p>
 <p>To make <code>b_zoi_Intercept</code> concrete, we should be able to compare its posterior mean to the observed proportion of 0/1 values in the data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"A"</span>] <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.311</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"A"</span>] <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.311</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Above we calculated the proportion of zeros and ones in the data set, and found that it matches the estimated value. Similarly, for <code>coi</code>, we can find the corresponding value from the data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>Rating <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Rating[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>Rating <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.643</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.643</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s get back to the model summary output. The following four parameters are the effects of being in group B on these parameters. Most importantly, <code>groupB</code> is the effect of group B (versus group A) on the mean of the ratings’ assumed beta distribution, in the logit scale. Immediately, we can see that the parameter’s 95% Credible Interval does not include zero. Traditionally, this parameter would be called “significant”; group B’s (0, 1) ratings are on average greater than group A’s.</p>
 <p>To transform this effect back to the data scale, we can again use <code>plogis()</code>. However, it is important to keep in mind that the effect’s size on the original scale depends on the intercept, getting smaller as the intercept increases (just like in any other generalized linear model.) The following bit of code transforms this effect and its uncertainty back to the original scale.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B - A"</span> <span class="ot">=</span> <span class="st">"plogis(Intercept + groupB) = plogis(Intercept)"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B - A"</span> <span class="ot">=</span> <span class="st">"plogis(Intercept + groupB) = plogis(Intercept)"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypothesis</span>(fit, h)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hypothesis Tests for class b:</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star</span></span>
@@ -765,16 +768,16 @@ Figure&nbsp;4: Simulated data set of two group’s slider scale ratings, with me
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## '*': For one-sided hypotheses, the posterior probability exceeds 95%;</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="do">## for two-sided hypotheses, the value tested against lies outside the 95%-CI.</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Posterior probabilities of point hypotheses assume equal prior probabilities.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The data were simulated with the <code>rzoib()</code> function, and I set <span class="math inline">\(\alpha = 0.25, \gamma = 0.5, \mu = 0.6 + 0.15\mbox{groupB}, \phi = 5\)</span>. Therefore, the results of the t-tests and nonparametric tests were misses; a true effect was missed. On the other hand, the ZOIB regression model detected the true effect of group on the beta distribution’s mean.</p>
 <p>Finally, let’s visualize this key finding using the <code>conditional_effects()</code> function from brms.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conditional_effects</span>(fit, <span class="at">dpar =</span> <span class="st">"mu"</span>),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_args =</span> <span class="fu">list</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">shape =</span> <span class="dv">1</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-ex-me" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -960,13 +963,14 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/2019-02-18-
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

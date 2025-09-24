@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,18 +89,19 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5c100e26c2f679eb5846062828a69460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5c77590cf6a5f2eaac145a7abe1ac8ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -146,7 +147,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -341,6 +342,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s website</span>
     </a>
@@ -562,14 +565,14 @@ Figure&nbsp;3: Screenshot of my IDE (Positron) as I write this document.
 <p>To combine prose with all these languages and their outputs, a computer program is needed. I use <a href="https://quarto.org/">Quarto</a>. The source document “index.qmd” in <a href="#fig-ide" class="quarto-xref">Figure&nbsp;3</a> is a Quarto document, and this is how I write all of my computationally reproducible documents. What this means is that I might write a file like <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e">this</a>, run a command (<code>quarto render index.qmd</code>) in the terminal, and get <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e?permalink_comment_id=5659871#gistcomment-5659871">this</a>.</p>
 <p>Many choose to write in MS Word (or LaTeX) instead, which is fine, but you cannot create reproducible documents with Word. With Word I need to copy-paste my computational results to the Word file. When they or data supporting them change, I must copy-paste again. Mistakes happen!</p>
 <p>Reproducible documents typically require a project with many files: data, bibliographies, supplementary code, and so on. Here is the basic file structure common to many of my projects:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> eza <span class="at">--tree</span> my-project <span class="at">--level</span> 2</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> eza <span class="at">--tree</span> my-project <span class="at">--level</span> 2</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">my-project</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> _quarto.yml</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> bibliography.bib</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data-raw</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── data.csv</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> index.qmd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The most important file there is “README.md”, which must describe what the project is, who is involved, and how to reproduce all the computations and the manuscript itself. The computations and manuscript content are all in “index.qmd”. Here are two example manuscripts’ Quarto source files: <a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/sdt-regression/index.qmd">Estimating Signal Detection Models with regression using the brms R package</a> &amp; <a href="https://github.com/mvuorre/heterogeneity-uncertainty/blob/main/index.qmd">Communicating causal effect heterogeneity</a>. Here are what they look like when “rendered” with Quarto: <a href="https://osf.io/preprints/psyarxiv/vtfc3_v1" class="uri">https://osf.io/preprints/psyarxiv/vtfc3_v1</a> &amp; <a href="https://osf.io/preprints/psyarxiv/mwg4f_v1" class="uri">https://osf.io/preprints/psyarxiv/mwg4f_v1</a>.</p>
 <p>“_quarto.yml” contains Quarto <a href="https://quarto.org/docs/projects/quarto-projects.html">metadata</a>, such as what the output should look like. “bibliography.bib” is a <a href="https://quarto.org/docs/authoring/citations.html">bibliography file</a> that contains all the references and their information used in the document.</p>
 </section>
@@ -858,13 +861,14 @@ Academic Projects.”</span> August 22, 2025. <a href="https://vuorre.com/posts/
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

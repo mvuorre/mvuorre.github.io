@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,18 +88,19 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5c100e26c2f679eb5846062828a69460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-62e87167d8617300628063d7f7386407.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5c77590cf6a5f2eaac145a7abe1ac8ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-52242d954bde9cc76d82faa88d22424e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -142,7 +143,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -397,6 +398,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matti’s website</span>
     </a>
@@ -556,7 +559,7 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>R setup</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span>
@@ -586,7 +589,7 @@ window.Quarto = {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"black"</span>)</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="signal-detection-theory" class="level2">
@@ -601,7 +604,7 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data (pid=7)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data (pid=7)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>maxl <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="dv">0</span>) <span class="co"># Highest likelihood</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>zhr <span class="ot">&lt;-</span> <span class="fl">0.866</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>zfr <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.100</span></span>
@@ -726,7 +729,7 @@ window.Quarto = {
 <span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
 <span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>pa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>pa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-sdt-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -768,7 +771,7 @@ Figure&nbsp;1: Illustration of subjective evidence distributions postulated by S
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Koen 2013</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Koen 2013</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(roc6, <span class="at">package =</span> <span class="st">"MPTinR"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(roc6) <span class="sc">|&gt;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp <span class="sc">==</span> <span class="st">"Koen-2013_immediate"</span>) <span class="sc">|&gt;</span></span>
@@ -805,16 +808,16 @@ Figure&nbsp;1: Illustration of subjective evidence distributions postulated by S
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Unaggregate and add trial number to clarify data structure</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">uncount</span>(dat, n) <span class="sc">|&gt;</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trial =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">.by =</span> pid, <span class="at">.after =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trial =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">.by =</span> pid, <span class="at">.after =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_sample</span>(dat, <span class="at">n =</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pid, trial) <span class="sc">|&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-dat" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -955,7 +958,7 @@ Listing&nbsp;1: Classifying Yes/No trials into hits, misses, false alarms, and c
 <div aria-describedby="lst-sdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="fu">case_when</span>(</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      stimulus <span class="sc">==</span> <span class="st">"Old"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="st">"Old"</span> <span class="sc">~</span> <span class="st">"hit"</span>,</span>
@@ -963,7 +966,7 @@ Listing&nbsp;1: Classifying Yes/No trials into hits, misses, false alarms, and c
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      stimulus <span class="sc">==</span> <span class="st">"New"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="st">"Old"</span> <span class="sc">~</span> <span class="st">"fa"</span>,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      stimulus <span class="sc">==</span> <span class="st">"New"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="st">"New"</span> <span class="sc">~</span> <span class="st">"cr"</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -979,13 +982,13 @@ Listing&nbsp;2: Classifying Yes/No experiment trials into hits, misses, false al
 <div aria-describedby="lst-sdt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(pid, type) <span class="sc">|&gt;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> n) <span class="sc">|&gt;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">hr =</span> hit <span class="sc">/</span> (hit <span class="sc">+</span> miss),</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fr =</span> fa <span class="sc">/</span> (fa <span class="sc">+</span> cr)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -994,9 +997,9 @@ Listing&nbsp;2: Classifying Yes/No experiment trials into hits, misses, false al
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sdt, <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sdt, <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-sdt1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1158,13 +1161,13 @@ Listing&nbsp;3: Calculating z-scored hit and false alarm rates and the SDT param
 <div aria-describedby="lst-sdt3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">zhr =</span> <span class="fu">qnorm</span>(hr),</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">zfr =</span> <span class="fu">qnorm</span>(fr),</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">crit =</span> <span class="sc">-</span>(zhr <span class="sc">+</span> zfr) <span class="sc">/</span> <span class="dv">2</span>,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dprime =</span> zhr <span class="sc">-</span> zfr</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1174,11 +1177,11 @@ Listing&nbsp;3: Calculating z-scored hit and false alarm rates and the SDT param
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sdt <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cr, fa, hit, miss)) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-sdt" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1357,7 +1360,7 @@ Listing&nbsp;4: Creating sum to zero contrast codes for the <code>stimulus</code
 <div aria-describedby="lst-contrasts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dat<span class="sc">$</span>stimulus) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dat<span class="sc">$</span>stimulus) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1366,7 +1369,7 @@ Listing&nbsp;4: Creating sum to zero contrast codes for the <code>stimulus</code
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">contrasts</span>(dat<span class="sc">$</span>stimulus),</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">contrasts</span>(dat<span class="sc">$</span>response)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
@@ -1376,7 +1379,7 @@ Listing&nbsp;4: Creating sum to zero contrast codes for the <code>stimulus</code
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Contrast code"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-contrasts" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1523,12 +1526,12 @@ Listing&nbsp;5: Fitting the SDT model as a GLM with the <code>brm()</code> funct
 <div aria-describedby="lst-brm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fit_glm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fit_glm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  response <span class="sc">~</span> stimulus,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">bernoulli</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat, pid <span class="sc">==</span> <span class="dv">1</span>),</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glm"</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1537,7 +1540,7 @@ Listing&nbsp;5: Fitting the SDT model as a GLM with the <code>brm()</code> funct
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I also fit the model separately to all participants</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I also fit the model separately to all participants</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"cache/brm-glm-all.rds"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(path)) {</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  fit_glm_all <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
@@ -1556,14 +1559,14 @@ Listing&nbsp;5: Fitting the SDT model as a GLM with the <code>brm()</code> funct
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(fit_glm_all, path)</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  fit_glm_all <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(path)</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The estimated model is saved in <code>fit</code>, whose <code>summary()</code> method returns a numerical summary of the estimated parameters along with some information and diagnostics about the model:</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_glm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_glm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: bernoulli 
@@ -1586,7 +1589,7 @@ stimulus1     1.38      0.15     1.07     1.68 1.00     3102     2345</code></pr
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pid1color <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pid1color <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>s_f_g <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="dv">1</span>,</span>
@@ -1684,7 +1687,7 @@ stimulus1     1.38      0.15     1.07     1.68 1.00     3102     2345</code></pr
 <span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>(pa <span class="sc">|</span> pb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>(pa <span class="sc">|</span> pb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -1719,7 +1722,7 @@ Listing&nbsp;6: Aggregating a sample’s <em>c</em> and <em>d’</em>.
 <div aria-describedby="lst-sdt-agg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sdt_agg <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sdt_agg <span class="ot">&lt;-</span> sdt <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(crit, dprime),</span>
@@ -1729,7 +1732,7 @@ Listing&nbsp;6: Aggregating a sample’s <em>c</em> and <em>d’</em>.
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">SE =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(.x))</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      )</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1738,9 +1741,9 @@ Listing&nbsp;6: Aggregating a sample’s <em>c</em> and <em>d’</em>.
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sdt_agg <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sdt_agg <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">format_tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-sdt-agg" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1883,12 +1886,12 @@ p_{ij} &amp;= \Phi((\gamma_{0j} + \beta_0) + (\gamma_{1j} + \beta_1)\text{s}_{ij
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fit_glmm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fit_glmm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  response <span class="sc">~</span> stimulus <span class="sc">+</span> (stimulus <span class="sc">|</span> pid),</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">bernoulli</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glmm-1"</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>However, before proceeding, we introduce a computational shortcut. As the number of trials and participants increases, data in long format (such as <code>dat</code> shown in <a href="#tbl-dat" class="quarto-xref">Table&nbsp;1</a>) quickly grows in size. Because of how Bayesian models are estimated, larger data and more complex models increase the model estimation time. We therefore estimate exactly the same model, but on data that is aggregated to counts of unique response-predictor combinations to speed up the estimation process. We do this in <a href="#lst-glmm" class="quarto-xref">Listing&nbsp;7</a>, where we aggregate the raw data (with 14400 rows) to a table of <code>pid</code>-<code>stimulus</code>-<code>response</code> counts (indicated by <code>n</code> in the data table that now has 192 rows). We can then reap the speed benefits of this data aggregation by using <code>weights(n)</code> to indicate how much weight to give to observation.</p>
@@ -1901,7 +1904,7 @@ Listing&nbsp;7: Fitting the SDT model for multiple participants as a GLMM with <
 <div aria-describedby="lst-glmm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dat_agg <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dat_agg <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(pid, stimulus, response)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>fit_glmm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
@@ -1909,7 +1912,7 @@ Listing&nbsp;7: Fitting the SDT model for multiple participants as a GLMM with <
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">bernoulli</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat_agg,</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glmm"</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1919,7 +1922,7 @@ Listing&nbsp;7: Fitting the SDT model for multiple participants as a GLMM with <
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Omit MCMC info in brmsfit.summary</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Omit MCMC info in brmsfit.summary</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>.summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">summary</span>(x)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  out<span class="sc">$</span>random<span class="sc">$</span>pid <span class="ot">&lt;-</span> out<span class="sc">$</span>random<span class="sc">$</span>pid[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
@@ -1927,7 +1930,7 @@ Listing&nbsp;7: Fitting the SDT model for multiple participants as a GLMM with <
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  out<span class="sc">$</span>spec_pars <span class="ot">&lt;-</span> out<span class="sc">$</span>spec_pars[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  out</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_glmm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_glmm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: bernoulli 
@@ -1953,7 +1956,7 @@ stimulus1     1.17      0.07     1.04     1.29</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(fit_glmm, <span class="at">variable =</span> <span class="st">"b_"</span>, <span class="at">regex =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(fit_glmm, <span class="at">variable =</span> <span class="st">"b_"</span>, <span class="at">regex =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">b_Intercept =</span> <span class="sc">-</span>b_Intercept) <span class="sc">|&gt;</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(b_Intercept, b_stimulus1)) <span class="sc">+</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">s_f_g</span>() <span class="sc">+</span></span>
@@ -2033,7 +2036,7 @@ stimulus1     1.17      0.07     1.04     1.29</code></pre>
 <span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>((pa <span class="sc">|</span> pb <span class="sc">|</span> pc) <span class="sc">+</span></span>
 <span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)) <span class="sc">&amp;</span></span>
-<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glmm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2061,7 +2064,7 @@ Figure&nbsp;4: <strong>Left.</strong> The (approximate) joint posterior density 
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">|&gt;</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pid <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>)) <span class="sc">|&gt;</span></span>
@@ -2070,7 +2073,7 @@ Figure&nbsp;4: <strong>Left.</strong> The (approximate) joint posterior density 
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">pid =</span> <span class="st">"..."</span>, <span class="at">stimulus =</span> <span class="st">"..."</span>, <span class="at">response =</span> <span class="st">"..."</span>, <span class="at">n =</span> <span class="st">"..."</span>),</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.after =</span> <span class="dv">2</span></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-sdt2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -2226,12 +2229,12 @@ Listing&nbsp;8: Estimating one participant’s rating data with a cumulative mod
 <div aria-describedby="lst-glm-rating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> stimulus,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat2, pid <span class="sc">==</span> <span class="dv">1</span>),</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glm-evsdt"</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -2241,7 +2244,7 @@ Listing&nbsp;8: Estimating one participant’s rating data with a cumulative mod
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_evsdt1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_evsdt1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: cumulative 
@@ -2267,7 +2270,7 @@ disc     1.00      0.00     1.00     1.00   NA       NA       NA</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Density"</span>,</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.01</span>))</span>
@@ -2301,7 +2304,7 @@ disc     1.00      0.00     1.00     1.00   NA       NA       NA</code></pre>
 <span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glm-rating" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2342,12 +2345,12 @@ Listing&nbsp;9: Estimating a cumulative model for multiple participants with <co
 <div aria-describedby="lst-glmm-evsdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> stimulus <span class="sc">+</span> (stimulus <span class="sc">|</span> pid),</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat2),</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glmm-evsdt"</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -2357,7 +2360,7 @@ Listing&nbsp;9: Estimating a cumulative model for multiple participants with <co
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_evsdt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_evsdt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: cumulative 
@@ -2391,7 +2394,7 @@ disc     1.00      0.00     1.00     1.00</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coefs_evsdt <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coefs_evsdt <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>(fit_evsdt)<span class="sc">$</span>pid <span class="sc">|&gt;</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"Estimate"</span>)) <span class="sc">|&gt;</span></span>
@@ -2447,7 +2450,7 @@ disc     1.00      0.00     1.00     1.00</code></pre>
 <span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>pa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>pa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glmm-rating1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2475,7 +2478,7 @@ Listing&nbsp;10: Estimating multiple participants’ rating data with a cumulati
 <div aria-describedby="lst-evsdt-thresholds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt_thresholds <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fit_evsdt_thresholds <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">+</span> <span class="fu">thres</span>(<span class="at">gr =</span> pid) <span class="sc">~</span> stimulus <span class="sc">+</span> (<span class="dv">0</span> <span class="sc">+</span> stimulus <span class="sc">|</span> pid),</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cmc =</span> <span class="cn">FALSE</span></span>
@@ -2484,7 +2487,7 @@ Listing&nbsp;10: Estimating multiple participants’ rating data with a cumulati
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat2),</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> .<span class="dv">99</span>),</span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glmm-evsdt-thresholds"</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -2494,10 +2497,10 @@ Listing&nbsp;10: Estimating multiple participants’ rating data with a cumulati
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prevent printing too much information</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prevent printing too much information</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>max_print <span class="ot">&lt;-</span> <span class="fu">getOption</span>(<span class="st">"max.print"</span>)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">max.print =</span> <span class="dv">35</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_evsdt_thresholds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_evsdt_thresholds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: cumulative 
@@ -2528,14 +2531,14 @@ disc     1.00      0.00     1.00     1.00</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">max.print =</span> max_print)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">max.print =</span> max_print)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>To help clarify the difference between these two models, I show the implied latent distributions and thresholds from the “fixed thresholds” model in <a href="#fig-glmm-thresholds1" class="quarto-xref">Figure&nbsp;7</a> (along with <a href="#fig-glmm-rating1" class="quarto-xref">Figure&nbsp;6</a>). As is shown, the “fixed thresholds” model (bottom) allows for flexible thresholds for each participant, whereas the “random intercepts” model (top) only allows the average location of the thresholds to vary between participants. Also notable is the extremely low first threshold for participant 19: This participant had zero “1 (sure new)” responses (either for new or old items). Therefore the threshold location, when they are treated as fixed, not random, is completely decided by the prior distribution. By default, brms has used a <span class="math inline">\(t^+(3, 0, 2.5)\)</span> prior.</p>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  fit_evsdt_thresholds,</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  r_pid[pid, variable],</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  b_stimulusOld</span>
@@ -2588,7 +2591,7 @@ disc     1.00      0.00     1.00     1.00</code></pre>
 <span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>((pa <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="st">"pid"</span>, <span class="at">nrow =</span> <span class="dv">1</span>)) <span class="sc">/</span> pb) <span class="sc">+</span></span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">axes =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">axes =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glmm-thresholds1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2607,7 +2610,7 @@ Figure&nbsp;7: <strong>Top.</strong> As <a href="#fig-glmm-rating1" class="quart
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>coef_evsdt <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(fit_evsdt, r_pid[pid, variable], b_stimulusOld) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>coef_evsdt <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(fit_evsdt, r_pid[pid, variable], b_stimulusOld) <span class="sc">|&gt;</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">"stimulusOld"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">r_pid =</span> r_pid <span class="sc">+</span> b_stimulusOld) <span class="sc">|&gt;</span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_qi</span>(r_pid)</span>
@@ -2689,7 +2692,7 @@ Figure&nbsp;7: <strong>Top.</strong> As <a href="#fig-glmm-rating1" class="quart
 <span id="cb38-80"><a href="#cb38-80" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(</span></span>
 <span id="cb38-81"><a href="#cb38-81" aria-hidden="true" tabindex="-1"></a><span class="co">#   coef_evsdt_both_wide$`Random intercept`,</span></span>
 <span id="cb38-82"><a href="#cb38-82" aria-hidden="true" tabindex="-1"></a><span class="co">#   coef_evsdt_both_wide$`Fixed thresholds`</span></span>
-<span id="cb38-83"><a href="#cb38-83" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-83"><a href="#cb38-83" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-glmm-thresholds2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2708,7 +2711,7 @@ Figure&nbsp;8: Comparison of d’ parameters from multilevel rating model with r
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>tmp1 <span class="ot">&lt;-</span> dat2 <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>tmp1 <span class="ot">&lt;-</span> dat2 <span class="sc">|&gt;</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pid <span class="sc">%in%</span> pids) <span class="sc">|&gt;</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(pid, stimulus) <span class="sc">|&gt;</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_epred_draws</span>(fit_evsdt) <span class="sc">|&gt;</span></span>
@@ -2776,7 +2779,7 @@ Figure&nbsp;8: Comparison of d’ parameters from multilevel rating model with r
 <span id="cb39-66"><a href="#cb39-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(stimulus <span class="sc">~</span> pid) <span class="sc">+</span></span>
 <span id="cb39-67"><a href="#cb39-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb39-68"><a href="#cb39-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
-<span id="cb39-69"><a href="#cb39-69" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-69"><a href="#cb39-69" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-evsdt-epred" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2828,14 +2831,14 @@ Listing&nbsp;11: Estimating multiple participants’ rating data with an unequal
 <div aria-describedby="lst-uvsdt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit_uvsdt1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit_uvsdt1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> stimulus) <span class="sc">+</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lf</span>(disc <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> stimulus, <span class="at">cmc =</span> <span class="cn">FALSE</span>),</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat2, pid <span class="sc">==</span> <span class="dv">1</span>),</span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> .<span class="dv">99</span>),</span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glm-uvsdt"</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -2845,7 +2848,7 @@ Listing&nbsp;11: Estimating multiple participants’ rating data with an unequal
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_uvsdt1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_uvsdt1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: cumulative 
@@ -2875,14 +2878,14 @@ Listing&nbsp;12: Converting the log-discriminability parameter to a standard dev
 <div aria-describedby="lst-uvsdt-convert-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(fit_uvsdt1, <span class="at">variable =</span> <span class="st">"b_"</span>, <span class="at">regex =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(fit_uvsdt1, <span class="at">variable =</span> <span class="st">"b_"</span>, <span class="at">regex =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sd_old =</span> <span class="fu">exp</span>(<span class="sc">-</span>b_disc_stimulusOld)) <span class="sc">|&gt;</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_draws</span>(</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    mean,</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    sd,</span>
 <span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">quantile2</span>(.x, <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>))</span>
 <span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3040,7 +3043,7 @@ Listing&nbsp;12: Converting the log-discriminability parameter to a standard dev
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Density"</span>,</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.01</span>))</span>
@@ -3084,7 +3087,7 @@ Listing&nbsp;12: Converting the log-discriminability parameter to a standard dev
 <span id="cb44-42"><a href="#cb44-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb44-43"><a href="#cb44-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb44-44"><a href="#cb44-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb44-45"><a href="#cb44-45" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-45"><a href="#cb44-45" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-uvsdt1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3113,7 +3116,7 @@ Listing&nbsp;13: Estimating multiple participants’ rating data with an unequal
 <div aria-describedby="lst-uvsdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fit_uvsdt <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fit_uvsdt <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> stimulus <span class="sc">+</span> (stimulus <span class="sc">|</span> p <span class="sc">|</span> pid)) <span class="sc">+</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lf</span>(disc <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> stimulus <span class="sc">+</span> (<span class="dv">0</span> <span class="sc">+</span> stimulus <span class="sc">|</span> p <span class="sc">|</span> pid), <span class="at">cmc =</span> <span class="cn">FALSE</span>),</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
@@ -3121,7 +3124,7 @@ Listing&nbsp;13: Estimating multiple participants’ rating data with an unequal
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> .<span class="dv">9</span>),</span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">init =</span> <span class="dv">0</span>,</span>
 <span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/brm-glmm-uvsdt"</span></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3131,7 +3134,7 @@ Listing&nbsp;13: Estimating multiple participants’ rating data with an unequal
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_uvsdt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_uvsdt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: cumulative 
@@ -3187,7 +3190,7 @@ Listing&nbsp;14: Estimating a mixture SDT model for one participant.
 <div aria-describedby="lst-mix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fit_mix1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fit_mix1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> <span class="dv">1</span>,</span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    mu1 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> stimulus,</span>
@@ -3197,7 +3200,7 @@ Listing&nbsp;14: Estimating a mixture SDT model for one participant.
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">filter</span>(dat2, pid <span class="sc">==</span> <span class="dv">1</span>),</span>
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.9</span>),</span>
 <span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/fit-mix1"</span></span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3207,7 +3210,7 @@ Listing&nbsp;14: Estimating a mixture SDT model for one participant.
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_mix1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_mix1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: mixture(cumulative, cumulative) 
@@ -3253,7 +3256,7 @@ Listing&nbsp;15: Estimating a mixture SDT model for multiple participants with a
 <div aria-describedby="lst-mix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>fit_mix <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>fit_mix <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bf</span>(</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    response <span class="sc">|</span> <span class="fu">weights</span>(n) <span class="sc">~</span> <span class="dv">1</span>,</span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    mu1 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> stimulus <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> stimulus <span class="sc">|</span> p <span class="sc">|</span> pid),</span>
@@ -3264,7 +3267,7 @@ Listing&nbsp;15: Estimating a mixture SDT model for multiple participants with a
 <span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat2,</span>
 <span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.95</span>),</span>
 <span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/fit-mix"</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3274,7 +3277,7 @@ Listing&nbsp;15: Estimating a mixture SDT model for multiple participants with a
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_mix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.summary</span>(fit_mix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: mixture(cumulative, cumulative) 
@@ -3320,7 +3323,7 @@ disc2     1.00      0.00     1.00     1.00</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tmp1 <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(fit_mix, b_theta2_Intercept) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tmp1 <span class="ot">&lt;-</span> <span class="fu">spread_draws</span>(fit_mix, b_theta2_Intercept) <span class="sc">|&gt;</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">theta2 =</span> <span class="fu">plogis</span>(b_theta2_Intercept)</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
@@ -3356,7 +3359,7 @@ disc2     1.00      0.00     1.00     1.00</code></pre>
 <span id="cb54-34"><a href="#cb54-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">fatten =</span> <span class="dv">3</span>,</span>
 <span id="cb54-35"><a href="#cb54-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">21</span></span>
 <span id="cb54-36"><a href="#cb54-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb54-37"><a href="#cb54-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-37"><a href="#cb54-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-mix-thetas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3399,7 +3402,7 @@ Listing&nbsp;16: Calculate predicted rates from a single subject’s model.
 <div aria-describedby="lst-calc-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict outcomes for these predictors</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict outcomes for these predictors</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">stimulus =</span> <span class="fu">c</span>(<span class="st">"New"</span>, <span class="st">"Old"</span>))</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted rates</span></span>
@@ -3408,7 +3411,7 @@ Listing&nbsp;16: Calculate predicted rates from a single subject’s model.
 <span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted z-scored rates</span></span>
 <span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>z_rates <span class="ot">&lt;-</span> <span class="fu">linpred_draws</span>(fit_glm, x, <span class="at">value =</span> <span class="st">"rate"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_qi</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_qi</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3417,13 +3420,13 @@ Listing&nbsp;16: Calculate predicted rates from a single subject’s model.
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Rates"</span> <span class="ot">=</span> rates,</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"zRates"</span> <span class="ot">=</span> z_rates,</span>
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">"Type"</span></span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Type, stimulus, rate, .lower, .upper) <span class="sc">|&gt;</span></span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-predicted-rates" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -3559,9 +3562,9 @@ Table&nbsp;7: Model-predicted hit (stimulus=Old) and false alarm (stimulus=New) 
 
 <p>Do the EVSDT parameters differ between groups of people? How about between conditions, within people? To answer these questions, we would repeat the manual calculation of parameters as many times as needed, and then draw inference by “submitting” the subject-specific parameters to e.g.&nbsp;an ANOVA model. The GLMM approach affords a more straightforward solution to including predictors: We simply add parameters to the regression model.</p>
 <p>For example, if there were two groups of participants, indexed by variable <code>group</code> in data, we could extend the brms GLMM syntax to:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">+</span> (stimulus <span class="sc">|</span> pid), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">+</span> (stimulus <span class="sc">|</span> pid), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This model would have two additional parameters: <code>group</code> would describe the difference in <em>c</em> between groups, and the interaction term <code>stimulus:group</code> would describe the difference in <em>d’</em> between groups. If we were additionally interested in the effects of <code>condition</code>, a within-subject manipulation, we could write:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">*</span> condition <span class="sc">+</span> (stimulus <span class="sc">*</span> condition <span class="sc">|</span> pid), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">*</span> condition <span class="sc">+</span> (stimulus <span class="sc">*</span> condition <span class="sc">|</span> pid), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></section><section id="receiver-operating-characteristic" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Receiver operating characteristic</h2><div class="quarto-appendix-contents">
 
 <p>The Receiving Operator Characteristic (ROC) curve displays hits as a function of false alarms, for possibly multiple criteria, and is a useful description of detection data in its own right. As such, it is useful to be able to generate ROC curves implied by the model. Here, we illustrate how to obtain ROC curves from fitted models with uncertainty estimates and overlay them on raw data.</p>
@@ -3575,7 +3578,7 @@ Listing&nbsp;17: Calculating (z-scored) hit and false alarm rates from data and 
 <div aria-describedby="lst-roc-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Population level rates</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Population level rates</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>roc_dat <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># From model (posterior means)</span></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  dat2 <span class="sc">|&gt;</span></span>
@@ -3633,7 +3636,7 @@ Listing&nbsp;17: Calculating (z-scored) hit and false alarm rates from data and 
 <span id="cb59-56"><a href="#cb59-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">zhr =</span> <span class="fu">qnorm</span>(hr),</span>
 <span id="cb59-57"><a href="#cb59-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">zfr =</span> <span class="fu">qnorm</span>(fr),</span>
 <span id="cb59-58"><a href="#cb59-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(pid, name)</span>
-<span id="cb59-59"><a href="#cb59-59" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-59"><a href="#cb59-59" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3643,7 +3646,7 @@ Listing&nbsp;17: Calculating (z-scored) hit and false alarm rates from data and 
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>pids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="fu">unique</span>(roc_dat<span class="sc">$</span>pid), <span class="dv">3</span>), <span class="st">"Population"</span>)</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> roc_dat <span class="sc">|&gt;</span></span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
@@ -3693,7 +3696,7 @@ Listing&nbsp;17: Calculating (z-scored) hit and false alarm rates from data and 
 <span id="cb60-48"><a href="#cb60-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb60-49"><a href="#cb60-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">ylim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb60-50"><a href="#cb60-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"False alarm rate"</span>, <span class="at">y =</span> <span class="st">"Hit rate"</span>)</span>
-<span id="cb60-51"><a href="#cb60-51" aria-hidden="true" tabindex="-1"></a>(pa <span class="sc">|</span> pb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-51"><a href="#cb60-51" aria-hidden="true" tabindex="-1"></a>(pa <span class="sc">|</span> pb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-roc-data" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3718,7 +3721,7 @@ Listing&nbsp;18: Calculating predicted ROC curves from multilevel EVSDT, UVSDT, 
 <div aria-describedby="lst-roc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="at">length.out =</span> <span class="dv">31</span>),</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fr =</span> <span class="fu">pnorm</span>(x, <span class="at">lower =</span> <span class="cn">FALSE</span>),</span>
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zfr =</span> <span class="fu">qnorm</span>(fr)</span>
@@ -3830,7 +3833,7 @@ Listing&nbsp;18: Calculating predicted ROC curves from multilevel EVSDT, UVSDT, 
 <span id="cb61-110"><a href="#cb61-110" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb61-111"><a href="#cb61-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pid, fr, zfr) <span class="sc">|&gt;</span></span>
 <span id="cb61-112"><a href="#cb61-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_qi</span>(hr, zhr, <span class="at">.width =</span> WIDTHS) <span class="sc">|&gt;</span></span>
-<span id="cb61-113"><a href="#cb61-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-113"><a href="#cb61-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -3839,7 +3842,7 @@ Listing&nbsp;18: Calculating predicted ROC curves from multilevel EVSDT, UVSDT, 
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All ROCs</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All ROCs</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"EVSDT"</span> <span class="ot">=</span> roc_evsdt,</span>
 <span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UVSDT"</span> <span class="ot">=</span> roc_uvsdt,</span>
@@ -3899,7 +3902,7 @@ Listing&nbsp;18: Calculating predicted ROC curves from multilevel EVSDT, UVSDT, 
 <span id="cb62-58"><a href="#cb62-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"0.5"</span>, <span class="st">"1"</span>)</span>
 <span id="cb62-59"><a href="#cb62-59" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb62-60"><a href="#cb62-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-61"><a href="#cb62-61" aria-hidden="true" tabindex="-1"></a>pa <span class="sc">/</span> pb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb62-61"><a href="#cb62-61" aria-hidden="true" tabindex="-1"></a>pa <span class="sc">/</span> pb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-roc-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3917,16 +3920,16 @@ Figure&nbsp;13: Caption.
 </div></section><section id="tips-for-estimating-models-with-brm" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Tips for estimating models with brm()</h2><div class="quarto-appendix-contents">
 
 <p>Above, we made use of the <code>file</code> argument in <code>brm()</code> to save estimated models to a file. Throughout, I have also used other options to speed up sampling, specified in a special <code>.Renviron</code> file:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contents of .Renviron</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contents of .Renviron</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="va">MAX_CORES</span><span class="op">=</span>8</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="va">BRMS_BACKEND</span><span class="op">=</span><span class="st">"cmdstanr"</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="va">BRMS_THREADS</span><span class="op">=</span>2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="va">BRMS_THREADS</span><span class="op">=</span>2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then, on the top of my R code, I have specified</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.backend =</span> <span class="fu">Sys.getenv</span>(<span class="st">"BRMS_BACKEND"</span>, <span class="st">"rstan"</span>),</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">brms.threads =</span> <span class="fu">as.numeric</span>(<span class="fu">Sys.getenv</span>(<span class="st">"BRMS_THREADS"</span>, <span class="dv">1</span>)),</span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mc.cores =</span> <span class="fu">as.numeric</span>(<span class="fu">Sys.getenv</span>(<span class="st">"MAX_CORES"</span>, <span class="dv">4</span>))</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>With these settings, every call to <code>brm()</code> uses the variables I have specified in <code>.Renviron</code> to speed up model estimation with values that work well on my local machine (that has eight CPU cores.) For more information, see <code>?brm</code> and <code>?Sys.getenv</code>.</p>
 
 
@@ -4136,13 +4139,14 @@ Regression Using the Brms R Package.”</span> <em>PsyArXiv</em>. <a href="https
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

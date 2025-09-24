@@ -1,12 +1,6 @@
 project:
   type: website
   output-dir: docs
-  preview:
-    port: 4321
-    browser: false
-  render:
-    - "*.qmd"
-    - "!posts/drafts/"
   resources:
     - CNAME
 repo-url: https://github.com/mvuorre/mvuorre.github.io
@@ -19,6 +13,7 @@ website:
   description: Matti's website
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [edit, source, issue]
+  draft-mode: unlinked
   comments:
     giscus:
       repo: mvuorre/mvuorre.github.io

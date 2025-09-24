@@ -17,10 +17,10 @@ toc-location: left
 anchor-sections: true
 
 # Default knitr options
-execute:
-  echo: true
-  message: true
-  warning: true
+knitr:
+  opts_chunk:
+    message: false
+    cache: true
 
 # Default author
 author:

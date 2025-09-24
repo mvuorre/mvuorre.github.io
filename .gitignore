@@ -30,3 +30,5 @@ reading/readings.csv
 
 # Environment file
 .env
+
+**/*.quarto_ipynb

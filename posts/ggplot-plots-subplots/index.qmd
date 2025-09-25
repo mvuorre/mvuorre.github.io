@@ -10,6 +10,8 @@ categories:
   - tutorial
 image: "index_files/figure-html/unnamed-chunk-4-1.png"
 bibliography: bibliography.bib
+aliases:
+  - /posts/2016-03-15-ggplot-plots-subplots/index.html
 ---
 
 ```{r packages, include = FALSE}

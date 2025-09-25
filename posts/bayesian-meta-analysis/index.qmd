@@ -9,6 +9,8 @@ categories:
   - tutorial
 image: "index_files/figure-html/unnamed-chunk-2-1.png"
 bibliography: bibliography.bib
+aliases:
+  - /posts/2016-09-29-bayesian-meta-analysis/index.html
 ---
 
 ```{r packages, include = FALSE}

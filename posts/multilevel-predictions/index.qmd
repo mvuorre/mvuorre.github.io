@@ -9,6 +9,8 @@ categories:
   - tutorial
 image: "index_files/figure-html/fig1and2-1.png"
 bibliography: bibliography.bib
+aliases:
+  - /posts/2016-03-06-multilevel-predictions/index.html
 ---
 
 ```{r packages, include = FALSE}

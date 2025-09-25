@@ -10,6 +10,8 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/dataplot1-1.png"
+aliases:
+  - /posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index.html
 ---
 
 ```{r packages, include = FALSE}

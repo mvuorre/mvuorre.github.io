@@ -11,6 +11,8 @@ categories:
   - ggplot2
 bibliography: bibliography.bib
 image: "index_files/figure-html/scatter-1.png"
+aliases:
+  - /posts/2017-01-04-within-subject-scatter/index.html
 ---
 
 ```{r packages, include = FALSE}

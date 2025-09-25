@@ -10,6 +10,8 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/figure-1.png"
+aliases:
+  - /posts/2020-02-06-how-to-calculate-contrasts-from-a-fitted-brms-model/index.html
 ---
 
 ```{r setup, include=FALSE}

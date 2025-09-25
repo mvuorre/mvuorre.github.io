@@ -11,6 +11,8 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/fig-beta-distributions-1.png"
+aliases:
+  - /posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index.html
 ---
 
 ```{r setup, include = FALSE}

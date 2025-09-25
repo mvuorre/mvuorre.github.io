@@ -9,6 +9,8 @@ categories:
   - visualization
 bibliography: bibliography.bib
 image: "index_files/figure-html/image1-1.png"
+aliases:
+  - /posts/2016-12-06-order-ggplot-panel-plots/index.html
 ---
 
 ```{r packages, include = FALSE}

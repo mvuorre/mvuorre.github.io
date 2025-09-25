@@ -10,6 +10,8 @@ categories:
   - tutorial
 image: "index_files/figure-html/viz-1.png"
 bibliography: bibliography.bib
+aliases:
+  - /posts/2016-03-24-github-waffle-plot/index.html
 ---
 
 ```{r packages, include = FALSE}

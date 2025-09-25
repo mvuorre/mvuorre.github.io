@@ -7,6 +7,8 @@ categories:
   - data science
   - R
 bibliography: bibliography.bib
+aliases:
+  - /posts/2018-12-12-rpihkal-stop-pasting-and-start-gluing/index.html
 ---
 
 ```{r setup, include = FALSE}

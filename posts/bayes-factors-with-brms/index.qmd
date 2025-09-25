@@ -10,6 +10,8 @@ categories:
   - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/figure1-1.png"
+aliases:
+  - /posts/2017-03-21-bayes-factors-with-brms/index.html
 ---
 
 

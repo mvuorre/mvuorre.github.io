@@ -193,7 +193,7 @@ This figure would display the data all right, but the plot would be ugly and uni
 ```{r}
 #| label: fig-2
 #| fig-cap: My 2nd degree PsyArXiv coauthor network.
-#| fig-width: 10
+#| fig-width: 14
 #| fig-asp: 0.8
 #| column: screen-inset
 

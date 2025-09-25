@@ -1043,6 +1043,7 @@ The five intercepts are the five thresholds, and `stimulus1` is *d'*. We can now
 #| label: fig-glm-rating
 #| fig-cap: "Signal detection model of participant 1's rating data, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the estimated thresholds. d' is the distance between the peaks of the two distributions."
 #| fig-width: 3
+#| fig-asp: 0.6
 
 ggplot() +
   scale_y_continuous(
@@ -1558,6 +1559,7 @@ From above, we find an estimated signal distribution standard deviation of appro
 #| label: fig-uvsdt1
 #| fig-cap: "The unequal variance Gaussian signal detection model, visualized from the parameters' posterior means. The two distributions are the noise distribution (dashed) and the signal distribution (solid). Vertical lines are the thresholds, and d' is indicated by the scaled distance between the peaks of the two distributions."
 #| fig-width: 3
+#| fig-asp: 0.6
 
 ggplot() +
   scale_y_continuous(

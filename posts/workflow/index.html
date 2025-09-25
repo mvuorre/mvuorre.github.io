@@ -395,9 +395,8 @@ window.Quarto = {
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">tips</div>
-                <div class="quarto-category">computers</div>
-                <div class="quarto-category">education</div>
+                <div class="quarto-category">research</div>
+                <div class="quarto-category">workflow</div>
               </div>
                   </div>
   </div>
@@ -559,7 +558,7 @@ Figure&nbsp;3: Screenshot of my IDE (Positron) as I write this document.
 <section id="sec-docs" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-docs"><span class="header-section-number">4</span> Computationally reproducible documents</h2>
 <p>Computationally reproducible documents are <a href="https://plain-text.co/">plain text</a> <span class="citation" data-cites="healyPlainPersonsGuide2019">(<a href="#ref-healyPlainPersonsGuide2019" role="doc-biblioref">Healy 2019</a>)</span> files into which I write prose, such as this, and code, such as the colored text in <a href="#fig-ide" class="quarto-xref">Figure&nbsp;3</a>. (You can see the plain text source file of this very document <a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/workflow/index.qmd">here</a>). This source file is then “rendered” into a typeset document using a computer program. The code languages in that figure are <a href="https://quarto.org/docs/authoring/front-matter.html">YAML</a> at the top, which I use to specify metadata (the document’s title, for example) and <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown</a>, which I use to format text (<code>**bold**</code> source turns into <strong>bold</strong> output).</p>
-<p>Other languages I commonly use in these documents are <a href="https://quarto.org/docs/computations/r.html">R</a>, which is a statistics language (<code>`{r} sqrt(2)`</code> in source turns into 1.41 in the output), and <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">LaTeX</a>, used to typeset maths from <code>$y = \alpha + \beta x$</code> in the source file to <span class="math inline">\(y = \alpha + \beta x\)</span> in the output document.</p>
+<p>Other languages I commonly use in these documents are <a href="https://quarto.org/docs/computations/r.html">R</a>, which is a statistics language (<code>`{r} sqrt(2)`</code> in source turns into 1.4142136 in the output), and <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">LaTeX</a>, used to typeset maths from <code>$y = \alpha + \beta x$</code> in the source file to <span class="math inline">\(y = \alpha + \beta x\)</span> in the output document.</p>
 <section id="quarto" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="quarto"><span class="header-section-number">4.1</span> Quarto</h3>
 <p>To combine prose with all these languages and their outputs, a computer program is needed. I use <a href="https://quarto.org/">Quarto</a>. The source document “index.qmd” in <a href="#fig-ide" class="quarto-xref">Figure&nbsp;3</a> is a Quarto document, and this is how I write all of my computationally reproducible documents. What this means is that I might write a file like <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e">this</a>, run a command (<code>quarto render index.qmd</code>) in the terminal, and get <a href="https://gist.github.com/mvuorre/537a8e41d57f504ba1f375fa867ba57e?permalink_comment_id=5659871#gistcomment-5659871">this</a>.</p>

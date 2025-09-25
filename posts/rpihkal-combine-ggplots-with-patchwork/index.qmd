@@ -4,10 +4,8 @@ description: |
   How to combine arbitrary ggplots
 date: 2018-12-13
 categories:
-  - data science
+  - r
   - visualization
-  - ggplot2
-  - R
 bibliography: bibliography.bib
 image: "index_files/figure-html/mainfig-1.png"
 aliases:

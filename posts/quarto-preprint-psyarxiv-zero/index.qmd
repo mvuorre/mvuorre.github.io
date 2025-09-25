@@ -3,9 +3,9 @@ title: "Preprints: A Quarto extension and website"
 description: Preprints are pretty, pretty good
 date: 2024-06-20
 categories:
-  - psychology
-  - preprints
-  - science communication
+  - communication
+  - research
+  - workflow
 draft: false
 from: markdown+emoji
 knitr: true

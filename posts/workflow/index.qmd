@@ -5,9 +5,8 @@ description: |
 date: 2025-08-22
 date-modified: 2025-08-22
 categories:
-  - tips
-  - computers
-  - education
+  - research
+  - workflow
 draft: false
 toc: true
 toc-depth: 3

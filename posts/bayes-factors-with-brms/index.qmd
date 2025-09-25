@@ -4,10 +4,8 @@ description: |
   How to calculate Bayes Factors with the R package brms using the Savage-Dickey density ratio method.
 date: 2017-03-21
 categories:
+  - r
   - statistics
-  - tutorial
-  - R
-  - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/figure1-1.png"
 aliases:
@@ -65,7 +63,7 @@ pd <- tibble(
 
 ggplot(pd, aes(x, Prior)) +
   geom_line() +
-  coord_cartesian(xlim = 0:1, ylim = c(0, 6), expand = 0.01) +
+  coord_cartesian(xlim = 0:1, ylim = c(0, 6)) +
   labs(y = "Density", x = bquote(theta))
 ```
 

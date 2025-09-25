@@ -4,7 +4,8 @@ description: |
   PDF-direct is a Firefox extension that skips academic journals' "enhanced" PDF viewers to direct PDF downloads.
 date: 2025-07-03
 categories:
-  - science communication
+  - communication
+  - workflow
 image: "images/pdf.png"
 ---
 

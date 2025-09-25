@@ -3,11 +3,8 @@ title: How to run R remotely
 description: Running R on a remote computer is surprisingly easy
 date: 2022-12-03
 categories:
-  - R
-  - RStudio Server
-  - Docker
-  - Tailscale
-  - tutorial
+  - r
+  - workflow
 draft: false
 execute:
   cache: true

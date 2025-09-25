@@ -4,7 +4,8 @@ description: |
   Using PsyArXiv preprint metadata (provided in the [psyarxivr](https://github.com/mvuorre/psyarxivr) package) to create a single author's coauthorship network in R.
 date: 2025-09-24
 categories:
-  - preprints
+  - r
+  - research
 draft: false
 toc: true
 code-fold: show

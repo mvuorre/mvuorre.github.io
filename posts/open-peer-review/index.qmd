@@ -3,11 +3,8 @@ title: My peer review principles & practices
 description: Commitment to transparent, open, and credible peer review
 date: 2025-02-03
 categories:
-  - preprints
-  - science communication
-  - peer review
-  - open review
-  - open evaluation
+  - communication
+  - research
 draft: false
 reference-location: document
 execute-dir: file

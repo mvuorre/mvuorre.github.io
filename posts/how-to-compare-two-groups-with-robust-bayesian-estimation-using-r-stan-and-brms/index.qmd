@@ -4,10 +4,8 @@ description: |
   2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups' data.
 date: 2017-01-02
 categories:
+  - r
   - statistics
-  - tutorial
-  - R
-  - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/dataplot1-1.png"
 aliases:

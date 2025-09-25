@@ -4,11 +4,9 @@ description: |
   Scatterplots can be a very effective form of visualization for data from within-subjects experiments. You'll often see within-subject data visualized as bar graphs (condition means, and maybe mean difference if you're lucky.) But alternatives exist, and today we'll take a look at within-subjects scatterplots.
 date: 2017-01-04
 categories:
+  - r
   - statistics
-  - tutorial
-  - R
   - visualization
-  - ggplot2
 bibliography: bibliography.bib
 image: "index_files/figure-html/scatter-1.png"
 aliases:

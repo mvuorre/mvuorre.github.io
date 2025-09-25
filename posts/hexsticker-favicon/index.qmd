@@ -3,7 +3,7 @@ title: Website favicons with hexSticker
 description: My journey to make a website favicon with the hexSticker R package
 date: 2022-06-29
 categories:
-  - R
+  - r
 image: "index_files/figure-html/fig-favicon-1.png"
 ---
 

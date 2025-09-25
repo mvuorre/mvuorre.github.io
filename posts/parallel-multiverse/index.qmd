@@ -3,12 +3,8 @@ title: Tidymultiverse
 description: How to conduct multiverse analyses in R with tidy pipelines and parallel processing.
 date: 2022-12-07
 categories:
-  - R
+  - r
   - statistics
-  - tutorial
-  - multiverse
-  - tidyverse
-  - specr
 draft: false
 execute:
   cache: true

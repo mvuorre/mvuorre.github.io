@@ -3,7 +3,7 @@ title: Yet another data request email
 description: To what extent does infant screen time predict later psychological outcomes?
 date: 2023-03-24
 categories:
-  - psychology
+  - research
 draft: false
 execute:
   cache: true

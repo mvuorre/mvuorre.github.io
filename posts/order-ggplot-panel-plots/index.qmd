@@ -4,8 +4,7 @@ description: |
   Arrange your visual display of information to maximize your figures' impact.
 date: 2016-12-06
 categories:
-  - data science
-  - R
+  - r
   - visualization
 bibliography: bibliography.bib
 image: "index_files/figure-html/image1-1.png"

@@ -3,10 +3,8 @@ title: Bayesian Meta-Analysis with R, Stan, and brms
 description: Meta-analysis is a special case of Bayesian multilevel modeling
 date: 2016-09-29
 categories:
+  - r
   - statistics
-  - R
-  - brms
-  - tutorial
 image: "index_files/figure-html/unnamed-chunk-2-1.png"
 bibliography: bibliography.bib
 aliases:

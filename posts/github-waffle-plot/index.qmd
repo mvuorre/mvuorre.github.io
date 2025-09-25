@@ -4,10 +4,8 @@ description: |
   Attractive visualization for plotting activity over time in R with ggplot2.
 date: 2016-03-24
 categories:
-  - R
+  - r
   - visualization
-  - data science
-  - tutorial
 image: "index_files/figure-html/viz-1.png"
 bibliography: bibliography.bib
 aliases:

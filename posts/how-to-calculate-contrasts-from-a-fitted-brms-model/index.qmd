@@ -4,10 +4,8 @@ description: |
   Answer more questions with your estimated parameters, without refitting the model.
 date: 2020-02-06
 categories:
+  - r
   - statistics
-  - tutorial
-  - R
-  - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/figure-1.png"
 aliases:

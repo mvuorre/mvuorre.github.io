@@ -3,10 +3,8 @@ title: Confidence intervals in multilevel models
 description: How to obtain average & individual-specific confidence limits for regression lines in a multilevel regression modeling context
 date: 2016-03-06
 categories:
+  - r
   - statistics
-  - R
-  - brms
-  - tutorial
 image: "index_files/figure-html/fig1and2-1.png"
 bibliography: bibliography.bib
 aliases:

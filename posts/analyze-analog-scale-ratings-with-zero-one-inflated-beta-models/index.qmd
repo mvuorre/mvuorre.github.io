@@ -4,11 +4,8 @@ description: |
   A reasonable choice might be the zero-one-inflated beta model
 date: 2019-02-18
 categories:
-  - psychology
+  - r
   - statistics
-  - tutorial
-  - R
-  - brms
 bibliography: bibliography.bib
 image: "index_files/figure-html/fig-beta-distributions-1.png"
 aliases:

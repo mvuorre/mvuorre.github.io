@@ -3,7 +3,8 @@ title: Notes on psychology, statistics, and R, sometimes
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: table
+  fields: [date, title, description, categories]
   categories: true
   feed: true
   max-description-length: 200

@@ -3,9 +3,8 @@ title: Some alternatives to raincloud plots
 description: I like raincloud plots, but think that they can duplicate the information a bit, which might have detrimental effects on clarity and comprehension.
 date: 2022-12-06
 categories:
-  - R
+  - r
   - visualization
-  - ggplot2
 from: markdown+emoji
 reference-location: margin
 bibliography: references.bib

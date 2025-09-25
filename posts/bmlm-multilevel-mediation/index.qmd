@@ -4,10 +4,8 @@ abstract: |
   This post shows how to fit a three-variable multilevel mediation model with brms.
 date: 2025-05-02
 categories:
+  - r
   - statistics
-  - tutorial
-  - R
-  - brms
 bibliography: [bibliography.bib, grateful-refs.bib]
 # image: "index_files/figure-html/fig-sdt-example-1.png"
 format:

@@ -4,9 +4,8 @@ description: Recommended readings in quantitative methods
 date: 2024-01-19
 date-modified: 2025-06-19
 categories:
-  - methods
+  - research
   - statistics
-  - education
 bibliography: bibliography.bib
 image: "images/edge2edge-media-uKlneQRwaxY-unsplash.jpg"
 aliases:

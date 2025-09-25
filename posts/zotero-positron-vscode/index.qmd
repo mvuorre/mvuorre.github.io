@@ -4,9 +4,8 @@ title: |
 description: The vscode-zotero extension allows quickly inserting citation keys from Zotero to your Quarto documents, and updating the associated .bib file with the citation's biblatex entry. Here's how to install and use it.
 date: 2025-06-06
 categories:
-  - Quarto
-  - Zotero
-  - science communication
+  - communication
+  - workflow
 bibliography: bibliography.bib
 image: "images/zotero.png"
 ---

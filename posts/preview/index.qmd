@@ -3,8 +3,7 @@ title: "UI Preview & Style Test"
 description: "To test styles"
 date: 2025-02-12
 categories:
-  - test
-  - documentation
+  - workflow
 draft: true
 comments: false
 ---

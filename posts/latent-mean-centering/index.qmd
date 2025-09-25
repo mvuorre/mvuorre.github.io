@@ -1,15 +1,11 @@
 ---
 title: Latent mean centering with brms
-description: 'Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts [@endersCenteringPredictorVariables2007]. This within-cluster centering is usually an easy data-manipulation step. However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering, and that is available only in the commercial MPlus software suite (and Stan!). In this entry, I show how to latent-mean-center variables in multilevel models using brms.'
+description: 'Researchers studying longitudinal data routinely center their predictors to isolate between- and within-cluster contrasts. This within-cluster centering is usually an easy data-manipulation step. However, centering variables on the observed means can bias the resulting estimates, a problem that is avoided with latent mean centering, and that is available only in the commercial MPlus software suite (and Stan!). In this entry, I show how to latent-mean-center variables in multilevel models using brms.'
 date: 2023-01-01
 date-modified: now
 categories:
-  - R
-  - modelling
-  - bayes
-  - centering
-  - longitudinal
-  - brms
+  - r
+  - statistics
 knitr:
   opts_chunk:
     message: false

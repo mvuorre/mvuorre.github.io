@@ -3,8 +3,8 @@ title: Easy notifications from R
 description: How to send notifications from R, or any other CLI, to your phone
 date: 2022-06-15
 categories:
-  - R
-  - tips
+  - r
+  - workflow
 ---
 
 R can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I'll show how to do that easily with [ntfy](https://ntfy.sh).

@@ -5,12 +5,9 @@ abstract: |
 date: 2017-10-09
 date-modified: 2025-03-19
 categories:
-  - psychology
+  - r
+  - research
   - statistics
-  - signal detection theory
-  - tutorial
-  - R
-  - brms
 bibliography: "bibliography.bib"
 image: "index_files/figure-html/fig-sdt-example-1.png"
 aliases:

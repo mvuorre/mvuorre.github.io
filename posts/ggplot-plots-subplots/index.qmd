@@ -4,10 +4,8 @@ description: |
   Some tips on creating figures with multiple panels in R
 date: 2016-03-15
 categories:
-  - data science
-  - R
+  - r
   - visualization
-  - tutorial
 image: "index_files/figure-html/unnamed-chunk-4-1.png"
 bibliography: bibliography.bib
 aliases:

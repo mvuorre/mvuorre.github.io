@@ -43,6 +43,7 @@ google-scholar: true
 ```{r}
 #| label: setup
 #| include: false
+#| cache: false
 
 knitr::opts_chunk$set(
   eval = TRUE,
@@ -54,7 +55,6 @@ knitr::opts_chunk$set(
   fig.asp = 0.618
 )
 ```
-
 
 ::: {.content-visible when-format="html"}
 

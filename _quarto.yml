@@ -49,7 +49,7 @@ format:
       light: [zephyr, _common.scss, custom.scss]
       dark: [darkly, _common.scss, custom-dark.scss]
     mainfont: "Atkinson Hyperlegible"
-    highlight-style: atom-one
+    highlight-style: a11y
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

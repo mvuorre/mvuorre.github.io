@@ -35,15 +35,15 @@ body {
 
     .quarto-navigation-tool.quarto-color-scheme-toggle {
         i.bi::before {
-            height: 1.2rem;
-            width: 1.2rem;
-            background-size: 1.2rem 1.2rem;
+            height: 1.4rem;
+            width: 1.4rem;
+            background-size: 1.4rem 1.4rem;
         }
 
         &.alternate i.bi::before {
-            height: 1.2rem;
-            width: 1.2rem;
-            background-size: 1.2rem 1.2rem;
+            height: 1.4rem;
+            width: 1.4rem;
+            background-size: 1.4rem 1.4rem;
         }
     }
 }
@@ -52,10 +52,8 @@ body {
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
     border-left: 4px solid #6c757d;
-    background-color: $code-bg;
     color: $body-color;
     position: relative;
-    border-radius: 0 4px 4px 0;
 }
 
 // Image hover effects
@@ -64,16 +62,6 @@ body {
 }
 .content img:hover {
     transform: scale(1.01);
-}
-
-// Code
-// Code blocks
-pre {
-    padding: $spacer;
-    margin-bottom: $spacer;
-    border-radius: $border-radius;
-    background-color: $code-bg !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 // TOC

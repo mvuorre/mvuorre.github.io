@@ -527,7 +527,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#example-rating-task-and-data" id="toc-example-rating-task-and-data" class="nav-link" data-scroll-target="#example-rating-task-and-data">Example rating task and data</a></li>
   <li><a href="#model-for-one-subject" id="toc-model-for-one-subject" class="nav-link" data-scroll-target="#model-for-one-subject">Model for one subject</a></li>
-  <li><a href="#model-for-multiple-participants" id="toc-model-for-multiple-participants" class="nav-link" data-scroll-target="#model-for-multiple-participants">Model for multiple participants</a></li>
+  <li><a href="#model-for-multiple-participants" id="toc-model-for-multiple-participants" class="nav-link" data-scroll-target="#model-for-multiple-participants">Model for multiple participants</a>
+  <ul class="collapse">
+  <li><a href="#a-multilevel-model-with-subject-specific-thresholds" id="toc-a-multilevel-model-with-subject-specific-thresholds" class="nav-link" data-scroll-target="#a-multilevel-model-with-subject-specific-thresholds">A multilevel model with subject-specific thresholds</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#advanced-sdt-models" id="toc-advanced-sdt-models" class="nav-link" data-scroll-target="#advanced-sdt-models">Advanced SDT models</a>
   <ul class="collapse">
@@ -537,6 +540,7 @@ window.Quarto = {
   <li><a href="#multilevel-mixture-sdt-model" id="toc-multilevel-mixture-sdt-model" class="nav-link" data-scroll-target="#multilevel-mixture-sdt-model">Multilevel mixture SDT model</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mvuorre/mvuorre.github.io/edit/main/posts/sdt-regression/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/blob/main/posts/sdt-regression/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/mvuorre/mvuorre.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>Typst (preprint)</a></li></ul></div></nav>
@@ -589,11 +593,11 @@ window.Quarto = {
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="signal-detection-theory" class="level2">
-<h2 class="anchored" data-anchor-id="signal-detection-theory">Signal Detection Theory</h2>
+<section id="signal-detection-theory" class="level1">
+<h1>Signal Detection Theory</h1>
 <p>Signal Detection Theory (SDT) is a framework for studying, understanding, and modeling a wide range of psychological phenomena <span class="citation" data-cites="greenSignalDetectionTheory1966">(<a href="#ref-greenSignalDetectionTheory1966" role="doc-biblioref">Green and Swets 1966</a>)</span>. Its origins are in the psychophysical study of perception, but it has since been used to understand memory, decision making, and other domains. So what is SDT?</p>
 <blockquote class="blockquote">
-<p>“Detection theory entered psychology as a way to explain detection experiments, in which weak visual or auditory signals must be distinguished from a ‘noisy’ background.” <span class="citation" data-cites="macmillan_detection_2005">(<a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005, xiii</a>)</span></p>
+<p><em>“Detection theory entered psychology as a way to explain detection experiments, in which weak visual or auditory signals must be distinguished from a ‘noisy’ background.”</em> <span class="citation" data-cites="macmillan_detection_2005">(<a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005, xiii</a>)</span></p>
 </blockquote>
 <p>To unpack this definition, consider a recognition memory experiment where participants view a series of images, some of which they have not seen before (new items) and some of which they have seen before (old items). For each item, participants decide whether they have seen the item before (and thus give an “old” response) or not (a “new” response).</p>
 <p>A straightforward analysis of data from this experiment focuses on accuracy: What percentage of items participants correctly classified as old or new? Such analyses of accuracy, however, are suboptimal because they conflate two critical factors, fundamental to SDT, that plausibly underlie participants’ responses: Response bias (commonly termed <em>c</em> for <em>criterion</em>) and the ability to discriminate old from new items (commonly termed <em>d’</em> for <em>discriminability</em>). Through directly modeling these two processes, SDT has repeatedly been shown to explain data better than models implied by analyses of accuracy <span class="citation" data-cites="macmillan_detection_2005 kellenTestingFoundationsSignal2021">(<a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005, 13</a>; <a href="#ref-kellenTestingFoundationsSignal2021" role="doc-biblioref">Kellen et al. 2021</a>)</span>. Why?</p>
@@ -744,11 +748,11 @@ Figure&nbsp;1: Illustration of subjective evidence distributions postulated by S
 <p>The participants then decide, based on whether current evidence exceeds their criterion, whether they’ve seen the stimulus previously (“old”) or not (“new”). Some individuals might have a liberal bias and report “old” on trials with even modest degrees of evidence. Others might be conservative and require a greater degree of evidence before deciding they’ve seen the stimulus before. The decision process posited by SDT, based on subjective evidence and thresholds, is visualized in <a href="#fig-sdt-example" class="quarto-xref">Figure&nbsp;1</a>.</p>
 <p>Since the introduction of SDT in studies on perception, and its later widespread adoption in e.g.&nbsp;memory research, the conceptual framework and analytic machinery has been applied in a broad range of areas. For example, in one study, we showed participants photographs of individuals who were injected with a bacterial endotoxin or not, and participants’ task was to detect whether the individual was ill or not <span class="citation" data-cites="leeuwenSmokedetectorPrinciplePathogen2024">(<a href="#ref-leeuwenSmokedetectorPrinciplePathogen2024" role="doc-biblioref">Leeuwen et al. 2024</a>)</span>. In another, participants viewed videos of individuals that were either lying or not, and their task was to determine whether the individual was lying or not <span class="citation" data-cites="zloteanuTutorialDeceptionDetection2024">(<a href="#ref-zloteanuTutorialDeceptionDetection2024" role="doc-biblioref">Zloteanu and Vuorre 2024</a>)</span>. The key to SDT’s success in such a wide variety of domains lies in its applicability even in the absence of information about the kinds of cues that inform people’s decisions:</p>
 <blockquote class="blockquote">
-<p>“A full understanding of the decision process […] is difficult, if not impossible. The decisions depend on many particulars: what the decider knows, his or her expectations and beliefs, how later information affects the interpretation of the original observations, and the like. An understanding of much domain-specific knowledge is needed […]. Fortunately, much can be said about the decision process without going into these details. Some characteristics of a yes-no decision transcend the particular situation in which it is made. The theory discussed here treats these common elements. <em>This theory, known generally as signal-detection theory, is one of the greatest successes of mathematical psychology.</em>” <span class="citation" data-cites="wickensElementarySignalDetection2001">(<a href="#ref-wickensElementarySignalDetection2001" role="doc-biblioref">Wickens 2001, 4</a>)</span></p>
+<p><em>“A full understanding of the decision process […] is difficult, if not impossible. The decisions depend on many particulars: what the decider knows, his or her expectations and beliefs, how later information affects the interpretation of the original observations, and the like. An understanding of much domain-specific knowledge is needed […]. Fortunately, much can be said about the decision process without going into these details. Some characteristics of a yes-no decision transcend the particular situation in which it is made. The theory discussed here treats these common elements. <strong>This theory, known generally as signal-detection theory, is one of the greatest successes of mathematical psychology.</strong>”</em> <span class="citation" data-cites="wickensElementarySignalDetection2001">(<a href="#ref-wickensElementarySignalDetection2001" role="doc-biblioref">Wickens 2001, 4</a>, emphasis added)</span></p>
 </blockquote>
 <p>Our conceptual treatment of SDT, for the purposes of an applied tutorial, was necessarily brief. Readers interested in more complete treatments should consult books such as <span class="citation" data-cites="wickensElementarySignalDetection2001">Wickens (<a href="#ref-wickensElementarySignalDetection2001" role="doc-biblioref">2001</a>)</span>, <span class="citation" data-cites="macmillan_detection_2005">Macmillan and Creelman (<a href="#ref-macmillan_detection_2005" role="doc-biblioref">2005</a>)</span>, or <span class="citation" data-cites="greenSignalDetectionTheory1966">Green and Swets (<a href="#ref-greenSignalDetectionTheory1966" role="doc-biblioref">1966</a>)</span>. An accessible article with computational details is <span class="citation" data-cites="stanislaw_calculation_1999">Stanislaw and Todorov (<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">1999</a>)</span>.</p>
-<section id="current-work-estimating-sdt-models-with-regression" class="level3">
-<h3 class="anchored" data-anchor-id="current-work-estimating-sdt-models-with-regression">Current work: Estimating SDT models with regression</h3>
+<section id="current-work-estimating-sdt-models-with-regression" class="level2">
+<h2 class="anchored" data-anchor-id="current-work-estimating-sdt-models-with-regression">Current work: Estimating SDT models with regression</h2>
 <p>While SDT posits latent probability distributions as the basis for decision making, it is also widely applicable as a relatively theory-free analytic framework that simply allows separating response biases from latent abilities, as suggested by the examples above. It is therefore often considered a standard tool in any behavioral scientist’s toolkit. Subsequently, software packages for calculating SDT metrics and tutorials illustrating their uses are common <span class="citation" data-cites="leeBayesSDTSoftwareBayesian2008 paulewiczBhsdtrPackageGeneralpurpose2020 cohenSdtluPackageSignal2021">(<a href="#ref-leeBayesSDTSoftwareBayesian2008" role="doc-biblioref">Lee 2008</a>; <a href="#ref-paulewiczBhsdtrPackageGeneralpurpose2020" role="doc-biblioref">Paulewicz and Blaut 2020</a>; <a href="#ref-cohenSdtluPackageSignal2021" role="doc-biblioref">Cohen, Starns, and Rotello 2021</a>)</span>.</p>
 <p>In this tutorial, I take a different approach: Much of a behavioral scientist’s quantitative training focuses on the General(ized) Linear Model (regression) framework. It is therefore useful to draw a direct connection between this class of common cognitive models (SDT) to tools that researchers already know (GLM) <span class="citation" data-cites="decarlo_signal_1998 decarlo_using_2003 decarlo_statistical_2010">(see also <a href="#ref-decarlo_signal_1998" role="doc-biblioref">DeCarlo 1998</a>, <a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>; <a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span>.</p>
 <p>Moreover, rather than focusing on computational methods for obtaining point estimates of SDT metrics, as is commonly done <span class="citation" data-cites="stanislaw_calculation_1999">(e.g. <a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>, using the regression framework to estimate them allows quantifying degrees of uncertainty (e.g.&nbsp;standard errors) in the resulting estimates. Finally, by establishing SDT models as regressions, we gain all the benefits of regression, such as including categorical and continuous within- and between-subject predictors, using multilevel structures for crossed item and subject effects <span class="citation" data-cites="rouder_introduction_2005 rouder_signal_2007">(<a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>; <a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al. 2007</a>)</span>, model comparison, and support of established software packages.</p>
@@ -758,11 +762,11 @@ Figure&nbsp;1: Illustration of subjective evidence distributions postulated by S
 <p>Finally, I show additional benefits of estimating SDT models with regression. For one, prior distributions and multilevel models deal elegantly with edge cases where participants have missing data (e.g.&nbsp;no false alarms). Moreover, the estimated parameters seamlessly inform other common SDT metrics, such as Receiver Operating Characteristic (ROC) curves, all of which retain and allow representing the estimation uncertainty associated with the underlying parameters.</p>
 </section>
 </section>
-<section id="sdt-analysis-of-yesno-data" class="level2">
-<h2 class="anchored" data-anchor-id="sdt-analysis-of-yesno-data">SDT analysis of Yes/No data</h2>
+<section id="sdt-analysis-of-yesno-data" class="level1">
+<h1>SDT analysis of Yes/No data</h1>
 <p>The tasks outlined above are typically called “Yes/No” experiments, because the participant’s task is to provide a binary “Yes” or “No” response to a stimulus that either does or does not contain the “signal” that participants attempt to detect. In the ongoing memory example, previously seen (old) items are the signal stimuli, and new items the noise stimuli. In this tutorial, we first focus on analyses of data from Yes/No tasks.</p>
-<section id="example-yesno-task-and-data" class="level3">
-<h3 class="anchored" data-anchor-id="example-yesno-task-and-data">Example Yes/No task and data</h3>
+<section id="example-yesno-task-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-yesno-task-and-data">Example Yes/No task and data</h2>
 <p>To illustrate the most commonly used SDT model, we examine data from the control condition of Experiment 2 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>: 48 subjects studied a list of 200 words for 1.5s each. After a filler task, participants were tested with 200 new and 200 old words. In the test phase, participants rated their confidence in whether each word was new or old with a 6-point Likert item (1: “sure new”, 2: “maybe new”, 3: “guess new”, 4: “guess old”, 5: “maybe old”, 6: “sure old”). This data set is included in the R package MPTinR <span class="citation" data-cites="singmann_mptinr:_2013">(<a href="#ref-singmann_mptinr:_2013" role="doc-biblioref">Singmann and Kellen 2013</a>)</span>.</p>
 <p>For the purposes of the first part of this tutorial, and following the authors’ first analysis (Table 1 in <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span>), we first bin the rating responses to binary “new” (1-3) and “old” (4-6) responses. The resulting data (<a href="#tbl-dat" class="quarto-xref">Table&nbsp;1</a>) is then typical of Yes/No tasks.</p>
 <div class="cell" data-layout-align="center">
@@ -934,8 +938,8 @@ Table&nbsp;1: Four rows of example recognition memory data from <span class="cit
 </div>
 </div>
 </section>
-<section id="calculating-sdt-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="calculating-sdt-parameters">Calculating SDT parameters</h3>
+<section id="calculating-sdt-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-sdt-parameters">Calculating SDT parameters</h2>
 <p>It is immediately clear how to calculate a participant’s overall accuracy from data in <a href="#tbl-dat" class="quarto-xref">Table&nbsp;1</a>: Add up the trials where stimulus and response are identical, and divide the sum by the total number of trials. Calculating SDT parameters, to which we now turn, is not much more involved <span class="citation" data-cites="stanislaw_calculation_1999">(<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>.</p>
 <p>First, responses from a Yes/No task are divided into four categories: hits (responding “old” to old items), misses (responding “new” to old items), false alarms (responding “old” to new items), and correct rejections (responding “new” to new items). We then calculate hit and false alarm rates by aggregating the response categories, z-score the rates, and either add (to calculate response bias) or subtract (to calculate sensitivity) these z-scores. I first show how to classify trials with R in <a href="#lst-sdt1" class="quarto-xref">Listing&nbsp;1</a>.</p>
 <div class="cell" data-layout-align="center">
@@ -1314,14 +1318,14 @@ Figure&nbsp;2: <strong>Left.</strong> The signal detection model for three parti
 </div>
 </section>
 </section>
-<section id="estimating-sdt-parameters-with-regression" class="level2">
-<h2 class="anchored" data-anchor-id="estimating-sdt-parameters-with-regression">Estimating SDT parameters with regression</h2>
+<section id="estimating-sdt-parameters-with-regression" class="level1">
+<h1>Estimating SDT parameters with regression</h1>
 <p>We have now “manully” calculated, rather than statistically estimated, participants’ SDT parameters. While standard practice, this approach has at least two potential downsides. First, we have not quantified our uncertainty in the parameters. For example, were we interested in a statistical comparison of participant 19’s and 29’s criteria, we could only report a point estimate of this difference.</p>
 <p>Second, any further questions—estimating (differences in) population means, for example—would require additional models of these point estimates. These further models would ignore the uncertainty inherent in the participant-specific parameters. This point may not matter for perfectly balanced designs, but would be especially important when participants complete different numbers of trials or have missing data.</p>
 <p>Moreover, while it is pedagogically useful to go through these calculations, there might also be related downsides: These quantities are naturally estimated in common regression models, and by not making that connection explicit we are not contributing as effectively to further quantitative learning. Because researchers are typically already familiar with regression techniques, using those instead of manual calculations may prove useful in practice as well <span class="citation" data-cites="decarlo_using_2003">(<a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span>.</p>
 <p>Therefore, we now move to the main topic of this tutorial: Estimating SDT models using Generalized Linear Models (GLM).</p>
-<section id="coding-categorical-variables" class="level3">
-<h3 class="anchored" data-anchor-id="coding-categorical-variables">Coding categorical variables</h3>
+<section id="coding-categorical-variables" class="level2">
+<h2 class="anchored" data-anchor-id="coding-categorical-variables">Coding categorical variables</h2>
 <p>We begin by considering the raw data in <a href="#tbl-dat" class="quarto-xref">Table&nbsp;1</a>. Because the data contains categorical variables, it is first important to understand how a model might use them. In R, this specification is done via “contrasts” (such as dummy variables, contrast codes, etc) that code them into numerical values when used in models.</p>
 <p>When binary variables are modeled in R (either as outcomes or predictors), R by default will assign them treatment codes (also known as dummy variables). Therefore <code>stimulus</code> and <code>response</code> would be coded as “New”: 0 and “Old”: 1 (from their alphabetical order). For reasons visible to some readers in <a href="#eq-c" class="quarto-xref">Equation&nbsp;2</a> and further elaborated below, we instead sum-to-zero-code <code>stimulus</code> as “New”: -0.5 and “Old”: 0.5 (<a href="#tbl-contrasts" class="quarto-xref">Table&nbsp;4</a>). This will ensure that our model’s intercept will be “halfway between” the (z-scored) hit and false alarm rates (now take another look at <a href="#eq-c" class="quarto-xref">Equation&nbsp;2</a>). I specify this coding scheme in <a href="#lst-contrasts" class="quarto-xref">Listing&nbsp;4</a>.</p>
 <div class="cell" data-layout-align="center">
@@ -1465,8 +1469,8 @@ Table&nbsp;4: Numerical contrast codes of categorical variables when modeled.
 </div>
 </div>
 </section>
-<section id="specifying-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="specifying-the-model">Specifying the model</h3>
+<section id="specifying-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="specifying-the-model">Specifying the model</h2>
 <p>Now that we have prepared our data, we proceed to specifying our regression model. We first consider this model for one participant. We model responses r (“No”: 0, “Yes”: 1) at row i as Bernoulli distributed with probability <span class="math inline">\(p_i\)</span> that <span class="math inline">\(r_i = 1\)</span> (line 1 below). (Bernoulli distribution is the binomial distribution for binary responses.)</p>
 <p><span id="eq-glm"><span class="math display">\[
 \begin{aligned}
@@ -1477,8 +1481,8 @@ p_i &amp;= \Phi(\beta_0 + \beta_1\text{s}_i)
 <p>Because probabilities have lower and upper limits at 0 and 1, we model <em>p</em> through a link function. A common choice for a link function for models of binary data is the logistic, leading to the familiar logistic regression model. However, we use the probit link function <span class="math inline">\(\Phi\)</span> which maps the unbounded continuous linear combination of the predictors to probabilities (line 2 above).</p>
 <p>Given this parameterization, the intercept of the model (<span class="math inline">\(\beta_0\)</span>) will indicate the z-scored probability of responding “old” when all predictors are zero (see <a href="#lst-contrasts" class="quarto-xref">Listing&nbsp;4</a>). When <code>stimulus</code>, our predictor, is “sum-to-zero” coded as we have done above, the intercept corresponds to -<em>c</em> (see <a href="#eq-c" class="quarto-xref">Equation&nbsp;2</a>). The slope of the model (<span class="math inline">\(\beta_1\)</span>) is the difference in z-scored probabilities of saying “old” between old and new items, and therefore <span class="math inline">\(d' = \beta_1\)</span> (see <a href="#eq-d" class="quarto-xref">Equation&nbsp;1</a>). For a more complete treatment of the connection between SDT models and GLM, see <span class="citation" data-cites="decarlo_signal_1998">DeCarlo (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>.</p>
 </section>
-<section id="estimating-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="estimating-the-model">Estimating the model</h3>
+<section id="estimating-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-the-model">Estimating the model</h2>
 <p>We now have a variety of software options for estimating the GLM. For this simple model, we could use base R’s <code>glm()</code>. Here, we use the Bayesian regression modeling R package <a href="https://github.com/paul-buerkner/brms">brms</a> <span class="citation" data-cites="burkner_brms:_2017">(<a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017</a>)</span>, because its model formula syntax extends seamlessly to more complicated models that we will discuss later. We can estimate the GLM with brms’s <code>brm()</code> function by providing as arguments a model formula in brms syntax (identical to base R model syntax for simple models), an outcome distribution with a link function, and a data frame.</p>
 <p>brms’s model syntax uses variable names from the data. In <a href="#lst-brm" class="quarto-xref">Listing&nbsp;5</a>, we regress the binary <code>response</code> outcome on the binary <code>stimulus</code> predictor (<code>response ~ stimulus</code>). We then specify that outcomes are bernoulli distributed with a probit link function with <code>family = bernoulli(link="probit")</code>. We will only model the first participant’s data, and therefore specify the data with <code>data = filter(dat, pid==1)</code>.</p>
 <p>The <code>brm()</code> function also allows specifying prior distributions on the parameters, but for this introductory discussion we omit discussion of priors. Finally, we specify <code>file</code> to save the estimated model to a file so that we don’t have to re-estimate the model whenever we restart R.</p>
@@ -1547,8 +1551,8 @@ stimulus1     1.38      0.15     1.07     1.68 1.00     3102     2345</code></pr
 </div>
 <p>The regression parameters (<code>Intercept</code> (<span class="math inline">\(-c = \beta_0\)</span>) and <code>stimulus1</code> (<span class="math inline">\(d' = \beta_1\)</span>)) are described in the “Regression Coefficients” table in the above output. <code>Estimate</code> reports the posterior means, which are comparable to maximum likelihood point estimates. <code>Est.Error</code> reports the posterior standard deviations, which are comparable to standard errors. The estimated parameters’ means match the point estimates we calculated by hand (see <a href="#tbl-sdt" class="quarto-xref">Table&nbsp;3</a>), but note the reversed sign of <em>c</em>. The next two columns report the parameter’s 95% Credible Intervals (CIs). Finally, the <code>Rhat</code> and <code>_ESS</code> values provide diagnostic information (convergence and effective posterior sample size, respectively) about the Bayesian estimation procedure. The former should be close to 1.00, and the latter as large as possible. We do not consider these metrics further, but see e.g. <span class="citation" data-cites="gelman_bayesian_2013">Gelman et al. (<a href="#ref-gelman_bayesian_2013" role="doc-biblioref">2013</a>)</span>.</p>
 </section>
-<section id="interpreting-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="interpreting-the-model">Interpreting the model</h3>
+<section id="interpreting-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-the-model">Interpreting the model</h2>
 <p>We read in the above output that the model intercept, corresponding to -<em>c</em>, has a positive posterior mean, but its CI considerably overlaps zero. Therefore, this participant is not strongly biased in favor of responding either “Yes” or “No”. The slope coefficient <code>stimulus1</code>, corresponding to <em>d’</em>, is positive and indicates that the latent evidence distribution of signal trials for this participant is ~1.4 z-scores greater than the noise distribution: The participant has good discriminability and is able to tell old stimuli from new.</p>
 <p>We now return to the two shortcomings of manually calculating SDT parameters alluded to above. First, the model assigns credibility to a range of parameter values (the CI), instead of returning only the most likely value (the posterior mean). I illustrate these degrees of certainty in the left panel of <a href="#fig-glm" class="quarto-xref">Figure&nbsp;3</a>. This figure is a smoothed bivariate density of the scatterplot of posterior samples of <span class="math inline">\(p(\beta_0, \beta_1)\)</span>, and indicates more credible SDT parameter values in lighter yellow hues. The point estimate shown in red is a poor representation of this more complete picture.</p>
 <div class="cell" data-layout-align="center">
@@ -1670,13 +1674,13 @@ Figure&nbsp;3: SDT parameters as estimated with a Generalized Linear Model. <str
 <p>Second, consider the bottom and top points in the <em>c</em> column of <a href="#fig-glm" class="quarto-xref">Figure&nbsp;3</a>. All we could say based on the point estimates is that the top participant has a far more positive (conservative) criterion than the bottom participant. However, the bayesian estimates would allow directly testing that difference, by virtue of retaining uncertainty in the parameter estimates. Finally, notice how straightforward it was to estimate the SDT parameters with regression: Instead of multiple lines of data wrangling and calculation, the regression model directly returns SDT parameters from the raw data.</p>
 </section>
 </section>
-<section id="sdt-for-multiple-participants" class="level2">
-<h2 class="anchored" data-anchor-id="sdt-for-multiple-participants">SDT for multiple participants</h2>
+<section id="sdt-for-multiple-participants" class="level1">
+<h1>SDT for multiple participants</h1>
 <p>We have now estimated the SDT model’s parameters for one subject’s data using two methods: Calculating point estimates manually and estimating them with a GLM. The main difference between these methods is that modeling provided estimates of uncertainty in the parameters, whereas the manual calculation did not. This point leads us directly to multilevel models <span class="citation" data-cites="rouder_introduction_2005 rouder_signal_2007 gelmanDataAnalysisUsing2007">(<a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>; <a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al. 2007</a>; <a href="#ref-gelmanDataAnalysisUsing2007" role="doc-biblioref">Gelman and Hill 2007</a>)</span>, which we discuss next.</p>
 <p>Researchers are usually not primarily interested in the specific subjects that happened to participate in their experiment. Instead the population of potential subjects is the target of inference. Therefore, we are unsatisfied with parameters which describe only the individuals in our sample: The final statistical model should have parameters that estimate features of the population of interest.</p>
 <p>Broadly, there are two methods for obtaining these population-level parameters. The most common method is to aggregate manually calculated subject-specific point estimates of <em>d’</em> and <em>c</em> to their sample means and standard deviations. From these, we can calculate standard errors, t-tests, confidence intervals, and so on. The second method involves fitting one model simultaneously to all participants’ data.</p>
-<section id="estimating-by-summarizing-subjects-point-estimates" class="level3">
-<h3 class="anchored" data-anchor-id="estimating-by-summarizing-subjects-point-estimates">Estimating by summarizing subjects’ point estimates</h3>
+<section id="estimating-by-summarizing-subjects-point-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-by-summarizing-subjects-point-estimates">Estimating by summarizing subjects’ point estimates</h2>
 <p>Above we calculated <em>d’</em> and <em>c</em> for every participant in the sample. We can therefore calculate sample means and standard errors for both parameters using these individual-specific values. I show one way to do this aggregation in R using <code>summarise()</code> from the dplyr package in <a href="#lst-sdt-agg" class="quarto-xref">Listing&nbsp;6</a>.</p>
 <div class="cell" data-layout-align="center">
 <div id="lst-sdt-agg" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
@@ -1815,8 +1819,8 @@ Table&nbsp;5: Sample summaries of SDT parameters.
 </div>
 <p>The sample means are estimates of the population means, and the sample standard deviations divided by square root of the number of subjects are standard deviations of the means’ sampling distributions, the standard errors. Note that this method involves calculating point estimates of unknown parameters (the subject-specifc estimates), and then summarizing these parameters with additional models. In other words, we first fit N models with P parameters each (N = number of subjects, P = 2 parameters), and then P more models to summarise the subject-specific models.</p>
 </section>
-<section id="multilevel-model" class="level3">
-<h3 class="anchored" data-anchor-id="multilevel-model">Multilevel model</h3>
+<section id="multilevel-model" class="level2">
+<h2 class="anchored" data-anchor-id="multilevel-model">Multilevel model</h2>
 <p>Another method is to build a multilevel model that simultaneously estimates subject-specific and population-level parameters <span class="citation" data-cites="gelmanDataAnalysisUsing2007 mcelreathStatisticalRethinkingBayesian2020">(<a href="#ref-gelmanDataAnalysisUsing2007" role="doc-biblioref">Gelman and Hill 2007</a>; <a href="#ref-mcelreathStatisticalRethinkingBayesian2020" role="doc-biblioref">McElreath 2020</a>)</span>. <span class="citation" data-cites="rouder_introduction_2005">Rouder and Lu (<a href="#ref-rouder_introduction_2005" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="rouder_signal_2007">Rouder et al. (<a href="#ref-rouder_signal_2007" role="doc-biblioref">2007</a>)</span> discuss multilevel models in the context of Signal Detection Theory. Multilevel models are variously also known as hierarchical, mixed, random-effect, and Generalized (Linear) Mixed Models (GLMMs).</p>
 <p>This model is identical to the GLM in <a href="#eq-glm" class="quarto-xref">Equation&nbsp;3</a>, but now the subject-specific <em>d’</em>s and -<em>c</em>s are modeled as draws from a multivariate normal distribution, whose parameters describe the population. We subscript subjects’ parameters <span class="math inline">\(\gamma\)</span> with <em>j</em>, rows in data with <em>i</em>, and write the model as:</p>
 <p><span id="eq-glmm"><span class="math display">\[
@@ -2012,11 +2016,11 @@ Figure&nbsp;4: <strong>Left.</strong> The (approximate) joint posterior density 
 <p>This deviation has further implications, revealed by investigating the two methods’ estimates of the subject-specific parameters. Recall that the manual calculation method involved estimating (the point estimates of) a separate model for each participant. A hierarchical model considers all participants’ data simultaneously, and the estimates are allowed to inform each other via a shared prior distribution. This “partial pooling” of information <span class="citation" data-cites="gelmanDataAnalysisUsing2007">(<a href="#ref-gelmanDataAnalysisUsing2007" role="doc-biblioref">Gelman and Hill 2007</a>)</span> reduces overfitting and thereby returns estimates with better predictive performance <span class="citation" data-cites="efronSteinsParadoxStatistics1977">(<a href="#ref-efronSteinsParadoxStatistics1977" role="doc-biblioref">Efron and Morris 1977</a>)</span>. The subject-specific effects are pulled toward their means, an effect that is most visible for participants with most extreme values (right panel of <a href="#fig-glmm" class="quarto-xref">Figure&nbsp;4</a>).</p>
 </section>
 </section>
-<section id="sdt-analysis-of-rating-data" class="level2">
-<h2 class="anchored" data-anchor-id="sdt-analysis-of-rating-data">SDT analysis of rating data</h2>
+<section id="sdt-analysis-of-rating-data" class="level1">
+<h1>SDT analysis of rating data</h1>
 <p>Until now, we have considered analyses of a detection task where stimuli were either old or new, and participants provided binary “old” and “new” responses. We now turn to the Rating task where participants instead rate their degree of confidence that the stimulus was old or new.</p>
-<section id="example-rating-task-and-data" class="level3">
-<h3 class="anchored" data-anchor-id="example-rating-task-and-data">Example rating task and data</h3>
+<section id="example-rating-task-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-rating-task-and-data">Example rating task and data</h2>
 <p>This, as mentioned above, is exactly what subjects in <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span> did: On each trial, subjects responded with a 6-point Likert item indicating their confidence in the item being new or old (1: “sure new”, 2: “maybe new”, 3: “guess new”, 4: “guess old”, 5: “maybe old”, 6: “sure old”). I show these data in <a href="#tbl-sdt2" class="quarto-xref">Table&nbsp;6</a>.</p>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
@@ -2158,8 +2162,8 @@ Table&nbsp;6: Aggregated example data from subject 1 in the control condition of
 <p>A common and plausible interpretation of these data is that participants use a set of criteria, such that greater evidence is required for greater numerical responses. That is, there will be different criteria for responding “definitely new”, “maybe new”, and so forth. Generally, such data is commonly analyzed with models that assume a continuous (usually normally distributed) outcome. However, this practice can lead to problems when data isn’t well-behaved, and therefore models that appropriately account for the responses’ ordinal nature are recommended <span class="citation" data-cites="liddellAnalyzingOrdinalData2018">(<a href="#ref-liddellAnalyzingOrdinalData2018" role="doc-biblioref">Liddell and Kruschke 2018</a>)</span>. An accessible introduction to such ordinal models can be found in <span class="citation" data-cites="burknerOrdinalRegressionModels2019">Bürkner and Vuorre (<a href="#ref-burknerOrdinalRegressionModels2019" role="doc-biblioref">2019</a>)</span>, and Chapter 12.3 of <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">McElreath (<a href="#ref-mcelreathStatisticalRethinkingBayesian2020" role="doc-biblioref">2020</a>)</span>.</p>
 <p>Above, we noted that a GLM with a Bernoulli response function and probit link function is a regression formulation of the basic SDT model of Yes/No data. Similarly, one class of ordinal models, called the <em>cumulative model</em> in <span class="citation" data-cites="burknerOrdinalRegressionModels2019">Bürkner and Vuorre (<a href="#ref-burknerOrdinalRegressionModels2019" role="doc-biblioref">2019</a>)</span>, provides a regression formulation of SDT models for data from a Rating task <span class="citation" data-cites="decarlo_signal_1998 decarlo_using_2003">(see also <a href="#ref-decarlo_signal_1998" role="doc-biblioref">DeCarlo 1998</a>; <a href="#ref-decarlo_using_2003" role="doc-biblioref">Decarlo 2003</a>)</span>.</p>
 </section>
-<section id="model-for-one-subject" class="level3">
-<h3 class="anchored" data-anchor-id="model-for-one-subject">Model for one subject</h3>
+<section id="model-for-one-subject" class="level2">
+<h2 class="anchored" data-anchor-id="model-for-one-subject">Model for one subject</h2>
 <p>For rating data, the SDT model is very similar to the one for Yes/No task data, but now includes multiple intercepts, commonly referred to as thresholds. These thresholds index criteria that subjects use to split their internal experiences (evidence) to the different response categories, and therefore conceptually correspond to <em>c</em>. For <em>k</em> response options, we need <span class="math inline">\(k - 1\)</span> thresholds. The criteria are ordered: People should be more likely to respond “sure old” rather than “maybe old” when evidence (memory strength) is greater. To connect with the ongoing, we label these thresholds as <span class="math inline">\(c_k\)</span> (<span class="math inline">\(\tau_k\)</span> in <span class="citation" data-cites="burknerOrdinalRegressionModels2019">Bürkner and Vuorre (<a href="#ref-burknerOrdinalRegressionModels2019" role="doc-biblioref">2019</a>)</span>; <span class="math inline">\(\alpha_k\)</span> or <span class="math inline">\(\kappa_k\)</span> in <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">McElreath (<a href="#ref-mcelreathStatisticalRethinkingBayesian2020" role="doc-biblioref">2020</a>)</span>, Chapter 12.3.) We then write the probability of a response <em>r</em> being in category <em>k</em> in <a href="#eq-thresholds" class="quarto-xref">Equation&nbsp;5</a>.</p>
 <p><span id="eq-thresholds"><span class="math display">\[
 Pr(r_i = k) = \Phi(c_k - \eta_i) - \Phi(c_{k-1} - \eta_i).
@@ -2269,8 +2273,8 @@ Figure&nbsp;5: Signal detection model of participant 1’s rating data, visualiz
 </div>
 </div>
 </section>
-<section id="model-for-multiple-participants" class="level3">
-<h3 class="anchored" data-anchor-id="model-for-multiple-participants">Model for multiple participants</h3>
+<section id="model-for-multiple-participants" class="level2">
+<h2 class="anchored" data-anchor-id="model-for-multiple-participants">Model for multiple participants</h2>
 <p>For a sample of subjects, we could again compute each individual’s parameters and summarize them in another model. We won’t bother but instead turn immediately to a multilevel model formulation. A multilevel model, however, can take at least two forms. The first, shown now, includes subject-specific deviations in the linear model of <span class="math inline">\(\eta\)</span>:</p>
 <p><span id="eq-eta-glmm"><span class="math display">\[
 \begin{aligned}
@@ -2415,8 +2419,8 @@ Figure&nbsp;6: Implied SDT model from multilevel regression model with by-subjec
 </div>
 </div>
 <p>To aid interpretation, I have also visualized the multilevel cumulative model’s implied SDT model, for the population average and three subjects, in <a href="#fig-glmm-rating1" class="quarto-xref">Figure&nbsp;6</a>. A close inspection of this figure reveals that the distance between the thresholds (vertical lines) is identical for every participant (and the population average). While this formulation of the model is parsimonius, it is important to note that it could be considered in violation of some SDT assumptions by not allowing these thresholds to flexibly vary between individuals. To address this potential limitation, we now estimate a variation of this model that estimates fixed subject-specific thresholds.</p>
-<section id="a-multilevel-model-with-subject-specific-thresholds" class="level4">
-<h4 class="anchored" data-anchor-id="a-multilevel-model-with-subject-specific-thresholds">A multilevel model with subject-specific thresholds</h4>
+<section id="a-multilevel-model-with-subject-specific-thresholds" class="level3">
+<h3 class="anchored" data-anchor-id="a-multilevel-model-with-subject-specific-thresholds">A multilevel model with subject-specific thresholds</h3>
 <p>The syntax for this model is similar to above, but we use <code>thres(gr = pid)</code> to specify that the thresholds should be estimated separately for each participant (<a href="#lst-evsdt-thresholds" class="quarto-xref">Listing&nbsp;10</a>). Then, we omit subject-specific random intercepts by <code>(0 + stimulus | pid)</code> and <code>cmc = FALSE</code>, which ensures that R’s default cell-mean coding for models without an intercept is disabled. Finally, we increase the <code>adapt_delta</code> control parameter from its default 0.8 to better estimate the model’s posterior distribution.</p>
 <div class="cell" data-layout-align="center">
 <div id="lst-evsdt-thresholds" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored" data-code-fold="show">
@@ -2748,11 +2752,11 @@ Figure&nbsp;9: Model-predicted response proportions from multilevel rating model
 </section>
 </section>
 </section>
-<section id="advanced-sdt-models" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-sdt-models">Advanced SDT models</h2>
+<section id="advanced-sdt-models" class="level1">
+<h1>Advanced SDT models</h1>
 <p>In this section, we cover the estimation of two generalizations of the SDT model, the unequal variances and finite mixtures models (for both single subjects and multiple individuals using multilevel regression). As above, our focus is on practical application; readers requiring a more theoretical treatment can refer to standard texts <span class="citation" data-cites="greenSignalDetectionTheory1966 macmillan_detection_2005 wickensElementarySignalDetection2001">(<a href="#ref-greenSignalDetectionTheory1966" role="doc-biblioref">Green and Swets 1966</a>; <a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005</a>; <a href="#ref-wickensElementarySignalDetection2001" role="doc-biblioref">Wickens 2001</a>)</span>; a more complete mathematical treatment is <span class="citation" data-cites="decarlo_statistical_2010">DeCarlo (<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>.</p>
-<section id="unequal-variances" class="level3">
-<h3 class="anchored" data-anchor-id="unequal-variances">Unequal variances</h3>
+<section id="unequal-variances" class="level2">
+<h2 class="anchored" data-anchor-id="unequal-variances">Unequal variances</h2>
 <p>The models discussed above have all assumed that the latent evidence distributions associated with signal and noise trials have the same variability. Accordingly, in more general treatments, the model above is known as the equal variance SDT (EVSDT) model. However, when tested, this assumption is consistently found inadequate: Experiments have repeatedly shown that the signal distribution has greater variance than the noise distribution in a wide variety of subject domains. For example, <span class="citation" data-cites="koen_examining_2013">Koen et al. (<a href="#ref-koen_examining_2013" role="doc-biblioref">2013</a>)</span> reported increased signal distribution variability across four memory experiments.</p>
 <p>A generalization of the EVSDT model, the unequal variance (UVSDT) model adds one parameter to estimate the signal distribution’s variance. Recall that it is always assumed that the noise distribution has a standard deviation of 1. Importantly, we cannot estimate this additional parameter for binary outcomes (Yes/No task), and so below focus on the rating data.</p>
 <p>The UVSDT model, for one participant’s data, is a generalization of <a href="#eq-thresholds" class="quarto-xref">Equation&nbsp;5</a></p>
@@ -3044,8 +3048,8 @@ Figure&nbsp;10: The unequal variance Gaussian signal detection model, visualized
 </div>
 </div>
 </section>
-<section id="uvsdt-for-multiple-participants" class="level3">
-<h3 class="anchored" data-anchor-id="uvsdt-for-multiple-participants">UVSDT for multiple participants</h3>
+<section id="uvsdt-for-multiple-participants" class="level2">
+<h2 class="anchored" data-anchor-id="uvsdt-for-multiple-participants">UVSDT for multiple participants</h2>
 <p>Above, we fit the UVSDT model for a single subject. However, we typically want to discuss inferences about the population, not individual subjects. Further, if we wish to discuss individual subjects, we should place them in the context of other subjects. A multilevel model accomplishes these goals by including both population- and subject-level parameters. We extend the code from <a href="#lst-uvsdt1" class="quarto-xref">Listing&nbsp;11</a> to a hierarchical model by specifying varying parameters across participants <a href="#lst-uvsdt" class="quarto-xref">Listing&nbsp;13</a>.</p>
 <p>Recall from above that using <code>|p|</code> leads to estimating correlations among the varying effects. There will only be one standard deviation associated with the thresholds; that is, the model assumes that subjects vary around the mean threshold similarly for all thresholds. We can then estimate the model as before.</p>
 <div class="cell" data-layout-align="center">
@@ -3107,8 +3111,8 @@ disc_stimulusOld    -0.28      0.09    -0.45    -0.10</code></pre>
 </div>
 <p>Let’s first focus on the Regression Coefficients: The effects for the “average person”. Intercepts, again, indicate the thresholds used to partition the latent evidence distribution into response categories. <code>stimulusOld</code> is <em>d’</em>, <code>disc_stimulusOld</code> is <span class="math inline">\(-\text{log}(\sigma_{signal})\)</span>. It is typically useful to transform the latter to a standard deviation, as is shown in <a href="#lst-uvsdt-convert" class="quarto-xref">Listing&nbsp;12</a>.</p>
 </section>
-<section id="mixture-sdt-model" class="level3">
-<h3 class="anchored" data-anchor-id="mixture-sdt-model">Mixture SDT model</h3>
+<section id="mixture-sdt-model" class="level2">
+<h2 class="anchored" data-anchor-id="mixture-sdt-model">Mixture SDT model</h2>
 <p>While the unequal variances SDT model fits observer data better than does the equal variances model, it provides no explanation to why the latent variances might differ. One explanation for this difference is that observers might, on a subset of trials, be inattentive to the task:</p>
 <blockquote class="blockquote">
 <p>An inattentive observer dozes off, or at least drifts into reverie, on some proportion of trials; because failing to respond is usually discouraged,this leads to an unknown numberof d′=0 trials,ones on which the observer responds despite not having paid attention, mixed in with the others <span class="citation" data-cites="macmillan_detection_2005">(<a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005, 46</a>)</span></p>
@@ -3185,8 +3189,8 @@ theta2     0.14      0.08     0.01     0.30</code></pre>
 </div>
 <p>By default, this model has fixed the latent variances at 1 (<code>disc1</code> = <code>disc2</code> = 1). But now we have two additional parameters <code>theta1</code> that index the mixture proportions. We see that participant 1’s responses are a mixture of ~86% attended trials, and ~14% non-attended trials (posterior means). For more details on interpreting this model, see <span class="citation" data-cites="decarlo_statistical_2010">DeCarlo (<a href="#ref-decarlo_statistical_2010" role="doc-biblioref">2010</a>)</span>.</p>
 </section>
-<section id="multilevel-mixture-sdt-model" class="level3">
-<h3 class="anchored" data-anchor-id="multilevel-mixture-sdt-model">Multilevel mixture SDT model</h3>
+<section id="multilevel-mixture-sdt-model" class="level2">
+<h2 class="anchored" data-anchor-id="multilevel-mixture-sdt-model">Multilevel mixture SDT model</h2>
 <p>After estimating the mixture model for one participant, we now turn to estimating it for a sample of individuals using a multilevel model. The syntax (<a href="#lst-mix" class="quarto-xref">Listing&nbsp;15</a>) is identical to that in <a href="#lst-mix1" class="quarto-xref">Listing&nbsp;14</a>, but we now include by-person random effects on the parameters.</p>
 <div class="cell" data-layout-align="center">
 <div id="lst-mix" class="r cell-code listing quarto-float quarto-figure quarto-figure-left anchored" data-code-fold="show">
@@ -3317,21 +3321,131 @@ Figure&nbsp;11: Mixing proportions for each participant (empty) and the populati
 </div>
 </section>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 <p>Signal Detection Theory is “one of the greatest successes of mathematical psychology” <span class="citation" data-cites="wickensElementarySignalDetection2001">(<a href="#ref-wickensElementarySignalDetection2001" role="doc-biblioref">Wickens 2001</a>)</span>. It is used to guide theorizing and data analyses in a wide variety of research areas in psychology where the experimental tasks involve detecting, or indicating one’s confidence in, the presence of a signal. Those “signals” can be previously seen images or words, perceptual stimuli corrupted by noise, marks of illness, and more. The theory itself is established and further made accessible in widely read texts <span class="citation" data-cites="greenSignalDetectionTheory1966 macmillan_detection_2005">(<a href="#ref-greenSignalDetectionTheory1966" role="doc-biblioref">Green and Swets 1966</a>; <a href="#ref-macmillan_detection_2005" role="doc-biblioref">Macmillan and Creelman 2005</a>)</span>.</p>
 <p>While many SDT models are accessible to researchers via well-known computational formulas <span class="citation" data-cites="stanislaw_calculation_1999">(<a href="#ref-stanislaw_calculation_1999" role="doc-biblioref">Stanislaw and Todorov 1999</a>)</span>, those don’t always easily generalize to more complex research designs, and can ignore important sources of variability <span class="citation" data-cites="rouder_introduction_2005 rouder_signal_2007">(e.g.&nbsp;due to item heterogeneity <a href="#ref-rouder_introduction_2005" role="doc-biblioref">Rouder and Lu 2005</a>; see also <a href="#ref-rouder_signal_2007" role="doc-biblioref">Rouder et al. 2007</a>)</span>. Moreover, these calculations introduce added complexity to researchers, who do not always recognize that the models can be estimated with standard tools, such as Generalized Linear (Mixed) Models [GLMM; <span class="citation" data-cites="decarlo_signal_1998">DeCarlo (<a href="#ref-decarlo_signal_1998" role="doc-biblioref">1998</a>)</span>; <span class="citation" data-cites="decarlo_using_2003">Decarlo (<a href="#ref-decarlo_using_2003" role="doc-biblioref">2003</a>)</span>] that are straightforward to generalize to more complex research designs.</p>
 <p>My aim with this tutorial was to provide an introduction to how the GLMM can be used to estimate a variety of SDT models, ranging from single-subject analyses to multilevel mixture models that account for attention lapses, using bayesian regression methods implemented in the brms R package <span class="citation" data-cites="rcoreteamLanguageEnvironmentStatistical2025 burkner_brms:_2017">(<a href="#ref-rcoreteamLanguageEnvironmentStatistical2025" role="doc-biblioref">R Core Team 2025</a>; <a href="#ref-burkner_brms:_2017" role="doc-biblioref">Bürkner 2017</a>)</span>.</p>
 </section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bolger_intensive_2013" class="csl-entry" role="listitem">
+Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive Longitudinal Methods: An Introduction to Diary and Experience Sampling Research</em>. Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
+</div>
+<div id="ref-burkner_brms:_2017" class="csl-entry" role="listitem">
+Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-burknerBayesianItemResponse2021" class="csl-entry" role="listitem">
+———. 2021. <span>“Bayesian <span>Item Response Modeling</span> in <span>R</span> with Brms and <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 100 (November): 1–54. <a href="https://doi.org/10.18637/jss.v100.i05">https://doi.org/10.18637/jss.v100.i05</a>.
+</div>
+<div id="ref-burknerOrdinalRegressionModels2019" class="csl-entry" role="listitem">
+Bürkner, Paul-Christian, and Matti Vuorre. 2019. <span>“Ordinal <span>Regression Models</span> in <span>Psychology</span>: <span>A Tutorial</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 2 (1): 77–101. <a href="https://doi.org/10.1177/2515245918823199">https://doi.org/10.1177/2515245918823199</a>.
+</div>
+<div id="ref-cetinkaya-rundelIntroductionModernStatistics2024" class="csl-entry" role="listitem">
+Çetinkaya-Rundel, Mine, and Johanna Hardin. 2024. <em>Introduction to <span>Modern Statistics</span></em>. OpenIntro. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
+</div>
+<div id="ref-cohenSdtluPackageSignal2021" class="csl-entry" role="listitem">
+Cohen, Andrew L., Jeffrey J. Starns, and Caren M. Rotello. 2021. <span>“Sdtlu: <span>An R</span> Package for the Signal Detection Analysis of Eyewitness Lineup Data.”</span> <em>Behavior Research Methods</em> 53 (1): 278–300. <a href="https://doi.org/10.3758/s13428-020-01402-7">https://doi.org/10.3758/s13428-020-01402-7</a>.
+</div>
+<div id="ref-decarlo_signal_1998" class="csl-entry" role="listitem">
+DeCarlo, Lawrence T. 1998. <span>“Signal Detection Theory and Generalized Linear Models.”</span> <em>Psychological Methods</em> 3 (2): 186–205. <a href="https://doi.org/10.1037/1082-989X.3.2.186">https://doi.org/10.1037/1082-989X.3.2.186</a>.
+</div>
+<div id="ref-decarlo_using_2003" class="csl-entry" role="listitem">
+Decarlo, Lawrence T. 2003. <span>“Using the <span>PLUM</span> Procedure of <span>SPSS</span> to Fit Unequal Variance and Generalized Signal Detection Models.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 35 (1): 49–56. <a href="https://doi.org/10.3758/BF03195496">https://doi.org/10.3758/BF03195496</a>.
+</div>
+<div id="ref-decarlo_statistical_2010" class="csl-entry" role="listitem">
+DeCarlo, Lawrence T. 2010. <span>“On the Statistical and Theoretical Basis of Signal Detection Theory and Extensions: <span>Unequal</span> Variance, Random Coefficient, and Mixture Models.”</span> <em>Journal of Mathematical Psychology</em> 54 (3): 304–13. <a href="https://doi.org/10.1016/j.jmp.2010.01.001">https://doi.org/10.1016/j.jmp.2010.01.001</a>.
+</div>
+<div id="ref-efronSteinsParadoxStatistics1977" class="csl-entry" role="listitem">
+Efron, Bradley, and Carl Morris. 1977. <span>“Stein’s <span>Paradox</span> in <span>Statistics</span>.”</span> <em>Scientific American</em> 236 (5): 119–27. <a href="https://www.jstor.org/stable/24954030">https://www.jstor.org/stable/24954030</a>.
+</div>
+<div id="ref-gelman_bayesian_2013" class="csl-entry" role="listitem">
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian Data Analysis, Third Edition</em>. Boca Raton: Chapman; Hall/<span>CRC</span>.
+</div>
+<div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry" role="listitem">
+Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. New York, NY: Cambridge University Press. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
+</div>
+<div id="ref-gelmanRegressionOtherStories2020" class="csl-entry" role="listitem">
+Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. Cambridge University Press. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
+</div>
+<div id="ref-greenSignalDetectionTheory1966" class="csl-entry" role="listitem">
+Green, David Marvin, and John A. Swets. 1966. <em>Signal Detection Theory and Psychophysics</em>. New York, NY: Wiley. <a href="https://books.google.com?id=Ykt9AAAAMAAJ">https://books.google.com?id=Ykt9AAAAMAAJ</a>.
+</div>
+<div id="ref-tidybayes2024" class="csl-entry" role="listitem">
+Kay, Matthew. 2024. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
+</div>
+<div id="ref-kellenTestingFoundationsSignal2021" class="csl-entry" role="listitem">
+Kellen, David, Samuel Winiger, John C. Dunn, and Henrik Singmann. 2021. <span>“Testing the Foundations of Signal Detection Theory in Recognition Memory.”</span> <em>Psychological Review</em> 128 (6): 1022–50. <a href="https://doi.org/10.1037/rev0000288">https://doi.org/10.1037/rev0000288</a>.
+</div>
+<div id="ref-koen_examining_2013" class="csl-entry" role="listitem">
+Koen, Joshua D., Mariam Aly, Wei-Chun Wang, and Andrew P. Yonelinas. 2013. <span>“Examining the Causes of Memory Strength Variability: <span>Recollection</span>, Attention Failure, or Encoding Variability?”</span> <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em> 39 (6): 1726–41. <a href="https://doi.org/10.1037/a0033671">https://doi.org/10.1037/a0033671</a>.
+</div>
+<div id="ref-kruschke_doing_2014" class="csl-entry" role="listitem">
+Kruschke, John K. 2014. <em>Doing Bayesian Data Analysis: A Tutorial Introduction with r</em>. 2nd Edition. Burlington, <span>MA</span>: Academic Press.
+</div>
+<div id="ref-kruschkeBayesianNewStatistics2017" class="csl-entry" role="listitem">
+Kruschke, John K., and Torrin M. Liddell. 2017a. <span>“The <span>Bayesian New Statistics</span>: <span>Hypothesis</span> Testing, Estimation, Meta-Analysis, and Power Analysis from a <span>Bayesian</span> Perspective.”</span> <em>Psychonomic Bulletin &amp; Review</em>, February, 1–29. <a href="https://doi.org/10.3758/s13423-016-1221-4">https://doi.org/10.3758/s13423-016-1221-4</a>.
+</div>
+<div id="ref-kruschkeBayesianDataAnalysis2017" class="csl-entry" role="listitem">
+———. 2017b. <span>“Bayesian Data Analysis for Newcomers.”</span> <em>Psychonomic Bulletin &amp; Review</em>, April, 1–23. <a href="https://doi.org/10.3758/s13423-017-1272-1">https://doi.org/10.3758/s13423-017-1272-1</a>.
+</div>
+<div id="ref-leeBayesSDTSoftwareBayesian2008" class="csl-entry" role="listitem">
+Lee, Michael D. 2008. <span>“<span>BayesSDT</span>: <span>Software</span> for <span>Bayesian</span> Inference with Signal Detection Theory.”</span> <em>Behavior Research Methods</em> 40 (2): 450–56. <a href="https://doi.org/10.3758/BRM.40.2.450">https://doi.org/10.3758/BRM.40.2.450</a>.
+</div>
+<div id="ref-leeuwenSmokedetectorPrinciplePathogen2024" class="csl-entry" role="listitem">
+Leeuwen, Florian van, Bastian Jaeger, John Axelsson, David Vaughn Becker, Lina Hansson, Julie Lasselin, Mats Lekander, Joshua M. Tybur, and Matti Vuorre. 2024. <span>“The Smoke-Detector Principle of Pathogen Avoidance: <span>A</span> Test of How the Behavioral Immune System Gives Rise to Prejudice (Stage 1 Registered Report).”</span> September 30, 2024. <a href="https://doi.org/10.31234/osf.io/e874s">https://doi.org/10.31234/osf.io/e874s</a>.
+</div>
+<div id="ref-lickliderThreeAuditoryTheories1959" class="csl-entry" role="listitem">
+Licklider, J. C. R. 1959. <span>“Three Auditory Theories.”</span> In <em>Psychology: <span>A Study Of A Science Volume</span></em>, edited by Sigmund Koch. Vol. 1: Sensory Perceptual And Physiological Formulations. McGraw-Hill. <a href="https://archive.org/details/in.ernet.dli.2015.74438">https://archive.org/details/in.ernet.dli.2015.74438</a>.
+</div>
+<div id="ref-liddellAnalyzingOrdinalData2018" class="csl-entry" role="listitem">
+Liddell, Torrin M., and John K. Kruschke. 2018. <span>“Analyzing Ordinal Data with Metric Models: <span>What</span> Could Possibly Go Wrong?”</span> <em>Journal of Experimental Social Psychology</em> 79 (November): 328–48. <a href="https://doi.org/10.1016/j.jesp.2018.08.009">https://doi.org/10.1016/j.jesp.2018.08.009</a>.
+</div>
+<div id="ref-macmillan_detection_2005" class="csl-entry" role="listitem">
+Macmillan, Neil A., and C. Douglas Creelman. 2005. <em>Detection Theory: A User’s Guide</em>. 2nd ed. <span>Mahwah, N.J</span>: <span>Lawrence Erlbaum Associates</span>.
+</div>
+<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="listitem">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. Boca Raton: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
+</div>
+<div id="ref-paulewiczBhsdtrPackageGeneralpurpose2020" class="csl-entry" role="listitem">
+Paulewicz, Borysław, and Agata Blaut. 2020. <span>“The Bhsdtr Package: A General-Purpose Method of <span>Bayesian</span> Inference for Signal Detection Theory Models.”</span> <em>Behavior Research Methods</em> 52 (5): 2122–41. <a href="https://doi.org/10.3758/s13428-020-01370-y">https://doi.org/10.3758/s13428-020-01370-y</a>.
+</div>
+<div id="ref-rcoreteamLanguageEnvironmentStatistical2025" class="csl-entry" role="listitem">
+R Core Team. 2025. <span>“R: <span>A Language</span> and <span>Environment</span> for <span>Statistical Computing</span>. <span>Version</span> 4.4.3.”</span> Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-rouder_introduction_2005" class="csl-entry" role="listitem">
+Rouder, Jeffrey N., and Jun Lu. 2005. <span>“An Introduction to <span>Bayesian</span> Hierarchical Models with an Application in the Theory of Signal Detection.”</span> <em>Psychonomic Bulletin &amp; Review</em> 12 (4): 573–604. <a href="https://doi.org/10.3758/BF03196750">https://doi.org/10.3758/BF03196750</a>.
+</div>
+<div id="ref-rouder_signal_2007" class="csl-entry" role="listitem">
+Rouder, Jeffrey N., Jun Lu, Dongchu Sun, Paul Speckman, Richard D. Morey, and Moshe Naveh-Benjamin. 2007. <span>“Signal <span>Detection Models</span> with <span>Random Participant</span> and <span>Item Effects</span>.”</span> <em>Psychometrika</em> 72 (4): 621–42. <a href="https://doi.org/10.1007/s11336-005-1350-6">https://doi.org/10.1007/s11336-005-1350-6</a>.
+</div>
+<div id="ref-singmann_mptinr:_2013" class="csl-entry" role="listitem">
+Singmann, Henrik, and David Kellen. 2013. <span>“<span>MPTinR</span>: <span>Analysis</span> of Multinomial Processing Tree Models in <span>R</span>.”</span> <em>Behavior Research Methods</em> 45 (2): 560–75. <a href="https://doi.org/10.3758/s13428-012-0259-0">https://doi.org/10.3758/s13428-012-0259-0</a>.
+</div>
+<div id="ref-stanislaw_calculation_1999" class="csl-entry" role="listitem">
+Stanislaw, Harold, and Natasha Todorov. 1999. <span>“Calculation of Signal Detection Theory Measures.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 31 (1): 137–49. <a href="http://link.springer.com/article/10.3758/BF03207704">http://link.springer.com/article/10.3758/BF03207704</a>.
+</div>
+<div id="ref-vuorreCommunicatingCausalEffect2024" class="csl-entry" role="listitem">
+Vuorre, Matti, Matthew Kay, and Niall Bolger. 2024. <span>“Communicating Causal Effect Heterogeneity.”</span> September 3, 2024. <a href="https://doi.org/10.31234/osf.io/mwg4f">https://doi.org/10.31234/osf.io/mwg4f</a>.
+</div>
+<div id="ref-wickensElementarySignalDetection2001" class="csl-entry" role="listitem">
+Wickens, Thomas D. 2001. <em>Elementary <span>Signal Detection Theory</span></em>. Oxford University Press. <a href="https://books.google.com?id=s3pGN_se4v0C">https://books.google.com?id=s3pGN_se4v0C</a>.
+</div>
+<div id="ref-zloteanuTutorialDeceptionDetection2024" class="csl-entry" role="listitem">
+Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <span>Deception Detection Analysis</span> or: <span>How I Learned</span> to <span>Stop Aggregating Veracity Judgments</span> and <span>Embraced Signal Detection Theory Mixed Models</span>.”</span> <em>Journal of Nonverbal Behavior</em>, March. <a href="https://doi.org/10.1007/s10919-024-00456-x">https://doi.org/10.1007/s10919-024-00456-x</a>.
+</div>
+</div>
+</section>
 
 
-<div id="quarto-appendix" class="default"><section id="appendices" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendices</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendices" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">Appendices</h2><div class="quarto-appendix-contents">
 
 
 
 
 
-</div></section><section id="additional-sdt-metrics" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Additional SDT metrics</h2><div class="quarto-appendix-contents">
+</div></section><section id="additional-sdt-metrics" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Additional SDT metrics</h2><div class="quarto-appendix-contents">
 
 <p>Above, we discussed the common SDT metrics <em>c</em> and <em>d’</em> that index a respondent’s bias and sensitivity, respectively. Here, we discuss some additional metrics that are commonly used in the SDT literature. The hit and false alarm rates, and their corresponding z-scores, are used in the manual calculation of these metrics, but can be useful in their own right. From the modeling perspective, these rates are outcomes, and we can therefore use methods to predict them from the model. In <a href="#lst-calc-rates" class="quarto-xref">Listing&nbsp;16</a>, we use functions from the tidybayes package <span class="citation" data-cites="tidybayes2024">(<a href="#ref-tidybayes2024" role="doc-biblioref">Kay 2024</a>)</span>. I show the results of these calculations in <a href="#tbl-predicted-rates" class="quarto-xref">Table&nbsp;7</a>.</p>
 <div class="cell" data-layout-align="center">
@@ -3491,14 +3605,14 @@ Table&nbsp;7: Model-predicted hit (stimulus=Old) and false alarm (stimulus=New) 
 </figure>
 </div>
 </div>
-</div></section><section id="including-predictors" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Including predictors</h2><div class="quarto-appendix-contents">
+</div></section><section id="including-predictors" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Including predictors</h2><div class="quarto-appendix-contents">
 
 <p>Do the EVSDT parameters differ between groups of people? How about between conditions, within people? To answer these questions, we would repeat the manual calculation of parameters as many times as needed, and then draw inference by “submitting” the subject-specific parameters to e.g.&nbsp;an ANOVA model. The GLMM approach affords a more straightforward solution to including predictors: We simply add parameters to the regression model.</p>
 <p>For example, if there were two groups of participants, indexed by variable <code>group</code> in data, we could extend the brms GLMM syntax to:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">+</span> (stimulus <span class="sc">|</span> pid), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This model would have two additional parameters: <code>group</code> would describe the difference in <em>c</em> between groups, and the interaction term <code>stimulus:group</code> would describe the difference in <em>d’</em> between groups. If we were additionally interested in the effects of <code>condition</code>, a within-subject manipulation, we could write:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brm</span>(response <span class="sc">~</span> stimulus <span class="sc">*</span> group <span class="sc">*</span> condition <span class="sc">+</span> (stimulus <span class="sc">*</span> condition <span class="sc">|</span> pid), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></section><section id="receiver-operating-characteristic" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Receiver operating characteristic</h2><div class="quarto-appendix-contents">
+</div></section><section id="receiver-operating-characteristic" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Receiver operating characteristic</h2><div class="quarto-appendix-contents">
 
 <p>The Receiving Operator Characteristic (ROC) curve displays hits as a function of false alarms, for possibly multiple criteria, and is a useful description of detection data in its own right. As such, it is useful to be able to generate ROC curves implied by the model. Here, we illustrate how to obtain ROC curves from fitted models with uncertainty estimates and overlay them on raw data.</p>
 <p>First, I show code for calculating (z-scored) hit and false alarm rates both from data, and as predicted from the multilevel equal variances cumulative model (<a href="#lst-roc-data" class="quarto-xref">Listing&nbsp;17</a>).</p>
@@ -3850,7 +3964,7 @@ Figure&nbsp;13: Caption.
 </div>
 </div>
 </div>
-</div></section><section id="tips-for-estimating-models-with-brm" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Tips for estimating models with brm()</h2><div class="quarto-appendix-contents">
+</div></section><section id="tips-for-estimating-models-with-brm" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Tips for estimating models with brm()</h2><div class="quarto-appendix-contents">
 
 <p>Above, we made use of the <code>file</code> argument in <code>brm()</code> to save estimated models to a file. Throughout, I have also used other options to speed up sampling, specified in a special <code>.Renviron</code> file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contents of .Renviron</span></span>
@@ -3866,113 +3980,6 @@ Figure&nbsp;13: Caption.
 <p>With these settings, every call to <code>brm()</code> uses the variables I have specified in <code>.Renviron</code> to speed up model estimation with values that work well on my local machine (that has eight CPU cores.) For more information, see <code>?brm</code> and <code>?Sys.getenv</code>.</p>
 
 
-
-</div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-bolger_intensive_2013" class="csl-entry" role="listitem">
-Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive Longitudinal Methods: An Introduction to Diary and Experience Sampling Research</em>. Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
-</div>
-<div id="ref-burkner_brms:_2017" class="csl-entry" role="listitem">
-Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
-</div>
-<div id="ref-burknerBayesianItemResponse2021" class="csl-entry" role="listitem">
-———. 2021. <span>“Bayesian <span>Item Response Modeling</span> in <span>R</span> with Brms and <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 100 (November): 1–54. <a href="https://doi.org/10.18637/jss.v100.i05">https://doi.org/10.18637/jss.v100.i05</a>.
-</div>
-<div id="ref-burknerOrdinalRegressionModels2019" class="csl-entry" role="listitem">
-Bürkner, Paul-Christian, and Matti Vuorre. 2019. <span>“Ordinal <span>Regression Models</span> in <span>Psychology</span>: <span>A Tutorial</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 2 (1): 77–101. <a href="https://doi.org/10.1177/2515245918823199">https://doi.org/10.1177/2515245918823199</a>.
-</div>
-<div id="ref-cetinkaya-rundelIntroductionModernStatistics2024" class="csl-entry" role="listitem">
-Çetinkaya-Rundel, Mine, and Johanna Hardin. 2024. <em>Introduction to <span>Modern Statistics</span></em>. OpenIntro. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
-</div>
-<div id="ref-cohenSdtluPackageSignal2021" class="csl-entry" role="listitem">
-Cohen, Andrew L., Jeffrey J. Starns, and Caren M. Rotello. 2021. <span>“Sdtlu: <span>An R</span> Package for the Signal Detection Analysis of Eyewitness Lineup Data.”</span> <em>Behavior Research Methods</em> 53 (1): 278–300. <a href="https://doi.org/10.3758/s13428-020-01402-7">https://doi.org/10.3758/s13428-020-01402-7</a>.
-</div>
-<div id="ref-decarlo_signal_1998" class="csl-entry" role="listitem">
-DeCarlo, Lawrence T. 1998. <span>“Signal Detection Theory and Generalized Linear Models.”</span> <em>Psychological Methods</em> 3 (2): 186–205. <a href="https://doi.org/10.1037/1082-989X.3.2.186">https://doi.org/10.1037/1082-989X.3.2.186</a>.
-</div>
-<div id="ref-decarlo_using_2003" class="csl-entry" role="listitem">
-Decarlo, Lawrence T. 2003. <span>“Using the <span>PLUM</span> Procedure of <span>SPSS</span> to Fit Unequal Variance and Generalized Signal Detection Models.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 35 (1): 49–56. <a href="https://doi.org/10.3758/BF03195496">https://doi.org/10.3758/BF03195496</a>.
-</div>
-<div id="ref-decarlo_statistical_2010" class="csl-entry" role="listitem">
-DeCarlo, Lawrence T. 2010. <span>“On the Statistical and Theoretical Basis of Signal Detection Theory and Extensions: <span>Unequal</span> Variance, Random Coefficient, and Mixture Models.”</span> <em>Journal of Mathematical Psychology</em> 54 (3): 304–13. <a href="https://doi.org/10.1016/j.jmp.2010.01.001">https://doi.org/10.1016/j.jmp.2010.01.001</a>.
-</div>
-<div id="ref-efronSteinsParadoxStatistics1977" class="csl-entry" role="listitem">
-Efron, Bradley, and Carl Morris. 1977. <span>“Stein’s <span>Paradox</span> in <span>Statistics</span>.”</span> <em>Scientific American</em> 236 (5): 119–27. <a href="https://www.jstor.org/stable/24954030">https://www.jstor.org/stable/24954030</a>.
-</div>
-<div id="ref-gelman_bayesian_2013" class="csl-entry" role="listitem">
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian Data Analysis, Third Edition</em>. Boca Raton: Chapman; Hall/<span>CRC</span>.
-</div>
-<div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry" role="listitem">
-Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. New York, NY: Cambridge University Press. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
-</div>
-<div id="ref-gelmanRegressionOtherStories2020" class="csl-entry" role="listitem">
-Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. Cambridge University Press. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
-</div>
-<div id="ref-greenSignalDetectionTheory1966" class="csl-entry" role="listitem">
-Green, David Marvin, and John A. Swets. 1966. <em>Signal Detection Theory and Psychophysics</em>. New York, NY: Wiley. <a href="https://books.google.com?id=Ykt9AAAAMAAJ">https://books.google.com?id=Ykt9AAAAMAAJ</a>.
-</div>
-<div id="ref-tidybayes2024" class="csl-entry" role="listitem">
-Kay, Matthew. 2024. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
-</div>
-<div id="ref-kellenTestingFoundationsSignal2021" class="csl-entry" role="listitem">
-Kellen, David, Samuel Winiger, John C. Dunn, and Henrik Singmann. 2021. <span>“Testing the Foundations of Signal Detection Theory in Recognition Memory.”</span> <em>Psychological Review</em> 128 (6): 1022–50. <a href="https://doi.org/10.1037/rev0000288">https://doi.org/10.1037/rev0000288</a>.
-</div>
-<div id="ref-koen_examining_2013" class="csl-entry" role="listitem">
-Koen, Joshua D., Mariam Aly, Wei-Chun Wang, and Andrew P. Yonelinas. 2013. <span>“Examining the Causes of Memory Strength Variability: <span>Recollection</span>, Attention Failure, or Encoding Variability?”</span> <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em> 39 (6): 1726–41. <a href="https://doi.org/10.1037/a0033671">https://doi.org/10.1037/a0033671</a>.
-</div>
-<div id="ref-kruschke_doing_2014" class="csl-entry" role="listitem">
-Kruschke, John K. 2014. <em>Doing Bayesian Data Analysis: A Tutorial Introduction with r</em>. 2nd Edition. Burlington, <span>MA</span>: Academic Press.
-</div>
-<div id="ref-kruschkeBayesianNewStatistics2017" class="csl-entry" role="listitem">
-Kruschke, John K., and Torrin M. Liddell. 2017a. <span>“The <span>Bayesian New Statistics</span>: <span>Hypothesis</span> Testing, Estimation, Meta-Analysis, and Power Analysis from a <span>Bayesian</span> Perspective.”</span> <em>Psychonomic Bulletin &amp; Review</em>, February, 1–29. <a href="https://doi.org/10.3758/s13423-016-1221-4">https://doi.org/10.3758/s13423-016-1221-4</a>.
-</div>
-<div id="ref-kruschkeBayesianDataAnalysis2017" class="csl-entry" role="listitem">
-———. 2017b. <span>“Bayesian Data Analysis for Newcomers.”</span> <em>Psychonomic Bulletin &amp; Review</em>, April, 1–23. <a href="https://doi.org/10.3758/s13423-017-1272-1">https://doi.org/10.3758/s13423-017-1272-1</a>.
-</div>
-<div id="ref-leeBayesSDTSoftwareBayesian2008" class="csl-entry" role="listitem">
-Lee, Michael D. 2008. <span>“<span>BayesSDT</span>: <span>Software</span> for <span>Bayesian</span> Inference with Signal Detection Theory.”</span> <em>Behavior Research Methods</em> 40 (2): 450–56. <a href="https://doi.org/10.3758/BRM.40.2.450">https://doi.org/10.3758/BRM.40.2.450</a>.
-</div>
-<div id="ref-leeuwenSmokedetectorPrinciplePathogen2024" class="csl-entry" role="listitem">
-Leeuwen, Florian van, Bastian Jaeger, John Axelsson, David Vaughn Becker, Lina Hansson, Julie Lasselin, Mats Lekander, Joshua M. Tybur, and Matti Vuorre. 2024. <span>“The Smoke-Detector Principle of Pathogen Avoidance: <span>A</span> Test of How the Behavioral Immune System Gives Rise to Prejudice (Stage 1 Registered Report).”</span> September 30, 2024. <a href="https://doi.org/10.31234/osf.io/e874s">https://doi.org/10.31234/osf.io/e874s</a>.
-</div>
-<div id="ref-lickliderThreeAuditoryTheories1959" class="csl-entry" role="listitem">
-Licklider, J. C. R. 1959. <span>“Three Auditory Theories.”</span> In <em>Psychology: <span>A Study Of A Science Volume</span></em>, edited by Sigmund Koch. Vol. 1: Sensory Perceptual And Physiological Formulations. McGraw-Hill. <a href="https://archive.org/details/in.ernet.dli.2015.74438">https://archive.org/details/in.ernet.dli.2015.74438</a>.
-</div>
-<div id="ref-liddellAnalyzingOrdinalData2018" class="csl-entry" role="listitem">
-Liddell, Torrin M., and John K. Kruschke. 2018. <span>“Analyzing Ordinal Data with Metric Models: <span>What</span> Could Possibly Go Wrong?”</span> <em>Journal of Experimental Social Psychology</em> 79 (November): 328–48. <a href="https://doi.org/10.1016/j.jesp.2018.08.009">https://doi.org/10.1016/j.jesp.2018.08.009</a>.
-</div>
-<div id="ref-macmillan_detection_2005" class="csl-entry" role="listitem">
-Macmillan, Neil A., and C. Douglas Creelman. 2005. <em>Detection Theory: A User’s Guide</em>. 2nd ed. <span>Mahwah, N.J</span>: <span>Lawrence Erlbaum Associates</span>.
-</div>
-<div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="listitem">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. Boca Raton: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
-</div>
-<div id="ref-paulewiczBhsdtrPackageGeneralpurpose2020" class="csl-entry" role="listitem">
-Paulewicz, Borysław, and Agata Blaut. 2020. <span>“The Bhsdtr Package: A General-Purpose Method of <span>Bayesian</span> Inference for Signal Detection Theory Models.”</span> <em>Behavior Research Methods</em> 52 (5): 2122–41. <a href="https://doi.org/10.3758/s13428-020-01370-y">https://doi.org/10.3758/s13428-020-01370-y</a>.
-</div>
-<div id="ref-rcoreteamLanguageEnvironmentStatistical2025" class="csl-entry" role="listitem">
-R Core Team. 2025. <span>“R: <span>A Language</span> and <span>Environment</span> for <span>Statistical Computing</span>. <span>Version</span> 4.4.3.”</span> Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-rouder_introduction_2005" class="csl-entry" role="listitem">
-Rouder, Jeffrey N., and Jun Lu. 2005. <span>“An Introduction to <span>Bayesian</span> Hierarchical Models with an Application in the Theory of Signal Detection.”</span> <em>Psychonomic Bulletin &amp; Review</em> 12 (4): 573–604. <a href="https://doi.org/10.3758/BF03196750">https://doi.org/10.3758/BF03196750</a>.
-</div>
-<div id="ref-rouder_signal_2007" class="csl-entry" role="listitem">
-Rouder, Jeffrey N., Jun Lu, Dongchu Sun, Paul Speckman, Richard D. Morey, and Moshe Naveh-Benjamin. 2007. <span>“Signal <span>Detection Models</span> with <span>Random Participant</span> and <span>Item Effects</span>.”</span> <em>Psychometrika</em> 72 (4): 621–42. <a href="https://doi.org/10.1007/s11336-005-1350-6">https://doi.org/10.1007/s11336-005-1350-6</a>.
-</div>
-<div id="ref-singmann_mptinr:_2013" class="csl-entry" role="listitem">
-Singmann, Henrik, and David Kellen. 2013. <span>“<span>MPTinR</span>: <span>Analysis</span> of Multinomial Processing Tree Models in <span>R</span>.”</span> <em>Behavior Research Methods</em> 45 (2): 560–75. <a href="https://doi.org/10.3758/s13428-012-0259-0">https://doi.org/10.3758/s13428-012-0259-0</a>.
-</div>
-<div id="ref-stanislaw_calculation_1999" class="csl-entry" role="listitem">
-Stanislaw, Harold, and Natasha Todorov. 1999. <span>“Calculation of Signal Detection Theory Measures.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 31 (1): 137–49. <a href="http://link.springer.com/article/10.3758/BF03207704">http://link.springer.com/article/10.3758/BF03207704</a>.
-</div>
-<div id="ref-vuorreCommunicatingCausalEffect2024" class="csl-entry" role="listitem">
-Vuorre, Matti, Matthew Kay, and Niall Bolger. 2024. <span>“Communicating Causal Effect Heterogeneity.”</span> September 3, 2024. <a href="https://doi.org/10.31234/osf.io/mwg4f">https://doi.org/10.31234/osf.io/mwg4f</a>.
-</div>
-<div id="ref-wickensElementarySignalDetection2001" class="csl-entry" role="listitem">
-Wickens, Thomas D. 2001. <em>Elementary <span>Signal Detection Theory</span></em>. Oxford University Press. <a href="https://books.google.com?id=s3pGN_se4v0C">https://books.google.com?id=s3pGN_se4v0C</a>.
-</div>
-<div id="ref-zloteanuTutorialDeceptionDetection2024" class="csl-entry" role="listitem">
-Zloteanu, Mircea, and Matti Vuorre. 2024. <span>“A <span>Tutorial</span> for <span>Deception Detection Analysis</span> or: <span>How I Learned</span> to <span>Stop Aggregating Veracity Judgments</span> and <span>Embraced Signal Detection Theory Mixed Models</span>.”</span> <em>Journal of Nonverbal Behavior</em>, March. <a href="https://doi.org/10.1007/s10919-024-00456-x">https://doi.org/10.1007/s10919-024-00456-x</a>.
-</div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{vuorre2017,
   author = {Vuorre, Matti},
   title = {Estimating {Signal} {Detection} {Models} with Regression

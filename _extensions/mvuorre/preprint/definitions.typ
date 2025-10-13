@@ -1,9 +1,4 @@
 // Some definitions presupposed by pandoc's typst output.
-#let blockquote(body) = [
-  #set text(size: 0.92em)
-  #block(inset: (left: 1.5em, top: 0.2em, bottom: 0.2em))[#body]
-]
-
 #let horizontalrule = line(start: (25%, 0%), end: (75%, 0%))
 
 #let endnote(num, contents) = [
@@ -21,12 +16,6 @@
 }
 
 // Some quarto-specific definitions.
-#show raw.where(block: true): set block(
-  fill: luma(230),
-  width: 100%,
-  inset: 8pt,
-  radius: 2pt,
-)
 
 #let block_with_new_content(old_block, new_content) = {
   let d = (:)

@@ -4,34 +4,36 @@ abstract: |
   Signal Detection Theory is a widely used framework for understanding decisions by distinguishing between response bias and true discriminability in various psychological domains. Manual calculation approaches to estimating SDT models' parameters, while commonly used, can be cumbersome and limited. In this tutorial I connect SDT to regression models that researchers are already familiar with in order to bring the flexibility of modern regression techniques to modeling of SDT data. I begin with a glance at SDT's fundamentals, and then show how to manually calculate basic SDT parameters. In the bulk of the tutorial, I show step-by-step implementations of various SDT models using the brms R package. I progress from analyses of binary Yes/No tasks to rating task models with multilevel structures, unequal variances, and mixtures. Throughout, I highlight benefits of the regression-based approach, such as dealing with missing data, multilevel structures, and quantifying uncertainty. By framing SDT models as regressions, researchers gain access to a powerful set of flexible tools while maintaining the conceptual clarity that makes SDT valuable. A regression-based approach not only simplifies SDT analyses but also extends SDT's utility through flexible parameter estimation with uncertainty measures and the ability to incorporate predictors at multiple levels of analysis.
 date: 2017-10-09
 date-modified: 2025-03-19
-categories:
-  - r
-  - research
-  - statistics
 bibliography: "bibliography.bib"
 image: "index_files/figure-html/fig-sdt-example-1.png"
 aliases:
   - /posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html
+csl: https://www.zotero.org/styles/apa
 format:
-  html:
-    toc-depth: 3
-    toc-expand: 1
-    code-fold: true
-    code-tools:
-      source: repo
   preprint-typst:
-    suppress-bibliography: true
+    theme: default
+    citeproc: true
+    categories: [r, brms, signal detection theory, statistics, tutorial]
     section-numbering: "1."
     running-head: "Regression SDT models"
-    fontsize: 11pt
-    mainfont: Libertinus Serif
-    keep-typ: false
-    all: true
+    spacing: 0.5em
     toc: true
     linkcolor: blue
     toc-depth: 1
     wordcount: true
     authornote: "This write-up first appeared as a blog post at <https://vuorre.com/posts/sdt-regression/>. Read at that URL to view and download the manuscript's source code. This work has not yet been peer reviewed."
+    include-before-body:
+      - text: "#show <refs>: set par(hanging-indent: 1.4em)"
+  html:
+    categories:
+      - r
+      - research
+      - statistics
+    toc-depth: 3
+    toc-expand: 1
+    code-fold: true
+    code-tools:
+      source: repo
 citation:
   type: article
   container-title: "PsyArXiv"
@@ -99,11 +101,11 @@ theme_set(
 
 :::
 
-## Signal Detection Theory
+# Signal Detection Theory
 
 Signal Detection Theory (SDT) is a framework for studying, understanding, and modeling a wide range of psychological phenomena [@greenSignalDetectionTheory1966]. Its origins are in the psychophysical study of perception, but it has since been used to understand memory, decision making, and other domains. So what is SDT?
 
->"Detection theory entered psychology as a way to explain detection experiments, in which weak visual or auditory signals must be distinguished from a 'noisy' background." [@macmillan_detection_2005, p.xiii]
+>*"Detection theory entered psychology as a way to explain detection experiments, in which weak visual or auditory signals must be distinguished from a 'noisy' background."* [@macmillan_detection_2005, p.xiii]
 
 To unpack this definition, consider a recognition memory experiment where participants view a series of images, some of which they have not seen before (new items) and some of which they have seen before (old items). For each item, participants decide whether they have seen the item before (and thus give an "old" response) or not (a "new" response).
 
@@ -246,16 +248,15 @@ pa <- ggplot() +
 pa
 ```
 
-
 The participants then decide, based on whether current evidence exceeds their criterion, whether they've seen the stimulus previously ("old") or not ("new"). Some individuals might have a liberal bias and report "old" on trials with even modest degrees of evidence. Others might be conservative and require a greater degree of evidence before deciding they've seen the stimulus before. The decision process posited by SDT, based on subjective evidence and thresholds, is visualized in @fig-sdt-example.
 
 Since the introduction of SDT in studies on perception, and its later widespread adoption in e.g. memory research, the conceptual framework and analytic machinery has been applied in a broad range of areas. For example, in one study, we showed participants photographs of individuals who were injected with a bacterial endotoxin or not, and participants' task was to detect whether the individual was ill or not [@leeuwenSmokedetectorPrinciplePathogen2024]. In another, participants viewed videos of individuals that were either lying or not, and their task was to determine whether the individual was lying or not [@zloteanuTutorialDeceptionDetection2024]. The key to SDT's success in such a wide variety of domains lies in its applicability even in the absence of information about the kinds of cues that inform people's decisions:
 
->"A full understanding of the decision process [...] is difficult, if not impossible. The decisions depend on many particulars: what the decider knows, his or her expectations and beliefs, how later information affects the interpretation of the original observations, and the like. An understanding of much domain-specific knowledge is needed [...]. Fortunately, much can be said about the decision process without going into these details. Some characteristics of a yes-no decision transcend the particular situation in which it is made. The theory discussed here treats these common elements. *This theory, known generally as signal-detection theory, is one of the greatest successes of mathematical psychology.*" [@wickensElementarySignalDetection2001, p. 4]
+>_"A full understanding of the decision process [...] is difficult, if not impossible. The decisions depend on many particulars: what the decider knows, his or her expectations and beliefs, how later information affects the interpretation of the original observations, and the like. An understanding of much domain-specific knowledge is needed [...]. Fortunately, much can be said about the decision process without going into these details. Some characteristics of a yes-no decision transcend the particular situation in which it is made. The theory discussed here treats these common elements. **This theory, known generally as signal-detection theory, is one of the greatest successes of mathematical psychology.**"_ [@wickensElementarySignalDetection2001, p. 4, emphasis added]
 
 Our conceptual treatment of SDT, for the purposes of an applied tutorial, was necessarily brief. Readers interested in more complete treatments should consult books such as @wickensElementarySignalDetection2001, @macmillan_detection_2005, or @greenSignalDetectionTheory1966. An accessible article with computational details is @stanislaw_calculation_1999.
 
-### Current work: Estimating SDT models with regression
+## Current work: Estimating SDT models with regression
 
 While SDT posits latent probability distributions as the basis for decision making, it is also widely applicable as a relatively theory-free analytic framework that simply allows separating response biases from latent abilities, as suggested by the examples above. It is therefore often considered a standard tool in any behavioral scientist's toolkit. Subsequently, software packages for calculating SDT metrics and tutorials illustrating their uses are common [@leeBayesSDTSoftwareBayesian2008; @paulewiczBhsdtrPackageGeneralpurpose2020; @cohenSdtluPackageSignal2021].
 
@@ -271,11 +272,11 @@ Throughout, I assume readers are familiar with regression models. I refer those 
 
 Finally, I show additional benefits of estimating SDT models with regression. For one, prior distributions and multilevel models deal elegantly with edge cases where participants have missing data (e.g. no false alarms). Moreover, the estimated parameters seamlessly inform other common SDT metrics, such as Receiver Operating Characteristic (ROC) curves, all of which retain and allow representing the estimation uncertainty associated with the underlying parameters.
 
-## SDT analysis of Yes/No data
+# SDT analysis of Yes/No data
 
 The tasks outlined above are typically called "Yes/No" experiments, because the participant's task is to provide a binary "Yes" or "No" response to a stimulus that either does or does not contain the "signal" that participants attempt to detect. In the ongoing memory example, previously seen (old) items are the signal stimuli, and new items the noise stimuli. In this tutorial, we first focus on analyses of data from Yes/No tasks.
 
-### Example Yes/No task and data
+## Example Yes/No task and data
 
 To illustrate the most commonly used SDT model, we examine data from the control condition of Experiment 2 in @koen_examining_2013: 48 subjects studied a list of 200 words for 1.5s each. After a filler task, participants were tested with 200 new and 200 old words. In the test phase, participants rated their confidence in whether each word was new or old with a 6-point Likert item (1: "sure new", 2: "maybe new", 3: "guess new", 4: "guess old", 5: "maybe old", 6: "sure old"). This data set is included in the R package MPTinR [@singmann_mptinr:_2013].
 
@@ -335,7 +336,7 @@ slice_sample(dat, n = 4) |>
   tt()
 ```
 
-### Calculating SDT parameters
+## Calculating SDT parameters
 
 It is immediately clear how to calculate a participant's overall accuracy from data in @tbl-dat: Add up the trials where stimulus and response are identical, and divide the sum by the total number of trials. Calculating SDT parameters, to which we now turn, is not much more involved [@stanislaw_calculation_1999].
 
@@ -499,7 +500,7 @@ pb <- sdt |>
 (pa | pb) + plot_layout(widths = c(3, 7))
 ```
 
-## Estimating SDT parameters with regression
+# Estimating SDT parameters with regression
 
 We have now "manully" calculated, rather than statistically estimated, participants' SDT parameters. While standard practice, this approach has at least two potential downsides. First, we have not quantified our uncertainty in the parameters. For example, were we interested in a statistical comparison of participant 19's and 29's criteria, we could only report a point estimate of this difference.
 
@@ -509,7 +510,7 @@ Moreover, while it is pedagogically useful to go through these calculations, the
 
 Therefore, we now move to the main topic of this tutorial: Estimating SDT models using Generalized Linear Models (GLM).
 
-### Coding categorical variables
+## Coding categorical variables
 
 We begin by considering the raw data in @tbl-dat. Because the data contains categorical variables, it is first important to understand how a model might use them. In R, this specification is done via "contrasts" (such as dummy variables, contrast codes, etc) that code them into numerical values when used in models.
 
@@ -542,7 +543,7 @@ cbind(
   )
 ```
 
-### Specifying the model
+## Specifying the model
 
 Now that we have prepared our data, we proceed to specifying our regression model. We first consider this model for one participant. We model responses r ("No": 0, "Yes": 1) at row i as Bernoulli distributed with probability $p_i$ that $r_i = 1$ (line 1 below). (Bernoulli distribution is the binomial distribution for binary responses.)
 
@@ -557,7 +558,7 @@ Because probabilities have lower and upper limits at 0 and 1, we model *p* throu
 
 Given this parameterization, the intercept of the model ($\beta_0$) will indicate the z-scored probability of responding "old" when all predictors are zero (see @lst-contrasts). When `stimulus`, our predictor, is "sum-to-zero" coded as we have done above, the intercept corresponds to -*c* (see @eq-c). The slope of the model ($\beta_1$) is the difference in z-scored probabilities of saying "old" between old and new items, and therefore $d' = \beta_1$ (see @eq-d). For a more complete treatment of the connection between SDT models and GLM, see @decarlo_signal_1998.
 
-### Estimating the model
+## Estimating the model
 
 We now have a variety of software options for estimating the GLM. For this simple model, we could use base R's `glm()`. Here, we use the Bayesian regression modeling R package [brms](https://github.com/paul-buerkner/brms) [@burkner_brms:_2017], because its model formula syntax extends seamlessly to more complicated models that we will discuss later. We can estimate the GLM with brms's `brm()` function by providing as arguments a model formula in brms syntax (identical to base R model syntax for simple models), an outcome distribution with a link function, and a data frame.
 
@@ -618,7 +619,7 @@ summary(fit_glm)
 
 The regression parameters (`Intercept` ($-c = \beta_0$) and `stimulus1` ($d' = \beta_1$)) are described in the "Regression Coefficients" table in the above output. `Estimate` reports the posterior means, which are comparable to maximum likelihood point estimates. `Est.Error` reports the posterior standard deviations, which are comparable to standard errors. The estimated parameters' means match the point estimates we calculated by hand (see @tbl-sdt), but note the reversed sign of *c*. The next two columns report the parameter's 95% Credible Intervals (CIs). Finally, the `Rhat` and `_ESS` values provide diagnostic information (convergence and effective posterior sample size, respectively) about the Bayesian estimation procedure. The former should be close to 1.00, and the latter as large as possible. We do not consider these metrics further, but see e.g. @gelman_bayesian_2013.
 
-### Interpreting the model
+## Interpreting the model
 
 We read in the above output that the model intercept, corresponding to -*c*, has a positive posterior mean, but its CI considerably overlaps zero. Therefore, this participant is not strongly biased in favor of responding either "Yes" or "No". The slope coefficient `stimulus1`, corresponding to *d'*, is positive and indicates that the latent evidence distribution of signal trials for this participant is ~1.4 z-scores greater than the noise distribution: The participant has good discriminability and is able to tell old stimuli from new.
 
@@ -733,7 +734,7 @@ pb <- fit_glm_all_pars |>
 
 Second, consider the bottom and top points in the *c* column of @fig-glm. All we could say based on the point estimates is that the top participant has a far more positive (conservative) criterion than the bottom participant. However, the bayesian estimates would allow directly testing that difference, by virtue of retaining uncertainty in the parameter estimates. Finally, notice how straightforward it was to estimate the SDT parameters with regression: Instead of multiple lines of data wrangling and calculation, the regression model directly returns SDT parameters from the raw data.
 
-## SDT for multiple participants
+# SDT for multiple participants
 
 We have now estimated the SDT model's parameters for one subject's data using two methods: Calculating point estimates manually and estimating them with a GLM. The main difference between these methods is that modeling provided estimates of uncertainty in the parameters, whereas the manual calculation did not. This point leads us directly to multilevel models [@rouder_introduction_2005; @rouder_signal_2007; @gelmanDataAnalysisUsing2007], which we discuss next.
 
@@ -741,7 +742,7 @@ Researchers are usually not primarily interested in the specific subjects that h
 
 Broadly, there are two methods for obtaining these population-level parameters. The most common method is to aggregate manually calculated subject-specific point estimates of *d'* and *c* to their sample means and standard deviations. From these, we can calculate standard errors, t-tests, confidence intervals, and so on. The second method involves fitting one model simultaneously to all participants' data.
 
-### Estimating by summarizing subjects' point estimates
+## Estimating by summarizing subjects' point estimates
 
 Above we calculated *d'* and *c* for every participant in the sample. We can therefore calculate sample means and standard errors for both parameters using these individual-specific values. I show one way to do this aggregation in R using `summarise()` from the dplyr package in @lst-sdt-agg.
 
@@ -775,7 +776,7 @@ sdt_agg |>
 
 The sample means are estimates of the population means, and the sample standard deviations divided by square root of the number of subjects are standard deviations of the means' sampling distributions, the standard errors. Note that this method involves calculating point estimates of unknown parameters (the subject-specifc estimates), and then summarizing these parameters with additional models. In other words, we first fit N models with P parameters each (N = number of subjects, P = 2 parameters), and then P more models to summarise the subject-specific models.
 
-### Multilevel model
+## Multilevel model
 
 Another method is to build a multilevel model that simultaneously estimates subject-specific and population-level parameters [@gelmanDataAnalysisUsing2007; @mcelreathStatisticalRethinkingBayesian2020]. @rouder_introduction_2005 and @rouder_signal_2007 discuss multilevel models in the context of Signal Detection Theory. Multilevel models are variously also known as hierarchical, mixed, random-effect, and Generalized (Linear) Mixed Models (GLMMs).
 
@@ -956,11 +957,11 @@ It is evident in @fig-glmm that the sample means approximately match the posteri
 
 This deviation has further implications, revealed by investigating the two methods' estimates of the subject-specific parameters. Recall that the manual calculation method involved estimating (the point estimates of) a separate model for each participant. A hierarchical model considers all participants' data simultaneously, and the estimates are allowed to inform each other via a shared prior distribution. This "partial pooling" of information [@gelmanDataAnalysisUsing2007] reduces overfitting and thereby returns estimates with better predictive performance [@efronSteinsParadoxStatistics1977]. The subject-specific effects are pulled toward their means, an effect that is most visible for participants with most extreme values (right panel of @fig-glmm).
 
-## SDT analysis of rating data
+# SDT analysis of rating data
 
 Until now, we have considered analyses of a detection task where stimuli were either old or new, and participants provided binary "old" and "new" responses. We now turn to the Rating task where participants instead rate their degree of confidence that the stimulus was old or new.
 
-### Example rating task and data
+## Example rating task and data
 
 This, as mentioned above, is exactly what subjects in @koen_examining_2013 did: On each trial, subjects responded with a 6-point Likert item indicating their confidence in the item being new or old (1: "sure new", 2: "maybe new", 3: "guess new", 4: "guess old", 5: "maybe old", 6: "sure old"). I show these data in @tbl-sdt2.
 
@@ -994,7 +995,7 @@ A common and plausible interpretation of these data is that participants use a s
 
 Above, we noted that a GLM with a Bernoulli response function and probit link function is a regression formulation of the basic SDT model of Yes/No data. Similarly, one class of ordinal models, called the *cumulative model* in @burknerOrdinalRegressionModels2019, provides a regression formulation of SDT models for data from a Rating task [see also @decarlo_signal_1998; @decarlo_using_2003].
 
-### Model for one subject
+## Model for one subject
 
 For rating data, the SDT model is very similar to the one for Yes/No task data, but now includes multiple intercepts, commonly referred to as thresholds. These thresholds index criteria that subjects use to split their internal experiences (evidence) to the different response categories, and therefore conceptually correspond to *c*. For *k* response options, we need $k - 1$ thresholds. The criteria are ordered: People should be more likely to respond "sure old" rather than "maybe old" when evidence (memory strength) is greater. To connect with the ongoing, we label these thresholds as $c_k$ ($\tau_k$ in @burknerOrdinalRegressionModels2019; $\alpha_k$ or $\kappa_k$ in @mcelreathStatisticalRethinkingBayesian2020, Chapter 12.3.) We then write the probability of a response *r* being in category *k* in @eq-thresholds.
 
@@ -1079,7 +1080,7 @@ ggplot() +
   )
 ```
 
-### Model for multiple participants
+## Model for multiple participants
 
 For a sample of subjects, we could again compute each individual's parameters and summarize them in another model. We won't bother but instead turn immediately to a multilevel model formulation. A multilevel model, however, can take at least two forms. The first, shown now, includes subject-specific deviations in the linear model of $\eta$:
 
@@ -1191,7 +1192,7 @@ pa
 
 To aid interpretation, I have also visualized the multilevel cumulative model's implied SDT model, for the population average and three subjects, in @fig-glmm-rating1. A close inspection of this figure reveals that the distance between the thresholds (vertical lines) is identical for every participant (and the population average). While this formulation of the model is parsimonius, it is important to note that it could be considered in violation of some SDT assumptions by not allowing these thresholds to flexibly vary between individuals. To address this potential limitation, we now estimate a variation of this model that estimates fixed subject-specific thresholds.
 
-#### A multilevel model with subject-specific thresholds
+### A multilevel model with subject-specific thresholds
 
 The syntax for this model is similar to above, but we use `thres(gr = pid)` to specify that the thresholds should be estimated separately for each participant (@lst-evsdt-thresholds). Then, we omit subject-specific random intercepts by `(0 + stimulus | pid)` and `cmc = FALSE`, which ensures that R's default cell-mean coding for models without an intercept is disabled. Finally, we increase the `adapt_delta` control parameter from its default 0.8 to better estimate the model's posterior distribution.
 
@@ -1474,11 +1475,11 @@ fit_evsdt_thresholds <- add_criterion(fit_evsdt_thresholds, "loo")
 loo_compare(fit_evsdt, fit_evsdt_thresholds)
 ```
 
-## Advanced SDT models
+# Advanced SDT models
 
 In this section, we cover the estimation of two generalizations of the SDT model, the unequal variances and finite mixtures models (for both single subjects and multiple individuals using multilevel regression). As above, our focus is on practical application; readers requiring a more theoretical treatment can refer to standard texts [@greenSignalDetectionTheory1966; @macmillan_detection_2005; @wickensElementarySignalDetection2001]; a more complete mathematical treatment is @decarlo_statistical_2010.
 
-### Unequal variances
+## Unequal variances
 
 The models discussed above have all assumed that the latent evidence distributions associated with signal and noise trials have the same variability. Accordingly, in more general treatments, the model above is known as the equal variance SDT (EVSDT) model. However, when tested, this assumption is consistently found inadequate: Experiments have repeatedly shown that the signal distribution has greater variance than the noise distribution in a wide variety of subject domains. For example, @koen_examining_2013 reported increased signal distribution variability across four memory experiments.
 
@@ -1605,7 +1606,7 @@ ggplot() +
   )
 ```
 
-### UVSDT for multiple participants
+## UVSDT for multiple participants
 
 Above, we fit the UVSDT model for a single subject. However, we typically want to discuss inferences about the population, not individual subjects. Further, if we wish to discuss individual subjects, we should place them in the context of other subjects. A multilevel model accomplishes these goals by including both population- and subject-level parameters. We extend the code from @lst-uvsdt1 to a hierarchical model by specifying varying parameters across participants @lst-uvsdt.
 
@@ -1640,7 +1641,7 @@ We then display numerical summaries of the model's parameters below.
 
 Let's first focus on the Regression Coefficients: The effects for the "average person". Intercepts, again, indicate the thresholds used to partition the latent evidence distribution into response categories. `stimulusOld` is *d'*, `disc_stimulusOld` is $-\text{log}(\sigma_{signal})$. It is typically useful to transform the latter to a standard deviation, as is shown in @lst-uvsdt-convert.
 
-### Mixture SDT model
+## Mixture SDT model
 
 While the unequal variances SDT model fits observer data better than does the equal variances model, it provides no explanation to why the latent variances might differ. One explanation for this difference is that observers might, on a subset of trials, be inattentive to the task:
 
@@ -1687,7 +1688,7 @@ I show results of this model below. First, although the summary reports two vect
 
 By default, this model has fixed the latent variances at 1 (`disc1` = `disc2` = 1). But now we have two additional parameters `theta1` that index the mixture proportions. We see that participant 1's responses are a mixture of ~86% attended trials, and ~14% non-attended trials (posterior means). For more details on interpreting this model, see @decarlo_statistical_2010.
 
-### Multilevel mixture SDT model
+## Multilevel mixture SDT model
 
 After estimating the mixture model for one participant, we now turn to estimating it for a sample of individuals using a multilevel model. The syntax (@lst-mix) is identical to that in @lst-mix1, but we now include by-person random effects on the parameters.
 
@@ -1764,7 +1765,7 @@ bind_rows(tmp1, tmp2) |>
   theme(legend.position = "none")
 ```
 
-## Conclusion
+# Conclusion
 
 Signal Detection Theory is "one of the greatest successes of mathematical psychology" [@wickensElementarySignalDetection2001]. It is used to guide theorizing and data analyses in a wide variety of research areas in psychology where the experimental tasks involve detecting, or indicating one's confidence in, the presence of a signal. Those "signals" can be previously seen images or words, perceptual stimuli corrupted by noise, marks of illness, and more. The theory itself is established and further made accessible in widely read texts [@greenSignalDetectionTheory1966; @macmillan_detection_2005].
 
@@ -1772,9 +1773,18 @@ While many SDT models are accessible to researchers via well-known computational
 
 My aim with this tutorial was to provide an introduction to how the GLMM can be used to estimate a variety of SDT models, ranging from single-subject analyses to multilevel mixture models that account for attention lapses, using bayesian regression methods implemented in the brms R package [@rcoreteamLanguageEnvironmentStatistical2025; @burkner_brms:_2017].
 
-## Appendices {.appendix}
+# References
 
-### Additional SDT metrics {.appendix}
+::: {#refs}
+:::
+
+```{=typst}
+#show: appendix.with()
+```
+
+# Appendices {.appendix}
+
+## Additional SDT metrics {.appendix}
 
 Above, we discussed the common SDT metrics *c* and *d'* that index a respondent's bias and sensitivity, respectively. Here, we discuss some additional metrics that are commonly used in the SDT literature. The hit and false alarm rates, and their corresponding z-scores, are used in the manual calculation of these metrics, but can be useful in their own right. From the modeling perspective, these rates are outcomes, and we can therefore use methods to predict them from the model. In @lst-calc-rates, we use functions from the tidybayes package [@tidybayes2024]. I show the results of these calculations in @tbl-predicted-rates.
 
@@ -1809,7 +1819,7 @@ bind_rows(
   tt()
 ```
 
-### Including predictors {.appendix}
+## Including predictors {.appendix}
 
 Do the EVSDT parameters differ between groups of people? How about between conditions, within people? To answer these questions, we would repeat the manual calculation of parameters as many times as needed, and then draw inference by "submitting" the subject-specific parameters to e.g. an ANOVA model. The GLMM approach affords a more straightforward solution to including predictors: We simply add parameters to the regression model.
 
@@ -1825,7 +1835,7 @@ This model would have two additional parameters: `group` would describe the diff
 brm(response ~ stimulus * group * condition + (stimulus * condition | pid), ...)
 ```
 
-### Receiver operating characteristic {.appendix}
+## Receiver operating characteristic {.appendix}
 
 The Receiving Operator Characteristic (ROC) curve displays hits as a function of false alarms, for possibly multiple criteria, and is a useful description of detection data in its own right. As such, it is useful to be able to generate ROC curves implied by the model. Here, we illustrate how to obtain ROC curves from fitted models with uncertainty estimates and overlay them on raw data.
 
@@ -2153,7 +2163,7 @@ pa <- pa +
 pa / pb
 ```
 
-### Tips for estimating models with brm() {.appendix}
+## Tips for estimating models with brm() {.appendix}
 
 Above, we made use of the `file` argument in `brm()` to save estimated models to a file. Throughout, I have also used other options to speed up sampling, specified in a special `.Renviron` file:
 

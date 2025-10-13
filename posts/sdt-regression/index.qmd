@@ -8,9 +8,9 @@ bibliography: "bibliography.bib"
 image: "index_files/figure-html/fig-sdt-example-1.png"
 aliases:
   - /posts/2017-10-09-bayesian-estimation-of-signal-detection-theory-models/index.html
-csl: https://www.zotero.org/styles/apa
 format:
   preprint-typst:
+    csl: https://www.zotero.org/styles/apa
     theme: default
     citeproc: true
     categories: [r, brms, signal detection theory, statistics, tutorial]

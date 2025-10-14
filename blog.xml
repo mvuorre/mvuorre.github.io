@@ -718,6 +718,60 @@ September 24, 2025. <a href="https://vuorre.com/posts/psyarxiv-network/">https:/
   <pubDate>Tue, 23 Sep 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Against publishing</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/preprints-opinion/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>385 days ago, I submitted a manuscript for evaluation at an academic journal. Around the same time, I submitted the same manuscript to <a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a>, a document sharing website popular in the psychological sciences. The results: Radio silence for the journal submission; 356 downloads and 5 citations for the <a href="https://osf.io/preprints/psyarxiv/mwg4f">PsyArXiv version</a>.</p>
+<p>But this is a meaningless comparison: The PsyArXiv version hasn’t been peer-reviewed and listed on a journal’s website: It is not <em>published</em>, and everyone knows that publications are more valid than preprints, and that it is publications, not preprints, that provide the pitons on a scientist’s climb to success and fame.</p>
+<p>Never mind that my colleagues are reading and citing the document on PsyArXiv. For this manuscript to count as a legitimate scientific product I must first endure inexplicable delays; arbitrary formatting requirements (the formatting manual costs $47.99); conflicts between <a href="https://en.wikipedia.org/wiki/Mertonian_norms#Four_Mertonian_norms">my scholarly values</a> and the <a href="https://astro.theoj.org/post/168-">astronomical profits</a> that <a href="https://www.theguardian.com/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist">private publishing companies</a> make from our taxpayer funded work; introduction of errors into my manuscript by the journal’s proofreaders; websites from hell; and of course peer review. Without that process of publication, my work will remain a “<em>preprint</em>”—an incomplete and unreliable artifact unworthy of a place in the scientific literature.</p>
+<p>Could <a href="https://osf.io/preprints/psyarxiv/2uxwk_v1">things be better</a>? I surmise that, like fish unaware of their wet surrounds, academics don’t feel the pain because it’s all they’ve ever known.</p>
+<p>For one, peer review has nothing to do with commercial journals or publishers—it’s the voluntary labor of our colleagues in service of scientific progress. We could, right now, be reviewing each others work on <a href="https://prereview.org/">PREreview</a> or <a href="https://www.reviewcommons.org/">Review Commons</a>. Alas, instead of these scholarly debates we are complacent with pretending that a <a href="https://theconversation.com/academic-publishing-is-a-multibillion-dollar-industry-its-not-always-good-for-science-250056">40% profit margin industry</a> is somehow facilitating the peer-review process better than the transparent platforms already available to us, for free.</p>
+<p>Neither does the role of an editor have to be tied to a <a href="https://www.abc.net.au/religion/nicholas-agar-big-academic-publishing-rent-seeking-behaviour/104066062">commercial rent-seeker</a>: The <a href="https://elifesciences.org/inside-elife/dc24a9cd/open-science-what-is-publish-review-curate">Publish, Review, Curate</a> model of scholarly communication enables a given scholarly work to be included in a plurality of collections, perhaps analogous to journal volumes or blog categories, each curated by different editors on different platforms. Many editorial teams are already recognizing that things could indeed be better, and are <a href="https://retractionwatch.com/the-retraction-watch-mass-resignations-list/">resigning en masse</a> to start free scholar-run journals.</p>
+<p>These <a href="https://knowledge-exchange.pubpub.org/pub/73tb00rf/release/3">alternatives</a> to “<a href="https://www.abc.net.au/religion/nicholas-agar-humanities-phamphlets-big-academic-publishing/103729186">Big Academic Publishing</a>” are already making it faster and <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">cheaper</a> to get one’s work permanently available and findable online, vetted by editors, and reviewed by peers.</p>
+<p>Considering the <a href="https://doi.org/10.48550/arXiv.2407.16551">estimated $8.97 billion dollars</a> of (mostly) taxpayer money hoovered up in four years by only six commercial publishers on Open Access (OA) article processing fees, Elsevier’s $3,480 median hybrid OA processing fee, and an <a href="https://doi.org/10.1162/qss_a_00327">average turnaround time of 111 days</a>, alternatives fare well: <a href="https://peercommunityin.org/">Peer Community In</a>, an online platform for reviews and “recommendations” (brief editorial reports), reports total <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">costs of €369 per article</a>. We’ve known these flawed economics for decades, yet the scientific literature remains in captivity. Maybe we just lack the <a href="https://www.scottaaronson.com/writings/journal.html">sufficient anger</a> for change.</p>
+<p>Perhaps the time to <a href="https://doi.org/10.1098/rsos.230206">replace academic journals</a> is now. For me, it should have been 350 days ago.</p>
+
+
+<div id="quarto-appendix" class="default"><section id="article-information" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Article information</h2><div class="quarto-appendix-contents">
+
+<p>This write-up is available at <a href="https://vuorre.com/posts/preprints-opinion/" class="uri">https://vuorre.com/posts/preprints-opinion/</a> and <a href="https://universonline.nl/nieuws/2025/10/14/against-publishing/" class="uri">https://universonline.nl/nieuws/2025/10/14/against-publishing/</a> under a CC-0 license.</p>
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+  author = {Vuorre, Matti},
+  title = {Against Publishing},
+  date = {2025-09-10},
+  url = {https://vuorre.com/posts/preprints-opinion/},
+  langid = {en},
+  abstract = {Preprints-\/-\/-scholarly manuscripts not yet captured by
+    the publication industry-\/-\/-are widely read and circulated, yet
+    the “{[}intellectual
+    perestroika{]}(https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html)”
+    they could facilitate hasn’t been uniformly realized because
+    scholars continue to think of preprints as less authoritative than
+    their industry-captured (“published”) counterparts. It is time to
+    free the scholarly literature from hostile captivity and embrace
+    preprints as the primary objects of scholarly communication. This
+    post first appeared at
+    {[}Univers{]}(https://universonline.nl/nieuws/2025/10/14/against-publishing/).}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2025. <span>“Against Publishing.”</span> September 10,
+2025. <a href="https://vuorre.com/posts/preprints-opinion/">https://vuorre.com/posts/preprints-opinion/</a>.
+</div></div></section></div> ]]></description>
+  <category>opinion</category>
+  <category>research</category>
+  <guid>https://vuorre.com/posts/preprints-opinion/</guid>
+  <pubDate>Tue, 09 Sep 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
   <title>How I work on computationally reproducible academic projects</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/workflow/</link>
@@ -11323,184 +11377,6 @@ December 13, 2018. <a href="https://vuorre.com/posts/rpihkal-combine-ggplots-wit
   <guid>https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</guid>
   <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
-</item>
-<item>
-  <title>Glue your strings together</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/rpihkal-stop-pasting-and-start-gluing/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>We’ve all been there; writing <a href="https://github.com/crsh/papaja">manuscripts</a> with <a href="https://rmarkdown.rstudio.com/">R Markdown</a> and dreaming of easy in-text code bits for reproducible reporting. Say you’ve fit a regression model to your data, and would then like to report the model’s parameters in your text, without writing the values in the text. (If the data or model changes, you’d need to re-type the values again.)</p>
-<p>For example, you can print this model summary easily in the R console:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">fit <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(mpg <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> disp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> mtcars)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = mpg ~ disp, data = mtcars)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--4.8922 -2.2022 -0.9631  1.6272  7.2305 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 29.599855   1.229720  24.070  &lt; 2e-16 ***
-disp        -0.041215   0.004712  -8.747 9.38e-10 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 3.251 on 30 degrees of freedom
-Multiple R-squared:  0.7183,    Adjusted R-squared:  0.709 
-F-statistic: 76.51 on 1 and 30 DF,  p-value: 9.38e-10</code></pre>
-</div>
-</div>
-<p>And to cite those values in the text body of your manuscript, you can write the text in R Markdown like this:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">The model intercept was <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">r round(coef(fit)[1], 2)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span>, great.</span></code></pre></div></div>
-</div>
-<p>Which would show up in your manuscript like this:</p>
-<p>The model intercept was 29.6, great.</p>
-<section id="paste" class="level2">
-<h2 class="anchored" data-anchor-id="paste">Paste</h2>
-<p>However, when you want to present more information, such as the parameter estimate with its standard error, you will have to <code>paste()</code> those strings together:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">(x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(fit)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>coefficients, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>))</span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)   29.600      1.230  24.070        0
-disp          -0.041      0.005  -8.747        0</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">intercept <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b = "</span>, x[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>], <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">", SE = "</span>, x[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>], <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)</span></code></pre></div></div>
-</div>
-<p>You can then just cite the <code>intercept</code> object in your text body:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">The model intercept was very very <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">significant</span> (<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">r intercept</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span>).</span></code></pre></div></div>
-</div>
-<p>Which would render in your PDF or word document as:</p>
-<p>The model intercept was very very significant (b = 29.6, SE = 1.23).</p>
-<p><code>paste()</code> is a base R function, and as such very robust and reproducible–all R installations will have it. However, as such it has a fairly terrible syntax where you have to quote strings, separate strings and variables with commas, etc. This task is made much easier with <code>glue()</code>.</p>
-</section>
-<section id="glue" class="level2">
-<h2 class="anchored" data-anchor-id="glue">Glue</h2>
-<p><a href="https://glue.tidyverse.org/">glue</a> is a small R package that allows you to join strings together in a neat, pythonific way. It replaces the need for quoting and separating arguments in <code>paste()</code>, by asking you to wrap variables in curly braces. Here’s how to do the above pasting with glue:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(glue)</span>
-<span id="cb8-2">intercept <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">glue</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b = {x[1, 1]}, SE = {x[1, 2]}"</span>)</span></code></pre></div></div>
-</div>
-<p>Which gives you the same string as the much messier <code>paste()</code> approach: b = 29.6, SE = 1.23</p>
-<section id="glue-with-data-frames" class="level3">
-<h3 class="anchored" data-anchor-id="glue-with-data-frames">Glue with data frames</h3>
-<p>Glue has other neat (more advanced) features, such as gluing variables row-by-row in a data frame:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(dplyr)</span>
-<span id="cb9-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as.data.frame</span>(x) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">glue_data</span>(</span>
-<span id="cb9-4">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"{rownames(.)}'s point estimate was {Estimate}, with an SE of {`Std. Error`}."</span></span>
-<span id="cb9-5">  )</span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept)'s point estimate was 29.6, with an SE of 1.23.
-disp's point estimate was -0.041, with an SE of 0.005.</code></pre>
-</div>
-</div>
-<p>Read more about glue at <a href="https://glue.tidyverse.org/" class="uri">https://glue.tidyverse.org/</a>.</p>
-
-
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2018,
-  author = {Vuorre, Matti},
-  title = {Glue Your Strings Together},
-  date = {2018-12-12},
-  url = {https://vuorre.com/posts/rpihkal-stop-pasting-and-start-gluing/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2018" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2018. <span>“Glue Your Strings Together.”</span> December
-12, 2018. <a href="https://vuorre.com/posts/rpihkal-stop-pasting-and-start-gluing/">https://vuorre.com/posts/rpihkal-stop-pasting-and-start-gluing/</a>.
-</div></div></section></div> ]]></description>
-  <category>r</category>
-  <guid>https://vuorre.com/posts/rpihkal-stop-pasting-and-start-gluing/</guid>
-  <pubDate>Tue, 11 Dec 2018 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

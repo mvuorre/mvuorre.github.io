@@ -1,0 +1,35 @@
+---
+title: Against publishing
+abstract: |
+  Preprints---scholarly manuscripts not yet captured by the publication industry---are widely read and circulated, yet the "[intellectual perestroika](https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html)" they could facilitate hasn't been uniformly realized because scholars continue to think of preprints as less authoritative than their industry-captured ("published") counterparts. It is time to free the scholarly literature from hostile captivity and embrace preprints as the primary objects of scholarly communication.
+
+  This post first appeared at [Univers](https://universonline.nl/nieuws/2025/10/14/against-publishing/).
+date: 2025-10-14
+categories:
+  - opinion
+  - research
+toc: false
+license: "CC0"
+---
+
+385 days ago, I submitted a manuscript for evaluation at an academic journal. Around the same time, I submitted the same manuscript to [PsyArXiv](https://osf.io/preprints/psyarxiv), a document sharing website popular in the psychological sciences. The results: Radio silence for the journal submission; 356 downloads and 5 citations for the [PsyArXiv version](https://osf.io/preprints/psyarxiv/mwg4f).
+
+But this is a meaningless comparison: The PsyArXiv version hasn't been peer-reviewed and listed on a journal's website: It is not *published*, and everyone knows that publications are more valid than preprints, and that it is publications, not preprints, that provide the pitons on a scientist's climb to success and fame.
+
+Never mind that my colleagues are reading and citing the document on PsyArXiv. For this manuscript to count as a legitimate scientific product I must first endure inexplicable delays; arbitrary formatting requirements (the formatting manual costs $47.99); conflicts between [my scholarly values](https://en.wikipedia.org/wiki/Mertonian_norms#Four_Mertonian_norms) and the [astronomical profits](https://astro.theoj.org/post/168-) that [private publishing companies](https://www.theguardian.com/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist) make from our taxpayer funded work; introduction of errors into my manuscript by the journal's proofreaders; websites from hell; and of course peer review. Without that process of publication, my work will remain a "*preprint*"---an incomplete and unreliable artifact unworthy of a place in the scientific literature.
+
+Could [things be better](https://osf.io/preprints/psyarxiv/2uxwk_v1)? I surmise that, like fish unaware of their wet surrounds, academics don't feel the pain because it's all they've ever known.
+
+For one, peer review has nothing to do with commercial journals or publishers---it's the voluntary labor of our colleagues in service of scientific progress. We could, right now, be reviewing each others work on [PREreview](https://prereview.org/) or [Review Commons](https://www.reviewcommons.org/). Alas, instead of these scholarly debates we are complacent with pretending that a [40% profit margin industry](https://theconversation.com/academic-publishing-is-a-multibillion-dollar-industry-its-not-always-good-for-science-250056) is somehow facilitating the peer-review process better than the transparent platforms already available to us, for free.
+
+Neither does the role of an editor have to be tied to a [commercial rent-seeker](https://www.abc.net.au/religion/nicholas-agar-big-academic-publishing-rent-seeking-behaviour/104066062): The [Publish, Review, Curate](https://elifesciences.org/inside-elife/dc24a9cd/open-science-what-is-publish-review-curate) model of scholarly communication enables a given scholarly work to be included in a plurality of collections, perhaps analogous to journal volumes or blog categories, each curated by different editors on different platforms. Many editorial teams are already recognizing that things could indeed be better, and are [resigning en masse](https://retractionwatch.com/the-retraction-watch-mass-resignations-list/) to start free scholar-run journals.
+
+These [alternatives](https://knowledge-exchange.pubpub.org/pub/73tb00rf/release/3) to "[Big Academic Publishing](https://www.abc.net.au/religion/nicholas-agar-humanities-phamphlets-big-academic-publishing/103729186)" are already making it faster and [cheaper](https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/) to get one's work permanently available and findable online, vetted by editors, and reviewed by peers.
+
+Considering the [estimated $8.97 billion dollars](https://doi.org/10.48550/arXiv.2407.16551) of (mostly) taxpayer money hoovered up in four years by only six commercial publishers on Open Access (OA) article processing fees, Elsevier's $3,480 median hybrid OA processing fee, and an [average turnaround time of 111 days](https://doi.org/10.1162/qss_a_00327), alternatives fare well: [Peer Community In](https://peercommunityin.org/), an online platform for reviews and "recommendations" (brief editorial reports), reports total [costs of €369 per article](https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/). We've known these flawed economics for decades, yet the scientific literature remains in captivity. Maybe we just lack the [sufficient anger](https://www.scottaaronson.com/writings/journal.html) for change.
+
+Perhaps the time to [replace academic journals](https://doi.org/10.1098/rsos.230206) is now. For me, it should have been 350 days ago.
+
+## Article information {.appendix}
+
+This write-up is available at <https://vuorre.com/posts/preprints-opinion/> and <https://universonline.nl/nieuws/2025/10/14/against-publishing/> under a CC-0 license.

@@ -10,7 +10,61 @@
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Matti&#39;s website</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Tue, 23 Sep 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 13 Oct 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Against publishing</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/preprints-opinion/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>385 days ago, I submitted a manuscript for evaluation at an academic journal. Around the same time, I submitted the same manuscript to <a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a>, a document sharing website popular in the psychological sciences. The results: Radio silence for the journal submission; 356 downloads and 5 citations for the <a href="https://osf.io/preprints/psyarxiv/mwg4f">PsyArXiv version</a>.</p>
+<p>But this is a meaningless comparison: The PsyArXiv version hasn’t been peer-reviewed and listed on a journal’s website: It is not <em>published</em>, and everyone knows that publications are more valid than preprints, and that it is publications, not preprints, that provide the pitons on a scientist’s climb to success and fame.</p>
+<p>Never mind that my colleagues are reading and citing the document on PsyArXiv. For this manuscript to count as a legitimate scientific product I must first endure inexplicable delays; arbitrary formatting requirements (the formatting manual costs $47.99); conflicts between <a href="https://en.wikipedia.org/wiki/Mertonian_norms#Four_Mertonian_norms">my scholarly values</a> and the <a href="https://astro.theoj.org/post/168-">astronomical profits</a> that <a href="https://www.theguardian.com/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist">private publishing companies</a> make from our taxpayer funded work; introduction of errors into my manuscript by the journal’s proofreaders; websites from hell; and of course peer review. Without that process of publication, my work will remain a “<em>preprint</em>”—an incomplete and unreliable artifact unworthy of a place in the scientific literature.</p>
+<p>Could <a href="https://osf.io/preprints/psyarxiv/2uxwk_v1">things be better</a>? I surmise that, like fish unaware of their wet surrounds, academics don’t feel the pain because it’s all they’ve ever known.</p>
+<p>For one, peer review has nothing to do with commercial journals or publishers—it’s the voluntary labor of our colleagues in service of scientific progress. We could, right now, be reviewing each others work on <a href="https://prereview.org/">PREreview</a> or <a href="https://www.reviewcommons.org/">Review Commons</a>. Alas, instead of these scholarly debates we are complacent with pretending that a <a href="https://theconversation.com/academic-publishing-is-a-multibillion-dollar-industry-its-not-always-good-for-science-250056">40% profit margin industry</a> is somehow facilitating the peer-review process better than the transparent platforms already available to us, for free.</p>
+<p>Neither does the role of an editor have to be tied to a <a href="https://www.abc.net.au/religion/nicholas-agar-big-academic-publishing-rent-seeking-behaviour/104066062">commercial rent-seeker</a>: The <a href="https://elifesciences.org/inside-elife/dc24a9cd/open-science-what-is-publish-review-curate">Publish, Review, Curate</a> model of scholarly communication enables a given scholarly work to be included in a plurality of collections, perhaps analogous to journal volumes or blog categories, each curated by different editors on different platforms. Many editorial teams are already recognizing that things could indeed be better, and are <a href="https://retractionwatch.com/the-retraction-watch-mass-resignations-list/">resigning en masse</a> to start free scholar-run journals.</p>
+<p>These <a href="https://knowledge-exchange.pubpub.org/pub/73tb00rf/release/3">alternatives</a> to “<a href="https://www.abc.net.au/religion/nicholas-agar-humanities-phamphlets-big-academic-publishing/103729186">Big Academic Publishing</a>” are already making it faster and <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">cheaper</a> to get one’s work permanently available and findable online, vetted by editors, and reviewed by peers.</p>
+<p>Considering the <a href="https://doi.org/10.48550/arXiv.2407.16551">estimated $8.97 billion dollars</a> of (mostly) taxpayer money hoovered up in four years by only six commercial publishers on Open Access (OA) article processing fees, Elsevier’s $3,480 median hybrid OA processing fee, and an <a href="https://doi.org/10.1162/qss_a_00327">average turnaround time of 111 days</a>, alternatives fare well: <a href="https://peercommunityin.org/">Peer Community In</a>, an online platform for reviews and “recommendations” (brief editorial reports), reports total <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">costs of €369 per article</a>. We’ve known these flawed economics for decades, yet the scientific literature remains in captivity. Maybe we just lack the <a href="https://www.scottaaronson.com/writings/journal.html">sufficient anger</a> for change.</p>
+<p>Perhaps the time to <a href="https://doi.org/10.1098/rsos.230206">replace academic journals</a> is now. For me, it should have been 350 days ago.</p>
+
+
+<div id="quarto-appendix" class="default"><section id="article-information" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Article information</h2><div class="quarto-appendix-contents">
+
+<p>This write-up is available at <a href="https://vuorre.com/posts/preprints-opinion/" class="uri">https://vuorre.com/posts/preprints-opinion/</a> and <a href="https://universonline.nl/nieuws/2025/10/14/against-publishing/" class="uri">https://universonline.nl/nieuws/2025/10/14/against-publishing/</a> under a CC-0 license.</p>
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
+  author = {Vuorre, Matti},
+  title = {Against Publishing},
+  date = {2025-10-14},
+  url = {https://vuorre.com/posts/preprints-opinion/},
+  langid = {en},
+  abstract = {Preprints-\/-\/-scholarly manuscripts not yet captured by
+    the publication industry-\/-\/-are widely read and circulated, yet
+    the “{[}intellectual
+    perestroika{]}(https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html)”
+    they could facilitate hasn’t been uniformly realized because
+    scholars continue to think of preprints as less authoritative than
+    their industry-captured (“published”) counterparts. It is time to
+    free the scholarly literature from hostile captivity and embrace
+    preprints as the primary objects of scholarly communication. This
+    post first appeared at
+    {[}Univers{]}(https://universonline.nl/nieuws/2025/10/14/against-publishing/).}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2025. <span>“Against Publishing.”</span> October 14,
+2025. <a href="https://vuorre.com/posts/preprints-opinion/">https://vuorre.com/posts/preprints-opinion/</a>.
+</div></div></section></div> ]]></description>
+  <category>opinion</category>
+  <category>research</category>
+  <guid>https://vuorre.com/posts/preprints-opinion/</guid>
+  <pubDate>Mon, 13 Oct 2025 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>My PsyArXiv coauthorship network</title>
   <dc:creator>Matti Vuorre</dc:creator>
@@ -716,60 +770,6 @@ September 24, 2025. <a href="https://vuorre.com/posts/psyarxiv-network/">https:/
   <category>research</category>
   <guid>https://vuorre.com/posts/psyarxiv-network/</guid>
   <pubDate>Tue, 23 Sep 2025 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Against publishing</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/preprints-opinion/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>385 days ago, I submitted a manuscript for evaluation at an academic journal. Around the same time, I submitted the same manuscript to <a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a>, a document sharing website popular in the psychological sciences. The results: Radio silence for the journal submission; 356 downloads and 5 citations for the <a href="https://osf.io/preprints/psyarxiv/mwg4f">PsyArXiv version</a>.</p>
-<p>But this is a meaningless comparison: The PsyArXiv version hasn’t been peer-reviewed and listed on a journal’s website: It is not <em>published</em>, and everyone knows that publications are more valid than preprints, and that it is publications, not preprints, that provide the pitons on a scientist’s climb to success and fame.</p>
-<p>Never mind that my colleagues are reading and citing the document on PsyArXiv. For this manuscript to count as a legitimate scientific product I must first endure inexplicable delays; arbitrary formatting requirements (the formatting manual costs $47.99); conflicts between <a href="https://en.wikipedia.org/wiki/Mertonian_norms#Four_Mertonian_norms">my scholarly values</a> and the <a href="https://astro.theoj.org/post/168-">astronomical profits</a> that <a href="https://www.theguardian.com/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist">private publishing companies</a> make from our taxpayer funded work; introduction of errors into my manuscript by the journal’s proofreaders; websites from hell; and of course peer review. Without that process of publication, my work will remain a “<em>preprint</em>”—an incomplete and unreliable artifact unworthy of a place in the scientific literature.</p>
-<p>Could <a href="https://osf.io/preprints/psyarxiv/2uxwk_v1">things be better</a>? I surmise that, like fish unaware of their wet surrounds, academics don’t feel the pain because it’s all they’ve ever known.</p>
-<p>For one, peer review has nothing to do with commercial journals or publishers—it’s the voluntary labor of our colleagues in service of scientific progress. We could, right now, be reviewing each others work on <a href="https://prereview.org/">PREreview</a> or <a href="https://www.reviewcommons.org/">Review Commons</a>. Alas, instead of these scholarly debates we are complacent with pretending that a <a href="https://theconversation.com/academic-publishing-is-a-multibillion-dollar-industry-its-not-always-good-for-science-250056">40% profit margin industry</a> is somehow facilitating the peer-review process better than the transparent platforms already available to us, for free.</p>
-<p>Neither does the role of an editor have to be tied to a <a href="https://www.abc.net.au/religion/nicholas-agar-big-academic-publishing-rent-seeking-behaviour/104066062">commercial rent-seeker</a>: The <a href="https://elifesciences.org/inside-elife/dc24a9cd/open-science-what-is-publish-review-curate">Publish, Review, Curate</a> model of scholarly communication enables a given scholarly work to be included in a plurality of collections, perhaps analogous to journal volumes or blog categories, each curated by different editors on different platforms. Many editorial teams are already recognizing that things could indeed be better, and are <a href="https://retractionwatch.com/the-retraction-watch-mass-resignations-list/">resigning en masse</a> to start free scholar-run journals.</p>
-<p>These <a href="https://knowledge-exchange.pubpub.org/pub/73tb00rf/release/3">alternatives</a> to “<a href="https://www.abc.net.au/religion/nicholas-agar-humanities-phamphlets-big-academic-publishing/103729186">Big Academic Publishing</a>” are already making it faster and <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">cheaper</a> to get one’s work permanently available and findable online, vetted by editors, and reviewed by peers.</p>
-<p>Considering the <a href="https://doi.org/10.48550/arXiv.2407.16551">estimated $8.97 billion dollars</a> of (mostly) taxpayer money hoovered up in four years by only six commercial publishers on Open Access (OA) article processing fees, Elsevier’s $3,480 median hybrid OA processing fee, and an <a href="https://doi.org/10.1162/qss_a_00327">average turnaround time of 111 days</a>, alternatives fare well: <a href="https://peercommunityin.org/">Peer Community In</a>, an online platform for reviews and “recommendations” (brief editorial reports), reports total <a href="https://peercommunityin.org/2025/01/08/2024-pcis-finances-and-article-costs/">costs of €369 per article</a>. We’ve known these flawed economics for decades, yet the scientific literature remains in captivity. Maybe we just lack the <a href="https://www.scottaaronson.com/writings/journal.html">sufficient anger</a> for change.</p>
-<p>Perhaps the time to <a href="https://doi.org/10.1098/rsos.230206">replace academic journals</a> is now. For me, it should have been 350 days ago.</p>
-
-
-<div id="quarto-appendix" class="default"><section id="article-information" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Article information</h2><div class="quarto-appendix-contents">
-
-<p>This write-up is available at <a href="https://vuorre.com/posts/preprints-opinion/" class="uri">https://vuorre.com/posts/preprints-opinion/</a> and <a href="https://universonline.nl/nieuws/2025/10/14/against-publishing/" class="uri">https://universonline.nl/nieuws/2025/10/14/against-publishing/</a> under a CC-0 license.</p>
-
-
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
-  author = {Vuorre, Matti},
-  title = {Against Publishing},
-  date = {2025-09-10},
-  url = {https://vuorre.com/posts/preprints-opinion/},
-  langid = {en},
-  abstract = {Preprints-\/-\/-scholarly manuscripts not yet captured by
-    the publication industry-\/-\/-are widely read and circulated, yet
-    the “{[}intellectual
-    perestroika{]}(https://eprints.soton.ac.uk/251894/1/harnad90.skywriting.html)”
-    they could facilitate hasn’t been uniformly realized because
-    scholars continue to think of preprints as less authoritative than
-    their industry-captured (“published”) counterparts. It is time to
-    free the scholarly literature from hostile captivity and embrace
-    preprints as the primary objects of scholarly communication. This
-    post first appeared at
-    {[}Univers{]}(https://universonline.nl/nieuws/2025/10/14/against-publishing/).}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2025. <span>“Against Publishing.”</span> September 10,
-2025. <a href="https://vuorre.com/posts/preprints-opinion/">https://vuorre.com/posts/preprints-opinion/</a>.
-</div></div></section></div> ]]></description>
-  <category>opinion</category>
-  <category>research</category>
-  <guid>https://vuorre.com/posts/preprints-opinion/</guid>
-  <pubDate>Tue, 09 Sep 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How I work on computationally reproducible academic projects</title>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,9 +93,9 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-f54fa83ccd8f86fe7238c9291c42d766.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-f54fa83ccd8f86fe7238c9291c42d766.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb1cd4028f63a369ab283e072cb7d572.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb1cd4028f63a369ab283e072cb7d572.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-13ae51a1ba3966ac5d998bc05b80f361.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -127,37 +127,25 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
+<!-- _includes/top-banner.html -->
+<style>
+  /* Minimal, non-framework styling */
+  #site-top-banner {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1rem 1rem;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    box-sizing: border-box;
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+
+  #site-top-banner a {
+    color: inherit;
+    text-decoration: underline;
+    margin-left: 0.25rem;
+  }
+</style>
 
 <meta property="og:title" content="Estimating Signal Detection Models with regression using the brms R package – Matti’s website">
 <meta property="og:description" content="Signal Detection Theory is a widely used framework for understanding decisions by distinguishing between response bias and true discriminability in various psychological domains. Manual calculation approaches to estimating SDT models’ parameters, while commonly used, can be cumbersome and limited. In this tutorial I connect SDT to regression models that researchers are already familiar with in order to bring the flexibility of modern regression techniques to modeling of SDT data. I begin with a glance at SDT’s fundamentals, and then show how to manually calculate basic SDT parameters. In the bulk of the tutorial, I show step-by-step implementations of various SDT models using the brms R package. I progress from analyses of binary Yes/No tasks to rating task models with multilevel structures, unequal variances, and mixtures. Throughout, I highlight benefits of the regression-based approach, such as dealing with missing data, multilevel structures, and quantifying uncertainty. By framing SDT models as regressions, researchers gain access to a powerful set of flexible tools while maintaining the conceptual clarity that makes SDT valuable. A regression-based approach not only simplifies SDT analyses but also extends SDT’s utility through flexible parameter estimation with uncertainty measures and the ability to incorporate predictors at multiple levels of analysis.">
@@ -227,9 +215,7 @@ window.Quarto = {
 <meta name="citation_reference" content="citation_title=BayesSDT: Software for Bayesian inference with signal detection theory;,citation_author=Michael D. Lee;,citation_publication_date=2008-05;,citation_cover_date=2008-05;,citation_year=2008;,citation_fulltext_html_url=http://link.springer.com/10.3758/BRM.40.2.450;,citation_issue=2;,citation_doi=10.3758/BRM.40.2.450;,citation_issn=1554-351X, 1554-3528;,citation_volume=40;,citation_language=en-US;,citation_journal_title=Behavior Research Methods;,citation_journal_abbrev=Behavior Research Methods;">
 <meta name="citation_reference" content="citation_title=The bhsdtr package: A general-purpose method of Bayesian inference for signal detection theory models;,citation_abstract=We describe a novel method of Bayesian inference for hierarchical or non-hierarchical equal variance normal signal detection theory models with one or more criteria. The method is implemented as an open-source R package that uses the state-of-the-art Stan platform for sampling from posterior distributions. Our method can accommodate binary responses as well as additional ratings and an arbitrary number of nested or crossed random grouping factors. The SDT parameters can be regressed on additional predictors within the same model via intermediate unconstrained parameters, and the model can be extended by using automatically generated human-readable Stan code as a template. In the paper, we explain how our method improves on other similar available methods, give an overview of the package, demonstrate its use by providing a real-study data analysis walk-through, and show that the model successfully recovers known parameter values when fitted to simulated data. We also demonstrate that ignoring a hierarchical data structure may lead to severely biased estimates when fitting signal detection theory models.;,citation_author=Borysław Paulewicz;,citation_author=Agata Blaut;,citation_publication_date=2020-10-01;,citation_cover_date=2020-10-01;,citation_year=2020;,citation_fulltext_html_url=https://doi.org/10.3758/s13428-020-01370-y;,citation_issue=5;,citation_doi=10.3758/s13428-020-01370-y;,citation_issn=1554-3528;,citation_volume=52;,citation_language=en-US;,citation_journal_title=Behavior Research Methods;,citation_journal_abbrev=Behav Res;">
 <meta name="citation_reference" content="citation_title=Sdtlu: An R package for the signal detection analysis of eyewitness lineup data;,citation_abstract=In a standard eyewitness lineup scenario, a witness observes a culprit commit a crime and is later asked to identify the culprit from a set of faces, the lineup. Signal detection theory (SDT), a powerful modeling framework for analyzing data, has recently become a common way to analyze lineup data. The goal of this paper is to introduce a new R package, sdtlu (Signal Detection Theory – LineUp), that streamlines and automates the SDT analysis of lineup data. sdtlu provides functions to process lineup data, determine the best-fitting SDT parameters, compute model-based performance measures such as area under the curve (AUC) and diagnosticity, use bootstrapping to determine uncertainty intervals around these parameters and measures, and compare parameters across two different data sets. The package incorporates closed-form solutions for both simultaneous and sequential lineups that allow for model-based analyses without Monte Carlo simulation. Show-ups are also supported. The package can estimate the base-rate of lineups that include a guilty suspect when the guilt or innocence of each suspect in the data set is unknown, as in “real-world” lineups. The package can also produce a full set of graphs, including data and model-based ROC curves and the underlying SDT model.;,citation_author=Andrew L. Cohen;,citation_author=Jeffrey J. Starns;,citation_author=Caren M. Rotello;,citation_publication_date=2021-02-01;,citation_cover_date=2021-02-01;,citation_year=2021;,citation_fulltext_html_url=https://doi.org/10.3758/s13428-020-01402-7;,citation_issue=1;,citation_doi=10.3758/s13428-020-01402-7;,citation_issn=1554-3528;,citation_volume=53;,citation_language=en-US;,citation_journal_title=Behavior Research Methods;,citation_journal_abbrev=Behav Res;">
-</head>
-
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+</head><body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -391,7 +377,44 @@ window.Quarto = {
     } else {
       toggleColorMode(false);
     }
-  </script>
+  </script><div id="site-top-banner" role="banner" aria-label="Site banner">
+  I'm hiring two PhD students to start in 2026. Please <a href="https://tiu.nu/22989" rel="noopener noreferrer" target="_blank">click here</a> for more information.
+</div>
+<script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">

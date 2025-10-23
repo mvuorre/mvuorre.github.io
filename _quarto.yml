@@ -53,3 +53,4 @@ format:
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+    include-in-header: banner.html

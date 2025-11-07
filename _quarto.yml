@@ -43,8 +43,18 @@ website:
         href: blog.xml
       - icon: github
         href: "{{<meta repo-url >}}"
+      - icon: bluesky
+        href: https://bsky.app/profile/matti.vuorre.com
+  announcement:
+    icon: info-circle
+    dismissable: false
+    content: |
+      I'm hiring two PhD students to start in 2026. Please [click here](https://tiu.nu/22989) for more information.
+    type: success
+    position: below-navbar
 format:
   html:
+    respect-user-color-scheme: true
     theme:
       light: [zephyr, _common.scss, custom.scss]
       dark: [darkly, _common.scss, custom-dark.scss]
@@ -53,4 +63,3 @@ format:
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-    include-in-header: banner.html

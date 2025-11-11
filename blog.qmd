@@ -8,6 +8,5 @@ listing:
   categories: true
   feed: true
   max-description-length: 280
-title-block-banner: true
 comments: false
 ---

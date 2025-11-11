@@ -6,4 +6,4 @@ bibliography/bibliography.bib: bibliography.R
 publish:
 	quarto publish gh-pages --no-prompt
 
-.PHONY: all	bibliography/bibliography.bib publish
+.PHONY: publish bibliography/bibliography.bib all

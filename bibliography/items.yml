@@ -8,7 +8,7 @@
   doi: 10.1037/tmb0000152
   outlet: >-
     Technology, Mind, and Behavior
-  file: bibliography/files/FZCFXVFG/ballou-etal_2025_technology,-mind,-and-behavior.pdf
+  file: bibliography/files/FDMPD7X4/ballou-etal_2025_technology,-mind,-and-behavior.pdf
   meeting: >-
     NA
   categories: []
@@ -86,6 +86,23 @@
     Anosognosia for memory loss is a common feature of Alzheimer's disease (AD). Recent theories have proposed that anosognosia, a disruption in awareness at a global level, may reflect specific deficits in self-monitoring, or local awareness. Though anosognosia for memory loss has been shown to relate to memory self-monitoring, it is not clear if it relates to self-monitoring deficits in other domains (i.e., motor). The current study examined this question by analyzing the relationship between anosognosia for memory loss, memory monitoring, and motor monitoring in 35 individuals with mild to moderate AD. Anosognosia was assessed via clinical interview before participants completed a metamemory task to measure memory monitoring, and a computerized agency task to measure motor monitoring. Cognitive and psychological measures included memory, executive functions, and mood. Memory monitoring was associated with motor monitoring; however, anosognosia was associated only with memory monitoring, and not motor monitoring. Cognition and mood related differently to each measure of self-awareness. Results are interpreted within a hierarchical model of awareness in which local self-monitoring processes are associated across domain, but appear to only contribute to a global level awareness in a domain-specific fashion.
   extra: ~
 - title: >-
+    Smell-e Technology: Bridging the gap between virtual and real-life food responses using an immersive multisensory VR food environment
+  url: https://osf.io/6jwyr_v1
+  date: 2025-04-13
+  type: preprint
+  authors: |
+    de Vries, van der Laan, Boesveldt, Vuorre, Leeuwen, Verboon, Masterson, & Klippel
+  doi: 10.31234/osf.io/6jwyr_v1
+  outlet: >-
+    OSF Preprints
+  file: bibliography/files/EPGBXLZQ/vries-etal_2025_OSF.pdf
+  meeting: >-
+    NA
+  categories: []
+  abstract: |
+    Immersive Virtual Reality (VR) technologies such as virtual supermarkets arean emerging medium to model individuals’ eating behaviour. However, existing VR environments elicit weaker responses to food (i.e., craving and salivation) than in real-life, limiting their validity as research tools. We developed an immersive multisensory VR food environment – with both visual and olfactory (smell) cues – and investigated whether it could bridge this gap in food responses, and whether effects may be mediated by an enhanced sense of presence. In a within-subjects lab-based experiment, participants (N = 70) were exposed to food and non-food cues in either a unisensory “vision only” VR condition, a multisensory “vision + olfaction” VR condition, or a real-life setting with a matched physical set-up. Food-specific craving and salivation were measured in all six conditions. Results showed that food-induced craving was weaker in all virtual conditions versus real-life. Salivary responses to food were also lower in unisensory VR exposure versus real-life. Compared to unisensory VR exposure, multisensory VR exposure led to a directional improvement in craving, higher salivary food responses after adjusting for hunger, and enhanced perceptions of presence and mental imagery. While we could not conclude equivalence between multisensory VR and real-life settings, the latter did not differ on salivary responses either. In conclusion, an immersive multisensory VR food environment with olfactory cues can credibly model craving responses, albeit to a weaker degree than in real-life. The added value of this technology may lie in enhancing conceptual mediators and approximating real-life salivation to food.
+  extra: ~
+- title: >-
     Bayesian evaluation of behavior change interventions: a brief introduction and a practical example
   url: https://doi.org/10.1080/21642850.2018.1428102
   date: 2018-01-01
@@ -160,23 +177,6 @@
   data: https://osf.io/cjd6z/
   code: https://github.com/digital-wellbeing/gametime
   preprint: https://doi.org/10.31234/osf.io/qrjza
-- title: >-
-    The smoke-detector principle of pathogen avoidance: A test of how the behavioral immune system gives rise to prejudice (stage 1 registered report)
-  url: https://osf.io/e874s_v1
-  date: 2024-09-30
-  type: preprint
-  authors: |
-    Leeuwen, Jaeger, Axelsson, Becker, Hansson, Lasselin, Lekander, Tybur, & Vuorre
-  doi: 10.31234/osf.io/e874s
-  outlet: >-
-    OSF Preprints
-  file: bibliography/files/HXP6G7N2/leeuwen-etal_2024_OSF.pdf
-  meeting: >-
-    NA
-  categories: [disgust, face perception, infectious disease, prejudice, signal detection theory]
-  abstract: |
-    Motivations to avoid infectious disease seem to influence prejudice toward some groups, including groups not explicitly associated with infectious disease. The standard explanation relies on signal detection theory and proposes that pathogen detection should be biased toward making many false alarms (false positives) and few misses (false negatives). Therefore, pathogen detection mechanisms arguably categorize a broad array of atypical features as indicative of infection, which gives rise to negative affect toward people with atypical features. We will test a key hypothesis derived from this explanation: specific appearance-based prejudices are associated with tendencies to make false alarms when estimating the presence of infectious disease. While this hypothesis is implicit in much work on the behavioral immune system and prejudice, direct tests of it are lacking and existing relevant work contains important limitations. We will conduct a cross-sectional study with a large US sample that includes measures of tendencies to make false alarms and prejudice toward multiple relevant social groups/categories.
-  extra: ~
 - title: >-
     From social media to artificial intelligence: improving research on digital harms in youth
   url: https://www.sciencedirect.com/science/article/pii/S2352464224003328
@@ -385,22 +385,39 @@
   code: https://github.com/digital-wellbeing/O-ACE-POP/tree/main
   data: https://github.com/digital-wellbeing/O-ACE-POP/tree/main
 - title: >-
-    Smell-e Technology: Bridging the gap between virtual and real-life food responses using an immersive multisensory VR food environment
-  url: https://osf.io/6jwyr_v1
-  date: 2025-04-13
+    The smoke-detector principle of pathogen avoidance: A test of how the behavioral immune system gives rise to prejudice (stage 1 registered report)
+  url: https://osf.io/e874s_v1
+  date: 2024-09-30
   type: preprint
   authors: |
-    Vries, Laan, Boesveldt, Vuorre, Leeuwen, Verboon, Masterson, & Klippel
-  doi: 10.31234/osf.io/6jwyr_v1
+    van Leeuwen, Jaeger, Axelsson, Becker, Hansson, Lasselin, Lekander, Tybur, & Vuorre
+  doi: 10.31234/osf.io/e874s
   outlet: >-
     OSF Preprints
-  file: bibliography/files/EPGBXLZQ/vries-etal_2025_OSF.pdf
+  file: bibliography/files/HXP6G7N2/leeuwen-etal_2024_OSF.pdf
   meeting: >-
     NA
-  categories: []
+  categories: [disgust, face perception, infectious disease, prejudice, signal detection theory]
   abstract: |
-    Immersive Virtual Reality (VR) technologies such as virtual supermarkets arean emerging medium to model individuals’ eating behaviour. However, existing VR environments elicit weaker responses to food (i.e., craving and salivation) than in real-life, limiting their validity as research tools. We developed an immersive multisensory VR food environment – with both visual and olfactory (smell) cues – and investigated whether it could bridge this gap in food responses, and whether effects may be mediated by an enhanced sense of presence. In a within-subjects lab-based experiment, participants (N = 70) were exposed to food and non-food cues in either a unisensory “vision only” VR condition, a multisensory “vision + olfaction” VR condition, or a real-life setting with a matched physical set-up. Food-specific craving and salivation were measured in all six conditions. Results showed that food-induced craving was weaker in all virtual conditions versus real-life. Salivary responses to food were also lower in unisensory VR exposure versus real-life. Compared to unisensory VR exposure, multisensory VR exposure led to a directional improvement in craving, higher salivary food responses after adjusting for hunger, and enhanced perceptions of presence and mental imagery. While we could not conclude equivalence between multisensory VR and real-life settings, the latter did not differ on salivary responses either. In conclusion, an immersive multisensory VR food environment with olfactory cues can credibly model craving responses, albeit to a weaker degree than in real-life. The added value of this technology may lie in enhancing conceptual mediators and approximating real-life salivation to food.
-  extra: ~
+    Motivations to avoid infectious disease seem to influence prejudice toward some groups, including groups not explicitly associated with infectious disease. The standard explanation relies on signal detection theory and proposes that pathogen detection should be biased toward making many false alarms (false positives) and few misses (false negatives). Therefore, pathogen detection mechanisms arguably categorize a broad array of atypical features as indicative of infection, which gives rise to negative affect toward people with atypical features. We will test a key hypothesis derived from this explanation: specific appearance-based prejudices are associated with tendencies to make false alarms when estimating the presence of infectious disease. While this hypothesis is implicit in much work on the behavioral immune system and prejudice, direct tests of it are lacking and existing relevant work contains important limitations. We will conduct a cross-sectional study with a large US sample that includes measures of tendencies to make false alarms and prejudice toward multiple relevant social groups/categories.
+  publication: https://doi.org/10.1016/j.evolhumbehav.2025.106716
+- title: >-
+    The smoke-detector principle of pathogen avoidance: A test of how the behavioral immune system gives rise to prejudice
+  url: https://www.sciencedirect.com/science/article/pii/S1090513825000650
+  date: 2025-09-01
+  type: journalArticle
+  authors: |
+    van Leeuwen, Jaeger, Axelsson, Becker, Hansson, Lasselin, Lekander, Vuorre, & Tybur
+  doi: 10.1016/j.evolhumbehav.2025.106716
+  outlet: >-
+    Evolution and Human Behavior
+  file: bibliography/files/3EZ7DJWM/van-leeuwen-etal_2025_evolution-and-human-behavior.pdf
+  meeting: >-
+    NA
+  categories: [signal detection theory, disgust, face perception, infectious disease, prejudice]
+  abstract: |
+    Motivations to avoid infectious disease seem to influence prejudice toward some groups, including groups not explicitly associated with infectious disease. The standard explanation for this phenomenon is based on signal detection theory and proposes that some prejudices partially arise from pathogen detection mechanisms that are biased toward making false alarms (false positives) in order to minimize misses (false negatives). Therefore, pathogen detection mechanisms arguably categorize a broad array of atypical features as indicative of infection, which gives rise to negative affect toward people with atypical features. We tested a key hypothesis derived from this explanation: specific appearance-based prejudices are associated with tendencies to make false alarms when estimating the presence of infectious disease. While this hypothesis is implicit in much work on the behavioral immune system and prejudice, direct tests of it are lacking and existing relevant work contains important limitations. To test the hypothesis, we conducted a cross-sectional study using a large U.S. sample (N = 1450). Using signal detection theory methods, we assessed tendencies to make false alarms when identifying infection threats. We further assessed prejudice toward multiple relevant social groups/categories. Results showed weak evidence for the key hypothesis: for only one of four tested target groups were tendencies to make false alarms in sickness detection significantly associated with prejudice. However, this relation was not significant when controlling for a potential confound. These results cast doubt on the notion that individual differences in appearance-based prejudices arise from individual differences in tendencies to make false alarms in assessing pathogen threats.
+  preprint: https://doi.org/10.31234/osf.io/e874s
 - title: >-
     Affective Uplift During Video Game Play: A Naturalistic Case Study
   url: https://dl.acm.org/doi/10.1145/3659464
@@ -889,7 +906,7 @@
   file: bibliography/files/NYRWTIA2/vuorre-etal_2025_OSF.pdf
   meeting: >-
     NA
-  categories: [media effects, meta-psychology, paradigm, social media, statistics, variation, well-being]
+  categories: [well-being, statistics, social media, media effects, paradigm, variation, meta-psychology]
   abstract: |
     The study of social media effects on psychological well-being has reached an impasse: Popular commentators confidently assert that social media are bad for users but research results are mixed and have had little practical impact. In response, one research group has proposed a path forward for the field that moves beyond studying population averages to find effects that are specific to individuals.Here, we outline three objections to that research agenda. On a methodological level, the key empirical results of this programme—proportions of the population of individuals with negative, null, and positive social media effects—are not appropriately estimated and reported. On a theoretical level, these results do little to advance our understanding of social media and its psychological implications. On a paradigmatic level, this “personalized media effects paradigm” (Valkenburg et al., 2021a, p. 74) cannot inform inferences about individuals and therefore does not deliver what it claims.In this work we express our concern that this research approach may be contributing to confusing messaging to both societal stakeholders and scientists investigating how social media and well- being might be related. It is our sincere hope that describing these objections directly will prompt the field to work together in adopting better practices to ultimately develop a better understanding of well-being in the digital age.
   extra: ~

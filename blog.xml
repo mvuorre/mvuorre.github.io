@@ -21,7 +21,6 @@
 
 
 
-
 <p>385 days ago, I submitted a manuscript for evaluation at an academic journal. Around the same time, I submitted the same manuscript to <a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a>, a document sharing website popular in the psychological sciences. The results: Radio silence for the journal submission; 356 downloads and 5 citations for the <a href="https://osf.io/preprints/psyarxiv/mwg4f">PsyArXiv version</a>.</p>
 <p>But this is a meaningless comparison: The PsyArXiv version hasn’t been peer-reviewed and listed on a journal’s website: It is not <em>published</em>, and everyone knows that publications are more valid than preprints, and that it is publications, not preprints, that provide the pitons on a scientist’s climb to success and fame.</p>
 <p>Never mind that my colleagues are reading and citing the document on PsyArXiv. For this manuscript to count as a legitimate scientific product I must first endure inexplicable delays; arbitrary formatting requirements (the formatting manual costs $47.99); conflicts between <a href="https://en.wikipedia.org/wiki/Mertonian_norms#Four_Mertonian_norms">my scholarly values</a> and the <a href="https://astro.theoj.org/post/168-">astronomical profits</a> that <a href="https://www.theguardian.com/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist">private publishing companies</a> make from our taxpayer funded work; introduction of errors into my manuscript by the journal’s proofreaders; websites from hell; and of course peer review. Without that process of publication, my work will remain a “<em>preprint</em>”—an incomplete and unreliable artifact unworthy of a place in the scientific literature.</p>
@@ -70,7 +69,6 @@ Vuorre, Matti. 2025. <span>“Against Publishing.”</span> October 14,
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/psyarxiv-network/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -781,7 +779,6 @@ September 24, 2025. <a href="https://vuorre.com/posts/psyarxiv-network/">https:/
 
 
 
-
 <p>Figure&nbsp;1 outlines an ideal but not fully fleshed out workflow in academic psychology: You receive an idea from divine inspiration, do <strong>?</strong>, and science comes out the other end.</p>
 <div id="fig-underpants" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1128,7 +1125,6 @@ Academic Projects.”</span> August 22, 2025. <a href="https://vuorre.com/posts/
 
 
 
-
 <p>When you browse to an academic journal article’s website, for example <a href="https://journals.sagepub.com/doi/10.1177/2515245918770963">this one</a><sup>1</sup>, if you are lucky and the manuscript is not <a href="https://astro.theoj.org/post/168-">paywalled</a>, you can read the HTML version of the article which usually looks something like the one shown in Figure&nbsp;1.</p>
 <div id="fig-page" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1193,7 +1189,6 @@ Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3, 2025. <a href="https
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/zotero-positron-vscode/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -1290,7 +1285,6 @@ Documents .”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-pos
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/bmlm-multilevel-mediation/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -2613,7 +2607,6 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 
 
 
-
 <p>In this entry, I outline my approach to evaluating scientific outputs based on the principles of transparency and openness.<sup>1</sup> I also include my template responses to review invitations.</p>
 <section id="background-and-principles" class="level2">
 <h2 class="anchored" data-anchor-id="background-and-principles">Background and principles</h2>
@@ -2794,7 +2787,6 @@ Practices.”</span> February 3, 2025. <a href="https://vuorre.com/posts/open-pe
 
 
 
-
 <p>It turns out that preprints are both important and pretty, <a href="https://youtu.be/kRz8-EXlhBo?feature=shared">pretty good</a> <span class="citation" data-cites="ahmedFutureAcademicPublishing2023 moshontzGuidePostingManaging2021 severBiomedicalPublishingHistoric2023 syedValuingPreprintsMust2024">(Ahmed et al. 2023; Moshontz et al. 2021; Sever 2023; Syed 2024)</span>. In fact in the modern scholarly publishing and communication ecosystem, the word “pre<em>print</em>” is a bit of misnomer: “Preprint” can refer to peer-reviewed <span class="citation" data-cites="vuorreThreeObjectionsNovel2022">(e.g. Vuorre, Johannes, and Przybylski 2022)</span> and non-peer-reviewed <span class="citation" data-cites="ballouHowVideoGames2024">(e.g. Ballou et al. 2024)</span> documents that may or may not ever be printed on physical paper. I think many in the community think of them as either (1) non-peer-reviewed documents that communicate scholarly arguments/content, or (2) pre-typeset versions of peer-reviewed (or otherwise “ready for production”) documents about to be published in a journal.</p>
 <p>Many related issues remain before the community is ready to follow more mature sciences and embrace preprints as bona-fide scholarly outputs <span class="citation" data-cites="petrichoweNatureTakeWhat2022 syedValuingPreprintsMust2024">(Petrić Howe et al. 2022; Syed 2024)</span>, including discovery (how will I find signal from all this [subjective] noise?), and typesetting (“make papers look not awful”) which we so dearly love. Below, I describe my recent efforts on these two fronts.</p>
 <section id="discovery" class="level2">
@@ -2903,7 +2895,6 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/methods-syllabus/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -3032,7 +3023,6 @@ January 19, 2024. <a href="https://vuorre.com/posts/methods-syllabus/">https://v
 
 
 
-
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3100,7 +3090,6 @@ March 24, 2023. <a href="https://vuorre.com/posts/yet-another-data-request-email
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/latent-mean-centering/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -4367,7 +4356,6 @@ January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering/">https
 
 
 
-
 <p>Like many people in academia, I spend much of my working time in front of computers. It’s then important to me that everything is <em>just</em> the way I want it, software is easily available and updated, and that my terminal looks nice <span class="emoji" data-emoji="mage">🧙</span>.</p>
 <p>This blog post is an adaptation of a document that I’ve saved for myself in the eventual case that I have to wipe my computer and reinstall everything, or if I get a new computer. I use Macs, but some of these things also work on Linux. Nothing here will work for Windows machines.</p>
 <section id="macos-setup" class="level1">
@@ -4612,7 +4600,6 @@ December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">ht
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/parallel-multiverse/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -6720,7 +6707,6 @@ Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a hre
 
 
 
-
 <section id="ggrain" class="level1">
 <h1>ggrain</h1>
 <p><a href="https://github.com/njudd/ggrain">ggrain</a> <span class="citation" data-cites="ggrain">(Judd, van Langen, and Kievit 2022)</span> is an R package that brings extra geoms to ggplot2 to make it easy to create informative plots of your data like Figure&nbsp;1.</p>
@@ -7409,7 +7395,6 @@ Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-p
 
 
 
-
 <p>I recently saw an <a href="https://fosstodon.org/@michaelflynn/109445977522188850">interesting question</a> on Mastodon: <strong>How can I run R remotely?</strong></p>
 <p>It’s often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we’re lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don’t like using them (maybe they have windows installed!) or we don’t have physical access to them. In those cases, we’d like to run R on the fast computer but also access it remotely from other computers. In this entry, I show how to create remote R sessions with ease using RStudio Server, Docker (optionally), and Tailscale.</p>
 <p>In order to best solve this problem, we need to recognize two main scenarios:</p>
@@ -7559,7 +7544,6 @@ Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/hexsticker-favicon/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -7899,7 +7883,6 @@ June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vu
 
 
 
-
 <p>R can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I’ll show how to do that easily with <a href="https://ntfy.sh">ntfy</a>.</p>
 <section id="download-ntfy.sh" class="level2">
 <h2 class="anchored" data-anchor-id="download-ntfy.sh">Download ntfy.sh</h2>
@@ -7961,7 +7944,6 @@ Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -8627,7 +8609,6 @@ Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/how-to
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -11126,7 +11107,6 @@ Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/analyze-ana
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</link>
   <description><![CDATA[ 
-
 
 
 

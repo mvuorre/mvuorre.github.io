@@ -2,13 +2,12 @@
 title: Notes on psychology, statistics, and R, sometimes
 listing:
   contents: posts
+  template: styles/blog.ejs
   sort: "date desc"
-  type: table
-  fields: [date, title, description, categories]
+  fields: [date, title, description, word-count, categories]
   categories: true
   feed: true
-  max-description-length: 200
-page-layout: full
+  max-description-length: 280
 title-block-banner: true
 comments: false
 ---

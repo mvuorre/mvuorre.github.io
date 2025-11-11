@@ -1,0 +1,24 @@
+```{=html}
+<ul class="list" style="list-style: none; padding: 0;">
+  <% for (const item of items) { %>
+    <li style="margin-bottom: 1.5rem;" <%= metadataAttrs(item) %>>
+      <div>
+        <b><a href="<%- item.path %>"><%= item.title %></a></b>
+      </div>
+      <div style="font-size: 0.9rem; margin-top: 0.25rem;">
+        <span class="listing-date"><%= item.date %></span> • <span class="listing-word-count"><%= item['word-count'] %></span>
+        <% if (item.categories && item.categories.length > 0) { %>
+          • <div class="listing-categories" style="display: inline;">
+          <% item.categories.forEach((cat) => { %>
+            <div class="listing-category" onclick="window.quartoListingCategory('<%=utils.b64encode(cat)%>'); return false;" style="display: inline-block; padding: 0.15rem 0.5rem; margin-left: 0.25rem; background: #f0f0f0; border-radius: 0.25rem; font-size: 0.85rem; cursor: pointer;"><%= cat %></div>
+          <% }) %>
+          </div>
+        <% } %>
+      </div>
+      <div class="listing-description" style="opacity: 0.7; margin-top: 0.25rem;">
+        <%= item.description %>
+      </div>
+    </li>
+  <% } %>
+</ul>
+```

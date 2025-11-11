@@ -1,6 +1,5 @@
 project:
   type: website
-  pre-render: "make bibliography/bibliography.bib"
   output-dir: docs
   resources:
     - CNAME

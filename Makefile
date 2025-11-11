@@ -1,4 +1,9 @@
+all: bibliography/bibliography.bib
+
+bibliography/bibliography.bib: bibliography.R
+	Rscript "$<"
+
 publish:
 	quarto publish gh-pages --no-prompt
 
-.PHONY: publish
+.PHONY: all	bibliography/bibliography.bib publish

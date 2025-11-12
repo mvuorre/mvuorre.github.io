@@ -10,7 +10,7 @@
         <% if (item.categories && item.categories.length > 0) { %>
           • <div class="listing-categories" style="display: inline;">
           <% item.categories.forEach((cat) => { %>
-            <div class="listing-category" onclick="window.quartoListingCategory('<%=utils.b64encode(cat)%>'); return false;" style="display: inline-block; padding: 0.15rem 0.5rem; margin-left: 0.25rem; background: #f0f0f0; border-radius: 0.25rem; font-size: 0.85rem; cursor: pointer;"><%= cat %></div>
+            <div class="listing-category" onclick="window.quartoListingCategory('<%=utils.b64encode(cat)%>'); return false;" style="display: inline-block; padding: 0.05rem 0.25rem; margin-left: 0.25rem; border-style: solid; border-width: 0.25px; border-radius: 0.25rem; font-size: 0.85rem; cursor: pointer;"><%= cat %></div>
           <% }) %>
           </div>
         <% } %>

@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  preview:
+    port: 4321
   resources:
     - CNAME
 repo-url: https://github.com/mvuorre/mvuorre.github.io
@@ -45,17 +47,16 @@ website:
         href: https://bsky.app/profile/matti.vuorre.com
   announcement:
     icon: info-circle
-    dismissable: false
+    dismissable: true
     content: |
       I'm hiring two PhD students to start in 2026. Please [click here](https://tiu.nu/22989) for more information.
     type: success
     position: below-navbar
 format:
   html:
-    respect-user-color-scheme: true
     theme:
-      light: [zephyr, _common.scss, custom.scss]
-      dark: [darkly, _common.scss, custom-dark.scss]
+      light: [zephyr, light.scss]
+      dark: [darkly, dark.scss]
     mainfont: "Atkinson Hyperlegible"
     highlight-style: a11y
     header-includes:

@@ -9,6 +9,8 @@ toc-title: Contents
 toc-depth: 2
 toc-location: left
 
+callout-icon: false
+
 # Link sections
 anchor-sections: true
 

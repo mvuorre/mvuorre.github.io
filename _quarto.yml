@@ -45,13 +45,6 @@ website:
         href: "{{<meta repo-url >}}"
       - icon: bluesky
         href: https://bsky.app/profile/matti.vuorre.com
-  announcement:
-    icon: info-circle
-    dismissable: true
-    content: |
-      I'm hiring two PhD students to start in 2026. Please [click here](https://tiu.nu/22989) for more information.
-    type: success
-    position: below-navbar
 format:
   html:
     theme:

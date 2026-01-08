@@ -2626,10 +2626,10 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 </section>
 <section id="practices" class="level2">
 <h2 class="anchored" data-anchor-id="practices">Practices</h2>
-<div class="callout callout-style-simple callout-tip">
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <ul>
@@ -2647,10 +2647,10 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 <p>Here’s some boilerplate text that I use in my responses to review invitations.</p>
 <section id="when-no-preprint-exists" class="level3">
 <h3 class="anchored" data-anchor-id="when-no-preprint-exists">When no preprint exists</h3>
-<div class="callout callout-style-simple callout-warning">
+<div class="callout callout-style-simple callout-warning no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>Thank you for considering me as a reviewer. I was not able to find a publicly available version of this manuscript, and so will tentatively decline your request. If you can point me to the publicly available manuscript, or if the authors make the manuscript publicly available, I would be happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.</p>
@@ -2661,10 +2661,10 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 </section>
 <section id="when-a-preprint-exists" class="level3">
 <h3 class="anchored" data-anchor-id="when-a-preprint-exists">When a preprint exists</h3>
-<div class="callout callout-style-simple callout-note">
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>Thank you for considering me as a reviewer. I am happy to provide my signed review which I will also post publicly on PREreview (https://prereview.org/profiles/0000-0001-5052-066X) under a CC-BY 4.0 license to ensure it is permanently available and citeable.</p>
@@ -2676,10 +2676,10 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 <section id="open-datamaterials" class="level3">
 <h3 class="anchored" data-anchor-id="open-datamaterials">Open data/materials</h3>
 <p>When data/materials are not shared or transparently cited (see <a href="https://www.opennessinitiative.org/guidelines-for-action-editors-and-reviews/" class="uri">https://www.opennessinitiative.org/guidelines-for-action-editors-and-reviews/</a>) I will communicate to the editor that</p>
-<div class="callout callout-style-simple callout-warning">
+<div class="callout callout-style-simple callout-warning no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>I believe strongly in the value of openness and transparency. Please ask the authors on my behalf whether they can certify that they have met the standards of the Peer Reviewers’ Openness Initiative (https://opennessinitiative.org/).</p>
@@ -2688,10 +2688,10 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 </div>
 </div>
 <p>If a resubmission doesn’t meet the basic PRO requirements, I will communicate that</p>
-<div class="callout callout-style-simple callout-important">
+<div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>I cannot recommend this paper for publication, as it does not meet the minimum quality requirements for an open scientific manuscript (see https://opennessinitiative.org/). I would be happy to review a revision of the manuscript that corrects this critical oversight.</p>
@@ -3023,10 +3023,10 @@ January 19, 2024. <a href="https://vuorre.com/posts/methods-syllabus/">https://v
 
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -4292,10 +4292,10 @@ Table&nbsp;4: Multilevel AR(1) model results.
 
 <div id="quarto-appendix" class="default"><section id="history" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">History</h2><div class="quarto-appendix-contents">
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -6115,10 +6115,10 @@ Table&nbsp;8: First six rows of results from multiverse analysis.
 </section>
 <section id="parallelizing-the-tidymultiverse" class="level1">
 <h1>Parallelizing the tidymultiverse</h1>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -7414,10 +7414,10 @@ Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-p
 <h1>RStudio Server</h1>
 <p>We are first going to install RStudio Server on the fast computer. You cannot run RStudio Server on MacOS or Windows, but we can easily fire one up using <a href="https://www.docker.com/">Docker</a>. First, using your fast computer, head over to the Docker website and download the Docker desktop app. Then start it and make sure it is running (you will have a menu bar or taskbar Docker button to indicate that it’s running).</p>
 <p>Then start a terminal session, and use it to start a <a href="https://rocker-project.org/">rocker/rstudio</a> container:</p>
-<div class="aside callout callout-style-default callout-note callout-titled">
+<div class="aside callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note

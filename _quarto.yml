@@ -16,6 +16,7 @@ website:
   repo-url: https://github.com/mvuorre/mvuorre.github.io
   repo-actions: [edit, source, issue]
   draft-mode: unlinked
+  favicon: images/icon/favicon-32x32.png
   comments:
     giscus:
       repo: mvuorre/mvuorre.github.io

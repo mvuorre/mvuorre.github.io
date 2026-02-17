@@ -1,4 +1,21 @@
 - title: >-
+    All BANG, little buck: Need-related experiences are weakly linked with behavior in the video game domain
+  url: https://osf.io/preprints/psyarxiv/wqr6u_v1/
+  date: 2026-01-24
+  type: preprint
+  authors: |
+    Ballou, Földes, Vuorre, Hakman, Magnusson, & Przybylski
+  doi: NA
+  outlet: >-
+    OSF Preprints
+  file: bibliography/files/ULYWDSHD/ballou-etal_2026_all-bang,-little-buck-need-related-expe.pdf
+  meeting: >-
+    NA
+  categories: [video games, wellbeing, digital trace data, motivation, displacement, compensatory behavior, self-determination theory]
+  abstract: |
+    Psychological theories of media use often assume that subjective motivation affects observable behavior. Using video games as a test case, we examine this assumption by pairing repeated self-reports of motivation with objective digital trace data at scale. Across two datasets comprising tens of thousands of hours of gaming behavior, we test predictions derived from self-determination theory and the Basic Needs in Games (BANG) model, which posit that autonomy, competence, and relatedness experiences drive engagement. Study 1 (preregistered) analyzes 11k daily observations from 555 U.S. players with 30 days of multi-platform digital trace data. Study 2 (exploratory) examines 102k sessions from 9k PowerWash Simulator players, linking in-game experience prompts to behavioral logs. In both studies, need satisfaction was robustly associated with subjective states but showed weak or null associations with short-term gaming behavior, including subsequent play, session length, and return latency, across extensive preregistered and robustness analyses. These findings reveal a substantial motivation–behavior gap and suggest that SDT-based accounts may overestimate the role of need satisfaction in explaining when or how much people play. Data and code are available under a CC0 license at https://doi.org/10.5281/zenodo.18352505.
+  extra: ~
+- title: >-
     How Do Video Games Affect Mental Health? A Narrative Review of 13 Proposed Mechanisms
   url: https://tmb.apaopen.org/pub/wyvpykp0/release/1
   date: 2025-04-30
@@ -8,13 +25,30 @@
   doi: 10.1037/tmb0000152
   outlet: >-
     Technology, Mind, and Behavior
-  file: bibliography/files/FDMPD7X4/ballou-etal_2025_technology,-mind,-and-behavior.pdf
+  file: bibliography/files/FDMPD7X4/ballou-etal_2025_how-do-video-games-affect-mental-health.pdf
   meeting: >-
     NA
   categories: []
   abstract: |
     Researchers have proposed a variety of mechanisms through which playing video games might affect mental health by displacing more psychosocially beneficial activities, satisfying or frustrating basic psychological needs, relieving stress, and many more. However, these mechanisms and their underlying causal structures are rarely made explicit. Here, we review 13 proposed effects of gaming on mental health. For each, we specify a counterfactual—that is, what concrete aspect of gaming should be changed in a hypothetical alternative universe to produce the effect of interest—and illustrate these with example directed acyclic graphs. In doing so, we hope to encourage more focused efforts to propose, falsify, and iterate on (causal) theories using well-established formal methods of causal inference. Only in doing so can the field realize its potential to inform clinical interventions, regulation, game design, and the behavior of players and parents.
   preprint: https://doi.org/10.31234/osf.io/q2kxg
+- title: >-
+    Open Play: A longitudinal dataset of multi-platform video game digital trace data and psychological measures
+  url: https://osf.io/preprints/psyarxiv/nz96c_v1/
+  date: 2025-11-14
+  type: preprint
+  authors: |
+    Ballou, Földes, Vuorre, Hakman, Magnusson, & Przybylski
+  doi: 10.31234/osf.io/nz96c_v1
+  outlet: >-
+    OSF Preprints
+  file: bibliography/files/AHGWDF9D/ballou-etal_2025_open-play-a-longitudinal-dataset-of-mul.pdf
+  meeting: >-
+    NA
+  categories: [attention, dataset, digital trace data, mental health, time use, video games, wellbeing]
+  abstract: |
+    A major limitation to understanding digital technology use, and its potential psychological consequences, is the lack of sufficiently detailed, multidimensional, and accurate data. We present a dataset of 2.0K individuals’ video game play telemetry data from Nintendo Switch, Steam, and Xbox, paired with psychological measures across multiple dimensions of mental health, motivations, well-being, and cognitive ability. The data were collected under a preregistered design that included 12 weeks of survey data (thirty daily surveys, six biweekly surveys, three biweekly cognitive tests), and digital trace data for 43 months. Cleaned data include 1.5M hours of video game play across 10,475 titles, 23K responses to 14 survey instruments, and 2.9K attention ability measures to facilitate examining longitudinal associations between play behaviors and psychological functioning. Data and codebook are available under a CC0 (with supplemental reidentification clause) license at https://doi.org/10.5281/zenodo.17536656.
+  extra: ~
 - title: >-
     Perceived value of video games, but not hours played, predicts mental well-being in casual adult Nintendo players
   url: https://royalsocietypublishing.org/doi/10.1098/rsos.241174
@@ -25,13 +59,30 @@
   doi: 10.1098/rsos.241174
   outlet: >-
     Royal Society Open Science
-  file: bibliography/files/S4KGIA5E/ballou-etal_2025_royal-society-open-science.pdf
+  file: bibliography/files/S4KGIA5E/ballou-etal_2025_perceived-value-of-video-games,-but-not.pdf
   meeting: >-
     NA
   categories: [well-being, video games, digital trace data]
   abstract: |
     Studies on video games and well-being often rely on self-report measures or data from a single game. Here, we study how 703 casually engaged US adults’ time spent playing for over 140 000 h across 150 Nintendo Switch games relates to their life satisfaction, affect, depressive symptoms and general mental well-being. We replicate previous findings that playtime over the past two weeks does not predict well-being, and extend these findings to a wider range of timescales (1 h to 1 year). Equivalence tests were inconclusive, and thus we do not find evidence of absence, but results suggest that practically meaningful effects lasting more than 2 h after gameplay are unlikely. Our non-causal findings suggest substantial confounding would be needed to shift a meaningful true effect to the observed null. Although playtime was not related to well-being, players’ assessments of the value of game time—so-called gaming life fit—were. Results emphasize the importance of defining the gaming population of interest, collecting data from more than one game, and focusing on how players integrate gaming into their lives rather than the amount of time spent.
   preprint: https://doi.org/10.31234/osf.io/3srcw_v2
+- title: >-
+    Psychological Wellbeing, Sleep, and Video Gaming: Analyses of Comprehensive Digital Traces [Stage 1 Programmatic Registered Report]
+  url: https://osf.io/preprints/psyarxiv/kvqdy_v1/
+  date: 2025-11-07
+  type: preprint
+  authors: |
+    Ballou, Földes, Hakman, Vuorre, Magnusson, & Przybylski
+  doi: 10.31234/osf.io/kvqdy_v1
+  outlet: >-
+    OSF Preprints
+  file: bibliography/files/TS7BJYB5/ballou-etal_2025_psychological-wellbeing,-sleep,-and-vide.pdf
+  meeting: >-
+    NA
+  categories: [video games, health, wellbeing, digital trace data, basic psychological needs, game genre, sleep]
+  abstract: |
+    The increasing prevalence of video gaming has raised questions about its psychological effects, yet research has been hampered by challenges in accessing comprehensive behavioral and psychological data. We aim to address these gaps by collecting digital trace data across multiple gaming platforms and pairing it with intensive longitudinal psychological data. Using open-source software and collaborating with industry, we will track gameplay for 1,000 US emerging adults and 1,000 UK adults across Nintendo Switch, Xbox (US only), Steam, and iOS and Android for three months. Participants will complete 30 daily surveys (US sample) and six biweekly panel surveys (both regions) assessing subjective wellbeing, sleep quality, and need satisfaction.Three preregistered manuscripts, along with open code and data, will explore games’ influence from three perspectives: basic psychological needs, sleep, and the structure of games. Study 1 will test relationships between in-game needs, needs in general, and subsequent play behavior, to assess whether gaming contributes to flourishing or compensation. Study 2 will examine the impact of late-night gaming on sleep quality, sleep duration, daytime sleepiness, and wellbeing exploring whether chronotype (natural inclination to be more active and alert in the morning, as opposed to evening) moderates these relationships. Study 3 will test the relation between multi-platform playtime and wellbeing, and its potential moderation by game genre. Together, these studies will inform associations between play and psychological wellbeing in rare detail by using more granular digital trace data.
+  extra: ~
 - title: >-
     Tip-of-the-tongue states predict enhanced feedback processing and subsequent memory
   url: http://www.sciencedirect.com/science/article/pii/S1053810018300254
@@ -42,7 +93,7 @@
   doi: 10.1016/j.concog.2018.05.010
   outlet: >-
     Consciousness and Cognition
-  file: bibliography/files/5GDBLSS6/bloom-etal_2018_consciousness-and-cognition.pdf
+  file: bibliography/files/5GDBLSS6/bloom-etal_2018_tip-of-the-tongue-states-predict-enhance.pdf
   meeting: >-
     NA
   categories: [memory, eeg, tip-of-the-tongue, learning, erp]
@@ -59,7 +110,7 @@
   doi: 10.1177/2515245918823199
   outlet: >-
     Advances in Methods and Practices in Psychological Science
-  file: bibliography/files/TH6VUPYX/bürkner-and-vuorre_2019_advances-in-methods-and-practices-in-psychological-science.pdf
+  file: bibliography/files/TH6VUPYX/bürkner-and-vuorre_2019_ordinal-regression-models-in-psychology.pdf
   meeting: >-
     NA
   categories: [open data, open materials, r, brms, ordinal models, likert items]
@@ -78,7 +129,7 @@
   doi: 10.1016/j.cortex.2018.01.019
   outlet: >-
     Cortex
-  file: bibliography/files/IVDVUCLP/chapman-etal_2018_cortex.pdf
+  file: bibliography/files/IVDVUCLP/chapman-etal_2018_cross-domain-self-monitoring-in-anosogno.pdf
   meeting: >-
     NA
   categories: [agency, metacognition, cognition, alzheimer's disease, anosognosia]
@@ -95,7 +146,7 @@
   doi: 10.31234/osf.io/6jwyr_v1
   outlet: >-
     OSF Preprints
-  file: bibliography/files/EPGBXLZQ/vries-etal_2025_OSF.pdf
+  file: bibliography/files/EPGBXLZQ/de-vries-etal_2025_smell-e-technology-bridging-the-gap-bet.pdf
   meeting: >-
     NA
   categories: []
@@ -112,7 +163,7 @@
   doi: 10.1080/21642850.2018.1428102
   outlet: >-
     Health Psychology and Behavioral Medicine
-  file: bibliography/files/47HQPJS9/heino-etal_2018_health-psychology-and-behavioral-medicine.pdf
+  file: bibliography/files/47HQPJS9/heino-etal_2018_bayesian-evaluation-of-behavior-change-i.pdf
   meeting: >-
     NA
   categories: [bayes, bayesian estimation, health behavior change, intervention evaluation, tutorial]
@@ -131,7 +182,7 @@
   doi: https://doi.org/10.15626/MP.2022.3322
   outlet: >-
     Meta-Psychology
-  file: bibliography/files/PMGK4MLE/johannes-etal_2024_meta-psychology.pdf
+  file: bibliography/files/PMGK4MLE/johannes-etal_2024_how-should-we-investigate-variation-in-t.pdf
   meeting: >-
     NA
   categories: [well-being, social media, effect heterogeneity]
@@ -149,7 +200,7 @@
   doi: 10.1525/collabra.34606
   outlet: >-
     Collabra: Psychology
-  file: bibliography/files/4UKFZ26N/johannes-etal_2022_collabra-psychology.pdf
+  file: bibliography/files/4UKFZ26N/johannes-etal_2022_time-spent-playing-two-online-shooters-h.pdf
   meeting: >-
     NA
   categories: [video games, play behavior, anger, violence]
@@ -168,7 +219,7 @@
   doi: 10.1098/rsos.202049
   outlet: >-
     Royal Society Open Science
-  file: bibliography/files/CEBJ4I38/johannes-etal_2021_royal-society-open-science.pdf
+  file: bibliography/files/CEBJ4I38/johannes-etal_2021_video-game-play-is-positively-correlated.pdf
   meeting: >-
     NA
   categories: [well-being, video games, human motivation]
@@ -187,7 +238,7 @@
   doi: 10.1016/S2352-4642(24)00332-8
   outlet: >-
     The Lancet Child & Adolescent Health
-  file: bibliography/files/X5Z6RWFD/mansfield-etal_2025_the-lancet-child-&-adolescent-health.pdf
+  file: bibliography/files/X5Z6RWFD/mansfield-etal_2025_from-social-media-to-artificial-intellig.pdf
   meeting: >-
     NA
   categories: [mental health, artificial intelligence, technology]
@@ -204,7 +255,7 @@
   doi: 10.1186/s41235-021-00330-0
   outlet: >-
     Cognitive Research: Principles and Implications
-  file: bibliography/files/KL5NXZH5/metcalfe-etal_2021_cognitive-research-principles-and-implications.pdf
+  file: bibliography/files/KL5NXZH5/metcalfe-etal_2021_curiosity-and-the-desire-for-agency-wai.pdf
   meeting: >-
     NA
   categories: [curiosity, need for control, need for agency, active learning, prediction error models, reinforcement learning, region of proximal learning, reward learning]
@@ -222,7 +273,7 @@
   doi: 10.1037/xge0001284
   outlet: >-
     Journal of Experimental Psychology: General
-  file: bibliography/files/5BQW8WE9/metcalfe-etal_2022_journal-of-experimental-psychology-general.pdf
+  file: bibliography/files/5BQW8WE9/metcalfe-etal_2022_curiosity-the-effects-of-feedback-and-c.pdf
   meeting: >-
     NA
   categories: [metacognition, models, feedback, learning, curiosity, errors, responses, self-confidence, uncertainty]
@@ -240,7 +291,7 @@
   doi: 10.1111/bjep.12651
   outlet: >-
     British Journal of Educational Psychology
-  file: bibliography/files/DGAHR964/metcalfe-etal_2024_british-journal-of-educational-psychology.pdf
+  file: bibliography/files/DGAHR964/metcalfe-etal_2024_learning-from-errors-versus-explicit-ins.pdf
   meeting: >-
     NA
   categories: [discovery learning, interactive feedback, learning from errors, productive failure, test effects]
@@ -257,7 +308,7 @@
   doi: 10.1002/hipo.23128
   outlet: >-
     Hippocampus
-  file: bibliography/files/SGGIACJP/metcalfe-etal_2019_hippocampus.pdf
+  file: bibliography/files/SGGIACJP/metcalfe-etal_2019_memory,-stress,-and-the-hippocampal-hypo.pdf
   meeting: >-
     NA
   categories: [extreme stress, fdny, human memory]
@@ -274,7 +325,7 @@
   doi: 10.3758/s13423-013-0391-6
   outlet: >-
     Psychonomic Bulletin & Review
-  file: bibliography/files/D6SWT3LF/michael-etal_2013_psychonomic-bulletin-&-review.pdf
+  file: bibliography/files/D6SWT3LF/michael-etal_2013_on-the-(non)persuasive-power-of-a-brain.pdf
   meeting: >-
     NA
   categories: [cognitive psychology, statistics, decision making, neuroimaging]
@@ -291,7 +342,7 @@
   doi: 10.1016/j.cortex.2023.09.009
   outlet: >-
     Cortex
-  file: bibliography/files/M356LH9F/miller-etal_2023_cortex.pdf
+  file: bibliography/files/M356LH9F/miller-etal_2023_impact-of-digital-screen-media-activity.pdf
   meeting: >-
     NA
   categories: [adolescence, social media, internet, digital technologies, fmri]
@@ -308,7 +359,7 @@
   doi: 10.31234/osf.io/v54tp_v1
   outlet: >-
     OSF Preprints
-  file: bibliography/files/S7WS6KV5/przybylski-and-vuorre_2025_OSF.pdf
+  file: bibliography/files/S7WS6KV5/przybylski-and-vuorre_2025_where-science-meets-discourse-what-a-fl.pdf
   meeting: >-
     NA
   categories: []
@@ -325,7 +376,7 @@
   doi: 10.1016/j.neuroimage.2017.02.015
   outlet: >-
     NeuroImage
-  file: bibliography/files/3WY8QZVV/sidarus-etal_2017_neuroimage.pdf
+  file: bibliography/files/3WY8QZVV/sidarus-etal_2017_how-action-selection-influences-the-sens.pdf
   meeting: >-
     NA
   categories: [metacognition, cognitive control, sense of agency, action selection, action monitoring, evoked potentials]
@@ -342,7 +393,7 @@
   doi: 10.1093/nc/nix012
   outlet: >-
     Neuroscience of Consciousness
-  file: bibliography/files/4JCNEF7Z/sidarus-etal_2017_neuroscience-of-consciousness.pdf
+  file: bibliography/files/4JCNEF7Z/sidarus-etal_2017_integrating-prospective-and-retrospectiv.pdf
   meeting: >-
     NA
   categories: [agency, intention, volition, metacognition, multi-study analysis]
@@ -359,7 +410,7 @@
   doi: 10.3389/fpsyg.2017.00545
   outlet: >-
     Frontiers in Psychology
-  file: bibliography/files/XDUUEIQG/sidarus-etal_2017_frontiers-in-psychology.pdf
+  file: bibliography/files/XDUUEIQG/sidarus-etal_2017_investigating-the-prospective-sense-of-a.pdf
   meeting: >-
     NA
   categories: [metacognition, sense of agency, action selection, motor control, fluency]
@@ -376,7 +427,7 @@
   doi: 10.1177/00048674221115648
   outlet: >-
     Australian & New Zealand Journal of Psychiatry
-  file: bibliography/files/QB663WCP/syed-sheriff-etal_2022_australian-&-new-zealand-journal-of-psychiatry.pdf
+  file: bibliography/files/QB663WCP/syed-sheriff-etal_2022_a-co-produced-online-cultural-experience.pdf
   meeting: >-
     NA
   categories: [depression, anxiety, youth, experimental medicine]
@@ -394,7 +445,7 @@
   doi: 10.31234/osf.io/e874s
   outlet: >-
     OSF Preprints
-  file: bibliography/files/HXP6G7N2/leeuwen-etal_2024_OSF.pdf
+  file: bibliography/files/HXP6G7N2/van-leeuwen-etal_2024_the-smoke-detector-principle-of-pathogen.pdf
   meeting: >-
     NA
   categories: [disgust, face perception, infectious disease, prejudice, signal detection theory]
@@ -411,7 +462,7 @@
   doi: 10.1016/j.evolhumbehav.2025.106716
   outlet: >-
     Evolution and Human Behavior
-  file: bibliography/files/3EZ7DJWM/van-leeuwen-etal_2025_evolution-and-human-behavior.pdf
+  file: bibliography/files/3EZ7DJWM/van-leeuwen-etal_2025_the-smoke-detector-principle-of-pathogen.pdf
   meeting: >-
     NA
   categories: [signal detection theory, disgust, face perception, infectious disease, prejudice]
@@ -428,7 +479,7 @@
   doi: 10.1145/3659464
   outlet: >-
     ACM Games
-  file: bibliography/files/MRL8MA6Q/vuorre-etal_2024_acm-games.pdf
+  file: bibliography/files/MRL8MA6Q/vuorre-etal_2024_affective-uplift-during-video-game-play.pdf
   meeting: >-
     NA
   categories: [video games, research methods, psychology, open research, digital trace data]
@@ -532,7 +583,7 @@
   doi: 10.31234/osf.io/mwg4f
   outlet: >-
     OSF Preprints
-  file: bibliography/files/WZZAADDL/vuorre-etal_2024_OSF.pdf
+  file: bibliography/files/WZZAADDL/vuorre-etal_2024_communicating-causal-effect-heterogeneit.pdf
   meeting: >-
     NA
   categories: [multilevel model, statistics, variation, heterogeneity, uncertainty, visualization]
@@ -550,7 +601,7 @@
   doi: 10.1177/2515245918754826
   outlet: >-
     Advances in Methods and Practices in Psychological Science
-  file: bibliography/files/QWZLT27G/vuorre-and-curley_2018_advances-in-methods-and-practices-in-psychological-science.pdf
+  file: bibliography/files/QWZLT27G/vuorre-and-curley_2018_curating-research-assets-a-tutorial-on.pdf
   meeting: >-
     NA
   categories: [open materials, reproducibility, research methods, open science, version control, git]
@@ -585,7 +636,7 @@
   doi: 10.1098/rsos.221451
   outlet: >-
     Royal Society Open Science
-  file: bibliography/files/VSMEXPGJ/vuorre-and-przybylski_2023_royal-society-open-science.pdf
+  file: bibliography/files/VSMEXPGJ/vuorre-and-przybylski_2023_estimating-the-association-between-faceb.pdf
   meeting: >-
     NA
   categories: [well-being, social media, life satisfaction]
@@ -604,7 +655,7 @@
   doi: 10.31234/osf.io/vtfc3_v1
   outlet: >-
     OSF Preprints
-  file: bibliography/files/7GXPM8U7/vuorre_2025_OSF.pdf
+  file: bibliography/files/7GXPM8U7/vuorre_2025_estimating-signal-detection-models-with.pdf
   meeting: >-
     NA
   categories: [tutorial, r, statistics, psychology, brms, signal detection theory]
@@ -621,7 +672,7 @@
   doi: 10.1177/21677026231207791
   outlet: >-
     Clinical Psychological Science
-  file: bibliography/files/Z9MJS6QU/vuorre-and-przybylski_2023_clinical-psychological-science.pdf
+  file: bibliography/files/Z9MJS6QU/vuorre-and-przybylski_2023_global-well-being-and-mental-health-in-t.pdf
   meeting: >-
     NA
   categories: [well-being, mental health, technology effects, internet technology]
@@ -657,7 +708,7 @@
   doi: 10.1038/s41597-023-02530-3
   outlet: >-
     Scientific Data
-  file: bibliography/files/KDPRDH7T/vuorre-etal_2023_scientific-data.pdf
+  file: bibliography/files/KDPRDH7T/vuorre-etal_2023_an-intensive-longitudinal-dataset-of-in-.pdf
   meeting: >-
     NA
   categories: [psychology, human behaviour]
@@ -710,7 +761,7 @@
   doi: 10.1037/tmb0000048
   outlet: >-
     Technology, Mind, and Behavior
-  file: bibliography/files/WCIEWNU2/vuorre-etal_2021_technology,-mind,-and-behavior.pdf
+  file: bibliography/files/WCIEWNU2/vuorre-etal_2021_a-large-scale-study-of-changes-to-the-qu.pdf
   meeting: >-
     NA
   categories: [video games, technology, digital trace data, covid-19]
@@ -729,7 +780,7 @@
   doi: 10.1007/s11409-020-09257-1
   outlet: >-
     Metacognition and Learning
-  file: bibliography/files/7NK7WAEM/vuorre-and-metcalfe_2021_metacognition-and-learning.pdf
+  file: bibliography/files/7NK7WAEM/vuorre-and-metcalfe_2021_measures-of-relative-metacognitive-accur.pdf
   meeting: >-
     NA
   categories: [measurement, metacognition, confidence]
@@ -764,7 +815,7 @@
   doi: 10.1037/tmb0000127
   outlet: >-
     Technology, Mind, and Behavior
-  file: bibliography/files/Q3TVTGL6/vuorre-and-przybylski_2024_technology,-mind,-and-behavior.pdf
+  file: bibliography/files/Q3TVTGL6/vuorre-and-przybylski_2024_a-multiverse-analysis-of-the-association.pdf
   meeting: >-
     NA
   categories: [well-being, technology effects, internet technology]
@@ -772,6 +823,23 @@
     Internet technologies’ and platforms’ potential psychological consequences remain debated. While these technologies have spurred new forms of commerce, education, and leisure, many are worried that they might negatively affect individuals by, for example, displacing time spent on other healthy activities. Relevant findings to date have been inconclusive and of limited geographic and demographic scope. We examined whether having (mobile) internet access or actively using the internet predicted eight well-being outcomes from 2006 to 2021 among 2,414,294 individuals across 168 countries. We first queried the extent to which well-being varied as a function of internet connectivity. Then, we examined these associations’ robustness in a multiverse of 33,792 analysis specifications. Of these, 84.9% resulted in positive and statistically significant associations between internet connectivity and well-being. These results indicate that internet access and use predict well-being positively and independently from a set of plausible alternatives.
   code: https://doi.org/10.5281/zenodo.7774923
   preprint: https://doi.org/10.31234/osf.io/jp5nd
+- title: >-
+    Zotero Citation Picker
+  url: https://github.com/mvuorre/vscode-zotero
+  date: 2026-02-10T20:36:44Z
+  type: computerProgram
+  authors: |
+    Vuorre
+  doi: NA
+  outlet: >-
+    NA
+  file: NA
+  meeting: >-
+    NA
+  categories: [positron-extension, vscode-extension, zotero]
+  abstract: |
+    VS Code (Positron) Zotero citation picker
+  original-date: 2025-06-06T11:57:03Z
 - title: >-
     PDF-Direct
   url: https://github.com/mvuorre/pdf-direct
@@ -850,7 +918,7 @@
   doi: 10.1016/j.concog.2016.06.001
   outlet: >-
     Consciousness and Cognition
-  file: bibliography/files/XN7IZZJL/vuorre-and-metcalfe_2016_consciousness-and-cognition.pdf
+  file: bibliography/files/XN7IZZJL/vuorre-and-metcalfe_2016_the-relation-between-the-sense-of-agency.pdf
   meeting: >-
     NA
   categories: [agency, sense of agency, flow]
@@ -867,7 +935,7 @@
   doi: 10.3758/s13428-020-01436-x
   outlet: >-
     Behavior Research Methods
-  file: bibliography/files/979HTX3A/vuorre-and-crump_2020_behavior-research-methods.pdf
+  file: bibliography/files/979HTX3A/vuorre-and-crump_2020_sharing-and-organizing-research-products.pdf
   meeting: >-
     NA
   categories: [open data, reproducibility, r, research methods, open science]
@@ -885,7 +953,7 @@
   doi: 10.1177/2167702621994549
   outlet: >-
     Clinical Psychological Science
-  file: bibliography/files/VCV7YWAQ/vuorre-etal_2021_clinical-psychological-science.pdf
+  file: bibliography/files/VCV7YWAQ/vuorre-etal_2021_there-is-no-evidence-that-associations-b.pdf
   meeting: >-
     NA
   categories: [open materials, adolescents, depression, social media, mental health]
@@ -903,7 +971,7 @@
   doi: 10.31234/osf.io/dpuya_v2
   outlet: >-
     OSF Preprints
-  file: bibliography/files/NYRWTIA2/vuorre-etal_2025_OSF.pdf
+  file: bibliography/files/NYRWTIA2/vuorre-etal_2025_three-objections-to-a-novel-paradigm-in.pdf
   meeting: >-
     NA
   categories: [well-being, statistics, social media, media effects, paradigm, variation, meta-psychology]
@@ -920,7 +988,7 @@
   doi: NA
   outlet: >-
     Journal of Consciousness Studies
-  file: bibliography/files/EGYNMN4I/vuorre_2017_journal-of-consciousness-studies.pdf
+  file: bibliography/files/EGYNMN4I/vuorre_2017_on-time,-causation,-and-the-sense-of-age.pdf
   meeting: >-
     NA
   categories: [time perception, agency, volition, sense of agency]
@@ -954,7 +1022,7 @@
   doi: 10.1098/rsos.220411
   outlet: >-
     Royal Society Open Science
-  file: bibliography/files/3K5WXM3G/vuorre-etal_2022_royal-society-open-science.pdf
+  file: bibliography/files/3K5WXM3G/vuorre-etal_2022_time-spent-playing-video-games-is-unlike.pdf
   meeting: >-
     NA
   categories: [well-being, video games, human motivation, play behaviour]
@@ -1058,7 +1126,7 @@
   doi: 10.3758/s13414-017-1321-x
   outlet: >-
     Attention, Perception, & Psychophysics
-  file: bibliography/files/ZCFSTQM9/vuorre-and-metcalfe_2017_attention,-perception,-&-psychophysics.pdf
+  file: bibliography/files/ZCFSTQM9/vuorre-and-metcalfe_2017_voluntary-action-alters-the-perception-o.pdf
   meeting: >-
     NA
   categories: [time perception, agency, volition, visual perception, action]
@@ -1127,7 +1195,7 @@
   doi: 10.3758/s13428-017-0980-9
   outlet: >-
     Behavior Research Methods
-  file: bibliography/files/U56FKGFU/vuorre-and-bolger_2017_behavior-research-methods.pdf
+  file: bibliography/files/U56FKGFU/vuorre-and-bolger_2017_within-subject-mediation-analysis-for-ex.pdf
   meeting: >-
     NA
   categories: [mediation, bayesian statistics, multilevel analysis, repeated measures, causal mechanism]
@@ -1163,7 +1231,7 @@
   doi: 10.1038/s41598-023-44507-7
   outlet: >-
     Scientific Reports
-  file: bibliography/files/PAUD8V8T/weinstein-etal_2023_scientific-reports.pdf
+  file: bibliography/files/PAUD8V8T/weinstein-etal_2023_balance-between-solitude-and-socializing.pdf
   meeting: >-
     NA
   categories: [psychology, human behaviour]
@@ -1181,7 +1249,7 @@
   doi: 10.1007/s10919-024-00456-x
   outlet: >-
     Journal of Nonverbal Behavior
-  file: bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_journal-of-nonverbal-behavior.pdf
+  file: bibliography/files/PXNW5YE9/zloteanu-and-vuorre_2024_a-tutorial-for-deception-detection-analy.pdf
   meeting: >-
     NA
   categories: [signal detection theory, bias, deception detection, mixed effects models, veracity]

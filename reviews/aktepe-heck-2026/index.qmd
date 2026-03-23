@@ -1,0 +1,54 @@
+---
+title: |
+  Review of "*Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect* (Aktepe and Heck, 2026)"
+date: 2026-03-23
+bibliography: references.bib
+review-doi: https://doi.org/10.5281/zenodo.19185902
+link-citations: true
+number-sections: true
+---
+
+In "Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect" @aktepeAnalyzingBinaryJudgments2026 examine the performance of three common analytic approaches to binary responses, and find that one method, the general linear mixed model performs better than analyses of aggregated data.
+
+The analyses presented in the manuscript are methodical and thorough, and the finding is well in line with previous literature that finds analysing raw data more informative than their aggregates. I think this manuscript would be a welcome addition to the literature, but have two suggestions to improve its framing.
+
+## Major comments
+
+### Illusory truth framing
+
+The authors specifically focus on the "illusory truth effect" which, while not particularly niche, is less general than the results presented in this manuscript. That is, the fact that binary responses (e.g. whether something is perceived as true or not) provided in illusory truth research are very common, and there is no reason to cordon the present findings into that corner of psychological research. The authors should consider demoting the "illusory truth framing" from the manuscript's title to an illustrative example, because its implications run far wider as is recognized in the abstract ("GLMMs are [...] superior for analyzing binary judgments in social and cognitive psychology."). Authors may, of course, feel that the current framing is sufficient, in which case they should at least be aware that the impact of their manuscript may be less than it could be.
+
+### What is compared
+
+The manuscript is framed as comparing three methods, ANOVA, Signal Detection Theory, and the General Linear Mixed Model. It would be more accurate, and pedagogically useful, to frame the manuscript to instead compare two methods: Models of raw data, and models of parameters.
+
+Authors could even come up with easy-to-remember heuristic names for these broad approaches: One-step and two-step procedures, for example. Some have called the latter a "parameters as outcomes model (POM)". For one, the current framing might be understood as suggesting SDT to be a two-step analytic procedure. Previous work shows that SDT analyses can (and probably should) be conducted on raw data [@rouderSignalDetectionModels2007; @rouderIntroductionBayesianHierarchical2005], and therefore the "two approaches" framing suggested here should be more accurate with respect the choices that analysts make in practice. (Authors briefly acknowledge multilevel SDT applications at the end of the manuscript, but by then the confusion has already been sown.) In some sense this recalls the distinction between measurement (e.g. SDT) and structural models (e.g. multilevel regression).
+
+Considering this note also suggests that including the completely aggregated SDT (later in the manuscript) might be unnecessary, since it ignores important sources of variation / clustering.
+
+## Minor points
+
+### Clarifications
+
+On p.4 authors write "resulting in a crossed, repeated-measures structure. The nested data structure..." It might be beneficial for some readers if these terms were explained (e.g. what is "crossed") and clarified (e.g. first instance of "structure" is typically considered a study design feature rather than how the data are structured--though this also is true.)
+
+On p.15 authors write about convergence and identifiability issues regarding GLMMs. It would be appropriate to at least note that Bayesian estimation methods alleviate these issues. Authors should also consider this point in their analyses (wrt. convergence problems.)
+
+Authors' explanation of the literature review could be clarified on p.16: Were all studies citing Hasher et al examined? Was interrater reliability examined (however briefly; or can mention that they had only one rater)?
+
+Does "LMM" in Table 1 refer to "GLMM" from earlier in the manuscript?
+
+## Reproduction check
+
+I downloaded the associated OSF repository to do a quick reproducibility check, but could not find any read me file or similar to instruct how to do that. I did manage to run the `interpretation.Rmd` file successfully in R, but don't know what or where to look at to confirm results. I suggest authors add a `README.md` file (or similar) to instruct others how to obtain the results presented in the paper.
+
+As a side note it appears the authors make the datasets they analyzed available in accessible formats. By properly documenting their repository they could facilitate these datasets' reuse (for e.g. learning authors' recommended methods).
+
+## References {.unnumbered}
+
+:::{#refs}
+:::
+
+## Declarations {.appendix .unnumbered}
+
+This review of @aktepeAnalyzingBinaryJudgments2026 is contributed by {{< meta author >}} under CC-BY to Behavior Research Methods and the [PREreview]({{< meta prereview-url >}}) platform ([https://doi.org/10.5281/zenodo.19185902]({{< meta review-doi >}})).

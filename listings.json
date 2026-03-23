@@ -35,6 +35,12 @@
     ]
   },
   {
+    "listing": "/reviews.html",
+    "items": [
+      "/reviews/aktepe-heck-2026/index.html"
+    ]
+  },
+  {
     "listing": "/publications.html",
     "items": []
   }

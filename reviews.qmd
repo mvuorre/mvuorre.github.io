@@ -1,0 +1,11 @@
+---
+title: Peer Reviews
+listing:
+  contents: reviews
+  type: table
+  sort: "date desc"
+  fields: [date, title]
+  categories: false
+  feed: false
+comments: false
+---

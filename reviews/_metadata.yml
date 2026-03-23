@@ -1,0 +1,21 @@
+# Defaults
+author:
+  - name: Matti Vuorre
+    url: https://vuorre.com
+    affiliation: Tilburg University
+    affiliation-url: https://www.tilburguniversity.edu/staff/m-j-vuorre
+    orcid: 0000-0001-5052-066X
+    email: mjvuorre@uvt.nl
+    corresponding: true
+
+prereview-url: https://prereview.org/
+license: CC BY
+citation: true
+toc: false
+callout-icon: false
+
+# Default knitr options
+knitr:
+  opts_chunk:
+    message: false
+    cache: true

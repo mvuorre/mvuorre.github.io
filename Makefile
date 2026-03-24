@@ -1,9 +1,9 @@
-all: bibliography/bibliography.bib
+all: bibliography/openalex.yaml
 
-bibliography/bibliography.bib: bibliography.R
+bibliography/openalex.yaml: bibliography/openalex.R
 	Rscript "$<"
 
 publish:
 	quarto publish gh-pages --no-prompt
 
-.PHONY: publish bibliography/bibliography.bib all
+.PHONY: publish bibliography/openalex.yaml all

@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-.Rdata
 .httr-oauth
 .DS_Store
 
@@ -21,14 +20,14 @@ _freeze/
 /docs/
 
 # Publication PDFs in source (become available in docs/ when rendered)
-bibliography/files/
-bibliography/bibliography.json
-reading/readings.csv
+bibliography/openalex.rds
+bibliography/openalex.timestamp
+bibliography/openalex.yaml
 
 # Draft posts
 /posts/drafts/
 
 # Environment file
-.env
+.Renviron
 
 **/*.quarto_ipynb

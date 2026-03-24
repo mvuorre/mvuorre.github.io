@@ -1,0 +1,9 @@
+<!-- Rename 'Categories' to 'Collections' in side bar of reviews page -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".quarto-listing-category-title").forEach((el) => {
+      el.textContent = "Collections";
+    });
+  });
+</script>

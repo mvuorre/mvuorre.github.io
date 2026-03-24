@@ -1,9 +1,11 @@
 ---
 title: |
-  Review of "*Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect* (Aktepe and Heck, 2026)"
+  Review of 'Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect (Aktepe and Heck, 2026)'
 date: 2026-03-23
 bibliography: references.bib
 review-doi: https://doi.org/10.5281/zenodo.19185902
+categories:
+  - PREreview
 link-citations: true
 number-sections: true
 ---

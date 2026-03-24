@@ -1,11 +1,18 @@
 ---
 title: Peer Reviews
 listing:
-  contents: reviews
+  contents:
+    - reviews/prereview.yaml # Scraped from PREreview
+    - reviews/pci-rr.yaml # Scraped from PCI RR
   type: table
   sort: "date desc"
-  fields: [date, title]
-  categories: false
+  fields: [date, categories, title]
+  field-display-names:
+    categories: Collection
+  categories: true
   feed: false
 comments: false
+format:
+  html:
+    include-in-header: reviews/collections.html
 ---

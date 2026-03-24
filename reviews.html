@@ -83,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-categories','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -102,6 +102,15 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
+<!-- Rename 'Categories' to 'Collections' in side bar of reviews page -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".quarto-listing-category-title").forEach((el) => {
+      el.textContent = "Collections";
+    });
+  });
+</script>
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -140,7 +149,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -354,7 +363,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="UENJJTIwUlI=">PCI RR <span class="quarto-category-count">(8)</span></div><div class="category" data-category="UFJFcmV2aWV3">PREreview <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -389,14 +400,17 @@ window.Quarto = {
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
       <option value="listing-date-sort" data-direction="asc">
         Date - Oldest
       </option>
       <option value="listing-date-sort" data-direction="desc">
         Date - Newest
       </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
+      <option value="listing-categories" data-direction="asc">
+        Collection
       </option>
     </select>
   </div>
@@ -414,6 +428,10 @@ window.Quarto = {
 </th>
 
 <th>
+<a class="sort" data-sort="listing-categories" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Collection</a>
+</th>
+
+<th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 
@@ -421,12 +439,145 @@ window.Quarto = {
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1774220400000" data-listing-file-modified-sort="1774273760844" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713" data-listing-title-sort="Review of &quot;*Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect* (Aktepe and Heck, 2026)&quot;" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="UFJFcmV2aWV3" data-listing-date-sort="1774220400000" data-listing-title-sort="Review of &quot;Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect&quot;">
 <td>
 <span class="listing-date">2026-03-23</span>
 </td>
 <td>
-<a href="./reviews/aktepe-heck-2026/index.html" class="title listing-title">Review of “<em>Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect</em> (Aktepe and Heck, 2026)”</a>
+<span class="listing-categories">PREreview</span>
+</td>
+<td>
+<a href="https://prereview.org/reviews/19185902" class="title listing-title">Review of “Analyzing Binary Judgments: A Comparison of ANOVA, Signal Detection Theory, and Generalized Linear Mixed Models in the Context of the Illusory Truth Effect”</a>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="UENJJTIwUlI=" data-listing-date-sort="1756936800000" data-listing-title-sort="Recommendation of &quot;Do Scarcity-Related Cues Affect the Sustained Attentional Performance of the Poor and the Rich Differently?&quot; [Stage 2 RR]">
+<td>
+<span class="listing-date">2025-09-04</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=1021" class="title listing-title">Recommendation of “Do Scarcity-Related Cues Affect the Sustained Attentional Performance of the Poor and the Rich Differently?” [Stage 2 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="UENJJTIwUlI=" data-listing-date-sort="1751580000000" data-listing-title-sort="Recommendation of &quot;Confusion in Gaming Disorder Measurement&quot; [Stage 2 RR]">
+<td>
+<span class="listing-date">2025-07-04</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=1045" class="title listing-title">Recommendation of “Confusion in Gaming Disorder Measurement” [Stage 2 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="UENJJTIwUlI=" data-listing-date-sort="1751580000000" data-listing-title-sort="Recommendation of &quot;Confusion in Gaming Disorder Measurement&quot; [Stage 1 RR]">
+<td>
+<span class="listing-date">2025-07-04</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=716" class="title listing-title">Recommendation of “Confusion in Gaming Disorder Measurement” [Stage 1 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="UENJJTIwUlI=" data-listing-date-sort="1745791200000" data-listing-title-sort="Recommendation of &quot;Language models accurately infer correlations between psychological items and scales from text alone&quot; [Stage 2 RR]">
+<td>
+<span class="listing-date">2025-04-28</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=990" class="title listing-title">Recommendation of “Language models accurately infer correlations between psychological items and scales from text alone” [Stage 2 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="5" data-categories="UENJJTIwUlI=" data-listing-date-sort="1745791200000" data-listing-title-sort="Recommendation of &quot;Language models accurately infer correlations between psychological items and scales from text alone&quot; [Stage 1 RR]">
+<td>
+<span class="listing-date">2025-04-28</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=762" class="title listing-title">Recommendation of “Language models accurately infer correlations between psychological items and scales from text alone” [Stage 1 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="6" data-categories="UENJJTIwUlI=" data-listing-date-sort="1737414000000" data-listing-title-sort="Review of &quot;Can playing Dungeons and Dragons be good for you? A registered exploratory pilot program using offline Tabletop Role-Playing Games (TTRPGs) to mitigate social anxiety and reduce problematic involvement in multiplayer online video games&quot; [Stage 2 RR]">
+<td>
+<span class="listing-date">2025-01-21</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=889" class="title listing-title">Review of “Can playing Dungeons and Dragons be good for you? A registered exploratory pilot program using offline Tabletop Role-Playing Games (TTRPGs) to mitigate social anxiety and reduce problematic involvement in multiplayer online video games” [Stage 2 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="7" data-categories="UENJJTIwUlI=" data-listing-date-sort="1719352800000" data-listing-title-sort="Recommendation of &quot;Do Scarcity-Related Cues Affect the Sustained Attentional Performance of the Poor and the Rich Differently?&quot; [Stage 1 RR]">
+<td>
+<span class="listing-date">2024-06-26</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=672" class="title listing-title">Recommendation of “Do Scarcity-Related Cues Affect the Sustained Attentional Performance of the Poor and the Rich Differently?” [Stage 1 RR]</a>
+</td>
+
+</tr>
+
+<tr data-index="8" data-categories="UFJFcmV2aWV3" data-listing-date-sort="1718575200000" data-listing-title-sort="Review of &quot;Adverse weather amplifies social media activity&quot;">
+<td>
+<span class="listing-date">2024-06-17</span>
+</td>
+<td>
+<span class="listing-categories">PREreview</span>
+</td>
+<td>
+<a href="https://prereview.org/reviews/11943098" class="title listing-title">Review of “Adverse weather amplifies social media activity”</a>
+</td>
+
+</tr>
+
+<tr data-index="9" data-categories="UFJFcmV2aWV3" data-listing-date-sort="1711494000000" data-listing-title-sort="Review of &quot;Adverse weather amplifies social media activity&quot;">
+<td>
+<span class="listing-date">2024-03-27</span>
+</td>
+<td>
+<span class="listing-categories">PREreview</span>
+</td>
+<td>
+<a href="https://prereview.org/reviews/10887605" class="title listing-title">Review of “Adverse weather amplifies social media activity”</a>
+</td>
+
+</tr>
+
+<tr data-index="10" data-categories="UENJJTIwUlI=" data-listing-date-sort="1681423200000" data-listing-title-sort="Review of &quot;Can playing Dungeons and Dragons be good for you? A registered exploratory pilot program using offline Tabletop Role-Playing Games (TTRPGs) to mitigate social anxiety and reduce problematic involvement in multiplayer online videogames&quot; [Stage 1 RR]">
+<td>
+<span class="listing-date">2023-04-14</span>
+</td>
+<td>
+<span class="listing-categories">PCI RR</span>
+</td>
+<td>
+<a href="https://rr.peercommunityin.org/articles/rec?id=399" class="title listing-title">Review of “Can playing Dungeons and Dragons be good for you? A registered exploratory pilot program using offline Tabletop Role-Playing Games (TTRPGs) to mitigate social anxiety and reduce problematic involvement in multiplayer online videogames” [Stage 1 RR]</a>
 </td>
 
 </tr>

@@ -1,5 +1,5 @@
 ---
-title: Publications
+# title: List of my works
 toc: true
 toc-location: left
 listing:
@@ -8,8 +8,8 @@ listing:
     contents:
       - bibliography/items.yml
     include:
-      type: "{journalArticle,preprint}"
-    # This excludes items that have a publication (i.e. published preprints)
+      type: "{journalArticle,book,preprint}"
+    # This excludes items that have a publication (i.e. published preprints; tracked in `extra: publication: ` in Zotero)
     exclude:
       publication: "**"
     categories: true
@@ -37,12 +37,6 @@ listing:
 comments: false
 ---
 
-<!-- Somehow these are required to make icons work in the EJS template. -->
-<!-- {{< fa brands github >}} -->
-<!-- {{< ai google-scholar >}} -->
-
-You can find all my publications on this page, or on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), or [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). You can also find preprints of most of my work on [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated).
-
 ## Articles
 
 ::: {#papers}
@@ -57,3 +51,123 @@ You can find all my publications on this page, or on [ORCID](https://orcid.org/0
 
 ::: {#talks}
 :::
+
+## Other sources {.appendix}
+
+My works are listed on [ORCID](https://orcid.org/0000-0001-5052-066X), [Zotero](https://www.zotero.org/vuorre), and [Google Scholar](https://scholar.google.com/citations?hl=en&user=I4DSy-8AAAAJ&view_op=list_works&sortby=pubdate). You can also find preprints of most of my work on [PsyArXiv](https://osf.io/preprints/psyarxiv/discover?activeFilters=%5B%7B%22propertyVisibleLabel%22%3A%22Creator%22%2C%22propertyPathKey%22%3A%22creator%22%2C%22label%22%3A%22Matti%20Vuorre%22%2C%22value%22%3A%22https%3A%2F%2Fosf.io%2Ftdyix%22%7D%5D&sort=-dateCreated).
+
+## Code {.appendix}
+
+The listings on this page are automatically generated from my Zotero library with the following R code.
+
+```{r}
+#| code-fold: true
+#| code-summary: Show code
+#| output: false
+
+# Create bibliographies from Zotero collections
+
+library(jsonlite)
+library(fs)
+library(janitor)
+library(tidyverse)
+library(bib2df)
+library(knitr)
+library(httr2)
+
+# Input and output paths for attached PDFs
+PATH_ZOTERO <- Sys.getenv("PATH_ZOTERO")
+stopifnot(PATH_ZOTERO != "") # Hack to require a proper path
+PATH_OUT <- "bibliography/files"
+
+# Get publications as jzon (BetterBibTeX JSON debug format) from local Zotero API
+# https://retorque.re/zotero-better-bibtex/exporting/pull/index.html
+dat <- request(
+  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/cv/cv.jzon"
+) |>
+  req_perform() |>
+  resp_body_string() |>
+  fromJSON() |>
+  pluck("items") |>
+  tibble()
+
+# Copy files from Zotero storage to repaired paths here
+dat <- dat |>
+  mutate(
+    file = map_chr(attachments, ~ pluck(.x, "path", .default = NA_character_)),
+    path = str_replace(file, PATH_ZOTERO, PATH_OUT)
+  )
+walk2(
+  dat$file,
+  dat$path,
+  ~ if (!is.na(.y)) {
+    dir_create(dirname(.y))
+    file_copy(.x, .y, overwrite = TRUE)
+  }
+)
+
+# Wrangle data
+
+# Choose only specific item types
+dat <- dat |>
+  clean_names() |>
+  filter(
+    item_type %in%
+      c("journalArticle", "preprint", "presentation", "computerProgram", "book")
+  )
+
+# Different types have different source names
+dat <- dat |>
+  mutate(
+    source = coalesce(publication_title, repository, publisher, place)
+  )
+
+# Create a string of authors' last names
+dat <- dat |>
+  mutate(
+    authors = map_chr(
+      creators,
+      ~ combine_words(.x$lastName, and = " & ", oxford_comma = FALSE)
+    )
+  )
+
+# Create a string of comma-separated tags
+dat <- dat |>
+  mutate(
+    tags = map_chr(
+      tags,
+      ~ pluck(.x, "tag", .default = "") |>
+        combine_words(and = "") |>
+        str_to_lower()
+    )
+  )
+
+# Write a YAML file for Quarto listing
+# Note the Zotero 'Extra' field can contain items like
+# license: CC-BY
+# data: <URL>
+
+dat |>
+  mutate(extra = ifelse(is.na(extra), "extra: ~", extra)) |>
+  str_glue_data(
+    "
+- title: >-
+    {title}
+  url: {url}
+  date: {date}
+  type: {item_type}
+  authors: '{authors}'
+  doi: {doi}
+  source: >-
+    {source}
+  file: {path}
+  meeting: >-
+    {meeting_name}
+  categories: [{tags}]
+  abstract: |
+    {str_remove_all(abstract_note, '\\n')}
+  {str_replace_all(extra, '\\n', '\\n  ')}
+"
+  ) |>
+  cat(file = "bibliography/items.yml", sep = "\n")
+```

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>A quantitative methods syllabus – Matti’s website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -27,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -55,19 +57,18 @@ div.csl-indent {
 <link href="../../images/icon/favicon-32x32.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-de8274a4d1ecc1e6aaeaf6e5564b5074.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-3ff4805f19b0085abba01199065d0a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ea89d1f4b0bc876d4e295bbe62a6c7f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c6677201cb9fe4689f9e87dfa36942fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,7 +101,7 @@ div.csl-indent {
 <meta property="og:title" content="A quantitative methods syllabus – Matti’s website">
 <meta property="og:description" content="Recommended readings in quantitative methods">
 <meta property="og:image" content="https://vuorre.com/posts/methods-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg">
-<meta property="og:site_name" content="Matti's website">
+<meta property="og:site_name" content="Matti’s website">
 <meta name="twitter:title" content="A quantitative methods syllabus – Matti’s website">
 <meta name="twitter:description" content="Recommended readings in quantitative methods">
 <meta name="twitter:image" content="https://vuorre.com/posts/methods-syllabus/images/edge2edge-media-uKlneQRwaxY-unsplash.jpg">
@@ -416,15 +417,15 @@ div.csl-indent {
 <p>Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.</p>
 <p><em>tl;dr</em>:</p>
 <ul>
-<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(<a href="#ref-gelmanRegressionOtherStories2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span></li>
+<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(<a href="#ref-gelmanRegressionOtherStories2020" role="doc-biblioref">Gelman et al. 2020</a>)</span></li>
 <li><a href="https://openintro-ims.netlify.app/"><em>Introduction to Modern Statistics</em></a> <span class="citation" data-cites="cetinkaya-rundelIntroductionModernStatistics2021">(<a href="#ref-cetinkaya-rundelIntroductionModernStatistics2021" role="doc-biblioref">Çetinkaya-Rundel and Hardin 2021</a>)</span></li>
 <li><a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(<a href="#ref-mcelreathStatisticalRethinkingBayesian2020" role="doc-biblioref">McElreath 2020</a>)</span></li>
-<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(<a href="#ref-wickhamDataScienceImport2016" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2016</a>)</span></li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(<a href="#ref-wickhamDataScienceImport2016" role="doc-biblioref">Wickham et al. 2016</a>)</span></li>
 </ul>
 <section id="the-basics-regression" class="level2">
 <h2 class="anchored" data-anchor-id="the-basics-regression">The basics: Regression</h2>
 <p>If there is one single concept in applied statistics worth learning, it is that of <em>regression</em>. You’ve probably learned statistics in the context of p-values from hypothesis tests, ANOVAs, t-tests and stuff like that, but the underlying and unifying concept is <em>regression</em>: Modelling (a set of) outcome variables on (a set of) predictor variables. ANOVA is a regression model… Assuming that your data is normally distributed can be a regression model… So I’d advise you to just take a moment and learn what this thing called regression is and what it could do for you.</p>
-<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(<a href="#ref-gelmanRegressionOtherStories2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
+<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(<a href="#ref-gelmanRegressionOtherStories2020" role="doc-biblioref">Gelman et al. 2020</a>)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
 <blockquote class="blockquote">
 <p>Many textbooks on regression focus on theory and the simplest of examples. Real statistical problems, however, are complex and subtle. This is not a book about the theory of regression. It is a book about how to use regression to solve real problems of comparison, estimation, prediction, and causal inference. It focuses on practical issues such as sample size and missing data and a wide range of goals and techniques. It jumps right in to methods and computer code you can use fresh out of the box.</p>
 </blockquote>
@@ -456,7 +457,7 @@ div.csl-indent {
 </section>
 <section id="bonus-round-actually-doing-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="bonus-round-actually-doing-statistics">Bonus round: Actually doing statistics</h2>
-<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(<a href="#ref-wickhamDataScienceImport2016" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2016</a>)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
+<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(<a href="#ref-wickhamDataScienceImport2016" role="doc-biblioref">Wickham et al. 2016</a>)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
 </section>
 <section id="bonus-round-2-multilevel-regression" class="level2">
 <h2 class="anchored" data-anchor-id="bonus-round-2-multilevel-regression">Bonus round 2: Multilevel regression</h2>
@@ -467,9 +468,9 @@ div.csl-indent {
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-baguleySeriousStatsGuide2012" class="csl-entry" role="listitem">
-Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
+Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
 </div>
 <div id="ref-cetinkaya-rundelIntroductionModernStatistics2021" class="csl-entry" role="listitem">
 Çetinkaya-Rundel, Mine, and Johanna Hardin. 2021. <em>Introduction to <span>Modern Statistics</span></em>. OpenIntro. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
@@ -478,19 +479,19 @@ Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Beha
 Fox, John. 2015. <em>Applied <span>Regression Analysis</span> and <span>Generalized Linear Models</span></em>. <span>SAGE Publications</span>. <a href="https://books.google.com?id=cjB3BwAAQBAJ">https://books.google.com?id=cjB3BwAAQBAJ</a>.
 </div>
 <div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry" role="listitem">
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
 </div>
 <div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry" role="listitem">
-Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>New York, NY</span>: <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
+Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
 </div>
 <div id="ref-gelmanRegressionOtherStories2020" class="csl-entry" role="listitem">
 Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. <span>Cambridge University Press</span>. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
 </div>
 <div id="ref-kruschkeDoingBayesianData2014" class="csl-entry" role="listitem">
-Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
+Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
 </div>
 <div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="listitem">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
 </div>
 <div id="ref-wickhamDataScienceImport2016" class="csl-entry" role="listitem">
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
@@ -504,7 +505,7 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for 
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2024. <span>“A Quantitative Methods Syllabus.”</span>
-January 19, 2024. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.com/posts/methods-syllabus/</a>.
+January 19. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.com/posts/methods-syllabus/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

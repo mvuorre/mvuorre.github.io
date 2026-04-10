@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>How I work on computationally reproducible academic projects – Matti’s website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -62,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -90,19 +92,18 @@ div.csl-indent {
 <link href="../../images/icon/favicon-32x32.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-de8274a4d1ecc1e6aaeaf6e5564b5074.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-3ff4805f19b0085abba01199065d0a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ea89d1f4b0bc876d4e295bbe62a6c7f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c6677201cb9fe4689f9e87dfa36942fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,7 +136,7 @@ div.csl-indent {
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -167,7 +168,7 @@ window.Quarto = {
 <meta property="og:title" content="How I work on computationally reproducible academic projects – Matti’s website">
 <meta property="og:description" content="Stubborn opinions, lessons learned, and other esoterica on the minutiae of day-to-day workflows in academic psychology.">
 <meta property="og:image" content="https://vuorre.com/posts/workflow/images/underpants.jpg">
-<meta property="og:site_name" content="Matti's website">
+<meta property="og:site_name" content="Matti’s website">
 <meta name="twitter:title" content="How I work on computationally reproducible academic projects – Matti’s website">
 <meta name="twitter:description" content="Stubborn opinions, lessons learned, and other esoterica on the minutiae of day-to-day workflows in academic psychology.">
 <meta name="twitter:image" content="https://vuorre.com/posts/workflow/images/underpants.jpg">
@@ -517,13 +518,13 @@ Figure&nbsp;2: Richard McElreath: “Software is both a cause of unreliable rese
 <section id="reading" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="reading"><span class="header-section-number">2</span> Reading</h2>
 <p>I then semirandomly find time—on trains, buses, and aeroplanes—to read and understand what others have thought and done about the topic. It’s important to keep in mind that they are all wrong—that’s the point of research; nobody knows what they’re doing—but you still need to know what others have done in order to stand on their shoulders: What are some common methods and ideas, how have people approached this idea in the past?</p>
-<p>If you ask people whether they know how to read, most will answer “yes”. Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist <span class="citation" data-cites="savageHowWhyRead2024 careyTenSimpleRules2020">(<a href="#ref-savageHowWhyRead2024" role="doc-biblioref">Savage 2024</a>; <a href="#ref-careyTenSimpleRules2020" role="doc-biblioref">Carey, Steiner, and Petri 2020</a>)</span> and I’d recommend looking into those.</p>
+<p>If you ask people whether they know how to read, most will answer “yes”. Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist <span class="citation" data-cites="savageHowWhyRead2024 careyTenSimpleRules2020">(<a href="#ref-savageHowWhyRead2024" role="doc-biblioref">Savage 2024</a>; <a href="#ref-careyTenSimpleRules2020" role="doc-biblioref">Carey et al. 2020</a>)</span> and I’d recommend looking into those.</p>
 <section id="peer-review" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="peer-review"><span class="header-section-number">2.1</span> Peer review</h3>
-<p>Reviewing others’ work is a common purpose for reading and a key part of the scientific workflow. I think most people aren’t trained in this at all, and based on a casual memory search of the reviews I’ve received, it really shows. I try to follow advice put forth in <span class="citation" data-cites="davisPeerReviewGuidelinesPromoting2018">Davis et al. (<a href="#ref-davisPeerReviewGuidelinesPromoting2018" role="doc-biblioref">2018</a>)</span>, <span class="citation" data-cites="roedigerTwelveTipsReviewers2007">Roediger (<a href="#ref-roedigerTwelveTipsReviewers2007" role="doc-biblioref">2007</a>)</span>, and <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (<a href="#ref-lindsayDigestTipsReviewerspdf2017" role="doc-biblioref">2017</a>)</span>:</p>
+<p>Reviewing others’ work is a common purpose for reading and a key part of the scientific workflow. I think most people aren’t trained in this at all, and based on a casual memory search of the reviews I’ve received, it really shows. I try to follow advice put forth in <span class="citation" data-cites="davisPeerReviewGuidelinesPromoting2018">Davis et al. (<a href="#ref-davisPeerReviewGuidelinesPromoting2018" role="doc-biblioref">2018</a>)</span>, <span class="citation" data-cites="roedigerTwelveTipsReviewers2007">Roediger (<a href="#ref-roedigerTwelveTipsReviewers2007" role="doc-biblioref">2007</a>)</span>, and <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay et al. (<a href="#ref-lindsayDigestTipsReviewerspdf2017" role="doc-biblioref">2017</a>)</span>:</p>
 <blockquote class="blockquote">
 <p>“Remember the Golden Rule. Treat authors the way you’d want to be treated. Be respectful and remember that you can easily demoralize authors, especially students and young scholars. Keep insults and snide comments to yourself. Don’t hide behind a veil of anonymity to lob mean-spirited critiques that you wouldn’t share with the authors face to face.”</p>
-<p>–Scott Lilienfeld in <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (<a href="#ref-lindsayDigestTipsReviewerspdf2017" role="doc-biblioref">2017</a>)</span></p>
+<p>–Scott Lilienfeld in <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay et al. (<a href="#ref-lindsayDigestTipsReviewerspdf2017" role="doc-biblioref">2017</a>)</span></p>
 </blockquote>
 <p>I also try <a href="../open-peer-review/">not to review</a> works that aren’t openly available online. It’s probably a good idea to openly license your reviews, so the publication industry can’t steal and subsequently hide/suppress your words, and make them <a href="https://prereview.org/profiles/0000-0001-5052-066X">available</a> online so all can learn from them.</p>
 </section>
@@ -749,33 +750,33 @@ Table&nbsp;1: An overview of tools used in my workflow, in rough order of appear
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-careyTenSimpleRules2020" class="csl-entry" role="listitem">
 Carey, Maureen A., Kevin L. Steiner, and William A. Jr Petri. 2020. <span>“Ten Simple Rules for Reading a Scientific Paper.”</span> <em>PLOS Computational Biology</em> 16 (7): e1008032. <a href="https://doi.org/10.1371/journal.pcbi.1008032">https://doi.org/10.1371/journal.pcbi.1008032</a>.
 </div>
 <div id="ref-davisPeerReviewGuidelinesPromoting2018" class="csl-entry" role="listitem">
-Davis, William E., Roger Giner-Sorolla, D. Stephen Lindsay, Jessica P. Lougheed, Matthew C. Makel, Matt E. Meier, Jessie Sun, Leigh Ann Vaughn, and John M. Zelenski. 2018. <span>“Peer-<span>Review Guidelines Promoting Replicability</span> and <span>Transparency</span> in <span>Psychological Science</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 556–73. <a href="https://doi.org/10.1177/2515245918806489">https://doi.org/10.1177/2515245918806489</a>.
+Davis, William E., Roger Giner-Sorolla, D. Stephen Lindsay, et al. 2018. <span>“Peer-<span>Review Guidelines Promoting Replicability</span> and <span>Transparency</span> in <span>Psychological Science</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 556–73. <a href="https://doi.org/10.1177/2515245918806489">https://doi.org/10.1177/2515245918806489</a>.
 </div>
 <div id="ref-harnadScholarlySkywritingPrepublication1990" class="csl-entry" role="listitem">
 Harnad, Stevan. 1990. <span>“Scholarly <span>Skywriting</span> and the <span>Prepublication Continuum</span> of <span>Scientific Inquiry</span>.”</span> <em>Psychological Science</em> 1 (6): 342–44. <a href="https://doi.org/10.1111/j.1467-9280.1990.tb00234.x">https://doi.org/10.1111/j.1467-9280.1990.tb00234.x</a>.
 </div>
 <div id="ref-harnadSelfarchivingInitiative2001" class="csl-entry" role="listitem">
-———. 2001. <span>“The Self-Archiving Initiative.”</span> <em>Nature</em> 410 (April): 1024. <a href="https://doi.org/10.1038/35074210">https://doi.org/10.1038/35074210</a>.
+Harnad, Stevan. 2001. <span>“The Self-Archiving Initiative.”</span> <em>Nature</em> 410 (April): 1024. <a href="https://doi.org/10.1038/35074210">https://doi.org/10.1038/35074210</a>.
 </div>
 <div id="ref-healyPlainPersonsGuide2019" class="csl-entry" role="listitem">
 Healy, Kieran. 2019. <em>The <span>Plain Person</span>’s <span>Guide</span> to <span>Plain Text Social Science</span></em>. <a href="https://plain-text.co/">https://plain-text.co/</a>.
 </div>
 <div id="ref-lindsayDigestTipsReviewerspdf2017" class="csl-entry" role="listitem">
-Lindsay, D., Roger Giner-Sorolla, and Jessie Sun. 2017. <span>“Digest of <span>Tips</span> for <span>Reviewers</span>.pdf,”</span> July. <a href="https://osf.io/https://osf.io/hbyu2">https://osf.io/https://osf.io/hbyu2</a>.
+Lindsay, D., Roger Giner-Sorolla, and Jessie Sun. 2017. <em>Digest of <span>Tips</span> for <span>Reviewers</span>.pdf</em>. July. <a href="https://osf.io/https://osf.io/hbyu2">https://osf.io/https://osf.io/hbyu2</a>.
 </div>
 <div id="ref-oberheimPaulFeyerabend2025" class="csl-entry" role="listitem">
-Oberheim, Eric, and John Preston. 2025. <span>“Paul <span>Feyerabend</span>.”</span> In <em>The <span>Stanford Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta and Uri Nodelman, Spring 2025. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/spr2025/entries/feyerabend/">https://plato.stanford.edu/archives/spr2025/entries/feyerabend/</a>.
+Oberheim, Eric, and John Preston. 2025. <span>“Paul <span>Feyerabend</span>.”</span> In <em>The <span>Stanford Encyclopedia</span> of <span>Philosophy</span></em>, Spring 2025, edited by Edward N. Zalta and Uri Nodelman. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/spr2025/entries/feyerabend/">https://plato.stanford.edu/archives/spr2025/entries/feyerabend/</a>.
 </div>
 <div id="ref-roedigerTwelveTipsReviewers2007" class="csl-entry" role="listitem">
 Roediger, Henry L. 2007. <span>“Twelve <span>Tips</span> for <span>Reviewers</span>.”</span> <em>APS Observer</em> 20 (April). <a href="https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers">https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers</a>.
 </div>
 <div id="ref-savageHowWhyRead2024" class="csl-entry" role="listitem">
-Savage, Patrick E. 2024. <span>“How and Why to Read (and Write and Publish) Academic Research.”</span> OSF. <a href="https://doi.org/10.31234/osf.io/p37zj">https://doi.org/10.31234/osf.io/p37zj</a>.
+Savage, Patrick E. 2024. <em>How and Why to Read (and Write and Publish) Academic Research</em>. OSF. <a href="https://doi.org/10.31234/osf.io/p37zj">https://doi.org/10.31234/osf.io/p37zj</a>.
 </div>
 <div id="ref-scheelWhyMostPsychological2022" class="csl-entry" role="listitem">
 Scheel, Anne M. 2022. <span>“Why Most Psychological Research Findings Are Not Even Wrong.”</span> <em>Infant and Child Development</em> 31 (1): e2295. <a href="https://doi.org/10.1002/icd.2295">https://doi.org/10.1002/icd.2295</a>.
@@ -793,7 +794,7 @@ Vuorre, Matti, and James P. Curley. 2018. <span>“Curating <span>Research Asset
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2025. <span>“How I Work on Computationally Reproducible
-Academic Projects.”</span> August 22, 2025. <a href="https://vuorre.com/posts/workflow/">https://vuorre.com/posts/workflow/</a>.
+Academic Projects.”</span> August 22. <a href="https://vuorre.com/posts/workflow/">https://vuorre.com/posts/workflow/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>How to Compare Two Groups with Robust Bayesian Estimation in R – Matti’s website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -62,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -90,19 +92,18 @@ div.csl-indent {
 <link href="../../images/icon/favicon-32x32.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-de8274a4d1ecc1e6aaeaf6e5564b5074.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-3ff4805f19b0085abba01199065d0a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ea89d1f4b0bc876d4e295bbe62a6c7f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c6677201cb9fe4689f9e87dfa36942fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -134,7 +135,7 @@ div.csl-indent {
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -166,7 +167,7 @@ window.Quarto = {
 <meta property="og:title" content="How to Compare Two Groups with Robust Bayesian Estimation in R – Matti’s website">
 <meta property="og:description" content="2017 will be the year when social scientists finally decided to diversify their applied statistics toolbox, and stop relying 100% on null hypothesis significance testing (NHST). A very appealing alternative to NHST is Bayesian statistics, which in itself contains many approaches to statistical inference. In this post, I provide an introductory and practical tutorial to Bayesian parameter estimation in the context of comparing two independent groups’ data.">
 <meta property="og:image" content="https://vuorre.com/posts/how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/index_files/figure-html/dataplot1-1.png">
-<meta property="og:site_name" content="Matti's website">
+<meta property="og:site_name" content="Matti’s website">
 <meta property="og:image:height" content="614">
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="How to Compare Two Groups with Robust Bayesian Estimation in R – Matti’s website">
@@ -848,24 +849,24 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-cummingNewStatisticsWhy2014" class="csl-entry" role="listitem">
 Cumming, Geoff. 2014. <span>“The <span>New Statistics Why</span> and <span>How</span>.”</span> <em>Psychological Science</em> 25 (1): 7–29. <a href="https://doi.org/10.1177/0956797613504966">https://doi.org/10.1177/0956797613504966</a>.
 </div>
 <div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry" role="listitem">
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>.
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Chapman and Hall/CRC</span>.
 </div>
 <div id="ref-gigerenzerMindlessStatistics2004" class="csl-entry" role="listitem">
-Gigerenzer, Gerd. 2004. <span>“Mindless Statistics.”</span> <em>The Journal of Socio-Economics</em>, Statistical <span>Significance</span>, 33 (5): 587–606. <a href="https://doi.org/10.1016/j.socec.2004.09.033">https://doi.org/10.1016/j.socec.2004.09.033</a>.
+Gigerenzer, Gerd. 2004. <span>“Mindless Statistics.”</span> <em>The Journal of Socio-Economics</em>, Statistical <span>Significance</span>, vol. 33 (5): 587–606. <a href="https://doi.org/10.1016/j.socec.2004.09.033">https://doi.org/10.1016/j.socec.2004.09.033</a>.
 </div>
 <div id="ref-kruschkeBayesianEstimationSupersedes2013" class="csl-entry" role="listitem">
 Kruschke, John K. 2013. <span>“Bayesian Estimation Supersedes the t Test.”</span> <em>Journal of Experimental Psychology: General</em> 142 (2): 573–603. <a href="https://doi.org/10.1037/a0029146">https://doi.org/10.1037/a0029146</a>.
 </div>
 <div id="ref-kruschkeDoingBayesianData2014" class="csl-entry" role="listitem">
-———. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>.
+Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Academic Press</span>.
 </div>
 <div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry" role="listitem">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>.
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second. <span>CRC</span> Texts in Statistical Science. <span>Taylor and Francis, CRC Press</span>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2017,
   author = {Vuorre, Matti},
@@ -877,7 +878,7 @@ McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Co
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2017" class="csl-entry quarto-appendix-citeas" role="listitem">
 Vuorre, Matti. 2017. <span>“How to Compare Two Groups with Robust
-Bayesian Estimation in R.”</span> January 2, 2017. <a href="https://vuorre.com/posts/how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/">https://vuorre.com/posts/how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</a>.
+Bayesian Estimation in R.”</span> January 2. <a href="https://vuorre.com/posts/how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/">https://vuorre.com/posts/how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

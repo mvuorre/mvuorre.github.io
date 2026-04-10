@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Notes on psychology, statistics, and R, sometimes – Matti’s website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,19 +37,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-de8274a4d1ecc1e6aaeaf6e5564b5074.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-3ff4805f19b0085abba01199065d0a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ea89d1f4b0bc876d4e295bbe62a6c7f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c6677201cb9fe4689f9e87dfa36942fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       valueNames: ['listing-date','listing-title','listing-description','listing-word-count','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-project","listing-repo-url","listing-date-format","listing-execute","listing-website","listing-format","listing-language","listing-comments","listing-draft-mode","listing-author","listing-license","listing-citation","listing-toc","listing-toc-title","listing-toc-depth","listing-toc-location","listing-callout-icon","listing-anchor-sections","listing-knitr","listing-bluesky-comments","listing-title","listing-description","listing-date","listing-date-modified","listing-categories","listing-image","listing-draft","listing-bibliography","listing-path","listing-outputHref","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-aliases","listing-from","listing-reference-location","listing-execute-dir","listing-abstract","listing-google-scholar","listing-number-sections","listing-code-fold"],
+      searchColumns: ["listing-project","listing-repo-url","listing-date-format","listing-execute","listing-website","listing-format","listing-engines","listing-language","listing-comments","listing-draft-mode","listing-license","listing-toc","listing-toc-title","listing-toc-depth","listing-toc-location","listing-callout-icon","listing-anchor-sections","listing-knitr","listing-author","listing-citation","listing-bluesky-comments","listing-title","listing-description","listing-date","listing-date-modified","listing-categories","listing-image","listing-draft","listing-bibliography","listing-path","listing-outputHref","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-aliases","listing-from","listing-reference-location","listing-execute-dir","listing-abstract","listing-google-scholar","listing-number-sections","listing-code-fold"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -106,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <script data-goatcounter="https://vuorre.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -136,7 +138,7 @@ window.Quarto = {
 </script>
 
 <link rel="alternate" type="application/rss+xml" title="Matti's website" href="blog.xml" data-external="1"><meta property="og:title" content="Notes on psychology, statistics, and R, sometimes – Matti’s website">
-<meta property="og:site_name" content="Matti's website">
+<meta property="og:site_name" content="Matti’s website">
 <meta name="twitter:title" content="Notes on psychology, statistics, and R, sometimes – Matti’s website">
 <meta name="twitter:card" content="summary">
 </head>
@@ -632,7 +634,7 @@ window.Quarto = {
       </div>
     </li>
   
-    <li class="mb-3" data-index="10" data-categories="ciUyQ3N0YXRpc3RpY3M=" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1758794577064" data-listing-date-modified-sort="1774370887000" data-listing-reading-time-sort="12" data-listing-word-count-sort="2390">
+    <li class="mb-3" data-index="10" data-categories="ciUyQ3N0YXRpc3RpY3M=" data-listing-date-sort="1672527600000" data-listing-file-modified-sort="1758794577064" data-listing-date-modified-sort="1775848917000" data-listing-reading-time-sort="12" data-listing-word-count-sort="2390">
       <div class="listing-title">
         <b><a href="./posts/latent-mean-centering/index.html">Latent mean centering with brms</a></b>
         <span class="listing-date small mt-1">

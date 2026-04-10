@@ -9,7 +9,7 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Matti&#39;s website</description>
-<generator>quarto-1.8.27</generator>
+<generator>quarto-1.9.36</generator>
 <lastBuildDate>Mon, 13 Oct 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Against publishing</title>
@@ -56,8 +56,7 @@
     {[}Univers{]}(https://universonline.nl/nieuws/2025/10/14/against-publishing/).}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2025. <span>“Against Publishing.”</span> October 14,
-2025. <a href="https://vuorre.com/posts/preprints-opinion/">https://vuorre.com/posts/preprints-opinion/</a>.
+Vuorre, Matti. 2025. <span>“Against Publishing.”</span> October 14. <a href="https://vuorre.com/posts/preprints-opinion/">https://vuorre.com/posts/preprints-opinion/</a>.
 </div></div></section></div> ]]></description>
   <category>opinion</category>
   <category>research</category>
@@ -762,7 +761,7 @@ Figure&nbsp;1: My 2nd degree PsyArXiv coauthor network.
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“My PsyArXiv Coauthorship Network.”</span>
-September 24, 2025. <a href="https://vuorre.com/posts/psyarxiv-network/">https://vuorre.com/posts/psyarxiv-network/</a>.
+September 24. <a href="https://vuorre.com/posts/psyarxiv-network/">https://vuorre.com/posts/psyarxiv-network/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>research</category>
@@ -811,13 +810,13 @@ Figure&nbsp;2: Richard McElreath: “Software is both a cause of unreliable rese
 <section id="reading" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="reading"><span class="header-section-number">2</span> Reading</h2>
 <p>I then semirandomly find time—on trains, buses, and aeroplanes—to read and understand what others have thought and done about the topic. It’s important to keep in mind that they are all wrong—that’s the point of research; nobody knows what they’re doing—but you still need to know what others have done in order to stand on their shoulders: What are some common methods and ideas, how have people approached this idea in the past?</p>
-<p>If you ask people whether they know how to read, most will answer “yes”. Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist <span class="citation" data-cites="savageHowWhyRead2024 careyTenSimpleRules2020">(Savage 2024; Carey, Steiner, and Petri 2020)</span> and I’d recommend looking into those.</p>
+<p>If you ask people whether they know how to read, most will answer “yes”. Most of them are wrong. Developing the mental models and methods required for efficiently going through scholarly writings takes time and effort. Fortunately, guides exist <span class="citation" data-cites="savageHowWhyRead2024 careyTenSimpleRules2020">(Savage 2024; Carey et al. 2020)</span> and I’d recommend looking into those.</p>
 <section id="peer-review" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="peer-review"><span class="header-section-number">2.1</span> Peer review</h3>
-<p>Reviewing others’ work is a common purpose for reading and a key part of the scientific workflow. I think most people aren’t trained in this at all, and based on a casual memory search of the reviews I’ve received, it really shows. I try to follow advice put forth in <span class="citation" data-cites="davisPeerReviewGuidelinesPromoting2018">Davis et al. (2018)</span>, <span class="citation" data-cites="roedigerTwelveTipsReviewers2007">Roediger (2007)</span>, and <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (2017)</span>:</p>
+<p>Reviewing others’ work is a common purpose for reading and a key part of the scientific workflow. I think most people aren’t trained in this at all, and based on a casual memory search of the reviews I’ve received, it really shows. I try to follow advice put forth in <span class="citation" data-cites="davisPeerReviewGuidelinesPromoting2018">Davis et al. (2018)</span>, <span class="citation" data-cites="roedigerTwelveTipsReviewers2007">Roediger (2007)</span>, and <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay et al. (2017)</span>:</p>
 <blockquote class="blockquote">
 <p>“Remember the Golden Rule. Treat authors the way you’d want to be treated. Be respectful and remember that you can easily demoralize authors, especially students and young scholars. Keep insults and snide comments to yourself. Don’t hide behind a veil of anonymity to lob mean-spirited critiques that you wouldn’t share with the authors face to face.”</p>
-<p>–Scott Lilienfeld in <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay, Giner-Sorolla, and Sun (2017)</span></p>
+<p>–Scott Lilienfeld in <span class="citation" data-cites="lindsayDigestTipsReviewerspdf2017">Lindsay et al. (2017)</span></p>
 </blockquote>
 <p>I also try <a href="../open-peer-review/">not to review</a> works that aren’t openly available online. It’s probably a good idea to openly license your reviews, so the publication industry can’t steal and subsequently hide/suppress your words, and make them <a href="https://prereview.org/profiles/0000-0001-5052-066X">available</a> online so all can learn from them.</p>
 </section>
@@ -1063,33 +1062,33 @@ Table&nbsp;1: An overview of tools used in my workflow, in rough order of appear
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-careyTenSimpleRules2020" class="csl-entry">
 Carey, Maureen A., Kevin L. Steiner, and William A. Jr Petri. 2020. <span>“Ten Simple Rules for Reading a Scientific Paper.”</span> <em>PLOS Computational Biology</em> 16 (7): e1008032. <a href="https://doi.org/10.1371/journal.pcbi.1008032">https://doi.org/10.1371/journal.pcbi.1008032</a>.
 </div>
 <div id="ref-davisPeerReviewGuidelinesPromoting2018" class="csl-entry">
-Davis, William E., Roger Giner-Sorolla, D. Stephen Lindsay, Jessica P. Lougheed, Matthew C. Makel, Matt E. Meier, Jessie Sun, Leigh Ann Vaughn, and John M. Zelenski. 2018. <span>“Peer-<span>Review Guidelines Promoting Replicability</span> and <span>Transparency</span> in <span>Psychological Science</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 556–73. <a href="https://doi.org/10.1177/2515245918806489">https://doi.org/10.1177/2515245918806489</a>.
+Davis, William E., Roger Giner-Sorolla, D. Stephen Lindsay, et al. 2018. <span>“Peer-<span>Review Guidelines Promoting Replicability</span> and <span>Transparency</span> in <span>Psychological Science</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 556–73. <a href="https://doi.org/10.1177/2515245918806489">https://doi.org/10.1177/2515245918806489</a>.
 </div>
 <div id="ref-harnadScholarlySkywritingPrepublication1990" class="csl-entry">
 Harnad, Stevan. 1990. <span>“Scholarly <span>Skywriting</span> and the <span>Prepublication Continuum</span> of <span>Scientific Inquiry</span>.”</span> <em>Psychological Science</em> 1 (6): 342–44. <a href="https://doi.org/10.1111/j.1467-9280.1990.tb00234.x">https://doi.org/10.1111/j.1467-9280.1990.tb00234.x</a>.
 </div>
 <div id="ref-harnadSelfarchivingInitiative2001" class="csl-entry">
-———. 2001. <span>“The Self-Archiving Initiative.”</span> <em>Nature</em> 410 (April): 1024. <a href="https://doi.org/10.1038/35074210">https://doi.org/10.1038/35074210</a>.
+Harnad, Stevan. 2001. <span>“The Self-Archiving Initiative.”</span> <em>Nature</em> 410 (April): 1024. <a href="https://doi.org/10.1038/35074210">https://doi.org/10.1038/35074210</a>.
 </div>
 <div id="ref-healyPlainPersonsGuide2019" class="csl-entry">
 Healy, Kieran. 2019. <em>The <span>Plain Person</span>’s <span>Guide</span> to <span>Plain Text Social Science</span></em>. <a href="https://plain-text.co/">https://plain-text.co/</a>.
 </div>
 <div id="ref-lindsayDigestTipsReviewerspdf2017" class="csl-entry">
-Lindsay, D., Roger Giner-Sorolla, and Jessie Sun. 2017. <span>“Digest of <span>Tips</span> for <span>Reviewers</span>.pdf,”</span> July. <a href="https://osf.io/https://osf.io/hbyu2">https://osf.io/https://osf.io/hbyu2</a>.
+Lindsay, D., Roger Giner-Sorolla, and Jessie Sun. 2017. <em>Digest of <span>Tips</span> for <span>Reviewers</span>.pdf</em>. July. <a href="https://osf.io/https://osf.io/hbyu2">https://osf.io/https://osf.io/hbyu2</a>.
 </div>
 <div id="ref-oberheimPaulFeyerabend2025" class="csl-entry">
-Oberheim, Eric, and John Preston. 2025. <span>“Paul <span>Feyerabend</span>.”</span> In <em>The <span>Stanford Encyclopedia</span> of <span>Philosophy</span></em>, edited by Edward N. Zalta and Uri Nodelman, Spring 2025. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/spr2025/entries/feyerabend/">https://plato.stanford.edu/archives/spr2025/entries/feyerabend/</a>.
+Oberheim, Eric, and John Preston. 2025. <span>“Paul <span>Feyerabend</span>.”</span> In <em>The <span>Stanford Encyclopedia</span> of <span>Philosophy</span></em>, Spring 2025, edited by Edward N. Zalta and Uri Nodelman. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/spr2025/entries/feyerabend/">https://plato.stanford.edu/archives/spr2025/entries/feyerabend/</a>.
 </div>
 <div id="ref-roedigerTwelveTipsReviewers2007" class="csl-entry">
 Roediger, Henry L. 2007. <span>“Twelve <span>Tips</span> for <span>Reviewers</span>.”</span> <em>APS Observer</em> 20 (April). <a href="https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers">https://www.psychologicalscience.org/observer/twelve-tips-for-reviewers</a>.
 </div>
 <div id="ref-savageHowWhyRead2024" class="csl-entry">
-Savage, Patrick E. 2024. <span>“How and Why to Read (and Write and Publish) Academic Research.”</span> OSF. <a href="https://doi.org/10.31234/osf.io/p37zj">https://doi.org/10.31234/osf.io/p37zj</a>.
+Savage, Patrick E. 2024. <em>How and Why to Read (and Write and Publish) Academic Research</em>. OSF. <a href="https://doi.org/10.31234/osf.io/p37zj">https://doi.org/10.31234/osf.io/p37zj</a>.
 </div>
 <div id="ref-scheelWhyMostPsychological2022" class="csl-entry">
 Scheel, Anne M. 2022. <span>“Why Most Psychological Research Findings Are Not Even Wrong.”</span> <em>Infant and Child Development</em> 31 (1): e2295. <a href="https://doi.org/10.1002/icd.2295">https://doi.org/10.1002/icd.2295</a>.
@@ -1107,7 +1106,7 @@ Vuorre, Matti, and James P. Curley. 2018. <span>“Curating <span>Research Asset
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“How I Work on Computationally Reproducible
-Academic Projects.”</span> August 22, 2025. <a href="https://vuorre.com/posts/workflow/">https://vuorre.com/posts/workflow/</a>.
+Academic Projects.”</span> August 22. <a href="https://vuorre.com/posts/workflow/">https://vuorre.com/posts/workflow/</a>.
 </div></div></section></div> ]]></description>
   <category>research</category>
   <category>workflow</category>
@@ -1176,7 +1175,7 @@ Figure&nbsp;3: A scholarly manuscript’s actual PDF in MacOS’s Preview.
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3, 2025. <a href="https://vuorre.com/posts/pdf-direct/">https://vuorre.com/posts/pdf-direct/</a>.
+Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3. <a href="https://vuorre.com/posts/pdf-direct/">https://vuorre.com/posts/pdf-direct/</a>.
 </div></div></section></div> ]]></description>
   <category>communication</category>
   <category>workflow</category>
@@ -1272,7 +1271,7 @@ Probability theory is cool [@jaynesProbabilityTheoryLogic2003].</code></pre>
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“How to Add Citations from Zotero to Quarto
-Documents .”</span> June 6, 2025. <a href="https://vuorre.com/posts/zotero-positron-vscode/">https://vuorre.com/posts/zotero-positron-vscode/</a>.
+Documents .”</span> June 6. <a href="https://vuorre.com/posts/zotero-positron-vscode/">https://vuorre.com/posts/zotero-positron-vscode/</a>.
 </div></div></section></div> ]]></description>
   <category>communication</category>
   <category>workflow</category>
@@ -1505,7 +1504,7 @@ font-style: inherit;">4</span>]</span>
 </section>
 <section id="mediationa-word-of-caution" class="level2">
 <h2 class="anchored" data-anchor-id="mediationa-word-of-caution">Mediation—a word of caution</h2>
-<p>Mediation models are used to make causal claims from observational data. This is a complex and difficult endeavor, and all uses of mediation must appropriately wrestle with the implications and assumptions behind the models and claims that are being made. See <span class="citation" data-cites="greenEnoughAlreadyBlack2010">Green, Ha, and Bullock (2010)</span> and <span class="citation" data-cites="rohrerThatsLotProcess2022">Rohrer et al. (2022)</span>.</p>
+<p>Mediation models are used to make causal claims from observational data. This is a complex and difficult endeavor, and all uses of mediation must appropriately wrestle with the implications and assumptions behind the models and claims that are being made. See <span class="citation" data-cites="greenEnoughAlreadyBlack2010">Green et al. (2010)</span> and <span class="citation" data-cites="rohrerThatsLotProcess2022">Rohrer et al. (2022)</span>.</p>
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
@@ -2464,42 +2463,42 @@ background-color: null;
 font-style: inherit;">getwd</span>())</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<p>We used R version 4.5.0 <span class="citation" data-cites="base">(R Core Team 2025)</span> and the following R packages: bmlm v. 1.3.15 <span class="citation" data-cites="bmlm2018 bmlm2023">(Vuorre and Bolger 2018; Vuorre 2023)</span>, brms v. 2.22.0 <span class="citation" data-cites="brms2017 brms2018 brms2021">(Bürkner 2017b, 2018, 2021)</span>, distributional v. 0.5.0 <span class="citation" data-cites="distributional">(O’Hara-Wild et al. 2024)</span>, ggdist v. 3.3.2 <span class="citation" data-cites="ggdist2024a ggdist2024b">(Kay 2024c, 2024b)</span>, ggnewscale v. 0.5.1 <span class="citation" data-cites="ggnewscale">(Campitelli 2025)</span>, knitr v. 1.50 <span class="citation" data-cites="knitr2014 knitr2015 knitr2025">(Xie 2014, 2015, 2025)</span>, latex2exp v. 0.9.6 <span class="citation" data-cites="latex2exp">(Meschiari 2022)</span>, patchwork v. 1.3.0 <span class="citation" data-cites="patchwork">(Pedersen 2024)</span>, posterior v. 1.6.1 <span class="citation" data-cites="posterior2021b posterior2022d posterior2024c posterior2024e posterior2025a">(Vehtari et al. 2021, 2024; Lambert and Vehtari 2022; Margossian et al. 2024; Bürkner et al. 2025)</span>, Rcpp v. 1.0.14 <span class="citation" data-cites="Rcpp2011 Rcpp2013 Rcpp2018 Rcpp2025">(Eddelbuettel and François 2011; Eddelbuettel 2013; Eddelbuettel and Balamuta 2018; Eddelbuettel et al. 2025)</span>, scales v. 1.3.0 <span class="citation" data-cites="scales">(Wickham, Pedersen, and Seidel 2023)</span>, tidybayes v. 3.0.7 <span class="citation" data-cites="tidybayes">(Kay 2024d)</span>, tidyverse v. 2.0.0 <span class="citation" data-cites="tidyverse">(Wickham et al. 2019)</span>, tinytable v. 0.8.0 <span class="citation" data-cites="tinytable">(Arel-Bundock 2025)</span>.</p>
+<p>We used R version 4.5.0 <span class="citation" data-cites="base">(R Core Team 2025)</span> and the following R packages: bmlm v. 1.3.15 <span class="citation" data-cites="bmlm2018 bmlm2023">(Vuorre and Bolger 2018; Vuorre 2023)</span>, brms v. 2.22.0 <span class="citation" data-cites="brms2017 brms2018 brms2021">(Bürkner 2017b, 2018, 2021)</span>, distributional v. 0.5.0 <span class="citation" data-cites="distributional">(O’Hara-Wild et al. 2024)</span>, ggdist v. 3.3.2 <span class="citation" data-cites="ggdist2024a ggdist2024b">(Kay 2024c, 2024b)</span>, ggnewscale v. 0.5.1 <span class="citation" data-cites="ggnewscale">(Campitelli 2025)</span>, knitr v. 1.50 <span class="citation" data-cites="knitr2014 knitr2015 knitr2025">(Xie 2014, 2015, 2025)</span>, latex2exp v. 0.9.6 <span class="citation" data-cites="latex2exp">(Meschiari 2022)</span>, patchwork v. 1.3.0 <span class="citation" data-cites="patchwork">(Pedersen 2024)</span>, posterior v. 1.6.1 <span class="citation" data-cites="posterior2021b posterior2022d posterior2024c posterior2024e posterior2025a">(Vehtari et al. 2021, 2024; Lambert and Vehtari 2022; Margossian et al. 2024; Bürkner et al. 2025)</span>, Rcpp v. 1.0.14 <span class="citation" data-cites="Rcpp2011 Rcpp2013 Rcpp2018 Rcpp2025">(Eddelbuettel and François 2011; Eddelbuettel 2013; Eddelbuettel and Balamuta 2018; Eddelbuettel et al. 2025)</span>, scales v. 1.3.0 <span class="citation" data-cites="scales">(Wickham et al. 2023)</span>, tidybayes v. 3.0.7 <span class="citation" data-cites="tidybayes">(Kay 2024d)</span>, tidyverse v. 2.0.0 <span class="citation" data-cites="tidyverse">(Wickham et al. 2019)</span>, tinytable v. 0.8.0 <span class="citation" data-cites="tinytable">(Arel-Bundock 2025)</span>.</p>
 </div>
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-tinytable" class="csl-entry">
 Arel-Bundock, Vincent. 2025. <em><span class="nocase">tinytable</span>: Simple and Configurable Tables in <span>“<span>HTML</span>,”</span> <span>“<span>LaTeX</span>,”</span> <span>“<span>Markdown</span>,”</span> <span>“<span>Word</span>,”</span> <span>“<span>PNG</span>,”</span> <span>“<span>PDF</span>,”</span> and <span>“<span>Typst</span>”</span> Formats</em>. <a href="https://doi.org/10.32614/CRAN.package.tinytable">https://doi.org/10.32614/CRAN.package.tinytable</a>.
 </div>
 <div id="ref-bolgerIntensiveLongitudinalMethods2013" class="csl-entry">
-Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive <span>Longitudinal Methods</span>: <span>An Introduction</span> to <span>Diary</span> and <span>Experience Sampling Research</span></em>. New York, NY: Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
+Bolger, Niall, and Jean-Philippe Laurenceau. 2013. <em>Intensive <span>Longitudinal Methods</span>: <span>An Introduction</span> to <span>Diary</span> and <span>Experience Sampling Research</span></em>. Guilford Press. <a href="http://www.intensivelongitudinal.com/">http://www.intensivelongitudinal.com/</a>.
 </div>
 <div id="ref-burkner_brms:_2017" class="csl-entry">
 Bürkner, Paul-Christian. 2017a. <span>“Brms: <span>An R Package</span> for <span>Bayesian Multilevel Models Using Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
 <div id="ref-brms2017" class="csl-entry">
-———. 2017b. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+Bürkner, Paul-Christian. 2017b. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
 <div id="ref-brms2018" class="csl-entry">
-———. 2018. <span>“Advanced <span>Bayesian</span> Multilevel Modeling with the <span>R</span> Package <span class="nocase">brms</span>.”</span> <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.
+Bürkner, Paul-Christian. 2018. <span>“Advanced <span>Bayesian</span> Multilevel Modeling with the <span>R</span> Package <span class="nocase">brms</span>.”</span> <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.
 </div>
 <div id="ref-brms2021" class="csl-entry">
-———. 2021. <span>“Bayesian Item Response Modeling in <span>R</span> with <span class="nocase">brms</span> and <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 100 (5): 1–54. <a href="https://doi.org/10.18637/jss.v100.i05">https://doi.org/10.18637/jss.v100.i05</a>.
+Bürkner, Paul-Christian. 2021. <span>“Bayesian Item Response Modeling in <span>R</span> with <span class="nocase">brms</span> and <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 100 (5): 1–54. <a href="https://doi.org/10.18637/jss.v100.i05">https://doi.org/10.18637/jss.v100.i05</a>.
 </div>
 <div id="ref-posterior2025a" class="csl-entry">
-Bürkner, Paul-Christian, Jonah Gabry, Matthew Kay, and Aki Vehtari. 2025. <span>“<span class="nocase">posterior</span>: Tools for Working with Posterior Distributions.”</span> <a href="https://mc-stan.org/posterior/">https://mc-stan.org/posterior/</a>.
+Bürkner, Paul-Christian, Jonah Gabry, Matthew Kay, and Aki Vehtari. 2025. <em><span class="nocase">posterior</span>: Tools for Working with Posterior Distributions</em>. <a href="https://mc-stan.org/posterior/">https://mc-stan.org/posterior/</a>.
 </div>
 <div id="ref-ggnewscale" class="csl-entry">
 Campitelli, Elio. 2025. <em><span class="nocase">ggnewscale</span>: Multiple Fill and Colour Scales in <span>“<span class="nocase">ggplot2</span>”</span></em>. <a href="https://doi.org/10.32614/CRAN.package.ggnewscale">https://doi.org/10.32614/CRAN.package.ggnewscale</a>.
 </div>
 <div id="ref-Rcpp2013" class="csl-entry">
-Eddelbuettel, Dirk. 2013. <em>Seamless <span>R</span> and <span>C++</span> Integration with <span>Rcpp</span></em>. New York: Springer. <a href="https://doi.org/10.1007/978-1-4614-6868-4">https://doi.org/10.1007/978-1-4614-6868-4</a>.
+Eddelbuettel, Dirk. 2013. <em>Seamless <span>R</span> and <span>C++</span> Integration with <span>Rcpp</span></em>. Springer. <a href="https://doi.org/10.1007/978-1-4614-6868-4">https://doi.org/10.1007/978-1-4614-6868-4</a>.
 </div>
 <div id="ref-Rcpp2018" class="csl-entry">
 Eddelbuettel, Dirk, and James Joseph Balamuta. 2018. <span>“<span class="nocase">Extending <span>R</span> with <span>C++</span>: A Brief Introduction to <span>Rcpp</span></span>.”</span> <em>The American Statistician</em> 72 (1): 28–36. <a href="https://doi.org/10.1080/00031305.2017.1375990">https://doi.org/10.1080/00031305.2017.1375990</a>.
 </div>
 <div id="ref-Rcpp2025" class="csl-entry">
-Eddelbuettel, Dirk, Romain Francois, JJ Allaire, Kevin Ushey, Qiang Kou, Nathan Russell, Iñaki Ucar, Doug Bates, and John Chambers. 2025. <em><span>Rcpp</span>: Seamless r and c++ Integration</em>. <a href="https://doi.org/10.32614/CRAN.package.Rcpp">https://doi.org/10.32614/CRAN.package.Rcpp</a>.
+Eddelbuettel, Dirk, Romain Francois, JJ Allaire, et al. 2025. <em><span>Rcpp</span>: Seamless r and c++ Integration</em>. <a href="https://doi.org/10.32614/CRAN.package.Rcpp">https://doi.org/10.32614/CRAN.package.Rcpp</a>.
 </div>
 <div id="ref-Rcpp2011" class="csl-entry">
 Eddelbuettel, Dirk, and Romain François. 2011. <span>“<span>Rcpp</span>: Seamless <span>R</span> and <span>C++</span> Integration.”</span> <em>Journal of Statistical Software</em> 40 (8): 1–18. <a href="https://doi.org/10.18637/jss.v040.i08">https://doi.org/10.18637/jss.v040.i08</a>.
@@ -2511,19 +2510,19 @@ Green, Donald P., Shang E. Ha, and John G. Bullock. 2010. <span>“Enough <span>
 Kay, Matthew. 2024a. <em><span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.
 </div>
 <div id="ref-ggdist2024b" class="csl-entry">
-———. 2024b. <em><span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.
+Kay, Matthew. 2024b. <em><span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.
 </div>
 <div id="ref-ggdist2024a" class="csl-entry">
-———. 2024c. <span>“<span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty in the Grammar of Graphics.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 30 (1): 414–24. <a href="https://doi.org/10.1109/TVCG.2023.3327195">https://doi.org/10.1109/TVCG.2023.3327195</a>.
+Kay, Matthew. 2024c. <span>“<span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty in the Grammar of Graphics.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 30 (1): 414–24. <a href="https://doi.org/10.1109/TVCG.2023.3327195">https://doi.org/10.1109/TVCG.2023.3327195</a>.
 </div>
 <div id="ref-tidybayes" class="csl-entry">
-———. 2024d. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
+Kay, Matthew. 2024d. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
 </div>
 <div id="ref-posterior2022d" class="csl-entry">
 Lambert, Ben, and Aki Vehtari. 2022. <span>“<span>Rstar</span>: A Robust MCMC Convergence Diagnostic with Uncertainty Using Decision Tree Classifiers.”</span> <em>Bayesian Analysis</em> 17 (2): 353–79. <a href="https://doi.org/10.1214/20-BA1252">https://doi.org/10.1214/20-BA1252</a>.
 </div>
 <div id="ref-posterior2024c" class="csl-entry">
-Margossian, Charles C., Matthew D. Hoffman, Pavel Sountsov, Lionel Riou-Durand, Aki Vehtari, and Andrew Gelman. 2024. <span>“Nested Rhat: Assessing the Convergence of Markov Chain Monte Carlo When Running Many Short Chains.”</span> <em>Bayesian Analysis</em>. <a href="https://doi.org/10.1214/24-BA1453">https://doi.org/10.1214/24-BA1453</a>.
+Margossian, Charles C., Matthew D. Hoffman, Pavel Sountsov, Lionel Riou-Durand, Aki Vehtari, and Andrew Gelman. 2024. <span>“Nested Rhat: Assessing the Convergence of Markov Chain Monte Carlo When Running Many Short Chains.”</span> <em>Bayesian Analysis</em>, ahead of print. <a href="https://doi.org/10.1214/24-BA1453">https://doi.org/10.1214/24-BA1453</a>.
 </div>
 <div id="ref-latex2exp" class="csl-entry">
 Meschiari, Stefano. 2022. <em>Latex2exp: Use LaTeX Expressions in Plots</em>. <a href="https://doi.org/10.32614/CRAN.package.latex2exp">https://doi.org/10.32614/CRAN.package.latex2exp</a>.
@@ -2535,13 +2534,13 @@ O’Hara-Wild, Mitchell, Matthew Kay, Alex Hayes, and Rob Hyndman. 2024. <em><sp
 Pedersen, Thomas Lin. 2024. <em><span class="nocase">patchwork</span>: The Composer of Plots</em>. <a href="https://doi.org/10.32614/CRAN.package.patchwork">https://doi.org/10.32614/CRAN.package.patchwork</a>.
 </div>
 <div id="ref-base" class="csl-entry">
-R Core Team. 2025. <em><span>R</span>: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2025. <em><span>R</span>: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-rohrerThatsLotProcess2022" class="csl-entry">
 Rohrer, Julia M., Paul Hünermund, Ruben C. Arslan, and Malte Elson. 2022. <span>“That’s a <span>Lot</span> to <span>Process</span>! <span>Pitfalls</span> of <span>Popular Path Models</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 5 (2): 25152459221095827. <a href="https://doi.org/10.1177/25152459221095827">https://doi.org/10.1177/25152459221095827</a>.
 </div>
 <div id="ref-standevelopmentteamStanModelingLanguage2024" class="csl-entry">
-Team, Stan Development. 2024. <span>“Stan <span>Modeling Language Users Guide</span> and <span>Reference Manual</span>, Version 2.36.”</span> <a href="https://mc-stan.org">https://mc-stan.org</a>.
+Team, Stan Development. 2024. <em>Stan <span>Modeling Language Users Guide</span> and <span>Reference Manual</span>, Version 2.36</em>. V. 2.36. Released. <a href="https://mc-stan.org">https://mc-stan.org</a>.
 </div>
 <div id="ref-posterior2021b" class="csl-entry">
 Vehtari, Aki, Andrew Gelman, Daniel Simpson, Bob Carpenter, and Paul-Christian Bürkner. 2021. <span>“Rank-Normalization, Folding, and Localization: An Improved Rhat for Assessing Convergence of MCMC (with Discussion).”</span> <em>Bayesian Analysis</em> 16 (2): 667–718.
@@ -2553,19 +2552,19 @@ Vehtari, Aki, Daniel Simpson, Andrew Gelman, Yuling Yao, and Jonah Gabry. 2024. 
 Vuorre, Matti. 2023. <em><span class="nocase">bmlm</span>: Bayesian Multilevel Mediation</em>. <a href="https://CRAN.R-project.org/package=bmlm">https://CRAN.R-project.org/package=bmlm</a>.
 </div>
 <div id="ref-vuorreBmlmBayesianMultilevel2024" class="csl-entry">
-———. (2016) 2024. <span>“Bmlm: <span>Bayesian</span> Multilevel Mediation.”</span> <a href="https://github.com/mvuorre/bmlm">https://github.com/mvuorre/bmlm</a>.
+Vuorre, Matti. (2016) 2024. <em>Bmlm: <span>Bayesian</span> Multilevel Mediation</em>. V. 1.3.15. June 25, released November 21. <a href="https://github.com/mvuorre/bmlm">https://github.com/mvuorre/bmlm</a>.
 </div>
 <div id="ref-vuorreWithinsubjectMediationAnalysis2017" class="csl-entry">
-Vuorre, Matti, and Niall Bolger. 2017. <span>“Within-Subject Mediation Analysis for Experimental Data in Cognitive Psychology and Neuroscience.”</span> <em>Behavior Research Methods</em>, December, 1–19. <a href="https://doi.org/10.3758/s13428-017-0980-9">https://doi.org/10.3758/s13428-017-0980-9</a>.
+Vuorre, Matti, and Niall Bolger. 2017. <span>“Within-Subject Mediation Analysis for Experimental Data in Cognitive Psychology and Neuroscience.”</span> <em>Behavior Research Methods</em>, December 15, 1–19. <a href="https://doi.org/10.3758/s13428-017-0980-9">https://doi.org/10.3758/s13428-017-0980-9</a>.
 </div>
 <div id="ref-bmlm2018" class="csl-entry">
-———. 2018. <span>“Within-Subject Mediation Analysis for Experimental Data in Cognitive Psychology and Neuroscience.”</span> <em>Behavior Research Methods</em>. <a href="https://doi.org/10.3758/s13428-017-0980-9">https://doi.org/10.3758/s13428-017-0980-9</a>.
+Vuorre, Matti, and Niall Bolger. 2018. <span>“Within-Subject Mediation Analysis for Experimental Data in Cognitive Psychology and Neuroscience.”</span> <em>Behavior Research Methods</em>, ahead of print. <a href="https://doi.org/10.3758/s13428-017-0980-9">https://doi.org/10.3758/s13428-017-0980-9</a>.
 </div>
 <div id="ref-ggplot" class="csl-entry">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-scales" class="csl-entry">
 Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em><span class="nocase">scales</span>: Scale Functions for Visualization</em>. <a href="https://doi.org/10.32614/CRAN.package.scales">https://doi.org/10.32614/CRAN.package.scales</a>.
@@ -2574,10 +2573,10 @@ Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em><span class="no
 Xie, Yihui. 2014. <span>“<span class="nocase">knitr</span>: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC.
 </div>
 <div id="ref-knitr2015" class="csl-entry">
-———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 <div id="ref-knitr2025" class="csl-entry">
-———. 2025. <em><span class="nocase">knitr</span>: A General-Purpose Package for Dynamic Report Generation in <span>R</span></em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+Xie, Yihui. 2025. <em><span class="nocase">knitr</span>: A General-Purpose Package for Dynamic Report Generation in <span>R</span></em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2025,
   author = {Vuorre, Matti},
@@ -2590,7 +2589,7 @@ Xie, Yihui. 2014. <span>“<span class="nocase">knitr</span>: A Comprehensive To
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“Bayesian Multilevel Mediation with
-Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-mediation/">https://vuorre.com/posts/bmlm-multilevel-mediation/</a>.
+Brms.”</span> May 2. <a href="https://vuorre.com/posts/bmlm-multilevel-mediation/">https://vuorre.com/posts/bmlm-multilevel-mediation/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>statistics</category>
@@ -2711,7 +2710,7 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 
 <div id="quarto-appendix" class="default"><section id="further-reading" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Further reading</h2><div class="quarto-appendix-contents">
 
-<p>Some valuable background reading on these topics can be found in <span class="citation" data-cites="ahmedFutureAcademicPublishing2023">Ahmed et al. (2023)</span>; <span class="citation" data-cites="aleksicOpenSciencePeer2015">Aleksic et al. (2015)</span>; <span class="citation" data-cites="eisenImplementingPublishThen2020">Eisen et al. (2020)</span>; <span class="citation" data-cites="holcombeScientistsWhatAre2025">Holcombe (2025)</span>; <span class="citation" data-cites="kathawallaEasingOpenScience2021">Kathawalla, Silverstein, and Syed (2021)</span>; <span class="citation" data-cites="kriegeskorteOpenEvaluationVision2012">Kriegeskorte (2012)</span>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span>; <span class="citation" data-cites="moshontzGuidePostingManaging2021">Moshontz et al. (2021)</span>; <span class="citation" data-cites="severBiomedicalPublishingHistoric2023">Sever (2023)</span>; <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span>; <span class="citation" data-cites="syedValuingPreprintsMust2024">Syed (2024)</span>. <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span> might be especially relevant when communicating these ideas to editors.</p>
+<p>Some valuable background reading on these topics can be found in <span class="citation" data-cites="ahmedFutureAcademicPublishing2023">Ahmed et al. (2023)</span>; <span class="citation" data-cites="aleksicOpenSciencePeer2015"><span class="nocase">Aleksic et al.</span> (2015)</span>; <span class="citation" data-cites="eisenImplementingPublishThen2020">Eisen et al. (2020)</span>; <span class="citation" data-cites="holcombeScientistsWhatAre2025">Holcombe (2025)</span>; <span class="citation" data-cites="kathawallaEasingOpenScience2021">Kathawalla et al. (2021)</span>; <span class="citation" data-cites="kriegeskorteOpenEvaluationVision2012">Kriegeskorte (2012)</span>; <span class="citation" data-cites="moreyPeerReviewersOpenness2016">Morey et al. (2016)</span>; <span class="citation" data-cites="moshontzGuidePostingManaging2021">Moshontz et al. (2021)</span>; <span class="citation" data-cites="severBiomedicalPublishingHistoric2023">Sever (2023)</span>; <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span>; <span class="citation" data-cites="syedValuingPreprintsMust2024">Syed (2024)</span>. <span class="citation" data-cites="silversteinGuideSocialScience2024">Silverstein et al. (2024)</span> might be especially relevant when communicating these ideas to editors.</p>
 <p>Feature image credit: <a href="https://undraw.co/" class="uri">https://undraw.co/</a>.</p>
 </div></section><section id="feedback-comments" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Feedback &amp; comments</h2><div class="quarto-appendix-contents">
 
@@ -2721,27 +2720,27 @@ Brms.”</span> May 2, 2025. <a href="https://vuorre.com/posts/bmlm-multilevel-m
 
 
 
-</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-ahmedFutureAcademicPublishing2023" class="csl-entry">
-Ahmed, Abubakari, Aceil Al-Khatib, Yap Boum, Humberto Debat, Alonso Gurmendi Dunkelberg, Lisa Janicke Hinchliffe, Frith Jarrad, et al. 2023. <span>“The Future of Academic Publishing.”</span> <em>Nature Human Behaviour</em>, July, 1–6. <a href="https://doi.org/10.1038/s41562-023-01637-2">https://doi.org/10.1038/s41562-023-01637-2</a>.
+Ahmed, Abubakari, Aceil Al-Khatib, Yap Boum, et al. 2023. <span>“The Future of Academic Publishing.”</span> <em>Nature Human Behaviour</em>, July 13, 1–6. <a href="https://doi.org/10.1038/s41562-023-01637-2">https://doi.org/10.1038/s41562-023-01637-2</a>.
 </div>
 <div id="ref-aleksicOpenSciencePeer2015" class="csl-entry">
-Aleksic, Jelena, Adrian Alexa, Teresa K. Attwood, Neil Chue Hong, Martin Dahlö, Robert Davey, Holger Dinkel, et al. 2015. <span>“An <span>Open Science Peer Review Oath</span>.”</span> January 9, 2015. <a href="https://doi.org/10.12688/f1000research.5686.2">https://doi.org/10.12688/f1000research.5686.2</a>.
+<span class="nocase">Aleksic, Jelena, Adrian Alexa, Teresa K. Attwood, et al.</span> 2015. <span>“An <span>Open Science Peer Review Oath</span>.”</span> 3:271. Pre-published January 9. <a href="https://doi.org/10.12688/f1000research.5686.2">https://doi.org/10.12688/f1000research.5686.2</a>.
 </div>
 <div id="ref-eisenImplementingPublishThen2020" class="csl-entry">
 Eisen, Michael B, Anna Akhmanova, Timothy E Behrens, Diane M Harper, Detlef Weigel, and Mone Zaidi. 2020. <span>“Implementing a "Publish, Then Review" Model of Publishing.”</span> <em>eLife</em> 9 (December): e64910. <a href="https://doi.org/10.7554/eLife.64910">https://doi.org/10.7554/eLife.64910</a>.
 </div>
 <div id="ref-holcombeScientistsWhatAre2025" class="csl-entry">
-Holcombe, Alex O. 2025. <span>“Scientists! <span>What</span> Are You Supporting?”</span> Alex Holcombe’s blog. January 31, 2025. <a href="https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/">https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/</a>.
+Holcombe, Alex O. 2025. <span>“Scientists! <span>What</span> Are You Supporting?”</span> Alex Holcombe’s blog, January 31. <a href="https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/">https://alexholcombe.wordpress.com/2025/01/31/scientists-what-are-you-supporting/</a>.
 </div>
 <div id="ref-kathawallaEasingOpenScience2021" class="csl-entry">
-Kathawalla, Ummul-Kiram, Priya Silverstein, and Moin Syed. 2021. <span>“Easing <span>Into Open Science</span>: <span>A Guide</span> for <span>Graduate Students</span> and <span>Their Advisors</span>.”</span> Edited by Eunike Wetzel. <em>Collabra: Psychology</em> 7 (1): 18684. <a href="https://doi.org/10.1525/collabra.18684">https://doi.org/10.1525/collabra.18684</a>.
+Kathawalla, Ummul-Kiram, Priya Silverstein, and Moin Syed. 2021. <span>“Easing <span>Into Open Science</span>: <span>A Guide</span> for <span>Graduate Students</span> and <span>Their Advisors</span>.”</span> <em>Collabra: Psychology</em> 7 (1): 18684. <a href="https://doi.org/10.1525/collabra.18684">https://doi.org/10.1525/collabra.18684</a>.
 </div>
 <div id="ref-kriegeskorteOpenEvaluationVision2012" class="csl-entry">
 Kriegeskorte, Nikolaus. 2012. <span>“Open <span>Evaluation</span>: <span>A Vision</span> for <span>Entirely Transparent Post-Publication Peer Review</span> and <span>Rating</span> for <span>Science</span>.”</span> <em>Frontiers in Computational Neuroscience</em> 6. <a href="https://doi.org/10.3389/fncom.2012.00079">https://doi.org/10.3389/fncom.2012.00079</a>.
 </div>
 <div id="ref-moreyPeerReviewersOpenness2016" class="csl-entry">
-Morey, Richard D., Christopher D. Chambers, Peter J. Etchells, Christine R. Harris, Rink Hoekstra, Daniël Lakens, Stephan Lewandowsky, et al. 2016. <span>“The <span>Peer Reviewers Openness Initiative</span>: Incentivizing Open Research Practices Through Peer Review.”</span> <em>Royal Society Open Science</em> 3 (1): 150547. <a href="https://doi.org/10.1098/rsos.150547">https://doi.org/10.1098/rsos.150547</a>.
+Morey, Richard D., Christopher D. Chambers, Peter J. Etchells, et al. 2016. <span>“The <span>Peer Reviewers Openness Initiative</span>: Incentivizing Open Research Practices Through Peer Review.”</span> <em>Royal Society Open Science</em> 3 (1): 150547. <a href="https://doi.org/10.1098/rsos.150547">https://doi.org/10.1098/rsos.150547</a>.
 </div>
 <div id="ref-moshontzGuidePostingManaging2021" class="csl-entry">
 Moshontz, Hannah, Grace Binion, Haley Walton, Benjamin T. Brown, and Moin Syed. 2021. <span>“A <span>Guide</span> to <span>Posting</span> and <span>Managing Preprints</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 4 (2): 25152459211019948. <a href="https://doi.org/10.1177/25152459211019948">https://doi.org/10.1177/25152459211019948</a>.
@@ -2750,7 +2749,7 @@ Moshontz, Hannah, Grace Binion, Haley Walton, Benjamin T. Brown, and Moin Syed. 
 Sever, Richard. 2023. <span>“Biomedical Publishing: <span>Past</span> Historic, Present Continuous, Future Conditional.”</span> <em>PLOS Biology</em> 21 (10): e3002234. <a href="https://doi.org/10.1371/journal.pbio.3002234">https://doi.org/10.1371/journal.pbio.3002234</a>.
 </div>
 <div id="ref-silversteinGuideSocialScience2024" class="csl-entry">
-Silverstein, Priya, Colin Elman, Amanda Montoya, Barbara McGillivray, Charlotte R. Pennington, Chase H. Harrison, Crystal N. Steltenpohl, et al. 2024. <span>“A Guide for Social Science Journal Editors on Easing into Open Science.”</span> <em>Research Integrity and Peer Review</em> 9 (1): 2. <a href="https://doi.org/10.1186/s41073-023-00141-5">https://doi.org/10.1186/s41073-023-00141-5</a>.
+Silverstein, Priya, Colin Elman, Amanda Montoya, et al. 2024. <span>“A Guide for Social Science Journal Editors on Easing into Open Science.”</span> <em>Research Integrity and Peer Review</em> 9 (1): 2. <a href="https://doi.org/10.1186/s41073-023-00141-5">https://doi.org/10.1186/s41073-023-00141-5</a>.
 </div>
 <div id="ref-syedValuingPreprintsMust2024" class="csl-entry">
 Syed, Moin. 2024. <span>“Valuing <span>Preprints Must</span> Be <span>Part</span> of <span>Responsible Research Assessment</span>.”</span> <em>Meta-Psychology</em> 8 (March). <a href="https://doi.org/10.15626/MP.2023.3758">https://doi.org/10.15626/MP.2023.3758</a>.
@@ -2769,7 +2768,7 @@ Syed, Moin. 2024. <span>“Valuing <span>Preprints Must</span> Be <span>Part</sp
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2025" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2025. <span>“My Peer Review Principles &amp;
-Practices.”</span> February 3, 2025. <a href="https://vuorre.com/posts/open-peer-review/">https://vuorre.com/posts/open-peer-review/</a>.
+Practices.”</span> February 3. <a href="https://vuorre.com/posts/open-peer-review/">https://vuorre.com/posts/open-peer-review/</a>.
 </div></div></section></div> ]]></description>
   <category>communication</category>
   <category>research</category>
@@ -2787,7 +2786,7 @@ Practices.”</span> February 3, 2025. <a href="https://vuorre.com/posts/open-pe
 
 
 
-<p>It turns out that preprints are both important and pretty, <a href="https://youtu.be/kRz8-EXlhBo?feature=shared">pretty good</a> <span class="citation" data-cites="ahmedFutureAcademicPublishing2023 moshontzGuidePostingManaging2021 severBiomedicalPublishingHistoric2023 syedValuingPreprintsMust2024">(Ahmed et al. 2023; Moshontz et al. 2021; Sever 2023; Syed 2024)</span>. In fact in the modern scholarly publishing and communication ecosystem, the word “pre<em>print</em>” is a bit of misnomer: “Preprint” can refer to peer-reviewed <span class="citation" data-cites="vuorreThreeObjectionsNovel2022">(e.g. Vuorre, Johannes, and Przybylski 2022)</span> and non-peer-reviewed <span class="citation" data-cites="ballouHowVideoGames2024">(e.g. Ballou et al. 2024)</span> documents that may or may not ever be printed on physical paper. I think many in the community think of them as either (1) non-peer-reviewed documents that communicate scholarly arguments/content, or (2) pre-typeset versions of peer-reviewed (or otherwise “ready for production”) documents about to be published in a journal.</p>
+<p>It turns out that preprints are both important and pretty, <a href="https://youtu.be/kRz8-EXlhBo?feature=shared">pretty good</a> <span class="citation" data-cites="ahmedFutureAcademicPublishing2023 moshontzGuidePostingManaging2021 severBiomedicalPublishingHistoric2023 syedValuingPreprintsMust2024">(Ahmed et al. 2023; Moshontz et al. 2021; Sever 2023; Syed 2024)</span>. In fact in the modern scholarly publishing and communication ecosystem, the word “pre<em>print</em>” is a bit of misnomer: “Preprint” can refer to peer-reviewed <span class="citation" data-cites="vuorreThreeObjectionsNovel2022">(e.g. Vuorre et al. 2022)</span> and non-peer-reviewed <span class="citation" data-cites="ballouHowVideoGames2024">(e.g. Ballou et al. 2024)</span> documents that may or may not ever be printed on physical paper. I think many in the community think of them as either (1) non-peer-reviewed documents that communicate scholarly arguments/content, or (2) pre-typeset versions of peer-reviewed (or otherwise “ready for production”) documents about to be published in a journal.</p>
 <p>Many related issues remain before the community is ready to follow more mature sciences and embrace preprints as bona-fide scholarly outputs <span class="citation" data-cites="petrichoweNatureTakeWhat2022 syedValuingPreprintsMust2024">(Petrić Howe et al. 2022; Syed 2024)</span>, including discovery (how will I find signal from all this [subjective] noise?), and typesetting (“make papers look not awful”) which we so dearly love. Below, I describe my recent efforts on these two fronts.</p>
 <section id="discovery" class="level2">
 <h2 class="anchored" data-anchor-id="discovery">Discovery</h2>
@@ -2843,18 +2842,18 @@ Figure&nbsp;2: Screenshot of Psyarxiv Zero preprint page
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-ahmedFutureAcademicPublishing2023" class="csl-entry">
-Ahmed, Abubakari, Aceil Al-Khatib, Yap Boum, Humberto Debat, Alonso Gurmendi Dunkelberg, Lisa Janicke Hinchliffe, Frith Jarrad, et al. 2023. <span>“The Future of Academic Publishing.”</span> <em>Nature Human Behaviour</em>, July, 1–6. <a href="https://doi.org/10.1038/s41562-023-01637-2">https://doi.org/10.1038/s41562-023-01637-2</a>.
+Ahmed, Abubakari, Aceil Al-Khatib, Yap Boum, et al. 2023. <span>“The Future of Academic Publishing.”</span> <em>Nature Human Behaviour</em>, July, 1–6. <a href="https://doi.org/10.1038/s41562-023-01637-2">https://doi.org/10.1038/s41562-023-01637-2</a>.
 </div>
 <div id="ref-ballouHowVideoGames2024" class="csl-entry">
-Ballou, Nick, Thomas Hakman, Matti Vuorre, Kristoffer Magnusson, and Andrew K. Przybylski. 2024. <span>“How Do Video Games Affect Mental Health? <span>A</span> Narrative Review of 13 Proposed Mechanisms.”</span> OSF. <a href="https://doi.org/10.31234/osf.io/q2kxg">https://doi.org/10.31234/osf.io/q2kxg</a>.
+Ballou, Nick, Thomas Hakman, Matti Vuorre, Kristoffer Magnusson, and Andrew K. Przybylski. 2024. <em>How Do Video Games Affect Mental Health? <span>A</span> Narrative Review of 13 Proposed Mechanisms</em>. OSF. <a href="https://doi.org/10.31234/osf.io/q2kxg">https://doi.org/10.31234/osf.io/q2kxg</a>.
 </div>
 <div id="ref-moshontzGuidePostingManaging2021" class="csl-entry">
 Moshontz, Hannah, Grace Binion, Haley Walton, Benjamin T. Brown, and Moin Syed. 2021. <span>“A <span>Guide</span> to <span>Posting</span> and <span>Managing Preprints</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 4 (2): 25152459211019948. <a href="https://doi.org/10.1177/25152459211019948">https://doi.org/10.1177/25152459211019948</a>.
 </div>
 <div id="ref-petrichoweNatureTakeWhat2022" class="csl-entry">
-Petrić Howe, Nick, Elizabeth Gibney, Ehsan Masood, and Zoltan Fehervari. 2022. <span>“Nature’s <span>Take</span>: What’s Next for the Preprint Revolution.”</span> <em>Nature</em>, August. <a href="https://doi.org/10.1038/d41586-022-01985-5">https://doi.org/10.1038/d41586-022-01985-5</a>.
+Petrić Howe, Nick, Elizabeth Gibney, Ehsan Masood, and Zoltan Fehervari. 2022. <span>“Nature’s <span>Take</span>: What’s Next for the Preprint Revolution.”</span> <em>Nature</em>, ahead of print, August. <a href="https://doi.org/10.1038/d41586-022-01985-5">https://doi.org/10.1038/d41586-022-01985-5</a>.
 </div>
 <div id="ref-severBiomedicalPublishingHistoric2023" class="csl-entry">
 Sever, Richard. 2023. <span>“Biomedical Publishing: <span>Past</span> Historic, Present Continuous, Future Conditional.”</span> <em>PLOS Biology</em> 21 (10): e3002234. <a href="https://doi.org/10.1371/journal.pbio.3002234">https://doi.org/10.1371/journal.pbio.3002234</a>.
@@ -2863,7 +2862,7 @@ Sever, Richard. 2023. <span>“Biomedical Publishing: <span>Past</span> Historic
 Syed, Moin. 2024. <span>“Valuing <span>Preprints Must</span> Be <span>Part</span> of <span>Responsible Research Assessment</span>.”</span> <em>Meta-Psychology</em> 8 (March). <a href="https://doi.org/10.15626/MP.2023.3758">https://doi.org/10.15626/MP.2023.3758</a>.
 </div>
 <div id="ref-vuorreThreeObjectionsNovel2022" class="csl-entry">
-Vuorre, Matti, Niklas Johannes, and Andrew K. Przybylski. 2022. <span>“Three Objections to a Novel Paradigm in Social Media Effects Research.”</span> PsyArXiv. <a href="https://doi.org/10.31234/osf.io/dpuya">https://doi.org/10.31234/osf.io/dpuya</a>.
+Vuorre, Matti, Niklas Johannes, and Andrew K. Przybylski. 2022. <em>Three Objections to a Novel Paradigm in Social Media Effects Research</em>. PsyArXiv. <a href="https://doi.org/10.31234/osf.io/dpuya">https://doi.org/10.31234/osf.io/dpuya</a>.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
@@ -2881,7 +2880,7 @@ Vuorre, Matti, Niklas Johannes, and Andrew K. Przybylski. 2022. <span>“Three O
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2024. <span>“Preprints: A Quarto Extension and
-Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/">https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/</a>.
+Website.”</span> June 20. <a href="https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/">https://vuorre.com/posts/quarto-preprint-psyarxiv-zero/</a>.
 </div></div></section></div> ]]></description>
   <category>communication</category>
   <category>research</category>
@@ -2917,15 +2916,15 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 <p>Here are some recommended writings on statistics and data analysis for the social and behavioral sciences. This blog entry is probably most useful for students, but I also list some more advanced books that might be of interest to others.</p>
 <p><em>tl;dr</em>:</p>
 <ul>
-<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span></li>
+<li><a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman et al. 2020)</span></li>
 <li><a href="https://openintro-ims.netlify.app/"><em>Introduction to Modern Statistics</em></a> <span class="citation" data-cites="cetinkaya-rundelIntroductionModernStatistics2021">(Çetinkaya-Rundel and Hardin 2021)</span></li>
 <li><a href="https://xcelab.net/rm/statistical-rethinking/"><em>Statistical rethinking: a Bayesian course with examples in R and Stan</em></a> <span class="citation" data-cites="mcelreathStatisticalRethinkingBayesian2020">(McElreath 2020)</span></li>
-<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span></li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham et al. 2016)</span></li>
 </ul>
 <section id="the-basics-regression" class="level2">
 <h2 class="anchored" data-anchor-id="the-basics-regression">The basics: Regression</h2>
 <p>If there is one single concept in applied statistics worth learning, it is that of <em>regression</em>. You’ve probably learned statistics in the context of p-values from hypothesis tests, ANOVAs, t-tests and stuff like that, but the underlying and unifying concept is <em>regression</em>: Modelling (a set of) outcome variables on (a set of) predictor variables. ANOVA is a regression model… Assuming that your data is normally distributed can be a regression model… So I’d advise you to just take a moment and learn what this thing called regression is and what it could do for you.</p>
-<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman, Hill, and Vehtari 2020)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
+<p>To get started, I recommend taking a look at this book called <a href="https://avehtari.github.io/ROS-Examples"><em>Regression and other stories</em></a> <span class="citation" data-cites="gelmanRegressionOtherStories2020">(Gelman et al. 2020)</span>. The book is freely available on the authors’ website (<a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a>), and is extremely accessible:</p>
 <blockquote class="blockquote">
 <p>Many textbooks on regression focus on theory and the simplest of examples. Real statistical problems, however, are complex and subtle. This is not a book about the theory of regression. It is a book about how to use regression to solve real problems of comparison, estimation, prediction, and causal inference. It focuses on practical issues such as sample size and missing data and a wide range of goals and techniques. It jumps right in to methods and computer code you can use fresh out of the box.</p>
 </blockquote>
@@ -2957,7 +2956,7 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 </section>
 <section id="bonus-round-actually-doing-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="bonus-round-actually-doing-statistics">Bonus round: Actually doing statistics</h2>
-<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham, Çetinkaya-Rundel, and Grolemund 2016)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
+<p>For this, you will need to make a computer do stuff. There’s very little to say about this because the 2nd edition of <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> <span class="citation" data-cites="wickhamDataScienceImport2016">(Wickham et al. 2016)</span> just is that good. The (online; free) book takes you by the hand, helps you open up a software suite, and then do <em>magic</em> with it.</p>
 </section>
 <section id="bonus-round-2-multilevel-regression" class="level2">
 <h2 class="anchored" data-anchor-id="bonus-round-2-multilevel-regression">Bonus round 2: Multilevel regression</h2>
@@ -2968,9 +2967,9 @@ Website.”</span> June 20, 2024. <a href="https://vuorre.com/posts/quarto-prepr
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-baguleySeriousStatsGuide2012" class="csl-entry">
-Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Basingstoke</span>: <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
+Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Behavioral Sciences</em>. <span>Palgrave Macmillan</span>. <a href="http://irep.ntu.ac.uk/id/eprint/16540/">http://irep.ntu.ac.uk/id/eprint/16540/</a>.
 </div>
 <div id="ref-cetinkaya-rundelIntroductionModernStatistics2021" class="csl-entry">
 Çetinkaya-Rundel, Mine, and Johanna Hardin. 2021. <em>Introduction to <span>Modern Statistics</span></em>. OpenIntro. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
@@ -2979,19 +2978,19 @@ Baguley, T. 2012. <em>Serious Stats: A Guide to Advanced Statistics for the Beha
 Fox, John. 2015. <em>Applied <span>Regression Analysis</span> and <span>Generalized Linear Models</span></em>. <span>SAGE Publications</span>. <a href="https://books.google.com?id=cjB3BwAAQBAJ">https://books.google.com?id=cjB3BwAAQBAJ</a>.
 </div>
 <div id="ref-gelmanBayesianDataAnalysis2013" class="csl-entry">
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Boca Raton</span>: <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian <span>Data Analysis</span>, <span>Third Edition</span></em>. <span>Chapman and Hall/CRC</span>. <a href="http://www.stat.columbia.edu/~gelman/book/">http://www.stat.columbia.edu/~gelman/book/</a>.
 </div>
 <div id="ref-gelmanDataAnalysisUsing2007" class="csl-entry">
-Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>New York, NY</span>: <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
+Gelman, Andrew, and Jennifer Hill. 2007. <em>Data <span>Analysis Using Regression</span> and <span>Multilevel</span>/<span>Hierarchical Models</span></em>. <span>Cambridge University Press</span>. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.
 </div>
 <div id="ref-gelmanRegressionOtherStories2020" class="csl-entry">
 Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and <span>Other Stories</span></em>. <span>Cambridge University Press</span>. <a href="https://avehtari.github.io/ROS-Examples/">https://avehtari.github.io/ROS-Examples/</a>.
 </div>
 <div id="ref-kruschkeDoingBayesianData2014" class="csl-entry">
-Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Burlington, MA</span>: <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
+Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A Tutorial Introduction</span> with <span>R</span></em>. 2nd Edition. <span>Academic Press</span>. <a href="https://sites.google.com/site/doingbayesiandataanalysis/">https://sites.google.com/site/doingbayesiandataanalysis/</a>.
 </div>
 <div id="ref-mcelreathStatisticalRethinkingBayesian2020" class="csl-entry">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Boca Raton</span>: <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
+McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
 </div>
 <div id="ref-wickhamDataScienceImport2016" class="csl-entry">
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
@@ -3005,7 +3004,7 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for 
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2024" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2024. <span>“A Quantitative Methods Syllabus.”</span>
-January 19, 2024. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.com/posts/methods-syllabus/</a>.
+January 19. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.com/posts/methods-syllabus/</a>.
 </div></div></section></div> ]]></description>
   <category>research</category>
   <category>statistics</category>
@@ -3059,15 +3058,15 @@ Note
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-k.kayeConceptualMethodologicalMayhem2020" class="csl-entry">
 K. Kaye, Linda, Amy Orben, David A. Ellis, Simon C. Hunter, and Stephen Houghton. 2020. <span>“The <span>Conceptual</span> and <span>Methodological Mayhem</span> of <span>‘<span>Screen Time</span>’</span>.”</span> <em>International Journal of Environmental Research and Public Health</em> 17 (10, 10): 3661. <a href="https://doi.org/10.3390/ijerph17103661">https://doi.org/10.3390/ijerph17103661</a>.
 </div>
 <div id="ref-lawAssociationsInfantScreen2023" class="csl-entry">
-Law, Evelyn C., Meredith X. Han, Zhuoyuan Lai, Shuping Lim, Zi Yan Ong, Valerie Ng, Laurel J. Gabard-Durnam, et al. 2023. <span>“Associations <span>Between Infant Screen Use</span>, <span>Electroencephalography Markers</span>, and <span>Cognitive Outcomes</span>.”</span> <em>JAMA Pediatrics</em> 177 (3): 311–18. <a href="https://doi.org/10.1001/jamapediatrics.2022.5674">https://doi.org/10.1001/jamapediatrics.2022.5674</a>.
+Law, Evelyn C., Meredith X. Han, Zhuoyuan Lai, et al. 2023. <span>“Associations <span>Between Infant Screen Use</span>, <span>Electroencephalography Markers</span>, and <span>Cognitive Outcomes</span>.”</span> <em>JAMA Pediatrics</em> 177 (3): 311–18. <a href="https://doi.org/10.1001/jamapediatrics.2022.5674">https://doi.org/10.1001/jamapediatrics.2022.5674</a>.
 </div>
 <div id="ref-parrySystematicReviewMetaanalysis2021" class="csl-entry">
-Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T. Fisher, Hannah Mieczkowski, and Daniel S. Quintana. 2021. <span>“A Systematic Review and Meta-Analysis of Discrepancies Between Logged and Self-Reported Digital Media Use.”</span> <em>Nature Human Behaviour</em>, May, 1–13. <a href="https://doi.org/10.1038/s41562-021-01117-5">https://doi.org/10.1038/s41562-021-01117-5</a>.
+Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T. Fisher, Hannah Mieczkowski, and Daniel S. Quintana. 2021. <span>“A Systematic Review and Meta-Analysis of Discrepancies Between Logged and Self-Reported Digital Media Use.”</span> <em>Nature Human Behaviour</em>, May 17, 1–13. <a href="https://doi.org/10.1038/s41562-021-01117-5">https://doi.org/10.1038/s41562-021-01117-5</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2023,
   author = {Vuorre, Matti},
@@ -3078,7 +3077,7 @@ Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T. Fisher, Ha
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2023" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2023. <span>“Yet Another Data Request Email.”</span>
-March 24, 2023. <a href="https://vuorre.com/posts/yet-another-data-request-email/">https://vuorre.com/posts/yet-another-data-request-email/</a>.
+March 24. <a href="https://vuorre.com/posts/yet-another-data-request-email/">https://vuorre.com/posts/yet-another-data-request-email/</a>.
 </div></div></section></div> ]]></description>
   <category>research</category>
   <guid>https://vuorre.com/posts/yet-another-data-request-email/</guid>
@@ -3313,7 +3312,7 @@ Table&nbsp;1: Example longitudinal data (McNeish &amp; Hamaker, 2020); first thr
 </figcaption>
 <div aria-describedby="tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">person</th>
@@ -3688,7 +3687,7 @@ Table&nbsp;2: Summaries of main parameters from the example univariate model.
 </figcaption>
 <div aria-describedby="tbl-model-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
@@ -3827,7 +3826,7 @@ Table&nbsp;3: Rearranged data for multivariate models.
 </figcaption>
 <div aria-describedby="tbl-data-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 7%">
@@ -4214,7 +4213,7 @@ Table&nbsp;4: Multilevel AR(1) model results.
 </figcaption>
 <div aria-describedby="tbl-ml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
@@ -4320,7 +4319,7 @@ Note
 
 
 
-</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-mcneishPrimerTwolevelDynamic2020" class="csl-entry">
 McNeish, Daniel, and Ellen L. Hamaker. 2020. <span>“A Primer on Two-Level Dynamic Structural Equation Models for Intensive Longitudinal Data in <span>Mplus</span>.”</span> <em>Psychological Methods</em> 25 (5): 610–35. <a href="https://doi.org/10.1037/met0000250">https://doi.org/10.1037/met0000250</a>.
 </div>
@@ -4338,7 +4337,7 @@ McNeish, Daniel, and Ellen L. Hamaker. 2020. <span>“A Primer on Two-Level Dyna
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2023" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2023. <span>“Latent Mean Centering with Brms.”</span>
-January 1, 2023. <a href="https://vuorre.com/posts/latent-mean-centering/">https://vuorre.com/posts/latent-mean-centering/</a>.
+January 1. <a href="https://vuorre.com/posts/latent-mean-centering/">https://vuorre.com/posts/latent-mean-centering/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>statistics</category>
@@ -4588,7 +4587,7 @@ font-style: inherit;">"gt"</span></span>
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“How I Like to Set up My Computer.”</span>
-December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">https://vuorre.com/posts/computer-setup-dotfiles/</a>.
+December 8. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">https://vuorre.com/posts/computer-setup-dotfiles/</a>.
 </div></div></section></div> ]]></description>
   <category>workflow</category>
   <guid>https://vuorre.com/posts/computer-setup-dotfiles/</guid>
@@ -4607,7 +4606,7 @@ December 8, 2022. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">ht
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse, or specification curve, analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(Simonsohn, Simmons, and Nelson 2020; Steegen et al. 2016)</span>.</p>
+<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse, or specification curve, analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(Simonsohn et al. 2020; Steegen et al. 2016)</span>.</p>
 <p>For example, <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (2019)</span> showed, through analyzing the same datasets in thousands of different ways, that conclusions regarding the association between the psychological well-being of adolescents and their digital technology use critically depend on (mostly) arbitrary decisions in how and which data are analysed (Figure&nbsp;1).</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -4840,7 +4839,7 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 </figcaption>
 <div aria-describedby="tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">x1</th>
@@ -5038,7 +5037,7 @@ Table&nbsp;2: First six rows of multiverse numerical results from specr
 </figcaption>
 <div aria-describedby="tbl-specr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -5236,7 +5235,7 @@ Table&nbsp;3: First six rows of example specifications table.
 </figcaption>
 <div aria-describedby="tbl-specs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -5383,7 +5382,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 </figcaption>
 <div aria-describedby="tbl-specs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -5599,7 +5598,7 @@ Table&nbsp;5: First six rows of example specifications table with subgroups and 
 </figcaption>
 <div aria-describedby="tbl-specs-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -5738,7 +5737,7 @@ Table&nbsp;6: Output of <code>lm2(y1 ~ x1, data = dat)</code>.
 </figcaption>
 <div aria-describedby="tbl-lm2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
@@ -5807,7 +5806,7 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 </figcaption>
 <div aria-describedby="tbl-lm2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
@@ -5985,7 +5984,7 @@ Table&nbsp;8: First six rows of results from multiverse analysis.
 </figcaption>
 <div aria-describedby="tbl-mv-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -6396,7 +6395,7 @@ Table&nbsp;9: Example results from the four estimation methods.
 </figcaption>
 <div aria-describedby="tbl-results-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Method</th>
@@ -6648,9 +6647,9 @@ Figure&nbsp;3: Specification curve figure example with ggplot().
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-specr" class="csl-entry">
-Masur, Philipp K., and Michael Scharkow. 2020. <span>“Specr: Conducting and Visualizing Specification Curve Analyses (Version 0.2.2).”</span> <a href="https://CRAN.R-project.org/package=specr">https://CRAN.R-project.org/package=specr</a>.
+Masur, Philipp K., and Michael Scharkow. 2020. <em>Specr: Conducting and Visualizing Specification Curve Analyses (Version 0.2.2)</em>. <a href="https://CRAN.R-project.org/package=specr">https://CRAN.R-project.org/package=specr</a>.
 </div>
 <div id="ref-mverse" class="csl-entry">
 Moon, Michael Jongho, Haoda Li, Mingwei Xu, Nathan Taback, and Fanny Chevalier. 2022. <em>Mverse: Tidy Multiverse Analysis Made Simple</em>. <a href="https://CRAN.R-project.org/package=mverse">https://CRAN.R-project.org/package=mverse</a>.
@@ -6659,19 +6658,19 @@ Moon, Michael Jongho, Haoda Li, Mingwei Xu, Nathan Taback, and Fanny Chevalier. 
 Orben, Amy, and Andrew K. Przybylski. 2019. <span>“The Association Between Adolescent Well-Being and Digital Technology Use.”</span> <em>Nature Human Behaviour</em> 3 (2, 2): 173–82. <a href="https://doi.org/10.1038/s41562-018-0506-1">https://doi.org/10.1038/s41562-018-0506-1</a>.
 </div>
 <div id="ref-multiverse-r" class="csl-entry">
-Sarma, Abhraneel, Alex Kale, Michael Moon, Nathan Taback, Fanny Chevalier, Jessica Hullman, and Matthew Kay. 2021. <span>“Multiverse: Multiplexing Alternative Data Analyses in r Notebooks (Version 0.6.1).”</span> <em>OSF Preprints</em>. <a href="https://github.com/MUCollective/multiverse">https://github.com/MUCollective/multiverse</a>.
+Sarma, Abhraneel, Alex Kale, Michael Moon, et al. 2021. <span>“Multiverse: Multiplexing Alternative Data Analyses in r Notebooks (Version 0.6.1).”</span> <em>OSF Preprints</em>. <a href="https://github.com/MUCollective/multiverse">https://github.com/MUCollective/multiverse</a>.
 </div>
 <div id="ref-simonsohnSpecificationCurveAnalysis2020" class="csl-entry">
-Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
+Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July 27, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
 </div>
 <div id="ref-steegenIncreasingTransparencyMultiverse2016" class="csl-entry">
-Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, September. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
+Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, ahead of print, September 29. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
 </div>
 <div id="ref-furrr" class="csl-entry">
 Vaughan, Davis, and Matt Dancho. 2022. <em>Furrr: Apply Mapping Functions in Parallel Using Futures</em>. <a href="https://CRAN.R-project.org/package=furrr">https://CRAN.R-project.org/package=furrr</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-dplyr" class="csl-entry">
 Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
@@ -6689,7 +6688,7 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>D
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a href="https://vuorre.com/posts/parallel-multiverse/">https://vuorre.com/posts/parallel-multiverse/</a>.
+Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7. <a href="https://vuorre.com/posts/parallel-multiverse/">https://vuorre.com/posts/parallel-multiverse/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>statistics</category>
@@ -6709,7 +6708,7 @@ Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a hre
 
 <section id="ggrain" class="level1">
 <h1>ggrain</h1>
-<p><a href="https://github.com/njudd/ggrain">ggrain</a> <span class="citation" data-cites="ggrain">(Judd, van Langen, and Kievit 2022)</span> is an R package that brings extra geoms to ggplot2 to make it easy to create informative plots of your data like Figure&nbsp;1.</p>
+<p><a href="https://github.com/njudd/ggrain">ggrain</a> <span class="citation" data-cites="ggrain">(<span class="nocase">Judd et al.</span> 2022)</span> is an R package that brings extra geoms to ggplot2 to make it easy to create informative plots of your data like Figure&nbsp;1.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -7356,12 +7355,12 @@ Figure&nbsp;6: An attempt at a more complicated “raincloud” plot using ggnew
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-ggbeeswarm" class="csl-entry">
 Clarke, Erik, and Scott Sherrill-Mix. 2017. <em>Ggbeeswarm: Categorical Scatter (Violin Point) Plots</em>. <a href="https://CRAN.R-project.org/package=ggbeeswarm">https://CRAN.R-project.org/package=ggbeeswarm</a>.
 </div>
 <div id="ref-ggrain" class="csl-entry">
-Judd, Nicholas, Jordy van Langen, and Rogier Kievit. 2022. <em>Ggrain: A Rainclouds Geom for Ggplot2</em>. <a href="https://github.com/njudd/ggrain">https://github.com/njudd/ggrain</a>.
+<span class="nocase">Judd, Nicholas, Jordy van Langen, and Rogier Kievit</span>. 2022. <em>Ggrain: A Rainclouds Geom for Ggplot2</em>. <a href="https://github.com/njudd/ggrain">https://github.com/njudd/ggrain</a>.
 </div>
 <div id="ref-ggdist" class="csl-entry">
 Kay, Matthew. 2022. <em><span class="nocase">ggdist</span>: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.
@@ -7378,7 +7377,7 @@ Sherrill-Mix, Scott, and Erik Clarke. 2017. <em>Vipor: Plot Categorical Data Usi
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“Some Alternatives to Raincloud
-Plots.”</span> December 6, 2022. <a href="https://vuorre.com/posts/raincloud-plot-alt/">https://vuorre.com/posts/raincloud-plot-alt/</a>.
+Plots.”</span> December 6. <a href="https://vuorre.com/posts/raincloud-plot-alt/">https://vuorre.com/posts/raincloud-plot-alt/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>visualization</category>
@@ -7530,8 +7529,8 @@ Figure&nbsp;4: Tailscale admin panel.
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3,
-2022. <a href="https://vuorre.com/posts/remote-r/">https://vuorre.com/posts/remote-r/</a>.
+Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3.
+<a href="https://vuorre.com/posts/remote-r/">https://vuorre.com/posts/remote-r/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>workflow</category>
@@ -7866,7 +7865,7 @@ Figure&nbsp;1: Sticker made with ggplot2 and hexSticker.
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2022. <span>“Website Favicons with hexSticker.”</span>
-June 29, 2022. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vuorre.com/posts/hexsticker-favicon/</a>.
+June 29. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vuorre.com/posts/hexsticker-favicon/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <guid>https://vuorre.com/posts/hexsticker-favicon/</guid>
@@ -7931,8 +7930,8 @@ font-style: inherit;">"curl -d 'Woke up after .1 second nap!' ntfy.sh/vuorre-r-n
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15,
-2022. <a href="https://vuorre.com/posts/easy-notifications-from-r/">https://vuorre.com/posts/easy-notifications-from-r/</a>.
+Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15.
+<a href="https://vuorre.com/posts/easy-notifications-from-r/">https://vuorre.com/posts/easy-notifications-from-r/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>workflow</category>
@@ -8596,7 +8595,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2020" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2020. <span>“How to Calculate Contrasts from a Fitted
-Brms Model.”</span> February 6, 2020. <a href="https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/">https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/</a>.
+Brms Model.”</span> February 6. <a href="https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/">https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>statistics</category>
@@ -11049,7 +11048,7 @@ Figure&nbsp;7: Results of the simulation study. Top: the estimated mean differen
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-BurknerBrmsPackageBayesian2017" class="csl-entry">
 Bürkner, Paul-Christian. 2017. <span>“Brms: <span>An</span> <span>R</span> <span>Package</span> for <span>Bayesian</span> <span>Multilevel</span> <span>Models</span> <span>Using</span> <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
 </div>
@@ -11094,7 +11093,7 @@ Yarkoni, Tal, and Jacob Westfall. 2017. <span>“Choosing <span>Prediction</span
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2019" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2019. <span>“How to Analyze Visual Analog (Slider) Scale
-Data?”</span> February 18, 2019. <a href="https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/">https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</a>.
+Data?”</span> February 18. <a href="https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/">https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>statistics</category>
@@ -11350,7 +11349,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div></div>
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2018" class="csl-entry quarto-appendix-citeas">
 Vuorre, Matti. 2018. <span>“Combine Ggplots with Patchwork.”</span>
-December 13, 2018. <a href="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/">https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</a>.
+December 13. <a href="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/">https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</a>.
 </div></div></section></div> ]]></description>
   <category>r</category>
   <category>visualization</category>

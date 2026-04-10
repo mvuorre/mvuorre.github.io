@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Tidymultiverse – Matti’s website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -62,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -90,19 +92,18 @@ div.csl-indent {
 <link href="../../images/icon/favicon-32x32.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-de8274a4d1ecc1e6aaeaf6e5564b5074.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-3ff4805f19b0085abba01199065d0a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-975e726794ce811e14261b5ab5acfd7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ea89d1f4b0bc876d4e295bbe62a6c7f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ee868c47dbd4ccb91c7607f98551dd62.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c6677201cb9fe4689f9e87dfa36942fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b981dc8e5a2e774b6dadd1ee4cd1c171.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,7 +138,7 @@ div.csl-indent {
 <meta property="og:title" content="Tidymultiverse – Matti’s website">
 <meta property="og:description" content="How to conduct multiverse analyses in R with tidy pipelines and parallel processing.">
 <meta property="og:image" content="https://vuorre.com/posts/parallel-multiverse/images/undraw-lost-online.png">
-<meta property="og:site_name" content="Matti's website">
+<meta property="og:site_name" content="Matti’s website">
 <meta property="og:image:height" content="946">
 <meta property="og:image:width" content="1167">
 <meta name="twitter:title" content="Tidymultiverse – Matti’s website">
@@ -443,7 +444,7 @@ div.csl-indent {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse, or specification curve, analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(<a href="#ref-simonsohnSpecificationCurveAnalysis2020" role="doc-biblioref">Simonsohn, Simmons, and Nelson 2020</a>; <a href="#ref-steegenIncreasingTransparencyMultiverse2016" role="doc-biblioref">Steegen et al. 2016</a>)</span>.</p>
+<p>The results of statistical analyses often depend on analysts’ (sometimes arbitrary) decisions, such as which covariates to model or what subsets of data to analyse. Multiverse, or specification curve, analysis is a method whereby the analysts don’t only conduct and report the results from one model, but instead conduct all the relevant and plausible analyses and report all the results <span class="citation" data-cites="simonsohnSpecificationCurveAnalysis2020 steegenIncreasingTransparencyMultiverse2016">(<a href="#ref-simonsohnSpecificationCurveAnalysis2020" role="doc-biblioref">Simonsohn et al. 2020</a>; <a href="#ref-steegenIncreasingTransparencyMultiverse2016" role="doc-biblioref">Steegen et al. 2016</a>)</span>.</p>
 <p>For example, <span class="citation" data-cites="orbenAssociationAdolescentWellbeing2019">Orben and Przybylski (<a href="#ref-orbenAssociationAdolescentWellbeing2019" role="doc-biblioref">2019</a>)</span> showed, through analyzing the same datasets in thousands of different ways, that conclusions regarding the association between the psychological well-being of adolescents and their digital technology use critically depend on (mostly) arbitrary decisions in how and which data are analysed (<a href="#fig-op3" class="quarto-xref">Figure&nbsp;1</a>).</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -523,7 +524,7 @@ Table&nbsp;1: Example data (n = 100,000; 5.3 Mb on disk)
 </figcaption>
 <div aria-describedby="tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">x1</th>
@@ -635,7 +636,7 @@ Table&nbsp;2: First six rows of multiverse numerical results from specr
 </figcaption>
 <div aria-describedby="tbl-specr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -781,7 +782,7 @@ Table&nbsp;3: First six rows of example specifications table.
 </figcaption>
 <div aria-describedby="tbl-specs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -866,7 +867,7 @@ Table&nbsp;4: First six rows of example specifications table with subgroups.
 </figcaption>
 <div aria-describedby="tbl-specs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -979,7 +980,7 @@ Table&nbsp;5: First six rows of example specifications table with subgroups and 
 </figcaption>
 <div aria-describedby="tbl-specs-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -1075,7 +1076,7 @@ Table&nbsp;6: Output of <code>lm2(y1 ~ x1, data = dat)</code>.
 </figcaption>
 <div aria-describedby="tbl-lm2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
@@ -1124,7 +1125,7 @@ Table&nbsp;7: Output of <code>lm2(group ~ x1, data = dat)</code>.
 </figcaption>
 <div aria-describedby="tbl-lm2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
@@ -1205,7 +1206,7 @@ Table&nbsp;8: First six rows of results from multiverse analysis.
 </figcaption>
 <div aria-describedby="tbl-mv-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">x</th>
@@ -1448,7 +1449,7 @@ Table&nbsp;9: Example results from the four estimation methods.
 </figcaption>
 <div aria-describedby="tbl-results-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="lightable-classic-2 lightable-striped do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="lightable-classic-2 lightable-striped cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Method</th>
@@ -1552,9 +1553,9 @@ Figure&nbsp;3: Specification curve figure example with ggplot().
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-specr" class="csl-entry" role="listitem">
-Masur, Philipp K., and Michael Scharkow. 2020. <span>“Specr: Conducting and Visualizing Specification Curve Analyses (Version 0.2.2).”</span> <a href="https://CRAN.R-project.org/package=specr">https://CRAN.R-project.org/package=specr</a>.
+Masur, Philipp K., and Michael Scharkow. 2020. <em>Specr: Conducting and Visualizing Specification Curve Analyses (Version 0.2.2)</em>. <a href="https://CRAN.R-project.org/package=specr">https://CRAN.R-project.org/package=specr</a>.
 </div>
 <div id="ref-mverse" class="csl-entry" role="listitem">
 Moon, Michael Jongho, Haoda Li, Mingwei Xu, Nathan Taback, and Fanny Chevalier. 2022. <em>Mverse: Tidy Multiverse Analysis Made Simple</em>. <a href="https://CRAN.R-project.org/package=mverse">https://CRAN.R-project.org/package=mverse</a>.
@@ -1563,19 +1564,19 @@ Moon, Michael Jongho, Haoda Li, Mingwei Xu, Nathan Taback, and Fanny Chevalier. 
 Orben, Amy, and Andrew K. Przybylski. 2019. <span>“The Association Between Adolescent Well-Being and Digital Technology Use.”</span> <em>Nature Human Behaviour</em> 3 (2, 2): 173–82. <a href="https://doi.org/10.1038/s41562-018-0506-1">https://doi.org/10.1038/s41562-018-0506-1</a>.
 </div>
 <div id="ref-multiverse-r" class="csl-entry" role="listitem">
-Sarma, Abhraneel, Alex Kale, Michael Moon, Nathan Taback, Fanny Chevalier, Jessica Hullman, and Matthew Kay. 2021. <span>“Multiverse: Multiplexing Alternative Data Analyses in r Notebooks (Version 0.6.1).”</span> <em>OSF Preprints</em>. <a href="https://github.com/MUCollective/multiverse">https://github.com/MUCollective/multiverse</a>.
+Sarma, Abhraneel, Alex Kale, Michael Moon, et al. 2021. <span>“Multiverse: Multiplexing Alternative Data Analyses in r Notebooks (Version 0.6.1).”</span> <em>OSF Preprints</em>. <a href="https://github.com/MUCollective/multiverse">https://github.com/MUCollective/multiverse</a>.
 </div>
 <div id="ref-simonsohnSpecificationCurveAnalysis2020" class="csl-entry" role="listitem">
-Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
+Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em>, July 27, 1–7. <a href="https://doi.org/10.1038/s41562-020-0912-z">https://doi.org/10.1038/s41562-020-0912-z</a>.
 </div>
 <div id="ref-steegenIncreasingTransparencyMultiverse2016" class="csl-entry" role="listitem">
-Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, September. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
+Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing <span>Transparency Through</span> a <span>Multiverse Analysis</span>.”</span> <em>Perspectives on Psychological Science</em>, ahead of print, September 29. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.
 </div>
 <div id="ref-furrr" class="csl-entry" role="listitem">
 Vaughan, Davis, and Matt Dancho. 2022. <em>Furrr: Apply Mapping Functions in Parallel Using Futures</em>. <a href="https://CRAN.R-project.org/package=furrr">https://CRAN.R-project.org/package=furrr</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
@@ -1593,7 +1594,7 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <em>D
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7, 2022. <a href="https://vuorre.com/posts/parallel-multiverse/">https://vuorre.com/posts/parallel-multiverse/</a>.
+Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7. <a href="https://vuorre.com/posts/parallel-multiverse/">https://vuorre.com/posts/parallel-multiverse/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

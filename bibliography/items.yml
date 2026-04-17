@@ -873,9 +873,9 @@
     “Preprints”—scholarly manuscripts not yet captured by the publication industry—have greatly facilitated science communication speed and accessibility. Yet, the “intellectual perestroika” of online prepublications (Harnad, 1990) hasn’t been realized: Preprints continue to be treated as less authoritative versions of their “published” counterparts. Moreover, the services that underlie this gap in perceived authoritativeness—editorship, peer-review, publicizing, discovery, etc.—can be provided for preprints but commonly aren’t, and are provided by academics but incorrectly credited to the publishing industry. Why? To answer, we will conduct thematic discussions to identify and examine factors that hinder the appeal and adoption of preprints as the primary objects of scholarly communication. We will then develop methods for overcoming these obstacles. By doing so we hope to move towards Harnad’s (1998) vision of the “final state toward which the learned journal literature is evolving”: Preprints are all we need.
   extra: ~
 - title: >-
-    quarto-preprint: a quarto extension for preprints using typst
+    quarto-preprint
   url: https://github.com/mvuorre/quarto-preprint
-  date: 2025
+  date: 2025-04-11T03:07:04Z
   type: computerProgram
   authors: 'Vuorre'
   doi: NA
@@ -886,7 +886,7 @@
     NA
   categories: []
   abstract: |
-    NA
+    A Quarto extension for creating PDF documents with Typst
   extra: ~
 - title: >-
     The relation between the sense of agency and the experience of flow
@@ -970,6 +970,22 @@
   abstract: |
     The experience of controlling events in the external world through voluntary action-- the sense of agency (SoA)-- is a subtle but pervasive feature of human mental life and a constituent part of the sense of self (Gallagher, 2000). However, instead of reflecting an actual connection between conscious thoughts and subsequent outcomes, SoA may be an illusion (Wegner, 2002). Whether this experience is an illusion, indicating no actual causal connection between conscious intention and physical outcome in the world, has been the focus of intense philosophical and scientific debate since the beginnings of these fields of enquiry. More recently, the fields of experimental psychology and cognitive neuroscience have begun to identify specific antecedents of the experience of agency -- whether veridical or not (Haggard, 2008). Similar to the perception of causality, which depends on the temporal structure of the events, humans' experience of their agency is very sensitive to the temporal interval separating bodily actions from the external effects of those actions. Accordingly, just as studies on perception of causality in the outside world have paid much attention to the temporal configuration of events, many contemporary studies have also focused on the contribution of the temporal organization of events giving rise to SoA, and in turn how experienced agency might influence subjective time. Here, I review existing evidence suggesting that subjective time both influences and is influenced by perceived causality in general, and experienced agency in particular. Finally, I briefly speculate that these findings may support predictive coding theories of cognition and perception (e.g. Hohwy, 2013).
   extra: ~
+- title: >-
+    Time spent playing video games is unlikely to impact well-being
+  url: https://osf.io/8cxyh_v1
+  date: 2021-10-11
+  type: preprint
+  authors: 'Vuorre, Johannes, Magnusson & Przybylski'
+  doi: 10.31234/osf.io/8cxyh
+  source: >-
+    PsyArXiv
+  file: bibliography/files/RB2I48VM/vuorre-etal_2021_time-spent-playing-video-games-is-unlike.pdf
+  meeting: >-
+    NA
+  categories: [human motivation, play behaviour, video games, well-being]
+  abstract: |
+    Video games are a massively popular form of entertainment, socialising, cooperation, and competition. Games’ ubiquity fuels fears that they cause poor mental health, and major health bodies and national governments have made far-reaching policy decisions to address games’ potential risks, despite lacking adequate supporting data. The concern-evidence mismatch underscores that we know too little about games’ impacts on well-being. We addressed this disconnect by linking six weeks of 38,030 players’ objective game-behaviour data, provided by six global game publishers, with three waves of their self-reported well-being that we collected. We found little to no evidence for a causal connection between gameplay and well-being. However, results suggested that motivations play a role in players’ well- being. For good or ill, the average effects of time spent playing video games on players’ well-being are likely very small, and further industry data are required to determine potential risks and supportive factors to health.
+  publication: https://doi.org/10.1098/rsos.220411
 - title: >-
     Time spent playing video games is unlikely to impact well-being
   url: NA

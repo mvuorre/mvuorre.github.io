@@ -9,7 +9,8 @@ listing:
       - bibliography/items.yml
     include:
       type: "{journalArticle,book,preprint}"
-    # This excludes items that have a publication (i.e. published preprints; tracked in `extra: publication: ` in Zotero)
+    # This excludes items that have a publication
+    # (published preprints; tracked in `extra: publication: ` in Zotero)
     exclude:
       publication: "**"
     categories: true
@@ -64,7 +65,6 @@ The listings on this page are automatically generated from my Zotero library wit
 #| code-fold: true
 #| code-summary: Show code
 #| output: false
-
 # Create bibliographies from Zotero collections
 
 library(jsonlite)

@@ -1,14 +1,32 @@
 ```{=html}
-<ul class="list" style="line-height: 1.2;">
+<%
+const hasValue = (value) => value && value !== "NA";
+const hasText = (value) => hasValue(value) && value.trim() !== "";
+%>
+<ul class="list ps-3 mb-0" style="list-style: disc; line-height: 1.25;">
   <% for (const item of items) { %>
-    <li class="list-item" style="margin-bottom: 2px;" <%=metadataAttrs(item) %>>
-      <b><%= item.title %></b> (<%= item.authors %>, <%= item.date %>). <a href="<%= item.url %>"><%= item.source %></a>, <a href="<%= item.file %>">PDF</a>
-      <% if(item.abstract) { %>
-        <details>
+    <li class="mb-2" <%= metadataAttrs(item) %>>
+      <div class="listing-title">
+        <b><%= item.title %></b>
+        <span class="listing-date small" style="margin-top: 0.1rem;">(<%= item.date %>)</span>
+      </div>
+      <div class="listing-description small" style="margin-top: 0.15rem;">
+        <%= item.authors %>.
+        <% if (hasValue(item.source)) { %><% if (hasValue(item.url)) { %><a href="<%- item.url %>"><i><%= item.source %></i></a><% } else { %><i><%= item.source %></i><% } %>.<% } %>
+        <% if (hasValue(item.file) || hasValue(item.preprint) || hasValue(item.code) || hasValue(item.data)) { %>
+          <span class="listing-meta text-muted">
+            •
+            <% if (hasValue(item.file)) { %><a href="<%- item.file %>">pdf</a><% } %>
+            <% if (hasValue(item.preprint)) { %><% if (hasValue(item.file)) { %>, <% } %><a href="<%- item.preprint %>">preprint</a><% } %>
+            <% if (hasValue(item.code)) { %><% if (hasValue(item.file) || hasValue(item.preprint)) { %>, <% } %><a href="<%- item.code %>">code</a><% } %>
+            <% if (hasValue(item.data)) { %><% if (hasValue(item.file) || hasValue(item.preprint) || hasValue(item.code)) { %>, <% } %><a href="<%- item.data %>">data</a><% } %>
+          </span>
+        <% } %>
+      </div>
+      <% if (hasText(item.abstract)) { %>
+        <details style="margin-top: 0.2rem; margin-bottom: 0;">
           <summary>Abstract</summary>
-          <div class="listing-abstract">
-            <%= item.abstract %>
-          </div>
+          <div class="listing-abstract"><%= item.abstract.trim() %></div>
         </details>
       <% } %>
     </li>

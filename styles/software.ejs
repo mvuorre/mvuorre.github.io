@@ -1,15 +1,24 @@
 ```{=html}
-<ul class="list" style="line-height: 1.2;">
-    <% for (const item of items) { %>
-        <li class="list-item" <%=metadataAttrs(item) %>>
-            <span class="listing-name">
-                <b>
-                    <%= item.title %>
-                </b>: <a href="<%- item.url %>">
-                    <%= item.url %>
-                </a>
-            </span>
-        </li>
-        <% } %>
+<%
+const hasValue = (value) => value && value !== "NA";
+const hasText = (value) => hasValue(value) && value.trim() !== "";
+%>
+<ul class="list ps-3 mb-0" style="list-style: disc; line-height: 1.25;">
+  <% for (const item of items) { %>
+    <li class="mb-2" <%= metadataAttrs(item) %>>
+      <div class="listing-title">
+        <b><% if (hasValue(item.url)) { %><a href="<%- item.url %>"><%= item.title %></a><% } else { %><%= item.title %><% } %></b>
+      </div>
+      <% if (hasText(item.abstract)) { %>
+        <div class="listing-description small" style="margin-top: 0.15rem;"><%= item.abstract.trim() %></div>
+      <% } %>
+      <% if (hasValue(item.code) || hasValue(item.data)) { %>
+        <div class="listing-meta text-muted small" style="margin-top: 0.15rem;">
+          <% if (hasValue(item.code)) { %><a href="<%- item.code %>">code</a><% } %>
+          <% if (hasValue(item.data)) { %><% if (hasValue(item.code)) { %>, <% } %><a href="<%- item.data %>">data</a><% } %>
+        </div>
+      <% } %>
+    </li>
+  <% } %>
 </ul>
 ```

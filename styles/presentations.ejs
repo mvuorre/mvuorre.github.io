@@ -1,32 +1,31 @@
 ```{=html}
-<ul class="list" style="line-height: 1.2;">
-    <% for (const item of items) { %>
-        <li class="list-item" style="margin-bottom: -10px;" <%=metadataAttrs(item) %>>
-            <span class="listing-name">
-                <b>
-                    <%= item.title %>
-                </b> (<%= item.date %>).
-            </span>
-            <span class="listing-location">
-                <% if (item.meeting!="NA" ) { %>
-                    <i><%- item.meeting %></i>,
-                    <% } %>
-                        <i><%- item.source %></i>.
-                        <% if (item.url!="NA" ) { %>
-                            <span class="listing-url">
-                                [<a href="<%- item.url %>">link</a>]
-                            </span>
-                            <% } %>
-                                <span>
-                                    <% if (item.abstract!="NA" ) { %>
-                                        <details>
-                                            <summary>Summary</summary>
-                                            <div class="listing-abstract">
-                                                <%- item.abstract %>
-                                            </div>
-                                        </details>
-                                        <% } %>
-        </li>
+<%
+const hasValue = (value) => value && value !== "NA";
+const hasText = (value) => hasValue(value) && value.trim() !== "";
+%>
+<ul class="list ps-3 mb-0" style="list-style: disc; line-height: 1.25;">
+  <% for (const item of items) { %>
+    <li class="mb-2" <%= metadataAttrs(item) %>>
+      <div class="listing-title">
+        <b><% if (hasValue(item.url)) { %><a href="<%- item.url %>"><%= item.title %></a><% } else { %><%= item.title %><% } %></b>
+        <span class="listing-date small" style="margin-top: 0.1rem;">(<%= item.date %>)</span>
+      </div>
+      <div class="listing-description small" style="margin-top: 0.15rem;">
+        <% if (hasValue(item.meeting)) { %><i><%= item.meeting %></i><% } %><% if (hasValue(item.source)) { %><% if (hasValue(item.meeting)) { %>, <% } %><%= item.source %><% } %><% if (hasValue(item.meeting) || hasValue(item.source)) { %>.<% } %>
+        <% if (hasValue(item.file)) { %>
+          <span class="listing-meta text-muted">
+            •
+            <a href="<%- item.file %>">pdf</a>
+          </span>
         <% } %>
+      </div>
+      <% if (hasText(item.abstract)) { %>
+        <details style="margin-top: 0.2rem; margin-bottom: 0;">
+          <summary>Summary</summary>
+          <div class="listing-abstract"><%= item.abstract.trim() %></div>
+        </details>
+      <% } %>
+    </li>
+  <% } %>
 </ul>
 ```

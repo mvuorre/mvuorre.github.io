@@ -68,3 +68,47 @@ main a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+
+.listing-pagination {
+  margin-top: 1rem;
+
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  .page-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    line-height: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+
+  .page-item.active .page-link,
+  .page-item.disabled .page-link {
+    border: 0;
+    background: none;
+    color: inherit;
+  }
+
+  .page-item.active .page-link {
+    font-weight: 600;
+  }
+
+  .page-item.disabled .page-link {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

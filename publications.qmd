@@ -71,7 +71,6 @@ library(jsonlite)
 library(fs)
 library(janitor)
 library(tidyverse)
-library(bib2df)
 library(knitr)
 library(httr2)
 
@@ -141,6 +140,10 @@ dat <- dat |>
         str_to_lower()
     )
   )
+
+# Use doi (preferred) or url
+dat <- dat |>
+  mutate(url = coalesce(str_c("https://doi.org/", doi), url))
 
 # Write a YAML file for Quarto listing
 # Note the Zotero 'Extra' field can contain items like

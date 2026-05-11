@@ -15,11 +15,12 @@ const hasText = (value) => hasValue(value) && value.trim() !== "";
         <% if (hasValue(item.source)) { %><% if (hasValue(item.url)) { %><a href="<%- item.url %>"><i><%= item.source %></i></a><% } else { %><i><%= item.source %></i><% } %>.<% } %>
         <% if (hasValue(item.file) || hasValue(item.preprint) || hasValue(item.code) || hasValue(item.data)) { %>
           <span class="listing-meta text-muted">
-            •
+            [
             <% if (hasValue(item.file)) { %><a href="<%- item.file %>">pdf</a><% } %>
             <% if (hasValue(item.preprint)) { %><% if (hasValue(item.file)) { %>, <% } %><a href="<%- item.preprint %>">preprint</a><% } %>
             <% if (hasValue(item.code)) { %><% if (hasValue(item.file) || hasValue(item.preprint)) { %>, <% } %><a href="<%- item.code %>">code</a><% } %>
             <% if (hasValue(item.data)) { %><% if (hasValue(item.file) || hasValue(item.preprint) || hasValue(item.code)) { %>, <% } %><a href="<%- item.data %>">data</a><% } %>
+            ]
           </span>
         <% } %>
       </div>

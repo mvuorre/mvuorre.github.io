@@ -82,7 +82,7 @@ PATH_OUT <- "bibliography/files"
 # Get publications as jzon (BetterBibTeX JSON debug format) from local Zotero API
 # https://retorque.re/zotero-better-bibtex/exporting/pull/index.html
 dat <- request(
-  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/cv/cv.jzon"
+  "http://127.0.0.1:23119/better-bibtex/export?/library;name:My%20Library/collection/cv.jzon"
 ) |>
   req_perform() |>
   resp_body_string() |>

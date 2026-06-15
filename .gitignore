@@ -23,9 +23,6 @@ _freeze/
 # Publication PDFs in source (become available in docs/ when rendered)
 bibliography/files/
 
-# Draft posts
-/posts/drafts/
-
 # Environment files
 .env
 .Renviron

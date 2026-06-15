@@ -7,7 +7,7 @@ const hasText = (value) => hasValue(value) && value.trim() !== "";
   <% for (const item of items) { %>
     <li class="mb-2" <%= metadataAttrs(item) %>>
       <div class="listing-title">
-        <b><% if (hasValue(item.url)) { %><a href="<%- item.url %>"><%= item.title %></a><% } else { %><%= item.title %><% } %></b>
+        <% if (hasValue(item.url)) { %><a href="<%- item.url %>"><%= item.title %></a><% } else { %><%= item.title %><% } %>
         <span class="listing-date small" style="margin-top: 0.1rem;">(<%= item.date %>)</span>
       </div>
       <div class="listing-description small" style="margin-top: 0.15rem;">

@@ -46,6 +46,9 @@ website:
         href: "{{<meta repo-url >}}"
       - icon: bluesky
         href: https://bsky.app/profile/matti.vuorre.com
+  announcement: 
+    content: I am hiring a postdoctoral researcher in 2026 / 2027, please get in touch if you're interested.
+    position: below-navbar
 format:
   html:
     theme:

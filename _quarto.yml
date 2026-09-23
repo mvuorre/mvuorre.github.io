@@ -14,7 +14,6 @@ website:
   site-url: https://vuorre.com
   description: Matti's website
   repo-url: https://github.com/mvuorre/mvuorre.github.io
-  repo-actions: [edit, source, issue]
   draft-mode: unlinked
   favicon: images/icon/favicon-32x32.png
   comments:
@@ -40,21 +39,13 @@ website:
         href: publications.qmd
       - text: Blog
         href: blog.qmd
-      - icon: rss
+      - text: RSS
         href: blog.xml
-      - icon: github
-        href: "{{<meta repo-url >}}"
-      - icon: bluesky
-        href: https://bsky.app/profile/matti.vuorre.com
-  announcement: 
-    content: I am hiring a postdoctoral researcher in 2026 / 2027, please get in touch if you're interested.
-    position: below-navbar
 format:
   html:
-    theme:
-      light: [zephyr, light.scss]
-      dark: [darkly, dark.scss]
-    mainfont: "Atkinson Hyperlegible"
+    theme: [zephyr, light.scss]
+    mainfont: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif
+    monofont: ui-monospace, "SF Mono", Consolas, monospace
     highlight-style: a11y
     header-includes:
       - <script data-goatcounter="https://vuorre.goatcounter.com/count"

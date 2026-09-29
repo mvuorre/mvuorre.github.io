@@ -9,14 +9,67 @@
 <link>https://vuorre.com/blog.html</link>
 <atom:link href="https://vuorre.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Matti&#39;s website</description>
-<generator>quarto-1.9.38</generator>
-<lastBuildDate>Mon, 13 Oct 2025 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Mon, 21 Sep 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Thank you for reading my work</title>
+  <dc:creator>Matti Vuorre</dc:creator>
+  <link>https://vuorre.com/posts/reply-to-sigaud/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Public criticism and commentary is a critical part of science. When done well, critical commentary can improve existing work, refocus attention from flawed work, inspire new research questions, and advance theory. Commentary extends peer review, and because I always appreciate anyone taking the time to reflect on my work, I was delighted to learn that a commentary of my work was uploaded to <a href="https://doi.org/10.31234/osf.io/5fpeu_v1">PsyArXiv</a>, and later appeared in Clinical Psychological Science <span class="citation" data-cites="sigaudWhyThreeStudies2026">(Sigaud et al. 2026)</span>.</p>
+<p>The commentary is titled “Why three studies by Vuorre and Przybylski should not be used to assess the impact of social media on adolescent mental health”. I’d expect the commentary then to show that <strong>a.</strong> our papers intended but failed to examine “the impact of social media on adolescent mental health”, and <strong>b.</strong> that our papers are indeed used in this manner (and perhaps that we’re responsible—why else would you write about our papers rather than the documents citing them?). We’ve addressed <strong>a.</strong> at length <span class="citation" data-cites="przybylskiWhereScienceMeets2025 przybylskiWhyOneCommentary">(Przybylski and Vuorre 2025; Vuorre and Przybylski 2026)</span>, so here briefly discuss <strong>b.</strong></p>
+<p>The claim is specifically about how our works are “often cited as evidence that social media is not harmful to adolescents”. Though I agree that scientists have responsibility over how their works are interepreted—writing must be clear, limitations clearly acknowledged, etc.—it is odd to criticize our work over how others use it, especially when the authors included only two citations to show that this has indeed happened: The first is from a review of a popular self-help book, where the only reference to our work is after “An analysis done in 72 countries shows no consistent or measurable associations between well-being and the roll-out of social media globally” <span class="citation" data-cites="odgersGreatRewiringSocial2024">(Odgers 2024)</span>. This is an accurate description, and doesn’t evidence <span class="citation" data-cites="sigaudWhyThreeStudies2026">Sigaud et al. (2026)</span>’s claim. The other is from Oxford’s <a href="https://www.ox.ac.uk/news/2023-08-09-no-evidence-linking-facebook-adoption-and-negative-well-being">press release</a> on <span class="citation" data-cites="vuorreMultiverseAnalysisAssociations2024">Vuorre and Przybylski (2024)</span>. While this reads like a typical press release and contains the causally suggestive word “harm” throughout, it is not a good example of citing our work as evidence that “social media is not harmful to adolescents”. Since the claim that our work is used in this manner is a critical motivation for the commentary, it is peculiar that <span class="citation" data-cites="sigaudWhyThreeStudies2026">Sigaud et al. (2026)</span> only included two examples of this, neither of which contain the suggested claim.</p>
+<p>There is also a rather offending claim in <span class="citation" data-cites="sigaudWhyThreeStudies2026">Sigaud et al. (2026)</span> that we have inappropriately spun our work in interviews. We address this in <span class="citation" data-cites="przybylskiWhereScienceMeets2025">Przybylski and Vuorre (2025)</span>. In the <a href="https://osf.io/preprints/psyarxiv/pjnw6_v1">submitted version of our reply</a>, we conclude that our comments remain “appropriate and accurate in context of best-selling self-help books with subtitles such as ‘How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness’”.</p>
+<p>But I want to conclude this on a different note. I wanted to repeat my thanks to <span class="citation" data-cites="sigaudWhyThreeStudies2026">Sigaud et al. (2026)</span> for (presumably) reading our work and engaging critically with it. This is something we should perhaps be doing more of—e.g.&nbsp;as <a href="https://vuorre.com/posts/open-peer-review/">open peer reviews</a>.</p>
+
+
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+
+<p>We submitted a <a href="https://doi.org/10.31234/osf.io/v54tp_v1">reply</a> to the commentary <span class="citation" data-cites="przybylskiWhereScienceMeets2025">(Przybylski and Vuorre 2025)</span>, and though it was initially rejected for being too long (we had a lot to say, naturally, and it is likely the sole reviewer did not read it because their review consisted of two sentences, the second of which was an apology), we’re hopeful that at least <a href="https://osf.io/preprints/psyarxiv/pjnw6_v1">our shorter resubmission</a> <span class="citation" data-cites="przybylskiWhyOneCommentary">(Vuorre and Przybylski 2026)</span> will reach the readers of <span class="citation" data-cites="sigaudWhyThreeStudies2026">Sigaud et al. (2026)</span>.</p>
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-odgersGreatRewiringSocial2024" class="csl-entry">
+Odgers, Candice L. 2024. <span>“The Great Rewiring: Is Social Media Really Behind an Epidemic of Teenage Mental Illness?”</span> <em>Nature</em> 628 (8006): 29–30. <a href="https://doi.org/10.1038/d41586-024-00902-2">https://doi.org/10.1038/d41586-024-00902-2</a>.
+</div>
+<div id="ref-przybylskiWhereScienceMeets2025" class="csl-entry">
+Przybylski, Andrew K, and Matti Vuorre. 2025. <em>Where Science Meets Discourse: What a Flawed Commentary of Three Papers Can Teach Us about Research on Well-Being in the Digital Age</em>. PsyArXiv. <a href="https://doi.org/10.31234/osf.io/v54tp_v1">https://doi.org/10.31234/osf.io/v54tp_v1</a>.
+</div>
+<div id="ref-sigaudWhyThreeStudies2026" class="csl-entry">
+Sigaud, Liam, Zachary Rausch, Alec McClean, and Jonathan Haidt. 2026. <span>“Why Three Studies by Vuorre and Przybylski Should Not Be Used to Assess the Impact of Social Media on Adolescent Mental Health.”</span> <em>Clinical Psychological Science</em>, April, 21677026261425910. <a href="https://doi.org/10.1177/21677026261425910">https://doi.org/10.1177/21677026261425910</a>.
+</div>
+<div id="ref-vuorreMultiverseAnalysisAssociations2024" class="csl-entry">
+Vuorre, Matti, and Andrew K. Przybylski. 2024. <span>“A Multiverse Analysis of the Associations Between Internet Use and Well-Being.”</span> <em>Technology, Mind, and Behavior</em> 5 (2): 65–75. <a href="https://doi.org/10.1037/tmb0000127">https://doi.org/10.1037/tmb0000127</a>.
+</div>
+<div id="ref-przybylskiWhyOneCommentary" class="csl-entry">
+Vuorre, Matti, and Andrew K. Przybylski. 2026. <em>Why One Commentary by Sigaud and Colleagues Should Not Be Used to Assess Our Work on the Psychology of Digital Technologies</em>. PsyArXiv. <a href="https://osf.io/pjnw6_v1">https://osf.io/pjnw6_v1</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2026,
+  author = {Vuorre, Matti},
+  title = {Thank You for Reading My Work},
+  date = {2026-09-22},
+  url = {https://vuorre.com/posts/reply-to-sigaud/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2026" class="csl-entry quarto-appendix-citeas">
+Vuorre, Matti. 2026. <span>“Thank You for Reading My Work.”</span>
+September 22. <a href="https://vuorre.com/posts/reply-to-sigaud/">https://vuorre.com/posts/reply-to-sigaud/</a>.
+</div></div></section></div> ]]></description>
+  <category>research</category>
+  <category>communication</category>
+  <guid>https://vuorre.com/posts/reply-to-sigaud/</guid>
+  <pubDate>Mon, 21 Sep 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Against publishing</title>
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/preprints-opinion/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -68,7 +121,6 @@ Vuorre, Matti. 2025. <span>“Against Publishing.”</span> October 14. <a href=
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/psyarxiv-network/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -777,7 +829,6 @@ September 24. <a href="https://vuorre.com/posts/psyarxiv-network/">https://vuorr
 
 
 
-
 <p>Figure&nbsp;1 outlines an ideal but not fully fleshed out workflow in academic psychology: You receive an idea from divine inspiration, do <strong>?</strong>, and science comes out the other end.</p>
 <div id="fig-underpants" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1123,7 +1174,6 @@ Academic Projects.”</span> August 22. <a href="https://vuorre.com/posts/workfl
 
 
 
-
 <p>When you browse to an academic journal article’s website, for example <a href="https://journals.sagepub.com/doi/10.1177/2515245918770963">this one</a><sup>1</sup>, if you are lucky and the manuscript is not <a href="https://astro.theoj.org/post/168-">paywalled</a>, you can read the HTML version of the article which usually looks something like the one shown in Figure&nbsp;1.</p>
 <div id="fig-page" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1188,7 +1238,6 @@ Vuorre, Matti. 2025. <span>“PDF-Direct.”</span> July 3. <a href="https://vuo
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/zotero-positron-vscode/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -1284,7 +1333,6 @@ Documents .”</span> June 6. <a href="https://vuorre.com/posts/zotero-positron-
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/bmlm-multilevel-mediation/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -2605,7 +2653,6 @@ Brms.”</span> May 2. <a href="https://vuorre.com/posts/bmlm-multilevel-mediati
 
 
 
-
 <p>In this entry, I outline my approach to evaluating scientific outputs based on the principles of transparency and openness.<sup>1</sup> I also include my template responses to review invitations.</p>
 <section id="background-and-principles" class="level2">
 <h2 class="anchored" data-anchor-id="background-and-principles">Background and principles</h2>
@@ -2785,7 +2832,6 @@ Practices.”</span> February 3. <a href="https://vuorre.com/posts/open-peer-rev
 
 
 
-
 <p>It turns out that preprints are both important and pretty, <a href="https://youtu.be/kRz8-EXlhBo?feature=shared">pretty good</a> <span class="citation" data-cites="ahmedFutureAcademicPublishing2023 moshontzGuidePostingManaging2021 severBiomedicalPublishingHistoric2023 syedValuingPreprintsMust2024">(Ahmed et al. 2023; Moshontz et al. 2021; Sever 2023; Syed 2024)</span>. In fact in the modern scholarly publishing and communication ecosystem, the word “pre<em>print</em>” is a bit of misnomer: “Preprint” can refer to peer-reviewed <span class="citation" data-cites="vuorreThreeObjectionsNovel2022">(e.g. Vuorre et al. 2022)</span> and non-peer-reviewed <span class="citation" data-cites="ballouHowVideoGames2024">(e.g. Ballou et al. 2024)</span> documents that may or may not ever be printed on physical paper. I think many in the community think of them as either (1) non-peer-reviewed documents that communicate scholarly arguments/content, or (2) pre-typeset versions of peer-reviewed (or otherwise “ready for production”) documents about to be published in a journal.</p>
 <p>Many related issues remain before the community is ready to follow more mature sciences and embrace preprints as bona-fide scholarly outputs <span class="citation" data-cites="petrichoweNatureTakeWhat2022 syedValuingPreprintsMust2024">(Petrić Howe et al. 2022; Syed 2024)</span>, including discovery (how will I find signal from all this [subjective] noise?), and typesetting (“make papers look not awful”) which we so dearly love. Below, I describe my recent efforts on these two fronts.</p>
 <section id="discovery" class="level2">
@@ -2898,7 +2944,6 @@ Website.”</span> June 20. <a href="https://vuorre.com/posts/quarto-preprint-ps
 
 
 
-
 <section id="how-to-use-a-computer" class="level1">
 <h1>How to use a computer</h1>
 <ul>
@@ -2993,7 +3038,7 @@ Kruschke, John K. 2014. <em>Doing <span>Bayesian Data Analysis</span>: <span>A T
 McElreath, Richard. 2020. <em>Statistical Rethinking: A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. 2nd ed. <span>CRC</span> Texts in Statistical Science. <span>Taylor and Francis, CRC Press</span>. <a href="https://xcelab.net/rm/statistical-rethinking/">https://xcelab.net/rm/statistical-rethinking/</a>.
 </div>
 <div id="ref-wickhamDataScienceImport2016" class="csl-entry">
-Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2016. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. <span>"O’Reilly Media, Inc."</span> <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2024,
   author = {Vuorre, Matti},
@@ -3017,7 +3062,6 @@ January 19. <a href="https://vuorre.com/posts/methods-syllabus/">https://vuorre.
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/yet-another-data-request-email/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -3089,7 +3133,6 @@ March 24. <a href="https://vuorre.com/posts/yet-another-data-request-email/">htt
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/latent-mean-centering/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -4354,7 +4397,6 @@ January 1. <a href="https://vuorre.com/posts/latent-mean-centering/">https://vuo
 
 
 
-
 <p>Like many people in academia, I spend much of my working time in front of computers. It’s then important to me that everything is <em>just</em> the way I want it, software is easily available and updated, and that my terminal looks nice <span class="emoji" data-emoji="mage">🧙</span>.</p>
 <p>This blog post is an adaptation of a document that I’ve saved for myself in the eventual case that I have to wipe my computer and reinstall everything, or if I get a new computer. I use Macs, but some of these things also work on Linux. Nothing here will work for Windows machines.</p>
 <section id="macos-setup" class="level1">
@@ -4599,7 +4641,6 @@ December 8. <a href="https://vuorre.com/posts/computer-setup-dotfiles/">https://
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/parallel-multiverse/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -6705,7 +6746,6 @@ Vuorre, Matti. 2022. <span>“Tidymultiverse.”</span> December 7. <a href="htt
 
 
 
-
 <section id="ggrain" class="level1">
 <h1>ggrain</h1>
 <p><a href="https://github.com/njudd/ggrain">ggrain</a> <span class="citation" data-cites="ggrain">(<span class="nocase">Judd et al.</span> 2022)</span> is an R package that brings extra geoms to ggplot2 to make it easy to create informative plots of your data like Figure&nbsp;1.</p>
@@ -7393,7 +7433,6 @@ Plots.”</span> December 6. <a href="https://vuorre.com/posts/raincloud-plot-al
 
 
 
-
 <p>I recently saw an <a href="https://fosstodon.org/@michaelflynn/109445977522188850">interesting question</a> on Mastodon: <strong>How can I run R remotely?</strong></p>
 <p>It’s often the case that we write code and manuscripts on computers that are not powerful enough to run complicated data analyses. Or maybe it is not possible for us to leave the computer running alone for a long time. Sometimes we’re lucky enough to have a powerful desktop computer somewhere that could run those tasks with much greater speed, but we either don’t like using them (maybe they have windows installed!) or we don’t have physical access to them. In those cases, we’d like to run R on the fast computer but also access it remotely from other computers. In this entry, I show how to create remote R sessions with ease using RStudio Server, Docker (optionally), and Tailscale.</p>
 <p>In order to best solve this problem, we need to recognize two main scenarios:</p>
@@ -7543,7 +7582,6 @@ Vuorre, Matti. 2022. <span>“How to Run R Remotely.”</span> December 3.
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/hexsticker-favicon/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -7881,7 +7919,6 @@ June 29. <a href="https://vuorre.com/posts/hexsticker-favicon/">https://vuorre.c
 
 
 
-
 <p>R can be a pretty slow tool. So it would be good to know when an expensive computation has ended. One way to do that is to have R send a notification to your phone when it is done. Here, I’ll show how to do that easily with <a href="https://ntfy.sh">ntfy</a>.</p>
 <section id="download-ntfy.sh" class="level2">
 <h2 class="anchored" data-anchor-id="download-ntfy.sh">Download ntfy.sh</h2>
@@ -7943,7 +7980,6 @@ Vuorre, Matti. 2022. <span>“Easy Notifications from R.”</span> June 15.
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/how-to-calculate-contrasts-from-a-fitted-brms-model/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -8608,7 +8644,6 @@ Brms Model.”</span> February 6. <a href="https://vuorre.com/posts/how-to-calcu
   <dc:creator>Matti Vuorre</dc:creator>
   <link>https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -11100,262 +11135,6 @@ Data?”</span> February 18. <a href="https://vuorre.com/posts/analyze-analog-sc
   <guid>https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/</guid>
   <pubDate>Sun, 17 Feb 2019 23:00:00 GMT</pubDate>
   <media:content url="https://vuorre.com/posts/analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/index_files/figure-html/fig-beta-distributions-1.png" medium="image" type="image/png" height="70" width="144"/>
-</item>
-<item>
-  <title>Combine ggplots with patchwork</title>
-  <dc:creator>Matti Vuorre</dc:creator>
-  <link>https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p><a href="https://ggplot2.tidyverse.org/">ggplot2</a> is the best R package for data visualization, and has powerful features for “facetting” plots into small multiples based on categorical variables.</p>
-<section id="facetting-figures-into-small-multiples" class="level2">
-<h2 class="anchored" data-anchor-id="facetting-figures-into-small-multiples">Facetting figures into small multiples</h2>
-<p>This “facetting” is useful for showing the same figure, e.g.&nbsp;a bivariate relationship, at multiple levels of some other variable</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(mpg, disp)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cyl"</span>)</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>But if you would like to get a figure that consists of multiple panels of unrelated plots—with different variables on the X and Y axes, potentially from different data sources—things become more complicated.</p>
-</section>
-<section id="combining-arbitrary-ggplots" class="level2">
-<h2 class="anchored" data-anchor-id="combining-arbitrary-ggplots">Combining arbitrary ggplots</h2>
-<p>Say you have these three figures</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">p <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars)</span>
-<span id="cb2-2"></span>
-<span id="cb2-3">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> p <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(mpg, disp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as.factor</span>(vs)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> F) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>()</span>
-<span id="cb2-7"></span>
-<span id="cb2-8">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> p <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-9">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(disp, gear, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">group =</span> gear) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-10">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_boxplot</span>()</span>
-<span id="cb2-11"></span>
-<span id="cb2-12">c <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> p <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(hp) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">stat_density</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">geom =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"area"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb2-15">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">expand =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>)</span></code></pre></div></div>
-</div>
-<p>How would you go about combining them? There are a few options, such as <code>grid.arrange()</code> in the <a href="https://cran.r-project.org/web/packages/gridExtra/index.html">gridExtra</a> package, and <code>plot_grid()</code> in the <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/plot_grid.html">cowplot</a> package. Today, I’ll point out a newer package that introduces a whole new syntax for combining together, <a href="https://github.com/thomasp85/patchwork">patchwork</a>.</p>
-</section>
-<section id="patchwork" class="level2">
-<h2 class="anchored" data-anchor-id="patchwork">Patchwork</h2>
-<p>patchwork is not yet on CRAN, so install it from GitHub:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># install.packages("devtools")</span></span>
-<span id="cb3-2">devtools<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"thomasp85/patchwork"</span>)</span></code></pre></div></div>
-</div>
-<p>Once you load the package, you can add ggplots together by adding them with <code>+</code>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span>
-<span id="cb4-2">a <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> b <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> c</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Basically, you can add ggplots together as if they were geoms inside a single ggplot. However, there’s more. <code>|</code> specifies side-by-side addition</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">a <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> c</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>And <code>/</code> is for adding plots under the previous plot</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">b <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> c</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>These operators can be used to flexibly compose figures from multiple components, using parentheses to group plots and <code>+</code>, <code>|</code>, and <code>/</code> to add the groups together</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">(a <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> b) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> c</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Use <code>plot_annotation()</code> to add tags, and <code>&amp;</code> to pass theme elements to all plot elements in a composition</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">(a <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> b) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span></span>
-<span id="cb8-2">  c <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot_annotation</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">tag_levels =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&amp;</span></span>
-<span id="cb8-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span>)</span></code></pre></div></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Tweak this a little bit and throw it in a manuscript.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>There are many more examples on <a href="https://github.com/thomasp85/patchwork">patchwork’s GitHub page</a>. I’ve found this package more useful in composing figures out of multiple plots than its alternatives, mainly because of the concise but powerful syntax.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{vuorre2018,
-  author = {Vuorre, Matti},
-  title = {Combine Ggplots with Patchwork},
-  date = {2018-12-13},
-  url = {https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-vuorre2018" class="csl-entry quarto-appendix-citeas">
-Vuorre, Matti. 2018. <span>“Combine Ggplots with Patchwork.”</span>
-December 13. <a href="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/">https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</a>.
-</div></div></section></div> ]]></description>
-  <category>r</category>
-  <category>visualization</category>
-  <guid>https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/</guid>
-  <pubDate>Wed, 12 Dec 2018 23:00:00 GMT</pubDate>
-  <media:content url="https://vuorre.com/posts/rpihkal-combine-ggplots-with-patchwork/index_files/figure-html/mainfig-1.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 </channel>
 </rss>

@@ -73,6 +73,7 @@ library(janitor)
 library(tidyverse)
 library(knitr)
 library(httr2)
+library(yaml)
 
 # Input and output paths for attached PDFs
 PATH_ZOTERO <- Sys.getenv("PATH_ZOTERO")
@@ -88,7 +89,9 @@ dat <- request(
   resp_body_string() |>
   fromJSON() |>
   pluck("items") |>
-  tibble()
+  tibble() |>
+  arrange(desc(date)) |>
+  select(-c(relations))
 
 # Copy files from Zotero storage to repaired paths here
 dat <- dat |>
@@ -118,7 +121,8 @@ dat <- dat |>
 # Different types have different source names
 dat <- dat |>
   mutate(
-    source = coalesce(publication_title, repository, publisher, place)
+    source = coalesce(publication_title, repository, publisher, place),
+    .keep = "unused"
   )
 
 # Create a string of authors' last names
@@ -127,50 +131,49 @@ dat <- dat |>
     authors = map_chr(
       creators,
       ~ combine_words(.x$lastName, and = " & ", oxford_comma = FALSE)
-    )
-  )
-
-# Create a string of comma-separated tags
-dat <- dat |>
-  mutate(
-    tags = map_chr(
-      tags,
-      ~ pluck(.x, "tag", .default = "") |>
-        combine_words(and = "") |>
-        str_to_lower()
-    )
+    ),
+    .keep = "unused"
   )
 
 # Use doi (preferred) or url
 dat <- dat |>
-  mutate(url = coalesce(str_c("https://doi.org/", doi), url))
+  mutate(
+    url = coalesce(str_c("https://doi.org/", doi), url)
+  )
 
 # Write a YAML file for Quarto listing
-# Note the Zotero 'Extra' field can contain items like
-# license: CC-BY
-# data: <URL>
 
-dat |>
-  mutate(extra = ifelse(is.na(extra), "extra: ~", extra)) |>
-  str_glue_data(
-    "
-- title: >-
-    {title}
-  url: {url}
-  date: {date}
-  type: {item_type}
-  authors: '{authors}'
-  doi: {doi}
-  source: >-
-    {source}
-  file: {path}
-  meeting: >-
-    {meeting_name}
-  categories: [{tags}]
-  abstract: |
-    {str_remove_all(abstract_note, '\\n')}
-  {str_replace_all(extra, '\\n', '\\n  ')}
-"
+# Drop empty vectors and NA scalars so they are YAML nulls
+na_null <- function(x) if (length(x) == 0 || anyNA(x)) NULL else x
+
+# Build one named list per row
+build_item <- function(...) {
+  row <- list(...)
+  item <- list(
+    title = row$title,
+    url = row$url,
+    date = row$date,
+    type = row$item_type,
+    authors = row$authors,
+    doi = row$doi,
+    source = row$source,
+    file = row$path,
+    meeting = row$meeting_name,
+    categories = str_to_lower(pluck(row$tags, "tag", .default = character(0))),
+    abstract = row$abstract_note
   ) |>
-  cat(file = "bibliography/items.yml", sep = "\n")
+    map(na_null)
+  if (!is.null(row$extra) && !is.na(row$extra)) {
+    extra <- yaml.load(row$extra)
+    # Drop unwanted fields written by Zotero plugins
+    extra[c("Read_Status", "Read_Status_Date")] <- NULL
+    item <- modifyList(item, extra)
+  }
+  item
+}
+
+items <- dat |>
+  pmap(build_item)
+
+writeLines(as.yaml(items), "bibliography/items.yml")
 ```

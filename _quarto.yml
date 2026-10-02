@@ -34,7 +34,7 @@ website:
   page-navigation: true
   navbar:
     pinned: true
-    right:
+    left:
       - text: Works
         href: publications.qmd
       - text: Blog
